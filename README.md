@@ -722,3 +722,429 @@ Gibt Flexibilität für unsichere Anbieter ohne Preis zu verwässern.
 
 → Status: OFFEN — Entscheidung nach Partner-Gespräch
 
+
+---
+
+## 26. WEBSITE-KONZEPTION — NEUSTART (Mai 2026)
+
+### Strategischer Reset
+
+Alles bisher Erstellte (Business Case, Monetarisierung, Infografik) bleibt erhalten.
+Für die Website-Konzeption starten wir neu — mit dem richtigen Fokus für Jahr 1.
+
+**Jahr 1 ist keine Verkaufsplattform. Es ist eine Vertrauensarchitektur.**
+
+### Das psychologische Ziel
+
+Der Behördenmitarbeiter öffnet Supertools und denkt:
+**„Wo hat diese Plattform für uns eigentlich die ganze Zeit gesteckt?"**
+
+Er trägt Verantwortung. Wenn die Softwareeinführung scheitert, scheitert er.
+Er braucht keine Featureliste. Er braucht das Gefühl:
+„Hier wurde für Menschen wie mich gedacht — mit meinen Ängsten,
+meiner Verantwortung, meinem Kontext."
+
+### Das Konzept: Magazin statt Verzeichnis
+
+Supertools ist kein Verzeichnis das wie ein Magazin aussieht.
+Es ist ein **Magazin das ein Verzeichnis enthält.**
+
+Referenz: redaktionelles Advertorial / Editorial — Fülle, Tiefe, Haltung.
+Nicht: Capterra, OMR Reviews, G2.
+Eher: ein kuratiertes Fachmagazin für digitale Verwaltung.
+
+### Die 4 Website-Elemente (Pflicht)
+
+1. **Kategorien mit Fülle** — sofort sichtbar: hier wurde viel strukturiert
+2. **Wissensvermittlung / Pulse** — redaktioneller Bereich:
+   Implementierungserfahrungen, Beschlüsse, FAQ für Behörden
+3. **Menschliche Bild- und Videocontainer** — echte Gespräche, echte Gesichter,
+   keine Stock-Fotos. Das Gefühl: hier reden Menschen über echte Probleme
+4. **Tool-Profile mit Tiefe** — nicht technische Specs, sondern:
+   Wer ist der Mensch dahinter? Wie war die Implementierung bei anderen?
+   Was sagen Behörden die es schon nutzen?
+
+### Die emotionale Reise durch die Website
+
+- Startseite → „Hier bin ich richtig"
+- Kategorie → „Ich verstehe das Thema besser als vorher"
+- Tool-Profil → „Ich bin nicht allein mit dieser Entscheidung"
+- Wissensartikel → „Ich lerne etwas das ich morgen nutzen kann"
+
+### Seitenarchitektur (4 Typen)
+
+A — Startseite (Editorial-Frontpage)
+B — Kategorie-Seite (kuratiert + redaktionelle Einleitung)
+C — Tool-Profil (Herzstück — siehe Kapitel 27)
+D — Wissensbereich / Pulse (redaktionelle Artikel)
+
+→ Details: siehe Kapitel 27 (Tool-Profil Anatomie)
+
+
+---
+
+## 27. TOOL-PROFIL ANATOMIE — 8 ZONEN (v1.0)
+
+### Psychologisches Ziel
+Verantwortungsabnahme durch Information.
+Der Behördenmitarbeiter verlässt das Profil mit dem Gefühl:
+„Ich bin nicht allein. Andere haben das gemacht. Ich weiß mit wem ich spreche."
+
+---
+
+### ZONE 1 — Hero / Erster Eindruck
+*„Bin ich hier richtig?"*
+- Logo + Name des Tools
+- Ein Satz (max. 150 Zeichen): Was, für wen, warum relevant
+- „Verifiziert von Amtshelden"-Badge
+- Kategorie-Tag
+- Amtshelden-Urteil: 2–3 Sätze redaktionell, aus Behördenperspektive
+  → Nicht vom Anbieter — von Amtshelden geschrieben
+
+### ZONE 2 — Passt das zu uns?
+*„Für meinen Kontext?"*
+- Für welche Behördengröße (z.B. Kommunen unter 20.000 EW)
+- Für welchen Behördentyp (Kämmerei / Ordnungsamt / Bürgerservice)
+- **„Nicht geeignet für:"** — ehrliche Einschränkung
+  → Das schafft mehr Vertrauen als Vollständigkeit
+
+### ZONE 3 — Implementierung
+*„Was kommt auf uns zu?"*
+- Typische Implementierungsdauer (z.B. „6–12 Wochen")
+- Was braucht die Behörde (z.B. „1 IT-Ansprechpartner, 2–3 Std./Woche")
+- Was stellt der Anbieter (Onboarding, Schulung, Support)
+- **Was kann schiefgehen — und wie wurde es gelöst?**
+  → Der mutigste und vertrauensbildendste Teil
+
+### ZONE 4 — Erfahrungen anderer Behörden
+*„Andere haben das geschafft"*
+- 2–3 Erfahrungsberichte: Name, Ort, Typ, Einwohnerzahl
+- Ehrlich, kein Marketing-Zitat
+  z.B. „Die Einführung hat 3 Monate länger gedauert als geplant,
+  aber der Support hat das gut aufgefangen."
+- Optional: kurzes Video-Gespräch zwischen Behördenmitarbeitern
+
+### ZONE 5 — DSGVO & Compliance
+*„Ist das rechtlich sauber?"*
+- DSGVO-Status: konform / in Prüfung / mit Einschränkungen
+- Serverstandort: Deutschland / EU / International
+- BSI-Zertifizierungen
+- Vergabe-Eignung: öffentliche Ausschreibung möglich (ja/nein)
+
+### ZONE 6 — Dein Ansprechpartner
+*„Ich weiß mit wem ich es zu tun habe"*
+- Foto, Name, Position
+- Persönliche Aussage (2 Sätze, menschlich, nicht werblich)
+- Erreichbarkeit + Reaktionszeit
+→ Das Gesicht hinter dem Tool — entscheidet ob jemand anfrägt
+
+### ZONE 7 — Vergleich & Alternativen
+*„Supertools denkt mit — nicht nur für einen Anbieter"*
+- „Auch interessant für deinen Fall:" → 2–3 Alternativen
+- Kurze Unterscheidung: „Wenn du X bevorzugst, schau dir Y an"
+→ Radikal ehrlich — genau deshalb vertrauensbildend
+
+### ZONE 8 — Nächster Schritt
+*„Niedrigschwelliger Einstieg — keine Kaufentscheidung"*
+- Primär: „Unverbindlich anfragen" → läuft über Amtshelden
+- Sekundär: „Ähnliche Tools ansehen"
+- Tertiär: „Zum Wissensbereich: Wie läuft eine Software-Einführung?"
+
+---
+
+### Redaktionelle Prinzipien
+1. Amtshelden schreibt — nicht der Anbieter
+2. Ehrlichkeit über Vollständigkeit
+3. Konkret statt allgemein (welche Behörde, welche Größe, welcher Mensch)
+4. Menschliche Sprache — kein Behördendeutsch, kein Technik-Jargon
+5. Das Amtshelden-Urteil ist das Herzstück
+
+---
+
+### Offene Fragen
+- Wie werden Erfahrungsberichte gesammelt und verifiziert?
+- Gibt es ein Bewertungssystem (Sterne) oder nur redaktionelle Einschätzungen?
+- Wie aktuell werden Profile gehalten?
+- Mobile-Reihenfolge der Zonen?
+- Welche Zone bekommt mehr Platz?
+
+
+---
+
+## 28. KI-BILDKONZEPT & PROMPT-VORLAGEN (verbindlich für alle Fotocontainer)
+
+### Grundsatz
+Supertools nutzt ausschließlich KI-generierte Bilder — keine Stock-Fotografie.
+Jedes Bild muss das Gefühl erzeugen: echte Menschen, echter Kontext, keine Werbeästhetik.
+Empfohlene Tools: Midjourney v6, DALL-E 3, Adobe Firefly.
+
+---
+
+### BILD 1 — Hero-Bild pro Tool-Profil
+
+Zweck: Das Thema des Tools menschlich einfassen. Zwei Menschen in einem
+Verwaltungskontext die miteinander arbeiten — kein Produkt, keine Software.
+
+**Prompt-Vorlage (Midjourney):**
+```
+Two German municipal employees in a bright modern office, reviewing documents together,
+warm natural light through large windows, one pointing at a laptop screen,
+professional but approachable, real candid moment, editorial photography style,
+no stock photo feel, soft depth of field, muted warm tones --ar 16:9 --v 6 --style raw
+```
+
+**Varianten je Kategorie:**
+- E-Akte/DMS: „reviewing paper documents transitioning to digital tablets"
+- HR-Software: „HR manager and employee in a relaxed one-on-one meeting"
+- Bürgerportal: „municipal employee helping a citizen at a service counter"
+- Videokonferenz: „small team in a hybrid meeting, laptop and screen"
+- Finanz/Kämmerei: „accountant at desk with dual monitors, focused expression"
+
+**Technische Anfos:**
+- Format: 1200×675px (16:9), WebP, max. 200KB
+- Immer mit dunklem Overlay versehen (rgba 0,0,0, 0.45) für Lesbarkeit der Headline
+- Dateibenennung: `hero_[toolname]_[kategorie].webp`
+
+---
+
+### BILD 2 — Ansprechpartner Portrait
+
+Zweck: Den konkreten Menschen beim Anbieter zeigen. Professionell aber warm —
+kein LinkedIn-Profilbild-Feeling, eher ein gut gemachtes Editorial-Portrait.
+
+**Prompt-Vorlage Männlich:**
+```
+Professional portrait of a German man in his late 30s to mid 40s, business casual attire
+(no tie), warm genuine smile, neutral light grey or warm white background,
+soft studio lighting, slight head tilt, approachable and trustworthy expression,
+photorealistic, editorial portrait style, sharp focus on eyes --ar 1:1 --v 6 --style raw
+```
+
+**Prompt-Vorlage Weiblich:**
+```
+Professional portrait of a German woman in her late 30s to mid 40s, business casual attire,
+warm genuine smile, neutral light grey or warm white background,
+soft studio lighting, approachable and trustworthy expression,
+photorealistic, editorial portrait style, sharp focus on eyes --ar 1:1 --v 6 --style raw
+```
+
+**Technische Anfos:**
+- Format: 400×400px, quadratisch, WebP
+- Wird mit border-radius: 50% als Kreis dargestellt
+- Kein harter Hintergrund — immer soft/neutral
+- Dateibenennung: `person_[vorname]_[nachname].webp`
+
+---
+
+### BILD 3 — Erfahrungsbericht Avatar
+
+Zweck: Die zitierende Person aus der Behörde glaubwürdig darstellen.
+Weniger professionell als der Ansprechpartner — mehr „Kollegin aus dem Amt".
+
+**Prompt-Vorlage:**
+```
+Candid portrait of a German public servant, early to late 40s, warm and honest expression,
+office environment slightly blurred in background, natural window light,
+slightly informal — no suit, more like a cardigan or blouse,
+trustworthy face, photorealistic --ar 1:1 --v 6 --style raw
+```
+
+**Technische Anfos:**
+- Format: 88×88px (wird klein dargestellt), WebP
+- Dateibenennung: `review_[behoerde]_[kuerzel].webp`
+
+---
+
+### BILD 4 — Video-Thumbnail
+
+Zweck: Ein Gespräch zwischen zwei Verwaltungsmenschen suggerieren.
+Das Thumbnail soll echte Gesprächsatmosphäre zeigen, nicht Werbung.
+
+**Prompt-Vorlage:**
+```
+Two German municipal employees having an informal conversation, sitting across a table,
+one is speaking and gesturing naturally, the other listening with engaged expression,
+modern bright office, warm afternoon light, editorial documentary style,
+no eye contact with camera, authentic candid moment --ar 16:9 --v 6 --style raw
+```
+
+**Technische Anfos:**
+- Format: 900×506px (16:9), WebP
+- Wird mit dunklem Overlay und Play-Button überlagert
+- Dateibenennung: `video_thumb_[toolname].webp`
+
+---
+
+### ALLGEMEINE BILDREGELN
+
+**Immer:**
+- Echte, menschliche Ausdrücke — kein gezwungenes Lächeln
+- Deutsche/europäische Physiognomie und Kleidung
+- Warme, natürliche Lichtstimmung
+- Muted, erdige Farbtöne — passend zum Cream/Grün Design-System
+- WebP-Format für Performance
+
+**Nie:**
+- Stock-Foto-Ästhetik (zu perfekt, zu gestellt)
+- Buntes, knalliges Licht
+- Anzug und Krawatte (zu formal für Verwaltungskontext)
+- Diverse Diversity-Klischees (natürliche Mischung stattdessen)
+- Logos, Texte oder erkennbare Software-UIs im Bild
+
+---
+
+### DATEISTRUKTUR IM REPO
+
+```
+/assets/
+  /images/
+    /hero/          → Hero-Bilder pro Profil
+    /portraits/     → Ansprechpartner-Portraits
+    /reviews/       → Erfahrungsbericht-Avatare
+    /video-thumbs/  → Video-Thumbnails
+```
+
+
+---
+
+## 29. PROFIL-GRUNDSÄTZE — WAS SUPERTOOLS TUT UND NICHT TUT
+
+### Grundsatz: Informieren, nicht vergleichen
+
+Supertools listet Informationen — wir setzen sie nicht ins Verhältnis.
+Es gibt kein Amtshelden-Ranking, keine Sternebewertung durch Amtshelden,
+keinen direkten Produktvergleich zwischen zwei Tools.
+
+**Was wir tun:**
+- Informationen des Anbieters aufbereiten und kuratieren
+- Aus Behördenperspektive einordnen (für wen besonders geeignet)
+- Erfahrungsberichte anderer Behörden wiedergeben
+- DSGVO-Status, Serverstandort, Zertifizierungen auflisten
+- Implementierungsaufwand transparent machen
+- Alternativen nennen — ohne Wertung welche besser ist
+
+**Was wir nicht tun:**
+- Produkte gegeneinander bewerten oder ranken
+- Sterne vergeben oder Scores berechnen
+- Aussagen machen die der Anbieter nicht selbst getroffen hat
+- Vergleichstabellen mit Wertungsurteilen erstellen
+
+---
+
+## 30. AMTSHELDEN PROFIL-CARD — STANDARDISIERTES FORMAT
+
+### Das Konzept: Mobilfunk-ähnliche Faktentabelle
+
+Analog zu Mobilfunkanbietern die ihre Tarife in klaren Faktentabellen darstellen —
+ohne zu bewerten, nur zu informieren. Der Nutzer entscheidet selbst.
+
+### Die Profil-Card: 6 feste Informationsblöcke
+
+**Block 1 — Steckbrief (immer oben)**
+Kategorie · Anbieter · Hauptsitz · Gründungsjahr · Mitarbeiterzahl
+
+**Block 2 — Für wen geeignet (nach eigener Aussage / Amtshelden-Einschätzung)**
+Behördentyp · Gemeindegröße · Betriebsmodell (Cloud/OnPremise/Hybrid)
+
+**Block 3 — Compliance & Sicherheit**
+DSGVO · Serverstandort · BSI-Zertifizierung · Vergabe-Eignung
+
+**Block 4 — Implementierung**
+Typische Dauer · Interner Aufwand · Was der Anbieter stellt · Preisrahmen
+
+**Block 5 — Leistungsmerkmale (nach Anbieterangabe)**
+Welche Module/Funktionen · Integrationen · Besonderheiten
+→ Keine Bewertung — nur Auflistung was der Anbieter angibt
+
+**Block 6 — Referenzen**
+Welche Behördentypen bereits im Einsatz · Konkrete Nennungen wenn verfügbar
+
+### Was die Card nicht enthält
+- Keine Sternebewertung
+- Kein Amtshelden-Score
+- Kein "Besser als" oder "Schlechter als"
+- Keine Empfehlungsstärke (1–10 o.ä.)
+
+Das Amtshelden-Urteil ist eine redaktionelle Einschätzung in Prosaform —
+kein numerischer Wert, kein Ranking.
+
+
+---
+
+## 31. PROFIL-STUFEN — BASIS vs. ADD-ON (PRODUKTLOGIK)
+
+### Grundprinzip: Crawler-Basis zuerst, Anreicherung als Add-on
+
+Die ersten 300 Profile entstehen per Crawler — automatisiert aus öffentlich
+verfügbaren Quellen. Das ist der Ausgangspunkt. Alles Persönliche, Individuelle
+und Redaktionelle kommt danach als buchbares Add-on.
+
+---
+
+### STUFE 1 — Basis-Profil (Crawler-generiert, kostenlos)
+
+Was automatisch befüllt wird:
+- Firmenname, Logo, Hauptsitz, Gründungsjahr
+- Kategorie & Unterkategorien
+- Betriebsmodell (Cloud/OnPremise/Hybrid) — aus Website
+- DSGVO-Status, Serverstandort — aus Website/Impressum
+- Leistungsmerkmale — aus Website gescraped
+- Referenz-Behördentypen — aus Website gescraped
+- Kontaktmöglichkeit (Website-URL / allgemeine Kontaktseite)
+
+Was NICHT im Basis-Profil enthalten ist:
+- Persönlicher Ansprechpartner mit Foto
+- Kundenstimmen / Quotes
+- Cases / Implementierungserfahrungen
+- Amtshelden-Urteil (redaktionell)
+- Implementierungsdetails (Dauer, Aufwand)
+- Individuelle Beschreibung aus Behördenperspektive
+
+---
+
+### STUFE 2 — Verified Listing (bezahlt, 199–299 EUR/Mo)
+
+Zusätzlich zum Basis-Profil:
+- Verifiziert-Badge
+- Kontaktmöglichkeit oben in der Highlight-Leiste (Name, E-Mail, Tel)
+- Erweitertes Profil (Bilder, detailliertere Beschreibung)
+- Analytics-Dashboard
+- Direkter Anfragen-Eingang
+
+---
+
+### STUFE 3 — Add-ons (einzeln buchbar)
+
+Jedes dieser Elemente ist ein eigenständiges Add-on:
+- Persönlicher Ansprechpartner mit KI-Foto + Zitat (einmalig 500–1.000 EUR)
+- Amtshelden-Urteil (redaktionell von Amtshelden verfasst)
+- Implementierungsdetails (Dauer, Aufwand, was der Anbieter stellt)
+- Case Study / Implementierungsfall (statt Kundenstimmen — tiefer Einblick)
+- Video-Gespräch / Thumbnail
+
+---
+
+### CASES statt KUNDENSTIMMEN (für später)
+
+Supertools präsentiert Cases — keine Kundenstimmen.
+Ein Case zeigt: Welche Behörde? Welches Problem? Wie wurde es gelöst?
+Was hat funktioniert, was nicht? Wie lange hat es gedauert?
+
+Das ist tiefer, glaubwürdiger und informativer als ein Zitat.
+Cases sind ein Premium-Add-on — aufwändig zu produzieren, hochwertig in der Wirkung.
+
+→ Kundenstimmen / Quotes: nicht im Standard-Profil
+→ Cases: buchbares Add-on für später (Phase 2+)
+
+---
+
+### HIGHLIGHT-LEISTE (oben rechts im Profil)
+
+Die Highlight-Leiste ist immer sichtbar — auch im Basis-Profil.
+Sie enthält:
+- DSGVO-Status (immer)
+- Serverstandort (immer)
+- BSI-Zertifizierung (immer)
+- Vergabe-Eignung (immer)
+- Kontaktmöglichkeit (ab Verified Listing: Name + E-Mail/Tel/URL)
+

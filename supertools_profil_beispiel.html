@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VivioAkte — Supertools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --g:      #009460;
+  --gd:     #006b45;
+  --gl:     #EAF3DE;
+  --gu:     #F2FAF5;
+  --cream:  #F8F4EB;
+  --dark:   #111111;
+  --mid:    #3D3D3D;
+  --soft:   #777777;
+  --border: #E0DDD6;
+  --white:  #FFFFFF;
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'IBM Plex Sans', system-ui, sans-serif;
+  --ui:     'Inter Tight', system-ui, sans-serif;
+  --ease:   cubic-bezier(0.16,1,0.3,1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* REVEAL */
+[data-reveal] {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+  transition-delay: calc(var(--d,0) * 60ms);
+}
+[data-reveal].on { opacity: 1; transform: none; }
+
+/* ── HEADER ── */
+.hd {
+  position: fixed; top: 0; left: 0; right: 0; height: 56px;
+  display: flex; align-items: center; padding: 0 32px;
+  z-index: 100; background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+.hd-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.hd-mark {
+  width: 28px; height: 28px; background: var(--g);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: #fff; letter-spacing: -.03em;
+}
+.hd-name { font-size: 14px; font-weight: 700; color: var(--dark); letter-spacing: -.02em; }
+.hd-sub  { font-size: 10px; color: var(--soft); }
+.hd-nav  { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+.hd-nav a { font-size: 13px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color .15s; }
+.hd-nav a:hover { color: var(--g); }
+.hd-btn {
+  background: var(--g); color: #fff !important; padding: 7px 16px;
+  border-radius: 99px; font-size: 13px !important; font-weight: 600 !important;
+  transition: background .15s !important;
+}
+.hd-btn:hover { background: var(--gd) !important; }
+
+/* ── PAGE GRID ── */
+.page-wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 64px;
+  align-items: start;
+  padding-top: 80px;
+}
+.main { min-width: 0; }
+.side { position: sticky; top: 72px; }
+
+/* ── BREADCRUMB ── */
+.bc {
+  padding: 72px 0 0;
+  max-width: 1160px; margin: 0 auto;
+  padding-left: 32px; padding-right: 32px;
+  padding-top: 72px;
+}
+.bc-row {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 500; color: var(--soft);
+  letter-spacing: .01em;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--dark);
+}
+.bc-row a { color: var(--soft); text-decoration: none; transition: color .15s; }
+.bc-row a:hover { color: var(--g); }
+.bc-cat {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--g);
+}
+
+/* ── HERO ── */
+.hero { padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+
+.hero-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--g);
+  margin-bottom: 16px; margin-top: 24px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.hero-lead {
+  font-size: 19px; font-weight: 400;
+  color: var(--mid); line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+/* Byline */
+.byline {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.byline-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 1.5px solid var(--border);
+}
+.byline-text { font-size: 12px; color: var(--soft); }
+.byline-text strong { font-weight: 700; color: var(--dark); }
+.byline-badge {
+  margin-left: auto;
+  font-size: 11px; font-weight: 700;
+  background: var(--g); color: #fff;
+  padding: 4px 12px; border-radius: 99px;
+  letter-spacing: .03em;
+  display: flex; align-items: center; gap: 4px;
+}
+.byline-badge::before { content: '✓'; }
+
+/* Hero Image */
+.hero-img-wrap {
+  border-radius: 6px; overflow: hidden;
+  height: 380px; position: relative;
+  margin-bottom: 10px;
+}
+.hero-img-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80');
+  background-size: cover; background-position: center;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.1) 60%, transparent 100%);
+}
+.hero-img-company {
+  position: absolute; top: 20px; left: 20px;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.company-mark {
+  width: 36px; height: 36px; background: var(--g);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 900; color: #fff;
+}
+.company-name { font-size: 14px; font-weight: 700; color: #fff; }
+.company-type { font-size: 10px; color: rgba(255,255,255,.6); }
+.hero-img-caption {
+  font-size: 11px; color: var(--soft);
+  padding-top: 6px; font-style: italic;
+}
+
+/* ── URTEIL — Pull Quote Style ── */
+.urteil {
+  border-left: 4px solid var(--g);
+  padding: 4px 0 4px 24px;
+  margin: 32px 0;
+}
+.urteil-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--g); margin-bottom: 8px;
+}
+.urteil-text {
+  font-family: var(--serif);
+  font-size: 20px; font-style: italic;
+  font-weight: 700; line-height: 1.5;
+  color: var(--dark);
+}
+.urteil-text em { font-style: normal; color: var(--gd); }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-top: 3px solid var(--dark);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  margin: 36px 0;
+}
+.pq-text {
+  font-family: var(--serif);
+  font-size: 22px; font-style: italic;
+  font-weight: 700; line-height: 1.45;
+  color: var(--dark); margin-bottom: 10px;
+}
+.pq-source {
+  font-size: 12px; font-weight: 600;
+  color: var(--soft); letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+/* ── BODY TEXT ── */
+.body-text {
+  font-size: 17px; font-weight: 400;
+  line-height: 1.8; color: var(--mid);
+  margin-bottom: 20px;
+  letter-spacing: .014em;
+}
+.body-text strong { font-weight: 700; color: var(--dark); }
+.body-text a { color: var(--g); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── SECTION HEADER ── */
+.sec-head {
+  margin: 48px 0 20px;
+  padding-top: 24px;
+  border-top: 2px solid var(--dark);
+}
+.sec-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--g); margin-bottom: 8px;
+}
+.sec-title {
+  font-family: var(--serif);
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -.02em; line-height: 1.2;
+  color: var(--dark);
+}
+
+/* ── FIT SECTION ── */
+.fit-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 16px 0 24px;
+}
+.fit-tag {
+  font-size: 12px; font-weight: 600;
+  padding: 6px 14px; border-radius: 99px;
+  background: var(--gl); color: var(--gd);
+}
+.fit-tag.neutral {
+  background: var(--cream); color: var(--mid);
+  border: 1px solid var(--border);
+}
+
+.not-fit {
+  background: var(--gu);
+  border: 1px solid rgba(0,148,96,.2);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex; gap: 12px; align-items: flex-start;
+  margin: 20px 0;
+}
+.not-fit-icon { color: var(--g); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.not-fit-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gd); margin-bottom: 5px;
+}
+.not-fit-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
+.not-fit-text a { color: var(--g); font-weight: 600; text-decoration: none; }
+
+/* ── IMPL TILES ── */
+.impl-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin: 20px 0 28px;
+}
+.impl-tile {
+  background: var(--cream); border-radius: 10px; padding: 18px 16px;
+  border: 1px solid var(--border);
+}
+.impl-tile-icon { font-size: 20px; margin-bottom: 8px; }
+.impl-tile-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--soft); margin-bottom: 5px;
+}
+.impl-tile-val {
+  font-size: 22px; font-weight: 800;
+  letter-spacing: -.04em; color: var(--dark); margin-bottom: 3px;
+}
+.impl-tile-desc { font-size: 12px; color: var(--soft); line-height: 1.5; }
+
+/* Lösungen */
+.solutions { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+.sol-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  display: grid; grid-template-columns: 4px 1fr;
+}
+.sol-stripe { background: var(--g); }
+.sol-body { padding: 16px 18px; }
+.sol-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; }
+.sol-title { font-size: 14px; font-weight: 700; color: var(--dark); line-height: 1.35; }
+.sol-badge {
+  font-size: 10px; font-weight: 700; white-space: nowrap;
+  background: var(--gl); color: var(--gd);
+  padding: 3px 9px; border-radius: 99px;
+  letter-spacing: .04em; text-transform: uppercase; flex-shrink: 0;
+}
+.sol-text { font-size: 13px; color: var(--mid); line-height: 1.6; }
+.sol-ctx { margin-top: 6px; font-size: 11px; color: var(--soft); display: flex; align-items: center; gap: 5px; }
+.sol-ctx::before { content: '↳'; color: var(--border); }
+
+/* ── ERFAHRUNGEN ── */
+.erf-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 14px;
+}
+.erf-top {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.erf-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+}
+.erf-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.erf-detail { font-size: 11px; color: var(--soft); }
+.erf-stars { margin-left: auto; display: flex; gap: 2px; }
+.star { font-size: 13px; color: #F59E0B; }
+.star.e { color: var(--border); }
+.erf-quote {
+  padding: 18px 22px 20px;
+  font-size: 15px; font-weight: 400;
+  color: var(--mid); line-height: 1.7; font-style: italic;
+}
+.erf-quote strong { font-style: normal; font-weight: 700; color: var(--dark); }
+.erf-meta {
+  padding: 11px 22px; background: var(--cream);
+  border-top: 1px solid var(--border);
+  display: flex; gap: 20px;
+  font-size: 11px; color: var(--soft);
+}
+
+/* Video */
+.video-block {
+  border-radius: 12px; overflow: hidden; height: 200px;
+  position: relative; cursor: pointer; margin-top: 16px;
+  transition: transform .25s var(--ease);
+}
+.video-block:hover { transform: scale(1.01); }
+.v-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80');
+  background-size: cover; background-position: center;
+}
+.v-ov {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.55);
+}
+.v-c {
+  position: absolute; inset: 0;
+  display: flex; align-items: center;
+  padding: 0 28px; gap: 20px;
+}
+.v-play {
+  width: 52px; height: 52px; background: var(--g);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  transition: transform .2s var(--ease);
+}
+.video-block:hover .v-play { transform: scale(1.1); }
+.v-text {}
+.v-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; letter-spacing: -.01em; line-height: 1.35; }
+.v-sub { font-size: 12px; color: rgba(255,255,255,.5); }
+
+/* ── PERSON ── */
+.person {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden; margin-top: 20px;
+}
+.person-top {
+  padding: 26px;
+  display: flex; gap: 20px; align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+}
+.person-photo {
+  width: 80px; height: 80px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+.person-name { font-size: 20px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 2px; }
+.person-role { font-size: 12px; color: var(--soft); margin-bottom: 14px; }
+.person-quote {
+  font-size: 14px; color: var(--mid); line-height: 1.65;
+  font-style: italic;
+  padding-left: 14px;
+  border-left: 3px solid var(--g);
+}
+.person-bottom {
+  padding: 18px 26px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+}
+.contact-btn {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; color: var(--mid);
+  background: var(--cream); padding: 7px 14px;
+  border-radius: 8px; text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.contact-btn:hover { background: var(--gl); color: var(--gd); }
+.react-row {
+  margin-left: auto; display: flex; align-items: center; gap: 7px;
+  font-size: 12px; color: var(--soft);
+}
+.rdot {
+  width: 7px; height: 7px; background: var(--g);
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);} }
+
+/* ── ALTERNATIVEN ── */
+.alts { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.alt {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+  transition: border-color .15s, transform .2s var(--ease);
+}
+.alt:hover { border-color: var(--g); transform: translateX(4px); }
+.alt-mark {
+  width: 40px; height: 40px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900; color: #fff; flex-shrink: 0;
+}
+.alt-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.alt-why { font-size: 12px; color: var(--soft); line-height: 1.4; }
+.alt-arr { font-size: 18px; color: var(--border); margin-left: auto; transition: color .15s; }
+.alt:hover .alt-arr { color: var(--g); }
+
+/* ── CTA ── */
+.cta {
+  background: var(--dark); border-radius: 16px;
+  padding: 44px 40px; text-align: center;
+  position: relative; overflow: hidden; margin-top: 64px;
+}
+.cta::before {
+  content: ''; position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(0,148,96,.25) 0%, transparent 70%);
+}
+.cta-c { position: relative; z-index: 1; }
+.cta-eye { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--g); margin-bottom: 10px; }
+.cta-title {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 800;
+  color: #fff; letter-spacing: -.03em;
+  line-height: 1.15; margin-bottom: 10px;
+}
+.cta-sub { font-size: 14px; color: rgba(255,255,255,.45); max-width: 420px; margin: 0 auto 26px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.btn-p {
+  background: var(--g); color: #fff;
+  padding: 14px 28px; border-radius: 99px;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+  transition: background .15s, transform .15s;
+}
+.btn-p:hover { background: #00b374; transform: scale(1.03); }
+.btn-g {
+  background: transparent; color: rgba(255,255,255,.65);
+  padding: 14px 28px; border-radius: 99px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  border: 1px solid rgba(255,255,255,.15);
+  transition: border-color .15s, color .15s;
+}
+.btn-g:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,.25); line-height: 1.6; }
+
+/* ── SIDEBAR ── */
+.side-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--soft);
+  padding-bottom: 10px; border-bottom: 2px solid var(--dark);
+  margin-bottom: 12px;
+}
+.sw {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px; margin-bottom: 8px;
+  cursor: default; transition: border-color .2s, box-shadow .2s;
+}
+.sw:hover, .sw:focus { border-color: var(--g); box-shadow: 0 3px 14px rgba(0,148,96,.1); outline: none; }
+.sw-top { display: flex; align-items: center; gap: 7px; }
+.sw-icon { font-size: 14px; }
+.sw-name { font-size: 12px; font-weight: 600; color: var(--mid); flex: 1; }
+.sw-val {
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 99px;
+}
+.val-y { background: var(--gl); color: var(--gd); }
+.sw-detail {
+  font-size: 11px; color: var(--mid); line-height: 1.5;
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s var(--ease), margin-top .3s;
+}
+.sw:hover .sw-detail, .sw:focus .sw-detail { max-height: 80px; margin-top: 8px; }
+
+.side-quick {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; margin-top: 16px; margin-bottom: 16px;
+}
+.side-quick-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--soft);
+  padding: 10px 12px 8px; border-bottom: 1px solid var(--border);
+}
+.swq {
+  display: flex; justify-content: space-between;
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.swq:last-child { border-bottom: none; }
+.swq-k { color: var(--soft); }
+.swq-v { font-weight: 600; color: var(--dark); }
+
+.sw-cta {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--g); color: #fff;
+  padding: 12px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 700; text-decoration: none;
+  transition: background .15s;
+}
+.sw-cta:hover { background: var(--gd); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:840px){
+  .page-grid { grid-template-columns: 1fr; gap: 0; }
+  .side { position: static; margin-top: 48px; }
+  .impl-grid { grid-template-columns: 1fr; }
+  .page-wrap { padding: 0 20px; }
+  .bc { padding-left: 20px; padding-right: 20px; }
+  .hero-img-wrap { height: 260px; }
+  .hero-title { font-size: 32px; }
+}
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1;transform:none;}
+  *{transition-duration:.01ms!important;}
+}
+
+/* UI-Elemente bleiben Inter Tight */
+.hd-name, .hd-sub, .hd-nav a, .hd-btn,
+.badge, .byline, .byline-text, .byline-badge,
+.sec-eyebrow, .hero-label, .hero-cat-label, .urteil-label,
+.impl-tile-label, .impl-tile-val, .impl-tile-desc,
+.sol-badge, .sol-ctx, .erf-detail, .erf-meta,
+.side-label, .side-quick-label, .swq-k, .swq-v,
+.sw-name, .sw-val, .sw-detail, .sw-cta,
+.contact-btn, .react-row, .alt-why,
+.cta-eye, .cta-note, .fit-tag, .not-fit-label,
+.pq-source, .hero-img-caption {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  letter-spacing: normal;
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hd">
+  <a href="#" class="hd-logo">
+    <div class="hd-mark">ST</div>
+    <div>
+      <div class="hd-name">Supertools</div>
+      <div class="hd-sub">von Amtshelden</div>
+    </div>
+  </a>
+  <nav class="hd-nav">
+    <a href="#">Kategorien</a>
+    <a href="#">Wissen</a>
+    <a href="#">Über uns</a>
+    <a href="#anfrage" class="hd-btn">Anfragen</a>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="bc">
+  <div class="bc-row">
+    <a href="#">Supertools</a>
+    <span style="color:var(--border)">›</span>
+    <span class="bc-cat">E-Akte & Dokumentenmanagement</span>
+    <span style="color:var(--border)">›</span>
+    <span>VivioAkte</span>
+  </div>
+</div>
+
+<div class="page-wrap">
+<div class="page-grid">
+
+<!-- ══════════════════════════════════════
+     MAIN COLUMN
+══════════════════════════════════════ -->
+<main class="main">
+
+  <!-- HERO -->
+  <article class="hero" data-reveal>
+
+    <div class="hero-label">E-Akte & Dokumentenmanagement</div>
+
+    <h1 class="hero-title">VivioAkte — digitale Aktenführung, die sich für Kommunen wirklich eignet</h1>
+
+    <p class="hero-lead">
+      Eine E-Akte ist kein Selbstzweck. Sie soll Verwaltungsarbeit einfacher machen — nicht komplizierter. VivioAkte wurde von Grund auf für Kommunen entwickelt, die nicht über eine eigene IT-Abteilung verfügen.
+    </p>
+
+    <!-- Byline -->
+    <div class="byline">
+      <img class="byline-avatar"
+           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=68&h=68&fit=crop&q=80"
+           alt="Amtshelden Redaktion"/>
+      <div class="byline-text">
+        Geprüft von <strong>Amtshelden Redaktion</strong> · Aktualisiert März 2026
+      </div>
+      <span class="byline-badge">Verifiziert</span>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="hero-img-wrap">
+      <div class="hero-img-bg"></div>
+      <div class="hero-img-overlay"></div>
+      <div class="hero-img-company">
+        <div class="company-mark">VA</div>
+        <div>
+          <div class="company-name">VivioAkte</div>
+          <div class="company-type">Software GmbH · Hamburg</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-caption">Gemeinsam entscheiden: Verwaltungsmitarbeiterinnen bei der Einführung neuer Software</div>
+
+    <!-- Amtshelden Urteil — Pull Quote Style -->
+    <div class="urteil">
+      <div class="urteil-label">Amtshelden-Urteil</div>
+      <p class="urteil-text">
+        VivioAkte ist unsere Empfehlung für Kommunen bis 50.000 Einwohner, die <em>zum ersten Mal digitalisieren</em> wollen — ohne sich dabei zu verlieren. Der Support spricht Verwaltungssprache. Das macht den Unterschied.
+      </p>
+    </div>
+
+    <!-- Erste Quote FRÜH — menschliche Meinung sofort -->
+    <div class="pull-quote">
+      <p class="pq-text">„Kein einziger Mitarbeiter will zurück zur Papierakte. Das sagt eigentlich alles."</p>
+      <div class="pq-source">Sandra M. · Leiterin Bürgerservice · Gemeindeverwaltung Altholm · 12.400 Einwohner</div>
+    </div>
+
+    <p class="body-text">
+      Was macht eine E-Akte-Lösung für kleine und mittlere Kommunen wirklich tauglich? Nicht die Anzahl der Features — sondern wie schnell Mitarbeitende damit klarkommen, wie gut der Support erreichbar ist, und ob die Lösung DSGVO-konform auf deutschen Servern läuft. VivioAkte erfüllt alle drei Kriterien.
+    </p>
+
+    <p class="body-text">
+      Das System läuft vollständig im Browser, benötigt keine lokale Installation und wird in einem deutschen Rechenzentrum (Frankfurt) betrieben. Für die Einführung braucht die Behörde <strong>einen internen Ansprechpartner, 3–5 Stunden pro Woche, und kein IT-Fachwissen</strong>. Das ist der Ausgangspunkt — nicht die Ausnahme.
+    </p>
+
+  </article>
+
+  <!-- PASST DAS ZU UNS -->
+  <section data-reveal style="--d:1">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Für wen ist das?</div>
+      <h2 class="sec-title">Passt VivioAkte zu unserer Behörde?</h2>
+    </div>
+
+    <p class="body-text">
+      VivioAkte wurde nicht für jeden gebaut — und das ist eine Stärke. Das System ist auf Kommunen zwischen 5.000 und 50.000 Einwohnern ausgelegt, die ihre Aktenführung erstmals vollständig digitalisieren wollen. Besonders stark ist es überall dort, wo Bürgerinnen und Bürger direkten Kontakt zur Verwaltung haben.
+    </p>
+
+    <div class="fit-tags">
+      <span class="fit-tag">Kommunen 5k–50k EW</span>
+      <span class="fit-tag">Bürgerservice</span>
+      <span class="fit-tag">Ordnungsamt</span>
+      <span class="fit-tag">Kämmerei</span>
+      <span class="fit-tag">Standesamt</span>
+      <span class="fit-tag neutral">Cloud · Browser-basiert</span>
+    </div>
+
+    <div class="not-fit">
+      <div class="not-fit-icon">→</div>
+      <div>
+        <div class="not-fit-label">Für komplexere Anforderungen führen wir Sie weiter</div>
+        <p class="not-fit-text">
+          Wenn Ihre Behörde ämterübergreifende Workflows mit vielen Schnittstellen benötigt oder zwingend on-premise betreiben muss — dann sind <a href="#">DoxBox Kommunal</a> oder <a href="#">Fabasoft eGov</a> die bessere Wahl. Wir beschreiben den Unterschied weiter unten ehrlich.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPLEMENTIERUNG -->
+  <section data-reveal style="--d:2">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Was kommt auf uns zu?</div>
+      <h2 class="sec-title">Die Einführung — realistisch betrachtet</h2>
+    </div>
+
+    <p class="body-text">
+      Die größte Sorge bei jeder Softwareeinführung: Was passiert wenn es nicht klappt? Wir haben Kommunen befragt die VivioAkte bereits eingeführt haben — und fragen dabei ausdrücklich nach dem was schwierig war, nicht nur nach dem was gut lief.
+    </p>
+
+    <div class="impl-grid">
+      <div class="impl-tile">
+        <div class="impl-tile-icon">📅</div>
+        <div class="impl-tile-label">Einführungsdauer</div>
+        <div class="impl-tile-val">8–14 Wo.</div>
+        <div class="impl-tile-desc">Kick-off bis produktiver Einsatz im ersten Amt.</div>
+      </div>
+      <div class="impl-tile">
+        <div class="impl-tile-icon">👥</div>
+        <div class="impl-tile-label">Ihr Aufwand</div>
+        <div class="impl-tile-val">3–5 Std./Wo.</div>
+        <div class="impl-tile-desc">1 Ansprechpartner intern. Kein IT-Fachwissen nötig.</div>
+      </div>
+      <div class="impl-tile">
+        <div class="impl-tile-icon">💶</div>
+        <div class="impl-tile-label">Kostenrahmen</div>
+        <div class="impl-tile-val">ab 8.000 €</div>
+        <div class="impl-tile-desc">Pro Jahr. Ausschreibungsfähig nach UVgO/VOL-A.</div>
+      </div>
+    </div>
+
+    <div class="sec-eyebrow" style="margin-bottom:12px;">Typische Herausforderungen — und wie sie gelöst wurden</div>
+    <div class="solutions">
+      <div class="sol-card">
+        <div class="sol-stripe"></div>
+        <div class="sol-body">
+          <div class="sol-head">
+            <div class="sol-title">Datenmigration aus dem Altsystem dauerte länger als geplant.</div>
+            <span class="sol-badge">Gelöst</span>
+          </div>
+          <p class="sol-text">VivioAkte stellt ein dediziertes Migrations-Team. Empfehlung: Datenstruktur vorab gemeinsam prüfen lassen — das ist im Onboarding-Paket enthalten.</p>
+          <p class="sol-ctx">Erfahrung aus Gemeindeverwaltung Wiesenfeld (6.200 EW, Bayern)</p>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-stripe"></div>
+        <div class="sol-body">
+          <div class="sol-head">
+            <div class="sol-title">Mitarbeitende nahmen das System anfangs nicht an.</div>
+            <span class="sol-badge">Gelöst</span>
+          </div>
+          <p class="sol-text">Zwei engagierte Kolleginnen wurden vorab als „Superuser" intensiv geschult und übernahmen die interne Multiplikatorrolle — mit großem Erfolg.</p>
+          <p class="sol-ctx">Erfahrung aus Gemeindeverwaltung Altholm (12.400 EW, Schleswig-Holstein)</p>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-stripe"></div>
+        <div class="sol-body">
+          <div class="sol-head">
+            <div class="sol-title">Betriebsrat wollte Mitbestimmungsrechte einbringen.</div>
+            <span class="sol-badge">Gelöst</span>
+          </div>
+          <p class="sol-text">VivioAkte liefert eine fertige Betriebsvereinbarungs-Vorlage für kommunale E-Akte-Einführungen — das beschleunigt den Abstimmungsprozess erheblich.</p>
+          <p class="sol-ctx">Auf Anfrage verfügbar für alle Kommunen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES — Add-on Placeholder -->
+  <section data-reveal style="--d:3">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Implementierungsfälle</div>
+      <h2 class="sec-title">Wie VivioAkte in der Praxis eingesetzt wird</h2>
+    </div>
+    <div style="background:var(--cream);border:1.5px dashed var(--border);border-radius:14px;padding:32px;text-align:center;">
+      <div style="font-size:24px;margin-bottom:12px;">📋</div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:700;color:var(--dark);margin-bottom:8px;">Cases folgen in Kürze</div>
+      <p style="font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:14px;color:var(--soft);max-width:420px;margin:0 auto;line-height:1.65;">
+        Supertools dokumentiert wie Software in realen Behörden eingeführt wurde — mit konkreten Erfahrungen, Zeitrahmen und Learnings. Dieser Bereich wird laufend ergänzt.
+      </p>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section data-reveal style="--d:4">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Kontakt</div>
+      <h2 class="sec-title">Anfrage über Amtshelden stellen</h2>
+    </div>
+    <p class="body-text">
+      Anfragen laufen über Amtshelden — wir leiten sie direkt an VivioAkte weiter.
+      Kein anonymes Ticketsystem, kein Spam.
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a href="https://vivioakte.de" target="_blank" class="contact-btn" style="font-size:13px;padding:10px 18px;">🌐 vivioakte.de</a>
+      <a href="mailto:kontakt@vivioakte.de" class="contact-btn" style="font-size:13px;padding:10px 18px;">✉ kontakt@vivioakte.de</a>
+      <a href="tel:+4940123456" class="contact-btn" style="font-size:13px;padding:10px 18px;">📞 040 123 456</a>
+    </div>
+  </section>
+
+  <!-- ALTERNATIVEN -->
+  <section data-reveal style="--d:5">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Ehrlicher Vergleich</div>
+      <h2 class="sec-title">Wenn VivioAkte nicht das Richtige ist</h2>
+    </div>
+
+    <p class="body-text">
+      Supertools empfiehlt nur was wirklich passt. Wenn Ihre Anforderungen über das hinausgehen was VivioAkte leistet, führen wir Sie zu den Alternativen — ohne Umwege.
+    </p>
+
+    <div class="alts">
+      <a href="#" class="alt">
+        <div class="alt-mark" style="background:#2563EB;">DB</div>
+        <div>
+          <div class="alt-name">DoxBox Kommunal</div>
+          <div class="alt-why">Für komplexe Querschnittslösungen mit ämterübergreifenden Workflows und längerem Einführungsaufwand.</div>
+        </div>
+        <div class="alt-arr">›</div>
+      </a>
+      <a href="#" class="alt">
+        <div class="alt-mark" style="background:#7C3AED;">FE</div>
+        <div>
+          <div class="alt-name">Fabasoft eGov</div>
+          <div class="alt-why">Wenn On-Premise-Betrieb oder enge SAP-Integration zwingend erforderlich ist.</div>
+        </div>
+        <div class="alt-arr">›</div>
+      </a>
+      <a href="#" class="alt">
+        <div class="alt-mark" style="background:#059669;">NK</div>
+        <div>
+          <div class="alt-name">NordKom Digital</div>
+          <div class="alt-why">Speziell für norddeutsche Gemeinden — stark bei Standesamt und Einwohnermeldewesen.</div>
+        </div>
+        <div class="alt-arr">›</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div id="anfrage" data-reveal style="--d:6">
+    <div class="cta">
+      <div class="cta-c">
+        <div class="cta-eye">Nächster Schritt</div>
+        <h2 class="cta-title">Unverbindlich anfragen.<br>Wir melden uns persönlich.</h2>
+        <p class="cta-sub">Keine automatisierten Antworten. Amtshelden stellt den Kontakt her und stellt sicher dass Ihre Anfrage beim richtigen Menschen landet.</p>
+        <div class="cta-btns">
+          <a href="#" class="btn-p">Jetzt anfragen über Amtshelden</a>
+          <a href="#" class="btn-g">Ähnliche Tools ansehen</a>
+        </div>
+        <p class="cta-note">Kein Spam, keine automatisierten Folge-Mails.<br>Oder direkt: m.keller@vivioakte.de · 040 123 456</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════ -->
+<aside class="side">
+
+  <div class="side-label">Compliance auf einen Blick</div>
+
+  <div class="sw" tabindex="0">
+    <div class="sw-top">
+      <span class="sw-icon">🔒</span>
+      <span class="sw-name">DSGVO</span>
+      <span class="sw-val val-y">✓ Konform</span>
+    </div>
+    <div class="sw-detail">Vollständig DSGVO-konform nach Art. 5. AVV wird standardmäßig mitgeliefert.</div>
+  </div>
+
+  <div class="sw" tabindex="0">
+    <div class="sw-top">
+      <span class="sw-icon">🇩🇪</span>
+      <span class="sw-name">Server</span>
+      <span class="sw-val val-y">✓ Deutschland</span>
+    </div>
+    <div class="sw-detail">Alle Daten in Frankfurt am Main. Kein Datenabfluss in Drittstaaten.</div>
+  </div>
+
+  <div class="sw" tabindex="0">
+    <div class="sw-top">
+      <span class="sw-icon">🏛</span>
+      <span class="sw-name">BSI C5</span>
+      <span class="sw-val val-y">✓ Typ 2</span>
+    </div>
+    <div class="sw-detail">BSI C5 Typ 2 Zertifizierung. Prüfbericht auf Anfrage erhältlich.</div>
+  </div>
+
+  <div class="sw" tabindex="0">
+    <div class="sw-top">
+      <span class="sw-icon">📋</span>
+      <span class="sw-name">Vergabe</span>
+      <span class="sw-val val-y">✓ Möglich</span>
+    </div>
+    <div class="sw-detail">Ausschreibungsfähig nach VOL/A und UVgO. Referenzausschreibung auf Anfrage.</div>
+  </div>
+
+  <div class="side-quick">
+    <div class="side-quick-label">Auf einen Blick</div>
+    <div class="swq"><span class="swq-k">Preis</span><span class="swq-v">ab 8.000 €/Jahr</span></div>
+    <div class="swq"><span class="swq-k">Einführung</span><span class="swq-v">8–14 Wochen</span></div>
+    <div class="swq"><span class="swq-k">Betrieb</span><span class="swq-v">Cloud (SaaS)</span></div>
+    <div class="swq"><span class="swq-k">Support</span><span class="swq-v">Mo–Fr 8–18 Uhr</span></div>
+    <div class="swq"><span class="swq-k">Nutzer</span><span class="swq-v">unbegrenzt</span></div>
+  </div>
+
+  <a href="#anfrage" class="sw-cta">
+    Unverbindlich anfragen <span>→</span>
+  </a>
+
+
+  <!-- WARUM SINNVOLL -->
+  <div style="margin-top:16px;">
+    <div class="side-label">Warum dieses Tool?</div>
+    <div style="background:var(--white);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;">
+      <div style="padding:12px 14px;border-bottom:0.5px solid var(--border);">
+        <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:4px;">Kein eigener IT-Betrieb nötig</div>
+        <div style="font-size:11px;color:var(--soft);line-height:1.5;">Läuft vollständig im Browser — keine Installation, keine eigene Serverinfrastruktur.</div>
+      </div>
+      <div style="padding:12px 14px;border-bottom:0.5px solid var(--border);">
+        <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:4px;">Speziell für Kommunen gebaut</div>
+        <div style="font-size:11px;color:var(--soft);line-height:1.5;">Nicht für Konzerne umgerüstet — von Anfang an auf kommunale Verwaltungsabläufe ausgelegt.</div>
+      </div>
+      <div style="padding:12px 14px;">
+        <div style="font-size:12px;font-weight:600;color:var(--dark);margin-bottom:4px;">DSGVO & Vergabe abgesichert</div>
+        <div style="font-size:11px;color:var(--soft);line-height:1.5;">Alle Daten in Deutschland. Ausschreibungsfähig nach UVgO — keine rechtlichen Risiken.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUERVERLINKUNG ZU INHALTEN -->
+  <div style="margin-top:16px;">
+    <div class="side-label">Weiterführende Inhalte</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+
+      <a href="#" style="display:flex;align-items:flex-start;gap:10px;background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:11px 13px;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--g)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:14px;flex-shrink:0;margin-top:1px;">📖</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:2px;">Wie läuft eine E-Akte-Einführung ab?</div>
+          <div style="font-size:10px;color:var(--soft);">Supertools Wissen · 5 Min.</div>
+        </div>
+      </a>
+
+      <a href="#" style="display:flex;align-items:flex-start;gap:10px;background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:11px 13px;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--g)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:14px;flex-shrink:0;margin-top:1px;">⚖️</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:2px;">OZG & E-Akte: Was Kommunen jetzt wissen müssen</div>
+          <div style="font-size:10px;color:var(--soft);">Supertools Pulse · März 2026</div>
+        </div>
+      </a>
+
+      <a href="#" style="display:flex;align-items:flex-start;gap:10px;background:var(--white);border:0.5px solid var(--border);border-radius:10px;padding:11px 13px;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--g)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:14px;flex-shrink:0;margin-top:1px;">🗂️</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:2px;">Alle Tools: E-Akte & Dokumentenmanagement</div>
+          <div style="font-size:10px;color:var(--soft);">Kategorie-Übersicht · 14 Tools</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</aside>
+
+</div><!-- /page-grid -->
+</div><!-- /page-wrap -->
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, {threshold:.06, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
