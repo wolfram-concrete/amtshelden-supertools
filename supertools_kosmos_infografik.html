@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Supertools — Der Kosmos</title>
+<style>
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothamlight-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothamlightitalic-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothambook-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothambookitalic-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothammedium-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothammediumitalic-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothambold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('gothambolditalic-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+:root {
+  --g:      #009460;
+  --g20:    rgba(0,148,96,0.14);
+  --g40:    rgba(0,148,96,0.40);
+  --g70:    rgba(0,148,96,0.72);
+  --g100:   #009460;
+  --gd:     #006b45;
+  --yellow: #FFE500;
+  --dark:   #1A202C;
+  --cream:  #F8F4EB;
+  --muted:  #6B7280;
+  --border: #E5E7EB;
+  --white:  #ffffff;
+  --sans: 'Gotham', system-ui, sans-serif;
+  --copy: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --serif: 'Gotham', system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);background:var(--cream);color:#111111;-webkit-font-smoothing:antialiased;font-weight:500;}
+.wrap{max-width:1000px;margin:0 auto;padding:32px 24px 56px;display:flex;flex-direction:column;gap:22px;}
+
+/* LABEL */
+.lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#374151;text-align:center;display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.lbl::before,.lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* HEADER */
+.hd{background:#ffffff;border-radius:14px;padding:28px 32px;text-align:center;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;border:1.5px solid var(--border);}
+.hd::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--g);border-radius:14px 14px 0 0;}
+.hd h1{font-family:var(--sans);font-size:28px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:4px;}
+.hd p{font-family:var(--copy);font-size:13px;color:rgba(255,255,255,.65);}
+
+/* AMTSHELDEN */
+.ah{border:2px dashed var(--g);border-radius:14px;background:var(--cream);padding:20px 28px;}
+.ah h3{font-size:13px;font-weight:600;text-align:center;margin-bottom:14px;}
+.ah-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
+.ah-m{text-align:center;background:#fff;border-radius:8px;padding:10px 8px;border:1px solid var(--border);}
+.ah-m .v{font-size:16px;font-weight:700;color:var(--g);display:block;}
+.ah-m .k{font-family:var(--copy);font-size:11px;color:#111111;font-weight:400;}
+.trust{text-align:center;font-size:12px;color:#006b45;font-weight:700;letter-spacing:.06em;}
+
+/* KERN */
+.kern{background:var(--g);border-radius:12px;padding:18px 28px;text-align:center;max-width:360px;margin:0 auto;width:100%;}
+.kern h2{font-family:var(--sans);font-size:22px;font-weight:700;color:#fff;margin-bottom:4px;}
+.kern p{font-family:var(--copy);font-size:12px;color:#ffffff;font-weight:400;}
+
+/* ZIELGRUPPEN */
+.zg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.zg{border-radius:12px;padding:20px;border:1px solid;}
+.zg.nf{background:#E6F1FB;border-color:#B5D4F4;}
+.zg.ag{background:#EAF3DE;border-color:#C0DD97;}
+.zg h4{font-size:12px;font-weight:600;margin-bottom:12px;}
+.zg.nf h4{color:#0C447C;}.zg.ag h4{color:#27500A;}
+.zi{font-family:var(--copy);font-size:12px;padding:4px 0;display:flex;gap:6px;font-weight:400;color:#111111;}
+.zg.nf .zi{font-family:var(--copy);font-family:var(--copy);color:#111111;font-weight:400;}.zg.ag .zi{font-family:var(--copy);font-family:var(--copy);color:#111111;font-weight:400;}
+.zg-ft{margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,.08);font-size:11px;font-weight:600;text-align:center;}
+.zg.nf .zg-ft{font-family:var(--copy);color:#111111;font-weight:600;font-size:11px;}.zg.ag .zg-ft{font-family:var(--copy);color:#111111;font-weight:600;font-size:11px;}
+
+/* JOURNEY */
+.journey{display:flex;align-items:stretch;border-radius:12px;border:1px solid var(--border);overflow:hidden;}
+.js{flex:1;padding:13px 8px;text-align:center;background:#fff;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px;justify-content:center;}
+.js:last-child{border-right:none;}
+.js.act{background:var(--g);}
+.js.suc{background:#EAF3DE;}
+.js .jn{font-size:12px;font-weight:600;color:var(--dark);}
+.js .jd{font-family:var(--copy);font-family:var(--copy);font-size:12px;color:#111111;font-weight:400;line-height:1.4;}
+.js.act .jn,.js.act .jd{font-family:var(--copy);color:#ffffff;font-weight:400;}
+.js.suc .jn{color:#27500A;}.js.suc .jd{font-family:var(--copy);color:#111111;font-weight:400;}
+
+/* MONO CARDS */
+.mono-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.mc{border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;gap:5px;}
+.mc.m1{background:var(--g20);border:1.5px solid rgba(0,148,96,0.28);}
+.mc.m2{background:var(--g40);border:1.5px solid rgba(0,148,96,0.58);}
+.mc.m3{background:var(--g70);border:none;}
+.mc.m4{background:var(--g100);border:none;}
+
+.mc .mt{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:2px;}
+.mc.m1 .mt{color:#004d30;}.mc.m2 .mt{color:#001a0d;}.mc.m3 .mt,.mc.m4 .mt{color:#FFE500;}
+
+.mc .mn{font-size:15px;font-weight:700;line-height:1.2;}
+.mc.m1 .mn{color:var(--gd);}.mc.m2 .mn{color:#001a0d;font-weight:700;}.mc.m3 .mn,.mc.m4 .mn{color:#fff;}
+
+.mc .mp{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:2px 0 6px;}
+.mc.m1 .mp{color:var(--gd);}.mc.m2 .mp{color:#001a0d;}
+.mc.m3 .mp,.mc.m4 .mp{color:var(--yellow);}
+
+.mc .mf{font-size:11px;line-height:1.45;flex:1;display:flex;flex-direction:column;gap:3px;}
+.mc.m1 .mf,.mc.m1 .mf span{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}
+.mc.m2 .mf,.mc.m2 .mf span{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}
+.mc.m3 .mf,.mc.m4 .mf,.mc.m3 .mf span,.mc.m4 .mf span{font-family:var(--copy);color:#ffffff;font-weight:400;font-size:12px;}
+
+.mc .mcta{margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.06em;padding-top:8px;border-top:1px solid;}
+.mc.m1 .mcta{font-family:var(--copy);color:#111111;border-color:rgba(0,148,96,.3);font-weight:400;font-size:11px;}
+.mc.m2 .mcta{font-family:var(--copy);color:#111111;border-color:rgba(0,0,0,.25);font-weight:400;font-size:11px;}
+.mc.m3 .mcta{font-family:var(--copy);color:#ffffff;border-color:rgba(255,255,255,.35);font-weight:400;font-size:11px;}
+.mc.m4 .mcta{font-family:var(--copy);color:#FFE500;border-color:rgba(255,255,255,.35);font-weight:400;font-size:11px;}
+
+/* P&L */
+.pl{background:#EAF3DE;border:1px solid #C0DD97;border-radius:10px;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:10px;}
+.pl-lbl{font-family:var(--copy);font-size:11px;font-weight:700;color:#1a3306;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;}
+.pl-steps{display:flex;gap:20px;align-items:center;}
+.pl-s{text-align:center;}
+.pl-yr{font-family:var(--copy);font-size:11px;color:#000000;font-weight:600;margin-bottom:2px;}
+.pl-v{font-size:17px;font-weight:700;color:#27500A;letter-spacing:-.01em;}
+.pl-arr{color:#3B6D11;font-size:18px;font-weight:500;}
+
+/* SÄULEN */
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.sk{border-radius:12px;padding:20px;border:1px solid;}
+.sk.s1{background:#E6F1FB;border-color:#B5D4F4;}
+.sk.s2{background:#EAF3DE;border-color:#C0DD97;}
+.sk.s3{background:#FAEEDA;border-color:#FAC775;}
+.sk .sn{font-family:var(--sans);font-size:28px;font-weight:700;line-height:1;margin-bottom:8px;}
+.sk.s1 .sn{color:#0C447C;}.sk.s2 .sn{color:#27500A;}.sk.s3 .sn{color:#633806;}
+.sk h4{font-size:13px;font-weight:600;margin-bottom:10px;}
+.sk.s1 h4{color:#0C447C;}.sk.s2 h4{color:#27500A;}.sk.s3 h4{color:#633806;}
+.si{font-size:11px;padding:3px 0;display:flex;gap:6px;line-height:1.4;}
+.sk.s1 .si{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}.sk.s2 .si{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}.sk.s3 .si{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}
+.sf{margin-top:10px;padding-top:8px;border-top:1px solid rgba(0,0,0,.08);font-size:11px;font-weight:700;}
+.sk.s1 .sf{font-family:var(--copy);color:#0C447C;}.sk.s2 .sf{font-family:var(--copy);color:#27500A;}.sk.s3 .sf{font-family:var(--copy);color:#4a2a04;}
+
+/* KANÄLE */
+.k4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.kk{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;}
+.kk h5{font-size:12px;font-weight:600;margin-bottom:6px;}
+.kk p{font-family:var(--copy);font-size:12px;color:#111111;font-weight:400;line-height:1.55;}
+.kk .kp{font-family:var(--copy);margin-top:6px;font-size:12px;font-weight:700;color:var(--g);}
+
+/* TECHNIK */
+.tech-row{display:grid;grid-template-columns:1fr 36px 1fr;gap:0;align-items:center;}
+.tc{background:#EEEDFE;border:1px solid #CECBF6;border-radius:12px;padding:20px;}
+.tc h4{font-size:12px;font-weight:600;color:#26215C;margin-bottom:12px;}
+.ti{font-family:var(--copy);font-size:12px;color:#111111;padding:4px 0;display:flex;gap:6px;line-height:1.5;font-weight:400;}
+.ta{display:flex;align-items:center;justify-content:center;color:#7F77DD;font-size:20px;}
+
+/* VISION */
+.v3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.vc{border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:7px;}
+.vc.v1{background:#EAF3DE;border:1px solid #C0DD97;}
+.vc.v2{background:var(--g);}
+.vc.v3{background:var(--dark);}
+.vc .vy{font-size:16px;font-weight:700;letter-spacing:-.01em;}
+.vc.v1 .vy{color:#27500A;}.vc.v2 .vy,.vc.v3 .vy{color:#fff;}
+.vc .vtl{font-size:13px;font-weight:600;line-height:1.3;}
+.vc.v1 .vtl{color:#27500A;}.vc.v2 .vtl{color:#ffffff;}.vc.v3 .vtl{color:#ffffff;}
+.vi{font-size:11px;line-height:1.5;}
+.vc.v1 .vi{font-family:var(--copy);color:#111111;font-weight:400;font-size:12px;}.vc.v2 .vi{font-family:var(--copy);color:#ffffff;font-weight:400;font-size:12px;}.vc.v3 .vi{font-family:var(--copy);color:#ffffff;font-weight:400;font-size:12px;}
+
+/* CLAIM */
+.claim{background:var(--g);border-radius:12px;padding:20px 28px;text-align:center;}
+.claim p{font-family:var(--sans);font-size:19px;font-weight:500;color:#fff;letter-spacing:-.01em;}
+
+/* LEGENDE */
+.leg{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 26px;}
+.leg h4{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dark);margin-bottom:16px;}
+.leg-sec{margin-bottom:14px;}
+.leg-sec h5{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#111111;margin-bottom:9px;}
+.leg-rows{display:flex;flex-direction:column;gap:8px;}
+.leg-row{font-family:var(--copy);display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#111111;font-weight:400;line-height:1.6;}
+.dot{width:14px;height:14px;border-radius:3px;flex-shrink:0;margin-top:2px;}
+.leg-colors{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+.lci{font-family:var(--copy);display:flex;align-items:center;gap:6px;font-size:12px;color:#111111;font-weight:400;}
+.sw{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
+.leg-div{height:1px;background:var(--border);margin:12px 0;}
+.leg-gloss{font-family:var(--copy);font-size:12px;color:#111111;font-weight:400;line-height:1.7;}
+
+@media(max-width:680px){
+  .zg-grid,.mono-grid,.s3,.k4,.v3{grid-template-columns:1fr;}
+  .tech-row{grid-template-columns:1fr;}.ta{transform:rotate(90deg);}
+  .journey{flex-wrap:wrap;}
+}
+
+/* ── COPY TEXT OVERRIDE — Arial Regular für alle Fließtexte ── */
+.zi, .jd, .mf, .mf span, .si, .sf,
+.kk p, .kk .kp, .ti, .vi, .vi span,
+.leg-row, .leg-row *, .lci, .leg-gloss,
+.ah-m .k, .trust, .kern p, .pl-yr, .pl-lbl,
+.zg-ft, .mcta, .hd p {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+/* Helle Hintergründe → fast schwarz */
+.zi, .jd, .si, .sf,
+.kk p, .ti,
+.vi,
+.leg-row, .lci, .leg-gloss,
+.ah-m .k, .trust, .pl-yr, .pl-lbl,
+.zg-ft, .mcta, .hd p {
+  color: #111111 !important;
+}
+
+/* Dunkle Hintergründe → weiß */
+.js.act .jd,
+.mc.m3 .mf, .mc.m3 .mf span, .mc.m3 .mcta,
+.mc.m4 .mf, .mc.m4 .mf span, .mc.m4 .mcta,
+.vc.v2 .vi, .vc.v3 .vi,
+.kern p {
+  color: #ffffff !important;
+}
+
+/* Gelb auf dunklem Grün */
+.mc.m4 .mcta {
+  color: #FFE500 !important;
+}
+
+/* Mittleres Grün (m2) → dunkel */
+.mc.m2 .mf, .mc.m2 .mf span, .mc.m2 .mcta {
+  color: #0a1a0a !important;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hd">
+    <div style="background:#fff;border-radius:12px;padding:14px 28px;display:inline-block;margin:0 auto 14px;">
+    <svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1386.5 463.6" style="height:72px;width:auto;display:block;margin:0 auto 12px;">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #0d9d69;
+      }
+
+      .cls-2 {
+        isolation: isolate;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #333;
+      }
+    
+/* ── COPY TEXT OVERRIDE — Arial Regular für alle Fließtexte ── */
+.zi, .jd, .mf, .mf span, .si, .sf,
+.kk p, .kk .kp, .ti, .vi, .vi span,
+.leg-row, .leg-row *, .lci, .leg-gloss,
+.ah-m .k, .trust, .kern p, .pl-yr, .pl-lbl,
+.zg-ft, .mcta, .hd p {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+}
+
+/* Helle Hintergründe → fast schwarz */
+.zi, .jd, .si, .sf,
+.kk p, .ti,
+.vi,
+.leg-row, .lci, .leg-gloss,
+.ah-m .k, .trust, .pl-yr, .pl-lbl,
+.zg-ft, .mcta, .hd p {
+  color: #111111 !important;
+}
+
+/* Dunkle Hintergründe → weiß */
+.js.act .jd,
+.mc.m3 .mf, .mc.m3 .mf span, .mc.m3 .mcta,
+.mc.m4 .mf, .mc.m4 .mf span, .mc.m4 .mcta,
+.vc.v2 .vi, .vc.v3 .vi,
+.kern p {
+  color: #ffffff !important;
+}
+
+/* Gelb auf dunklem Grün */
+.mc.m4 .mcta {
+  color: #FFE500 !important;
+}
+
+/* Mittleres Grün (m2) → dunkel */
+.mc.m2 .mf, .mc.m2 .mf span, .mc.m2 .mcta {
+  color: #0a1a0a !important;
+}
+
+</style>
+  </defs>
+  <g id="Ebene_1-2" data-name="Ebene 1">
+    <g id="Layer_1" data-name="Layer 1">
+      <path class="cls-1" d="M1350.3,258.8h-649.8v204.8l77.5-61h572.3c19.5,0,35.3-15.8,35.3-35.3v-73.2c0-19.5-15.8-35.3-35.3-35.3h0Z"/>
+      <g>
+        <g>
+          <path class="cls-1" d="M617.8,126.2v53.1h-29.1V0H42.3C18.9,0,0,18.9,0,42.3v141.7c0,23.4,19,42.3,42.3,42.3h518.2l111,92.9V126.2h-53.7ZM152.7,179.3l-12.1-29.6h-55.9l-12.1,29.6h-29.6L99.6,46.2h26.8l56.6,133.1h-30.4.1ZM330.9,179.3h-28.9v-86.3l-37.2,56.4h-.8l-36.8-55.9v85.7h-28.5V47h31.3l34.7,55.9,34.7-55.9h31.3v132.2l.2.1ZM457.9,73.9h-40.2v105.4h-29.1v-105.4h-40.2v-26.8h109.5v26.8h0ZM568.2,140.2c0,26.2-20,41-48.5,41s-40.2-7-56.1-21.1l17.2-20.6c11.9,9.8,24.3,16.1,39.5,16.1s19.1-4.7,19.1-12.5v-.4c0-7.4-4.5-11.1-26.6-16.8-26.6-6.8-43.8-14.2-43.8-40.4v-.4c0-24,19.3-39.8,46.3-39.8s35.7,6,49.1,16.8l-15.1,21.9c-11.7-8.1-23.2-13-34.4-13s-17,5.1-17,11.5v.4c0,8.7,5.7,11.5,28.5,17.4,26.8,7,41.9,16.6,41.9,39.6v.4h0l-.1-.1Z"/>
+          <polygon class="cls-1" points="95.1 123.9 130.2 123.9 112.7 81.1 95.1 123.9"/>
+        </g>
+        <g>
+          <path class="cls-4" d="M1012.9,73.3h-22.5v79.7h22.5c23.8,0,39.8-16.1,39.8-39.5v-.4c0-23.4-16.1-39.8-39.8-39.8Z"/>
+          <path class="cls-4" d="M1344.1,0h-726.3v99.4h53.6v-52.3h29.1v179.3h643.7c23.4,0,42.3-18.9,42.3-42.3V42.4c0-23.4-18.9-42.3-42.3-42.3h0l-.1-.1ZM828.1,179.3h-100.6V47.1h99.7v25.9h-70.8v26.8h62.3v25.9h-62.3v27.8h71.7v25.9h0v-.1ZM944.2,179.3h-95V47.1h29.1v105.7h65.9v26.5ZM1083.1,113.2c0,37.2-28.7,66.1-70.2,66.1h-51.5V47.1h51.5c41.5,0,70.2,28.5,70.2,65.7v.4ZM1204.8,179.3h-100.6V47.1h99.7v25.9h-70.8v26.8h62.3v25.9h-62.3v27.8h71.7v25.9h0v-.1ZM1343.4,179.3h-24.7l-64-84v84h-28.7V47.1h26.8l61.9,81.4V47.1h28.7v132.2h0Z"/>
+        </g>
+      </g>
+      <g class="cls-2">
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M754.82,367.1c-9,0-19.08-3-27.6-9.72l7.8-12c6.96,5.04,14.28,7.68,20.28,7.68,5.28,0,7.68-1.92,7.68-4.8v-.24c0-3.96-6.24-5.28-13.32-7.44-9-2.64-19.2-6.84-19.2-19.32v-.24c0-13.08,10.56-20.4,23.52-20.4,8.16,0,17.04,2.76,24,7.44l-6.96,12.6c-6.36-3.72-12.72-6-17.4-6-4.44,0-6.72,1.92-6.72,4.44v.24c0,3.6,6.12,5.28,13.08,7.68,9,3,19.44,7.32,19.44,19.08v.24c0,14.28-10.68,20.76-24.6,20.76Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M829.06,365.9v-9.12c-4.2,5.4-9.6,10.32-18.84,10.32-13.8,0-21.84-9.12-21.84-23.88v-41.64h18.24v35.88c0,8.64,4.08,13.08,11.04,13.08s11.4-4.44,11.4-13.08v-35.88h18.24v64.32h-18.24Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M895.94,367.1c-9.72,0-15.72-4.44-20.04-9.6v27.6h-18.24v-83.52h18.24v9.24c4.44-6,10.56-10.44,20.04-10.44,15,0,29.28,11.76,29.28,33.24v.24c0,21.48-14.04,33.24-29.28,33.24ZM906.98,333.62c0-10.68-7.2-17.76-15.72-17.76s-15.6,7.08-15.6,17.76v.24c0,10.68,7.08,17.76,15.6,17.76s15.72-6.96,15.72-17.76v-.24Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M994.82,340.1h-44.76c1.8,8.28,7.56,12.6,15.72,12.6,6.12,0,10.56-1.92,15.6-6.6l10.44,9.24c-6,7.44-14.64,12-26.28,12-19.32,0-33.6-13.56-33.6-33.24v-.24c0-18.36,13.08-33.48,31.8-33.48,21.48,0,31.32,16.68,31.32,34.92v.24c0,1.8-.12,2.88-.24,4.56ZM963.74,315.02c-7.56,0-12.48,5.4-13.92,13.68h27.48c-1.08-8.16-5.88-13.68-13.56-13.68Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M1040.46,319.46c-12.12,0-19.56,7.32-19.56,22.68v23.76h-18.24v-64.32h18.24v12.96c3.72-8.88,9.72-14.64,20.52-14.16v19.08h-.96Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M1103.28,366.98c-11.16,0-18.72-4.44-18.72-19.32v-30.48h-7.68v-15.6h7.68v-16.44h18.24v16.44h15.12v15.6h-15.12v27.48c0,4.2,1.8,6.24,5.88,6.24,3.36,0,6.36-.84,9-2.28v14.64c-3.84,2.28-8.28,3.72-14.4,3.72Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M1159.92,367.34c-19.92,0-34.68-14.76-34.68-33.24v-.24c0-18.48,14.88-33.48,34.92-33.48s34.68,14.76,34.68,33.24v.24c0,18.48-14.88,33.48-34.92,33.48ZM1176.84,333.86c0-9.48-6.84-17.76-16.92-17.76s-16.68,8.04-16.68,17.52v.24c0,9.48,6.84,17.76,16.92,17.76s16.68-8.04,16.68-17.52v-.24Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M1238.42,367.34c-19.92,0-34.68-14.76-34.68-33.24v-.24c0-18.48,14.88-33.48,34.92-33.48s34.68,14.76,34.68,33.24v.24c0,18.48-14.88,33.48-34.92,33.48ZM1255.34,333.86c0-9.48-6.84-17.76-16.92-17.76s-16.68,8.04-16.68,17.52v.24c0,9.48,6.84,17.76,16.92,17.76s16.68-8.04,16.68-17.52v-.24Z"/>
+            <path class="cls-3" d="M1287.38,365.9v-87.6h18.24v87.6h-18.24Z"/>
+          </g>
+        </g>
+        <g class="cls-2">
+          <g class="cls-2">
+            <path class="cls-3" d="M1333.32,367.1c-9,0-19.08-3-27.6-9.72l7.8-12c6.96,5.04,14.28,7.68,20.28,7.68,5.28,0,7.68-1.92,7.68-4.8v-.24c0-3.96-6.24-5.28-13.32-7.44-9-2.64-19.2-6.84-19.2-19.32v-.24c0-13.08,10.56-20.4,23.52-20.4,8.16,0,17.04,2.76,24,7.44l-6.96,12.6c-6.36-3.72-12.72-6-17.4-6-4.44,0-6.72,1.92-6.72,4.44v.24c0,3.6,6.12,5.28,13.08,7.68,9,3,19.44,7.32,19.44,19.08v.24c0,14.28-10.68,20.76-24.6,20.76Z"/>
+          </g>
+        </g>
+      </g>
+      <rect class="cls-3" x="671.4" y="226.4" width="29.1" height="29.1"/>
+    </g>
+  </g>
+</svg>
+  </div>
+    <p style="font-size:13px;color:#111111;font-weight:500;letter-spacing:.02em;">Kuratiertes Software-Verzeichnis für Behörden &amp; Kommunen</p>
+  </div>
+
+  <!-- AMTSHELDEN -->
+  <div>
+    <div class="lbl">Vertrauensanker</div>
+    <div class="ah">
+      <h3>🏛 AMTSHELDEN — das Fundament von Supertools</h3>
+      <div class="ah-row">
+        <div class="ah-m"><span class="v">7.000</span><span class="k">Newsletter-Abonnenten</span></div>
+        <div class="ah-m"><span class="v">2-wöchentlich</span><span class="k">Newsletter-Frequenz</span></div>
+        <div class="ah-m"><span class="v">12k+</span><span class="k">Gesamtreichweite</span></div>
+      </div>
+      <div class="trust">↓ Trust-Transfer: Amtshelden-Vertrauen fließt direkt in Supertools ↓</div>
+    </div>
+  </div>
+
+  <!-- KERN -->
+  <div>
+    <div class="lbl">Kernprodukt</div>
+    <div class="kern">
+      <h2>SUPERTOOLS</h2>
+      <p>Kuratiertes Verzeichnis · handverlesen · Behörden-first</p>
+    </div>
+  </div>
+
+  <!-- ZIELGRUPPEN -->
+  <div>
+    <div class="lbl">Zielgruppen</div>
+    <div class="zg-grid">
+      <div class="zg nf">
+        <h4>Nachfrageseite — Behörden</h4>
+        <div class="zi"><span>→</span>Kommunen &amp; Landkreise</div>
+        <div class="zi"><span>→</span>Digitalisierungsbeauftragte</div>
+        <div class="zi"><span>→</span>IT-Verantwortliche in Behörden</div>
+        <div class="zi"><span>→</span>Pressestellen &amp; Kommunikation</div>
+        <div class="zi"><span>→</span>OZG-Beauftragte</div>
+        <div class="zg-ft">~11.000 Kommunen · kostenlos · suchen Orientierung</div>
+      </div>
+      <div class="zg ag">
+        <h4>Angebotsseite — Anbieter</h4>
+        <div class="zi"><span>→</span>GovTech-Startups</div>
+        <div class="zi"><span>→</span>Etablierte Softwareanbieter</div>
+        <div class="zi"><span>→</span>IT-Consultings (ab Jahr 2)</div>
+        <div class="zi"><span>→</span>Systemintegratoren (ab Jahr 2)</div>
+        <div class="zi"><span>→</span>72 identifiziert · 24 sofort ansprechen</div>
+        <div class="zg-ft">Score 5 = sofort · Score 4 = prüfen · zahlen für Sichtbarkeit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div>
+    <div class="lbl">Customer Journey — Behörde</div>
+    <div class="journey">
+      <div class="js"><div class="jn">Problem</div><div class="jd">Welche Software für uns?</div></div>
+      <div class="js"><div class="jn">Entdecken</div><div class="jd">Supertools findet</div></div>
+      <div class="js"><div class="jn">Vergleichen</div><div class="jd">Profile prüfen</div></div>
+      <div class="js act"><div class="jn">Anfragen</div><div class="jd">CTA → Amtshelden</div></div>
+      <div class="js suc"><div class="jn">Vermittlung</div><div class="jd">Amtshelden qualifiziert</div></div>
+      <div class="js suc"><div class="jn">Abschluss 💰</div><div class="jd">Anbieter kontaktiert</div></div>
+    </div>
+  </div>
+
+  <!-- MONETARISIERUNG -->
+  <div>
+    <div class="lbl">Monetarisierung — Listing-Tiers</div>
+    <div class="mono-grid">
+
+      <div class="mc m1">
+        <div class="mt">Kuratierung</div>
+        <div class="mn">Basis-Profil</div>
+        <div class="mp">von Amtshelden</div>
+        <div class="mf">
+          <span>→ Von Amtshelden handverlesen</span>
+          <span>→ DSGVO-Status · Use Cases · Referenzen</span>
+          <span>→ Kein Self-Service — wir entscheiden</span>
+          <span>→ Kein Badge · kein Direktkontakt</span>
+        </div>
+        <div class="mcta">→ Kuratierung schützt die Qualität</div>
+      </div>
+
+      <div class="mc m2">
+        <div class="mt">Hauptprodukt</div>
+        <div class="mn">Verified Listing</div>
+        <div class="mp">199–299 €/Mo</div>
+        <div class="mf">
+          <span>→ „Verifiziert von Amtshelden"-Badge</span>
+          <span>→ Erweitertes Profil (Bilder, Cases)</span>
+          <span>→ Direkter Anfragen-Eingang</span>
+          <span>→ Monatlicher Analytics-Report</span>
+          <span>→ Priorität im Themenfeld-Listing</span>
+        </div>
+        <div class="mcta">→ Jahresabo: 2.990 EUR (1 Monat gratis)</div>
+      </div>
+
+      <div class="mc m3">
+        <div class="mt">Full-Service</div>
+        <div class="mn">Partner-Paket</div>
+        <div class="mp">499–799 €/Mo</div>
+        <div class="mf">
+          <span>→ Newsletter-Feature (1×/Quartal)</span>
+          <span>→ „Partner"-Badge · Top-Placement</span>
+          <span>→ 1 Webinar-Slot pro Jahr</span>
+          <span>→ Lead-Liste qualifiziert direkt</span>
+          <span>→ Podcast-Erwähnung möglich</span>
+        </div>
+        <div class="mcta">→ Jahresabo: 7.990 EUR (2 Monate gratis)</div>
+      </div>
+
+      <div class="mc m4">
+        <div class="mt">On Top buchbar</div>
+        <div class="mn">Add-ons</div>
+        <div class="mp">ab 800 EUR</div>
+        <div class="mf">
+          <span>→ NL redaktionell: 1.800–2.500 €</span>
+          <span>→ NL Anzeigen-Slot: 800–1.200 €</span>
+          <span>→ Lead-Vermittlung: 200–500 €</span>
+          <span>→ Webinar / Tool Talk: 1.500–3.000 €</span>
+          <span>→ Case Study: 2.000–4.000 €</span>
+        </div>
+        <div class="mcta">→ Nur mit aktivem Listing buchbar</div>
+      </div>
+
+    </div>
+    <!-- ROI-BERECHNUNG -->
+    <div style="background:#ffffff;border:1.5px solid #E5E7EB;border-radius:12px;padding:20px 24px;margin-top:12px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:14px;">Grundlagenberechnung — Was ist ein Behörden-Lead wert?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+        <!-- Deal-Werte -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:8px;">Typische Deal-Größen Anbieter → Behörde</div>
+          <table style="width:100%;font-family:Arial,Helvetica,sans-serif;font-size:11px;border-collapse:collapse;">
+            <tr style="border-bottom:1px solid #E5E7EB;">
+              <td style="padding:4px 0;color:#111;">E-Akte / DMS</td>
+              <td style="padding:4px 0;text-align:right;color:#111;font-weight:600;">30–150k EUR</td>
+              <td style="padding:4px 0;text-align:right;color:#6B7280;padding-left:8px;">5–10 Jahre</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E5E7EB;">
+              <td style="padding:4px 0;color:#111;">Bürgerportal / OZG</td>
+              <td style="padding:4px 0;text-align:right;color:#111;font-weight:600;">20–80k EUR</td>
+              <td style="padding:4px 0;text-align:right;color:#6B7280;padding-left:8px;">3–5 Jahre</td>
+            </tr>
+            <tr style="border-bottom:1px solid #E5E7EB;">
+              <td style="padding:4px 0;color:#111;">HR-Software ÖD</td>
+              <td style="padding:4px 0;text-align:right;color:#111;font-weight:600;">15–60k EUR</td>
+              <td style="padding:4px 0;text-align:right;color:#6B7280;padding-left:8px;">3–5 Jahre</td>
+            </tr>
+            <tr>
+              <td style="padding:4px 0;color:#111;">SaaS-Tools (klein)</td>
+              <td style="padding:4px 0;text-align:right;color:#111;font-weight:600;">2–10k EUR</td>
+              <td style="padding:4px 0;text-align:right;color:#6B7280;padding-left:8px;">1–2 Jahre</td>
+            </tr>
+          </table>
+          <div style="margin-top:10px;padding:8px 10px;background:#EAF3DE;border-radius:6px;font-size:11px;color:#27500A;font-weight:600;">
+            Konservativer Benchmark: 1 Abschluss = 30.000 EUR CLV
+          </div>
+        </div>
+        <!-- ROI-Verhältnis -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:8px;">ROI: Listing-Preis vs. Deal-Wert</div>
+          <table style="width:100%;font-family:Arial,Helvetica,sans-serif;font-size:11px;border-collapse:collapse;">
+            <tr style="background:#EAF3DE;">
+              <th style="padding:6px 8px;text-align:left;color:#27500A;font-weight:700;border-radius:4px 0 0 0;">Listing</th>
+              <th style="padding:6px 8px;text-align:right;color:#27500A;font-weight:700;">Jahrespreis</th>
+              <th style="padding:6px 8px;text-align:right;color:#27500A;font-weight:700;border-radius:0 4px 0 0;">ROI (1 Deal)</th>
+            </tr>
+            <tr style="border-bottom:1px solid #E5E7EB;">
+              <td style="padding:6px 8px;color:#111;">Verified Listing</td>
+              <td style="padding:6px 8px;text-align:right;color:#111;">~2.400–3.600 €</td>
+              <td style="padding:6px 8px;text-align:right;font-weight:700;color:#009460;">8–12×</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 8px;color:#111;">Partner-Paket</td>
+              <td style="padding:6px 8px;text-align:right;color:#111;">~6.000–9.600 €</td>
+              <td style="padding:6px 8px;text-align:right;font-weight:700;color:#009460;">3–5×</td>
+            </tr>
+          </table>
+          <div style="margin-top:10px;padding:8px 10px;background:#009460;border-radius:6px;font-size:11px;color:#ffffff;font-weight:600;line-height:1.5;">
+            → 1 Abschluss amortisiert das Jahresabo in Woche 1.<br>Kein Marketing-Budget schlägt einen kuratierten Behörden-Lead.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#EAF3DE;border:1px solid #C0DD97;border-radius:12px;padding:20px 24px;margin-top:0;">
+
+      <!-- Zeile 1: Netto-Umsatz Zeitverlauf -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid #C0DD97;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#27500A;flex-shrink:0;">Umsatzprojektion — Netto (ohne MwSt.)</div>
+        <div style="display:flex;gap:20px;align-items:center;">
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:#3B6D11;font-weight:600;margin-bottom:2px;">Jahr 1</div>
+            <div style="font-size:18px;font-weight:700;color:#27500A;letter-spacing:-.01em;">~52k EUR</div>
+          </div>
+          <div style="color:#3B6D11;font-size:18px;">→</div>
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:#3B6D11;font-weight:600;margin-bottom:2px;">Jahr 2</div>
+            <div style="font-size:18px;font-weight:700;color:#27500A;letter-spacing:-.01em;">~198k EUR</div>
+          </div>
+          <div style="color:#3B6D11;font-size:18px;">→</div>
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:#3B6D11;font-weight:600;margin-bottom:2px;">Jahr 3</div>
+            <div style="font-size:18px;font-weight:700;color:#27500A;letter-spacing:-.01em;">~420k EUR ARR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zeile 2: Umsatz nach Anzahl gelisteter Unternehmen -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#27500A;margin-bottom:12px;">ARR-Potenzial nach Anzahl gelisteter Unternehmen</div>
+      <table style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:12px;">
+        <thead>
+          <tr style="background:rgba(0,148,96,0.15);">
+            <th style="padding:8px 12px;text-align:left;color:#27500A;font-weight:700;border-radius:6px 0 0 0;">Gelistete Tools</th>
+            <th style="padding:8px 12px;text-align:center;color:#27500A;font-weight:700;">Paid Listings<br><span style="font-weight:400;font-size:10px;">(15% Conversion)</span></th>
+            <th style="padding:8px 12px;text-align:center;color:#27500A;font-weight:700;">davon Verified<br><span style="font-weight:400;font-size:10px;">(249 €/Mo · 70%)</span></th>
+            <th style="padding:8px 12px;text-align:center;color:#27500A;font-weight:700;">davon Partner<br><span style="font-weight:400;font-size:10px;">(599 €/Mo · 30%)</span></th>
+            <th style="padding:8px 12px;text-align:center;color:#27500A;font-weight:700;">MRR</th>
+            <th style="padding:8px 12px;text-align:right;color:#27500A;font-weight:700;border-radius:0 6px 0 0;">ARR (netto)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #C0DD97;background:rgba(255,255,255,0.5);">
+            <td style="padding:9px 12px;font-weight:700;color:#111;">300 Tools</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">45</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">31</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">14</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">~16.100 €</td>
+            <td style="padding:9px 12px;text-align:right;font-weight:700;color:#009460;">~193k EUR</td>
+          </tr>
+          <tr style="border-bottom:1px solid #C0DD97;background:rgba(0,148,96,0.06);">
+            <td style="padding:9px 12px;font-weight:700;color:#111;">600 Tools</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">90</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">63</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">27</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">~31.900 €</td>
+            <td style="padding:9px 12px;text-align:right;font-weight:700;color:#009460;">~382k EUR</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.5);">
+            <td style="padding:9px 12px;font-weight:700;color:#111;">900 Tools</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">135</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">94</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">41</td>
+            <td style="padding:9px 12px;text-align:center;color:#111;">~48.000 €</td>
+            <td style="padding:9px 12px;text-align:right;font-weight:700;color:#009460;">~576k EUR</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#3B6D11;line-height:1.6;">
+        Annahmen: 15% Conversion Rate kuratierte Tools → Paid Listing · 70% Verified (249 €/Mo) · 30% Partner-Paket (599 €/Mo) · Alle Beträge netto ohne MwSt. · Preise in Diskussion mit Partnern (Stand Mai 2026)
+      </div>
+    </div>
+  </div>
+
+  <!-- SÄULEN -->
+  <div>
+    <div class="lbl">Produkt — 3 Säulen</div>
+    <div class="s3">
+      <div class="sk s1">
+        <div class="sn">①</div>
+        <h4>Verzeichnis</h4>
+        <div class="si"><span>→</span>300–700 kuratierte Tools</div>
+        <div class="si"><span>→</span>DSGVO-geprüft · Behörden-first</div>
+        <div class="si"><span>→</span>Crawler + redaktionelle Veredelung</div>
+        <div class="si"><span>→</span>Amtshelden baut jedes Profil</div>
+        <div class="sf">→ Fundament · nie verwässern</div>
+      </div>
+      <div class="sk s2">
+        <div class="sn">②</div>
+        <h4>Supertools Pulse</h4>
+        <div class="si"><span>→</span>Laufender redaktioneller Feed</div>
+        <div class="si"><span>→</span>1–3× pro Woche Updates</div>
+        <div class="si"><span>→</span>Beschlüsse · Piloten · Trends</div>
+        <div class="si"><span>→</span>Digitalisierung öffentl. Verwaltung</div>
+        <div class="sf">→ Thematisierungsplattform · ab sofort</div>
+      </div>
+      <div class="sk s3">
+        <div class="sn">③</div>
+        <h4>Supertools Report</h4>
+        <div class="si"><span>→</span>Halbjährlich oder jährlich</div>
+        <div class="si"><span>→</span>Destilliert aus Pulse + Daten</div>
+        <div class="si"><span>→</span>Eigene Plattform-Statistiken</div>
+        <div class="si"><span>→</span>Zitierte Branchenquelle</div>
+        <div class="sf">→ Meinungsführerschaft · ab Phase 2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KANÄLE -->
+  <div>
+    <div class="lbl">Kommunikation &amp; Kanäle</div>
+    <div class="k4">
+      <div class="kk"><h5>Newsletter</h5><p>Amtshelden: 7k Abo, 2-wöchentlich. Supertools-Rubrik ab sofort. Eigener NL ab Phase 2.</p></div>
+      <div class="kk"><h5>Webinar / Tool Talks</h5><p>Amtshelden hostet. Anbieter präsentiert. Behörden-Publikum.</p><div class="kp">1.500–3.000 EUR</div></div>
+      <div class="kk"><h5>Podcast &amp; Content</h5><p>Tool-Features als Episode. Sponsored Case Studies. Redaktioneller Content.</p><div class="kp">2.000–4.000 EUR</div></div>
+      <div class="kk"><h5>SEO &amp; Direktansprache</h5><p>SCCON · KGSt · LinkedIn · Zukunftskongress. 24 Sofort-Kandidaten aktiv.</p></div>
+    </div>
+  </div>
+
+  <!-- TECHNIK -->
+  <div>
+    <div class="lbl">Technische Architektur</div>
+    <div class="tech-row">
+      <div class="tc">
+        <h4>Phase 1 — Jetzt (statisch)</h4>
+        <div class="ti"><span>→</span>HTML One Pager (supertools_v4.html)</div>
+        <div class="ti"><span>→</span>Excel-Datenbasis (40 Tools, 20 Felder)</div>
+        <div class="ti"><span>→</span>Anfragen manuell via Amtshelden-Support</div>
+        <div class="ti"><span>→</span>Hosting DSGVO-konform · DE/EU-Server</div>
+      </div>
+      <div class="ta">→</div>
+      <div class="tc">
+        <h4>Phase 2–3 — Plattform</h4>
+        <div class="ti"><span>→</span>CMS: Webflow oder Next.js</div>
+        <div class="ti"><span>→</span>DB: PostgreSQL (Supabase EU-Region)</div>
+        <div class="ti"><span>→</span>Anbieter-Dashboard (Self-Service Login)</div>
+        <div class="ti"><span>→</span>Pitch-Tracking: EU-konform · DE-Server</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <div>
+    <div class="lbl">Vision — Zeithorizont</div>
+    <div class="v3">
+      <div class="vc v1">
+        <div class="vy">Jahr 1–3</div>
+        <div class="vtl">Kuratiertes Verzeichnis</div>
+        <div class="vi">→ Supertools Pulse startet</div>
+        <div class="vi">→ Erste Monetarisierung läuft</div>
+        <div class="vi">→ 100+ Tools gelistet</div>
+        <div class="vi">→ 20+ Paid Listings</div>
+      </div>
+      <div class="vc v2">
+        <div class="vy">Jahr 3–6</div>
+        <div class="vtl">Leitmedium GovTech</div>
+        <div class="vi">→ Supertools Report etabliert</div>
+        <div class="vi">→ Dienstleister-Verzeichnis live</div>
+        <div class="vi">→ 55+ Paid Listings</div>
+        <div class="vi">→ Inbound dominiert</div>
+      </div>
+      <div class="vc v3">
+        <div class="vy">Jahr 6+</div>
+        <div class="vtl">Referenz-Infrastruktur DE</div>
+        <div class="vi">→ Zitierte Brancheninstanz</div>
+        <div class="vi">→ Standard bei Beschaffung</div>
+        <div class="vi">→ 200+ Tools · AT/CH Expansion</div>
+        <div class="vi">→ 15k+ MRR</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLAIM -->
+  <div class="claim">
+    <p>„Das Gedächtnis der digitalen Verwaltung Deutschlands."</p>
+  </div>
+
+  <!-- LEGENDE -->
+  <div class="leg">
+    <h4>Legende</h4>
+
+    <div class="leg-sec">
+      <h5>Relevanz-Score Zielkunden (aus Amtshelden Sponsoring-Liste 2026)</h5>
+      <div class="leg-rows">
+        <div class="leg-row">
+          <div class="dot" style="background:#009460;"></div>
+          <div><strong>Score 5 = sofort ansprechen</strong> — reiner ÖD-Fokus oder aktiver Konferenz-Sponsor (SCCON, Zukunftskongress, KGSt). Beispiele: Aleph Alpha, Fabasoft, Governikus, PDV, Secunet, Stackfield. 24 Firmen in dieser Kategorie → erste Verkaufsgespräche.</div>
+        </div>
+        <div class="leg-row">
+          <div class="dot" style="background:#EAF3DE;border:1px solid #C0DD97;"></div>
+          <div><strong>Score 4 = prüfen</strong> — starke ÖD-Referenzen und aktives Marketing-Budget, aber nicht ausschließlich Behörden-fokussiert. Erst anschauen ob passend, dann ansprechen. 20 Firmen in dieser Kategorie.</div>
+        </div>
+        <div class="leg-row">
+          <div class="dot" style="background:#F3F4F6;border:1px solid #E5E7EB;"></div>
+          <div><strong>Score 3 = optional · Score 2 = Multiplikator</strong> — kein direkter Sponsor, kein sofortiger Handlungsbedarf. Langfristige Pipeline.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="leg-div"></div>
+
+    <div class="leg-sec">
+      <h5>Monetarisierungs-Kacheln — Grünabstufung von links nach rechts</h5>
+      <div class="leg-colors">
+        <div class="lci"><div class="sw" style="background:rgba(0,148,96,0.14);border:1.5px solid rgba(0,148,96,0.28);"></div><span>20% Grün = Free (Einstieg, kein Umsatz)</span></div>
+        <div class="lci"><div class="sw" style="background:rgba(0,148,96,0.40);border:1.5px solid rgba(0,148,96,0.58);"></div><span>40% Grün = Verified (Hauptprodukt)</span></div>
+        <div class="lci"><div class="sw" style="background:rgba(0,148,96,0.72);"></div><span>70% Grün = Partner (Full-Service)</span></div>
+        <div class="lci"><div class="sw" style="background:#009460;"></div><span>100% Grün = Add-ons (höchster Wert, on top buchbar)</span></div>
+      </div>
+    </div>
+
+    <div class="leg-div"></div>
+
+    <div class="leg-sec">
+      <h5>Farbsystem</h5>
+      <div class="leg-colors">
+        <div class="lci"><div class="sw" style="background:#E6F1FB;border:1px solid #B5D4F4;"></div><span>Blau = Behörden-Seite (Nachfrage)</span></div>
+        <div class="lci"><div class="sw" style="background:#EAF3DE;border:1px solid #C0DD97;"></div><span>Hellgrün = Wachstum / Anbieter / Erfolg</span></div>
+        <div class="lci"><div class="sw" style="background:#009460;"></div><span>Dunkelgrün = Kern / Aktion</span></div>
+        <div class="lci"><div class="sw" style="background:#FAEEDA;border:1px solid #FAC775;"></div><span>Amber = Add-ons / Erweiterung</span></div>
+        <div class="lci"><div class="sw" style="background:#EEEDFE;border:1px solid #CECBF6;"></div><span>Lila = Technische Architektur</span></div>
+      </div>
+    </div>
+
+    <div class="leg-div"></div>
+
+    <div class="leg-gloss">
+      <strong>Begriffe:</strong> P&amp;L = Profit &amp; Loss = Umsatzprojektion (was kommt rein, was bleibt übrig) · ARR = Annual Recurring Revenue = jährlich wiederkehrender Umsatz · MRR = Monthly Recurring Revenue = monatlich wiederkehrender Umsatz · OZG = Onlinezugangsgesetz · DSGVO = Datenschutz-Grundverordnung · Score = Relevanz-Bewertung 1–5 aus Amtshelden Sponsoring-Liste 2026
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
