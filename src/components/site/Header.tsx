@@ -5,11 +5,11 @@
 
 import Link from "next/link";
 
+import { Logo } from "@/components/site/Logo";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Kategorien", href: "/kategorien" },
-  { label: "Tools", href: "/tools" },
   { label: "Wissen", href: "/wissen" },
   { label: "Über", href: "/ueber" },
 ];
@@ -26,25 +26,10 @@ export function Header({ className }: HeaderProps) {
         className,
       )}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-6 lg:px-10">
+      <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:px-10">
         {/* Brand */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5"
-          aria-label="Supertools Startseite"
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-white text-xs font-ui font-extrabold tracking-tight">
-            ST
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-ui text-sm font-bold tracking-tight text-dark">
-              Supertools
-            </span>
-            <span className="font-ui text-[10px] text-soft">
-              von Amtshelden
-            </span>
-          </span>
-        </Link>
+        <Logo height={40} priority />
+
 
         {/* Nav */}
         <nav className="hidden md:flex items-center gap-7">

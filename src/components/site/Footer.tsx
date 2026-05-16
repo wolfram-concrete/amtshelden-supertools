@@ -4,6 +4,8 @@
 
 import Link from "next/link";
 
+import { Logo } from "@/components/site/Logo";
+
 interface FooterColumn {
   title: string;
   links: { label: string; href: string }[];
@@ -14,23 +16,17 @@ const columns: FooterColumn[] = [
     title: "Entdecken",
     links: [
       { label: "Alle Kategorien", href: "/kategorien" },
-      { label: "Tool-Verzeichnis", href: "/tools" },
       { label: "Wissensbereich (Pulse)", href: "/wissen" },
     ],
   },
   {
     title: "Für Anbieter",
-    links: [
-      { label: "Anbieter werden", href: "/anbieter" },
-      { label: "Verified Listing", href: "/anbieter/verified" },
-      { label: "Mediadaten", href: "/anbieter/mediadaten" },
-    ],
+    links: [{ label: "Anbieter werden", href: "/anbieter" }],
   },
   {
     title: "Amtshelden",
     links: [
       { label: "Über uns", href: "/ueber" },
-      { label: "Redaktion", href: "/redaktion" },
       { label: "Kontakt", href: "/kontakt" },
     ],
   },
@@ -39,7 +35,6 @@ const columns: FooterColumn[] = [
     links: [
       { label: "Impressum", href: "/impressum" },
       { label: "Datenschutz", href: "/datenschutz" },
-      { label: "AGB", href: "/agb" },
     ],
   },
 ];
@@ -51,15 +46,8 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           {/* Brand-Spalte */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-white text-xs font-ui font-extrabold">
-                ST
-              </span>
-              <span className="font-ui text-base font-bold text-dark">
-                Supertools
-              </span>
-            </div>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-soft max-w-xs">
+            <Logo height={36} />
+            <p className="mt-5 font-sans text-sm leading-relaxed text-soft max-w-xs">
               Das Gedächtnis der digitalen Verwaltung Deutschlands.
               Handverlesen. Aus Behördenperspektive.
             </p>
