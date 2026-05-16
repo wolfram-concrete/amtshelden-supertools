@@ -61,8 +61,10 @@ export function MegaMenu() {
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "inline-flex items-center gap-1 font-ui text-[13px] font-medium transition-colors",
-          open ? "text-brand-dark" : "text-mid hover:text-dark",
+          "inline-flex items-center gap-1.5 rounded-full h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
+          open
+            ? "bg-cream text-dark"
+            : "text-mid hover:bg-cream hover:text-dark",
         )}
       >
         Kategorien

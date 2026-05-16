@@ -24,7 +24,7 @@ export function QuickGuideBlock({
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-bold leading-[1.0] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-bold leading-[1.08] tracking-tight text-dark">
             {title}
           </h2>
         </div>

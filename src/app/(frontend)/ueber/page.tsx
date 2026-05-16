@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
@@ -49,19 +50,33 @@ export default function UeberPage() {
       <section className="bg-cream/40 border-y border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-            <header className="lg:col-span-4 space-y-3 lg:sticky lg:top-24 lg:self-start">
+            <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Warum es Supertools gibt
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-bold leading-[1.02] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-bold leading-[1.05] tracking-tight text-dark">
                 Behörden haben kein Tool-Problem.<br />
                 <em className="not-italic font-medium text-brand-dark">
                   Sie haben ein Orientierungsproblem.
                 </em>
               </h2>
+              <figure className="space-y-2 pt-2">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-white border border-border">
+                  <Image
+                    src="/brand/amtshelden/perspektive.png"
+                    alt="Aus dem Amtshelden-Magazin: Behörden haben kein Content-Problem, sondern ein Perspektivproblem"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="font-ui text-[11px] italic text-soft">
+                  Aus dem Amtshelden-Magazin · „Behörden haben kein Content-Problem"
+                </figcaption>
+              </figure>
             </header>
 
-            <div className="lg:col-span-8 space-y-5 font-sans text-[17px] leading-[1.75] text-mid">
+            <div className="lg:col-span-7 space-y-5 font-sans text-[17px] leading-[1.75] text-mid">
               <p className="first-letter:font-serif first-letter:italic first-letter:font-bold first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
                 Die deutsche Verwaltung digitalisiert sich. Nicht so schnell, wie
                 Strategien es versprechen — aber spürbar, in vielen kleinen
@@ -196,7 +211,7 @@ export default function UeberPage() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-10">
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
               {[
                 {
                   label: "Amtshelden",
@@ -204,6 +219,8 @@ export default function UeberPage() {
                   body: 'Beratung, Webinare, KI-Führerschein, Amtfluencer-Programm, die Connected-Konferenz — alles zum Thema „Wie verändert sich Verwaltung von innen?".',
                   href: "https://www.amtshelden.de",
                   external: true,
+                  image: "/brand/amtshelden/kultur.png",
+                  imageAlt: "Amtshelden-Artikel zu Kultur in der Verwaltung",
                 },
                 {
                   label: "Supertools",
@@ -211,6 +228,8 @@ export default function UeberPage() {
                   body: "Kuratiertes Software-Magazin: welche Tools taugen tatsächlich für deutsche Verwaltungen, warum, für wen — und wer dahinter steht.",
                   href: "/",
                   external: false,
+                  image: null,
+                  imageAlt: null,
                 },
                 {
                   label: "Gemeinsamer Anspruch",
@@ -218,18 +237,33 @@ export default function UeberPage() {
                   body: "Wir nehmen Behörden ernst. Das heißt auch: wir sagen klar, was nicht funktioniert, statt jedes Angebot positiv zu rahmen.",
                   href: null,
                   external: false,
+                  image: "/brand/amtshelden/vertrauen.png",
+                  imageAlt: "Amtshelden-Artikel zu Vertrauen in der Verwaltung",
                 },
                 {
                   label: "Gemeinsame Community",
                   title: "12.000+ Verwaltungsprofis.",
                   body: "Newsletter, Podcast, Konferenz, Webinare — eine Community von Menschen, die digitale Verwaltung von innen heraus mitgestalten.",
-                  href: null,
-                  external: false,
+                  href: "https://www.amtshelden.de",
+                  external: true,
+                  image: "/brand/amtshelden/connected2026.png",
+                  imageAlt: "Amtshelden Connected-Konferenz 2026",
                 },
               ].map((entry, idx) => {
                 const inner = (
                   <>
-                    <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/70">
+                    {entry.image && (
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-white/10 mb-4">
+                        <Image
+                          src={entry.image}
+                          alt={entry.imageAlt || entry.label}
+                          fill
+                          sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
                       {entry.label}
                     </div>
                     <h3 className="font-serif text-[22px] font-bold leading-[1.15] mt-2">
@@ -240,8 +274,7 @@ export default function UeberPage() {
                     </p>
                   </>
                 );
-                const baseClass =
-                  "border-t border-white/30 pt-5 transition-opacity";
+                const baseClass = "block transition-opacity";
                 if (!entry.href) {
                   return (
                     <div key={idx} className={baseClass}>
@@ -394,7 +427,7 @@ export default function UeberPage() {
           <p className="font-sans text-[17px] leading-[1.7] text-mid">
             Wir freuen uns über Implementierungs­berichte, Themen­vorschläge,
             Korrekturen und ehrliche Kritik. Schreib uns — oder abonniere
-            den Pulse-Newsletter, dann verpasst du nichts.
+            den Newsletter, dann verpasst du nichts.
           </p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Link
@@ -407,7 +440,7 @@ export default function UeberPage() {
               href="/#newsletter"
               className="inline-flex items-center rounded-full border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
             >
-              Pulse abonnieren
+              Newsletter abonnieren
             </Link>
           </div>
         </div>

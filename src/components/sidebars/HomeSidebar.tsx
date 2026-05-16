@@ -135,9 +135,9 @@ function SidebarNewArrivals() {
 // ============================================================
 function SidebarNewsletterCompact() {
   return (
-    <div className="rounded-xl bg-dark text-white p-5 space-y-3">
-      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
-        Pulse abonnieren
+    <div className="rounded-xl bg-brand-dark text-white p-5 space-y-3">
+      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/85">
+        Newsletter
       </div>
       <h3 className="font-serif text-[18px] font-bold leading-[1.2]">
         1× pro Woche das Wichtigste.
@@ -147,7 +147,7 @@ function SidebarNewsletterCompact() {
       </p>
       <Link
         href="#newsletter"
-        className="block w-full text-center rounded-full bg-brand py-2.5 font-ui text-[12px] font-semibold text-white transition-colors hover:bg-brand-dark"
+        className="block w-full text-center rounded-full bg-white py-2.5 font-ui text-[12px] font-semibold text-brand-dark transition-colors hover:bg-cream"
       >
         Anmelden
       </Link>

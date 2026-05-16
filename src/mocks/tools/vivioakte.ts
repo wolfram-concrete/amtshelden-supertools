@@ -284,7 +284,7 @@ export const vivioakte: ToolProfile = {
       {
         icon: "⚖️",
         title: "OZG & E-Akte: Was Kommunen jetzt wissen müssen",
-        meta: "Supertools Pulse · März 2026",
+        meta: "Supertools Magazin · März 2026",
         href: "/wissen/ozg-e-akte",
       },
       {

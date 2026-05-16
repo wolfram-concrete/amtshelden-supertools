@@ -16,7 +16,7 @@ const columns: FooterColumn[] = [
     title: "Entdecken",
     links: [
       { label: "Alle Kategorien", href: "/kategorien" },
-      { label: "Wissensbereich (Pulse)", href: "/wissen" },
+      { label: "Wissen & Magazin", href: "/wissen" },
     ],
   },
   {

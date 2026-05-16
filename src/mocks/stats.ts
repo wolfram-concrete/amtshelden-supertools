@@ -21,8 +21,8 @@ export const trustStats: TrustStat[] = [
     hint: "Von E-Akte bis Personalmanagement.",
   },
   {
-    value: "5",
-    label: "Pulse-Beiträge",
+    value: "7",
+    label: "Magazin-Beiträge",
     hint: "Redaktionell, ohne PR-Phrasen.",
   },
   {

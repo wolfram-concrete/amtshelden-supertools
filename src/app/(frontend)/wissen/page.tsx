@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { articleSummaries } from "@/mocks/articles";
 
 export const metadata: Metadata = {
-  title: "Wissensbereich — Supertools Pulse",
+  title: "Wissen & Magazin — Supertools",
   description:
     "Redaktionelle Beiträge, Leitfäden und aktuelle Themen aus der digitalen Verwaltung. Handverlesen, geprüft, ohne PR-Phrasen.",
 };
@@ -22,7 +22,7 @@ export default function WissenIndexPage() {
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            Supertools Pulse
+            Wissen & Magazin
           </div>
           <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-bold leading-[1.05] tracking-tight text-dark">
             Was diese Woche zählt.

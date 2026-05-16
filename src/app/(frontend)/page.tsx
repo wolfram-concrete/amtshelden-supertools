@@ -141,7 +141,7 @@ export default function HomePage() {
 
       {/* ── PULSE-KURZ (3 Artikel quer als Magazin-Grid) ── */}
       <PulseGrid
-        eyebrow="Supertools Pulse"
+        eyebrow="Supertools Magazin"
         title="Kurze Reads."
         description="Wöchentliche Beobachtungen — kompakter als die Schwerpunkte."
         articles={pulseArticles}
@@ -183,7 +183,7 @@ export default function HomePage() {
       {/* ── NEWSLETTER ── */}
       <div id="newsletter">
         <NewsletterCta
-          eyebrow="Supertools Pulse"
+          eyebrow="Newsletter"
           title="Einmal pro Woche das Wichtigste aus der digitalen Verwaltung."
           description="Beschlüsse, Implementierungserfahrungen, neue Tools im Verzeichnis — kompakt aufbereitet. Für Menschen, die in der Behörde Entscheidungen treffen müssen."
         />

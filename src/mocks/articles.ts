@@ -145,7 +145,7 @@ export const articles: Article[] = [
   {
     slug: "ozg-e-akte",
     type: "pulse",
-    eyebrow: "Pulse · März 2026",
+    eyebrow: "Magazin · März 2026",
     title:
       "OZG & E-Akte: Was Kommunen jetzt wissen müssen — und was die Gerichte zuletzt entschieden haben",
     lead: "Das OZG ist abgelaufen, aber die Pflichten nicht. Wir fassen zusammen, was Verwaltungen jetzt rechtssicher umsetzen müssen — und welche aktuellen Urteile dabei eine Rolle spielen.",
@@ -370,7 +370,7 @@ export const articles: Article[] = [
   {
     slug: "warum-kein-ranking",
     type: "pulse",
-    eyebrow: "Pulse · Mai 2026",
+    eyebrow: "Magazin · Mai 2026",
     title:
       "Warum Supertools keine Rankings macht — und das richtig so ist",
     lead: "Capterra, G2, OMR Reviews: alle vergeben Sterne. Wir nicht. Wir erklären, warum Rankings für Behörden-Software nicht funktionieren — und was wir stattdessen tun.",

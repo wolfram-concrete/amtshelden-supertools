@@ -2,6 +2,87 @@
 
 ---
 
+## [0.10.0] — 2026-05-16
+
+### Polishing-Iteration: Typografie, Nav, Terminologie, Amtshelden-Bilder
+
+User-Feedback durchgepflegt: präzise Headline-Leadings, button-artige Navi mit
+Newsletter-Popover, „Pulse" überall verständlich umbenannt, Amtshelden-Cover-
+Bilder als visuelle Brücke auf `/ueber`.
+
+---
+
+### 🔤 Headline-Leadings präzisiert
+
+- `ArticleHeader` h1 (clamp 36-68px): `leading-[1.05]` → **`leading-[0.92]`**
+  + `tracking-[-0.015em]` — extra-tight Editorial für lange Article-Titles
+- `QuickGuideBlock` h2 (clamp 32-48px, „So prüfen wir Software"):
+  `leading-[1.0]` → **`leading-[1.08]`** — Cormorant-Descender (p, g) brauchen
+  Raum, sonst kollidieren sie mit Ascendern der Folgezeile
+- Editorial-Sektion auf `/ueber`: h2 leading von 1.02 → 1.05 (Descender-safe)
+
+---
+
+### 🎛️ Navi buttonartiger
+
+- Alle Nav-Items (Kategorien, Wissen, Über) jetzt als **Pills**:
+  `rounded-full h-9 px-3.5` mit `hover:bg-cream` für klare Klick-Affordanz
+- MegaMenu-Button: gleicher Pill-Style, im offenen Zustand `bg-cream text-dark`
+- Spacing zwischen Nav-Items von `gap-7` auf `gap-1.5` reduziert
+
+---
+
+### 📬 Newsletter-Popover-Widget im Header
+
+- Neue `NewsletterPopover` (Client) — kompaktes Pill-Button + Popover
+- Pill grün (`bg-brand`), Mail-Icon, klickt → öffnet 320px-Popover mit:
+  - Kompakte Headline „1× pro Woche das Wichtigste."
+  - E-Mail-Input mit Autofocus
+  - „Anmelden"-Button
+  - DSGVO-Hinweis
+- Submit-Stub mit Success-State (1.8s Erfolgsanzeige, dann Auto-Close)
+- Esc + Click-Outside schließen
+
+---
+
+### 🏷️ Terminologie: „Pulse" → „Magazin" / „Newsletter"
+
+Begriff „Pulse" war für Behörden­zielgruppe nicht verständlich.
+- Section-Eyebrows: „Supertools Pulse" → **„Supertools Magazin"** (Magazin-Section)
+  bzw. **„Newsletter"** (Newsletter-CTA)
+- Article-Eyebrows: „Pulse · März 2026" → **„Magazin · März 2026"**
+- Sidebar-Newsletter: „Pulse abonnieren" → **„Newsletter"**
+- Footer-Link: „Wissensbereich (Pulse)" → **„Wissen & Magazin"**
+- Wissensbereich-Title: „Supertools Pulse" → **„Wissen & Magazin"**
+- `/ueber`: „Pulse-Newsletter" → **„Newsletter"**
+- TrustStat-Label: „Pulse-Beiträge" → **„Magazin-Beiträge"** (Count 5 → 7)
+- Sidebar-Newsletter-CTA-Card jetzt `bg-brand-dark` mit weißem Submit-Button
+  statt nur `bg-dark`
+
+---
+
+### 🖼️ Amtshelden-Cover-Bilder auf `/ueber`
+
+4 Cover-Bilder von amtshelden.de lokal eingebunden (`public/brand/amtshelden/`):
+- `kultur.png` — Amtshelden-Card in grüner Verbindung-Sektion
+- `vertrauen.png` — „Gemeinsamer Anspruch"-Card
+- `perspektive.png` — Editorial-Drop-Cap-Sektion neben sticky-Heading
+  („Aus dem Amtshelden-Magazin · ‚Behörden haben kein Content-Problem'")
+- `connected2026.png` — Community-Card mit Connected-Konferenz
+
+Editorial-Sektion umstrukturiert von 4/8 auf 5/7-Grid, damit das
+Magazin-Cover-Bild im sticky-Heading-Bereich Raum bekommt.
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- Editorial-Linie geschärft, Terminologie behördennah, Magazin-Bilder eingebunden
+
+---
+
 ## [0.9.0] — 2026-05-16
 
 ### Über-uns-Seite: redaktionelle Verbindung Amtshelden ↔ Supertools
