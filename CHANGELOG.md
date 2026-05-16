@@ -2,6 +2,57 @@
 
 ---
 
+## [0.5.0] — 2026-05-16
+
+### Phase 2 — Tool-Profil-Seite (Port aus supertools_profil_beispiel.html)
+
+---
+
+### 🧱 Profil-Blöcke (alle 8 Zonen aus README Kap. 27)
+
+- `ProfilHero` (Zone 1) — Kategorie-Eyebrow, Headline, Lead, Byline mit
+  Verifiziert-Badge, Hero-Image mit Company-Overlay, Caption,
+  **Amtshelden-Urteil** (Pull-Quote-Style), frühe Stimmungs-Quote,
+  Body-Absätze mit Inline-`*italic*`/`**bold**`-Parser
+- `PassDasBlock` (Zone 2) — Fit-Tags + ehrliche „Nicht geeignet für"-Notiz
+  mit klickbaren Alternativ-Links inline
+- `ImplementierungBlock` (Zone 3) — 3-Tile-Grid (Dauer/Aufwand/Kosten) +
+  Lösungs-Cards mit grünem Streifen und „Gelöst"-Badges
+- `CasesPlaceholder` (Zone 4) — Coming-soon-Block bis Cases als Add-on
+  produziert werden
+- `KontaktBlock` (Zone 6) — Pill-Buttons mit Lucide-Icons (Globe/Mail/Phone)
+- `AlternativenBlock` (Zone 7) — 3 Alternative-Cards mit farbigen Marks
+- `ProfilCta` (Zone 8) — Dark Editorial-CTA mit primärem/sekundärem Button
+- `ProfilSidebar` — Sticky Compliance-Widgets (expandable `<details>`),
+  Quick-Facts, Sticky-CTA, „Warum dieses Tool?", Weiterführende Inhalte
+- `SectionHead` — Wiederkehrendes Heading mit schwarzem Top-Border,
+  grünem Eyebrow, Cormorant-Serif-Titel
+- `Breadcrumb` — Brotkrumen-Komponente für Profil + spätere Seiten
+
+---
+
+### 🗂️ Architektur
+
+- Dynamische Route `src/app/(frontend)/tools/[slug]/page.tsx`
+- `generateStaticParams()` für SSG (Mock-Tools werden vorgeneriert)
+- `generateMetadata()` mit OG-Tags je Tool
+- 1:1 Payload-kompatible Typen in `src/types/profile.ts`
+- Mock-Daten in `src/mocks/tools/vivioakte.ts` (VivioAkte, alle 8 Zonen)
+- `toolRegistry` als zentrales Mock-Map (wird in Phase 4 für Kategorie-Seiten genutzt)
+- `next.config.ts` — `images.unsplash.com` als `remotePatterns` whitelisted
+  (Platzhalter bis eigene KI-Bilder produziert sind, siehe README Kap. 28)
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — `/tools/vivioakte` als SSG-prerender
+- Live-Route: `/tools/vivioakte`
+- Bereit für Phase 3 (Startseite)
+
+---
+
 ## [0.4.0] — 2026-05-16
 
 ### Migration zu Next.js (App Router) + Tailwind v4
