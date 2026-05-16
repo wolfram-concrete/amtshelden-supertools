@@ -2,6 +2,88 @@
 
 ---
 
+## [0.8.0] — 2026-05-16
+
+### Editorial-Iteration: Magazin-Tiefe + Grüne Highlightflächen
+
+User-Feedback umgesetzt: Mehr redaktionelle Inhalte, engere Zeilenabstände,
+weniger generisches Card-Design, grüne Akzent­flächen statt schwarz.
+
+---
+
+### 📝 Mehr Editorial-Inhalt
+
+- **Zwei neue redaktionelle Schwerpunkt-Artikel**:
+  - `digitalisierung-bund-2030` — „Was der Bund jetzt von Kommunen erwartet"
+  - `kommunen-realer-stand` — „Drei Realitäten, die Strategien gerne ausblenden"
+- **`EditorialFeatureStory`** — Wapo-Stil Featured Article:
+  asymmetrisches 2-Spalter-Layout, großes Cover (sticky), Cormorant-Headline
+  clamp 36–60 px, **Drop-Cap** im Lead (first-letter floated, italic, 64 px),
+  Byline + „Beitrag lesen →"-Link
+- **`ThemenClusterBlock`** — 3 redaktionelle Schwerpunkte nebeneinander:
+  „Digitalisierung Deutschland", „Behörden im Wandel", „Methodik & Haltung"
+  — jeder mit Cover, Eyebrow, Cluster-Titel, Lead, 2-3 Artikel-Links
+
+---
+
+### 🟢 Grüne Highlight­flächen (statt schwarz)
+
+- `AboutBlock` Startseite: `bg-dark` → **`bg-brand-dark`** + leichte
+  Top-Gradient-Linie für Editorial-Raffinesse
+- `ProfilCta` Profilseite: `bg-dark` → **`bg-brand-dark`**, Primary-Button
+  als weiße Pille mit grünem Text (besserer Kontrast)
+- Text-Kontraste auf grün angepasst: weniger `white/70`, mehr `white/85`
+
+---
+
+### ✂️ Headline-Zeilenabstände eng
+
+- Alle Section-h2: `leading-[1.1]` → **`leading-[1.02]`**
+- ArticleCard lead-Variante: `leading-[1.15]` → **`leading-[1.05]`**
+- SectionHead: `leading-[1.1]` → **`leading-[1.02]`**
+- EditorialFeatureStory h2: **`leading-[0.98]`** (extra-tight)
+- ThemenClusterBlock: **`leading-[1.05]`** (cluster titles)
+
+---
+
+### 🎨 Weniger „Claude-Design"
+
+- **QuickGuideBlock** komplett neu: Newspaper-Spalten statt 2×2 Card-Grid.
+  4 Spalten mit vertikalen Trennlinien (`before:bg-border`), keine Cards,
+  Cormorant italic für „Schritt 01"-Indikator
+- **FaqBlock**: Plus-Icon entfernt, ersetzt durch
+  - italic Cormorant „01." `02.` … Nummerierung links
+  - typografischer Status rechts („Lesen" / „Geschlossen")
+  - readMore-Link als italic-Cormorant statt Pill
+- **Headers**: 2-Spalter-Layouts (Title links, Lead rechts-bündig) für
+  Magazin-Editorial-Feel
+
+---
+
+### 🏠 Startseite neu strukturiert
+
+Neue Reihenfolge:
+1. Hero + QuickFinder
+2. TrustStrip
+3. **EditorialFeatureStory** (Bund-Schwerpunkt prominent)
+4. **ThemenClusterBlock** (3 Schwerpunkte)
+5. Main + Sticky-Sidebar (QuickGuide, Featured Tool, FAQ)
+6. PulseGrid (jetzt nur Pulse-Type-Artikel, „Kurze Reads")
+7. CategoryMagazine
+8. AboutBlock (grün)
+9. NewsletterCta
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes (2 neue Artikel)
+- Startseite jetzt dichter mit Editorial-Inhalten, ohne CMS noch
+- Grüne Highlightflächen brechen die Monochrom-Linearität
+
+---
+
 ## [0.7.0] — 2026-05-16
 
 ### Startseite: Editorial-Magazin meets E-Com-Klarheit

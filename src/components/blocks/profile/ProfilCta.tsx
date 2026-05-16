@@ -23,22 +23,22 @@ export function ProfilCta({
     <section
       id={id}
       className={cn(
-        "mt-16 rounded-2xl bg-dark text-white px-8 py-12 lg:px-12 lg:py-16",
+        "mt-16 rounded-2xl bg-brand-dark text-white px-8 py-12 lg:px-12 lg:py-16 relative overflow-hidden",
         className,
       )}
     >
-      <div className="mb-8">
+      <div className="mb-8 relative">
         <Logo variant="inverse" height={28} link={false} />
       </div>
 
-      <div className="max-w-xl space-y-5">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+      <div className="max-w-xl space-y-5 relative">
+        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.1] tracking-tight whitespace-pre-line">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.02] tracking-tight whitespace-pre-line">
           {title}
         </h2>
-        <p className="font-sans text-[16px] leading-[1.7] text-white/70">
+        <p className="font-sans text-[16px] leading-[1.7] text-white/85">
           {subtitle}
         </p>
 
@@ -47,7 +47,7 @@ export function ProfilCta({
             href={primaryCta.url}
             target={primaryCta.newTab ? "_blank" : undefined}
             rel={primaryCta.newTab ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+            className="inline-flex items-center rounded-full bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
           >
             {primaryCta.text}
           </Link>
@@ -56,7 +56,7 @@ export function ProfilCta({
               href={secondaryCta.url}
               target={secondaryCta.newTab ? "_blank" : undefined}
               rel={secondaryCta.newTab ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center rounded-full border border-white/25 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-full border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
             >
               {secondaryCta.text}
             </Link>
@@ -64,7 +64,7 @@ export function ProfilCta({
         </div>
 
         {note && (
-          <p className="font-ui text-[11px] text-white/50 pt-4 whitespace-pre-line">
+          <p className="font-ui text-[11px] text-white/60 pt-4 whitespace-pre-line">
             {note}
           </p>
         )}

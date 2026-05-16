@@ -19,33 +19,40 @@ export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
         <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.1] tracking-tight text-dark">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.02] tracking-tight text-dark">
           {title}
         </h2>
       </header>
 
       <div className="divide-y divide-border border-y border-border">
         {items.map((item, idx) => (
-          <details key={idx} className="group py-5">
-            <summary className="flex cursor-pointer items-start justify-between gap-6 list-none [&::-webkit-details-marker]:hidden">
-              <h3 className="font-serif text-[19px] font-bold leading-[1.3] text-dark group-hover:text-brand-dark transition-colors">
+          <details key={idx} className="group py-6">
+            <summary className="flex cursor-pointer items-baseline gap-5 list-none [&::-webkit-details-marker]:hidden">
+              <span
+                aria-hidden
+                className="font-serif italic text-soft text-[16px] flex-shrink-0 group-hover:text-brand-dark transition-colors min-w-[32px]"
+              >
+                {String(idx + 1).padStart(2, "0")}.
+              </span>
+              <h3 className="font-serif text-[20px] font-bold leading-[1.25] text-dark group-hover:text-brand-dark transition-colors flex-1">
                 {item.question}
               </h3>
               <span
                 aria-hidden
-                className="flex-shrink-0 mt-1 flex h-7 w-7 items-center justify-center rounded-full border border-border text-mid transition-all group-open:bg-brand group-open:text-white group-open:border-brand group-open:rotate-45"
+                className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft group-open:text-brand transition-colors hidden sm:block"
               >
-                +
+                <span className="group-open:hidden">Lesen</span>
+                <span className="hidden group-open:inline">Geschlossen</span>
               </span>
             </summary>
-            <div className="mt-4 pr-12 space-y-3">
+            <div className="mt-4 ml-12 pr-6 space-y-3">
               <p className="font-sans text-[15px] leading-[1.7] text-mid">
                 {item.answer}
               </p>
               {item.readMoreSlug && (
                 <Link
                   href={`/wissen/${item.readMoreSlug}`}
-                  className="inline-flex items-center gap-1 font-ui text-[12px] font-semibold text-brand hover:underline"
+                  className="inline-flex items-center gap-1 font-serif italic text-[14px] font-medium text-brand-dark hover:underline"
                 >
                   Vertieft im Wissensbereich →
                 </Link>

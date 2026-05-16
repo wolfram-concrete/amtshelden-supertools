@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
+import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FaqBlock } from "@/components/blocks/home/FaqBlock";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
 import { HeroWithFinder } from "@/components/blocks/home/HeroWithFinder";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
+import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { TrustStrip } from "@/components/blocks/home/TrustStrip";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
-import { articleSummaries } from "@/mocks/articles";
+import { articleRegistry, articleSummaries } from "@/mocks/articles";
 import { categories } from "@/mocks/categories";
 import { behoerdenFaqs } from "@/mocks/faq";
 import { methodSteps, trustStats } from "@/mocks/stats";
@@ -19,12 +21,52 @@ import { toolCards } from "@/mocks/tools";
 export const metadata: Metadata = {
   title: "Software für die digitale Verwaltung — Amtshelden Supertools",
   description:
-    "Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Tool-Finder, Wissensartikel und Erfahrungsberichte für Verwaltungen.",
+    "Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Tool-Finder, redaktionelle Schwerpunkte zu Digitalisierung Deutschland, Kommunen, Vergabe.",
 };
 
 export default function HomePage() {
   const featuredTool = toolCards.find((t) => t.slug === "vivioakte")!;
-  const pulseArticles = articleSummaries.slice(0, 4);
+  const pulseArticles = articleSummaries
+    .filter((a) => a.type === "pulse")
+    .slice(0, 4);
+
+  // Featured Editorial Story — der Bund-Schwerpunkt prominent
+  const featuredStory =
+    articleSummaries.find((a) => a.slug === "digitalisierung-bund-2030") ||
+    articleSummaries[0];
+
+  // Themen-Cluster für die Schwerpunkte-Section
+  const themenCluster = [
+    {
+      eyebrow: "Digitalisierung Deutschland",
+      title: "Was der Bund vorgibt — und was kommunal funktioniert.",
+      lead: "Strategien, Förderprogramme, OZG-Folgenutzen. Wir ordnen ein, was auf der kommunalen Ebene wirklich greift.",
+      articles: [
+        articleRegistry["digitalisierung-bund-2030"],
+        articleRegistry["ozg-e-akte"],
+        articleRegistry["vergabe-software"],
+      ].filter(Boolean),
+    },
+    {
+      eyebrow: "Behörden im Wandel",
+      title: "Drei Realitäten, die jede Software-Strategie vergisst.",
+      lead: "Wir sprechen mit Bürgermeisterinnen, Hauptamtsleitern und Kämmerinnen — und dokumentieren, was im Tagesgeschäft tatsächlich entscheidet.",
+      articles: [
+        articleRegistry["kommunen-realer-stand"],
+        articleRegistry["doppik-stolpersteine"],
+        articleRegistry["e-akte-einfuehrung"],
+      ].filter(Boolean),
+    },
+    {
+      eyebrow: "Methodik & Haltung",
+      title: "Warum wir nicht ranken — und was wir stattdessen tun.",
+      lead: "Behörden-Software lässt sich nicht in Sternen messen. Wir erklären unsere redaktionellen Grundsätze und warum sie für Verwaltungen relevanter sind.",
+      articles: [
+        articleRegistry["warum-kein-ranking"],
+        articleRegistry["vergabe-software"],
+      ].filter(Boolean),
+    },
+  ];
 
   return (
     <>
@@ -52,20 +94,21 @@ export default function HomePage() {
       {/* ── Trust-Strip ── */}
       <TrustStrip stats={trustStats} />
 
-      {/* ── PULSE: aktuelle Artikel ── */}
-      <PulseGrid
-        eyebrow="Supertools Pulse"
-        title="Was diese Woche zählt"
-        description="Redaktionelle Beiträge aus der digitalen Verwaltung — kurz, präzise, ohne PR-Phrasen."
-        articles={pulseArticles}
+      {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}
+      <EditorialFeatureStory article={featuredStory} background="white" />
+
+      {/* ── THEMEN-SCHWERPUNKTE (3 Cluster) ── */}
+      <ThemenClusterBlock
+        sectionEyebrow="Redaktionelle Schwerpunkte"
+        sectionTitle="Was diese Woche zählt — in der Tiefe."
+        clusters={themenCluster}
       />
 
       {/* ── MAIN + STICKY SIDEBAR ── */}
       <section className="bg-cream/30">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
-            {/* Main */}
-            <div className="min-w-0 space-y-16">
+            <div className="min-w-0 space-y-20">
               <QuickGuideBlock
                 eyebrow="Methodik"
                 title="So prüfen wir Software."
@@ -91,13 +134,20 @@ export default function HomePage() {
               />
             </div>
 
-            {/* Sticky Sidebar */}
             <HomeSidebar />
           </div>
         </div>
       </section>
 
-      {/* ── KATEGORIEN-MAGAZIN (außerhalb Sidebar — voll Breite) ── */}
+      {/* ── PULSE-KURZ (3 Artikel quer als Magazin-Grid) ── */}
+      <PulseGrid
+        eyebrow="Supertools Pulse"
+        title="Kurze Reads."
+        description="Wöchentliche Beobachtungen — kompakter als die Schwerpunkte."
+        articles={pulseArticles}
+      />
+
+      {/* ── KATEGORIEN-MAGAZIN ── */}
       <CategoryMagazine
         eyebrow="Verzeichnis"
         title="Sechs Kategorien. Volle Tiefe."
@@ -105,7 +155,7 @@ export default function HomePage() {
         categories={categories}
       />
 
-      {/* ── ABOUT (Dark, 4 Prinzipien) ── */}
+      {/* ── ABOUT (Grün, 4 Prinzipien) ── */}
       <AboutBlock
         eyebrow="Über Supertools"
         title="Wir vergleichen nicht. Wir ordnen ein."

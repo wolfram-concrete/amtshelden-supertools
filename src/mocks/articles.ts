@@ -271,6 +271,103 @@ export const articles: Article[] = [
   },
 
   {
+    slug: "digitalisierung-bund-2030",
+    type: "wissen",
+    eyebrow: "Schwerpunkt · Digitalisierung Deutschland",
+    title:
+      "Digitalisierungs-Strategie 2030: Was der Bund jetzt von Kommunen erwartet — und was nicht funktioniert",
+    lead: "Mit der Digitalstrategie 2030 hat der Bund klare Erwartungen formuliert. Auf der kommunalen Ebene wirken sie oft realitätsfern. Wir analysieren, was umsetzbar ist — und welche Anforderungen vom Bund nochmal nachgeschärft werden müssten.",
+    readingTime: 8,
+    publishedAt: "2026-04-30",
+    cover: {
+      url: "https://images.unsplash.com/photo-1541872703-74c5e44368f1?w=1600&h=900&fit=crop&q=85",
+      alt: "Bundestag in Berlin",
+      width: 1600,
+      height: 900,
+    },
+    author: authors.schmid,
+    tags: ["Bund", "Strategie", "OZG", "Kommunen"],
+    body: [
+      {
+        kind: "paragraph",
+        text: "Die Digitalstrategie 2030 nennt 18 Hebelprojekte. Bei genauerem Hinsehen sind acht davon ohne kommunale Beteiligung nicht umsetzbar — und drei davon laufen ohne aktive Mitwirkung der Verwaltungen sehenden Auges in eine Wand.",
+      },
+      {
+        kind: "heading",
+        text: "Was funktioniert: Once-Only und FIM",
+      },
+      {
+        kind: "paragraph",
+        text: "Das Once-Only-Prinzip kommt langsam in der Fläche an. Erste Erfolge sehen wir bei der Wohnsitz-Anmeldung und der elektronischen Aufenthaltsbescheinigung. Voraussetzung: saubere FIM-Standardisierung — und genau hier liegt aktuell der größte Hebel.",
+      },
+      {
+        kind: "heading",
+        text: "Was nicht funktioniert: zentrale Plattformansätze",
+      },
+      {
+        kind: "paragraph",
+        text: "Die Idee, einzelne Bundes-Plattformen für ganze Themenfelder zu schaffen, hat sich in der Praxis als deutlich schwerer erwiesen als geplant. Heterogene Verfahrenslandschaften, unterschiedliche Reifegrade und vor allem die kommunale Selbstverwaltung machen Top-Down-Lösungen ineffizient.",
+      },
+      {
+        kind: "callout",
+        calloutVariant: "highlight",
+        text: "Realistisch ist eine föderierte Architektur: Bund liefert Schemata und Schnittstellen, Länder und Kommunen wählen Lösungen, die zu ihren Strukturen passen.",
+      },
+    ],
+    related: ["ozg-e-akte", "warum-kein-ranking"],
+  },
+
+  {
+    slug: "kommunen-realer-stand",
+    type: "wissen",
+    eyebrow: "Schwerpunkt · Kommunen",
+    title:
+      "Wo Kommunen 2026 wirklich stehen — drei Realitäten, die Strategien gerne ausblenden",
+    lead: "Eine ehrliche Bestandsaufnahme: nicht alle Kommunen können gleichermaßen digital. Wir haben mit Bürgermeisterinnen, Hauptamtsleitern und Kämmerern in 22 Verwaltungen gesprochen — und drei wiederkehrende Realitäten dokumentiert.",
+    readingTime: 7,
+    publishedAt: "2026-04-12",
+    cover: {
+      url: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=1600&h=900&fit=crop&q=85",
+      alt: "Kommunalverwaltung in einer mittelhessischen Stadt",
+      width: 1600,
+      height: 900,
+    },
+    author: authors.beck,
+    tags: ["Kommunen", "Realität", "Behörden", "Stand"],
+    body: [
+      {
+        kind: "paragraph",
+        text: "Wer Software-Strategien für die kommunale Ebene plant, sollte zuerst die Ausgangslage realistisch beschreiben. Wir haben das getan — und drei Realitäten herauskristallisiert, die in keiner Strategie auftauchen, aber jeden Implementierungserfolg bestimmen.",
+      },
+      {
+        kind: "heading",
+        text: "Realität 1: Personalmangel ist Software-Mangel",
+      },
+      {
+        kind: "paragraph",
+        text: "Wer keine IT-Stelle besetzen kann, hat keine Software-Strategie. So einfach. Knapp ein Drittel der von uns befragten Kommunen unter 10.000 Einwohnern hat aktuell keine besetzte IT-Stelle. Externe Dienstleister füllen die Lücke — aber nicht für strategische Entscheidungen.",
+      },
+      {
+        kind: "heading",
+        text: "Realität 2: Förderprogramme passen oft nicht zur Praxis",
+      },
+      {
+        kind: "paragraph",
+        text: 'Förderprogramme verlangen Co-Finanzierung, Eigenanteile und vorgegebene Berichtsformate. Für kleine Kommunen ist der administrative Aufwand oft höher als der Nutzen. Mehrere Bürgermeisterinnen sagten uns: „Wir verzichten lieber auf 50.000 Euro Förderung als auf 200 Stunden Verwaltungsarbeit."',
+      },
+      {
+        kind: "heading",
+        text: "Realität 3: Kollektive Lösungen scheitern an unterschiedlichen Reifegraden",
+      },
+      {
+        kind: "paragraph",
+        text: "Inter-kommunale Kooperationen sind gut gemeint, aber selten gut gemacht. Wenn eine Kommune bereits ein Fachverfahren etabliert hat und die Partner-Kommunen noch nicht, entstehen unauflösbare Migrations-Konflikte.",
+      },
+    ],
+    related: ["digitalisierung-bund-2030", "doppik-stolpersteine"],
+  },
+
+  {
     slug: "warum-kein-ranking",
     type: "pulse",
     eyebrow: "Pulse · Mai 2026",
