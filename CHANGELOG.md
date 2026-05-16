@@ -2,6 +2,81 @@
 
 ---
 
+## [0.11.0] — 2026-05-16
+
+### Kategorie-Seiten: Liste → Alphabetisches Grid (gleichberechtigt, kein Ranking)
+
+Tools wurden bisher als vertikale Liste angezeigt — das suggeriert eine
+Reihenfolge, die wir nicht haben. Neue Darstellung: 3-Spalten-Tile-Grid
+mit alphabetischen Buchstaben-Ankern. Skaliert auf 200+ Tools, neutral,
+super-einfache UX.
+
+---
+
+### 📊 Mehr Mock-Tools für E-Akte (4 → 16)
+
+12 neue fiktive GovTech-Anbieter mit plausiblen deutschen Namen, gestreut
+über Tier (basis/verified/partner), Betriebsmodell (Cloud/OnPremise/Hybrid),
+Größe und Compliance-Profil:
+
+- Aktima (Leipzig) · ARGE eDok (Wiesbaden) · BiebriDocs (Bremen)
+- Datacite Verwaltung (Köln) · Envent Dokumente (Hannover)
+- GreenAkte (Freiburg) · Heimat Dokumente (Erfurt) · iAkte Verwaltung (Stuttgart)
+- Komakt DMS (Dresden) · Linus Akten (Bonn) · PaperLite (Karlsruhe)
+- Register Pro (Berlin)
+
+Bestand: DoxBox, Fabasoft, NordKom, VivioAkte (insgesamt 16 E-Akte-Tools).
+
+---
+
+### 🧱 Neue `tile`-Variante in `ToolCard`
+
+Kompakte Card für 3-Spalten-Grids:
+- 40×40 px Mark + Name + provider
+- `line-clamp-3` Pitch für einheitliche Höhe
+- Quick-Facts in einer Zeile (Preis · Betrieb)
+- Kompakte Compliance-Pills (DSGVO / Server DE / BSI / Vergabe)
+- Verified-Badge als ✓-Pill, kein Größen-Vorteil → alle Tools optisch
+  gleichgewichtet
+
+Bestehende Varianten `list` und `feature` bleiben für Sidebar/Featured-Block.
+
+---
+
+### 🗂️ ToolFilters komplett umgebaut
+
+**Vorher:** Filter links, vertikale Liste rechts → implizites Ranking durch
+Position, lange Liste bei vielen Tools unbedienbar.
+
+**Jetzt:**
+- Suche oben (E-Mail/Name/Pitch durchsucht, Clear-Button)
+- 3-Spalten-Grid auf Desktop (`xl:grid-cols-3`), 2 auf Tablet, 1 auf Mobile
+- **Alphabetisch sortiert** mit `localeCompare("de")` (Umlaut-safe)
+- **Buchstaben-Anker** als Editorial-Sektion-Header: große Cormorant „A",
+  „B", „C" mit Trennlinie — visuell ruhig, klar dass es keine Wertung ist
+- Filter-Sidebar bleibt unverändert (Betrieb / Tier / Compliance)
+- Counter-Zeile mit „X Tools · alphabetisch"
+- Reset-Button setzt jetzt auch die Suche zurück
+
+---
+
+### 🎯 UX-Prinzip
+
+Bewusst SIMPEL gehalten — keine Sub-Cluster-Pills, kein A-Z-Sticky-Jump,
+keine Sortier-Optionen. Behörden-Zielgruppe soll nichts lernen müssen:
+Filter (links) + Suche (oben) + Grid (alphabetisch) ist alles. Diese drei
+Elemente kennt jeder von Booking/Amazon/jeder Verzeichnis-Site.
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- Live-URL für Test: `/kategorien/e-akte-dokumentenmanagement`
+
+---
+
 ## [0.10.0] — 2026-05-16
 
 ### Polishing-Iteration: Typografie, Nav, Terminologie, Amtshelden-Bilder

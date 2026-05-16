@@ -14,7 +14,7 @@ export const categories: CategoryDefinition[] = [
     intro:
       "Die elektronische Akte ist Kernstück der Verwaltungsdigitalisierung. Wir kuratieren Lösungen, die ohne IT-Abteilung einführbar sind — und solche, die für komplexe Querschnittsbedarfe ausgelegt sind. Der Unterschied ist groß; wir machen ihn transparent.",
     topics: ["E-Akte", "DMS", "Posteingang", "Workflow", "Aufbewahrung"],
-    toolCount: 14,
+    toolCount: 16,
     icon: "🗂️",
     accentColor: "#009460",
   },
