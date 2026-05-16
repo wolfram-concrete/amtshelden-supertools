@@ -2,6 +2,74 @@
 
 ---
 
+## [0.4.0] — 2026-05-16
+
+### Migration zu Next.js (App Router) + Tailwind v4
+
+---
+
+### 🏗️ Architektur-Umstellung
+
+- **Next.js 16.2.6** (App Router + Turbopack) + **React 19.2.4** + **TypeScript 5**
+- **Tailwind v4** mit `@theme`-Tokens direkt in `globals.css`
+- Skill-konforme Route Group: `src/app/(frontend)/` für alle öffentlichen Seiten
+- Statische HTMLs (`supertools_v4.html`, Profil-Beispiel, Infografik, Monetarisierungsplan)
+  und Gotham Webfonts in `/legacy/` archiviert — bleiben als Referenz erhalten
+- `payload-nextjs-agent` Skill-Regeln als verbindlicher Style-Guide (`.codex-context/`)
+
+---
+
+### 🎨 Design-System (auf Basis supertools_profil_beispiel.html)
+
+- **Editorial Fonts via `next/font/google`** (kein CDN-Link mehr):
+  - Cormorant Garamond — Serif Headlines (600, 700, italic)
+  - IBM Plex Sans — Body / Copy (300–600, italic)
+  - Inter Tight — UI / Labels / Navigation (300–700)
+- Brand-Tokens als CSS-Variablen unter `@theme`:
+  - `--color-brand` `#009460` · `--color-brand-dark` `#006b45` · `--color-brand-light` `#EAF3DE`
+  - `--color-cream` · `--color-dark/mid/soft` · `--color-border`
+  - Tier-Abstufungen (free / verified / partner / addon)
+  - Semantische Hintergründe (blue-light, amber-light, purple-light)
+
+---
+
+### 🧱 Komponenten-Grundgerüst
+
+- `src/components/ui/button.tsx` — shadcn-Style mit cva, Pill-Form, Variants (default/outline/ghost/link)
+- `src/components/ui/badge.tsx` — Editorial Tag/Pill mit Variants (default/verified/outline/soft/eyebrow)
+- `src/components/site/Header.tsx` — Sticky Editorial-Nav mit ST-Marker
+- `src/components/site/Footer.tsx` — 4 Säulen + Brand-Block + Bottom-Leiste
+- `src/components/BlockRenderer.tsx` — Block-Registry mit Dev-Warnings für unbekannte Types
+- `src/types/blocks.ts` — Payload-kompatible Interfaces (PayloadImage, PayloadLink, ToolCategory,
+  Contact, Testimonial, ProfileHighlights, ProfileTier, PageType) — **ohne** Payload-Import
+- `src/lib/utils.ts` — `cn()`, `slugify()`, `formatDateDE()`
+
+---
+
+### 🚀 Deployment-Wechsel
+
+- **Wechsel von Netlify zu Vercel** geplant — Vercel auto-detected Next.js,
+  keine Config-Datei nötig
+- `netlify.toml` entfernt
+
+---
+
+### 📦 Dependencies
+
+- `@radix-ui/react-slot` für `asChild`-Pattern
+- `class-variance-authority` + `clsx` + `tailwind-merge` für utility-Komposition
+- `lucide-react` für Icon-Bibliothek
+
+---
+
+### ✅ Status
+
+- TypeScript: clean (`npm run typecheck`)
+- Build: clean (`npm run build`) — `/` als static prerender
+- Phase 1 abgeschlossen — bereit für Phase 2 (Profil-Seite-Port)
+
+---
+
 ## [0.2.0] — 2026-05-15
 
 ### Website-Konzeption & Tool-Profil Anatomie
