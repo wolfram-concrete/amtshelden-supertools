@@ -1,0 +1,84 @@
+/**
+ * Mock-Kategorien — 6 redaktionell beschriebene Kategorien.
+ * Slugs entsprechen den URLs unter /kategorien/[slug].
+ */
+
+import type { CategoryDefinition } from "@/types/content";
+
+export const categories: CategoryDefinition[] = [
+  {
+    slug: "e-akte-dokumentenmanagement",
+    name: "E-Akte & Dokumentenmanagement",
+    tagline:
+      "Software für digitale Aktenführung, Posteingang, Aufbewahrung und Vorgangsbearbeitung.",
+    intro:
+      "Die elektronische Akte ist Kernstück der Verwaltungsdigitalisierung. Wir kuratieren Lösungen, die ohne IT-Abteilung einführbar sind — und solche, die für komplexe Querschnittsbedarfe ausgelegt sind. Der Unterschied ist groß; wir machen ihn transparent.",
+    topics: ["E-Akte", "DMS", "Posteingang", "Workflow", "Aufbewahrung"],
+    toolCount: 14,
+    icon: "🗂️",
+    accentColor: "#009460",
+  },
+  {
+    slug: "buergerservice-fachverfahren",
+    name: "Bürgerservice & Fachverfahren",
+    tagline:
+      "Online-Anträge, OZG-Leistungen, Terminvergabe, Self-Service-Portale für Bürger:innen.",
+    intro:
+      "OZG-Konformität wird oft als technische Frage missverstanden. In Wahrheit ist sie eine Frage der Prozessqualität. Wir zeigen Lösungen, die Bürger:innen wirklich nutzen — und nicht nur ein Häkchen auf der Checkliste setzen.",
+    topics: ["OZG", "Anträge", "Termine", "Portale"],
+    toolCount: 22,
+    icon: "🏛",
+    accentColor: "#2563EB",
+  },
+  {
+    slug: "finanzen-haushalt",
+    name: "Finanzen & Haushalt",
+    tagline:
+      "Doppik-Software, Haushaltsplanung, Zahlungsverkehr, Steuerveranlagung.",
+    intro:
+      "Die Doppik hat den kommunalen Finanzbereich umgekrempelt. Wir vergleichen Lösungen, die kleine Kämmereien meistern — und solche, die für Großstädte mit komplexen Konzernstrukturen ausgelegt sind.",
+    topics: ["Doppik", "Haushalt", "Steuer", "Zahlungsverkehr"],
+    toolCount: 9,
+    icon: "💶",
+    accentColor: "#7C3AED",
+  },
+  {
+    slug: "personal-organisation",
+    name: "Personal & Organisation",
+    tagline:
+      "Dienstplanung, Abwesenheiten, Personalakte, Onboarding für Verwaltungen.",
+    intro:
+      'Personalmanagement-Software für Behörden ist kein „HR-Tool" — sie muss tarifrechtliche Spezifika abbilden, Mitbestimmungsrechte respektieren und mit Altsystemen sprechen. Hier liegen die Stolperfallen.',
+    topics: ["Personal", "Dienstplan", "Abwesenheit", "Tarif"],
+    toolCount: 7,
+    icon: "👥",
+    accentColor: "#DC2626",
+  },
+  {
+    slug: "geo-bauen-umwelt",
+    name: "Geo, Bauen & Umwelt",
+    tagline:
+      "GIS, Bauantragsverfahren, Liegenschaftskataster, Umweltdaten-Management.",
+    intro:
+      "Geodaten sind die Grundlage fast jeder kommunalen Entscheidung. Wir betrachten Lösungen, die das XPlanung-Schema sauber implementieren — und solche, die einen integrierten Bauantragsworkflow mitbringen.",
+    topics: ["GIS", "Bauantrag", "Kataster", "Umweltdaten"],
+    toolCount: 11,
+    icon: "🗺️",
+    accentColor: "#059669",
+  },
+  {
+    slug: "kommunikation-zusammenarbeit",
+    name: "Kommunikation & Zusammenarbeit",
+    tagline:
+      "Videokonferenzen, Chat, kollaborative Dokumente — alles DSGVO-konform und vergabefähig.",
+    intro:
+      "Microsoft Teams und Zoom dominieren den Markt — doch viele Behörden brauchen Alternativen, die ihre Vergabeanforderungen erfüllen. Wir zeigen, was tatsächlich für die öffentliche Verwaltung tauglich ist.",
+    topics: ["Video", "Chat", "Office", "Collab"],
+    toolCount: 8,
+    icon: "💬",
+    accentColor: "#EA580C",
+  },
+];
+
+export const categoryRegistry: Record<string, CategoryDefinition> =
+  Object.fromEntries(categories.map((c) => [c.slug, c]));

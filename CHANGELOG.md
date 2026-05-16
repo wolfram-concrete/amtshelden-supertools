@@ -2,6 +2,91 @@
 
 ---
 
+## [0.6.0] — 2026-05-16
+
+### Phase 3+4+5 — Startseite, Kategorien, Wissensbereich
+
+---
+
+### 🏠 Startseite (Editorial-Frontpage)
+
+- `EditorialHero` — typografisch ruhiger Magazin-Hero mit Eyebrow, Cormorant-Headline,
+  Lead, Primary/Secondary-CTA, Meta-Zeile
+- `PulseGrid` — Lead-Artikel (2-Spalten-Layout mit großem Cover) + 3-Spalten-Grid
+  für Folge-Artikel, beide via `ArticleCard`
+- `CategoryMagazine` — 6 Kategorien als CategoryCards in 3-Spalten-Grid
+  (cream-Hintergrund-Sektion)
+- `FeaturedToolBlock` — "Tool im Fokus" Spotlight mit redaktioneller Begründung
+  links (sticky) und ToolCard rechts (feature-Variante)
+- `AboutBlock` — Dark-Sektion mit 4 Prinzipien (Handverlesen · Behördenperspektive ·
+  Kein Ranking · Verantwortungsabnahme)
+- `NewsletterCta` — Client Component mit Form-State + Success-Feedback
+
+---
+
+### 🗂️ Kategorien (`/kategorien` + `/kategorien/[slug]`)
+
+- **Index-Seite:** Alle 6 Kategorien in CategoryCard-Grid mit redaktioneller Einleitung
+- **Detail-Seite:**
+  - `KategorieHero` mit Icon, Titel, Tagline, Topics-Tags, italic-Intro-Quote
+  - `ToolFilters` (Client Component) — Filter-Sidebar mit Checkboxen für
+    Betrieb (Cloud/OnPremise/Hybrid), Profil-Stufe, Compliance (DSGVO/Server-DE/BSI/UVgO)
+  - Live-gefilterte Tool-Liste mit Counter + Reset-Button
+  - Verwandte Wissensartikel (auto-matched via Tags ↔ Topics)
+
+---
+
+### 📖 Wissensbereich (`/wissen` + `/wissen/[slug]`)
+
+- **Index-Seite:** Lead-Artikel + Magazine-Grid aller 5 Pulse-Beiträge
+- **Detail-Seite:**
+  - `ArticleHeader` — Eyebrow, Headline, Lead, Author-Byline, Hero-Image
+  - `ArticleBody` — Renderer für 8 Block-Kinds: heading, subheading, paragraph,
+    quote (mit Pull-Quote-Style), list (mit grünen Bullet-Dashes),
+    image, divider, callout (info/warning/highlight)
+  - `AuthorBio` — Bio-Block am Ende mit Avatar + Bio-Text
+  - Related Articles als 3-Spalten-Grid
+
+---
+
+### 🧱 Shared Components
+
+- `ToolCard` — list/feature-Varianten mit Mark, Verified-Badge, Pitch,
+  3 Quick-Facts (Preis/Einführung/Betrieb), Compliance-Pills
+- `ArticleCard` — lead/list/compact-Varianten für Magazin-Layouts
+- `CategoryCard` — Icon + Titel + Tagline + Tool-Count + Topics
+
+---
+
+### 📦 Mock-Daten
+
+- `src/mocks/categories.ts` — 6 redaktionell beschriebene Kategorien
+- `src/mocks/tools/index.ts` — 8 Tool-Cards (für Listen) + `toolCardsByCategory`-Lookup
+- `src/mocks/articles.ts` — 5 Pulse-Artikel mit Long-Form-Body + 3 Author-Profilen
+
+---
+
+### 🛣️ Routing
+
+- 18 Routes total, alle als static prerender:
+  - `/` (Startseite)
+  - `/kategorien` + `/kategorien/[slug]` (6 SSG)
+  - `/wissen` + `/wissen/[slug]` (5 SSG)
+  - `/tools/[slug]` (1 SSG, aus Phase 2)
+- Alle dynamic Routes mit `generateStaticParams` + `generateMetadata`
+- Breadcrumb durchgängig auf allen Detail-Seiten
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 18 routes, alle static
+- 4 Seitentypen aus README Kap. 26 vollständig umgesetzt
+- Bereit für Phase 6 (Payload-Anbindung via `payload-react-agent`)
+
+---
+
 ## [0.5.0] — 2026-05-16
 
 ### Phase 2 — Tool-Profil-Seite (Port aus supertools_profil_beispiel.html)

@@ -1,67 +1,101 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { AboutBlock } from "@/components/blocks/home/AboutBlock";
+import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
+import { EditorialHero } from "@/components/blocks/home/EditorialHero";
+import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
+import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
+import { PulseGrid } from "@/components/blocks/home/PulseGrid";
+import { articleSummaries } from "@/mocks/articles";
+import { categories } from "@/mocks/categories";
+import { toolCards } from "@/mocks/tools";
 
 export const metadata: Metadata = {
-  title: "Software für die digitale Verwaltung — Supertools",
+  title: "Software für die digitale Verwaltung — Amtshelden Supertools",
   description:
     "Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Das Gedächtnis der digitalen Verwaltung Deutschlands.",
 };
 
-/**
- * Startseite — Editorial-Frontpage (PLATZHALTER für Phase 2).
- * Die echten Blocks (Hero, Editorial-Intro, Magazin-Grid, etc.) kommen
- * als nächstes — siehe TODO-Liste.
- */
 export default function HomePage() {
+  const featuredTool = toolCards.find((t) => t.slug === "vivioakte")!;
+  const featuredArticles = articleSummaries.slice(0, 4);
+
   return (
-    <div className="container mx-auto px-6 lg:px-10 py-24 lg:py-32">
-      {/* Provisorische Hero-Sektion */}
-      <div className="max-w-3xl">
-        <Badge variant="eyebrow" size="default" className="mb-6">
-          Beta · Mai 2026 · Setup abgeschlossen
-        </Badge>
+    <>
+      <EditorialHero
+        eyebrow="Beta · Mai 2026"
+        title={
+          <>
+            Das Gedächtnis der digitalen{" "}
+            <em className="not-italic font-medium text-brand-dark">
+              Verwaltung
+            </em>
+            .
+          </>
+        }
+        lead="Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Hier wurde für Menschen gedacht, die Verantwortung tragen — mit ihren Ängsten, ihrem Kontext, ihren Anforderungen."
+        primaryCta={{ label: "Kategorien entdecken", href: "/kategorien" }}
+        secondaryCta={{
+          label: "Pulse: aktuelle Beiträge",
+          href: "/wissen",
+        }}
+        meta={`${toolCards.length}+ Tools redaktionell geprüft · ${articleSummaries.length} Beiträge im Wissensbereich`}
+      />
 
-        <h1 className="font-serif text-[clamp(40px,6vw,72px)] font-bold leading-[1.05] tracking-tight text-dark">
-          Das Gedächtnis der digitalen{" "}
-          <span className="italic text-brand-dark">Verwaltung</span>.
-        </h1>
+      <PulseGrid
+        eyebrow="Supertools Pulse"
+        title="Was diese Woche zählt"
+        description="Redaktionelle Beiträge aus der digitalen Verwaltung — kurz, präzise, ohne PR-Phrasen."
+        articles={featuredArticles}
+      />
 
-        <p className="mt-8 font-sans text-lg leading-relaxed text-mid max-w-2xl">
-          Handverlesene Software für Behörden. Kuratiert, ehrlich, aus
-          Behördenperspektive eingeordnet. Hier wurde für Menschen wie dich
-          gedacht — mit deinen Ängsten, deiner Verantwortung, deinem Kontext.
-        </p>
+      <CategoryMagazine
+        eyebrow="Verzeichnis"
+        title="Sechs Kategorien. Volle Tiefe."
+        description="Jede Kategorie wird redaktionell betreut — mit Einordnung aus Behördenperspektive, ehrlichen Empfehlungen und Alternativen."
+        categories={categories}
+      />
 
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Button asChild>
-            <Link href="/kategorien">Kategorien entdecken</Link>
-          </Button>
-          <Button asChild variant="outline">
-            <Link href="/wissen">Zum Wissensbereich</Link>
-          </Button>
-        </div>
-      </div>
+      <FeaturedToolBlock
+        eyebrow="Tool im Fokus"
+        title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
+        description="Wir prüfen Tool-Profile nicht, weil wir sie verkaufen wollen. Wir prüfen sie, weil andere Behörden darauf eine Entscheidung gründen werden. Bei VivioAkte hat uns überzeugt, wie ehrlich der Anbieter über die Grenzen des eigenen Systems spricht."
+        tool={featuredTool}
+        rationale={{
+          title: "Amtshelden-Urteil",
+          body: "Für Kommunen bis 50.000 Einwohner, die erstmals digitalisieren — ohne sich dabei zu verlieren.",
+        }}
+      />
 
-      {/* Status-Hinweis (nur während Aufbau) */}
-      <div className="mt-24 border-t border-border pt-12 max-w-3xl">
-        <h2 className="font-serif text-2xl font-bold text-dark">
-          Status — Phase 1 ✓
-        </h2>
-        <p className="mt-3 font-sans text-sm text-soft">
-          Next.js + Tailwind v4 + Editorial Design-System gesetzt.
-          Cormorant Garamond · IBM Plex Sans · Inter Tight via{" "}
-          <code className="font-ui text-xs">next/font</code>.
-          BlockRenderer + Types vorbereitet. Header/Footer fertig.
-        </p>
-        <p className="mt-4 font-sans text-sm text-mid">
-          <strong>Als nächstes:</strong> Profil-Seite (Port von{" "}
-          <code className="font-ui text-xs">supertools_profil_beispiel.html</code>),
-          Kategorie-Layout, Wissensartikel-Layout.
-        </p>
-      </div>
-    </div>
+      <AboutBlock
+        eyebrow="Über Supertools"
+        title="Wir vergleichen nicht. Wir ordnen ein."
+        lead="Capterra hat Sterne. OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Sie passt zu Strukturen, zu Menschen, zu Anforderungen. Oder eben nicht. Wir machen den Unterschied transparent."
+        principles={[
+          {
+            title: "Handverlesen statt vollständig",
+            body: "Wir nehmen lieber weniger Tools auf und prüfen sie tiefer. Lieber 300 ernst gemeinte Profile als 3.000 oberflächliche.",
+          },
+          {
+            title: "Aus Behördenperspektive",
+            body: "Unsere Einschätzungen kommen aus der Perspektive der Verwaltung — nicht vom Anbieter. Wenn etwas nicht passt, schreiben wir es.",
+          },
+          {
+            title: "Kein Ranking",
+            body: 'Kein „bestes Tool"-Score, keine Sterne. Stattdessen redaktionelle Einordnung — was funktioniert für wen, und unter welchen Umständen.',
+          },
+          {
+            title: "Verantwortungsabnahme",
+            body: "Wer Software einführt, trägt Verantwortung. Wir liefern die Tiefe, die diese Verantwortung handhabbar macht.",
+          },
+        ]}
+      />
+
+      <NewsletterCta
+        eyebrow="Supertools Pulse"
+        title="Einmal pro Woche das Wichtigste aus der digitalen Verwaltung."
+        description="Beschlüsse, Implementierungserfahrungen, neue Tools im Verzeichnis — kompakt aufbereitet. Für Menschen, die in der Behörde Entscheidungen treffen müssen."
+      />
+    </>
   );
 }
