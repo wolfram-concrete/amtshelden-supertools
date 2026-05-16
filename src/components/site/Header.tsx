@@ -1,15 +1,18 @@
 /**
  * Header / Top-Nav für alle Frontend-Seiten.
- * Editorial-Stil: schmal, ruhig, mit Amtshelden-Marker links.
+ * Editorial-Magazin meets E-Com-Klarheit:
+ *  - Kategorien als Mega-Menu (sofort sichtbar, kein Suchen)
+ *  - Wissen + Über als Standard-Links
+ *  - Anbieter-CTA rechts
  */
 
 import Link from "next/link";
 
 import { Logo } from "@/components/site/Logo";
+import { MegaMenu } from "@/components/site/MegaMenu";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { label: "Kategorien", href: "/kategorien" },
+const secondaryNav = [
   { label: "Wissen", href: "/wissen" },
   { label: "Über", href: "/ueber" },
 ];
@@ -27,13 +30,11 @@ export function Header({ className }: HeaderProps) {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:px-10">
-        {/* Brand */}
         <Logo height={40} priority />
 
-
-        {/* Nav */}
         <nav className="hidden md:flex items-center gap-7">
-          {navItems.map((item) => (
+          <MegaMenu />
+          {secondaryNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -44,7 +45,6 @@ export function Header({ className }: HeaderProps) {
           ))}
         </nav>
 
-        {/* CTA */}
         <Link
           href="/anbieter"
           className="hidden lg:inline-flex h-9 items-center rounded-full border border-border px-4 font-ui text-[12px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"

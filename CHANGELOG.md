@@ -2,6 +2,78 @@
 
 ---
 
+## [0.7.0] — 2026-05-16
+
+### Startseite: Editorial-Magazin meets E-Com-Klarheit
+
+Booking.com/Airbnb-Zugänglichkeit verbunden mit redaktioneller Fachmagazin-Tiefe.
+Behörden-Mitarbeiter:innen bekommen sofort Orientierung — ohne Suchfeld, ohne Klick-Marathon.
+
+---
+
+### 🧭 Navigation: Mega-Menu
+
+- `MegaMenu` (Client) im Header — Hover/Focus öffnet full-width Panel
+- 6 Kategorien sofort sichtbar mit Icon, Name, Tagline, Tool-Count
+- Esc + Click-Outside schließen, Animation `mega-in` (.18s)
+- Booking-Vibe: keine versteckten Inhalte, alles 1 Klick entfernt
+
+---
+
+### 🔎 Hero mit Tool-Finder
+
+- `HeroWithFinder` ersetzt EditorialHero — 2-Spalten-Layout
+- Links: Editorial-Headline (Cormorant clamp 40–84px) + Lead + Trust-Pills
+  (Aus Behördenperspektive · Kein Pay-to-Rank · DSGVO transparent · Redaktionell)
+- Rechts: `QuickFinder` (Client) — 3-Frage-Selektor:
+  1. Kategorie-Dropdown mit Icon-Prefix
+  2. Behördengröße (4 Radio-Pills)
+  3. Betriebsart (4 Radio-Pills: Cloud / OnPremise / Hybrid / Egal)
+- Submit navigiert zu `/kategorien/[slug]?size=X&ops=Y`
+
+---
+
+### 📊 Trust-Strip unter Hero
+
+- `TrustStrip` — 4 Stat-Blöcke (Tools, Kategorien, Beiträge, DSGVO 100%)
+- Cream-Hintergrund, schmale Trennlinien
+
+---
+
+### 🧱 Main + Sticky-Sidebar Layout
+
+Mid-Section auf cream/30 mit 2-Spalter (Main + 320px Sticky-Sidebar):
+
+**Main:**
+- `QuickGuideBlock` — 4-Schritte-Methodik („So prüfen wir Software")
+- `FeaturedToolBlock` — Tool im Fokus (VivioAkte) mit Amtshelden-Urteil
+- `FaqBlock` — 8 typische Behörden-Fragen mit nativen `<details>`,
+  Plus-zu-X-Animation, Verlinkung zu vertiefenden Wissensartikeln
+
+**Sticky-Sidebar (`HomeSidebar`):**
+- Kategorie-Quick-Nav (alle 6 Kategorien mit Tool-Count, accentColor)
+- Häufig gefragt (Top-5 FAQ-Quicklinks)
+- Neu im Verzeichnis (4 Tool-Marks mit Kategorie)
+- Pulse-Newsletter kompakt (dunkler Card-CTA)
+
+---
+
+### 📦 Mock-Daten erweitert
+
+- `src/mocks/faq.ts` — 8 redaktionelle FAQ-Items mit `readMoreSlug`
+- `src/mocks/stats.ts` — `trustStats` (4) + `methodSteps` (4)
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 23 routes, alle static prerender
+- Startseite jetzt informationsdicht aber editorial ruhig
+- Cormorant Garamond + IBM Plex Sans bleiben — kein Glassmorphismus, kein Purple-Gradient
+
+---
+
 ## [0.6.0] — 2026-05-16
 
 ### Phase 3+4+5 — Startseite, Kategorien, Wissensbereich
