@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SUPERTOOLS DESIGN TOKENS
+   Quelle: supertools_profil_beispiel.html (v0.3.0 - verbindlich)
+   ============================================================ */
+
+@theme {
+  /* Brand */
+  --color-brand:        #009460;
+  --color-brand-dark:   #006b45;
+  --color-brand-light:  #EAF3DE;
+  --color-brand-ultralight: #F2FAF5;
+
+  /* Neutral */
+  --color-cream:        #F8F4EB;
+  --color-dark:         #111111;
+  --color-mid:          #3D3D3D;
+  --color-soft:         #777777;
+  --color-border:       #E0DDD6;
+
+  /* Semantic */
+  --color-blue-light:   #E6F1FB;
+  --color-green-light:  #EAF3DE;
+  --color-amber-light:  #FAEEDA;
+  --color-purple-light: #EEEDFE;
+  --color-yellow:       #FFE500;
+
+  /* Tier (Profil-Stufen) */
+  --color-tier-free:     rgba(0,148,96,0.14);
+  --color-tier-verified: rgba(0,148,96,0.42);
+  --color-tier-partner:  rgba(0,148,96,0.72);
+  --color-tier-addon:    #009460;
+
+  /* Fonts (via next/font in layout.tsx als CSS-Variablen gemountet) */
+  --font-serif: var(--font-cormorant);
+  --font-sans:  var(--font-ibm-plex);
+  --font-ui:    var(--font-inter-tight);
+
+  /* Easing */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-white, #fff);
+  color: var(--color-dark);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+/* Editorial Typography */
+.font-serif { font-family: var(--font-serif); }
+.font-sans  { font-family: var(--font-sans); }
+.font-ui    { font-family: var(--font-ui); }
