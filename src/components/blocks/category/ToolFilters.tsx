@@ -20,22 +20,38 @@ const COMPLIANCE_OPTIONS = [
   { key: "vergabe", label: "UVgO/VOL-A" },
 ] as const;
 
+type SortKey = "editorial" | "az" | "za" | "random";
+
+const SORT_OPTIONS: { key: SortKey; label: string; hint: string }[] = [
+  { key: "editorial", label: "Redaktionell", hint: "Reihenfolge der Amtshelden-Redaktion" },
+  { key: "az", label: "A–Z", hint: "Alphabetisch" },
+  { key: "za", label: "Z–A", hint: "Alphabetisch absteigend" },
+  { key: "random", label: "Zufällig", hint: "Pro Sitzung gleich" },
+];
+
 /**
- * Kategorie-Seite: Tools als alphabetisch sortiertes 3-Spalten-Grid mit
- * Buchstaben-Ankern. Filter-Sidebar links, Suche oben rechts.
- * Bewusst SIMPEL: keine Sub-Cluster, kein A-Z-Sticky, keine Sortier-Optionen —
- * alphabetisch ist neutral, Filter und Suche genügen für die Reduzierung
- * auf große Listen.
+ * Kompakte Listen-Ansicht (2-Zeilen-Rows, ~80px Höhe).
+ * Default-Sortierung: Redaktionell (Reihenfolge im Verzeichnis).
+ * Filter links · Suche + Sortier-Dropdown oben · Listenzeilen darunter.
+ *
+ * Bewusst gegen Ranking-Anmutung:
+ * - Einheitliche Zeilenhöhe (keine Größenvorteile)
+ * - Verified-Status nur als kleines ✓-Pill, nicht als Größen-Hierarchie
+ * - Sortier-Default ist transparent „Redaktionell" — User kann auf A-Z/Zufall wechseln
  */
 export function ToolFilters({ tools }: ToolFiltersProps) {
   const [operations, setOperations] = useState<string[]>([]);
   const [tiers, setTiers] = useState<string[]>([]);
   const [compliance, setCompliance] = useState<string[]>([]);
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState<SortKey>("editorial");
+
+  // Random-Seed bleibt während der Sitzung konstant (kein Re-Shuffle bei jedem Render)
+  const [randomSeed] = useState(() => Math.random());
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return tools.filter((tool) => {
+    let result = tools.filter((tool) => {
       if (
         operations.length > 0 &&
         !operations.some((op) =>
@@ -61,28 +77,32 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
       }
       return true;
     });
-  }, [tools, operations, tiers, compliance, search]);
 
-  // Alphabetische Sortierung + Gruppierung nach Anfangsbuchstaben
-  const grouped = useMemo(() => {
-    const sorted = [...filtered].sort((a, b) =>
-      a.name.localeCompare(b.name, "de", { sensitivity: "base" }),
-    );
-    const groups = new Map<string, ToolCardSummary[]>();
-    sorted.forEach((t) => {
-      const letter = t.name.charAt(0).toUpperCase();
-      const key = /[A-Z]/.test(letter) ? letter : "#";
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key)!.push(t);
-    });
-    return Array.from(groups.entries());
-  }, [filtered]);
+    // Sortierung
+    if (sort === "az") {
+      result = [...result].sort((a, b) =>
+        a.name.localeCompare(b.name, "de", { sensitivity: "base" }),
+      );
+    } else if (sort === "za") {
+      result = [...result].sort((a, b) =>
+        b.name.localeCompare(a.name, "de", { sensitivity: "base" }),
+      );
+    } else if (sort === "random") {
+      // Deterministischer Pseudo-Shuffle basierend auf randomSeed
+      result = [...result]
+        .map((t, i) => ({
+          t,
+          k: Math.abs(Math.sin((i + 1) * (randomSeed + 1) * 100)),
+        }))
+        .sort((a, b) => a.k - b.k)
+        .map((x) => x.t);
+    }
+    // "editorial" = Reihenfolge wie im Array (unverändert)
 
-  function toggle(
-    set: string[],
-    setter: (v: string[]) => void,
-    value: string,
-  ) {
+    return result;
+  }, [tools, operations, tiers, compliance, search, sort, randomSeed]);
+
+  function toggle(set: string[], setter: (v: string[]) => void, value: string) {
     setter(
       set.includes(value) ? set.filter((v) => v !== value) : [...set, value],
     );
@@ -93,10 +113,13 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
     setTiers([]);
     setCompliance([]);
     setSearch("");
+    setSort("editorial");
   }
 
   const totalFilters =
     operations.length + tiers.length + compliance.length + (search ? 1 : 0);
+  const currentSortLabel =
+    SORT_OPTIONS.find((s) => s.key === sort)?.label || "Redaktionell";
 
   return (
     <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-12">
@@ -151,10 +174,10 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
         </FilterGroup>
       </aside>
 
-      {/* ── Main: Search + Grid ── */}
-      <div className="min-w-0 space-y-6">
-        {/* Suche + Counter */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+      {/* ── Main: Search + Sort + List ── */}
+      <div className="min-w-0 space-y-5">
+        {/* Toolbar: Suche links, Sortierung + Counter rechts */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pb-3 border-b border-border">
           <div className="relative flex-1">
             <Search
               size={15}
@@ -179,16 +202,31 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
               </button>
             )}
           </div>
-          <p className="font-ui text-[12.5px] text-mid whitespace-nowrap">
-            <strong className="text-dark">{filtered.length}</strong>{" "}
-            {filtered.length === 1 ? "Tool" : "Tools"}
-            <span className="font-serif italic text-soft ml-1.5">
-              · alphabetisch
+
+          <div className="flex items-center gap-3">
+            <label className="flex items-center gap-2 font-ui text-[12px] text-soft">
+              <span className="hidden md:inline">Sortieren:</span>
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortKey)}
+                className="sort-select font-ui text-[12.5px] font-medium text-dark"
+              >
+                {SORT_OPTIONS.map((opt) => (
+                  <option key={opt.key} value={opt.key}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <span className="font-ui text-[12px] text-mid whitespace-nowrap">
+              <strong className="text-dark">{filtered.length}</strong>{" "}
+              {filtered.length === 1 ? "Tool" : "Tools"}
             </span>
-          </p>
+          </div>
         </div>
 
-        {/* Grid mit Buchstaben-Ankern */}
+        {/* Listen-Ansicht */}
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
             <p className="font-serif text-[20px] font-bold text-dark">
@@ -199,25 +237,39 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
             </p>
           </div>
         ) : (
-          <div className="space-y-10">
-            {grouped.map(([letter, items]) => (
-              <section key={letter} aria-labelledby={`letter-${letter}`}>
-                <h3
-                  id={`letter-${letter}`}
-                  className="font-serif text-[28px] font-bold leading-none text-dark border-b border-border pb-3 mb-5"
-                >
-                  <span className="text-soft font-medium">{letter}</span>
-                </h3>
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                  {items.map((tool) => (
-                    <ToolCard key={tool.slug} tool={tool} variant="tile" />
-                  ))}
-                </div>
-              </section>
+          <div className="border-t border-border">
+            {filtered.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} variant="row" />
             ))}
+            {sort === "editorial" && (
+              <p className="font-ui italic text-[11px] text-soft mt-5 pl-2">
+                Reihenfolge: {currentSortLabel} — kuratiert von der Amtshelden-
+                Redaktion, kein Ranking, kein Pay-to-Top.
+              </p>
+            )}
           </div>
         )}
       </div>
+
+      <style>{`
+        .sort-select {
+          background: transparent;
+          border: 1px solid var(--color-border);
+          border-radius: 999px;
+          padding: 0.4rem 2rem 0.4rem 0.85rem;
+          appearance: none;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.85rem center;
+          cursor: pointer;
+          transition: border-color 0.15s;
+        }
+        .sort-select:focus {
+          outline: none;
+          border-color: var(--color-brand);
+          box-shadow: 0 0 0 3px rgba(0, 148, 96, 0.15);
+        }
+      `}</style>
     </div>
   );
 }

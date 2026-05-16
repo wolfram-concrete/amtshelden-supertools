@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -7,15 +8,121 @@ import type { ToolCardSummary } from "@/types/content";
 interface ToolCardProps {
   tool: ToolCardSummary;
   className?: string;
-  /** "list" = breite Vertikal-Card · "feature" = großes Spotlight · "tile" = kompaktes 3-Spalten-Grid */
-  variant?: "list" | "feature" | "tile";
+  /**
+   * - "row"     = kompakte 2-Zeilen-Listenzeile (Kategorie-Seite, ~80-90px Höhe)
+   * - "tile"    = quadratisches 3-Spalten-Grid-Item (alternative Listenform)
+   * - "list"    = breite Vertikal-Card (Sidebar / Featured-Side)
+   * - "feature" = großes Spotlight (Startseite Featured Tool)
+   */
+  variant?: "row" | "list" | "feature" | "tile";
 }
 
 export function ToolCard({ tool, className, variant = "list" }: ToolCardProps) {
+  if (variant === "row") {
+    return <RowItem tool={tool} className={className} />;
+  }
   if (variant === "tile") {
     return <TileCard tool={tool} className={className} />;
   }
   return <ExtendedCard tool={tool} className={className} variant={variant} />;
+}
+
+// ============================================================
+// ROW — Kompakte Listenzeile für die Kategorie-Tool-Übersicht
+// Two-Line-Layout: Mark · Hauptinfo · Meta-Spalte rechts · Chevron
+// ============================================================
+function RowItem({
+  tool,
+  className,
+}: {
+  tool: ToolCardSummary;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={`/tools/${tool.slug}`}
+      className={cn(
+        "group grid grid-cols-[44px_minmax(0,1fr)_18px] sm:grid-cols-[44px_minmax(0,1fr)_220px_18px] items-center gap-x-4 gap-y-2 border-b border-border px-2 py-4 transition-colors hover:bg-cream/50 sm:py-5",
+        className,
+      )}
+    >
+      {/* Mark */}
+      <span
+        aria-hidden
+        className="flex h-11 w-11 items-center justify-center rounded-lg text-white font-ui text-[12px] font-extrabold tracking-tight"
+        style={{ background: tool.markBg || "var(--color-brand)" }}
+      >
+        {tool.mark}
+      </span>
+
+      {/* Main: Name + Pitch */}
+      <div className="min-w-0">
+        <div className="flex items-center gap-2 flex-wrap">
+          <h3 className="font-serif text-[18px] font-bold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+            {tool.name}
+          </h3>
+          {tool.verified && (
+            <span className="inline-flex items-center font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-brand-dark">
+              ✓ Verifiziert
+            </span>
+          )}
+        </div>
+        <p className="font-sans text-[13.5px] leading-[1.55] text-mid line-clamp-2 mt-0.5">
+          <span className="text-soft">{tool.provider}</span>
+          <span className="text-soft mx-1.5" aria-hidden>
+            ·
+          </span>
+          {tool.pitch}
+        </p>
+      </div>
+
+      {/* Meta-Spalte rechts (Desktop only) */}
+      <div className="hidden sm:flex flex-col items-end gap-1.5 min-w-0">
+        <div className="font-ui text-[11.5px] text-mid leading-tight text-right">
+          <strong className="text-dark font-semibold">
+            {tool.facts.price || "Preis auf Anfrage"}
+          </strong>
+          {tool.facts.operation && (
+            <>
+              <span className="text-soft mx-1.5" aria-hidden>
+                ·
+              </span>
+              <span>{tool.facts.operation}</span>
+            </>
+          )}
+          {tool.facts.setup && (
+            <>
+              <span className="text-soft mx-1.5" aria-hidden>
+                ·
+              </span>
+              <span>{tool.facts.setup}</span>
+            </>
+          )}
+        </div>
+        <div className="flex flex-wrap justify-end gap-1">
+          {tool.compliance.dsgvo && <RowPill>DSGVO</RowPill>}
+          {tool.compliance.serverDe && <RowPill>DE</RowPill>}
+          {tool.compliance.bsi && <RowPill>BSI</RowPill>}
+          {tool.compliance.vergabe && <RowPill>UVgO</RowPill>}
+        </div>
+      </div>
+
+      {/* Chevron */}
+      <ChevronRight
+        size={18}
+        className="text-soft transition-all group-hover:translate-x-0.5 group-hover:text-brand"
+        aria-hidden
+      />
+    </Link>
+  );
+}
+
+function RowPill({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full bg-brand-light/50 px-1.5 py-0.5 font-ui text-[9.5px] font-medium text-brand-dark border border-brand/15">
+      ✓ {children}
+    </span>
+  );
 }
 
 // ============================================================

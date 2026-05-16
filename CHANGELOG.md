@@ -2,6 +2,71 @@
 
 ---
 
+## [0.12.0] — 2026-05-16
+
+### Kategorie-Seiten: Tile-Grid → Kompakte Listen-Zeile
+
+User-Feedback: Alphabetisches Tile-Grid war zwar nachvollziehbar, aber nicht
+alltagstauglich. Behörden­mitarbeiter:innen suchen nach Lösung, nicht nach
+Anfangsbuchstaben — und brauchen viel mehr Tools im Viewport.
+
+Recherche-Basis: Material Design Listen-Prinzipien (Justinmind-Artikel),
+OMR-Reviews-Listing-Logik.
+
+---
+
+### 🧱 Neue `row`-Variante in `ToolCard`
+
+Kompakte Two-Line-Listenzeile (~80-90px Höhe):
+- 44×44 px Mark links
+- Mitte (1fr): Name + Verified-Pill + Provider · Pitch (2 Zeilen line-clamp)
+- Rechts (220px, hidden mobile): Quick-Facts (Preis · Cloud · Setup-Dauer)
+  + kompakte Compliance-Pills (DSGVO/DE/BSI/UVgO)
+- Chevron-Pfeil ganz rechts, hover-Translate
+- Trennlinie zwischen Items (border-b border-border)
+- Hover: `bg-cream/50`
+
+→ **7-8 Tools im Viewport** bei 1080p
+
+---
+
+### 🗂️ ToolFilters umgebaut: Listen-Layout + Sortier-Dropdown
+
+**Vorher:** 3-Spalten-Tile-Grid mit Buchstaben-Ankern.
+**Jetzt:** Vertikale Listen-Ansicht mit Sortier-Dropdown.
+
+**Sortier-Optionen:**
+- **Redaktionell** (Default) — Reihenfolge der Amtshelden-Redaktion
+- A–Z — alphabetisch
+- Z–A — alphabetisch absteigend
+- Zufällig — deterministischer Pseudo-Shuffle (Seed konstant pro Sitzung)
+
+**Transparenz:** Bei Default-Sortierung zeigt eine kleine italic-Note
+unter der Liste an: *„Reihenfolge: Redaktionell — kuratiert von der
+Amtshelden-Redaktion, kein Ranking, kein Pay-to-Top."*
+
+**Toolbar oben:** Suche links · Sortier-Dropdown + Counter rechts.
+
+---
+
+### 🎯 Gegen Ranking-Anmutung
+
+- Einheitliche Zeilenhöhe — keine Größen-Vorteile für Verified/Partner
+- Verified nur als kleines ✓-Pill (10px Caps), nicht durch Card-Größe
+- Default-Sortierung **transparent benannt** („Redaktionell")
+- Sortier-Wechsel auf A-Z, Z-A oder Zufall jederzeit möglich
+- Keine Sterne, kein Score, keine „Top X"-Listen
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- Live-URL: `/kategorien/e-akte-dokumentenmanagement` (16 Tools)
+
+---
+
 ## [0.11.0] — 2026-05-16
 
 ### Kategorie-Seiten: Liste → Alphabetisches Grid (gleichberechtigt, kein Ranking)
