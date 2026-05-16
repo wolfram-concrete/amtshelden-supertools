@@ -2,6 +2,69 @@
 
 ---
 
+## [0.9.0] — 2026-05-16
+
+### Über-uns-Seite: redaktionelle Verbindung Amtshelden ↔ Supertools
+
+Ersetzt die Platzhalter-Seite `/ueber` durch eine vollwertige Editorial-Seite,
+die die Verbindung zur Mutter-Marke Amtshelden herstellt.
+
+---
+
+### 📖 7 Sektionen, redaktionell
+
+1. **Hero** — „Vertrauen entsteht dort, wo Software ein Gesicht bekommt."
+   (Cormorant clamp 40-84px, leading 0.98, italic-Highlight)
+2. **Editorial mit Drop-Cap** — „Behörden haben kein Tool-Problem,
+   sie haben ein Orientierungsproblem." Asymmetrisches 2-Spalter
+   (4/8) mit sticky-Heading links, Long-Form-Body rechts, Drop-Cap
+   im ersten Absatz (first-letter 64px italic).
+3. **Drei Grundsätze** — 3-Spalter mit vertikalen Hairlines:
+   - Wir vergleichen nicht. Wir ordnen ein.
+   - Wir vertrauen Behörden, nicht Algorithmen.
+   - Wir machen Software sichtbar, die taugt.
+4. **Verbindung Amtshelden ↔ Supertools** (grüne Highlight-Sektion,
+   `bg-brand-dark`) — Logo inverse, 4 Cards: Amtshelden, Supertools,
+   gemeinsamer Anspruch, gemeinsame Community (12k+).
+   CTAs: „Zu Amtshelden →" + „Kontakt aufnehmen"
+5. **Wie wir arbeiten** — 4-Schritte-Methodik im Newspaper-Stil
+   (sticky-Heading links, nummerierte Liste rechts mit italic-Cormorant
+   `01.`, `02.` Indikatoren)
+6. **Wer wir sind** — Sitz Frankfurt, Hinweis auf Julia + Christian,
+   Redaktion mit Verwaltungs-Background, italic-Cormorant-Zitat
+   „Kultur entscheidet, ob Veränderung in der Verwaltung überhaupt ankommt."
+7. **CTA** — Mittig zentriert, „Kontakt" + „Pulse abonnieren"
+
+---
+
+### 🔗 Inhaltliche Brücke
+
+- Amtshelden-Substanz extrahiert von amtshelden.de:
+  Beratungs- und Bildungsplattform für digitalen Wandel in Behörden,
+  Sitz Frankfurt, Gründer Julia und Christian, Connected-Konferenz,
+  KI-Führerschein, Amtfluencer-Programm, 12k+ Community
+- Supertools-Vision aus README Kap. 26 verwoben:
+  „Magazin statt Verzeichnis", „Vertrauensarchitektur", Verantwortungsabnahme
+
+---
+
+### 📝 README aktualisiert
+
+- Kapitel 3 „Aktuelle Situation" komplett umgeschrieben — spiegelt
+  jetzt v0.9 Tech-Stack (Next.js 16, Tailwind v4, App Router, 25 Routes),
+  Komponenten-Architektur, Design-System, Mock-Daten-Stand,
+  Payload-Roadmap
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- `/ueber` jetzt vollwertige Editorial-Seite
+
+---
+
 ## [0.8.0] — 2026-05-16
 
 ### Editorial-Iteration: Magazin-Tiefe + Grüne Highlightflächen

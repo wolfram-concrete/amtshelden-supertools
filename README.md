@@ -66,24 +66,83 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (MVP-Stand)
+## 3. AKTUELLE SITUATION (Stand v0.9, Mai 2026)
 
-### Was existiert
-- **One Pager (supertools_v4.html):** Vollständig designter, glassmorphism-styled HTML-OnePager
-- **34 kuratierte Tools** in 3 Themenfeldern:
-  - Themenfeld 1: Social Media & Kommunikation (11 Tools)
-  - Themenfeld 2: Smartes Personalmanagement (4 Tools)
-  - Themenfeld 3: Transformation, KI & Organisation (19 Tools)
-- **Excel-Datenbasis:** 40 Tools, vollständiges Briefing-Schema, Confidence-Scores
-- **Amtshelden-Brand:** 12k Newsletter-Community, Podcast, etablierte Reichweite
-- **Geschäftsmodell MVP:** Manuelle Vermittlung (Anfrage → Amtshelden → Anbieter)
+### Tech-Stack
 
-### Technischer Stand
-- Statische HTML-Seite mit Gotham-Font, Glassmorphismus-Design
-- Amtshelden Farben: Grün #009460, Gelb #FFE500, Dunkel #1A202C, Cream #F8F4EB
-- Filter-System (Themenfeld, Server DE, Suche), Modal-Anfrage-Formular
-- Transparentes PNG-Logo, freigestellt
-- Footer: Exakte Kopie amtshelden.de-Footer (grün, Newsletter/Impressum/Datenschutz/Social)
+**Frontend:** Next.js 16.2.6 (App Router, Turbopack) · React 19.2.4 · TypeScript 5
+· Tailwind v4 (`@theme`-Tokens in CSS) · shadcn-Style Primitives (`@radix-ui/react-slot`,
+`class-variance-authority`, `clsx`, `tailwind-merge`)
+· `lucide-react` für Icons.
+**Deployment:** Vercel mit `vercel.json` (framework=nextjs, auto-detect).
+**Repo:** `github.com/wolfram-concrete/amtshelden-supertools`.
+
+### Implementierte Seitentypen (4 von 4)
+
+| Route | Status | Was es ist |
+|---|---|---|
+| `/` | ✓ | Editorial-Frontpage mit Hero+QuickFinder, TrustStrip, EditorialFeatureStory, ThemenCluster, Main+Sticky-Sidebar, Pulse, Kategorien, About (grün), Newsletter |
+| `/kategorien` | ✓ | Index aller 6 Kategorien |
+| `/kategorien/[slug]` | ✓ | 6 SSG-Routen: Kategorie-Hero + ToolFilters (Client) + Related Articles |
+| `/tools/[slug]` | ✓ | 1 SSG-Route (VivioAkte) — alle 8 Zonen aus Kap. 27 portiert |
+| `/wissen` | ✓ | Pulse-Index mit Lead + Magazine-Grid |
+| `/wissen/[slug]` | ✓ | 7 SSG-Routen — Editorial Long-Form mit 8 Block-Kinds |
+| `/ueber`, `/kontakt`, `/impressum`, `/datenschutz`, `/anbieter` | ✓ | `/ueber` ausgebaut zur vollwertigen Editorial-Seite; Rest als Platzhalter |
+
+**Build:** 25 routes total, alle static prerender. TypeScript clean.
+
+### Komponenten-Architektur
+
+```
+src/
+├── app/(frontend)/         ← öffentliche Seiten, Skill-konform
+├── components/
+│   ├── blocks/
+│   │   ├── home/           ← EditorialFeatureStory, HeroWithFinder, QuickFinder,
+│   │   │                     QuickGuide, ThemenCluster, Pulse, About, FAQ, ...
+│   │   ├── profile/        ← 8 Zonen (ProfilHero, PassDas, Implementierung, ...)
+│   │   ├── category/       ← KategorieHero, ToolFilters (Client)
+│   │   └── article/        ← ArticleHeader, ArticleBody (8 Block-Kinds), AuthorBio
+│   ├── cards/              ← ToolCard, ArticleCard, CategoryCard
+│   ├── sidebars/           ← HomeSidebar (aggregierte Widgets)
+│   ├── site/               ← Header, Footer, Logo, Breadcrumb, MegaMenu, PlaceholderPage
+│   └── ui/                 ← Button, Badge (cva-basiert)
+├── types/                  ← blocks.ts, content.ts, profile.ts (Payload-ready)
+├── mocks/                  ← Tools, Kategorien, Artikel, FAQ, Stats
+└── lib/utils.ts            ← cn(), slugify(), formatDateDE()
+```
+
+### Design-System (verbindlich)
+
+- **Fonts via `next/font/google`:** Cormorant Garamond (Headlines, italic für Akzente),
+  IBM Plex Sans (Body 17px, leading-1.75), Inter Tight (UI/Labels)
+- **Brand-Tokens als CSS-Variablen in `@theme`:**
+  - `--color-brand` `#009460` · `--color-brand-dark` `#006b45` · `--color-brand-light` `#EAF3DE`
+  - `--color-cream` `#F8F4EB` · `--color-dark/mid/soft` für Editorial-Hierarchie
+  - Tier-Farben (free/verified/partner/addon) · Semantische Hintergründe
+- **Logo-Komponente:** `<Logo variant="default|inverse" height={n} />` —
+  default für helle BG (Header, Footer), inverse für dunkle/grüne Sektionen
+  (AboutBlock, ProfilCta)
+- **Editorial-Prinzipien:** Kein Glassmorphismus, kein Purple-Gradient, keine Sterne,
+  Cormorant italic für Akzente, native `<details>` statt JS-Akkordeons,
+  vertikale Hairlines zwischen Spalten
+
+### Mock-Daten-Stand
+
+- **6 Kategorien** (E-Akte, Bürgerservice, Finanzen, Personal, Geo/Bau, Kommunikation)
+- **8 Tool-Cards** (für Listen-Ansichten) + **1 vollständiges Profil** (VivioAkte mit allen 8 Zonen)
+- **7 Pulse-Artikel** inkl. zwei Schwerpunkt-Stories („Digitalisierung Bund 2030", „Kommunen-Realität")
+- **8 FAQ-Items** für Behörden mit `readMoreSlug`-Verlinkungen
+- **4 Trust-Stats** + **4 Methodik-Schritte**
+
+### Geschäftsmodell MVP
+- Manuelle Vermittlung (Anfrage → Amtshelden → Anbieter) — vor Payload-Integration weiterhin gültig
+
+### Wann kommt Payload?
+Frontend ist Payload-ready aufgesetzt (Skill: `payload-nextjs-agent`):
+TypeScript-Interfaces matchen 1:1 spätere Payload-Block-Schemata, BlockRenderer
+ist als Registry vorbereitet, Mock-Daten haben Payload-API-Shape. Wechsel zu
+CMS-Backend via `payload-react-agent` Skill — sobald das Design lokal stabil ist.
 
 ---
 
