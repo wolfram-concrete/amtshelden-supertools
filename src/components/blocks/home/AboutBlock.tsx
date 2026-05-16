@@ -1,3 +1,5 @@
+import { Logo } from "@/components/site/Logo";
+
 interface AboutPrinciple {
   title: string;
   body: string;
@@ -22,6 +24,7 @@ export function AboutBlock({
         <div className="grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 items-start">
           {/* Linke Spalte */}
           <div className="space-y-5">
+            <Logo variant="inverse" height={32} link={false} className="mb-2" />
             <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               {eyebrow}
             </div>

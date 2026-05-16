@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Logo } from "@/components/site/Logo";
 import { cn } from "@/lib/utils";
 import type { ProfilCtaData } from "@/types/profile";
 
@@ -26,6 +27,10 @@ export function ProfilCta({
         className,
       )}
     >
+      <div className="mb-8">
+        <Logo variant="inverse" height={28} link={false} />
+      </div>
+
       <div className="max-w-xl space-y-5">
         <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
