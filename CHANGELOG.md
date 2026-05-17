@@ -2,6 +2,49 @@
 
 ---
 
+## [0.14.2] — 2026-05-17
+
+### Fix: Drawer-Body weiter unsichtbar — Triple-Defensive Höhen-Setup
+
+User-Screenshot zeigte: Drawer-Body trotz v0.14.1-Fix immer noch kollabiert
+(Header sichtbar, Newsletter/Nav/Service-Links unsichtbar).
+
+---
+
+### 🐛 Verdacht
+
+Möglicherweise Konflikt zwischen Tailwind-Merge und gleichzeitig deklarierten
+Height-Klassen, oder browser-spezifische Quirks bei flex-1 in fixed-positioned
+flex-column ohne explizite Min-Höhe.
+
+### 🔧 Triple-Defensive Lösung
+
+Drei parallele Wege, der Drawer auf volle Viewport-Höhe zu zwingen — minimum
+einer muss greifen:
+
+1. **Explizite Boundaries:** `top-0 right-0 bottom-0` (im Tailwind-className)
+2. **CSS-Klasse mit zwei Höhen-Deklarationen:**
+   ```css
+   .mobile-drawer {
+     height: 100vh;   /* Standard-Fallback */
+     height: 100dvh;  /* Dynamic Viewport — iOS-safe, überschreibt wenn supported */
+   }
+   ```
+3. **Flex-Layout gehärtet:**
+   - Header: `flex-shrink-0` (kollabiert nicht)
+   - Body: `flex-1 min-h-0` (`min-h-0` erlaubt korrektes Scroll-Verhalten in Flex)
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean
+- Wenn das immer noch nicht greift: Browser-Hard-Refresh (Cmd+Shift+R)
+  erforderlich — Vercel CDN cached aggressive
+
+---
+
 ## [0.14.1] — 2026-05-17
 
 ### Fix: MobileNavDrawer-Body kollabierte

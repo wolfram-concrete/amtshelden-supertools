@@ -72,20 +72,22 @@ export function MobileNavDrawer() {
         )}
       />
 
-      {/* Drawer — top/right/bottom explizit für robuste Viewport-Höhe auf Mobile */}
+      {/* Drawer — fixed positioning mit expliziten Boundaries (top+bottom)
+          und h-screen als Fallback. h-dvh via CSS-Variable im <style> für
+          iOS Dynamic Viewport (verhindert Höhen-Sprung bei URL-Bar). */}
       <aside
         id="mobile-nav-drawer"
         role="dialog"
         aria-modal="true"
         aria-label="Hauptnavigation"
         className={cn(
-          "fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white shadow-2xl md:hidden flex flex-col",
+          "mobile-drawer fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white shadow-2xl md:hidden flex flex-col",
           "transition-transform duration-200 ease-out",
           open ? "translate-x-0" : "translate-x-full pointer-events-none",
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-border px-5 h-20">
+        <div className="flex-shrink-0 flex items-center justify-between border-b border-border px-5 h-20">
           <Logo height={32} link={false} />
           <button
             type="button"
@@ -98,7 +100,7 @@ export function MobileNavDrawer() {
         </div>
 
         {/* Scroll-Bereich */}
-        <div className="flex-1 overflow-y-auto overscroll-contain">
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
           {/* Newsletter */}
           <section className="px-5 py-6 border-b border-border bg-cream/40">
             <div className="flex items-center gap-2 mb-3">
@@ -248,6 +250,16 @@ export function MobileNavDrawer() {
           to { opacity: 1; }
         }
         .animate-drawer-fade { animation: drawer-fade-in 0.18s ease-out forwards; }
+
+        /* Robuste Viewport-Höhe für den Drawer:
+           - height: 100vh als Standard-Fallback (alle Browser)
+           - height: 100dvh überschreibt auf Browsern, die Dynamic Viewport
+             unterstützen (iOS Safari 16.4+, Chrome 108+) — verhindert
+             Höhensprung wenn URL-Leiste auf-/ausgeblendet wird */
+        .mobile-drawer {
+          height: 100vh;
+          height: 100dvh;
+        }
       `}</style>
     </>
   );
