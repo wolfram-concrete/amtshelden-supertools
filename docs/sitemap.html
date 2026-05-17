@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Supertools · Struktur & Sitemap (Stand v0.14)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --brand: #009460;
+  --brand-dark: #006b45;
+  --brand-light: #EAF3DE;
+  --cream: #F8F4EB;
+  --dark: #111111;
+  --mid: #3D3D3D;
+  --soft: #777777;
+  --border: #E0DDD6;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --ui: 'Inter Tight', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: white;
+}
+
+/* ── Cover ── */
+.cover {
+  border-bottom: 2px solid var(--dark);
+  padding-bottom: 40px;
+  margin-bottom: 60px;
+}
+.cover-eyebrow {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brand);
+  margin-bottom: 16px;
+}
+.cover-title {
+  font-family: var(--serif);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+.cover-title em {
+  font-style: italic;
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+.cover-lead {
+  font-size: 18px;
+  color: var(--mid);
+  max-width: 720px;
+  line-height: 1.65;
+}
+.cover-meta {
+  display: flex;
+  gap: 30px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--ui);
+  font-size: 12px;
+  color: var(--soft);
+}
+.cover-meta strong { color: var(--dark); }
+
+/* ── Section Headers ── */
+.section-h {
+  margin: 80px 0 32px;
+  padding-top: 24px;
+  border-top: 2px solid var(--dark);
+}
+.section-h .eyebrow {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+.section-h h2 {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+/* ── Sitemap Tree ── */
+.tree {
+  font-family: var(--ui);
+  font-size: 14px;
+  line-height: 1.85;
+  background: var(--cream);
+  padding: 28px 32px;
+  border-left: 3px solid var(--brand);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+}
+.tree pre {
+  margin: 0;
+  font-family: 'SF Mono', Consolas, monospace;
+  font-size: 13px;
+  color: var(--dark);
+  white-space: pre;
+  overflow-x: auto;
+}
+.tree-meta {
+  display: flex;
+  gap: 20px;
+  font-family: var(--ui);
+  font-size: 12px;
+  color: var(--soft);
+  margin-top: 16px;
+}
+.tree-meta strong { color: var(--brand-dark); font-weight: 600; }
+
+/* ── Page Card ── */
+.page-card {
+  border-top: 1px solid var(--border);
+  padding-top: 36px;
+  margin-top: 36px;
+  page-break-inside: avoid;
+}
+.page-card:first-of-type { border-top: none; padding-top: 0; }
+.page-card-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.page-card h3 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.page-card h3 .num {
+  font-style: italic;
+  color: var(--soft);
+  font-weight: 600;
+  margin-right: 8px;
+}
+.page-route {
+  font-family: 'SF Mono', Consolas, monospace;
+  font-size: 12px;
+  color: var(--brand-dark);
+  background: var(--brand-light);
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.page-purpose {
+  font-size: 16px;
+  color: var(--mid);
+  margin: 4px 0 24px;
+  max-width: 760px;
+  line-height: 1.65;
+}
+
+.page-body {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── Wireframe ── */
+.wf {
+  font-family: var(--ui);
+  font-size: 10.5px;
+  color: var(--mid);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+}
+.wf-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wf-box:last-child { margin-bottom: 0; }
+.wf-box .num {
+  font-weight: 700;
+  color: var(--brand-dark);
+  font-size: 10px;
+  min-width: 16px;
+}
+.wf-box.dark {
+  background: var(--brand-dark);
+  color: white;
+  border-color: var(--brand-dark);
+}
+.wf-box.dark .num { color: rgba(255,255,255,0.9); }
+.wf-box.cream {
+  background: var(--brand-light);
+  border-color: var(--brand-light);
+}
+.wf-box.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 8px;
+}
+.wf-grid-item {
+  background: var(--cream);
+  border-radius: 2px;
+  padding: 8px 6px;
+  text-align: center;
+  font-size: 9px;
+  border: 1px solid var(--border);
+}
+.wf-split {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4px;
+}
+.wf-split > div {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 10px;
+}
+.wf-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 10px;
+}
+.wf-row:last-child { border-bottom: none; }
+.wf-mark {
+  width: 18px;
+  height: 18px;
+  background: var(--brand);
+  border-radius: 3px;
+  flex-shrink: 0;
+  color: white;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.wf-list {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+.wf-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.wf-pair > div {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 10px;
+}
+
+/* ── Section list (rechte Spalte) ── */
+.sections {
+  font-family: var(--ui);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--mid);
+}
+.sections h4 {
+  font-family: var(--ui);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--soft);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.sections ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sections ol > li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+}
+.sections ol > li:last-child { border-bottom: none; }
+.sections .item-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--brand);
+  font-weight: 600;
+}
+.sections .item-title {
+  color: var(--dark);
+  font-weight: 600;
+}
+.sections .item-desc {
+  font-size: 12.5px;
+  color: var(--soft);
+  margin-top: 2px;
+  line-height: 1.55;
+}
+
+/* ── Globals card ── */
+.globals {
+  background: var(--brand-dark);
+  color: white;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin: 20px 0 40px;
+}
+.globals h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.globals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.globals-item h4 {
+  font-family: var(--ui);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 6px;
+}
+.globals-item p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+}
+
+/* ── Footer ── */
+.doc-footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  font-family: var(--ui);
+  font-size: 12px;
+  color: var(--soft);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ── Print ── */
+@media print {
+  body { background: white; }
+  .page { padding: 20mm; max-width: none; }
+  .section-h, .page-card { page-break-inside: avoid; }
+  .page-card { break-inside: avoid; }
+  .cover-title { font-size: 56px; }
+  .section-h h2 { font-size: 32px; }
+  .page-card h3 { font-size: 24px; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 720px) {
+  .page { padding: 32px 20px; }
+  .cover-title { font-size: 44px; }
+  .section-h h2 { font-size: 28px; }
+  .page-body { grid-template-columns: 1fr; }
+  .globals-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<!-- ══════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════ -->
+<header class="cover">
+  <div class="cover-eyebrow">Sitemap · Strukturübersicht · Beta v0.14</div>
+  <h1 class="cover-title">
+    Supertools.<br>
+    Die <em>vollständige Architektur</em>.
+  </h1>
+  <p class="cover-lead">
+    Snapshot aller Seiten und Sektionen für die Strukturbesprechung mit den
+    Geschäftspartnern. Pro Seite: kurze Funktionsbeschreibung, Wireframe-Skizze
+    der Sektionen und Reihenfolge im Lesefluss.
+  </p>
+  <div class="cover-meta">
+    <div><strong>13</strong> Routes</div>
+    <div><strong>4</strong> Seitentypen</div>
+    <div><strong>v0.14.2</strong> Stand</div>
+    <div><strong>amtshelden-supertools.vercel.app</strong></div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     1 — SITEMAP TREE
+══════════════════════════════════════════════ -->
+<section class="section-h">
+  <div class="eyebrow">Übersicht</div>
+  <h2>Routen-Hierarchie</h2>
+</section>
+
+<div class="tree">
+<pre>/                                      Editorial-Frontpage
+├── /kategorien                         Kategorien-Index
+│    └── /kategorien/[slug]             Kategorie-Detail (6× SSG)
+│         ├── e-akte-dokumentenmanagement
+│         ├── buergerservice-fachverfahren
+│         ├── finanzen-haushalt
+│         ├── personal-organisation
+│         ├── geo-bauen-umwelt
+│         └── kommunikation-zusammenarbeit
+├── /tools/[slug]                       Tool-Profil (1× SSG)
+│    └── vivioakte                      (16 Tool-Cards in Mock)
+├── /wissen                             Wissen & Magazin Index
+│    └── /wissen/[slug]                 Artikel-Detail (7× SSG)
+│         ├── digitalisierung-bund-2030
+│         ├── kommunen-realer-stand
+│         ├── e-akte-einfuehrung
+│         ├── ozg-e-akte
+│         ├── vergabe-software
+│         ├── doppik-stolpersteine
+│         └── warum-kein-ranking
+├── /ueber                              Über uns — Editorial (7 Sektionen)
+├── /kontakt                            Service-Stub
+├── /anbieter                           Service-Stub
+├── /impressum                          Service-Stub
+└── /datenschutz                        Service-Stub</pre>
+  <div class="tree-meta">
+    <div><strong>25</strong> Routes total (alle Static prerender)</div>
+    <div><strong>2</strong> dynamic Routes mit SSG</div>
+    <div><strong>4</strong> Service-Stubs</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     GLOBALE ELEMENTE
+══════════════════════════════════════════════ -->
+<div class="globals">
+  <h3>Auf jeder Seite global vorhanden</h3>
+  <div class="globals-grid">
+    <div class="globals-item">
+      <h4>Header (sticky, h-20)</h4>
+      <p>Logo links · Mega-Menu „Kategorien" (Hover öffnet Panel mit allen 6 Cats) · Wissen · Über · Anbieter werden · Newsletter-Popover (grüne Pill) · Hamburger (Mobile)</p>
+    </div>
+    <div class="globals-item">
+      <h4>Footer</h4>
+      <p>Brand-Spalte mit Logo + Claim · 4 Säulen: Entdecken · Für Anbieter · Amtshelden · Rechtliches · Bottom-Leiste mit Copyright</p>
+    </div>
+    <div class="globals-item">
+      <h4>Mobile-Drawer (&lt; 768px)</h4>
+      <p>Slide-in von rechts · Newsletter-Form prominent oben · Kategorien-Akkordeon · Hauptmenü · Service-Links · Impressum/Datenschutz unten</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     2 — STARTSEITE
+══════════════════════════════════════════════ -->
+<section class="section-h">
+  <div class="eyebrow">Seitentyp A · Magazin-Hub</div>
+  <h2>Die Hauptseiten im Detail</h2>
+</section>
+
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">01.</span>Startseite</h3>
+    <code class="page-route">/</code>
+  </div>
+  <p class="page-purpose">
+    Editorial-Frontpage im Magazin-Stil. Erste Orientierung für Behördenmitarbeiter:innen — Quick-Finder
+    sofort sichtbar, redaktionelle Tiefe darunter, ausführliche Methodik und FAQs für Vertrauensaufbau.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark"><span class="num">⊟</span> Header sticky (Logo · Nav · Newsletter)</div>
+      <div class="wf-split">
+        <div>Hero · Cormorant-Headline<br>Lead · Trust-Pills</div>
+        <div style="background:var(--brand-light);border-color:var(--brand);">QuickFinder<br>3 Fragen</div>
+      </div>
+      <div class="wf-box cream"><span class="num">2</span> TrustStrip — 4 Zahlen</div>
+      <div class="wf-split">
+        <div>Editorial Feature<br>Drop-Cap · Wapo-Stil</div>
+        <div>Cover-Bild<br>Schwerpunkt-Story</div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">Themen-Cluster 1</div>
+        <div class="wf-grid-item">Themen-Cluster 2</div>
+        <div class="wf-grid-item">Themen-Cluster 3</div>
+      </div>
+      <div class="wf-split" style="background:var(--cream);padding:6px;border-radius:4px;">
+        <div>Main: QuickGuide → Featured Tool → FAQ</div>
+        <div>Sticky Sidebar:<br>· Kategorien-Nav<br>· FAQ-Links<br>· Neue Tools<br>· Newsletter</div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">Lead-Artikel</div>
+        <div class="wf-grid-item">Artikel 2</div>
+        <div class="wf-grid-item">Artikel 3</div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">Cat 1</div>
+        <div class="wf-grid-item">Cat 2</div>
+        <div class="wf-grid-item">Cat 3</div>
+      </div>
+      <div class="wf-box dark">About-Sektion (4 Prinzipien)</div>
+      <div class="wf-box cream"><span class="num">9</span> Newsletter (groß)</div>
+    </div>
+
+    <div class="sections">
+      <h4>9 Sektionen im Lesefluss</h4>
+      <ol>
+        <li>
+          <span class="item-num">01</span>
+          <div>
+            <div class="item-title">Hero mit QuickFinder</div>
+            <div class="item-desc">Editorial-Headline (Cormorant) + Trust-Pills links, 3-Frage-Tool-Finder (Kategorie · Größe · Betriebsart) rechts. Submit → gefilterte Kategorie-Seite.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">02</span>
+          <div>
+            <div class="item-title">TrustStrip</div>
+            <div class="item-desc">4 Zahlen-Statements ohne Marketing-Phrasen: Tools / Kategorien / Magazin-Beiträge / DSGVO 100%.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">03</span>
+          <div>
+            <div class="item-title">Editorial Feature Story</div>
+            <div class="item-desc">Magazin-Hero im Washington-Post-Stil: asymmetrisches 2-Spalter, großes Cover-Bild, Cormorant 36–60px, Drop-Cap im Lead. Aktuell: Schwerpunkt „Digitalisierung Bund 2030".</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">04</span>
+          <div>
+            <div class="item-title">Themen-Cluster</div>
+            <div class="item-desc">3 redaktionelle Schwerpunkte: Digitalisierung Deutschland · Behörden im Wandel · Methodik & Haltung. Pro Cluster: Cover, Eyebrow, Titel, Lead, 2–3 Artikel-Links.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">05</span>
+          <div>
+            <div class="item-title">Main + Sticky-Sidebar (cream-BG)</div>
+            <div class="item-desc">Main: QuickGuide (4 Schritte „So prüfen wir Software") → Featured Tool mit Amtshelden-Urteil → FAQ (8 Behörden-Fragen). Sidebar: Kategorien-Nav, FAQ-Quicklinks, neue Tools, kompakter Newsletter-CTA.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">06</span>
+          <div>
+            <div class="item-title">Pulse — Kurze Reads</div>
+            <div class="item-desc">Magazin-Grid mit wöchentlichen Magazin-Beiträgen (Lead-Card + 3-Spalten-Grid).</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">07</span>
+          <div>
+            <div class="item-title">Kategorien-Magazin</div>
+            <div class="item-desc">6 Kategorien als Tile-Grid mit Icon, Tagline, Tool-Count. cream-Hintergrund.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">08</span>
+          <div>
+            <div class="item-title">AboutBlock (grün)</div>
+            <div class="item-desc">Dark-Sektion in Brand-Grün. 4 Prinzipien: Handverlesen · Behördenperspektive · Kein Ranking · Verantwortungsabnahme. Inverse Logo links oben.</div>
+          </div>
+        </li>
+        <li>
+          <span class="item-num">09</span>
+          <div>
+            <div class="item-title">Newsletter-CTA</div>
+            <div class="item-desc">Großes Anmelde-Formular mit Editorial-Headline und DSGVO-Hinweis. Stub-Submit.</div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     3 — KATEGORIEN-INDEX
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">02.</span>Kategorien-Index</h3>
+    <code class="page-route">/kategorien</code>
+  </div>
+  <p class="page-purpose">
+    Übersicht aller 6 Software-Kategorien. Editorial-Einleitung, dann Tile-Grid mit allen Kategorien.
+    Einstiegspunkt für Nutzer:innen, die ein Thema, aber kein konkretes Tool suchen.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb · Supertools › Kategorien</div>
+      <div class="wf-box" style="padding:18px 12px;">
+        <div>
+          <div style="font-family:var(--serif);font-size:18px;font-weight:700;">Alle Kategorien im Überblick</div>
+          <div style="font-size:9px;color:var(--soft);margin-top:4px;">Lead-Absatz (Editorial)</div>
+        </div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">E-Akte (16)</div>
+        <div class="wf-grid-item">Bürger­service (22)</div>
+        <div class="wf-grid-item">Finanzen (9)</div>
+        <div class="wf-grid-item">Personal (7)</div>
+        <div class="wf-grid-item">Geo/Bau (11)</div>
+        <div class="wf-grid-item">Kommunikation (8)</div>
+      </div>
+      <div class="wf-box cream">Footer</div>
+    </div>
+    <div class="sections">
+      <h4>3 Sektionen</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">Breadcrumb</div><div class="item-desc">Supertools › Kategorien</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">Editorial-Hero</div><div class="item-desc">Eyebrow „Verzeichnis", Cormorant-Headline „Alle Kategorien im Überblick", Lead über Methodik.</div></div></li>
+        <li><span class="item-num">03</span><div><div class="item-title">Kategorien-Tile-Grid</div><div class="item-desc">3-Spalten-Grid mit allen 6 Kategorien als CategoryCard (Icon + Name + Tagline + Tool-Count + Topics).</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     4 — KATEGORIE-DETAIL
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">03.</span>Kategorie-Detail</h3>
+    <code class="page-route">/kategorien/[slug]</code>
+  </div>
+  <p class="page-purpose">
+    Tool-Verzeichnis für eine spezifische Kategorie (16 Tools im Beispiel E-Akte).
+    Filter-Sidebar links · kompakte Listen-Zeilen rechts · sortierbar nach Redaktionell / A–Z / Zufall.
+    Bewusst keine Tile-Karten, keine Sterne — gleichberechtigte Darstellung.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb · Supertools › Kategorien › E-Akte</div>
+      <div class="wf-split">
+        <div>
+          <div style="font-family:var(--serif);font-size:16px;font-weight:700;">Kategorie-Hero</div>
+          <div style="font-size:9px;color:var(--soft);margin-top:4px;">Icon · Titel · Tagline · italic Intro-Quote</div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:600;">Themen-Tags</div>
+          <div style="font-size:9px;color:var(--soft);">E-Akte · DMS · Workflow …</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:6px;margin-top:6px;">
+        <div class="wf-box" style="margin:0;font-size:10px;">
+          <div>
+            <div style="font-weight:600;margin-bottom:4px;">Filter</div>
+            <div style="color:var(--soft);">Betrieb · Tier · Compliance · Reset</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid var(--border);border-radius:3px;">
+          <div style="padding:6px 10px;border-bottom:1px solid var(--border);font-size:9px;color:var(--soft);display:flex;justify-content:space-between;">
+            <span>🔍 Suche</span><span>Sortierung: Redaktionell ▼ · 16 Tools</span>
+          </div>
+          <div class="wf-row"><div class="wf-mark">VA</div><div style="flex:1;"><strong>VivioAkte</strong> · Hamburg · 8.000 €</div></div>
+          <div class="wf-row"><div class="wf-mark" style="background:#2563EB;">DB</div><div style="flex:1;"><strong>DoxBox</strong> · München · 28.000 €</div></div>
+          <div class="wf-row"><div class="wf-mark" style="background:#7C3AED;">FE</div><div style="flex:1;"><strong>Fabasoft</strong> · Linz · auf Anfrage</div></div>
+          <div class="wf-row"><div class="wf-mark" style="background:#A16207;">HD</div><div style="flex:1;"><strong>Heimat Dokumente</strong> · Erfurt · 6.800 €</div></div>
+          <div class="wf-row" style="color:var(--soft);font-style:italic;font-size:9px;">… 12 weitere Tools</div>
+        </div>
+      </div>
+      <div class="wf-box cream" style="margin-top:6px;">Verwandte Wissensartikel (3 Cards)</div>
+    </div>
+    <div class="sections">
+      <h4>5 Sektionen</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">Breadcrumb</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">KategorieHero</div><div class="item-desc">Icon-Badge + Tool-Count, Cormorant-Titel, Tagline. Rechts: Themen-Tags. Darunter: redaktionelle Intro-Quote in italic Cormorant.</div></div></li>
+        <li><span class="item-num">03</span><div><div class="item-title">Filter-Sidebar (sticky)</div><div class="item-desc">Mobile: kollabierbar mit Active-Counter. Filter: Betrieb (Cloud/On-Prem/Hybrid) · Profil-Stufe · Compliance (DSGVO/Server DE/BSI/UVgO) · Reset-Button.</div></div></li>
+        <li><span class="item-num">04</span><div><div class="item-title">Tool-Liste (Two-Line-Rows)</div><div class="item-desc">Toolbar: Suche + Sortier-Dropdown (Redaktionell / A–Z / Z–A / Zufall) + Counter. Listenzeilen: 44px Mark · Name + Verified + Provider/Pitch · Quick-Facts + Compliance-Pills · Chevron. Einheitliche Höhe.</div></div></li>
+        <li><span class="item-num">05</span><div><div class="item-title">Verwandte Wissensartikel</div><div class="item-desc">cream-Sektion mit 3-Spalten-Grid an thematisch passenden Artikeln (per Tag-Matching).</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     5 — TOOL-PROFIL
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">04.</span>Tool-Profil</h3>
+    <code class="page-route">/tools/[slug]</code>
+  </div>
+  <p class="page-purpose">
+    Herzstück der Site. Vollständige 8-Zonen-Anatomie aus Behördenperspektive — Verantwortungsabnahme
+    durch Information. Two-Column-Layout mit Main + Sticky Compliance-Sidebar.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb · Supertools › E-Akte › VivioAkte</div>
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="wf-box"><strong>Z1 Hero</strong> · Cat-Label · Cormorant H1 · Lead · Byline · Hero-Image mit Company-Overlay · <em>Amtshelden-Urteil</em> · Pull-Quote · Body</div>
+          <div class="wf-box"><strong>Z2 Passt das?</strong> · Fit-Tags · Nicht-geeignet-Notiz</div>
+          <div class="wf-box"><strong>Z3 Implementierung</strong> · 3-Tile-Grid (Dauer/Aufwand/Kosten) · Solutions mit grünem Streifen</div>
+          <div class="wf-box cream"><strong>Z4 Cases</strong> · Coming-soon Placeholder</div>
+          <div class="wf-box"><strong>Z5 Kontakt</strong> · Pill-Buttons (Website/Mail/Tel)</div>
+          <div class="wf-box"><strong>Z6 Alternativen</strong> · 3 Alt-Cards mit farbigen Marks</div>
+          <div class="wf-box" style="background:var(--brand-dark);color:white;border-color:var(--brand-dark);"><strong>Z7 CTA</strong> · Grüne Editorial-Sektion · Anfrage über Amtshelden</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div class="wf-box" style="font-size:9.5px;padding:8px 10px;">
+            <div>
+              <div style="font-weight:700;margin-bottom:4px;">Compliance</div>
+              <div style="color:var(--soft);">🔒 DSGVO ✓<br>🇩🇪 Server DE ✓<br>🏛 BSI C5 ✓<br>📋 Vergabe ✓</div>
+            </div>
+          </div>
+          <div class="wf-box" style="font-size:9.5px;">
+            <div>
+              <div style="font-weight:700;margin-bottom:4px;">Quick-Facts</div>
+              <div style="color:var(--soft);">Preis · Einführung · Betrieb · Support · Nutzer</div>
+            </div>
+          </div>
+          <div class="wf-box cream" style="font-size:9.5px;">CTA-Button (sticky)</div>
+          <div class="wf-box" style="font-size:9.5px;">
+            <div>
+              <div style="font-weight:700;margin-bottom:4px;">Warum dieses Tool?</div>
+              <div style="color:var(--soft);">3 Begründungen</div>
+            </div>
+          </div>
+          <div class="wf-box" style="font-size:9.5px;">
+            <div>
+              <div style="font-weight:700;margin-bottom:4px;">Weiterführend</div>
+              <div style="color:var(--soft);">3 verlinkte Inhalte</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sections">
+      <h4>8 Zonen + Sticky Sidebar</h4>
+      <ol>
+        <li><span class="item-num">Z1</span><div><div class="item-title">Hero / Erster Eindruck</div><div class="item-desc">„Bin ich hier richtig?" Kategorie-Label, Cormorant-Headline, Lead, Byline mit Verifiziert-Badge, Hero-Image mit Company-Overlay, Caption, Amtshelden-Urteil als Pull-Quote, frühe Stimme einer Behörde, Body-Absätze mit Inline-Formatierung.</div></div></li>
+        <li><span class="item-num">Z2</span><div><div class="item-title">Passt das zu uns?</div><div class="item-desc">„Für meinen Kontext?" Fit-Tags (Behördengröße, -typ, Betriebsmodell). Nicht-geeignet-für-Notiz mit klickbaren Alternativ-Links inline.</div></div></li>
+        <li><span class="item-num">Z3</span><div><div class="item-title">Implementierung</div><div class="item-desc">„Was kommt auf uns zu?" 3-Tile-Grid (Dauer / Interner Aufwand / Kostenrahmen). Solutions-Cards mit grünem Streifen + „Gelöst"-Badge — typische Herausforderungen und wie sie real gelöst wurden.</div></div></li>
+        <li><span class="item-num">Z4</span><div><div class="item-title">Cases (Placeholder)</div><div class="item-desc">„Andere haben es geschafft" — Coming-soon-Block bis Cases als Add-on produziert werden.</div></div></li>
+        <li><span class="item-num">Z5</span><div><div class="item-title">Kontakt</div><div class="item-desc">Anfrage über Amtshelden — Pill-Buttons mit Globe/Mail/Phone-Icons.</div></div></li>
+        <li><span class="item-num">Z6</span><div><div class="item-title">Alternativen</div><div class="item-desc">„Ehrlicher Vergleich" — 3 Alternative-Cards mit farbigen Marks. Wenn dieses Tool nicht passt, hier sind passendere.</div></div></li>
+        <li><span class="item-num">Z7</span><div><div class="item-title">CTA (grün)</div><div class="item-desc">„Nächster Schritt" — Dark-Brand-Sektion mit Editorial-CTA, Primary-Button weiß auf grün, sekundärer Button. Inverse Logo links.</div></div></li>
+        <li><span class="item-num">SB</span><div><div class="item-title">Sticky-Sidebar</div><div class="item-desc">Compliance-Widgets (DSGVO, Server, BSI, Vergabe — expandable) · Quick-Facts (Preis, Einführung, Betrieb, Support, Nutzer) · Sticky CTA · „Warum dieses Tool?" (3 Gründe) · Weiterführende Inhalte (3 Links).</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     6 — WISSEN-INDEX
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">05.</span>Wissen & Magazin Index</h3>
+    <code class="page-route">/wissen</code>
+  </div>
+  <p class="page-purpose">
+    Magazin-Übersicht aller 7 redaktionellen Beiträge. Lead-Artikel groß, restliche in 3-Spalten-Grid.
+    Editorial-Layout im Stil eines klassischen Fachmagazins.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb</div>
+      <div class="wf-box"><strong>Eyebrow „Supertools Pulse"</strong> · „Was diese Woche zählt." · Lead</div>
+      <div class="wf-box" style="padding:14px;background:white;">
+        <div>
+          <div style="font-size:9px;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:0.14em;">Lead-Artikel (groß)</div>
+          <div style="font-family:var(--serif);font-size:16px;font-weight:700;margin-top:4px;">Headline + Lead + Author + Cover</div>
+        </div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">Artikel 2</div>
+        <div class="wf-grid-item">Artikel 3</div>
+        <div class="wf-grid-item">Artikel 4</div>
+        <div class="wf-grid-item">Artikel 5</div>
+        <div class="wf-grid-item">Artikel 6</div>
+        <div class="wf-grid-item">Artikel 7</div>
+      </div>
+    </div>
+    <div class="sections">
+      <h4>3 Sektionen</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">Editorial-Header</div><div class="item-desc">Eyebrow + Cormorant-Headline + Lead-Absatz über die redaktionelle Haltung.</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">Lead-Artikel</div><div class="item-desc">Großer 2-Spalter mit Cover + Eyebrow + Headline + Lead + Author-Byline. Erstes Item der ArticleSummary-Liste.</div></div></li>
+        <li><span class="item-num">03</span><div><div class="item-title">Magazin-Grid</div><div class="item-desc">3-Spalten-Grid mit allen weiteren Artikeln als ArticleCard (Cover, Eyebrow, Headline, Author + Datum + Lesezeit).</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     7 — WISSENS-ARTIKEL
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">06.</span>Wissens-Artikel-Detail</h3>
+    <code class="page-route">/wissen/[slug]</code>
+  </div>
+  <p class="page-purpose">
+    Long-Form Editorial. Rendert 8 unterschiedliche Block-Kinds (Heading, Paragraph, Quote, Liste,
+    Bild, Divider, Callout) je nach redaktionellem Inhalt. Author-Bio + verwandte Beiträge am Ende.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb · Supertools › Wissen › [Artikel-Slug]</div>
+      <div class="wf-box" style="padding:14px;">
+        <div>
+          <div style="font-size:9px;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:0.14em;">Article Header</div>
+          <div style="font-family:var(--serif);font-size:18px;font-weight:700;line-height:0.95;margin:6px 0;">Headline · Cormorant clamp 36-68 · leading 0.88</div>
+          <div style="font-size:10px;color:var(--soft);">Lead · Byline mit Avatar · Datum · Lesezeit</div>
+        </div>
+      </div>
+      <div class="wf-box" style="padding:0;overflow:hidden;">
+        <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#E0DDD6,#F8F4EB);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--soft);">Cover-Bild · 16:9</div>
+      </div>
+      <div class="wf-list">
+        <div class="wf-row">Paragraph (mit Drop-Cap im ersten Absatz)</div>
+        <div class="wf-row">Heading H2 (Cormorant)</div>
+        <div class="wf-row">Paragraph</div>
+        <div class="wf-row" style="background:var(--brand-light);font-style:italic;">Quote — Pull-Quote-Style mit Source</div>
+        <div class="wf-row">Liste (grüne Bullet-Dashes)</div>
+        <div class="wf-row" style="background:var(--cream);">Callout — info/warning/highlight</div>
+        <div class="wf-row">Heading H2</div>
+        <div class="wf-row">Paragraph · Divider · Paragraph</div>
+      </div>
+      <div class="wf-box cream">Author-Bio Card</div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">Related 1</div>
+        <div class="wf-grid-item">Related 2</div>
+        <div class="wf-grid-item">Related 3</div>
+      </div>
+    </div>
+    <div class="sections">
+      <h4>4 Sektionen</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">ArticleHeader</div><div class="item-desc">Eyebrow (Kategorie + Datum), extra-tight Cormorant-Headline (leading 0.88, tracking -0.025), Lead, Byline mit Avatar + Datum + Lesezeit, großes 16:9 Cover-Bild.</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">ArticleBody</div><div class="item-desc">Long-Form Renderer für 8 Block-Kinds: heading, subheading, paragraph (erster mit Drop-Cap), quote (Pull-Quote mit Source), list (grüne Bullets), image, divider, callout (info/warning/highlight).</div></div></li>
+        <li><span class="item-num">03</span><div><div class="item-title">AuthorBio</div><div class="item-desc">Cream-Card mit Avatar + Bio-Block am Ende des Artikels.</div></div></li>
+        <li><span class="item-num">04</span><div><div class="item-title">Related Articles</div><div class="item-desc">cream-Sektion mit 3-Spalten-Grid an thematisch verwandten Artikeln (per `related`-Slug-Liste).</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     8 — ÜBER UNS
+══════════════════════════════════════════════ -->
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">07.</span>Über uns</h3>
+    <code class="page-route">/ueber</code>
+  </div>
+  <p class="page-purpose">
+    Redaktionelle Verbindung Amtshelden ↔ Supertools. 7 Sektionen — Hero, Editorial-Drop-Cap, 3 Grundsätze,
+    Verbindung zur Mutter-Marke (grüne Sektion mit Bildern), Methodik, Team/Sitz, CTA.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb</div>
+      <div class="wf-box" style="padding:14px;">
+        <div style="font-family:var(--serif);font-size:14px;font-weight:700;line-height:1;">Vertrauen entsteht dort,<br>wo Software ein Gesicht bekommt.</div>
+      </div>
+      <div class="wf-split">
+        <div>
+          <div style="font-size:9px;font-weight:600;">Warum es Supertools gibt</div>
+          <div style="font-size:8px;color:var(--soft);">Sticky-Heading + Amtshelden-Cover-Bild</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:var(--brand);">Drop-Cap-Editorial</div>
+          <div style="font-size:8px;color:var(--soft);">4 Absätze · Long-Form</div>
+        </div>
+      </div>
+      <div class="wf-box grid">
+        <div class="wf-grid-item">01. Vergleichen nicht</div>
+        <div class="wf-grid-item">02. Behörden vertrauen</div>
+        <div class="wf-grid-item">03. Sichtbar machen</div>
+      </div>
+      <div class="wf-box" style="background:var(--brand-dark);color:white;border-color:var(--brand-dark);padding:14px;">
+        <div style="font-weight:700;">Verbindung Amtshelden ↔ Supertools</div>
+        <div style="font-size:9px;opacity:0.85;margin-top:4px;">Inverse Logo · 4 Cards mit Amtshelden-Bildern</div>
+      </div>
+      <div class="wf-box">Wie wir arbeiten · 4-Schritte-Methodik (Newspaper-Stil)</div>
+      <div class="wf-box cream">Team/Sitz Frankfurt + Zitat „Kultur entscheidet…"</div>
+      <div class="wf-box">CTA · Kontakt + Newsletter</div>
+    </div>
+    <div class="sections">
+      <h4>7 Sektionen</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">Hero</div><div class="item-desc">„Vertrauen entsteht dort, wo Software ein Gesicht bekommt." Cormorant clamp 40-84px, leading 0.98, italic-Highlight im Brand-Grün.</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">Editorial mit Drop-Cap</div><div class="item-desc">„Behörden haben kein Tool-Problem, sie haben ein Orientierungsproblem." 5/7-Grid mit sticky-Heading + Amtshelden-Cover-Bild links, Drop-Cap-Long-Form rechts.</div></div></li>
+        <li><span class="item-num">03</span><div><div class="item-title">3 Grundsätze</div><div class="item-desc">Wir vergleichen nicht · Wir vertrauen Behörden · Wir machen Software sichtbar. 3-Spalter mit vertikalen Hairlines, italic Cormorant-Nummerierung.</div></div></li>
+        <li><span class="item-num">04</span><div><div class="item-title">Verbindung Amtshelden ↔ Supertools (grün)</div><div class="item-desc">Brand-Dark-Sektion mit inverse Logo. 4 Cards mit Cover-Bildern aus dem Amtshelden-Magazin: Kultur · Supertools · Anspruch · Community 12k+.</div></div></li>
+        <li><span class="item-num">05</span><div><div class="item-title">Wie wir arbeiten</div><div class="item-desc">4-Schritte-Methodik im Newspaper-Stil: Hersteller-Gespräch · 3 Referenz-Behörden · Compliance-Audit · Redaktionelles Urteil.</div></div></li>
+        <li><span class="item-num">06</span><div><div class="item-title">Team/Sitz</div><div class="item-desc">Frankfurt am Main. Hinweis auf Julia + Christian. Redaktion mit Verwaltungs-Background. Abschluss-Zitat „Kultur entscheidet…"</div></div></li>
+        <li><span class="item-num">07</span><div><div class="item-title">CTA</div><div class="item-desc">„Wenn du Verantwortung trägst…" Mittig zentriert mit Kontakt-Button + Newsletter-Link.</div></div></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     9 — SERVICE-STUBS
+══════════════════════════════════════════════ -->
+<section class="section-h">
+  <div class="eyebrow">Service-Seiten</div>
+  <h2>Platzhalter-Seiten</h2>
+</section>
+
+<article class="page-card">
+  <div class="page-card-head">
+    <h3><span class="num">08.</span>Service-Stubs</h3>
+    <code class="page-route">/kontakt · /anbieter · /impressum · /datenschutz</code>
+  </div>
+  <p class="page-purpose">
+    Vier Routen mit identischer PlaceholderPage-Komponente — verhindert 404s aus der Navigation
+    und kommuniziert „Coming Soon" im Editorial-Stil. Werden in späteren Iterationen mit echtem
+    Inhalt befüllt.
+  </p>
+
+  <div class="page-body">
+    <div class="wf">
+      <div class="wf-box dark">Header sticky</div>
+      <div class="wf-box">Breadcrumb</div>
+      <div class="wf-box" style="padding:24px 16px;text-align:center;">
+        <div style="font-size:9px;color:var(--brand);text-transform:uppercase;letter-spacing:0.14em;">Eyebrow</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:700;margin:6px 0;">Editorial-Titel</div>
+        <div style="font-size:10px;color:var(--soft);">Coming-soon-Beschreibung</div>
+        <div style="margin-top:10px;display:flex;gap:6px;justify-content:center;">
+          <div style="background:var(--brand);color:white;padding:4px 10px;border-radius:99px;font-size:9px;">Zur Startseite</div>
+          <div style="border:1px solid var(--border);padding:4px 10px;border-radius:99px;font-size:9px;">Kategorien</div>
+        </div>
+      </div>
+      <div class="wf-box cream">Footer</div>
+    </div>
+    <div class="sections">
+      <h4>2 Sektionen je Stub</h4>
+      <ol>
+        <li><span class="item-num">01</span><div><div class="item-title">Breadcrumb</div></div></li>
+        <li><span class="item-num">02</span><div><div class="item-title">Editorial Placeholder</div><div class="item-desc">Eyebrow + Cormorant-Titel + Lead-Absatz + 2 CTAs (Startseite / Kategorien). Im Editorial-Stil — kein „404 nicht gefunden"-Anmutung.</div></div></li>
+      </ol>
+      <div style="margin-top:24px;padding:14px 16px;background:var(--brand-light);border-radius:6px;">
+        <h4 style="margin-bottom:6px;">Status</h4>
+        <p style="font-size:12px;color:var(--mid);margin:0;line-height:1.55;">Identische Komponente, unterschiedliche Texte. Pro Seite eigene Metadata (title + description) für SEO.</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="doc-footer">
+  <div>
+    Supertools Strukturübersicht · Stand v0.14.2 · 17. Mai 2026
+  </div>
+  <div>
+    <a href="https://github.com/wolfram-concrete/amtshelden-supertools" style="color:var(--brand-dark);text-decoration:none;">github.com/wolfram-concrete/amtshelden-supertools</a>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
