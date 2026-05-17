@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import { ChevronDown, Search, SlidersHorizontal, X } from "lucide-react";
 
 import { ToolCard } from "@/components/cards/ToolCard";
 import { cn } from "@/lib/utils";
@@ -45,6 +45,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
   const [compliance, setCompliance] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortKey>("editorial");
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
 
   // Random-Seed bleibt während der Sitzung konstant (kein Re-Shuffle bei jedem Render)
   const [randomSeed] = useState(() => Math.random());
@@ -122,23 +123,69 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
     SORT_OPTIONS.find((s) => s.key === sort)?.label || "Redaktionell";
 
   return (
-    <div className="grid lg:grid-cols-[240px_1fr] gap-10 lg:gap-12">
-      {/* ── Sidebar Filters ── */}
-      <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-soft">
+    <div className="grid lg:grid-cols-[240px_1fr] gap-6 lg:gap-12">
+      {/* ── Sidebar Filters (Mobile: kollabierbar, Desktop: sticky) ── */}
+      <aside className="lg:sticky lg:top-24 lg:self-start">
+        {/* Mobile-Toggle */}
+        <button
+          type="button"
+          onClick={() => setFiltersExpanded((v) => !v)}
+          aria-expanded={filtersExpanded}
+          aria-controls="filter-panel"
+          className="lg:hidden w-full flex items-center justify-between rounded-full border border-border bg-white px-5 py-3 font-ui text-[13px] font-semibold text-dark transition-colors hover:bg-cream"
+        >
+          <span className="flex items-center gap-2">
+            <SlidersHorizontal size={14} aria-hidden />
             Filter
-          </h2>
+            {totalFilters > 0 && (
+              <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-brand text-white font-ui text-[10px] font-bold">
+                {totalFilters}
+              </span>
+            )}
+          </span>
+          <ChevronDown
+            size={14}
+            className={cn(
+              "transition-transform text-soft",
+              filtersExpanded && "rotate-180",
+            )}
+            aria-hidden
+          />
+        </button>
+
+        {/* Filter-Panel */}
+        <div
+          id="filter-panel"
+          className={cn(
+            "space-y-6 lg:!block lg:!opacity-100",
+            !filtersExpanded && "hidden lg:block",
+            filtersExpanded && "block mt-4 lg:mt-0 animate-filters-in",
+          )}
+        >
+          <div className="hidden lg:flex items-center justify-between">
+            <h2 className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-soft">
+              Filter
+            </h2>
+            {totalFilters > 0 && (
+              <button
+                type="button"
+                onClick={resetAll}
+                className="font-ui text-[11px] text-brand hover:underline"
+              >
+                Zurücksetzen
+              </button>
+            )}
+          </div>
+
           {totalFilters > 0 && (
             <button
               type="button"
               onClick={resetAll}
-              className="font-ui text-[11px] text-brand hover:underline"
+              className="lg:hidden inline-flex items-center font-ui text-[12px] text-brand hover:underline"
             >
-              Zurücksetzen
+              Alle Filter zurücksetzen
             </button>
           )}
-        </div>
 
         <FilterGroup label="Betrieb">
           {OPERATION_OPTIONS.map((op) => (
@@ -172,6 +219,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
             />
           ))}
         </FilterGroup>
+        </div>
       </aside>
 
       {/* ── Main: Search + Sort + List ── */}
@@ -252,6 +300,12 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
       </div>
 
       <style>{`
+        @keyframes filters-in {
+          from { opacity: 0; transform: translateY(-4px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-filters-in { animation: filters-in 0.18s ease-out forwards; }
+
         .sort-select {
           background: transparent;
           border: 1px solid var(--color-border);

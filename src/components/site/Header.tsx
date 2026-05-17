@@ -1,16 +1,15 @@
 /**
  * Header / Top-Nav für alle Frontend-Seiten.
  * Editorial-Magazin meets E-Com-Klarheit:
- *  - Kategorien als Mega-Menu (sofort sichtbar, kein Suchen)
- *  - Wissen + Über als button-artige Pill-Links
- *  - Newsletter-Popover-Widget rechts
- *  - Anbieter-CTA als sekundärer Pill
+ *  - Desktop (md+): Mega-Menu, Pill-Nav, Newsletter-Popover, Anbieter-CTA
+ *  - Mobile (< md): Logo + Hamburger → MobileNavDrawer mit allen Items + Newsletter
  */
 
 import Link from "next/link";
 
 import { Logo } from "@/components/site/Logo";
 import { MegaMenu } from "@/components/site/MegaMenu";
+import { MobileNavDrawer } from "@/components/site/MobileNavDrawer";
 import { NewsletterPopover } from "@/components/site/NewsletterPopover";
 import { cn } from "@/lib/utils";
 
@@ -31,9 +30,10 @@ export function Header({ className }: HeaderProps) {
         className,
       )}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-6 lg:px-10">
-        <Logo height={40} priority />
+      <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
+        <Logo height={36} priority />
 
+        {/* Desktop-Nav */}
         <nav className="hidden md:flex items-center gap-1.5">
           <MegaMenu />
           {secondaryNav.map((item) => (
@@ -47,6 +47,7 @@ export function Header({ className }: HeaderProps) {
           ))}
         </nav>
 
+        {/* Desktop-Actions */}
         <div className="hidden md:flex items-center gap-2">
           <Link
             href="/anbieter"
@@ -56,6 +57,9 @@ export function Header({ className }: HeaderProps) {
           </Link>
           <NewsletterPopover />
         </div>
+
+        {/* Mobile-Trigger */}
+        <MobileNavDrawer />
       </div>
     </header>
   );

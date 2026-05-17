@@ -2,6 +2,68 @@
 
 ---
 
+## [0.14.0] — 2026-05-17
+
+### Mobile-Ausrollung: Nav-Drawer + kollabierbarer Filter
+
+Auf < 768 px war die Nav komplett unsichtbar. Jetzt vollständige Mobile-UX.
+
+---
+
+### 📱 `MobileNavDrawer` (Client)
+
+- Hamburger-Button (44×44 px Touch-Target) rechts im Header — nur Mobile
+- Slide-in-Drawer von rechts (85% Breite, max-w-sm)
+- Animation: `cubic-bezier(0.16, 1, 0.3, 1)` in 0.22 s
+- Backdrop mit `bg-dark/40 backdrop-blur-[2px]`, Click schließt
+- ESC schließt + Body-Scroll-Lock während Drawer offen
+- `aria-modal` + `aria-labelledby` für Screen-Reader
+
+**Drawer-Inhalt:**
+1. Header-Leiste: Logo + Close-X
+2. **Newsletter-Form** (Cream-Section oben) — volle E-Mail-Anmeldung, nicht nur Link
+3. **Hauptmenu:**
+   - „Kategorien" als Akkordeon (alle 6 Kategorien mit Icon, Name, Tool-Count)
+   - Wissen & Magazin
+   - Über uns
+4. **Service-Links** (gedämpft):
+   - Anbieter werden
+   - Kontakt
+5. **Footer-Links:** Impressum · Datenschutz (klein)
+
+---
+
+### 🎛️ Header-Anpassungen
+
+- Logo-Höhe auf Mobile: 36 px (Desktop bleibt 40 px)
+- Container-Padding: `px-4 sm:px-6 lg:px-10` für Mobile-Edge-Space
+- Desktop-Nav (`hidden md:flex`) und Mobile-Drawer (`md:hidden`) parallel im DOM,
+  CSS regelt Sichtbarkeit
+
+---
+
+### 🔧 ToolFilters: Mobile-kollabierbar
+
+- **Mobile:** Filter sind defaultmäßig **eingeklappt** — User landet sofort
+  auf der Tool-Liste, scrollt nicht durch lange Checkbox-Listen
+- Toggle-Button mit `SlidersHorizontal`-Icon + Active-Counter-Pill
+  („Filter [3]" wenn 3 Filter aktiv)
+- ChevronDown rotiert beim Aufklappen
+- Animation `filters-in` (0.18 s ease-out) beim Aufklappen
+- Desktop: bleibt sticky links, unverändert
+- „Alle Filter zurücksetzen"-Link auch im Mobile-Panel
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- Mobile UX jetzt vollständig: Nav, Filter, Newsletter, alle Routes erreichbar
+- Touch-Targets ≥ 44 px überall im Drawer
+
+---
+
 ## [0.13.0] — 2026-05-16
 
 ### Display-Headline-Leading + neuer Skill „list-ui-design"
