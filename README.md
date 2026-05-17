@@ -112,10 +112,21 @@ src/
 └── lib/utils.ts            ← cn(), slugify(), formatDateDE()
 ```
 
+### Verbindliche Skills
+
+| Skill | Wann anwenden | Quelle |
+|---|---|---|
+| **`payload-nextjs-agent`** | Bei jeder neuen Komponente / Page — sichert Payload-ready Architektur, Server/Client-Component-Trennung, defensive Optionals, `next/image`/`next/link` | `~/.claude/skills/payload-nextjs-agent/` · `.codex-context/SKILL.md` |
+| **`list-ui-design`** | Bei jeder Listen-/Verzeichnis-/Tabellen-Darstellung — Item-Höhe, Dichte, Hierarchie, gleichberechtigte Darstellung ohne Ranking-Anmutung | `~/.claude/skills/list-ui-design/` · `.codex-context/list-ui-design.md` |
+
 ### Design-System (verbindlich)
 
 - **Fonts via `next/font/google`:** Cormorant Garamond (Headlines, italic für Akzente),
   IBM Plex Sans (Body 17px, leading-1.75), Inter Tight (UI/Labels)
+- **Headline-Leading bei Cormorant:**
+  - Display H1 (clamp 36–84 px): `leading-[0.88]` + `tracking-[-0.025em]` (extra-tight Editorial)
+  - Section H2 (clamp 28–48 px): `leading-[1.05]` (Descender-safe)
+  - Card-Titel (17–22 px): `leading-tight` bis `leading-[1.15]`
 - **Brand-Tokens als CSS-Variablen in `@theme`:**
   - `--color-brand` `#009460` · `--color-brand-dark` `#006b45` · `--color-brand-light` `#EAF3DE`
   - `--color-cream` `#F8F4EB` · `--color-dark/mid/soft` für Editorial-Hierarchie

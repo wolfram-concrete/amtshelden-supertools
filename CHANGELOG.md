@@ -2,6 +2,65 @@
 
 ---
 
+## [0.13.0] — 2026-05-16
+
+### Display-Headline-Leading + neuer Skill „list-ui-design"
+
+---
+
+### 🔤 Article-Header Display-Leading extra-tight
+
+- `ArticleHeader` h1: `leading-[0.92]` → **`leading-[0.88]`**
+- Tracking: `tracking-[-0.015em]` → **`tracking-[-0.025em]`**
+
+Cormorant Garamond ist eine Display-Schrift mit hoher x-Höhe und langen
+Ascendern. Bei großen Display-Titeln (clamp 36-68px) erlaubt das Schriftbild
+extrem dichtes Leading, wenn Tracking gleichzeitig negativ gezogen wird.
+Resultat: deutlich „Magazin-Cover"-Feel bei langen Headlines.
+
+---
+
+### 🧠 Neuer Skill: `list-ui-design`
+
+Verbindliche UX/UI-Prinzipien für alle Listen-Darstellungen, abgeleitet aus:
+- Material Design Lists Guidelines
+- Justinmind-Artikel „UI Design: Listen" (https://www.justinmind.com/de/ui-design/liste)
+- OMR-Reviews-Listing-Patterns
+- Konkreter Anwendung im Supertools-Projekt (v0.11–v0.12)
+
+**Lokal verfügbar als:**
+- `~/.claude/skills/list-ui-design/SKILL.md` — globaler Claude-Skill,
+  triggert automatisch bei Listen-/Verzeichnis-Tasks
+- `.codex-context/list-ui-design.md` — gleicher Inhalt im Repo für
+  Codex und andere Tools
+
+**Inhalt:** 11 Sektionen — Listen-Typen, Item-Anatomie, Best Practices für
+lange Listen, Sortierung ohne Ranking-Anmutung, Typografie, Hierarchie,
+Interaktion, Mobile, Anti-Patterns, Implementierungs-Beispiel (React+Tailwind).
+
+**Kernregel:**
+> Eine Liste ist keine Empfehlung. Sortierung und Hierarchie müssen
+> transparent sein. Sterne, Scores und „Top X"-Listen sind verboten,
+> wenn das Geschäftsmodell ehrliche Einordnung (statt Bewertung) vorsieht.
+
+---
+
+### 📝 README erweitert
+
+Neues Section „Verbindliche Skills" mit Tabelle (`payload-nextjs-agent` +
+`list-ui-design`) und Hinweisen zu Headline-Leading-Werten für Cormorant
+Garamond.
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean — 25 routes alle static
+- Skill global registriert + im Repo gespiegelt
+
+---
+
 ## [0.12.0] — 2026-05-16
 
 ### Kategorie-Seiten: Tile-Grid → Kompakte Listen-Zeile
