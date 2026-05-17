@@ -119,6 +119,28 @@ src/
 | **`payload-nextjs-agent`** | Bei jeder neuen Komponente / Page — sichert Payload-ready Architektur, Server/Client-Component-Trennung, defensive Optionals, `next/image`/`next/link` | `~/.claude/skills/payload-nextjs-agent/` · `.codex-context/SKILL.md` |
 | **`list-ui-design`** | Bei jeder Listen-/Verzeichnis-/Tabellen-Darstellung — Item-Höhe, Dichte, Hierarchie, gleichberechtigte Darstellung ohne Ranking-Anmutung | `~/.claude/skills/list-ui-design/` · `.codex-context/list-ui-design.md` |
 
+### Dokumentation & Snapshots
+
+Für Strukturbesprechungen mit Geschäftspartnern liegt eine vollständige
+Sitemap-Doku unter `docs/sitemap.html`:
+
+- 8 Full-Page-Screenshots aller Hauptseiten in `docs/screenshots/`
+- HTML-Übersicht: Snapshot links · rudimentäre Section-Notizen rechts
+- Reproduzierbar via `scripts/screenshot-pages.mjs`
+- Print-/PDF-export-fertig (`@media print`)
+
+```bash
+# Doku öffnen
+open docs/sitemap.html
+
+# Frische Screenshots nach Design-Änderungen
+PORT=3001 npm run start &
+sleep 5 && node scripts/screenshot-pages.mjs
+kill %1
+```
+
+PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
+
 ### Mobile / Responsive (Stand v0.14)
 
 - **Header < 768 px:** Logo (36 px) + Hamburger-Button (44 × 44 px) — keine Inline-Nav

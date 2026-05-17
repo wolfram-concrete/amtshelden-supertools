@@ -2,6 +2,82 @@
 
 ---
 
+## [0.15.0] — 2026-05-17
+
+### Sitemap-Snapshot: Geschäftspartner-Doku mit echten Screenshots
+
+Vollständige Strukturübersicht der Website als HTML-Doku unter `docs/sitemap.html` —
+für Strukturbesprechungen mit Geschäftspartnern. Stand v0.14.2.
+
+---
+
+### 🖼️ Echte Full-Page-Screenshots
+
+- 8 Snapshots aller Hauptseiten unter `docs/screenshots/`:
+  - `01-home.png` — Startseite (komplett, 9 Sektionen)
+  - `02-kategorien-index.png` — Kategorien-Übersicht
+  - `03-kategorie-detail.png` — Kategorie-Detail mit Filter + Liste
+  - `04-tool-profil.png` — VivioAkte-Profil (alle 8 Zonen)
+  - `05-wissen-index.png` — Magazin-Index
+  - `06-wissen-detail.png` — Artikel-Detail (Bund-Schwerpunkt)
+  - `07-ueber.png` — Über-uns-Seite (7 Sektionen)
+  - `08-kontakt.png` — Service-Stub-Beispiel
+- Generiert via `scripts/screenshot-pages.mjs` (puppeteer-core + lokales Chrome)
+- Viewport 1440×900, Retina @2× für Druck-Qualität
+
+---
+
+### 🗂️ Sitemap-HTML komplett überarbeitet
+
+`docs/sitemap.html` ersetzt die alte Wireframe-Variante:
+
+- **Cover** mit Editorial-Headline (Cormorant) + 4 Kennzahlen-Pill
+- **Routen-Hierarchie-Tree** kompakt zentral
+- **8 Page-Rows** mit alternierendem Layout:
+  - Snapshot links/rechts (Browser-Chrome-Andeutung mit Macos-Dots)
+  - 280-px-Sidebar mit Mini-Notizen
+- **Mini-Notizen pro Sektion:** Bold-Name + 1-Zeilen-Subtext (rudimentär,
+  wie gewünscht — keine Komponenten-Klassifizierung, keine Wireframe-Boxen)
+- **Print-optimiert:** `@media print` mit page-break-inside avoid pro Row,
+  position:static für Sticky-Sidebar, kein Schatten
+
+---
+
+### 🛠️ Tooling
+
+- Neu: `scripts/screenshot-pages.mjs` (reproduzierbar)
+- Dev-Dependency: `puppeteer-core` (klein, nutzt lokales Chrome — kein
+  Chromium-Download nötig)
+- 8 Screenshots in ~10–15 s generierbar
+
+---
+
+### 📖 Nutzung
+
+```bash
+# Snapshots öffnen / präsentieren
+open docs/sitemap.html
+
+# Snapshots neu generieren (nach Design-Änderungen)
+PORT=3001 npm run start &
+sleep 5
+node scripts/screenshot-pages.mjs
+kill %1
+
+# Als PDF exportieren
+# Im Browser: Cmd+P → Als PDF speichern
+```
+
+---
+
+### ✅ Status
+
+- Datei: `docs/sitemap.html` (~30 KB) · 8 PNG-Screenshots (~12 MB total)
+- Print-fertig, PDF-export-fertig
+- Reproduzierbar via Script
+
+---
+
 ## [0.14.2] — 2026-05-17
 
 ### Fix: Drawer-Body weiter unsichtbar — Triple-Defensive Höhen-Setup
