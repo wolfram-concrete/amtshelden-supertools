@@ -119,6 +119,21 @@ src/
 | **`payload-nextjs-agent`** | Bei jeder neuen Komponente / Page — sichert Payload-ready Architektur, Server/Client-Component-Trennung, defensive Optionals, `next/image`/`next/link` | `~/.claude/skills/payload-nextjs-agent/` · `.codex-context/SKILL.md` |
 | **`list-ui-design`** | Bei jeder Listen-/Verzeichnis-/Tabellen-Darstellung — Item-Höhe, Dichte, Hierarchie, gleichberechtigte Darstellung ohne Ranking-Anmutung | `~/.claude/skills/list-ui-design/` · `.codex-context/list-ui-design.md` |
 
+### Mobile / Responsive (Stand v0.14)
+
+- **Header < 768 px:** Logo (36 px) + Hamburger-Button (44 × 44 px) — keine Inline-Nav
+- **`MobileNavDrawer`** (Client) öffnet von rechts (`top-0 right-0 bottom-0`,
+  85 % Breite max-w-sm), `transition-transform duration-200 ease-out`
+- **Drawer-Inhalt:** Newsletter-Form · Kategorien-Akkordeon (6 Cats mit Icon/Count)
+  · Wissen · Über · Anbieter · Kontakt · Impressum/Datenschutz
+- **Body-Scroll-Lock** während Drawer offen, ESC + Backdrop-Click schließen
+- **Touch-Targets** überall ≥ 44 px (Apple HIG / Google Material)
+- **ToolFilters Mobile:** Filter sind **default eingeklappt** mit Active-Counter-Pill
+  („Filter [3]") — User landet sofort auf der Tool-Liste
+- **Container-Padding:** `px-4 sm:px-6 lg:px-10` für Mobile-Edge-Space
+- **Wichtige Regel:** `position: fixed` + `h-full` ist auf iOS unzuverlässig —
+  immer `top-0 right-0 bottom-0` (oder `inset-y-0 inset-x-0`) verwenden
+
 ### Design-System (verbindlich)
 
 - **Fonts via `next/font/google`:** Cormorant Garamond (Headlines, italic für Akzente),

@@ -2,6 +2,45 @@
 
 ---
 
+## [0.14.1] — 2026-05-17
+
+### Fix: MobileNavDrawer-Body kollabierte
+
+Der Drawer öffnete sich, aber sein Body (Newsletter, Nav, Service-Links) war
+unsichtbar — nur Header (Logo + X) sichtbar.
+
+---
+
+### 🐛 Root Cause
+
+`h-full` (= `height: 100%`) auf `position: fixed`-Element berechnete auf
+iOS Safari (und teilweise auf Chrome Mobile) die Viewport-Höhe nicht
+zuverlässig. Der `<aside>` hatte 0 Höhe → das innere `flex-1` im Scroll-
+Bereich fand keine Höhe zum Füllen → kollabierte.
+
+### 🔧 Fix
+
+- `top-0 h-full` → **`top-0 right-0 bottom-0`** (explizite Boundaries)
+- Drawer flex-col füllt jetzt verlässlich die Viewport-Höhe auf allen
+  Mobile-Browsern
+- `flex-1` im Scroll-Bereich greift korrekt
+
+### 🎨 Animations-Cleanup
+
+- Custom Keyframe `drawer-in` → **`transition-transform duration-200 ease-out`**
+  (kein Class/Animation-Konflikt mehr, sauberer)
+- Backdrop jetzt **immer im DOM** mit `transition-opacity` statt conditional
+  Rendering → sauberer Fade-out beim Schließen (vorher: abruptes Verschwinden)
+
+---
+
+### ✅ Status
+
+- TypeScript: clean
+- Build: clean
+
+---
+
 ## [0.14.0] — 2026-05-17
 
 ### Mobile-Ausrollung: Nav-Drawer + kollabierbarer Filter
