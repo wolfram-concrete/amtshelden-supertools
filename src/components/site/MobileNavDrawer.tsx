@@ -62,26 +62,26 @@ export function MobileNavDrawer() {
         <Menu size={20} aria-hidden />
       </button>
 
-      {/* Backdrop */}
-      {open && (
-        <div
-          aria-hidden
-          onClick={() => setOpen(false)}
-          className="fixed inset-0 z-40 bg-dark/40 backdrop-blur-[2px] md:hidden animate-drawer-fade"
-        />
-      )}
+      {/* Backdrop — immer im DOM, Opacity-Transition für sauberes Fade-out */}
+      <div
+        aria-hidden
+        onClick={() => setOpen(false)}
+        className={cn(
+          "fixed inset-0 z-40 bg-dark/40 backdrop-blur-[2px] md:hidden transition-opacity duration-200",
+          open ? "opacity-100" : "opacity-0 pointer-events-none",
+        )}
+      />
 
-      {/* Drawer */}
+      {/* Drawer — top/right/bottom explizit für robuste Viewport-Höhe auf Mobile */}
       <aside
         id="mobile-nav-drawer"
         role="dialog"
         aria-modal="true"
         aria-label="Hauptnavigation"
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-white shadow-2xl md:hidden flex flex-col",
-          open
-            ? "translate-x-0 animate-drawer-in"
-            : "translate-x-full pointer-events-none",
+          "fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white shadow-2xl md:hidden flex flex-col",
+          "transition-transform duration-200 ease-out",
+          open ? "translate-x-0" : "translate-x-full pointer-events-none",
         )}
       >
         {/* Header */}
@@ -243,16 +243,11 @@ export function MobileNavDrawer() {
       </aside>
 
       <style>{`
-        @keyframes drawer-in {
-          from { transform: translateX(100%); }
-          to { transform: translateX(0); }
-        }
-        @keyframes drawer-fade {
+        @keyframes drawer-fade-in {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        .animate-drawer-in { animation: drawer-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-drawer-fade { animation: drawer-fade 0.18s ease-out forwards; }
+        .animate-drawer-fade { animation: drawer-fade-in 0.18s ease-out forwards; }
       `}</style>
     </>
   );
