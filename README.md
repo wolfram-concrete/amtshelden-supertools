@@ -122,16 +122,21 @@ src/
 ### Dokumentation & Snapshots
 
 Für Strukturbesprechungen mit Geschäftspartnern liegt eine vollständige
-Sitemap-Doku unter `docs/sitemap.html`:
+Sitemap-Doku unter `public/sitemap.html` — wird von Vercel automatisch
+mit-deployt und ist extern teilbar:
 
-- 8 Full-Page-Screenshots aller Hauptseiten in `docs/screenshots/`
+**Öffentlich erreichbar:**
+`https://amtshelden-supertools.vercel.app/sitemap.html`
+(`noindex,nofollow` gesetzt — nicht in Google-Suche)
+
+- 8 Full-Page-Screenshots aller Hauptseiten in `public/sitemap/`
 - HTML-Übersicht: Snapshot links · rudimentäre Section-Notizen rechts
 - Reproduzierbar via `scripts/screenshot-pages.mjs`
 - Print-/PDF-export-fertig (`@media print`)
 
 ```bash
-# Doku öffnen
-open docs/sitemap.html
+# Lokal öffnen
+open public/sitemap.html
 
 # Frische Screenshots nach Design-Änderungen
 PORT=3001 npm run start &

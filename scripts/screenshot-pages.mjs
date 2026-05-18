@@ -17,7 +17,7 @@ import { mkdir } from "node:fs/promises";
 const CHROME_PATH =
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const BASE_URL = "http://localhost:3001";
-const OUTPUT_DIR = "docs/screenshots";
+const OUTPUT_DIR = "public/sitemap";
 const VIEWPORT = { width: 1440, height: 900, deviceScaleFactor: 2 };
 
 const ROUTES = [
