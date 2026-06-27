@@ -2,6 +2,47 @@
 
 ---
 
+## [0.17.0] — 2026-06-27
+
+### Schrift-Wechsel, Chat-Widget, README-Konsolidierung
+
+---
+
+### 🔤 Headline-Schrift: Cormorant Garamond → Source Serif 4
+
+- Cormorant wirkte für die Behörden-Zielgruppe zu „Lifestyle/edel" — Source Serif 4
+  ist institutionell-seriös, für Bildschirm gebaut, behält den Magazin-Charakter.
+- `layout.tsx`: `Source_Serif_4` via next/font (400/600/700, normal+italic),
+  `--font-serif` in globals umgehängt.
+- ArticleHeader-Leading 0.88 → 0.96 (Source Serif hat engere Metrik als Cormorant;
+  damit verschwindet auch der zu lockere Zeilenabstand).
+- Metadata-Description: AI-Floskel „Handverlesene Software" → „Die passende
+  Software für Ihre Verwaltung. Von Expert:innen kuratiert."
+
+### 💬 Chat-Widget (alle Seiten)
+
+- `ChatWidget` — Floating-Button als **grüne Sprechblase mit „s"** (Ableitung aus
+  der Logo-Formsprache: rounded Tag-Form + Tail, Brand-Grün, custom SVG).
+- Aufgeklappt: **Terminbuchung übers Kalendertool** (Informationsgespräch /
+  Anbieter-Anfrage) + direkter Chat (Stub).
+- Bewusst **kein** Antwortzeit-Versprechen. Esc + Click schließen.
+- Kalender-URL über `CAL_URL`-Konstante anpassbar (Platzhalter: cal.com/amtshelden).
+
+### 📄 README konsolidiert
+
+- Stale Word-Export-Duplikat `README.md (1).docx` (Stand Mai) **entfernt** —
+  es gibt jetzt nur noch eine README.
+- README-Kopf aktualisiert: neues SVG-Logo, Source Serif 4, v0.16-Stand.
+- Kapitel 3 „Aktuelle Situation" auf v0.16 gebracht (4 Themenfelder, 31 Routes,
+  Strategie-Meeting-Features, Chat-Widget). Design-System-Sektion auf Source Serif.
+
+---
+
+### ✅ Status
+- TypeScript: clean · Build: clean — 31 Routes static
+
+---
+
 ## [0.16.0] — 2026-06-27
 
 ### Strategie-Meeting-Umsetzung (12.06.2026) — alle 9 To-Do-Punkte

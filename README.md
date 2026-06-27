@@ -1,18 +1,27 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Mai 2026
-## Assets
+**Stand:** Juni 2026 · **Version:** 0.16 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
-### Logo
-`amtshelden_ST.png` — Amtshelden Supertools Logo (2000×669px, RGB)
-→ Für den Einsatz im Web: schwarzen Hintergrund per Flood-Fill entfernen (transparente PNG-Version)
-→ Farben: Grün #009460, Dunkelgrau #3D3D3D, Weiß
-→ Liegt im Projektordner: `webprojekte/supertools/amtshelden_ST.png`
+> **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
+> Stand Mai) wurde am 27.06.2026 entfernt — der gesamte aktuelle Stand lebt hier.
 
-  
-**Betrieben von:** Amtshelden.de  
-**Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor in Deutschland
+### Assets / Brand
+
+- **Logo (aktuell, Brand-Refresh 27.06.2026):**
+  - `public/brand/supertools-logo.svg` — default (helle Hintergründe)
+  - `public/brand/supertools-logo-inverse.svg` — invers (dunkle/grüne Sektionen)
+  - PNG-Fallbacks unter gleichem Basisnamen · AR ≈ 2.895 · Gotham-Wortmarke
+  - Eingebunden über `<Logo variant="default|inverse" height={n} />`
+- **Brand-Grün:** `#009460` (Logo-Bubble `#0d9d69`) · Dunkelgrau `#3D3D3D` · Cream `#F8F4EB`
+- **Headline-Schrift:** Source Serif 4 (seit v0.16, ersetzt Cormorant Garamond —
+  institutionell-seriös statt Lifestyle-elegant, passend zum Behörden-Vertrauen)
+- **Fonts gesamt:** Source Serif 4 (Headlines) · IBM Plex Sans (Body) · Inter Tight (UI).
+  Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
+
+**Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor,
+ohne Ranking, ohne gekaufte Empfehlungen.
 
 ---
 
@@ -66,7 +75,7 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.9, Mai 2026)
+## 3. AKTUELLE SITUATION (Stand v0.16, Juni 2026)
 
 ### Tech-Stack
 
@@ -74,20 +83,35 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 · Tailwind v4 (`@theme`-Tokens in CSS) · shadcn-Style Primitives (`@radix-ui/react-slot`,
 `class-variance-authority`, `clsx`, `tailwind-merge`)
 · `lucide-react` für Icons.
-**Deployment:** Vercel mit `vercel.json` (framework=nextjs, auto-detect).
+**Deployment:** Vercel, Git-Auto-Deploy (GitHub-App). Build clean, **31 Routes** (alle Static/SSG).
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools`.
 
-### Implementierte Seitentypen (4 von 4)
+### Strukturebene: 4 Themenfelder (seit v0.16, Strategie-Meeting 12.06.2026)
+
+Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`):
+**Kommunikation & Krise · Smartes Personalmanagement · Transformation & KI · Moderne Führung.**
+
+### Implementierte Routen
 
 | Route | Status | Was es ist |
 |---|---|---|
-| `/` | ✓ | Editorial-Frontpage mit Hero+QuickFinder, TrustStrip, EditorialFeatureStory, ThemenCluster, Main+Sticky-Sidebar, Pulse, Kategorien, About (grün), Newsletter |
-| `/kategorien` | ✓ | Index aller 6 Kategorien |
-| `/kategorien/[slug]` | ✓ | 6 SSG-Routen: Kategorie-Hero + ToolFilters (Client) + Related Articles |
-| `/tools/[slug]` | ✓ | 1 SSG-Route (VivioAkte) — alle 8 Zonen aus Kap. 27 portiert |
-| `/wissen` | ✓ | Pulse-Index mit Lead + Magazine-Grid |
-| `/wissen/[slug]` | ✓ | 7 SSG-Routen — Editorial Long-Form mit 8 Block-Kinds |
-| `/ueber`, `/kontakt`, `/impressum`, `/datenschutz`, `/anbieter` | ✓ | `/ueber` ausgebaut zur vollwertigen Editorial-Seite; Rest als Platzhalter |
+| `/` | ✓ | Editorial-Frontpage: Hero+Tool-Finder-Wizard, TrustStrip, Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid, About (grün), Mitmachen-CTA, Newsletter |
+| `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
+| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten (Filter + Listen-Ansicht + Related) |
+| `/tools/[slug]` | ✓ | Tool-Profil (VivioAkte): 8 Zonen + Transparenz-Block + Extended-Notice + Korrektur-Widget |
+| `/wissen` + `/[slug]` | ✓ | Magazin-Index + 7 Artikel (Long-Form, 8 Block-Kinds) |
+| `/anbieter` | ✓ | B2B-Landingpage (6 Sektionen) |
+| `/vorschlagen` | ✓ | Tool vorschlagen / Unternehmen eintragen (Behörde/Anbieter-Umschalter) |
+| `/ueber` | ✓ | Editorial-Seite (7 Sektionen, Amtshelden-Brücke) |
+| `/kontakt`, `/impressum`, `/datenschutz` | ✓ | Service-Stubs |
+
+### Strategie-Meeting umgesetzt (v0.16, alle 9 Punkte)
+
+1. „Zuletzt geprüft am" überall · 2. „Was wir nicht prüfen konnten"-Block ·
+3. 4 Themenfelder · 4. Transparenz-Hinweis an bezahlten Profilen ·
+5. B2B-Landingpage · 6. Tool-vorschlagen-Flow · 7. Problem-/Use-Case-Einstieg ·
+8. Korrektur-Widget · 9. 6-Fragen-Tool-Finder.
+Globales Chat-Widget (Sprechblase mit „s") mit Terminbuchung übers Kalendertool.
 
 **Build:** 25 routes total, alle static prerender. TypeScript clean.
 
@@ -163,12 +187,15 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
 
 ### Design-System (verbindlich)
 
-- **Fonts via `next/font/google`:** Cormorant Garamond (Headlines, italic für Akzente),
+- **Fonts via `next/font/google`:** **Source Serif 4** (Headlines, italic für Akzente —
+  seit v0.16, ersetzt Cormorant Garamond für seriösere Behörden-Anmutung),
   IBM Plex Sans (Body 17px, leading-1.75), Inter Tight (UI/Labels)
-- **Headline-Leading bei Cormorant:**
-  - Display H1 (clamp 36–84 px): `leading-[0.88]` + `tracking-[-0.025em]` (extra-tight Editorial)
-  - Section H2 (clamp 28–48 px): `leading-[1.05]` (Descender-safe)
+- **Headline-Leading (Source Serif 4):**
+  - Display H1 (clamp 36–84 px): `leading-[0.96]` + `tracking-[-0.02em]`
+  - Section H2 (clamp 28–48 px): `leading-[1.0]`–`[1.05]`
   - Card-Titel (17–22 px): `leading-tight` bis `leading-[1.15]`
+  - Hinweis: Source Serif 4 hat engere Metrik als Cormorant — Werte daher
+    minimal lockerer als die alten Cormorant-Tunings.
 - **Brand-Tokens als CSS-Variablen in `@theme`:**
   - `--color-brand` `#009460` · `--color-brand-dark` `#006b45` · `--color-brand-light` `#EAF3DE`
   - `--color-cream` `#F8F4EB` · `--color-dark/mid/soft` für Editorial-Hierarchie
