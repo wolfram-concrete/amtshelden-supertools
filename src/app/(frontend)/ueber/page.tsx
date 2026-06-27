@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Logo } from "@/components/site/Logo";
 
 export const metadata: Metadata = {
@@ -14,10 +13,6 @@ export const metadata: Metadata = {
 export default function UeberPage() {
   return (
     <>
-      <Breadcrumb
-        items={[{ label: "Supertools", href: "/" }, { label: "Über uns" }]}
-      />
-
       {/* ============================================================
           1 — HERO (immersiv, analog zur Startseite — Gründer:innen-Motiv)
           ============================================================ */}
