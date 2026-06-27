@@ -97,8 +97,12 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 - Icon-Badge weiß auf Bild, Pfeil oben rechts. Hover: weicher Schatten-Lift + Bild-Zoom.
 
 ### 3.6 Mega-Menu
-- Bento: grüne Feature-Karte + 2×2 Themenfeld-Karten mit Kategorie-Pills.
-- Panel `fixed` full-width unter dem Header, weiche Eingangs-Animation.
+- **Kontainiertes Panel** (KEIN Full-Width-Weiß): rechts unter der Navi ein
+  abgerundeter Cream-Panel mit den **4 Themenfeld-Karten** (2×2, Kategorie-Pills).
+- **Keine** Zwischen-/Feature-Karte („Vier Themenfelder. Volle Tiefe.") — die
+  vier Felder sprechen für sich.
+- Technik: `fixed inset-x-0` Positioner (transparent, `pointer-events-none`) +
+  innen `container … justify-end` → Panel sitzt unter der rechtsbündigen Pill.
 
 ### 3.7 Navigation
 - Eine **Pill in Logo-Grün** (`bg-logo`, solid, `rounded-2xl` = Logo-Kurve) als Insel. Enthält Nav + Actions (Newsletter als weiße CTA). Innere Chips `rounded-xl`.

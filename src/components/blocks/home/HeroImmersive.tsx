@@ -25,7 +25,7 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
-        <div className="relative overflow-hidden rounded-3xl">
+        <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[560px] lg:min-h-[720px]">
           {/* Hintergrund-Motiv */}
           <Image
             src={HERO_IMAGE.url}
@@ -43,7 +43,7 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
           />
 
           {/* Inhalt */}
-          <div className="relative z-10 grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
+          <div className="relative z-10 grid w-full items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
             {/* Text links */}
             <div className="max-w-xl">
               <h1

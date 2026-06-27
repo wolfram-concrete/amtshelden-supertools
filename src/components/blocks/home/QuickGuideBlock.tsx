@@ -8,8 +8,8 @@ interface QuickGuideBlockProps {
 }
 
 /**
- * Editorial-Newspaper-Stil: 4 Spalten, vertikale Trennlinien.
- * Keine Cards mit Borders — typografische Hierarchie macht die Struktur.
+ * Methodik „So prüfen wir Software" — kompaktes Bento.
+ * Vier faktische Schritt-Karten (große grüne Nummer), schnell scanbar.
  */
 export function QuickGuideBlock({
   eyebrow,
@@ -18,34 +18,31 @@ export function QuickGuideBlock({
   steps,
 }: QuickGuideBlockProps) {
   return (
-    <section className="space-y-10">
-      <header className="border-t-2 border-dark pt-8 grid lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-12 items-end">
-        <div className="space-y-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            {eyebrow}
-          </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.08] tracking-tight text-dark">
-            {title}
-          </h2>
+    <section className="space-y-8">
+      <header className="max-w-2xl space-y-3">
+        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+          {eyebrow}
         </div>
-        <p className="font-sans text-[16px] leading-[1.7] text-mid lg:max-w-md lg:justify-self-end lg:text-right">
-          {lead}
-        </p>
+        <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.08] tracking-tight text-dark">
+          {title}
+        </h2>
+        <p className="font-sans text-[15px] leading-[1.65] text-mid">{lead}</p>
       </header>
 
-      <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-10 relative">
-        {steps.map((step, idx) => (
+      <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step) => (
           <li
             key={step.number}
-            className="space-y-3 lg:relative lg:pl-6 lg:[&:not(:first-child)]:before:absolute lg:[&:not(:first-child)]:before:left-0 lg:[&:not(:first-child)]:before:top-0 lg:[&:not(:first-child)]:before:bottom-0 lg:[&:not(:first-child)]:before:w-px lg:[&:not(:first-child)]:before:bg-border"
+            className="flex flex-col rounded-2xl bg-white p-6"
           >
-            <div className="font-serif italic text-[14px] text-soft">
-              Schritt {step.number}
-            </div>
-            <h3 className="font-serif text-[22px] font-normal leading-[1.1] text-dark">
+            <span className="font-serif text-[36px] font-normal leading-none text-brand">
+              {step.number}
+            </span>
+            <h3 className="mt-4 font-serif text-[18px] font-normal leading-[1.2] text-dark">
               {step.title}
             </h3>
-            <p className="font-sans text-[14.5px] leading-[1.7] text-mid">
+            <p className="mt-2 font-sans text-[13.5px] leading-[1.6] text-mid">
               {step.body}
             </p>
           </li>

@@ -46,7 +46,7 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
 
   function scheduleClose() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpen(false), 150);
+    closeTimer.current = setTimeout(() => setOpen(false), 220);
   }
 
   function cancelClose() {
@@ -97,45 +97,14 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
 
       {/* Panel — überdeckt full-width unter dem Header */}
       {open && (
-        <div
-          className="fixed left-0 right-0 top-20 z-50 border-y border-border bg-white shadow-[0_30px_60px_-30px_rgba(0,0,0,0.15)] animate-mega"
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-        >
-          <div className="container mx-auto px-6 lg:px-10 py-6 lg:py-7">
-            <div className="grid lg:grid-cols-[0.85fr_2.15fr] gap-4">
-              {/* Feature-Karte (grün) */}
-              <Link
-                href="/themenfelder"
-                onClick={() => setOpen(false)}
-                className="group relative overflow-hidden rounded-2xl bg-brand-dark text-white p-6 flex flex-col justify-between min-h-[210px] transition-colors hover:bg-brand"
-              >
-                <div>
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
-                    Verzeichnis
-                  </div>
-                  <h3 className="font-serif text-[24px] font-normal leading-[1.1] mt-2">
-                    Vier Themenfelder.
-                    <br />
-                    Volle Tiefe.
-                  </h3>
-                  <p className="font-sans text-[13px] leading-[1.55] text-white/80 mt-2.5">
-                    Kuratiert entlang der Felder, in denen Behörden Software
-                    suchen.
-                  </p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold mt-5">
-                  Alle Themenfelder
-                  <ArrowUpRight
-                    size={15}
-                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </span>
-              </Link>
-
-              {/* 2×2 Themenfeld-Bento */}
-              <div className="grid sm:grid-cols-2 gap-4">
+        <div className="fixed inset-x-0 top-[5.25rem] z-50 pointer-events-none">
+          <div className="container mx-auto flex justify-end px-4 sm:px-6 lg:px-10">
+            <div
+              className="pointer-events-auto w-full sm:max-w-2xl lg:max-w-3xl rounded-2xl border border-border bg-cream shadow-[0_30px_60px_-30px_rgba(0,0,0,0.22)] p-3 animate-mega"
+              onMouseEnter={cancelClose}
+              onMouseLeave={scheduleClose}
+            >
+              <div className="grid sm:grid-cols-2 gap-3">
                 {themenfelder.map((tf) => {
                   const cats = categoriesByThemenfeld[tf.slug] || [];
                   return (
