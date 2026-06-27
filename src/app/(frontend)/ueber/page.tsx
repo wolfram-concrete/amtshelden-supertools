@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Logo } from "@/components/site/Logo";
 
@@ -20,27 +19,45 @@ export default function UeberPage() {
       />
 
       {/* ============================================================
-          1 — HERO (Editorial, ruhig)
+          1 — HERO (immersiv, analog zur Startseite — Gründer:innen-Motiv)
           ============================================================ */}
-      <section className="container mx-auto px-6 lg:px-10 pt-14 lg:pt-24 pb-12">
-        <div className="max-w-3xl space-y-7">
-          <Badge variant="eyebrow" size="default">
-            Über Supertools
-          </Badge>
-          <h1 className="font-serif text-[clamp(40px,6vw,84px)] font-normal leading-[0.98] tracking-tight text-dark">
-            Vertrauen entsteht dort, wo Software{" "}
-            <em className="not-italic font-medium text-brand-dark">
-              ein Gesicht bekommt
-            </em>
-            .
-          </h1>
-          <p className="font-sans text-[19px] leading-[1.7] text-mid">
-            Supertools ist das Software-Schwesterprojekt von Amtshelden — der
-            Plattform für digitalen Wandel in deutschen Behörden. Während
-            Amtshelden über Kultur, Kommunikation und Haltung schreibt,
-            kuratieren wir die Werkzeuge, mit denen Verwaltungen diesen Wandel
-            tatsächlich gestalten.
-          </p>
+      <section className="bg-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
+          <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[460px] lg:min-h-[600px]">
+            <Image
+              src="/brand/amtshelden-gruender.jpg"
+              alt="Julia und Christian, Gründungsteam von Amtshelden"
+              fill
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div aria-hidden className="absolute inset-0 bg-black/15" />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"
+            />
+
+            <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-14">
+              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Über Supertools
+              </div>
+              <h1 className="mt-5 font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white">
+                Vertrauen entsteht dort, wo Software{" "}
+                <em className="not-italic font-medium text-brand-light">
+                  ein Gesicht bekommt
+                </em>
+                .
+              </h1>
+              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85">
+                Supertools ist das Software-Schwesterprojekt von Amtshelden —
+                der Plattform für digitalen Wandel in deutschen Behörden. Wir
+                kuratieren die Werkzeuge, mit denen Verwaltungen diesen Wandel
+                tatsächlich gestalten.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

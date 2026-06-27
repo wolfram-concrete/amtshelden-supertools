@@ -64,7 +64,7 @@ export function Header({ className }: HeaderProps) {
         )}
       />
       <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
-        <Logo height={36} priority />
+        <Logo height={43} priority />
 
         {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">

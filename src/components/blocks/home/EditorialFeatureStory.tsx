@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import { formatDateDE } from "@/lib/utils";
+import { themenfeldRegistry } from "@/mocks/themenfelder";
 import type { ArticleSummary } from "@/types/content";
 
 interface EditorialFeatureStoryProps {
@@ -28,6 +30,9 @@ export function EditorialFeatureStory({
   } as const;
 
   const isOnBrand = background === "brand";
+  const topicIcon = article.themenfeldSlug
+    ? themenfeldRegistry[article.themenfeldSlug]?.icon
+    : undefined;
 
   return (
     <section className={cn(bgClasses[background])}>
@@ -64,10 +69,11 @@ export function EditorialFeatureStory({
           <div className="lg:col-span-6 space-y-6 lg:pt-4">
             <div
               className={cn(
-                "font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
+                "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
                 isOnBrand ? "text-white/85" : "text-brand",
               )}
             >
+              {topicIcon && <BrandIcon name={topicIcon} size={14} />}
               {article.eyebrow}
             </div>
 

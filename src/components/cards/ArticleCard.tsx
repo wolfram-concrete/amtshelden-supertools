@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import { formatDateDE } from "@/lib/utils";
+import { themenfeldRegistry } from "@/mocks/themenfelder";
 import type { ArticleSummary } from "@/types/content";
 
 interface ArticleCardProps {
@@ -19,6 +22,10 @@ export function ArticleCard({
 }: ArticleCardProps) {
   const isLead = variant === "lead";
   const isCompact = variant === "compact";
+  // Topic-Icon des Themenfelds (gleiche Logik wie die Wissen-Sidebar)
+  const topicIcon = article.themenfeldSlug
+    ? themenfeldRegistry[article.themenfeldSlug]?.icon
+    : undefined;
 
   return (
     <article
@@ -56,7 +63,10 @@ export function ArticleCard({
 
       <div className={cn("space-y-3", isLead && "lg:order-1")}>
         <Link href={`/wissen/${article.slug}`} className="block space-y-3">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            {topicIcon && (
+              <BrandIcon name={topicIcon} size={14} className="text-brand" />
+            )}
             {article.eyebrow}
           </div>
 
@@ -85,30 +95,42 @@ export function ArticleCard({
           )}
         </Link>
 
-        <div className="flex items-center gap-3 pt-1">
-          {article.author.avatar?.url && (
-            <Image
-              src={article.author.avatar.url}
-              alt={article.author.avatar.alt}
-              width={28}
-              height={28}
-              sizes="28px"
-              className="h-7 w-7 rounded-full object-cover"
-            />
-          )}
-          <div className="font-ui text-[11px] text-soft min-w-0">
-            <span className="text-dark font-semibold">
-              {article.author.name}
-            </span>
-            <span aria-hidden className="mx-1.5">
-              ·
-            </span>
-            <span>{formatDateDE(article.publishedAt)}</span>
-            <span aria-hidden className="mx-1.5">
-              ·
-            </span>
-            <span>{article.readingTime} Min.</span>
+        <div className="flex items-center justify-between gap-4 pt-1">
+          <div className="flex items-center gap-3 min-w-0">
+            {article.author.avatar?.url && (
+              <Image
+                src={article.author.avatar.url}
+                alt={article.author.avatar.alt}
+                width={28}
+                height={28}
+                sizes="28px"
+                className="h-7 w-7 rounded-full object-cover flex-shrink-0"
+              />
+            )}
+            <div className="font-ui text-[11px] text-soft min-w-0 truncate">
+              <span className="text-dark font-semibold">
+                {article.author.name}
+              </span>
+              <span aria-hidden className="mx-1.5">
+                ·
+              </span>
+              <span>{formatDateDE(article.publishedAt)}</span>
+              <span aria-hidden className="mx-1.5">
+                ·
+              </span>
+              <span>{article.readingTime} Min.</span>
+            </div>
           </div>
+
+          {!isCompact && (
+            <Link
+              href={`/wissen/${article.slug}`}
+              className="inline-flex flex-shrink-0 items-center gap-1.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors hover:text-brand"
+            >
+              Weiterlesen
+              <ArrowUpRight size={14} aria-hidden />
+            </Link>
+          )}
         </div>
       </div>
     </article>
