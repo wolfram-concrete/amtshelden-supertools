@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, IBM_Plex_Sans, Inter_Tight } from "next/font/google";
+import { IBM_Plex_Sans, Inter_Tight, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["400", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  variable: "--font-source-serif",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s — Supertools",
   },
   description:
-    "Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet.",
+    "Die passende Software für Ihre Verwaltung. Von Expert:innen kuratiert, ehrlich aus Behördenperspektive eingeordnet.",
   metadataBase: new URL("https://supertools.amtshelden.de"),
 };
 
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${cormorant.variable} ${ibmPlex.variable} ${interTight.variable}`}
+      className={`${sourceSerif.variable} ${ibmPlex.variable} ${interTight.variable}`}
     >
       <body>{children}</body>
     </html>

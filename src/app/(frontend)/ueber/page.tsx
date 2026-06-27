@@ -111,7 +111,7 @@ export default function UeberPage() {
       </section>
 
       {/* ============================================================
-          3 — DREI PRINZIPIEN (Cormorant italic Akzente)
+          3 — DREI PRINZIPIEN (Source-Serif italic Akzente)
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <header className="border-t-2 border-dark pt-8 mb-12 lg:mb-16 max-w-2xl space-y-2">

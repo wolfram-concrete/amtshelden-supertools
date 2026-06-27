@@ -10,7 +10,7 @@ interface SectionHeadProps {
  * Wiederkehrendes Sektions-Heading (Editorial-Stil):
  * - Schwarze starke Trennlinie oben
  * - Grünes Eyebrow-Label (uppercase, gespacet)
- * - Cormorant-Serif-Titel
+ * - Source-Serif-Titel
  */
 export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
   return (

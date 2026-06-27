@@ -14,7 +14,7 @@ interface EditorialFeatureStoryProps {
 
 /**
  * Wapo-Stil großes Editorial-Feature: Cover-Bild asymmetrisch,
- * großer Headline (Cormorant), Drop-Cap im Lead, Byline.
+ * großer Headline (Source Serif 4), Drop-Cap im Lead, Byline.
  * Setzt einen klaren Magazin-Anker auf der Startseite.
  */
 export function EditorialFeatureStory({

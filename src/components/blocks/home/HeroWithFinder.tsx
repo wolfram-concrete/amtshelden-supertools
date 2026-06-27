@@ -11,7 +11,7 @@ interface HeroWithFinderProps {
 
 /**
  * Editorial-Hero (Magazin) + Tool-Finder-Wizard — beides parallel.
- * Linke Spalte: Cormorant-Headline, Lead, Trust-Signale.
+ * Linke Spalte: Source-Serif-Headline, Lead, Trust-Signale.
  * Rechte Spalte: geführter 6-Fragen-Tool-Finder.
  */
 export function HeroWithFinder({

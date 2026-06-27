@@ -33,7 +33,7 @@
   --color-tier-addon:    #009460;
 
   /* Fonts (via next/font in layout.tsx als CSS-Variablen gemountet) */
-  --font-serif: var(--font-cormorant);
+  --font-serif: var(--font-source-serif);
   --font-sans:  var(--font-ibm-plex);
   --font-ui:    var(--font-inter-tight);
 
