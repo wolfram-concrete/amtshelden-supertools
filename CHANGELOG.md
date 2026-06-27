@@ -2,6 +2,66 @@
 
 ---
 
+## [0.16.0] — 2026-06-27
+
+### Strategie-Meeting-Umsetzung (12.06.2026) — alle 9 To-Do-Punkte
+
+Vollständige Umsetzung der Konkretisierungspunkte aus dem Strategie-Meeting
+(Summary-PDF + Whiteboard). 9 Schritte, je ein Commit.
+
+---
+
+### 1 · „Zuletzt geprüft am" — Trust-Element
+- `lastCheckedAt` in ToolProfile + ToolCardSummary (alle 20 Tools: 12.06.2026)
+- ProfilHero-Byline „Zuletzt geprüft am …", Sidebar „Stand der Prüfung"-Block,
+  Listen-Zeile „geprüft 12.06.2026", `formatDateDEShort()`
+
+### 2 · „Was wir nicht prüfen konnten" — Transparenz
+- `ToolProfile.transparency` { missingInfo[], sourceNote }
+- TransparencyBlock — Lücken aktiv benennen statt kaschieren
+  (z.B. „Keine öffentlich auffindbare Angabe zur Barrierefreiheit")
+
+### 3 · 4 Themenfelder als oberste Strukturebene
+- Kommunikation & Krise · Smartes Personalmanagement · Transformation & KI ·
+  Moderne Führung
+- `ThemenfeldDefinition`, `CategoryDefinition.themenfeldSlug`,
+  categoriesByThemenfeld-Lookup
+- ThemenfeldGrid (Startseite, ersetzt CategoryMagazine), /themenfelder Index +
+  /themenfelder/[slug] Detail (4 SSG), MegaMenu auf Themenfelder umgebaut
+
+### 4 · Transparenz-Hinweis an erweiterten Profilen
+- ExtendedProfileNotice (verified/partner): „Erweitertes Profil … keine
+  Bewertung und keine Empfehlung" (Grundprinzip „keine gekauften Empfehlungen")
+
+### 5 · B2B-Anbieter-Landingpage
+- /anbieter vom Stub zur 6-Sektionen-Landingpage: Hero, 6 Vorteile,
+  Themenfelder, Profilarten (Basis/Erweitert), Methodik, grüner CTA
+
+### 6 · „Tool vorschlagen / Unternehmen eintragen"
+- /vorschlagen + VorschlagForm (Rollen-Umschalter Behörde/Anbieter)
+- MitmachenCta auf Startseite, Footer- + Mobile-Drawer-Links
+
+### 7 · Problem-/Use-Case-Einstieg
+- UseCaseEntry (Startseite, nach TrustStrip): 8 Problem-Statements
+  („Social Media organisieren", „Recruiting verbessern", …) → Themenfeld/Kategorie
+
+### 8 · „Daten veraltet?"-Korrekturfunktion
+- CorrectionWidget auf jedem Profil: 6 Meldegründe (falsch/veraltet/umbenannt/
+  Datenschutz/Case/Sonstiges), redaktionelle Prüfung vor Veröffentlichung
+
+### 9 · Tool-Finder zum 6-Fragen-Wizard
+- ToolFinderWizard ersetzt 3-Fragen-QuickFinder: geführter Schritt-für-Schritt-
+  Flow (Was verbessern · Größe · Nutzer · IT · Kommunikation · Tempo) mit
+  Fortschritt + Zurück → /themenfelder/[ziel]
+
+---
+
+### ✅ Status
+- TypeScript: clean · Build: clean — **31 Routes** (vorher 25), alle static
+- Auto-Deploy (GitHub→Vercel) wieder funktionsfähig (GitHub-App-Reconnect)
+
+---
+
 ## [0.15.0] — 2026-05-17
 
 ### Sitemap-Snapshot: Geschäftspartner-Doku mit echten Screenshots
