@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
-import { BrandIcon } from "@/components/icons/BrandIcon";
-import { cn } from "@/lib/utils";
+import { BrandIcon, type BrandIconName } from "@/components/icons/BrandIcon";
 import { stimmen } from "@/mocks/stimmen";
 
 interface StimmenSliderProps {
@@ -15,114 +14,117 @@ interface StimmenSliderProps {
 }
 
 /**
- * Persona-Stimmen-Slider — typische Ausgangslagen aus der Verwaltung.
- * Ein Card pro Slide (großes Serif-Zitat), Prev/Next + Dots. Baut Relevanz
- * und Vertrauen, ohne erfundene Namens-Testimonials.
+ * Stilisiertes Wappen-Emblem als Logo-Slot (generisch, markenkonform).
+ * Platzhalter für ein echtes Stadtlogo, sobald eine reale Referenzkommune
+ * vorliegt — echte Hoheitszeichen werden NICHT an Personas gehängt.
+ */
+function WappenBadge({ icon }: { icon: BrandIconName }) {
+  return (
+    <span className="relative inline-flex h-12 w-11 flex-shrink-0 items-center justify-center">
+      <svg
+        viewBox="0 0 24 28"
+        className="absolute inset-0 h-full w-full text-brand"
+        fill="currentColor"
+        aria-hidden
+      >
+        <path d="M12 1.5 21 4.8V13c0 6-4 10.6-9 12.7C7 23.6 3 19 3 13V4.8Z" />
+      </svg>
+      <BrandIcon name={icon} size={17} className="relative text-white" />
+    </span>
+  );
+}
+
+/**
+ * Stimmen aus der Verwaltung — Teaser-Cards (Scroll-Snap-Slider).
+ * Repräsentative Behörden-Personas mit Problem-Ausgangslage; pro Karte ein
+ * Wappen-Emblem (Logo-Slot). Baut Relevanz + Vertrauen.
  */
 export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
-  const [index, setIndex] = useState(0);
-  const count = stimmen.length;
-  const s = stimmen[index];
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const go = (dir: number) => setIndex((i) => (i + dir + count) % count);
+  function scrollByCard(dir: number) {
+    const el = trackRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-card]");
+    const step = card ? card.offsetWidth + 16 : 340;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
 
   return (
     <section className="bg-cream">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
-        <header className="max-w-2xl space-y-3 mb-10 lg:mb-12">
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-            {eyebrow}
-          </div>
-          <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
-            {title}
-          </h2>
-          {lead && (
-            <p className="font-sans text-[16px] leading-[1.65] text-mid">
-              {lead}
-            </p>
-          )}
-        </header>
-
-        {/* Slide */}
-        <div className="rounded-2xl bg-white p-7 sm:p-10 lg:p-14">
-          <div key={index} className="animate-stimme">
-            {/* Themenfeld-Icon */}
-            <span
-              aria-hidden
-              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
-            >
-              <BrandIcon name={s.themenfeld.icon} size={24} />
-            </span>
-
-            <blockquote className="mt-6 font-serif text-[clamp(22px,2.8vw,34px)] font-normal leading-[1.3] tracking-tight text-dark max-w-3xl">
-              <span aria-hidden className="text-accent">„</span>
-              {s.quote}
-              <span aria-hidden className="text-accent">"</span>
-            </blockquote>
-
-            <figcaption className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
-              <span className="text-dark">{s.role}</span>
-              <span aria-hidden className="text-border">·</span>
-              <span>{s.context}</span>
-            </figcaption>
-
-            <Link
-              href={`/themenfelder/${s.themenfeld.slug}`}
-              className="mt-5 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors hover:text-brand"
-            >
-              Passendes Themenfeld: {s.themenfeld.name}
-              <ArrowUpRight size={15} aria-hidden />
-            </Link>
-          </div>
-        </div>
-
-        {/* Steuerung */}
-        <div className="mt-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {stimmen.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setIndex(i)}
-                aria-label={`Stimme ${i + 1} von ${count}`}
-                aria-current={i === index}
-                className={cn(
-                  "h-2 rounded-full transition-all",
-                  i === index ? "w-6 bg-brand" : "w-2 bg-border hover:bg-soft",
-                )}
-              />
-            ))}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
+        <header className="flex flex-wrap items-end justify-between gap-6 mb-8 lg:mb-10">
+          <div className="max-w-2xl space-y-3">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {eyebrow}
+            </div>
+            <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
+              {title}
+            </h2>
+            {lead && (
+              <p className="font-sans text-[15px] leading-[1.65] text-mid">
+                {lead}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => go(-1)}
-              aria-label="Vorherige Stimme"
+              onClick={() => scrollByCard(-1)}
+              aria-label="Zurück"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-white text-mid transition-colors hover:border-brand hover:text-brand-dark"
             >
               <ArrowLeft size={17} aria-hidden />
             </button>
             <button
               type="button"
-              onClick={() => go(1)}
-              aria-label="Nächste Stimme"
+              onClick={() => scrollByCard(1)}
+              aria-label="Weiter"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-white text-mid transition-colors hover:border-brand hover:text-brand-dark"
             >
               <ArrowRight size={17} aria-hidden />
             </button>
           </div>
+        </header>
+
+        {/* Teaser-Cards — Scroll-Snap */}
+        <div
+          ref={trackRef}
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {stimmen.map((s, i) => (
+            <article
+              key={i}
+              data-card
+              className="flex w-[280px] flex-shrink-0 snap-start flex-col rounded-2xl bg-white p-6 sm:w-[340px]"
+            >
+              <div className="flex items-center gap-3">
+                <WappenBadge icon={s.themenfeld.icon} />
+                <div className="font-mono text-[10.5px] font-bold uppercase leading-tight tracking-[0.1em]">
+                  <div className="text-dark">{s.role}</div>
+                  <div className="mt-0.5 text-soft">{s.context}</div>
+                </div>
+              </div>
+
+              <blockquote className="mt-5 font-serif text-[18px] font-normal leading-[1.35] text-dark">
+                <span aria-hidden className="text-accent">„</span>
+                {s.quote}
+                <span aria-hidden className="text-accent">"</span>
+              </blockquote>
+
+              <Link
+                href={`/themenfelder/${s.themenfeld.slug}`}
+                className="mt-auto inline-flex items-center gap-1.5 pt-6 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:text-brand"
+              >
+                {s.themenfeld.name}
+                <ArrowUpRight size={14} aria-hidden />
+              </Link>
+            </article>
+          ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes stimme-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-stimme { animation: stimme-in 0.35s ease-out; }
-      `}</style>
     </section>
   );
 }

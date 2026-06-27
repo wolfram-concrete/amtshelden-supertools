@@ -87,19 +87,19 @@ export default function HomePage() {
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
 
+      {/* ── STIMMEN AUS DER VERWALTUNG (Persona-Teaser-Slider, Trust) ── */}
+      <StimmenSlider
+        eyebrow="Aus dem Verwaltungsalltag"
+        title="Womit Behörden zu uns kommen."
+        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
+      />
+
       {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
       <UseCaseEntry
         eyebrow="Wonach suchen Sie?"
         title="Starten Sie beim Problem, nicht bei der Kategorie."
         description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
         useCases={useCases}
-      />
-
-      {/* ── STIMMEN AUS DER VERWALTUNG (Persona-Slider, Trust) ── */}
-      <StimmenSlider
-        eyebrow="Aus dem Verwaltungsalltag"
-        title="Womit Behörden zu uns kommen."
-        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
       {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}
