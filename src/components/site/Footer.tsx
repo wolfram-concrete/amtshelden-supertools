@@ -15,13 +15,18 @@ const columns: FooterColumn[] = [
   {
     title: "Entdecken",
     links: [
+      { label: "Themenfelder", href: "/themenfelder" },
       { label: "Alle Kategorien", href: "/kategorien" },
       { label: "Wissen & Magazin", href: "/wissen" },
+      { label: "Tool vorschlagen", href: "/vorschlagen" },
     ],
   },
   {
     title: "Für Anbieter",
-    links: [{ label: "Anbieter werden", href: "/anbieter" }],
+    links: [
+      { label: "Anbieter werden", href: "/anbieter" },
+      { label: "Unternehmen eintragen", href: "/vorschlagen" },
+    ],
   },
   {
     title: "Amtshelden",

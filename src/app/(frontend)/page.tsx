@@ -5,6 +5,7 @@ import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeature
 import { FaqBlock } from "@/components/blocks/home/FaqBlock";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
 import { HeroWithFinder } from "@/components/blocks/home/HeroWithFinder";
+import { MitmachenCta } from "@/components/blocks/home/MitmachenCta";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
@@ -179,6 +180,9 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* ── MITMACHEN (Behörden / Anbieter) ── */}
+      <MitmachenCta />
 
       {/* ── NEWSLETTER ── */}
       <div id="newsletter">

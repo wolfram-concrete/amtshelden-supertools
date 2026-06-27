@@ -209,6 +209,13 @@ export function MobileNavDrawer() {
             aria-label="Service"
           >
             <DrawerLink
+              href="/vorschlagen"
+              onClick={() => setOpen(false)}
+              variant="muted"
+            >
+              Tool vorschlagen
+            </DrawerLink>
+            <DrawerLink
               href="/anbieter"
               onClick={() => setOpen(false)}
               variant="muted"
