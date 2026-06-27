@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { AlternativenBlock } from "@/components/blocks/profile/AlternativenBlock";
 import { CasesPlaceholder } from "@/components/blocks/profile/CasesPlaceholder";
+import { ExtendedProfileNotice } from "@/components/blocks/profile/ExtendedProfileNotice";
 import { ImplementierungBlock } from "@/components/blocks/profile/ImplementierungBlock";
 import { KontaktBlock } from "@/components/blocks/profile/KontaktBlock";
 import { PassDasBlock } from "@/components/blocks/profile/PassDasBlock";
@@ -67,6 +68,8 @@ export default async function ToolProfilePage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-12 lg:gap-16">
           {/* ── MAIN COLUMN ── */}
           <main className="min-w-0 space-y-10">
+            <ExtendedProfileNotice tier={tool.tier} />
+
             <ProfilHero
               {...tool.hero}
               lastCheckedAt={tool.lastCheckedAt}
