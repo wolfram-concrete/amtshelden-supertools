@@ -10,6 +10,7 @@ import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
+import { StimmenSlider } from "@/components/blocks/home/StimmenSlider";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
 import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
@@ -92,6 +93,13 @@ export default function HomePage() {
         title="Starten Sie beim Problem, nicht bei der Kategorie."
         description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
         useCases={useCases}
+      />
+
+      {/* ── STIMMEN AUS DER VERWALTUNG (Persona-Slider, Trust) ── */}
+      <StimmenSlider
+        eyebrow="Aus dem Verwaltungsalltag"
+        title="Womit Behörden zu uns kommen."
+        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
       {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}

@@ -57,7 +57,7 @@ export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
         aria-expanded={open}
         aria-haspopup="true"
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full h-9 px-4 font-ui text-[12px] font-semibold transition-colors",
+          "inline-flex items-center gap-1.5 rounded-xl h-9 px-4 font-ui text-[12px] font-semibold transition-colors",
           onDark
             ? "bg-white text-brand-dark hover:bg-white/90"
             : open

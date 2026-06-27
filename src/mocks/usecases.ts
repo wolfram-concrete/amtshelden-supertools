@@ -30,7 +30,7 @@ export const useCases: UseCase[] = [
   },
   {
     label: "Bürgerkommunikation vereinfachen",
-    icon: "building",
+    icon: "bubble",
     href: "/kategorien/buergerservice-fachverfahren",
   },
   {

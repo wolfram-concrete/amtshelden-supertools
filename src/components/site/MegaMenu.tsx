@@ -69,7 +69,7 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
+          "inline-flex items-center gap-1.5 rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
           onDark
             ? open
               ? "bg-white/15 text-white"

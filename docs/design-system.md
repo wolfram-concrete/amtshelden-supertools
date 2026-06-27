@@ -36,8 +36,9 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 
 ### Spacing & Form
 - Sektions-Padding: 80px (Standard) bis 200px (Feature-Hero). Nie < 32px zwischen Blöcken.
-- Radius: Cards/Buttons **16px** (`rounded-2xl`), große Slabs **24–40px** (`rounded-3xl` / `rounded-[2.5rem]`).
-- **Full-Pill (`rounded-full`) nur** für Nav-Pill, Tab-Switcher, Badges, Trust-Chips.
+- Radius: Cards/Buttons **16px** (`rounded-2xl`) — entspricht der **Logo-Kurve** (Bubble-Eckradius ≈ 23 % der Höhe). Große Slabs **24–40px**.
+- **Navi-Pill + Tool-Finder = `rounded-2xl`** (Logo-Kurve), **kein** Full-Pill.
+- **Full-Pill (`rounded-full`) nur** für Tab-Switcher, Badges, Trust-Chips, Dots.
 - Schatten **minimal** — Tiefe über Flächen-Steps, nicht über Schlagschatten. Hero-Glas darf einen weichen Schatten haben.
 
 ### Motion
@@ -100,14 +101,23 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 - Panel `fixed` full-width unter dem Header, weiche Eingangs-Animation.
 
 ### 3.7 Navigation
-- Eine **Floating-Pill in Logo-Grün** (`bg-logo`, solid) als Insel. Enthält Nav + Actions (Newsletter als weiße CTA).
-- Header sonst transparent — keine abgesetzte weiße Leiste.
-- **WICHTIG:** Pill darf **kein** `backdrop-blur`/`filter`/`transform` haben — das erzeugt einen Containing-Block und sperrt das `position: fixed` Mega-Menü-Panel in die Pill ein (Bug). Mega-Menü-Panel = `fixed left-0 right-0 top-20`, muss viewport-relativ bleiben.
+- Eine **Pill in Logo-Grün** (`bg-logo`, solid, `rounded-2xl` = Logo-Kurve) als Insel. Enthält Nav + Actions (Newsletter als weiße CTA). Innere Chips `rounded-xl`.
+- **Verankert je Kontext:** Startseite Header transparent (Pill schwebt über Hero); Innenseiten Header `bg-cream + border-b` (Anker-Navi).
+- **Scroll-Frost:** beim Scrollen blendet eine Frost-Ebene (`backdrop-blur` + `from-cream/65`, maskiert) hinter Logo+Navi ein, damit Content lesbar wegblurrt.
+- **WICHTIG:** Header/Pill dürfen **kein** `backdrop-blur`/`filter`/`transform` als Ancestor des Mega-Menüs haben (Containing-Block sperrt das `position: fixed`-Panel ein). Die Frost-Ebene ist daher ein **Sibling** der Navi, nicht ihr Ancestor.
 
 ### 3.8 Chat-Widget
 - Grüne Sprechblase mit „s" (Logo-Formsprache), Terminbuchung übers Kalendertool.
 
-### 3.9 Trust-Signale
+### 3.9 Stimmen-Slider (Persona-Voices)
+- Trust durch Relevanz: rollenbasierte Behörden-Personas mit Problem-Ausgangslage
+  (`mocks/stimmen.ts`), **keine erfundenen Namens-Testimonials**.
+- Ein Card pro Slide: Themenfeld-Icon, großes Serif-Zitat (gelbe Anführungszeichen),
+  Mono-Attribution (Rolle · Behördentyp · Größe), Link ins passende Themenfeld.
+- Prev/Next + Dots. **Regel:** je mehr ehrliche Cases/Bestätigungen über die Seite
+  verteilt, desto mehr Trust — aber sinnvoll platziert, nie geschönt.
+
+### 3.10 Trust-Signale
 - Als Mono-Uppercase-Chips (`rounded-full`), optional Glas auf Bild (`bg-white/10 backdrop-blur`).
 
 ---

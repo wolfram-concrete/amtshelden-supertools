@@ -55,7 +55,7 @@ export const categories: CategoryDefinition[] = [
       'Personalmanagement-Software für Behörden ist kein „HR-Tool" — sie muss tarifrechtliche Spezifika abbilden, Mitbestimmungsrechte respektieren und mit Altsystemen sprechen. Hier liegen die Stolperfallen.',
     topics: ["Personal", "Dienstplan", "Abwesenheit", "Tarif"],
     toolCount: 7,
-    icon: "user",
+    icon: "users",
     accentColor: "#DC2626",
   },
   {
