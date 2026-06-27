@@ -32,7 +32,7 @@ export function UseCaseEntry({
         </div>
         <h2
           style={{ lineHeight: 1.05 }}
-          className="font-serif text-[clamp(28px,3.4vw,42px)] font-bold tracking-tight text-dark"
+          className="font-serif text-[clamp(28px,3.4vw,42px)] font-semibold tracking-tight text-dark"
         >
           {title}
         </h2>
@@ -57,7 +57,7 @@ export function UseCaseEntry({
               <BrandIcon name={uc.icon} size={24} />
             </span>
             <div className="flex items-end justify-between gap-3">
-              <span className="font-serif text-[19px] font-bold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+              <span className="font-serif text-[19px] font-semibold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
                 {uc.label}
               </span>
               <ArrowRight

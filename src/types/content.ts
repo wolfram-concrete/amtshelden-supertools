@@ -72,6 +72,8 @@ export interface Author {
 export interface ArticleSummary {
   slug: string;
   type: ArticleType;
+  /** Themenfeld-Zuordnung (für Archiv-Gruppierung auf der Wissensseite) */
+  themenfeldSlug?: string;
   /** Eyebrow-Label (Kategorie / Themenfeld) */
   eyebrow: string;
   title: string;

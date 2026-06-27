@@ -71,7 +71,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Wissensbereich
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-bold leading-[1.1] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-semibold leading-[1.1] tracking-tight text-dark">
                 Lesenswert für diese Kategorie
               </h2>
             </header>

@@ -17,7 +17,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
 
         <h1
           style={{ lineHeight: 1.04 }}
-          className="font-serif text-[clamp(32px,4.2vw,52px)] font-bold tracking-[-0.015em] text-dark"
+          className="font-serif text-[clamp(32px,4.2vw,52px)] font-semibold tracking-[-0.015em] text-dark"
         >
           {article.title}
         </h1>

@@ -29,14 +29,14 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
   switch (block.kind) {
     case "heading":
       return (
-        <h2 className="font-serif text-[clamp(24px,3vw,32px)] font-bold leading-[1.2] tracking-tight text-dark mt-12 first:mt-0 pt-4 border-t border-border">
+        <h2 className="font-serif text-[clamp(24px,3vw,32px)] font-semibold leading-[1.2] tracking-tight text-dark mt-12 first:mt-0 pt-4 border-t border-border">
           {block.text}
         </h2>
       );
 
     case "subheading":
       return (
-        <h3 className="font-serif text-[22px] font-bold leading-[1.25] tracking-tight text-dark mt-8">
+        <h3 className="font-serif text-[22px] font-semibold leading-[1.25] tracking-tight text-dark mt-8">
           {block.text}
         </h3>
       );
@@ -51,7 +51,7 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
     case "quote":
       return (
         <blockquote className="border-l-2 border-brand pl-6 py-2 my-6">
-          <p className="font-serif text-[22px] italic font-bold leading-[1.45] text-dark">
+          <p className="font-serif text-[22px] italic font-semibold leading-[1.45] text-dark">
             „{block.text}"
           </p>
           {block.source && (

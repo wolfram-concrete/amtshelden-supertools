@@ -110,7 +110,7 @@ export function MobileNavDrawer() {
                 Newsletter
               </span>
             </div>
-            <h2 className="font-serif text-[20px] font-bold leading-[1.2] text-dark mb-3">
+            <h2 className="font-serif text-[20px] font-semibold leading-[1.2] text-dark mb-3">
               1× pro Woche das Wichtigste.
             </h2>
 

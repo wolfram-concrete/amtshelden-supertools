@@ -34,7 +34,7 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
       </div>
 
       <div className="mt-5 space-y-2 flex-1">
-        <h3 className="font-serif text-[22px] font-bold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+        <h3 className="font-serif text-[22px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
           {category.name}
         </h3>
         <p className="font-sans text-[14px] leading-[1.6] text-mid">

@@ -27,7 +27,7 @@ export default function WissenIndexPage() {
           </div>
           <h1
             style={{ lineHeight: 1.05 }}
-            className="font-serif text-[clamp(34px,4.4vw,56px)] font-bold tracking-tight text-dark"
+            className="font-serif text-[clamp(34px,4.4vw,56px)] font-semibold tracking-tight text-dark"
           >
             Was diese Woche zählt.
           </h1>

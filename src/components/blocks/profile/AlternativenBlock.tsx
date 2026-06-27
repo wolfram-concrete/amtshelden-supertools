@@ -39,7 +39,7 @@ export function AlternativenBlock({
               {alt.mark}
             </div>
             <div className="flex-1 min-w-0">
-              <div className="font-serif text-[18px] font-bold leading-tight text-dark">
+              <div className="font-serif text-[18px] font-semibold leading-tight text-dark">
                 {alt.name}
               </div>
               <p className="font-ui text-[12px] leading-[1.55] text-soft mt-1">

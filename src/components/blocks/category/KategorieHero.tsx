@@ -24,7 +24,7 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
             </div>
           </div>
 
-          <h1 className="font-serif text-[clamp(40px,5.5vw,72px)] font-bold leading-[1.05] tracking-tight text-dark">
+          <h1 className="font-serif text-[clamp(40px,5.5vw,72px)] font-semibold leading-[1.05] tracking-tight text-dark">
             {category.name}
           </h1>
 

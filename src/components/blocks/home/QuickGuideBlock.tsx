@@ -24,7 +24,7 @@ export function QuickGuideBlock({
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-bold leading-[1.08] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.08] tracking-tight text-dark">
             {title}
           </h2>
         </div>
@@ -42,7 +42,7 @@ export function QuickGuideBlock({
             <div className="font-serif italic text-[14px] text-soft">
               Schritt {step.number}
             </div>
-            <h3 className="font-serif text-[22px] font-bold leading-[1.1] text-dark">
+            <h3 className="font-serif text-[22px] font-semibold leading-[1.1] text-dark">
               {step.title}
             </h3>
             <p className="font-sans text-[14.5px] leading-[1.7] text-mid">

@@ -74,7 +74,7 @@ export function EditorialFeatureStory({
             <h2
               style={{ lineHeight: 1.05 }}
               className={cn(
-                "font-serif font-bold tracking-tight",
+                "font-serif font-semibold tracking-tight",
                 "text-[clamp(30px,3.4vw,44px)]",
                 isOnBrand ? "text-white" : "text-dark",
               )}
@@ -97,7 +97,7 @@ export function EditorialFeatureStory({
                 "font-sans text-[18px] leading-[1.7]",
                 isOnBrand ? "text-white/90" : "text-mid",
                 // Drop-Cap im ersten Buchstaben für Editorial-Feel
-                "first-letter:font-serif first-letter:italic first-letter:font-bold first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-1 first-letter:float-left first-letter:pt-1",
+                "first-letter:font-serif first-letter:italic first-letter:font-semibold first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-1 first-letter:float-left first-letter:pt-1",
                 isOnBrand
                   ? "first-letter:text-white"
                   : "first-letter:text-brand-dark",

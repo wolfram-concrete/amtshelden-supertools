@@ -30,7 +30,7 @@ export function ThemenfeldGrid({
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-bold leading-[1.0] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
             {title}
           </h2>
           {description && (
@@ -66,7 +66,7 @@ export function ThemenfeldGrid({
                 </Link>
 
                 <Link href={`/themenfelder/${tf.slug}`} className="mt-5">
-                  <h3 className="font-serif text-[26px] font-bold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+                  <h3 className="font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
                     {tf.name}
                   </h3>
                   <p className="mt-2 font-sans text-[14.5px] leading-[1.6] text-mid">

@@ -19,7 +19,7 @@ export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
         <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.02] tracking-tight text-dark">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight text-dark">
           {title}
         </h2>
       </header>
@@ -34,7 +34,7 @@ export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
               >
                 {String(idx + 1).padStart(2, "0")}.
               </span>
-              <h3 className="font-serif text-[20px] font-bold leading-[1.25] text-dark group-hover:text-brand-dark transition-colors flex-1">
+              <h3 className="font-serif text-[20px] font-semibold leading-[1.25] text-dark group-hover:text-brand-dark transition-colors flex-1">
                 {item.question}
               </h3>
               <span

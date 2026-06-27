@@ -277,7 +277,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
         {/* Listen-Ansicht */}
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
-            <p className="font-serif text-[20px] font-bold text-dark">
+            <p className="font-serif text-[20px] font-semibold text-dark">
               Keine Tools für diese Auswahl.
             </p>
             <p className="font-sans text-[14px] text-soft mt-2">

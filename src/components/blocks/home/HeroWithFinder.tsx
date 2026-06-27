@@ -49,7 +49,7 @@ export function HeroWithFinder({
             </div>
             <h1
               style={{ lineHeight: 1.04 }}
-              className="font-serif text-[clamp(32px,4.2vw,54px)] font-bold tracking-tight text-dark"
+              className="font-serif text-[clamp(32px,4.2vw,54px)] font-semibold tracking-tight text-dark"
             >
               {title}
             </h1>
@@ -109,7 +109,7 @@ export function HeroWithFinder({
             key={stat.label}
             className="rounded-2xl bg-white border border-border px-4 py-5 flex flex-col justify-center"
           >
-            <div className="font-serif text-[clamp(26px,2.4vw,34px)] font-bold leading-none text-dark">
+            <div className="font-serif text-[clamp(26px,2.4vw,34px)] font-semibold leading-none text-dark">
               {stat.value}
             </div>
             <div className="mt-2 font-ui text-[10.5px] font-bold uppercase tracking-[0.12em] text-brand leading-tight">

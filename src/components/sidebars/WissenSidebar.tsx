@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { formatDateDEShort } from "@/lib/utils";
+import { themenfelder } from "@/mocks/themenfelder";
 import type { ArticleSummary } from "@/types/content";
 
 interface WissenSidebarProps {
@@ -8,105 +11,84 @@ interface WissenSidebarProps {
 }
 
 /**
- * Archiv-Spalte für die Wissensseite — listet alle Beiträge nach Rubriken
- * gruppiert. Signalisiert Tiefe und Themen-Kompetenz (Supertools als die
- * Stelle, die sich mit Behörden-Digitalisierung auskennt).
+ * Archiv-Spalte der Wissensseite — nach Themenfeldern gruppiert (Topthemen
+ * statt Rubriken). Kompakte, modulare Artikel-Karten; je Themenfeld ein
+ * „Alle Artikel lesen"-Link, der in die Tiefe führt.
  *
- * Rubrik wird aus dem Eyebrow abgeleitet (Teil vor „ · "), z.B.
- * „Leitfaden · E-Akte" → Rubrik „Leitfaden".
+ * Signalisiert Themen-Kompetenz: Supertools als die Stelle, die sich mit
+ * Behörden-Digitalisierung auskennt.
  */
-
-// Bevorzugte Reihenfolge der Rubriken
-const RUBRIK_ORDER = ["Schwerpunkt", "Leitfaden", "Magazin"];
-
-function rubrikOf(article: ArticleSummary): string {
-  return article.eyebrow.split("·")[0].trim();
-}
-
 export function WissenSidebar({ articles }: WissenSidebarProps) {
-  // Gruppieren nach Rubrik
-  const groups = new Map<string, ArticleSummary[]>();
+  // Artikel nach Themenfeld gruppieren
+  const byThemenfeld = new Map<string, ArticleSummary[]>();
   for (const a of articles) {
-    const r = rubrikOf(a);
-    if (!groups.has(r)) groups.set(r, []);
-    groups.get(r)!.push(a);
+    const slug = a.themenfeldSlug;
+    if (!slug) continue;
+    if (!byThemenfeld.has(slug)) byThemenfeld.set(slug, []);
+    byThemenfeld.get(slug)!.push(a);
   }
 
-  // Sortierte Rubrik-Liste (bekannte zuerst, Rest alphabetisch)
-  const rubriken = Array.from(groups.keys()).sort((a, b) => {
-    const ia = RUBRIK_ORDER.indexOf(a);
-    const ib = RUBRIK_ORDER.indexOf(b);
-    if (ia !== -1 && ib !== -1) return ia - ib;
-    if (ia !== -1) return -1;
-    if (ib !== -1) return 1;
-    return a.localeCompare(b, "de");
-  });
+  // Nur Themenfelder mit Beiträgen, in fester Themenfeld-Reihenfolge
+  const groups = themenfelder.filter((tf) => byThemenfeld.has(tf.slug));
 
   return (
-    <aside className="lg:sticky lg:top-24 lg:self-start space-y-7">
-      {/* Kopf */}
-      <div className="rounded-2xl bg-cream border border-border p-5">
-        <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
-          Im Archiv
-        </div>
-        <div className="mt-1.5 font-serif text-[22px] font-bold leading-tight text-dark">
-          {articles.length} Beiträge
-        </div>
-        <p className="mt-1.5 font-ui text-[12px] leading-[1.55] text-soft">
-          Unsere komplette Sammlung zu Software und Digitalisierung in der
-          öffentlichen Verwaltung — in {rubriken.length} Rubriken.
-        </p>
+    <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
+      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+        Nach Themen
       </div>
 
-      {/* Rubriken */}
-      {rubriken.map((rubrik) => {
-        const items = groups.get(rubrik)!;
+      {groups.map((tf) => {
+        const items = byThemenfeld.get(tf.slug)!;
         return (
-          <div key={rubrik}>
-            <div className="flex items-baseline justify-between gap-2 pb-2.5 mb-2.5 border-b border-border">
-              <span className="font-ui text-[11px] font-bold uppercase tracking-[0.16em] text-brand-dark">
-                {rubrik}
+          <div key={tf.slug}>
+            {/* Themenfeld-Kopf */}
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <span
+                aria-hidden
+                className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
+              >
+                {tf.icon && <BrandIcon name={tf.icon} size={15} />}
               </span>
-              <span className="font-ui text-[11px] text-soft">
+              <span className="flex-1 font-ui text-[12.5px] font-bold text-dark leading-tight">
+                {tf.name}
+              </span>
+              <span className="font-ui text-[10px] text-soft">
                 {items.length}
               </span>
             </div>
-            <ul className="space-y-3">
+
+            {/* Artikel-Module */}
+            <div className="space-y-1.5">
               {items.map((a) => (
-                <li key={a.slug}>
-                  <Link
-                    href={`/wissen/${a.slug}`}
-                    className="group block"
+                <Link
+                  key={a.slug}
+                  href={`/wissen/${a.slug}`}
+                  className="group block rounded-lg border border-border bg-white px-3 py-2.5 transition-colors hover:border-brand hover:bg-cream/40"
+                >
+                  <span
+                    style={{ lineHeight: 1.2 }}
+                    className="block font-serif text-[13px] font-semibold text-dark group-hover:text-brand-dark transition-colors line-clamp-2"
                   >
-                    <span className="font-serif text-[14.5px] font-bold leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
-                      {a.title}
-                    </span>
-                    <span className="mt-1 block font-ui text-[10.5px] uppercase tracking-[0.1em] text-soft">
-                      {formatDateDEShort(a.publishedAt)} · {a.readingTime} Min.
-                    </span>
-                  </Link>
-                </li>
+                    {a.title}
+                  </span>
+                  <span className="mt-1 block font-ui text-[10px] uppercase tracking-[0.08em] text-soft">
+                    {formatDateDEShort(a.publishedAt)} · {a.readingTime} Min.
+                  </span>
+                </Link>
               ))}
-            </ul>
+            </div>
+
+            {/* Alle Artikel lesen */}
+            <Link
+              href={`/themenfelder/${tf.slug}`}
+              className="mt-2.5 inline-flex items-center gap-1 font-ui text-[11px] font-semibold text-brand hover:underline"
+            >
+              Alle Artikel lesen
+              <ArrowUpRight size={13} aria-hidden />
+            </Link>
           </div>
         );
       })}
-
-      {/* Themenfelder-Querverweis */}
-      <div className="rounded-2xl border border-border bg-white p-5">
-        <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft mb-2">
-          Lieber nach Thema?
-        </div>
-        <p className="font-ui text-[12px] leading-[1.55] text-mid mb-3">
-          Durchsuchen Sie unsere Beiträge entlang der vier Themenfelder.
-        </p>
-        <Link
-          href="/themenfelder"
-          className="inline-flex items-center gap-1 font-ui text-[12px] font-semibold text-brand hover:underline"
-        >
-          Zu den Themenfeldern →
-        </Link>
-      </div>
     </aside>
   );
 }

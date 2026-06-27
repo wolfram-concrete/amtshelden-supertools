@@ -153,7 +153,7 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
       </div>
 
       {/* Frage */}
-      <h2 className="font-serif text-[24px] font-bold leading-[1.15] text-dark mb-5">
+      <h2 className="font-serif text-[24px] font-semibold leading-[1.15] text-dark mb-5">
         {q.label}
       </h2>
 

@@ -17,7 +17,7 @@ export function MitmachenCta() {
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Für Behörden
           </div>
-          <h3 className="mt-3 font-serif text-[26px] font-bold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+          <h3 className="mt-3 font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
             Ein Tool fehlt?
           </h3>
           <p className="mt-2 font-sans text-[15px] leading-[1.6] text-mid">
@@ -42,7 +42,7 @@ export function MitmachenCta() {
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
             Für Anbieter
           </div>
-          <h3 className="mt-3 font-serif text-[26px] font-bold leading-tight">
+          <h3 className="mt-3 font-serif text-[26px] font-semibold leading-tight">
             Erreichen Sie Ihre Behörden.
           </h3>
           <p className="mt-2 font-sans text-[15px] leading-[1.6] text-white/80">

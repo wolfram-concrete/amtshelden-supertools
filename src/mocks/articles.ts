@@ -44,6 +44,7 @@ const authors: Record<string, Author> = {
 export const articles: Article[] = [
   {
     slug: "e-akte-einfuehrung",
+    themenfeldSlug: "transformation-ki",
     type: "wissen",
     eyebrow: "Leitfaden · E-Akte",
     title:
@@ -144,6 +145,7 @@ export const articles: Article[] = [
 
   {
     slug: "ozg-e-akte",
+    themenfeldSlug: "kommunikation-krise",
     type: "pulse",
     eyebrow: "Magazin · März 2026",
     title:
@@ -196,6 +198,7 @@ export const articles: Article[] = [
 
   {
     slug: "vergabe-software",
+    themenfeldSlug: "moderne-fuehrung",
     type: "leitfaden",
     eyebrow: "Leitfaden · Vergabe",
     title:
@@ -239,6 +242,7 @@ export const articles: Article[] = [
 
   {
     slug: "doppik-stolpersteine",
+    themenfeldSlug: "moderne-fuehrung",
     type: "wissen",
     eyebrow: "Leitfaden · Finanzen",
     title:
@@ -272,6 +276,7 @@ export const articles: Article[] = [
 
   {
     slug: "digitalisierung-bund-2030",
+    themenfeldSlug: "transformation-ki",
     type: "wissen",
     eyebrow: "Schwerpunkt · Digitalisierung Deutschland",
     title:
@@ -319,6 +324,7 @@ export const articles: Article[] = [
 
   {
     slug: "kommunen-realer-stand",
+    themenfeldSlug: "moderne-fuehrung",
     type: "wissen",
     eyebrow: "Schwerpunkt · Kommunen",
     title:
@@ -369,6 +375,7 @@ export const articles: Article[] = [
 
   {
     slug: "warum-kein-ranking",
+    themenfeldSlug: "transformation-ki",
     type: "pulse",
     eyebrow: "Magazin · Mai 2026",
     title:

@@ -57,7 +57,7 @@ export function CorrectionWidget({
           <div className="text-2xl mb-2" aria-hidden>
             ✓
           </div>
-          <h3 className="font-serif text-[20px] font-bold text-dark">
+          <h3 className="font-serif text-[20px] font-semibold text-dark">
             Danke für den Hinweis.
           </h3>
           <p className="font-sans text-[14px] text-soft mt-1.5 max-w-md mx-auto">
@@ -72,7 +72,7 @@ export function CorrectionWidget({
               <Flag size={15} aria-hidden />
             </div>
             <div className="flex-1">
-              <h3 className="font-serif text-[18px] font-bold leading-tight text-dark">
+              <h3 className="font-serif text-[18px] font-semibold leading-tight text-dark">
                 Angaben veraltet oder falsch?
               </h3>
               <p className="font-sans text-[13.5px] leading-[1.55] text-soft mt-1">

@@ -139,7 +139,7 @@ function SidebarNewsletterCompact() {
       <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/85">
         Newsletter
       </div>
-      <h3 className="font-serif text-[18px] font-bold leading-[1.2]">
+      <h3 className="font-serif text-[18px] font-semibold leading-[1.2]">
         1× pro Woche das Wichtigste.
       </h3>
       <p className="font-sans text-[12px] leading-[1.55] text-white/70">

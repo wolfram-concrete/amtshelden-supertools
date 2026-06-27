@@ -32,7 +32,7 @@ export function CasesPlaceholder({
         <div className="text-3xl" aria-hidden>
           📋
         </div>
-        <div className="font-serif text-[20px] font-bold text-dark">
+        <div className="font-serif text-[20px] font-semibold text-dark">
           Cases folgen in Kürze
         </div>
         {placeholderText && (

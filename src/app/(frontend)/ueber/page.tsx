@@ -27,7 +27,7 @@ export default function UeberPage() {
           <Badge variant="eyebrow" size="default">
             Über Supertools
           </Badge>
-          <h1 className="font-serif text-[clamp(40px,6vw,84px)] font-bold leading-[0.98] tracking-tight text-dark">
+          <h1 className="font-serif text-[clamp(40px,6vw,84px)] font-semibold leading-[0.98] tracking-tight text-dark">
             Vertrauen entsteht dort, wo Software{" "}
             <em className="not-italic font-medium text-brand-dark">
               ein Gesicht bekommt
@@ -54,7 +54,7 @@ export default function UeberPage() {
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Warum es Supertools gibt
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-bold leading-[1.05] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-semibold leading-[1.05] tracking-tight text-dark">
                 Behörden haben kein Tool-Problem.<br />
                 <em className="not-italic font-medium text-brand-dark">
                   Sie haben ein Orientierungsproblem.
@@ -77,7 +77,7 @@ export default function UeberPage() {
             </header>
 
             <div className="lg:col-span-7 space-y-5 font-sans text-[17px] leading-[1.75] text-mid">
-              <p className="first-letter:font-serif first-letter:italic first-letter:font-bold first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
+              <p className="first-letter:font-serif first-letter:italic first-letter:font-semibold first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
                 Die deutsche Verwaltung digitalisiert sich. Nicht so schnell, wie
                 Strategien es versprechen — aber spürbar, in vielen kleinen
                 Bewegungen, oft trotz statt wegen der Rahmenbedingungen. In
@@ -118,7 +118,7 @@ export default function UeberPage() {
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Drei Grundsätze
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-bold leading-[1.0] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
             Was uns von einem Verzeichnis unterscheidet.
           </h2>
         </header>
@@ -153,7 +153,7 @@ export default function UeberPage() {
               <div className="font-serif italic text-[20px] text-soft">
                 {p.number}.
               </div>
-              <h3 className="font-serif text-[24px] font-bold leading-[1.1] text-dark">
+              <h3 className="font-serif text-[24px] font-semibold leading-[1.1] text-dark">
                 {p.title}
               </h3>
               <p className="font-sans text-[15px] leading-[1.7] text-mid">
@@ -184,7 +184,7 @@ export default function UeberPage() {
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
                 Schwesterprojekt von Amtshelden
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.02] tracking-tight">
+              <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-semibold leading-[1.02] tracking-tight">
                 Eine Plattform.<br />
                 Zwei Perspektiven auf denselben Wandel.
               </h2>
@@ -266,7 +266,7 @@ export default function UeberPage() {
                     <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
                       {entry.label}
                     </div>
-                    <h3 className="font-serif text-[22px] font-bold leading-[1.15] mt-2">
+                    <h3 className="font-serif text-[22px] font-semibold leading-[1.15] mt-2">
                       {entry.title}
                     </h3>
                     <p className="font-sans text-[14px] leading-[1.7] text-white/85 mt-2">
@@ -319,7 +319,7 @@ export default function UeberPage() {
             <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Wie wir arbeiten
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.02] tracking-tight text-dark">
+            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight text-dark">
               Redaktionell.<br />
               Konsequent.<br />
               <em className="not-italic font-medium text-brand-dark">
@@ -357,7 +357,7 @@ export default function UeberPage() {
                   {String(idx + 1).padStart(2, "0")}.
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-[20px] font-bold leading-[1.2] text-dark">
+                  <h3 className="font-serif text-[20px] font-semibold leading-[1.2] text-dark">
                     {step.title}
                   </h3>
                   <p className="font-sans text-[14.5px] leading-[1.7] text-mid mt-2">
@@ -380,7 +380,7 @@ export default function UeberPage() {
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Wer wir sind
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-bold leading-[1.02] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-semibold leading-[1.02] tracking-tight text-dark">
                 Frankfurt am Main.<br />
                 Eine Redaktion mit Verwaltungs-Background.
               </h2>
@@ -420,7 +420,7 @@ export default function UeberPage() {
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Mitmachen
           </div>
-          <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.02] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-semibold leading-[1.02] tracking-tight text-dark">
             Wenn du Verantwortung trägst, wollen wir dich nicht alleine
             lassen.
           </h2>

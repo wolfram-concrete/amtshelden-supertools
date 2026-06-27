@@ -62,7 +62,7 @@ export function ArticleCard({
 
           <h3
             className={cn(
-              "font-serif font-bold text-dark group-hover:text-brand-dark transition-colors",
+              "font-serif font-semibold text-dark group-hover:text-brand-dark transition-colors",
               isLead
                 ? "text-[clamp(28px,3.5vw,42px)] leading-[1.05]"
                 : isCompact
