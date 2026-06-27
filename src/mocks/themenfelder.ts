@@ -1,0 +1,59 @@
+/**
+ * Die 4 verbindlichen Themenfelder (Strategie-Meeting 12.06.2026).
+ *
+ * Oberste Strukturebene von Supertools — gespiegelt aus den
+ * Amtshelden-Wissensgebieten. Verhindert, dass das Verzeichnis beliebig wird:
+ * es geht nicht um jede Software der Welt, sondern um Tools, die in den
+ * Themenfeldern von Amtshelden für Behörden relevant sind.
+ *
+ * Kategorien (src/mocks/categories.ts) sind diesen Themenfeldern via
+ * `themenfeldSlug` zugeordnet.
+ */
+
+import type { ThemenfeldDefinition } from "@/types/content";
+
+export const themenfelder: ThemenfeldDefinition[] = [
+  {
+    slug: "kommunikation-krise",
+    name: "Kommunikation & Krise",
+    tagline:
+      "Bürgerkommunikation, Social Media, Krisenkommunikation und der Dialog mit der Öffentlichkeit.",
+    intro:
+      "Verwaltung lebt von Kommunikation — nach innen und nach außen. Wir kuratieren Software, die Bürgerdialog, Social-Media-Arbeit und Krisenkommunikation für Behörden handhabbar macht. Nicht für Konzerne umgerüstet, sondern für die Realität öffentlicher Stellen gedacht.",
+    icon: "📣",
+    accentColor: "#2563EB",
+  },
+  {
+    slug: "smartes-personalmanagement",
+    name: "Smartes Personalmanagement",
+    tagline:
+      "Recruiting, Dienstplanung, Onboarding und Personalakte — tarif- und mitbestimmungskonform.",
+    intro:
+      "Personalgewinnung ist die vielleicht größte Herausforderung der öffentlichen Verwaltung. Software muss hier tarifrechtliche Spezifika abbilden, Mitbestimmungsrechte respektieren und mit Altsystemen sprechen. Wir zeigen, was tatsächlich für Behörden taugt.",
+    icon: "👥",
+    accentColor: "#DC2626",
+  },
+  {
+    slug: "transformation-ki",
+    name: "Transformation & KI",
+    tagline:
+      "E-Akte, Digitalisierung, KI-Werkzeuge und die technische Modernisierung der Verwaltung.",
+    intro:
+      "Die digitale Transformation der Verwaltung ist kein Projekt, sondern eine Daueraufgabe. Von der E-Akte bis zu KI-gestützten Werkzeugen kuratieren wir Software, die den Wandel handhabbar macht — DSGVO-konform, vergabefähig, aus Behördenperspektive eingeordnet.",
+    icon: "🤖",
+    accentColor: "#009460",
+  },
+  {
+    slug: "moderne-fuehrung",
+    name: "Moderne Führung",
+    tagline:
+      "Steuerung, Haushalt, Controlling und Werkzeuge für Führungsverantwortung in der Verwaltung.",
+    intro:
+      "Führung in der Verwaltung heißt: steuern, entscheiden, Verantwortung tragen — oft unter knappen Ressourcen. Wir kuratieren Software, die Haushalt, Controlling und Steuerung unterstützt und Führungskräften belastbare Entscheidungsgrundlagen liefert.",
+    icon: "🎯",
+    accentColor: "#7C3AED",
+  },
+];
+
+export const themenfeldRegistry: Record<string, ThemenfeldDefinition> =
+  Object.fromEntries(themenfelder.map((t) => [t.slug, t]));

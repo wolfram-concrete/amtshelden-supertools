@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { categories } from "@/mocks/categories";
+import { categoriesByThemenfeld } from "@/mocks/categories";
+import { themenfelder } from "@/mocks/themenfelder";
 
 /**
- * Kategorien-Mega-Menu im Header.
- * - Hover/Focus öffnet ein full-width Panel mit allen Kategorien
+ * Themenfelder-Mega-Menu im Header.
+ * - Hover/Focus öffnet ein full-width Panel mit den 4 Themenfeldern
+ *   und den jeweils enthaltenen Kategorien.
  * - Esc + Click-Outside schließen das Panel
  * - Booking-Style: keine versteckten Inhalte, alles 1 Klick entfernt
  */
@@ -67,7 +69,7 @@ export function MegaMenu() {
             : "text-mid hover:bg-cream hover:text-dark",
         )}
       >
-        Kategorien
+        Themenfelder
         <ChevronDown
           size={14}
           className={cn(
@@ -85,62 +87,73 @@ export function MegaMenu() {
           onMouseLeave={scheduleClose}
         >
           <div className="container mx-auto px-6 lg:px-10 py-8 lg:py-10">
-            <div className="grid lg:grid-cols-[1fr_2.5fr] gap-10">
-              {/* Linker Intro-Block */}
-              <div className="space-y-3">
-                <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
-                  Verzeichnis
-                </div>
-                <h3 className="font-serif text-[26px] font-bold leading-[1.15] text-dark">
-                  Sechs Kategorien.<br />Volle Tiefe.
-                </h3>
-                <p className="font-sans text-[13px] leading-[1.6] text-mid">
-                  Jede Kategorie wird redaktionell betreut — mit Einordnung
-                  aus Behördenperspektive, ehrlichen Empfehlungen und
-                  Alternativen.
-                </p>
-                <Link
-                  href="/kategorien"
-                  onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-1 font-ui text-[12px] font-semibold text-brand hover:underline pt-2"
-                >
-                  Alle Kategorien ansehen →
-                </Link>
+            <div className="flex items-center justify-between mb-6">
+              <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+                Vier Themenfelder
               </div>
+              <Link
+                href="/themenfelder"
+                onClick={() => setOpen(false)}
+                className="font-ui text-[12px] font-semibold text-brand hover:underline"
+              >
+                Alle Themenfelder ansehen →
+              </Link>
+            </div>
 
-              {/* Grid mit Kategorien */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                {categories.map((c) => (
-                  <Link
-                    key={c.slug}
-                    href={`/kategorien/${c.slug}`}
-                    onClick={() => setOpen(false)}
-                    className="group flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-cream"
-                  >
-                    <span
-                      aria-hidden
-                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg text-base"
-                      style={{
-                        background: `${c.accentColor || "#009460"}14`,
-                        color: c.accentColor || "#009460",
-                      }}
+            {/* 4 Themenfeld-Spalten mit Kategorien */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
+              {themenfelder.map((tf) => {
+                const cats = categoriesByThemenfeld[tf.slug] || [];
+                return (
+                  <div key={tf.slug}>
+                    <Link
+                      href={`/themenfelder/${tf.slug}`}
+                      onClick={() => setOpen(false)}
+                      className="group flex items-center gap-2.5 pb-3 mb-3 border-b border-border"
                     >
-                      {c.icon}
-                    </span>
-                    <div className="min-w-0">
-                      <div className="font-ui text-[13px] font-semibold text-dark group-hover:text-brand-dark transition-colors">
-                        {c.name}
-                      </div>
-                      <div className="font-ui text-[11px] text-soft leading-snug mt-0.5 line-clamp-2">
-                        {c.tagline}
-                      </div>
-                      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-soft mt-1.5">
-                        {c.toolCount} Tools
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                      <span
+                        aria-hidden
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-base"
+                        style={{
+                          background: `${tf.accentColor || "#009460"}14`,
+                          color: tf.accentColor || "#009460",
+                        }}
+                      >
+                        {tf.icon}
+                      </span>
+                      <span className="font-serif text-[16px] font-bold leading-[1.1] text-dark group-hover:text-brand-dark transition-colors">
+                        {tf.name}
+                      </span>
+                    </Link>
+                    <ul className="space-y-px">
+                      {cats.map((c) => (
+                        <li key={c.slug}>
+                          <Link
+                            href={`/kategorien/${c.slug}`}
+                            onClick={() => setOpen(false)}
+                            className="group flex items-center gap-2 rounded-md px-2 py-1.5 transition-colors hover:bg-cream"
+                          >
+                            <span aria-hidden className="text-sm">
+                              {c.icon}
+                            </span>
+                            <span className="flex-1 font-ui text-[12.5px] text-dark group-hover:text-brand-dark transition-colors">
+                              {c.name}
+                            </span>
+                            <span className="font-ui text-[10px] text-soft">
+                              {c.toolCount}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                      {cats.length === 0 && (
+                        <li className="px-2 py-1.5 font-ui text-[11px] italic text-soft">
+                          in Vorbereitung
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <style>{`

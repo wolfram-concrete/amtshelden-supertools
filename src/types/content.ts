@@ -8,12 +8,36 @@
 import type { PayloadImage, PayloadLink } from "./blocks";
 
 // ============================================================
+// THEMENFELD (oberste Strukturebene — Strategie-Meeting 12.06.2026)
+// ============================================================
+
+/**
+ * Die 4 verbindlichen Themenfelder aus dem Strategie-Meeting.
+ * Sie sind die oberste Navigationsebene und verhindern, dass Supertools
+ * beliebig wird — gespiegelt aus den Amtshelden-Wissensgebieten.
+ */
+export interface ThemenfeldDefinition {
+  slug: string;
+  name: string;
+  /** Kurze Beschreibung — 1-2 Sätze */
+  tagline: string;
+  /** Längere redaktionelle Einleitung (Detail-Seite) */
+  intro?: string;
+  icon?: string;
+  accentColor?: string;
+  /** „im Aufbau" — wenn noch keine/wenige Kategorien vorhanden */
+  inAufbau?: boolean;
+}
+
+// ============================================================
 // CATEGORY
 // ============================================================
 
 export interface CategoryDefinition {
   slug: string;
   name: string;
+  /** Themenfeld, zu dem diese Kategorie gehört (oberste Ebene) */
+  themenfeldSlug: string;
   /** Kurze redaktionelle Beschreibung — 1-2 Sätze */
   tagline: string;
   /** Längere Einleitung (für die Kategorie-Detail-Seite) */

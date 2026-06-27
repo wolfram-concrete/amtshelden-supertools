@@ -9,6 +9,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "e-akte-dokumentenmanagement",
     name: "E-Akte & Dokumentenmanagement",
+    themenfeldSlug: "transformation-ki",
     tagline:
       "Software für digitale Aktenführung, Posteingang, Aufbewahrung und Vorgangsbearbeitung.",
     intro:
@@ -21,6 +22,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "buergerservice-fachverfahren",
     name: "Bürgerservice & Fachverfahren",
+    themenfeldSlug: "kommunikation-krise",
     tagline:
       "Online-Anträge, OZG-Leistungen, Terminvergabe, Self-Service-Portale für Bürger:innen.",
     intro:
@@ -33,6 +35,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "finanzen-haushalt",
     name: "Finanzen & Haushalt",
+    themenfeldSlug: "moderne-fuehrung",
     tagline:
       "Doppik-Software, Haushaltsplanung, Zahlungsverkehr, Steuerveranlagung.",
     intro:
@@ -45,6 +48,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "personal-organisation",
     name: "Personal & Organisation",
+    themenfeldSlug: "smartes-personalmanagement",
     tagline:
       "Dienstplanung, Abwesenheiten, Personalakte, Onboarding für Verwaltungen.",
     intro:
@@ -57,6 +61,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "geo-bauen-umwelt",
     name: "Geo, Bauen & Umwelt",
+    themenfeldSlug: "transformation-ki",
     tagline:
       "GIS, Bauantragsverfahren, Liegenschaftskataster, Umweltdaten-Management.",
     intro:
@@ -69,6 +74,7 @@ export const categories: CategoryDefinition[] = [
   {
     slug: "kommunikation-zusammenarbeit",
     name: "Kommunikation & Zusammenarbeit",
+    themenfeldSlug: "kommunikation-krise",
     tagline:
       "Videokonferenzen, Chat, kollaborative Dokumente — alles DSGVO-konform und vergabefähig.",
     intro:
@@ -82,3 +88,13 @@ export const categories: CategoryDefinition[] = [
 
 export const categoryRegistry: Record<string, CategoryDefinition> =
   Object.fromEntries(categories.map((c) => [c.slug, c]));
+
+/** Kategorien gruppiert nach Themenfeld-Slug */
+export const categoriesByThemenfeld: Record<string, CategoryDefinition[]> =
+  categories.reduce(
+    (acc, c) => {
+      (acc[c.themenfeldSlug] ||= []).push(c);
+      return acc;
+    },
+    {} as Record<string, CategoryDefinition[]>,
+  );

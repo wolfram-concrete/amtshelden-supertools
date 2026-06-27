@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
-import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FaqBlock } from "@/components/blocks/home/FaqBlock";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
@@ -10,12 +9,13 @@ import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
+import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
 import { TrustStrip } from "@/components/blocks/home/TrustStrip";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
-import { categories } from "@/mocks/categories";
 import { behoerdenFaqs } from "@/mocks/faq";
 import { methodSteps, trustStats } from "@/mocks/stats";
+import { themenfelder } from "@/mocks/themenfelder";
 import { toolCards } from "@/mocks/tools";
 
 export const metadata: Metadata = {
@@ -147,12 +147,12 @@ export default function HomePage() {
         articles={pulseArticles}
       />
 
-      {/* ── KATEGORIEN-MAGAZIN ── */}
-      <CategoryMagazine
-        eyebrow="Verzeichnis"
-        title="Sechs Kategorien. Volle Tiefe."
-        description="Jede Kategorie wird redaktionell betreut — mit Einordnung aus Behördenperspektive, ehrlichen Empfehlungen und Alternativen."
-        categories={categories}
+      {/* ── THEMENFELDER (oberste Strukturebene) ── */}
+      <ThemenfeldGrid
+        eyebrow="Struktur"
+        title="Vier Themenfelder. Volle Tiefe."
+        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
+        themenfelder={themenfelder}
       />
 
       {/* ── ABOUT (Grün, 4 Prinzipien) ── */}
