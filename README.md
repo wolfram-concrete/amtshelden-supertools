@@ -1259,5 +1259,3 @@ Sie enthält:
 - BSI-Zertifizierung (immer)
 - Vergabe-Eignung (immer)
 - Kontaktmöglichkeit (ab Verified Listing: Name + E-Mail/Tel/URL)
-
-
