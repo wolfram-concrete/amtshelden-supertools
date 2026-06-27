@@ -72,9 +72,10 @@ export function EditorialFeatureStory({
             </div>
 
             <h2
+              style={{ lineHeight: 1.05 }}
               className={cn(
-                "font-serif font-bold leading-[0.98] tracking-tight",
-                "text-[clamp(36px,4.5vw,60px)]",
+                "font-serif font-bold tracking-tight",
+                "text-[clamp(30px,3.4vw,44px)]",
                 isOnBrand ? "text-white" : "text-dark",
               )}
             >

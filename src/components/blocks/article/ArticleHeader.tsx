@@ -15,7 +15,10 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
           {article.eyebrow}
         </div>
 
-        <h1 className="font-serif text-[clamp(36px,5.5vw,68px)] font-bold leading-[0.96] tracking-[-0.02em] text-dark">
+        <h1
+          style={{ lineHeight: 1.04 }}
+          className="font-serif text-[clamp(32px,4.2vw,52px)] font-bold tracking-[-0.015em] text-dark"
+        >
           {article.title}
         </h1>
 

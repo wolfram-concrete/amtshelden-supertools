@@ -148,16 +148,16 @@ export function ChatWidget() {
         aria-label={open ? "Chat schließen" : "Chat öffnen"}
         aria-expanded={open}
         className={cn(
-          "fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center transition-transform hover:scale-105 active:scale-95",
+          "fixed bottom-5 right-5 z-50 flex h-[68px] w-[68px] items-center justify-center transition-transform hover:scale-105 active:scale-95",
           open && "scale-95",
         )}
       >
         {open ? (
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-dark text-white shadow-[0_12px_30px_-8px_rgba(0,107,69,0.6)]">
-            <X size={22} aria-hidden />
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-dark text-white shadow-[0_12px_30px_-8px_rgba(0,107,69,0.6)]">
+            <X size={24} aria-hidden />
           </span>
         ) : (
-          <SpeechBubbleS size={56} withShadow />
+          <SpeechBubbleS size={68} withShadow />
         )}
       </button>
 
@@ -174,7 +174,8 @@ export function ChatWidget() {
 
 /**
  * Sprechblase mit „s" — Ableitung aus der Logo-Formsprache
- * (rounded Tag/Bubble + kleiner Tail unten links, Brand-Grün).
+ * (rounded Tag/Bubble + Tail unten rechts, Brand-Grün, „s" leicht
+ * nach links kursiv wie in der Logo-Wortmarke).
  */
 function SpeechBubbleS({
   size = 56,
@@ -198,22 +199,24 @@ function SpeechBubbleS({
       }
     >
       {/* Bubble-Körper */}
-      <rect x="4" y="4" width="48" height="40" rx="12" fill="#009460" />
-      {/* Tail unten links */}
-      <path d="M16 42 L16 53 L27 42 Z" fill="#009460" />
-      {/* „s" */}
-      <text
-        x="28"
-        y="31"
-        textAnchor="middle"
-        fontFamily="'Inter Tight', system-ui, sans-serif"
-        fontSize="26"
-        fontWeight="800"
-        fill="#ffffff"
-        letterSpacing="-0.02em"
-      >
-        s
-      </text>
+      <rect x="4" y="3" width="48" height="40" rx="12" fill="#009460" />
+      {/* Tail unten rechts */}
+      <path d="M40 41 L40 52 L29 41 Z" fill="#009460" />
+      {/* „s" — leicht nach links kursiv (back-slant) via Skew um die Glyphe */}
+      <g transform="translate(28 23) skewX(-9) translate(-28 -23)">
+        <text
+          x="28"
+          y="32"
+          textAnchor="middle"
+          fontFamily="'Inter Tight', system-ui, sans-serif"
+          fontSize="28"
+          fontWeight="800"
+          fill="#ffffff"
+          letterSpacing="-0.03em"
+        >
+          s
+        </text>
+      </g>
     </svg>
   );
 }
