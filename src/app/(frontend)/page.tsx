@@ -12,12 +12,14 @@ import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
 import { TrustStrip } from "@/components/blocks/home/TrustStrip";
+import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
 import { behoerdenFaqs } from "@/mocks/faq";
 import { methodSteps, trustStats } from "@/mocks/stats";
 import { themenfelder } from "@/mocks/themenfelder";
 import { toolCards } from "@/mocks/tools";
+import { useCases } from "@/mocks/usecases";
 
 export const metadata: Metadata = {
   title: "Software für die digitale Verwaltung — Amtshelden Supertools",
@@ -94,6 +96,14 @@ export default function HomePage() {
 
       {/* ── Trust-Strip ── */}
       <TrustStrip stats={trustStats} />
+
+      {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
+      <UseCaseEntry
+        eyebrow="Wonach suchen Sie?"
+        title="Starten Sie beim Problem, nicht bei der Kategorie."
+        description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
+        useCases={useCases}
+      />
 
       {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}
       <EditorialFeatureStory article={featuredStory} background="white" />
