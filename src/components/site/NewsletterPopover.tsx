@@ -10,7 +10,12 @@ import { cn } from "@/lib/utils";
  * E-Mail-Input + Submit. Stub-Submit (kein echter Endpoint), gleiche UX
  * wie der große NewsletterCta.
  */
-export function NewsletterPopover() {
+interface NewsletterPopoverProps {
+  /** Darstellung in der grünen Floating-Pill (weiße CTA auf Grün) */
+  onDark?: boolean;
+}
+
+export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -53,9 +58,11 @@ export function NewsletterPopover() {
         aria-haspopup="true"
         className={cn(
           "inline-flex items-center gap-1.5 rounded-full h-9 px-4 font-ui text-[12px] font-semibold transition-colors",
-          open
-            ? "bg-brand-dark text-white"
-            : "bg-brand text-white hover:bg-brand-dark",
+          onDark
+            ? "bg-white text-brand-dark hover:bg-white/90"
+            : open
+              ? "bg-brand-dark text-white"
+              : "bg-brand text-white hover:bg-brand-dark",
         )}
       >
         <Mail size={13} aria-hidden />

@@ -34,7 +34,7 @@ export function Header({ className }: HeaderProps) {
       <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
         <Logo height={36} priority />
 
-        {/* Desktop-Nav — grüne Floating-Pill (Insel) */}
+        {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">
           <div className="flex items-center gap-0.5 rounded-full bg-brand-dark p-1.5 shadow-[0_10px_30px_-12px_rgba(0,107,69,0.5)]">
             <MegaMenu onDark />
@@ -47,19 +47,19 @@ export function Header({ className }: HeaderProps) {
                 {item.label}
               </Link>
             ))}
+
+            {/* Trenner */}
+            <span aria-hidden className="mx-1 h-5 w-px bg-white/15" />
+
+            <Link
+              href="/anbieter"
+              className="hidden lg:inline-flex items-center rounded-full h-9 px-3.5 font-ui text-[13px] font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              Anbieter werden
+            </Link>
+            <NewsletterPopover onDark />
           </div>
         </nav>
-
-        {/* Desktop-Actions */}
-        <div className="hidden md:flex items-center gap-2">
-          <Link
-            href="/anbieter"
-            className="hidden lg:inline-flex h-9 items-center rounded-full border border-border px-4 font-ui text-[12px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
-          >
-            Anbieter werden
-          </Link>
-          <NewsletterPopover />
-        </div>
 
         {/* Mobile-Trigger */}
         <MobileNavDrawer />

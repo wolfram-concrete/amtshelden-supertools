@@ -22,6 +22,10 @@ export const themenfelder: ThemenfeldDefinition[] = [
       "Verwaltung lebt von Kommunikation — nach innen und nach außen. Wir kuratieren Software, die Bürgerdialog, Social-Media-Arbeit und Krisenkommunikation für Behörden handhabbar macht. Nicht für Konzerne umgerüstet, sondern für die Realität öffentlicher Stellen gedacht.",
     icon: "bubble",
     accentColor: "#2563EB",
+    image: {
+      url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&h=600&fit=crop&q=80",
+      alt: "Verwaltungsteam in einer Lagebesprechung mit Notizen",
+    },
   },
   {
     slug: "smartes-personalmanagement",
@@ -32,6 +36,10 @@ export const themenfelder: ThemenfeldDefinition[] = [
       "Personalgewinnung ist die vielleicht größte Herausforderung der öffentlichen Verwaltung. Software muss hier tarifrechtliche Spezifika abbilden, Mitbestimmungsrechte respektieren und mit Altsystemen sprechen. Wir zeigen, was tatsächlich für Behörden taugt.",
     icon: "users",
     accentColor: "#DC2626",
+    image: {
+      url: "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=900&h=600&fit=crop&q=80",
+      alt: "Bewerbungsgespräch zwischen zwei Personen am Tisch",
+    },
   },
   {
     slug: "transformation-ki",
@@ -42,6 +50,10 @@ export const themenfelder: ThemenfeldDefinition[] = [
       "Die digitale Transformation der Verwaltung ist kein Projekt, sondern eine Daueraufgabe. Von der E-Akte bis zu KI-gestützten Werkzeugen kuratieren wir Software, die den Wandel handhabbar macht — DSGVO-konform, vergabefähig, aus Behördenperspektive eingeordnet.",
     icon: "sparkles",
     accentColor: "#009460",
+    image: {
+      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&fit=crop&q=80",
+      alt: "Nahaufnahme einer Platine als Sinnbild technischer Modernisierung",
+    },
   },
   {
     slug: "moderne-fuehrung",
@@ -52,6 +64,10 @@ export const themenfelder: ThemenfeldDefinition[] = [
       "Führung in der Verwaltung heißt: steuern, entscheiden, Verantwortung tragen — oft unter knappen Ressourcen. Wir kuratieren Software, die Haushalt, Controlling und Steuerung unterstützt und Führungskräften belastbare Entscheidungsgrundlagen liefert.",
     icon: "target",
     accentColor: "#7C3AED",
+    image: {
+      url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=600&fit=crop&q=80",
+      alt: "Zwei Personen werten Kennzahlen am Schreibtisch aus",
+    },
   },
 ];
 

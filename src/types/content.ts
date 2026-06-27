@@ -27,6 +27,8 @@ export interface ThemenfeldDefinition {
   intro?: string;
   icon?: BrandIconName;
   accentColor?: string;
+  /** Motiv-Bild für die Themenfeld-Karte (Platzhalter bis echtes Asset) */
+  image?: { url: string; alt: string };
   /** „im Aufbau" — wenn noch keine/wenige Kategorien vorhanden */
   inAufbau?: boolean;
 }

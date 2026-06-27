@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -24,7 +25,7 @@ export function ThemenfeldGrid({
   themenfelder,
 }: ThemenfeldGridProps) {
   return (
-    <section className="bg-cream/50">
+    <section className="bg-cream">
       <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
           <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
@@ -46,55 +47,76 @@ export function ThemenfeldGrid({
             return (
               <article
                 key={tf.slug}
-                className="group flex flex-col rounded-3xl border border-border bg-white p-7 lg:p-9 transition-colors hover:border-brand/60"
+                className="group flex flex-col overflow-hidden rounded-3xl bg-white transition-shadow duration-300 hover:shadow-[0_24px_60px_-32px_rgba(17,17,17,0.22)]"
               >
+                {/* Motiv-Banner mit grünem Marken-Overlay */}
                 <Link
                   href={`/themenfelder/${tf.slug}`}
-                  className="flex items-start justify-between gap-4"
+                  className="relative block aspect-[16/9] overflow-hidden"
                 >
+                  {tf.image && (
+                    <Image
+                      src={tf.image.url}
+                      alt={tf.image.alt}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                  )}
                   <div
                     aria-hidden
-                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
+                    className="absolute inset-0 bg-brand-dark/25 mix-blend-multiply"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-brand-dark/55 via-transparent to-transparent"
+                  />
+                  {/* Icon-Badge auf dem Bild */}
+                  <span
+                    aria-hidden
+                    className="absolute bottom-4 left-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/95 text-brand-dark shadow-sm"
                   >
-                    {tf.icon && <BrandIcon name={tf.icon} size={26} />}
-                  </div>
+                    {tf.icon && <BrandIcon name={tf.icon} size={24} />}
+                  </span>
                   <ArrowUpRight
                     size={20}
-                    className="flex-shrink-0 text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
+                    className="absolute top-4 right-4 text-white/90 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     aria-hidden
                   />
                 </Link>
 
-                <Link href={`/themenfelder/${tf.slug}`} className="mt-5">
-                  <h3 className="font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
-                    {tf.name}
-                  </h3>
-                  <p className="mt-2 font-sans text-[14.5px] leading-[1.6] text-mid">
-                    {tf.tagline}
-                  </p>
-                </Link>
+                <div className="flex flex-1 flex-col p-7 lg:p-8">
+                  <Link href={`/themenfelder/${tf.slug}`}>
+                    <h3 className="font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+                      {tf.name}
+                    </h3>
+                    <p className="mt-2 font-sans text-[14.5px] leading-[1.6] text-mid">
+                      {tf.tagline}
+                    </p>
+                  </Link>
 
-                {/* Kategorien innerhalb des Themenfelds */}
-                {cats.length > 0 && (
-                  <div className="mt-6 pt-5 border-t border-border flex flex-wrap gap-2">
-                    {cats.map((c) => (
-                      <Link
-                        key={c.slug}
-                        href={`/kategorien/${c.slug}`}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-cream border border-border px-3 py-1.5 font-ui text-[12px] font-medium text-mid transition-colors hover:border-brand hover:text-brand-dark"
-                      >
-                        {c.icon && (
-                          <BrandIcon
-                            name={c.icon}
-                            size={15}
-                            className="text-brand-dark"
-                          />
-                        )}
-                        {c.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
+                  {/* Kategorien innerhalb des Themenfelds */}
+                  {cats.length > 0 && (
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {cats.map((c) => (
+                        <Link
+                          key={c.slug}
+                          href={`/kategorien/${c.slug}`}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1.5 font-ui text-[12px] font-medium text-mid transition-colors hover:bg-brand-light hover:text-brand-dark"
+                        >
+                          {c.icon && (
+                            <BrandIcon
+                              name={c.icon}
+                              size={15}
+                              className="text-brand-dark"
+                            />
+                          )}
+                          {c.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </article>
             );
           })}
