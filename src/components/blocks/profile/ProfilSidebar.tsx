@@ -162,10 +162,10 @@ export function ProfilSidebar({
               Profile werden quartalsweise von der Amtshelden-Redaktion
               gegengeprüft. Angaben veraltet?{" "}
               <Link
-                href="/kontakt?topic=korrektur"
+                href="#korrektur"
                 className="text-brand-dark hover:underline"
               >
-                Hinweis senden
+                Korrektur melden
               </Link>
             </p>
           </div>

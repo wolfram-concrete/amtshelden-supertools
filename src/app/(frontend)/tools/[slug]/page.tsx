@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { AlternativenBlock } from "@/components/blocks/profile/AlternativenBlock";
 import { CasesPlaceholder } from "@/components/blocks/profile/CasesPlaceholder";
+import { CorrectionWidget } from "@/components/blocks/profile/CorrectionWidget";
 import { ExtendedProfileNotice } from "@/components/blocks/profile/ExtendedProfileNotice";
 import { ImplementierungBlock } from "@/components/blocks/profile/ImplementierungBlock";
 import { KontaktBlock } from "@/components/blocks/profile/KontaktBlock";
@@ -90,6 +91,8 @@ export default async function ToolProfilePage({ params }: PageProps) {
             <AlternativenBlock {...tool.alternativen} />
 
             <ProfilCta {...tool.cta} />
+
+            <CorrectionWidget toolName={tool.name} />
           </main>
 
           {/* ── STICKY SIDEBAR ── */}
