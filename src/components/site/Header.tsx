@@ -36,7 +36,7 @@ export function Header({ className }: HeaderProps) {
 
         {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">
-          <div className="flex items-center gap-0.5 rounded-full bg-brand-dark/70 backdrop-blur-xl border border-white/15 p-1.5 shadow-[0_12px_34px_-14px_rgba(0,107,69,0.6)]">
+          <div className="flex items-center gap-0.5 rounded-full bg-logo p-1.5 shadow-[0_12px_34px_-14px_rgba(13,157,105,0.55)]">
             <MegaMenu onDark />
             {secondaryNav.map((item) => (
               <Link

@@ -74,7 +74,6 @@ export default function HomePage() {
     <>
       {/* ── HERO — Behördenalltag-Motiv + Tool-Finder ── */}
       <HeroImmersive
-        eyebrow="Beta · 2026"
         title={
           <>
             Die passende Software für Ihre Verwaltung.{" "}

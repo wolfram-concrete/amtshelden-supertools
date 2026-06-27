@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ToolFinderWizard } from "./ToolFinderWizard";
 
 interface HeroImmersiveProps {
-  eyebrow: string;
   title: React.ReactNode;
   lead: string;
   /** Trust-Badges unter dem Lead (1–3 kurze Aussagen) */
@@ -22,12 +21,7 @@ const HERO_IMAGE = {
   alt: "Großraumbüro einer Verwaltung mit mehreren Mitarbeitenden an Arbeitsplätzen",
 };
 
-export function HeroImmersive({
-  eyebrow,
-  title,
-  lead,
-  badges,
-}: HeroImmersiveProps) {
+export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
@@ -52,13 +46,9 @@ export function HeroImmersive({
           <div className="relative z-10 grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
             {/* Text links */}
             <div className="max-w-xl">
-              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-                {eyebrow}
-              </div>
               <h1
                 style={{ lineHeight: 1.05 }}
-                className="mt-5 font-serif text-[clamp(32px,4.6vw,56px)] font-normal tracking-tight text-white"
+                className="font-serif text-[clamp(32px,4.6vw,56px)] font-normal tracking-tight text-white"
               >
                 {title}
               </h1>

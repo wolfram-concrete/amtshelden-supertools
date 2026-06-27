@@ -69,11 +69,11 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 
 ## 3. NEUE Regeln — Supertools-Module ohne Baseframe-Vorlage
 
-### 3.1 Tool-Finder (grünes Glas)
-- Container: `rounded-3xl bg-brand-dark/55 backdrop-blur-xl border border-white/20`, weißer Text.
-- Liegt über dem Hero-Motiv → frostet das Bild an (Glasoptik). Optionen: `bg-white/10`, selektiert `bg-white text-brand-dark`.
+### 3.1 Tool-Finder (Logo-Grün, solid)
+- Container: `rounded-3xl bg-logo` (#0d9d69 — exaktes Logo-Grün), weißer Text.
+- Liegt über dem Hero-Motiv. Optionen: `bg-white/10`, selektiert `bg-white text-brand-dark`.
 - Fortschritt: weißer Balken auf `bg-white/15`. Labels in Mono.
-- **Regel:** Glas-Module nur über Bild/Dunkel, nie auf Cream (dort fehlt der Glas-Effekt).
+- **Kein `backdrop-blur`** (Glas-Experiment verworfen — Logo-Grün soll satt sein).
 
 ### 3.2 Tool-Profil — 8 Zonen
 - Reihenfolge fix (Hero → Passt das → Implementierung → Erfahrungen → Compliance → Ansprechpartner → Alternativen → Nächster Schritt).
@@ -100,8 +100,9 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 - Panel `fixed` full-width unter dem Header, weiche Eingangs-Animation.
 
 ### 3.7 Navigation
-- Eine grüne **Floating-Pill (Glas)** als Insel: `bg-brand-dark/70 backdrop-blur-xl border border-white/15`. Enthält Nav + Actions (Newsletter als weiße CTA).
+- Eine **Floating-Pill in Logo-Grün** (`bg-logo`, solid) als Insel. Enthält Nav + Actions (Newsletter als weiße CTA).
 - Header sonst transparent — keine abgesetzte weiße Leiste.
+- **WICHTIG:** Pill darf **kein** `backdrop-blur`/`filter`/`transform` haben — das erzeugt einen Containing-Block und sperrt das `position: fixed` Mega-Menü-Panel in die Pill ein (Bug). Mega-Menü-Panel = `fixed left-0 right-0 top-20`, muss viewport-relativ bleiben.
 
 ### 3.8 Chat-Widget
 - Grüne Sprechblase mit „s" (Logo-Formsprache), Terminbuchung übers Kalendertool.

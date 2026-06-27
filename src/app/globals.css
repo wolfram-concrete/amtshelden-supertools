@@ -11,6 +11,7 @@
   --color-brand-dark:   #006b45;
   --color-brand-light:  #EAF3DE;
   --color-brand-ultralight: #F2FAF5;
+  --color-logo:         #0d9d69; /* exaktes Logo-Grün — Navi-Pill + Tool-Finder */
 
   /* Signal-Akzent — Sun Yellow (sparsam: CTAs, Section-Marker, Badges) */
   --color-accent:        #fed007;
