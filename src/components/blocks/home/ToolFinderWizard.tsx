@@ -130,30 +130,30 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
   return (
     <aside
       className={cn(
-        "rounded-3xl border border-border bg-white p-6 lg:p-8 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.18)]",
+        "rounded-3xl bg-brand-dark p-6 lg:p-8 text-white shadow-[0_20px_50px_-32px_rgba(0,107,69,0.7)]",
         className,
       )}
     >
       {/* Kopf */}
       <div className="flex items-center justify-between mb-5">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
           Tool-Finder
         </div>
-        <div className="font-ui text-[11px] font-medium text-soft">
-          Frage {step + 1} von {QUESTIONS.length}
+        <div className="font-ui text-[11px] font-medium text-white/55">
+          {step + 1} / {QUESTIONS.length}
         </div>
       </div>
 
       {/* Fortschrittsbalken */}
-      <div className="h-1 w-full rounded-full bg-cream mb-6 overflow-hidden">
+      <div className="h-1 w-full rounded-full bg-white/15 mb-6 overflow-hidden">
         <div
-          className="h-full rounded-full bg-brand transition-all duration-300"
+          className="h-full rounded-full bg-white transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
 
       {/* Frage */}
-      <h2 className="font-serif text-[24px] font-semibold leading-[1.15] text-dark mb-5">
+      <h2 className="font-serif text-[24px] font-semibold leading-[1.15] text-white mb-5">
         {q.label}
       </h2>
 
@@ -167,16 +167,19 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
               type="button"
               onClick={() => choose(opt.value)}
               className={cn(
-                "w-full flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left font-ui text-[14px] font-medium transition-colors",
+                "w-full flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-left font-ui text-[14px] font-medium transition-colors",
                 selected
-                  ? "border-brand bg-brand-light/40 text-brand-dark"
-                  : "border-border bg-white text-dark hover:border-brand/50 hover:bg-cream/40",
+                  ? "bg-white text-brand-dark"
+                  : "bg-white/10 text-white hover:bg-white/20",
               )}
             >
               {opt.label}
               <ArrowRight
                 size={15}
-                className="flex-shrink-0 text-soft"
+                className={cn(
+                  "flex-shrink-0",
+                  selected ? "text-brand" : "text-white/60",
+                )}
                 aria-hidden
               />
             </button>
@@ -185,35 +188,18 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
       </div>
 
       {/* Navigation */}
-      <div className="mt-6 flex items-center justify-between">
-        {step > 0 ? (
+      {step > 0 && (
+        <div className="mt-6">
           <button
             type="button"
             onClick={back}
-            className="inline-flex items-center gap-1.5 font-ui text-[12.5px] font-medium text-soft transition-colors hover:text-dark"
+            className="inline-flex items-center gap-1.5 font-ui text-[12.5px] font-medium text-white/60 transition-colors hover:text-white"
           >
             <ArrowLeft size={14} aria-hidden />
             Zurück
           </button>
-        ) : (
-          <span />
-        )}
-
-        {isLast ? (
-          <span className="font-ui text-[11px] text-soft">
-            Wählen → Ergebnis
-          </span>
-        ) : (
-          <span className="font-ui text-[11px] text-soft">
-            Eine Antwort wählen
-          </span>
-        )}
-      </div>
-
-      <p className="mt-5 font-ui text-[10px] text-soft text-center leading-relaxed">
-        Kein Login, keine Nachverfolgung. Sie landen direkt bei der passenden
-        Auswahl.
-      </p>
+        </div>
+      )}
     </aside>
   );
 }
