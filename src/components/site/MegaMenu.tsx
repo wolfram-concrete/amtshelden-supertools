@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
@@ -87,73 +87,101 @@ export function MegaMenu() {
           onMouseEnter={cancelClose}
           onMouseLeave={scheduleClose}
         >
-          <div className="container mx-auto px-6 lg:px-10 py-8 lg:py-10">
-            <div className="flex items-center justify-between mb-6">
-              <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
-                Vier Themenfelder
-              </div>
+          <div className="container mx-auto px-6 lg:px-10 py-6 lg:py-7">
+            <div className="grid lg:grid-cols-[0.85fr_2.15fr] gap-4">
+              {/* Feature-Karte (grün) */}
               <Link
                 href="/themenfelder"
                 onClick={() => setOpen(false)}
-                className="font-ui text-[12px] font-semibold text-brand hover:underline"
+                className="group relative overflow-hidden rounded-2xl bg-brand-dark text-white p-6 flex flex-col justify-between min-h-[210px] transition-colors hover:bg-brand"
               >
-                Alle Themenfelder ansehen →
-              </Link>
-            </div>
-
-            {/* 4 Themenfeld-Spalten mit Kategorien */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6">
-              {themenfelder.map((tf) => {
-                const cats = categoriesByThemenfeld[tf.slug] || [];
-                return (
-                  <div key={tf.slug}>
-                    <Link
-                      href={`/themenfelder/${tf.slug}`}
-                      onClick={() => setOpen(false)}
-                      className="group flex items-center gap-2.5 pb-3 mb-3 border-b border-border"
-                    >
-                      <span
-                        aria-hidden
-                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
-                      >
-                        {tf.icon && <BrandIcon name={tf.icon} size={17} />}
-                      </span>
-                      <span className="font-serif text-[16px] font-bold leading-[1.1] text-dark group-hover:text-brand-dark transition-colors">
-                        {tf.name}
-                      </span>
-                    </Link>
-                    <ul className="space-y-px">
-                      {cats.map((c) => (
-                        <li key={c.slug}>
-                          <Link
-                            href={`/kategorien/${c.slug}`}
-                            onClick={() => setOpen(false)}
-                            className="group flex items-center gap-2 rounded-md px-2 py-1.5 transition-colors hover:bg-cream"
-                          >
-                            <span
-                              aria-hidden
-                              className="text-brand-dark flex-shrink-0"
-                            >
-                              {c.icon && <BrandIcon name={c.icon} size={15} />}
-                            </span>
-                            <span className="flex-1 font-ui text-[12.5px] text-dark group-hover:text-brand-dark transition-colors">
-                              {c.name}
-                            </span>
-                            <span className="font-ui text-[10px] text-soft">
-                              {c.toolCount}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                      {cats.length === 0 && (
-                        <li className="px-2 py-1.5 font-ui text-[11px] italic text-soft">
-                          in Vorbereitung
-                        </li>
-                      )}
-                    </ul>
+                <div>
+                  <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
+                    Verzeichnis
                   </div>
-                );
-              })}
+                  <h3 className="font-serif text-[24px] font-bold leading-[1.1] mt-2">
+                    Vier Themenfelder.
+                    <br />
+                    Volle Tiefe.
+                  </h3>
+                  <p className="font-sans text-[13px] leading-[1.55] text-white/80 mt-2.5">
+                    Kuratiert entlang der Felder, in denen Behörden Software
+                    suchen.
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold mt-5">
+                  Alle Themenfelder
+                  <ArrowUpRight
+                    size={15}
+                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </span>
+              </Link>
+
+              {/* 2×2 Themenfeld-Bento */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {themenfelder.map((tf) => {
+                  const cats = categoriesByThemenfeld[tf.slug] || [];
+                  return (
+                    <div
+                      key={tf.slug}
+                      className="group rounded-2xl border border-border bg-white p-5 transition-colors hover:border-brand/60"
+                    >
+                      <div className="flex items-start justify-between">
+                        <span
+                          aria-hidden
+                          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
+                        >
+                          {tf.icon && <BrandIcon name={tf.icon} size={20} />}
+                        </span>
+                        <ArrowUpRight
+                          size={16}
+                          className="text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand"
+                          aria-hidden
+                        />
+                      </div>
+                      <Link
+                        href={`/themenfelder/${tf.slug}`}
+                        onClick={() => setOpen(false)}
+                        className="mt-3 block"
+                      >
+                        <h4 className="font-serif text-[17px] font-bold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+                          {tf.name}
+                        </h4>
+                        <p className="font-ui text-[11.5px] leading-[1.5] text-soft mt-1 line-clamp-2">
+                          {tf.tagline}
+                        </p>
+                      </Link>
+                      {cats.length > 0 ? (
+                        <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-1.5">
+                          {cats.map((c) => (
+                            <Link
+                              key={c.slug}
+                              href={`/kategorien/${c.slug}`}
+                              onClick={() => setOpen(false)}
+                              className="inline-flex items-center gap-1 rounded-full bg-cream border border-border px-2.5 py-1 font-ui text-[11px] font-medium text-mid transition-colors hover:border-brand hover:text-brand-dark"
+                            >
+                              {c.icon && (
+                                <BrandIcon
+                                  name={c.icon}
+                                  size={12}
+                                  className="text-brand-dark"
+                                />
+                              )}
+                              {c.name}
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="mt-3 pt-3 border-t border-border font-ui text-[11px] italic text-soft">
+                          Kategorien in Vorbereitung
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
           <style>{`
