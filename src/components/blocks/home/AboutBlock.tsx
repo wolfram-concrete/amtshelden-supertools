@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Logo } from "@/components/site/Logo";
 
 interface AboutPrinciple {
@@ -10,6 +12,8 @@ interface AboutBlockProps {
   title: string;
   lead: string;
   principles: AboutPrinciple[];
+  /** Optionales Motiv in der linken Spalte */
+  image?: { url: string; alt: string };
 }
 
 export function AboutBlock({
@@ -17,6 +21,7 @@ export function AboutBlock({
   title,
   lead,
   principles,
+  image,
 }: AboutBlockProps) {
   return (
     <section className="bg-brand-dark text-white relative overflow-hidden">
@@ -39,6 +44,18 @@ export function AboutBlock({
             <p className="font-sans text-[16px] leading-[1.7] text-white/80">
               {lead}
             </p>
+
+            {image && (
+              <figure className="relative mt-7 aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/15">
+                <Image
+                  src={image.url}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  className="object-cover"
+                />
+              </figure>
+            )}
           </div>
 
           {/* Rechte Spalte: Prinzipien */}

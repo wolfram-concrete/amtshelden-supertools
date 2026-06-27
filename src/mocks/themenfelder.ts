@@ -23,8 +23,8 @@ export const themenfelder: ThemenfeldDefinition[] = [
     icon: "bubble",
     accentColor: "#2563EB",
     image: {
-      url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=900&h=600&fit=crop&q=80",
-      alt: "Verwaltungsteam in einer Lagebesprechung mit Notizen",
+      url: "/brand/Images/magnific_four-public-administratio_LUFSlrOswO.jpg",
+      alt: "Vier Verwaltungsmitarbeitende in einer Besprechung am Tisch",
     },
   },
   {
@@ -37,8 +37,8 @@ export const themenfelder: ThemenfeldDefinition[] = [
     icon: "users",
     accentColor: "#DC2626",
     image: {
-      url: "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=900&h=600&fit=crop&q=80",
-      alt: "Bewerbungsgespräch zwischen zwei Personen am Tisch",
+      url: "/brand/Images/magnific_an-experienced-public-adm_LUFSlCvswO.jpg",
+      alt: "Erfahrene Verwaltungskraft bespricht mit Kollegen etwas am Bildschirm",
     },
   },
   {
@@ -51,8 +51,8 @@ export const themenfelder: ThemenfeldDefinition[] = [
     icon: "sparkles",
     accentColor: "#009460",
     image: {
-      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&fit=crop&q=80",
-      alt: "Nahaufnahme einer Platine als Sinnbild technischer Modernisierung",
+      url: "/brand/Images/magnific_a-project-workshop-inside_5xvrkdeKxe.jpg",
+      alt: "Workshop zum Software-Rollout in der Verwaltung mit Whiteboard",
     },
   },
   {
@@ -65,8 +65,8 @@ export const themenfelder: ThemenfeldDefinition[] = [
     icon: "target",
     accentColor: "#7C3AED",
     image: {
-      url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&h=600&fit=crop&q=80",
-      alt: "Zwei Personen werten Kennzahlen am Schreibtisch aus",
+      url: "/brand/Images/magnific_the-mayor-and-the-head-of_0p3M0zgTfW.jpg",
+      alt: "Bürgermeisterin und Amtsleiter besprechen Kennzahlen am Tablet",
     },
   },
 ];

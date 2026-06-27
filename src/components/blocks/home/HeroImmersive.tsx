@@ -1,47 +1,37 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
+import { ToolFinderWizard } from "./ToolFinderWizard";
 
 interface HeroImmersiveProps {
   eyebrow: string;
   title: React.ReactNode;
   lead: string;
-  ctaLabel: string;
-  ctaHref: string;
-  secondaryLabel?: string;
-  secondaryHref?: string;
-  /** Trust-Badges unten links (1–3 kurze Aussagen) */
+  /** Trust-Badges unter dem Lead (1–3 kurze Aussagen) */
   badges?: string[];
 }
 
 /**
- * Hero-Motiv — großflächiges Hintergrundbild mit überlagerten Texten.
+ * Hero — großflächiges Behördenalltag-Motiv als Hintergrund, darüber
+ * Headline/Lead links und der grüne Tool-Finder als Karte rechts.
  *
- * PLATZHALTER: Konferenz-/Sitzungssaal (Unsplash), bis die echten
- * Behördenalltag-Motive produziert sind. Brief: deutsche
- * Verwaltungssituationen (Bürgerbüro, Amtsstube, Sitzung, Schalter).
- * Vor Produktion durch lokales Asset ersetzen (public/brand/…) und
- * HERO_IMAGE anpassen — `object-cover` verhindert jedes Strecken.
+ * Motiv: echtes Verwaltungs-Großraumbüro (public/brand/Images, KI-generiert).
+ * `object-cover` → kein Strecken. Swap über HERO_IMAGE.
  */
 const HERO_IMAGE = {
-  url: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=2000&h=1200&fit=crop&q=80",
-  alt: "Sitzungssaal einer Verwaltung mit langem Konferenztisch",
+  url: "/brand/Images/magnific_wide-view-inside-a-modern_dIn8okKXSL.jpg",
+  alt: "Großraumbüro einer Verwaltung mit mehreren Mitarbeitenden an Arbeitsplätzen",
 };
 
 export function HeroImmersive({
   eyebrow,
   title,
   lead,
-  ctaLabel,
-  ctaHref,
-  secondaryLabel,
-  secondaryHref,
   badges,
 }: HeroImmersiveProps) {
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
-        <div className="relative flex min-h-[540px] lg:min-h-[660px] overflow-hidden rounded-3xl">
+        <div className="relative overflow-hidden rounded-3xl">
           {/* Hintergrund-Motiv */}
           <Image
             src={HERO_IMAGE.url}
@@ -51,25 +41,23 @@ export function HeroImmersive({
             className="object-cover"
             priority
           />
-          {/* Lesbarkeits-Overlays: links abgedunkelt, unten Verlauf */}
+          {/* Lesbarkeits-Overlays */}
+          <div aria-hidden className="absolute inset-0 bg-black/35" />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent"
           />
 
           {/* Inhalt */}
-          <div className="relative z-10 flex w-full flex-col justify-center p-7 sm:p-12 lg:p-16">
+          <div className="relative z-10 grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
+            {/* Text links */}
             <div className="max-w-xl">
               <div className="font-ui text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
                 {eyebrow}
               </div>
               <h1
-                style={{ lineHeight: 1.04 }}
-                className="mt-5 font-serif text-[clamp(34px,5vw,62px)] font-semibold tracking-tight text-white"
+                style={{ lineHeight: 1.05 }}
+                className="mt-5 font-serif text-[clamp(32px,4.6vw,56px)] font-semibold tracking-tight text-white"
               >
                 {title}
               </h1>
@@ -77,45 +65,29 @@ export function HeroImmersive({
                 {lead}
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link
-                  href={ctaHref}
-                  className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-white hover:text-brand-dark"
-                >
-                  {ctaLabel}
-                  <ArrowRight size={16} aria-hidden />
-                </Link>
-                {secondaryLabel && secondaryHref && (
-                  <Link
-                    href={secondaryHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-white/10"
-                  >
-                    {secondaryLabel}
-                  </Link>
-                )}
-              </div>
+              {badges && badges.length > 0 && (
+                <ul className="mt-7 flex flex-wrap gap-2">
+                  {badges.map((badge) => (
+                    <li
+                      key={badge}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-ui text-[11px] font-medium uppercase tracking-[0.1em] text-white backdrop-blur"
+                    >
+                      <span
+                        aria-hidden
+                        className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-brand text-white text-[8px] font-bold"
+                      >
+                        ✓
+                      </span>
+                      {badge}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          </div>
 
-          {/* Trust-Badges unten links */}
-          {badges && badges.length > 0 && (
-            <div className="absolute bottom-6 left-7 right-7 z-10 flex flex-wrap gap-2 sm:left-12 lg:left-16">
-              {badges.map((badge) => (
-                <span
-                  key={badge}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-ui text-[11px] font-medium uppercase tracking-[0.1em] text-white backdrop-blur"
-                >
-                  <span
-                    aria-hidden
-                    className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-brand text-white text-[8px] font-bold"
-                  >
-                    ✓
-                  </span>
-                  {badge}
-                </span>
-              ))}
-            </div>
-          )}
+            {/* Tool-Finder rechts */}
+            <ToolFinderWizard className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10" />
+          </div>
         </div>
       </div>
     </section>

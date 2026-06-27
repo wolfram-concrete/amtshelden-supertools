@@ -11,7 +11,6 @@ import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
-import { ToolFinderSection } from "@/components/blocks/home/ToolFinderSection";
 import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
@@ -73,7 +72,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO — großflächiges Motiv mit überlagerten Texten ── */}
+      {/* ── HERO — Behördenalltag-Motiv + Tool-Finder ── */}
       <HeroImmersive
         eyebrow="Beta · 2026"
         title={
@@ -85,10 +84,6 @@ export default function HomePage() {
           </>
         }
         lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
-        ctaLabel="Themenfelder ansehen"
-        ctaHref="/themenfelder"
-        secondaryLabel="Tool-Finder starten"
-        secondaryHref="#tool-finder"
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
 
@@ -98,18 +93,6 @@ export default function HomePage() {
         title="Starten Sie beim Problem, nicht bei der Kategorie."
         description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
         useCases={useCases}
-      />
-
-      {/* ── TOOL-FINDER (aus dem Hero ausgelagert) ── */}
-      <ToolFinderSection
-        eyebrow="Tool-Finder"
-        title="In sechs Fragen zur passenden Auswahl."
-        lead="Nicht sicher, wo Sie anfangen sollen? Der Tool-Finder führt Sie anhand Ihrer Behördengröße und Ihres Anliegens zur passenden Auswahl — ein zusätzlicher Zugang, kein Ersatz für die Kategorien."
-        points={[
-          "Sechs kurze Fragen, kein Login",
-          "Endet bei einem passenden Themenfeld",
-          "Jederzeit anpassbar",
-        ]}
       />
 
       {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}
@@ -178,6 +161,10 @@ export default function HomePage() {
         eyebrow="Über Supertools"
         title="Wir vergleichen nicht. Wir ordnen ein."
         lead="Capterra hat Sterne. OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Sie passt zu Strukturen, zu Menschen, zu Anforderungen. Oder eben nicht. Wir machen den Unterschied transparent."
+        image={{
+          url: "/brand/Images/magnific_prompt-6-burgermeister-it_IaThXmEtvE.jpg",
+          alt: "Zwei Führungskräfte der Verwaltung im Gespräch vor der Stadtkulisse",
+        }}
         principles={[
           {
             title: "Handverlesen statt vollständig",
