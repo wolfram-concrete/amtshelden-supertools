@@ -6,11 +6,13 @@
  * der Einstieg über das Problem, nicht über die interne Taxonomie.
  */
 
+import type { BrandIconName } from "@/components/icons/BrandIcon";
+
 export interface UseCase {
   /** Problem-Formulierung aus Behördensicht */
   label: string;
-  /** Emoji-Icon */
-  icon: string;
+  /** Brand-Icon-Name */
+  icon: BrandIconName;
   /** Ziel-Route (Themenfeld oder Kategorie) */
   href: string;
 }
@@ -18,42 +20,42 @@ export interface UseCase {
 export const useCases: UseCase[] = [
   {
     label: "Social Media organisieren",
-    icon: "📱",
+    icon: "hash",
     href: "/themenfelder/kommunikation-krise",
   },
   {
     label: "Recruiting verbessern",
-    icon: "🧑‍💼",
+    icon: "user-plus",
     href: "/themenfelder/smartes-personalmanagement",
   },
   {
     label: "Bürgerkommunikation vereinfachen",
-    icon: "🏛",
+    icon: "building",
     href: "/kategorien/buergerservice-fachverfahren",
   },
   {
     label: "KI in der Verwaltung nutzen",
-    icon: "🤖",
+    icon: "sparkles",
     href: "/themenfelder/transformation-ki",
   },
   {
     label: "Akten digitalisieren",
-    icon: "🗂️",
+    icon: "folder",
     href: "/kategorien/e-akte-dokumentenmanagement",
   },
   {
     label: "Interne Zusammenarbeit strukturieren",
-    icon: "💬",
+    icon: "chat",
     href: "/kategorien/kommunikation-zusammenarbeit",
   },
   {
     label: "Haushalt & Controlling steuern",
-    icon: "💶",
+    icon: "coins",
     href: "/themenfelder/moderne-fuehrung",
   },
   {
     label: "Krisenkommunikation vorbereiten",
-    icon: "🚨",
+    icon: "alert",
     href: "/themenfelder/kommunikation-krise",
   },
 ];

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { CategoryCard } from "@/components/cards/CategoryCard";
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder, themenfeldRegistry } from "@/mocks/themenfelder";
@@ -49,13 +50,9 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
           <div className="flex items-center gap-3">
             <span
               aria-hidden
-              className="flex h-12 w-12 items-center justify-center rounded-xl text-xl"
-              style={{
-                background: `${tf.accentColor || "#009460"}14`,
-                color: tf.accentColor || "#009460",
-              }}
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
             >
-              {tf.icon}
+              {tf.icon && <BrandIcon name={tf.icon} size={22} />}
             </span>
             <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Themenfeld · {cats.length}{" "}

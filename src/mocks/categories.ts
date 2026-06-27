@@ -16,7 +16,7 @@ export const categories: CategoryDefinition[] = [
       "Die elektronische Akte ist Kernstück der Verwaltungsdigitalisierung. Wir kuratieren Lösungen, die ohne IT-Abteilung einführbar sind — und solche, die für komplexe Querschnittsbedarfe ausgelegt sind. Der Unterschied ist groß; wir machen ihn transparent.",
     topics: ["E-Akte", "DMS", "Posteingang", "Workflow", "Aufbewahrung"],
     toolCount: 16,
-    icon: "🗂️",
+    icon: "folder",
     accentColor: "#009460",
   },
   {
@@ -29,7 +29,7 @@ export const categories: CategoryDefinition[] = [
       "OZG-Konformität wird oft als technische Frage missverstanden. In Wahrheit ist sie eine Frage der Prozessqualität. Wir zeigen Lösungen, die Bürger:innen wirklich nutzen — und nicht nur ein Häkchen auf der Checkliste setzen.",
     topics: ["OZG", "Anträge", "Termine", "Portale"],
     toolCount: 22,
-    icon: "🏛",
+    icon: "building",
     accentColor: "#2563EB",
   },
   {
@@ -42,7 +42,7 @@ export const categories: CategoryDefinition[] = [
       "Die Doppik hat den kommunalen Finanzbereich umgekrempelt. Wir vergleichen Lösungen, die kleine Kämmereien meistern — und solche, die für Großstädte mit komplexen Konzernstrukturen ausgelegt sind.",
     topics: ["Doppik", "Haushalt", "Steuer", "Zahlungsverkehr"],
     toolCount: 9,
-    icon: "💶",
+    icon: "coins",
     accentColor: "#7C3AED",
   },
   {
@@ -55,7 +55,7 @@ export const categories: CategoryDefinition[] = [
       'Personalmanagement-Software für Behörden ist kein „HR-Tool" — sie muss tarifrechtliche Spezifika abbilden, Mitbestimmungsrechte respektieren und mit Altsystemen sprechen. Hier liegen die Stolperfallen.',
     topics: ["Personal", "Dienstplan", "Abwesenheit", "Tarif"],
     toolCount: 7,
-    icon: "👥",
+    icon: "user",
     accentColor: "#DC2626",
   },
   {
@@ -68,7 +68,7 @@ export const categories: CategoryDefinition[] = [
       "Geodaten sind die Grundlage fast jeder kommunalen Entscheidung. Wir betrachten Lösungen, die das XPlanung-Schema sauber implementieren — und solche, die einen integrierten Bauantragsworkflow mitbringen.",
     topics: ["GIS", "Bauantrag", "Kataster", "Umweltdaten"],
     toolCount: 11,
-    icon: "🗺️",
+    icon: "map",
     accentColor: "#059669",
   },
   {
@@ -81,7 +81,7 @@ export const categories: CategoryDefinition[] = [
       "Microsoft Teams und Zoom dominieren den Markt — doch viele Behörden brauchen Alternativen, die ihre Vergabeanforderungen erfüllen. Wir zeigen, was tatsächlich für die öffentliche Verwaltung tauglich ist.",
     topics: ["Video", "Chat", "Office", "Collab"],
     toolCount: 8,
-    icon: "💬",
+    icon: "chat",
     accentColor: "#EA580C",
   },
 ];

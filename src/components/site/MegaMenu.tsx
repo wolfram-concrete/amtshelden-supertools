@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder } from "@/mocks/themenfelder";
@@ -113,13 +114,9 @@ export function MegaMenu() {
                     >
                       <span
                         aria-hidden
-                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-base"
-                        style={{
-                          background: `${tf.accentColor || "#009460"}14`,
-                          color: tf.accentColor || "#009460",
-                        }}
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
                       >
-                        {tf.icon}
+                        {tf.icon && <BrandIcon name={tf.icon} size={17} />}
                       </span>
                       <span className="font-serif text-[16px] font-bold leading-[1.1] text-dark group-hover:text-brand-dark transition-colors">
                         {tf.name}
@@ -133,8 +130,11 @@ export function MegaMenu() {
                             onClick={() => setOpen(false)}
                             className="group flex items-center gap-2 rounded-md px-2 py-1.5 transition-colors hover:bg-cream"
                           >
-                            <span aria-hidden className="text-sm">
-                              {c.icon}
+                            <span
+                              aria-hidden
+                              className="text-brand-dark flex-shrink-0"
+                            >
+                              {c.icon && <BrandIcon name={c.icon} size={15} />}
                             </span>
                             <span className="flex-1 font-ui text-[12.5px] text-dark group-hover:text-brand-dark transition-colors">
                               {c.name}

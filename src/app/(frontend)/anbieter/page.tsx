@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Logo } from "@/components/site/Logo";
 import { themenfelder } from "@/mocks/themenfelder";
@@ -154,13 +155,9 @@ export default function AnbieterPage() {
               >
                 <span
                   aria-hidden
-                  className="flex h-10 w-10 items-center justify-center rounded-lg text-lg"
-                  style={{
-                    background: `${tf.accentColor || "#009460"}14`,
-                    color: tf.accentColor || "#009460",
-                  }}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
                 >
-                  {tf.icon}
+                  {tf.icon && <BrandIcon name={tf.icon} size={20} />}
                 </span>
                 <h3 className="mt-3 font-serif text-[18px] font-bold leading-tight text-dark">
                   {tf.name}

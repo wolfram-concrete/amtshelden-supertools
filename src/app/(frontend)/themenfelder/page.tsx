@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder } from "@/mocks/themenfelder";
@@ -49,13 +50,9 @@ export default function ThemenfelderIndexPage() {
                   >
                     <span
                       aria-hidden
-                      className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl text-2xl"
-                      style={{
-                        background: `${tf.accentColor || "#009460"}14`,
-                        color: tf.accentColor || "#009460",
-                      }}
+                      className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
                     >
-                      {tf.icon}
+                      {tf.icon && <BrandIcon name={tf.icon} size={26} />}
                     </span>
                     <div>
                       <h2 className="font-serif text-[26px] font-bold leading-tight text-dark group-hover:text-brand-dark transition-colors">
@@ -79,7 +76,13 @@ export default function ThemenfelderIndexPage() {
                         href={`/kategorien/${c.slug}`}
                         className="inline-flex items-center gap-2 rounded-full bg-cream border border-border px-3.5 py-2 font-ui text-[13px] font-medium text-mid transition-colors hover:border-brand hover:text-brand-dark"
                       >
-                        <span aria-hidden>{c.icon}</span>
+                        {c.icon && (
+                          <BrandIcon
+                            name={c.icon}
+                            size={15}
+                            className="text-brand-dark"
+                          />
+                        )}
                         {c.name}
                         {c.toolCount !== undefined && (
                           <span className="text-soft">· {c.toolCount}</span>

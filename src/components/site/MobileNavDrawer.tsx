@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, Menu, X } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Logo } from "@/components/site/Logo";
 import { cn } from "@/lib/utils";
 import { categories } from "@/mocks/categories";
@@ -168,10 +169,9 @@ export function MobileNavDrawer() {
                       >
                         <span
                           aria-hidden
-                          className="text-base flex-shrink-0"
-                          style={{ color: c.accentColor || "#009460" }}
+                          className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-brand-light text-brand-dark"
                         >
-                          {c.icon}
+                          {c.icon && <BrandIcon name={c.icon} size={15} />}
                         </span>
                         <span className="flex-1 font-ui text-[13px] text-dark">
                           {c.name}

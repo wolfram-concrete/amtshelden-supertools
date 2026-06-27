@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import type { UseCase } from "@/mocks/usecases";
 
 interface UseCaseEntryProps {
@@ -47,8 +48,11 @@ export function UseCaseEntry({
             href={uc.href}
             className="group flex items-center gap-3 rounded-xl border border-border bg-white px-4 py-3.5 transition-colors hover:border-brand hover:bg-cream/40"
           >
-            <span aria-hidden className="text-xl flex-shrink-0">
-              {uc.icon}
+            <span
+              aria-hidden
+              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
+            >
+              <BrandIcon name={uc.icon} size={18} />
             </span>
             <span className="flex-1 font-ui text-[14px] font-medium leading-tight text-dark group-hover:text-brand-dark transition-colors">
               {uc.label}

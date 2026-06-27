@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import type { ThemenfeldDefinition } from "@/types/content";
 
@@ -53,13 +54,9 @@ export function ThemenfeldGrid({
                 >
                   <div
                     aria-hidden
-                    className="flex h-14 w-14 items-center justify-center rounded-xl text-2xl"
-                    style={{
-                      background: `${tf.accentColor || "#009460"}14`,
-                      color: tf.accentColor || "#009460",
-                    }}
+                    className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
                   >
-                    {tf.icon}
+                    {tf.icon && <BrandIcon name={tf.icon} size={26} />}
                   </div>
                   <ArrowUpRight
                     size={20}
@@ -86,7 +83,13 @@ export function ThemenfeldGrid({
                         href={`/kategorien/${c.slug}`}
                         className="inline-flex items-center gap-1.5 rounded-full bg-cream border border-border px-3 py-1.5 font-ui text-[12px] font-medium text-mid transition-colors hover:border-brand hover:text-brand-dark"
                       >
-                        <span aria-hidden>{c.icon}</span>
+                        {c.icon && (
+                          <BrandIcon
+                            name={c.icon}
+                            size={15}
+                            className="text-brand-dark"
+                          />
+                        )}
                         {c.name}
                       </Link>
                     ))}

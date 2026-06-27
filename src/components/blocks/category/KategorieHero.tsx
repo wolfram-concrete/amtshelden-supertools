@@ -1,3 +1,4 @@
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import type { CategoryDefinition } from "@/types/content";
 
 interface KategorieHeroProps {
@@ -14,13 +15,9 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
           <div className="flex items-center gap-3">
             <div
               aria-hidden
-              className="flex h-12 w-12 items-center justify-center rounded-xl text-xl"
-              style={{
-                background: `${category.accentColor || "#009460"}14`,
-                color: category.accentColor || "#009460",
-              }}
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
             >
-              {category.icon}
+              {category.icon && <BrandIcon name={category.icon} size={22} />}
             </div>
             <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Kategorie · {toolCount} Tools

@@ -5,6 +5,8 @@
  * Payload-kompatibel — keine Payload-Imports.
  */
 
+import type { BrandIconName } from "@/components/icons/BrandIcon";
+
 import type { PayloadImage, PayloadLink } from "./blocks";
 
 // ============================================================
@@ -23,7 +25,7 @@ export interface ThemenfeldDefinition {
   tagline: string;
   /** Längere redaktionelle Einleitung (Detail-Seite) */
   intro?: string;
-  icon?: string;
+  icon?: BrandIconName;
   accentColor?: string;
   /** „im Aufbau" — wenn noch keine/wenige Kategorien vorhanden */
   inAufbau?: boolean;
@@ -49,7 +51,7 @@ export interface CategoryDefinition {
   /** Optional Hero-Bild für Kategorie-Detail */
   heroImage?: PayloadImage;
   /** Emoji oder Icon-Name für Magazin-Grid */
-  icon?: string;
+  icon?: BrandIconName;
   /** Farb-Akzent (CSS-Hex), für Mark/Badge */
   accentColor?: string;
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import { behoerdenFaqs } from "@/mocks/faq";
 import { categories } from "@/mocks/categories";
@@ -37,10 +38,9 @@ function SidebarCategoryNav() {
             >
               <span
                 aria-hidden
-                className="text-base flex-shrink-0"
-                style={{ color: c.accentColor || "#009460" }}
+                className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md bg-brand-light text-brand-dark"
               >
-                {c.icon}
+                {c.icon && <BrandIcon name={c.icon} size={15} />}
               </span>
               <span className="flex-1 font-ui text-[12.5px] font-medium text-dark group-hover:text-brand-dark transition-colors">
                 {c.name}

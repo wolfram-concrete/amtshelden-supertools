@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import type { CategoryDefinition } from "@/types/content";
 
@@ -21,13 +22,9 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div
           aria-hidden
-          className="flex h-12 w-12 items-center justify-center rounded-xl text-xl"
-          style={{
-            background: `${category.accentColor || "#009460"}14`,
-            color: category.accentColor || "#009460",
-          }}
+          className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
         >
-          {category.icon}
+          {category.icon && <BrandIcon name={category.icon} size={22} />}
         </div>
         <ArrowUpRight
           size={20}
