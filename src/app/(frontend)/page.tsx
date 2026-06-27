@@ -4,13 +4,14 @@ import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FaqBlock } from "@/components/blocks/home/FaqBlock";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
-import { HeroWithFinder } from "@/components/blocks/home/HeroWithFinder";
+import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
 import { MitmachenCta } from "@/components/blocks/home/MitmachenCta";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
+import { ToolFinderSection } from "@/components/blocks/home/ToolFinderSection";
 import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
@@ -72,24 +73,23 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO mit Tool-Finder-Wizard rechts ── */}
-      <HeroWithFinder
+      {/* ── HERO — großflächiges Motiv mit überlagerten Texten ── */}
+      <HeroImmersive
         eyebrow="Beta · 2026"
         title={
           <>
             Die passende Software für Ihre Verwaltung.{" "}
-            <em className="not-italic font-medium text-brand-dark">
+            <em className="not-italic font-medium text-brand-light">
               Von Expert:innen kuratiert.
             </em>
           </>
         }
-        lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext, Implementierungs­erfahrungen und ehrlichen Empfehlungen."
-        trustSignals={[
-          "Aus Behördenperspektive",
-          "Kein Pay-to-Rank",
-          "DSGVO + Vergabe transparent",
-          "Redaktionell kuratiert",
-        ]}
+        lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
+        ctaLabel="Themenfelder ansehen"
+        ctaHref="/themenfelder"
+        secondaryLabel="Tool-Finder starten"
+        secondaryHref="#tool-finder"
+        badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
 
       {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
@@ -98,6 +98,18 @@ export default function HomePage() {
         title="Starten Sie beim Problem, nicht bei der Kategorie."
         description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
         useCases={useCases}
+      />
+
+      {/* ── TOOL-FINDER (aus dem Hero ausgelagert) ── */}
+      <ToolFinderSection
+        eyebrow="Tool-Finder"
+        title="In sechs Fragen zur passenden Auswahl."
+        lead="Nicht sicher, wo Sie anfangen sollen? Der Tool-Finder führt Sie anhand Ihrer Behördengröße und Ihres Anliegens zur passenden Auswahl — ein zusätzlicher Zugang, kein Ersatz für die Kategorien."
+        points={[
+          "Sechs kurze Fragen, kein Login",
+          "Endet bei einem passenden Themenfeld",
+          "Jederzeit anpassbar",
+        ]}
       />
 
       {/* ── EDITORIAL FEATURE STORY (Wapo-Stil, asymmetrisch) ── */}
