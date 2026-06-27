@@ -52,12 +52,13 @@ export function HeroImmersive({
           <div className="relative z-10 grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
             {/* Text links */}
             <div className="max-w-xl">
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
                 {eyebrow}
               </div>
               <h1
                 style={{ lineHeight: 1.05 }}
-                className="mt-5 font-serif text-[clamp(32px,4.6vw,56px)] font-semibold tracking-tight text-white"
+                className="mt-5 font-serif text-[clamp(32px,4.6vw,56px)] font-normal tracking-tight text-white"
               >
                 {title}
               </h1>
@@ -70,7 +71,7 @@ export function HeroImmersive({
                   {badges.map((badge) => (
                     <li
                       key={badge}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-ui text-[11px] font-medium uppercase tracking-[0.1em] text-white backdrop-blur"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-white backdrop-blur"
                     >
                       <span
                         aria-hidden

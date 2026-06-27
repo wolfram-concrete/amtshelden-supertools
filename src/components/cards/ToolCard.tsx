@@ -58,11 +58,11 @@ function RowItem({
       {/* Main: Name + Pitch */}
       <div className="min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <h3 className="font-serif text-[18px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+          <h3 className="font-serif text-[18px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
             {tool.name}
           </h3>
           {tool.verified && (
-            <span className="inline-flex items-center font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-brand-dark">
+            <span className="inline-flex items-center font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand-dark">
               ✓ Verifiziert
             </span>
           )}
@@ -162,7 +162,7 @@ function TileCard({
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-serif text-[17px] font-semibold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+            <h3 className="font-serif text-[17px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
               {tool.name}
             </h3>
             {tool.verified && (
@@ -256,7 +256,7 @@ function ExtendedCard({
             <div className="flex items-center gap-2 flex-wrap">
               <h3
                 className={cn(
-                  "font-serif font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors",
+                  "font-serif font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors",
                   isFeature ? "text-[26px]" : "text-[20px]",
                 )}
               >
@@ -309,7 +309,7 @@ function ExtendedCard({
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0">
-      <dt className="font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+      <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
         {label}
       </dt>
       <dd className="font-ui text-[12px] font-semibold text-dark mt-1 truncate">

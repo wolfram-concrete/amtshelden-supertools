@@ -14,10 +14,10 @@ export function MitmachenCta() {
           href="/vorschlagen"
           className="group rounded-2xl border border-border bg-white p-7 lg:p-9 transition-colors hover:border-brand/60"
         >
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Für Behörden
           </div>
-          <h3 className="mt-3 font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+          <h3 className="mt-3 font-serif text-[26px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
             Ein Tool fehlt?
           </h3>
           <p className="mt-2 font-sans text-[15px] leading-[1.6] text-mid">
@@ -39,10 +39,10 @@ export function MitmachenCta() {
           href="/anbieter"
           className="group rounded-2xl border border-border bg-dark text-white p-7 lg:p-9 transition-colors hover:bg-brand-dark"
         >
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
             Für Anbieter
           </div>
-          <h3 className="mt-3 font-serif text-[26px] font-semibold leading-tight">
+          <h3 className="mt-3 font-serif text-[26px] font-normal leading-tight">
             Erreichen Sie Ihre Behörden.
           </h3>
           <p className="mt-2 font-sans text-[15px] leading-[1.6] text-white/80">

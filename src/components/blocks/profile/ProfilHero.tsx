@@ -58,12 +58,12 @@ export function ProfilHero({
   return (
     <article className={cn("space-y-6", className)}>
       {/* Kategorie-Eyebrow */}
-      <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
         {categoryLabel}
       </div>
 
       {/* Headline */}
-      <h1 className="font-serif font-semibold text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark">
+      <h1 className="font-serif font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark">
         {title}
       </h1>
 
@@ -145,10 +145,10 @@ export function ProfilHero({
 
       {/* Amtshelden-Urteil — Pull Quote Style */}
       <aside className="border-l-2 border-brand pl-6 py-2 my-4">
-        <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand mb-2">
+        <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand mb-2">
           Amtshelden-Urteil
         </div>
-        <p className="font-serif text-[20px] font-semibold leading-[1.5] italic text-dark">
+        <p className="font-serif text-[20px] font-normal leading-[1.5] italic text-dark">
           {renderInline(urteil)}
         </p>
       </aside>
@@ -156,7 +156,7 @@ export function ProfilHero({
       {/* Pull Quote — menschliche Stimme früh */}
       {pullQuote && (
         <blockquote className="bg-cream/60 border border-border rounded-xl px-6 py-5">
-          <p className="font-serif text-[22px] font-semibold leading-tight italic text-dark">
+          <p className="font-serif text-[22px] font-normal leading-tight italic text-dark">
             „{pullQuote.text}"
           </p>
           <footer className="mt-3 font-ui text-[12px] text-soft">

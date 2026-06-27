@@ -34,7 +34,7 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
       </div>
 
       <div className="mt-5 space-y-2 flex-1">
-        <h3 className="font-serif text-[22px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+        <h3 className="font-serif text-[22px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
           {category.name}
         </h3>
         <p className="font-sans text-[14px] leading-[1.6] text-mid">
@@ -44,7 +44,7 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
 
       <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
         {category.toolCount !== undefined && (
-          <span className="font-ui text-[11px] font-semibold uppercase tracking-[0.14em] text-soft">
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-soft">
             {category.toolCount} Tools
           </span>
         )}

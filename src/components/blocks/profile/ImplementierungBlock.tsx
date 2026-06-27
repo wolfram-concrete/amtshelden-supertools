@@ -32,10 +32,10 @@ export function ImplementierungBlock({
               className="rounded-xl border border-border bg-white p-5 space-y-1.5"
             >
               <div className="text-2xl">{tile.icon}</div>
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
                 {tile.label}
               </div>
-              <div className="font-serif text-[28px] font-semibold leading-tight text-dark">
+              <div className="font-serif text-[28px] font-normal leading-tight text-dark">
                 {tile.value}
               </div>
               <div className="font-ui text-[12px] leading-[1.5] text-soft">
@@ -50,7 +50,7 @@ export function ImplementierungBlock({
       {solutions?.length > 0 && (
         <div className="space-y-4">
           {solutionsHeading && (
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand pt-4">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand pt-4">
               {solutionsHeading}
             </div>
           )}
@@ -63,11 +63,11 @@ export function ImplementierungBlock({
               <div className="w-1 flex-shrink-0 bg-brand" aria-hidden />
               <div className="flex-1 p-5 space-y-2">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="font-serif text-[17px] font-semibold leading-[1.35] text-dark">
+                  <div className="font-serif text-[17px] font-normal leading-[1.35] text-dark">
                     {sol.challenge}
                   </div>
                   {sol.status && (
-                    <span className="flex-shrink-0 inline-flex items-center font-ui text-[10px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full bg-brand-light text-brand-dark border border-brand/20">
+                    <span className="flex-shrink-0 inline-flex items-center font-mono text-[10px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full bg-brand-light text-brand-dark border border-brand/20">
                       ✓ {sol.status === "gelöst" ? "Gelöst" : sol.status}
                     </span>
                   )}

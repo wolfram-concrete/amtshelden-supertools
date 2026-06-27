@@ -67,10 +67,10 @@ export default async function WissenArtikelPage({ params }: PageProps) {
         <section className="bg-cream/50">
           <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
             <header className="border-t-2 border-dark pt-8 max-w-2xl space-y-3 mb-12">
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Weiterlesen
               </div>
-              <h2 className="font-serif text-[clamp(24px,3vw,36px)] font-semibold leading-[1.1] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(24px,3vw,36px)] font-normal leading-[1.1] tracking-tight text-dark">
                 Verwandte Beiträge
               </h2>
             </header>

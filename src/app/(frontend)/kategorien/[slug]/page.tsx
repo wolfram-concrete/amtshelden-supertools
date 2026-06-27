@@ -68,10 +68,10 @@ export default async function KategorieDetailPage({ params }: PageProps) {
         <section className="bg-cream/50 mt-12">
           <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
             <header className="border-t-2 border-dark pt-8 max-w-2xl space-y-3 mb-12">
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Wissensbereich
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-semibold leading-[1.1] tracking-tight text-dark">
+              <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-normal leading-[1.1] tracking-tight text-dark">
                 Lesenswert für diese Kategorie
               </h2>
             </header>

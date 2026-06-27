@@ -76,10 +76,10 @@ export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
           aria-label="Newsletter abonnieren"
         >
           <div className="space-y-1.5 mb-4">
-            <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
               Supertools Newsletter
             </div>
-            <h3 className="font-serif text-[20px] font-semibold leading-[1.15] text-dark">
+            <h3 className="font-serif text-[20px] font-normal leading-[1.15] text-dark">
               1× pro Woche das Wichtigste.
             </h3>
             <p className="font-sans text-[12px] leading-[1.55] text-soft">

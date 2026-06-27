@@ -27,12 +27,12 @@ export function UseCaseEntry({
   return (
     <section className="container mx-auto px-4 sm:px-6 lg:px-10 py-12 lg:py-16">
       <header className="max-w-2xl space-y-3 mb-8 lg:mb-10">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
         </div>
         <h2
           style={{ lineHeight: 1.05 }}
-          className="font-serif text-[clamp(28px,3.4vw,42px)] font-semibold tracking-tight text-dark"
+          className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal tracking-tight text-dark"
         >
           {title}
         </h2>
@@ -57,7 +57,7 @@ export function UseCaseEntry({
               <BrandIcon name={uc.icon} size={24} />
             </span>
             <div className="flex items-end justify-between gap-3">
-              <span className="font-serif text-[19px] font-semibold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+              <span className="font-serif text-[19px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
                 {uc.label}
               </span>
               <ArrowRight

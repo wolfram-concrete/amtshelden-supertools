@@ -9,7 +9,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 font-ui font-semibold uppercase tracking-[0.14em] transition-colors",
+  "inline-flex items-center gap-1.5 font-mono font-semibold uppercase tracking-[0.14em] transition-colors",
   {
     variants: {
       variant: {

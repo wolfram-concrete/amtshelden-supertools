@@ -18,10 +18,10 @@ export function TrustStrip({ stats }: TrustStripProps) {
               key={stat.label}
               className="text-center lg:text-left space-y-0.5"
             >
-              <dt className="font-serif text-[clamp(28px,3vw,40px)] font-semibold leading-none text-dark">
+              <dt className="font-serif text-[clamp(28px,3vw,40px)] font-normal leading-none text-dark">
                 {stat.value}
               </dt>
-              <dd className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
+              <dd className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
                 {stat.label}
               </dd>
               {stat.hint && (

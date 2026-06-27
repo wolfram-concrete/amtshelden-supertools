@@ -64,10 +64,10 @@ export default function AnbieterPage() {
       {/* ── 1 · HERO ── */}
       <section className="container mx-auto px-6 lg:px-10 pt-14 lg:pt-24 pb-12">
         <div className="max-w-3xl space-y-7">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Für Software-Anbieter
           </div>
-          <h1 className="font-serif text-[clamp(40px,6vw,80px)] font-semibold leading-[0.98] tracking-tight text-dark">
+          <h1 className="font-serif text-[clamp(40px,6vw,80px)] font-normal leading-[0.98] tracking-tight text-dark">
             Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
             <em className="not-italic font-medium text-brand-dark">
               relevant ist
@@ -101,10 +101,10 @@ export default function AnbieterPage() {
       <section className="bg-cream/40 border-y border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Ihr Nutzen
             </div>
-            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
+            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
               Sichtbarkeit, die zur Verwaltung passt.
             </h2>
           </header>
@@ -117,7 +117,7 @@ export default function AnbieterPage() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-light text-brand-dark">
                     <Icon size={18} aria-hidden />
                   </div>
-                  <h3 className="font-serif text-[20px] font-semibold leading-tight text-dark">
+                  <h3 className="font-serif text-[20px] font-normal leading-tight text-dark">
                     {v.title}
                   </h3>
                   <p className="font-sans text-[14px] leading-[1.65] text-mid">
@@ -134,10 +134,10 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
           <header className="lg:sticky lg:top-24 space-y-3">
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Themenfelder
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight text-dark">
+            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
               Vier Felder, in denen Behörden Sie suchen.
             </h2>
             <p className="font-sans text-[15px] leading-[1.7] text-mid pt-2">
@@ -159,7 +159,7 @@ export default function AnbieterPage() {
                 >
                   {tf.icon && <BrandIcon name={tf.icon} size={20} />}
                 </span>
-                <h3 className="mt-3 font-serif text-[18px] font-semibold leading-tight text-dark">
+                <h3 className="mt-3 font-serif text-[18px] font-normal leading-tight text-dark">
                   {tf.name}
                 </h3>
                 <p className="mt-1.5 font-sans text-[13px] leading-[1.55] text-soft">
@@ -178,10 +178,10 @@ export default function AnbieterPage() {
       >
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12">
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Profilarten
             </div>
-            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
+            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
               Basis-Profil und erweitertes Profil.
             </h2>
           </header>
@@ -189,10 +189,10 @@ export default function AnbieterPage() {
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Basis */}
             <div className="rounded-2xl border border-border bg-white p-7 lg:p-8">
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
                 Basis-Profil
               </div>
-              <div className="mt-2 font-serif text-[28px] font-semibold text-dark">
+              <div className="mt-2 font-serif text-[28px] font-normal text-dark">
                 Kostenfrei
               </div>
               <p className="mt-3 font-sans text-[14px] leading-[1.65] text-mid">
@@ -222,10 +222,10 @@ export default function AnbieterPage() {
 
             {/* Erweitert */}
             <div className="rounded-2xl border-2 border-brand bg-white p-7 lg:p-8">
-              <div className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-brand-dark">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-brand-dark">
                 Erweitertes Profil
               </div>
-              <div className="mt-2 font-serif text-[28px] font-semibold text-dark">
+              <div className="mt-2 font-serif text-[28px] font-normal text-dark">
                 Auf Anfrage
               </div>
               <p className="mt-3 font-sans text-[14px] leading-[1.65] text-mid">
@@ -276,10 +276,10 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Was wir übernehmen
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight text-dark">
+            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
               Wir recherchieren, strukturieren und prüfen.
             </h2>
             <p className="font-sans text-[15px] leading-[1.7] text-mid pt-2">
@@ -317,7 +317,7 @@ export default function AnbieterPage() {
                   {String(idx + 1).padStart(2, "0")}.
                 </span>
                 <div>
-                  <h3 className="font-serif text-[18px] font-semibold leading-tight text-dark">
+                  <h3 className="font-serif text-[18px] font-normal leading-tight text-dark">
                     {step.t}
                   </h3>
                   <p className="font-sans text-[14px] leading-[1.6] text-mid mt-1">
@@ -339,10 +339,10 @@ export default function AnbieterPage() {
         <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-28">
           <div className="max-w-2xl space-y-6">
             <Logo variant="inverse" height={32} link={false} className="mb-2" />
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
               Nächster Schritt
             </div>
-            <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-semibold leading-[1.0] tracking-tight">
+            <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight">
               Bringen Sie Ihr Tool ins Verzeichnis.
             </h2>
             <p className="font-sans text-[16px] leading-[1.7] text-white/85">

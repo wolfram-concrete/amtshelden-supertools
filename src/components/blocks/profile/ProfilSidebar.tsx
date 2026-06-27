@@ -152,7 +152,7 @@ export function ProfilSidebar({
       {lastCheckedAt && (
         <div className="pt-2 px-1">
           <div className="rounded-lg border border-dashed border-border bg-white px-3.5 py-3">
-            <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
               Stand der Prüfung
             </div>
             <div className="font-ui text-[12px] font-semibold text-dark mt-1">
@@ -185,7 +185,7 @@ function SidebarLabel({
   return (
     <div
       className={cn(
-        "font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft px-1",
+        "font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft px-1",
         className,
       )}
     >

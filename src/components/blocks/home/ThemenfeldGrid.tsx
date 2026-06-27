@@ -28,10 +28,11 @@ export function ThemenfeldGrid({
     <section className="bg-cream">
       <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
             {title}
           </h2>
           {description && (
@@ -84,7 +85,7 @@ export function ThemenfeldGrid({
 
                 <div className="flex flex-1 flex-col p-7 lg:p-8">
                   <Link href={`/themenfelder/${tf.slug}`}>
-                    <h3 className="font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+                    <h3 className="font-serif text-[26px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
                       {tf.name}
                     </h3>
                     <p className="mt-2 font-sans text-[14.5px] leading-[1.6] text-mid">

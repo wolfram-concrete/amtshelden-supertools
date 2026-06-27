@@ -23,10 +23,10 @@ export default function VorschlagenPage() {
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
           {/* Linke Spalte: Editorial */}
           <div className="lg:sticky lg:top-24 space-y-6">
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               Mitmachen
             </div>
-            <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.0] tracking-tight text-dark">
+            <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark">
               Ein Tool fehlt?<br />
               <em className="not-italic font-medium text-brand-dark">
                 Sagen Sie es uns.

@@ -30,7 +30,7 @@ export function EditorialHero({
           {eyebrow}
         </Badge>
 
-        <h1 className="font-serif text-[clamp(44px,7vw,88px)] font-semibold leading-[1.02] tracking-tight text-dark">
+        <h1 className="font-serif text-[clamp(44px,7vw,88px)] font-normal leading-[1.02] tracking-tight text-dark">
           {title}
         </h1>
 

@@ -32,10 +32,11 @@ export function AboutBlock({
           {/* Linke Spalte */}
           <div className="space-y-5">
             <Logo variant="inverse" height={32} link={false} className="mb-2" />
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
               {eyebrow}
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight">
+            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight">
               {title}
             </h2>
             <p className="font-sans text-[16px] leading-[1.7] text-white/80">
@@ -62,10 +63,10 @@ export function AboutBlock({
                 key={idx}
                 className="space-y-2 border-t border-white/25 pt-5"
               >
-                <div className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">
+                <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">
                   0{idx + 1}
                 </div>
-                <h3 className="font-serif text-[20px] font-semibold leading-tight">
+                <h3 className="font-serif text-[20px] font-normal leading-tight">
                   {p.title}
                 </h3>
                 <p className="font-sans text-[14px] leading-[1.65] text-white/75">

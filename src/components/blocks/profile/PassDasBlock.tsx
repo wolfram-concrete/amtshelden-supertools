@@ -53,7 +53,7 @@ export function PassDasBlock({
             →
           </div>
           <div className="flex-1">
-            <div className="font-ui text-[12px] font-bold uppercase tracking-[0.14em] text-dark mb-2">
+            <div className="font-mono text-[12px] font-bold uppercase tracking-[0.14em] text-dark mb-2">
               {notFit.label}
             </div>
             <p className="font-sans text-[15px] leading-[1.65] text-mid">

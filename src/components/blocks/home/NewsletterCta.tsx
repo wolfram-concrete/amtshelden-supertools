@@ -35,10 +35,11 @@ export function NewsletterCta({
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-4xl rounded-3xl bg-cream border border-border px-8 py-14 lg:px-14 lg:py-20 text-center space-y-6">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="flex items-center justify-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-semibold leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
           {title}
         </h2>
         <p className="font-sans text-[16px] leading-[1.65] text-mid max-w-xl mx-auto">
@@ -68,7 +69,7 @@ export function NewsletterCta({
             />
             <button
               type="submit"
-              className="rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="rounded-full bg-accent px-6 py-3 font-ui text-[14px] font-semibold text-accent-ink transition-[filter] hover:brightness-95"
             >
               {ctaLabel}
             </button>

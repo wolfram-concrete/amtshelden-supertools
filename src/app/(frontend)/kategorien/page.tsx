@@ -17,10 +17,10 @@ export default function CategoriesIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Verzeichnis
           </div>
-          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.05] tracking-tight text-dark">
+          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.05] tracking-tight text-dark">
             Alle Kategorien im Überblick
           </h1>
           <p className="font-sans text-[18px] leading-[1.7] text-mid">

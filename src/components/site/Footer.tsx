@@ -61,7 +61,7 @@ export function Footer() {
           {/* Link-Spalten */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-dark">
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-dark">
                 {col.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -85,7 +85,7 @@ export function Footer() {
           <p className="font-ui text-[12px] text-soft">
             © {new Date().getFullYear()} Amtshelden GmbH. Alle Rechte vorbehalten.
           </p>
-          <p className="font-ui text-[11px] uppercase tracking-[0.14em] text-soft">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-soft">
             Made in Berlin · Für die digitale Verwaltung
           </p>
         </div>

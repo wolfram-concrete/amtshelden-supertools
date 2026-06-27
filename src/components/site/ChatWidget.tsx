@@ -73,7 +73,7 @@ export function ChatWidget() {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Calendar size={15} className="text-brand-dark" aria-hidden />
-                <span className="font-ui text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
                   Termin vereinbaren
                 </span>
               </div>
@@ -95,7 +95,7 @@ export function ChatWidget() {
             {/* Trenner */}
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
-              <span className="font-ui text-[10px] uppercase tracking-[0.16em] text-soft">
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-soft">
                 oder
               </span>
               <div className="h-px flex-1 bg-border" />
@@ -109,7 +109,7 @@ export function ChatWidget() {
                   className="text-brand-dark"
                   aria-hidden
                 />
-                <span className="font-ui text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
                   Schreiben Sie uns
                 </span>
               </div>

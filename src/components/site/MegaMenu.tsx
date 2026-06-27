@@ -111,10 +111,10 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
                 className="group relative overflow-hidden rounded-2xl bg-brand-dark text-white p-6 flex flex-col justify-between min-h-[210px] transition-colors hover:bg-brand"
               >
                 <div>
-                  <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
                     Verzeichnis
                   </div>
-                  <h3 className="font-serif text-[24px] font-semibold leading-[1.1] mt-2">
+                  <h3 className="font-serif text-[24px] font-normal leading-[1.1] mt-2">
                     Vier Themenfelder.
                     <br />
                     Volle Tiefe.
@@ -161,7 +161,7 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
                         onClick={() => setOpen(false)}
                         className="mt-3 block"
                       >
-                        <h4 className="font-serif text-[17px] font-semibold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+                        <h4 className="font-serif text-[17px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
                           {tf.name}
                         </h4>
                         <p className="font-ui text-[11.5px] leading-[1.5] text-soft mt-1 line-clamp-2">

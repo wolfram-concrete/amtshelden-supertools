@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Inter_Tight, Source_Serif_4 } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans,
+  IBM_Plex_Serif,
+} from "next/font/google";
 import "./globals.css";
 
-const sourceSerif = Source_Serif_4({
+// Headlines — Baseframe-System: Editorial Serif, Regular-Schnitt (kein Bold)
+const ibmSerif = IBM_Plex_Serif({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-source-serif",
+  variable: "--font-ibm-serif",
   display: "swap",
 });
 
+// Body + UI — Structural Sans
 const ibmPlex = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -18,10 +24,11 @@ const ibmPlex = IBM_Plex_Sans({
   display: "swap",
 });
 
-const interTight = Inter_Tight({
+// Labels, Tags, Metadata — Precision Mono (uppercase, wide tracking)
+const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-inter-tight",
+  weight: ["400", "500"],
+  variable: "--font-ibm-mono",
   display: "swap",
 });
 
@@ -43,7 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${sourceSerif.variable} ${ibmPlex.variable} ${interTight.variable}`}
+      className={`${ibmSerif.variable} ${ibmPlex.variable} ${ibmMono.variable}`}
     >
       <body>{children}</body>
     </html>

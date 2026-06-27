@@ -163,7 +163,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
           )}
         >
           <div className="hidden lg:flex items-center justify-between">
-            <h2 className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-soft">
+            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-soft">
               Filter
             </h2>
             {totalFilters > 0 && (
@@ -277,7 +277,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
         {/* Listen-Ansicht */}
         {filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
-            <p className="font-serif text-[20px] font-semibold text-dark">
+            <p className="font-serif text-[20px] font-normal text-dark">
               Keine Tools für diese Auswahl.
             </p>
             <p className="font-sans text-[14px] text-soft mt-2">
@@ -337,7 +337,7 @@ function FilterGroup({
 }) {
   return (
     <div className="space-y-2.5">
-      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
         {label}
       </div>
       <div className="space-y-1.5">{children}</div>

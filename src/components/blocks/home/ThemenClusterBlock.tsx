@@ -30,10 +30,10 @@ export function ThemenClusterBlock({
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <header className="border-t-2 border-dark pt-8 mb-12 lg:mb-16 max-w-3xl space-y-2">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {sectionEyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-semibold leading-[1.0] tracking-tight text-dark">
+        <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
           {sectionTitle}
         </h2>
       </header>
@@ -63,12 +63,12 @@ export function ThemenClusterBlock({
             )}
 
             {/* Eyebrow */}
-            <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               {cluster.eyebrow}
             </div>
 
             {/* Cluster-Titel */}
-            <h3 className="font-serif text-[26px] font-semibold leading-[1.05] text-dark">
+            <h3 className="font-serif text-[26px] font-normal leading-[1.05] text-dark">
               {cluster.title}
             </h3>
 
@@ -86,10 +86,10 @@ export function ThemenClusterBlock({
                       href={`/wissen/${a.slug}`}
                       className="block group space-y-1 py-1"
                     >
-                      <span className="block font-serif text-[16px] font-semibold leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
+                      <span className="block font-serif text-[16px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
                         {a.title}
                       </span>
-                      <span className="block font-ui text-[10px] uppercase tracking-[0.14em] text-soft">
+                      <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-soft">
                         {formatDateDE(a.publishedAt)} · {a.readingTime} Min.
                       </span>
                     </Link>

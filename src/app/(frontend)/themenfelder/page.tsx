@@ -22,10 +22,10 @@ export default function ThemenfelderIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Struktur
           </div>
-          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.0] tracking-tight text-dark">
+          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark">
             Vier Themenfelder.
           </h1>
           <p className="font-sans text-[18px] leading-[1.7] text-mid">
@@ -55,7 +55,7 @@ export default function ThemenfelderIndexPage() {
                       {tf.icon && <BrandIcon name={tf.icon} size={26} />}
                     </span>
                     <div>
-                      <h2 className="font-serif text-[26px] font-semibold leading-tight text-dark group-hover:text-brand-dark transition-colors">
+                      <h2 className="font-serif text-[26px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
                         {tf.name}
                       </h2>
                       <p className="mt-1.5 font-sans text-[14.5px] leading-[1.6] text-mid">
@@ -66,7 +66,7 @@ export default function ThemenfelderIndexPage() {
                 </div>
 
                 <div className="lg:border-l lg:border-border lg:pl-12 flex flex-col justify-center">
-                  <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft mb-3">
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft mb-3">
                     Kategorien
                   </div>
                   <div className="flex flex-wrap gap-2">

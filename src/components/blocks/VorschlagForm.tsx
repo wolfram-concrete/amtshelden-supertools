@@ -40,7 +40,7 @@ export function VorschlagForm() {
         <div className="text-3xl mb-3" aria-hidden>
           ✓
         </div>
-        <h3 className="font-serif text-[24px] font-semibold text-dark">
+        <h3 className="font-serif text-[24px] font-normal text-dark">
           Danke für Ihren Hinweis.
         </h3>
         <p className="font-sans text-[15px] text-mid mt-2 max-w-md mx-auto">
@@ -81,7 +81,7 @@ export function VorschlagForm() {
       </div>
 
       <div className="mb-6">
-        <h2 className="font-serif text-[24px] font-semibold leading-tight text-dark">
+        <h2 className="font-serif text-[24px] font-normal leading-tight text-dark">
           {role === "behoerde"
             ? "Tool empfehlen oder vermissen"
             : "Unternehmen eintragen"}
@@ -229,7 +229,7 @@ function Field({
 }) {
   return (
     <label htmlFor={htmlFor} className="block space-y-1.5">
-      <span className="font-ui text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+      <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
         {label}
       </span>
       {children}

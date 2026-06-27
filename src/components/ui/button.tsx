@@ -14,8 +14,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-brand text-white hover:bg-brand-dark",
+        // Signal-CTA — Sun Yellow (sparsam, primäre Aktion)
+        default: "bg-accent text-accent-ink hover:brightness-95",
+        // Marken-CTA — Grün
+        brand: "bg-brand text-white hover:bg-brand-dark",
         outline:
           "border border-border bg-transparent text-dark hover:bg-cream",
         ghost: "text-mid hover:text-dark hover:bg-cream",

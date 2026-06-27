@@ -136,7 +136,7 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
     >
       {/* Kopf */}
       <div className="flex items-center justify-between mb-5">
-        <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
           Tool-Finder
         </div>
         <div className="font-ui text-[11px] font-medium text-white/55">
@@ -153,7 +153,7 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
       </div>
 
       {/* Frage */}
-      <h2 className="font-serif text-[24px] font-semibold leading-[1.15] text-white mb-5">
+      <h2 className="font-serif text-[24px] font-normal leading-[1.15] text-white mb-5">
         {q.label}
       </h2>
 

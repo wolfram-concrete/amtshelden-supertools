@@ -22,12 +22,12 @@ export default function WissenIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-12 lg:mb-16">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             Wissen & Magazin
           </div>
           <h1
             style={{ lineHeight: 1.05 }}
-            className="font-serif text-[clamp(34px,4.4vw,56px)] font-semibold tracking-tight text-dark"
+            className="font-serif text-[clamp(34px,4.4vw,56px)] font-normal tracking-tight text-dark"
           >
             Was diese Woche zählt.
           </h1>

@@ -33,7 +33,7 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
 
   return (
     <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
-      <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
         Nach Themen
       </div>
 
@@ -67,11 +67,11 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
                 >
                   <span
                     style={{ lineHeight: 1.2 }}
-                    className="block font-serif text-[13px] font-semibold text-dark group-hover:text-brand-dark transition-colors line-clamp-2"
+                    className="block font-serif text-[13px] font-normal text-dark group-hover:text-brand-dark transition-colors line-clamp-2"
                   >
                     {a.title}
                   </span>
-                  <span className="mt-1 block font-ui text-[10px] uppercase tracking-[0.08em] text-soft">
+                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.08em] text-soft">
                     {formatDateDEShort(a.publishedAt)} · {a.readingTime} Min.
                   </span>
                 </Link>

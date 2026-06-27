@@ -56,13 +56,13 @@ export function ArticleCard({
 
       <div className={cn("space-y-3", isLead && "lg:order-1")}>
         <Link href={`/wissen/${article.slug}`} className="block space-y-3">
-          <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {article.eyebrow}
           </div>
 
           <h3
             className={cn(
-              "font-serif font-semibold text-dark group-hover:text-brand-dark transition-colors",
+              "font-serif font-normal text-dark group-hover:text-brand-dark transition-colors",
               isLead
                 ? "text-[clamp(28px,3.5vw,42px)] leading-[1.05]"
                 : isCompact
