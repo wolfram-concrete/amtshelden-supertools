@@ -63,13 +63,10 @@ export function ThemenfeldGrid({
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     />
                   )}
+                  {/* dezenter, neutraler Scrim nur für die Badge-/Pfeil-Lesbarkeit */}
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-brand-dark/25 mix-blend-multiply"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-brand-dark/55 via-transparent to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"
                   />
                   {/* Icon-Badge auf dem Bild */}
                   <span

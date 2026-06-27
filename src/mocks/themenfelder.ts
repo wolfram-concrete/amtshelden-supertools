@@ -65,7 +65,7 @@ export const themenfelder: ThemenfeldDefinition[] = [
     icon: "target",
     accentColor: "#7C3AED",
     image: {
-      url: "/brand/Images/magnific_the-mayor-and-the-head-of_0p3M0zgTfW.jpg",
+      url: "/brand/Images/magnific_the-mayor-and-the-head-of_0p3M0zgTfW.jpeg",
       alt: "Bürgermeisterin und Amtsleiter besprechen Kennzahlen am Tablet",
     },
   },
