@@ -1,12 +1,19 @@
 /**
  * Header / Top-Nav für alle Frontend-Seiten.
  * Editorial-Magazin meets E-Com-Klarheit:
- *  - Desktop (md+): zentrale Navi als grüne Floating-Pill (Insel), die sich
- *    vom Rest der Seite absetzt — keine durchgezogene Trennlinie.
+ *  - Startseite: Header transparent, grüne Floating-Pill schwebt über dem Hero.
+ *  - Innenseiten (kein Hero): Header verankert (Cream-Fläche + Trennlinie),
+ *    damit die Navi klar präsent ist — kein „verlorenes" Pill über Inhalt.
  *  - Mobile (< md): Logo + Hamburger → MobileNavDrawer mit allen Items + Newsletter
+ *
+ * WICHTIG: kein backdrop-blur/filter/transform am Header — das würde einen
+ * Containing-Block erzeugen und das position:fixed Mega-Menü-Panel einsperren.
  */
 
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Logo } from "@/components/site/Logo";
 import { MegaMenu } from "@/components/site/MegaMenu";
@@ -24,10 +31,15 @@ interface HeaderProps {
 }
 
 export function Header({ className }: HeaderProps) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <header
       className={cn(
         "sticky top-0 z-40 w-full",
+        // Verankert auf Innenseiten, transparent über dem Startseiten-Hero
+        isHome ? "" : "border-b border-border bg-cream",
         className,
       )}
     >

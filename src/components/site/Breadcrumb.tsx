@@ -16,14 +16,8 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
   if (!items?.length) return null;
 
   return (
-    <nav
-      aria-label="Brotkrumen"
-      className={cn(
-        "border-b border-border bg-white/60",
-        className,
-      )}
-    >
-      <div className="container mx-auto px-6 lg:px-10 py-3.5">
+    <nav aria-label="Brotkrumen" className={cn(className)}>
+      <div className="container mx-auto px-6 lg:px-10 pt-5 pb-1">
         <ol className="flex flex-wrap items-center gap-2 font-ui text-[12px] text-soft">
           {items.map((item, idx) => {
             const isLast = idx === items.length - 1;
