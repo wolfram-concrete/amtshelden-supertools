@@ -11,12 +11,11 @@ import { PulseGrid } from "@/components/blocks/home/PulseGrid";
 import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
-import { TrustStrip } from "@/components/blocks/home/TrustStrip";
 import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
 import { behoerdenFaqs } from "@/mocks/faq";
-import { methodSteps, trustStats } from "@/mocks/stats";
+import { methodSteps } from "@/mocks/stats";
 import { themenfelder } from "@/mocks/themenfelder";
 import { toolCards } from "@/mocks/tools";
 import { useCases } from "@/mocks/usecases";
@@ -75,14 +74,13 @@ export default function HomePage() {
     <>
       {/* ── HERO mit Tool-Finder-Wizard rechts ── */}
       <HeroWithFinder
-        eyebrow="Beta · Mai 2026"
+        eyebrow="Beta · 2026"
         title={
           <>
-            Software für die Verwaltung —{" "}
+            Die passende Software für Ihre Verwaltung.{" "}
             <em className="not-italic font-medium text-brand-dark">
-              handverlesen
-            </em>{" "}
-            statt überfüllt.
+              Von Expert:innen kuratiert.
+            </em>
           </>
         }
         lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext, Implementierungs­erfahrungen und ehrlichen Empfehlungen."
@@ -93,9 +91,6 @@ export default function HomePage() {
           "Redaktionell kuratiert",
         ]}
       />
-
-      {/* ── Trust-Strip ── */}
-      <TrustStrip stats={trustStats} />
 
       {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
       <UseCaseEntry

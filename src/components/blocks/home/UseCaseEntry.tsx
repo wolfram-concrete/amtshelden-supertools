@@ -12,12 +12,11 @@ interface UseCaseEntryProps {
 }
 
 /**
- * Problem-/Use-Case-Einstieg (Strategie-Meeting 12.06.2026):
- * „Behörden suchen nicht nach einem Tooltyp, sondern nach einem Problem."
+ * Problem-/Use-Case-Einstieg als plakatives Bento-Grid.
  *
- * Klickbare Problem-Statements als Einstieg — führen direkt zum passenden
- * Themenfeld oder zur Kategorie. Bewusst der erste „aktive" Block nach dem
- * Hero, weil der Problem-Einstieg die Realität der Zielgruppe trifft.
+ * „Behörden suchen nicht nach einem Tooltyp, sondern nach einem Problem."
+ * Große, klar abgegrenzte Kacheln mit Icon-Chip + Problem-Statement —
+ * scanbar, fingerfreundlich, zielgruppengerecht proportioniert.
  */
 export function UseCaseEntry({
   eyebrow,
@@ -26,12 +25,15 @@ export function UseCaseEntry({
   useCases,
 }: UseCaseEntryProps) {
   return (
-    <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-20">
+    <section className="container mx-auto px-4 sm:px-6 lg:px-10 py-12 lg:py-16">
       <header className="max-w-2xl space-y-3 mb-8 lg:mb-10">
         <div className="font-ui text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-bold leading-[1.02] tracking-tight text-dark">
+        <h2
+          style={{ lineHeight: 1.05 }}
+          className="font-serif text-[clamp(28px,3.4vw,42px)] font-bold tracking-tight text-dark"
+        >
           {title}
         </h2>
         {description && (
@@ -41,27 +43,29 @@ export function UseCaseEntry({
         )}
       </header>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {useCases.map((uc) => (
           <Link
             key={uc.label}
             href={uc.href}
-            className="group flex items-center gap-3 rounded-xl border border-border bg-white px-4 py-3.5 transition-colors hover:border-brand hover:bg-cream/40"
+            className="group flex flex-col justify-between gap-6 rounded-2xl border border-border bg-white p-5 lg:p-6 min-h-[140px] transition-colors hover:border-brand hover:bg-cream/40"
           >
             <span
               aria-hidden
-              className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-light text-brand-dark"
+              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
             >
-              <BrandIcon name={uc.icon} size={18} />
+              <BrandIcon name={uc.icon} size={24} />
             </span>
-            <span className="flex-1 font-ui text-[14px] font-medium leading-tight text-dark group-hover:text-brand-dark transition-colors">
-              {uc.label}
-            </span>
-            <ArrowRight
-              size={15}
-              className="flex-shrink-0 text-soft transition-all group-hover:translate-x-0.5 group-hover:text-brand"
-              aria-hidden
-            />
+            <div className="flex items-end justify-between gap-3">
+              <span className="font-serif text-[19px] font-bold leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+                {uc.label}
+              </span>
+              <ArrowRight
+                size={17}
+                className="flex-shrink-0 mb-0.5 text-soft transition-all group-hover:translate-x-0.5 group-hover:text-brand"
+                aria-hidden
+              />
+            </div>
           </Link>
         ))}
       </div>

@@ -46,7 +46,7 @@ export function ThemenfeldGrid({
             return (
               <article
                 key={tf.slug}
-                className="group flex flex-col rounded-2xl border border-border bg-white p-6 lg:p-8 transition-colors hover:border-brand/60"
+                className="group flex flex-col rounded-3xl border border-border bg-white p-7 lg:p-9 transition-colors hover:border-brand/60"
               >
                 <Link
                   href={`/themenfelder/${tf.slug}`}
