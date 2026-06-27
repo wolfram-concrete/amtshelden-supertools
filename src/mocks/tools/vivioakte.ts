@@ -297,6 +297,14 @@ export const vivioakte: ToolProfile = {
     ],
   },
 
+  transparency: {
+    missingInfo: [
+      "Keine öffentlich auffindbare Angabe zur Barrierefreiheit (BITV 2.0).",
+      "Keine konkrete Angabe zu Schnittstellen (REST-API / OZG-Adapter) auf der Anbieterwebsite gefunden.",
+    ],
+    sourceNote: "Quelle: Anbieterwebsite vivioakte.de, geprüft am 12. Juni 2026",
+  },
+
   compliance: {
     dsgvo: "konform",
     serverLocation: "deutschland",

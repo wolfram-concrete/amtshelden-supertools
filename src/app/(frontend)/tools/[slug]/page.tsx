@@ -9,6 +9,7 @@ import { PassDasBlock } from "@/components/blocks/profile/PassDasBlock";
 import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
+import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { toolRegistry } from "@/mocks/tools/vivioakte";
 
@@ -74,6 +75,10 @@ export default async function ToolProfilePage({ params }: PageProps) {
             <PassDasBlock {...tool.passDas} />
 
             <ImplementierungBlock {...tool.implementierung} />
+
+            {tool.transparency && (
+              <TransparencyBlock {...tool.transparency} />
+            )}
 
             <CasesPlaceholder {...tool.cases} />
 

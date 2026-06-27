@@ -231,6 +231,19 @@ export interface ToolProfile {
   /** Sidebar */
   sidebar: ProfilSidebarData;
 
+  /**
+   * Transparenz: was die Redaktion NICHT prüfen / finden konnte.
+   * Strategie-Meeting (12.06.2026): fehlende Infos müssen aktiv sichtbar
+   * gemacht werden — z.B. „Keine öffentlich auffindbare Angabe zum
+   * Serverstandort." Das schafft mehr Vertrauen als ein lückenloses Profil.
+   */
+  transparency?: {
+    /** Geprüft-Hinweise zu fehlenden / nicht öffentlich auffindbaren Angaben */
+    missingInfo?: string[];
+    /** Quellen-Hinweis, z.B. „Quelle: Anbieterwebsite" */
+    sourceNote?: string;
+  };
+
   /** Ansprechpartner (Add-on, optional) */
   contact?: Contact;
 
