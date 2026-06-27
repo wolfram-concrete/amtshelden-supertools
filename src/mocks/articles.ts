@@ -416,6 +416,68 @@ export const articles: Article[] = [
       },
     ],
   },
+
+  {
+    slug: "recruiting-verwaltung",
+    themenfeldSlug: "smartes-personalmanagement",
+    type: "leitfaden",
+    eyebrow: "Leitfaden · Personal",
+    title:
+      "Recruiting in der Verwaltung: Warum das beste Tool nichts nützt, wenn der Prozess hakt",
+    lead: "Der Fachkräftemangel trifft Behörden härter als die Privatwirtschaft. Personalsoftware kann helfen — aber nur, wenn Auswahlprozess, Mitbestimmung und Tarifrecht mitgedacht sind. Wir zeigen, worauf es ankommt.",
+    readingTime: 7,
+    publishedAt: "2026-05-08",
+    cover: {
+      url: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&h=900&fit=crop&q=85",
+      alt: "Team in einem Verwaltungsbüro im Gespräch",
+      width: 1600,
+      height: 900,
+    },
+    author: authors.redaktion,
+    tags: ["Personal", "Recruiting", "Tarif", "Mitbestimmung"],
+    body: [
+      {
+        kind: "paragraph",
+        text: "Behörden konkurrieren um dieselben Fachkräfte wie die Privatwirtschaft — nur mit weniger Gehaltsspielraum, längeren Verfahren und einer Bewerbungsstrecke, die oft abschreckt. Personalsoftware verspricht Abhilfe. Doch ein Bewerbermanagement-System löst kein Problem, das im Prozess steckt.",
+      },
+      {
+        kind: "heading",
+        text: "Das Nadelöhr ist selten die Software",
+      },
+      {
+        kind: "paragraph",
+        text: "Wir haben mit Personalverantwortlichen in zwölf Kommunen gesprochen. Wo Stellen monatelang offen blieben, lag es fast nie am fehlenden Tool — sondern an Freigabeschleifen, unklaren Anforderungsprofilen und einer Time-to-Hire, die Bewerber:innen längst an die Privatwirtschaft verliert.",
+      },
+      {
+        kind: "list",
+        items: [
+          "Schnelle Eingangsbestätigung — Bewerber:innen springen sonst ab",
+          "Klare Zuständigkeit zwischen Fachbereich, Personalstelle und Personalrat",
+          "Tarifrechtlich saubere Eingruppierung früh klären, nicht erst im Angebot",
+          "Mitbestimmung des Personalrats von Anfang an einplanen",
+        ],
+      },
+      {
+        kind: "quote",
+        text: "Unser altes Verfahren hat sechs Wochen gebraucht, bis ein Bewerber überhaupt eine Rückmeldung bekam. Die Guten waren da längst weg.",
+        source: "Personalleiterin, Stadtverwaltung mit 28.000 Einwohnern",
+      },
+      {
+        kind: "heading",
+        text: "Worauf Behörden bei Personalsoftware achten sollten",
+      },
+      {
+        kind: "paragraph",
+        text: "Ein Tool für den öffentlichen Dienst muss mehr können als Lebensläufe sortieren. Es muss TVöD-Logik abbilden, Mitbestimmungs-Workflows unterstützen und sich an bestehende Abrechnungssysteme anbinden lassen — sonst entsteht doppelte Arbeit statt Entlastung.",
+      },
+      {
+        kind: "callout",
+        calloutVariant: "highlight",
+        text: "Die beste Personalsoftware beschleunigt einen Prozess, der bereits funktioniert. Einen kaputten Prozess macht sie nur schneller kaputt.",
+      },
+    ],
+    related: ["kommunen-realer-stand", "warum-kein-ranking"],
+  },
 ];
 
 export const articleSummaries: ArticleSummary[] = articles.map(
