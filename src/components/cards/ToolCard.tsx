@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { cn, formatDateDEShort } from "@/lib/utils";
 import type { ToolCardSummary } from "@/types/content";
 
 interface ToolCardProps {
@@ -105,6 +105,14 @@ function RowItem({
           {tool.compliance.bsi && <RowPill>BSI</RowPill>}
           {tool.compliance.vergabe && <RowPill>UVgO</RowPill>}
         </div>
+        {tool.lastCheckedAt && (
+          <div
+            className="font-ui text-[10px] text-soft italic mt-0.5"
+            title={`Zuletzt geprüft am ${formatDateDEShort(tool.lastCheckedAt)}`}
+          >
+            geprüft {formatDateDEShort(tool.lastCheckedAt)}
+          </div>
+        )}
       </div>
 
       {/* Chevron */}

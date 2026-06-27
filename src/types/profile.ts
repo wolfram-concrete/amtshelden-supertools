@@ -212,6 +212,13 @@ export interface ToolProfile {
   /** Profil-Stufe */
   tier: ProfileTier;
 
+  /**
+   * Datum der letzten redaktionellen Prüfung (ISO-Datum, z.B. "2026-06-12").
+   * Wird in Hero-Byline, Sidebar und Listen-Zeilen prominent angezeigt —
+   * zentrales Trust-Element laut Strategie-Meeting (Whiteboard 12.06.2026).
+   */
+  lastCheckedAt: string;
+
   /** Zonen */
   hero: ProfilHeroData;
   passDas: PassDasData;

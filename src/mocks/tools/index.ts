@@ -30,6 +30,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "AK",
     markBg: "#0891B2",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "arge-edok",
@@ -48,6 +49,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "AE",
     markBg: "#15803D",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -67,6 +69,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "BD",
     markBg: "#DC2626",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "datacite-verwaltung",
@@ -85,6 +88,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "DV",
     markBg: "#2563EB",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -104,6 +108,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "DB",
     markBg: "#2563EB",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -123,6 +128,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "EN",
     markBg: "#F59E0B",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "fabasoft-egov",
@@ -141,6 +147,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "FE",
     markBg: "#7C3AED",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -160,6 +167,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "GA",
     markBg: "#15803D",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -179,6 +187,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "HD",
     markBg: "#A16207",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "iakte-verwaltung",
@@ -197,6 +206,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "iA",
     markBg: "#0F766E",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -216,6 +226,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "KD",
     markBg: "#9333EA",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -235,6 +246,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "LA",
     markBg: "#1E40AF",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -254,6 +266,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "NK",
     markBg: "#059669",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "paperlite",
@@ -272,6 +285,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "PL",
     markBg: "#EA580C",
+    lastCheckedAt: "2026-06-12",
   },
   {
     slug: "register-pro",
@@ -290,6 +304,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "RP",
     markBg: "#BE185D",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -309,6 +324,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "VA",
     markBg: "#009460",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
 
@@ -330,6 +346,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "OZ",
     markBg: "#2563EB",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
   {
@@ -349,6 +366,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "TM",
     markBg: "#0EA5E9",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
 
@@ -370,6 +388,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: true, vergabe: true },
     mark: "DP",
     markBg: "#7C3AED",
+    lastCheckedAt: "2026-06-12",
     verified: true,
   },
 
@@ -391,6 +410,7 @@ export const toolCards: ToolCardSummary[] = [
     compliance: { dsgvo: true, serverDe: true, bsi: false, vergabe: true },
     mark: "PS",
     markBg: "#DC2626",
+    lastCheckedAt: "2026-06-12",
   },
 ];
 

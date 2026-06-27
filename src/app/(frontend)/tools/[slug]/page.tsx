@@ -66,7 +66,10 @@ export default async function ToolProfilePage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-12 lg:gap-16">
           {/* ── MAIN COLUMN ── */}
           <main className="min-w-0 space-y-10">
-            <ProfilHero {...tool.hero} />
+            <ProfilHero
+              {...tool.hero}
+              lastCheckedAt={tool.lastCheckedAt}
+            />
 
             <PassDasBlock {...tool.passDas} />
 
@@ -82,7 +85,10 @@ export default async function ToolProfilePage({ params }: PageProps) {
           </main>
 
           {/* ── STICKY SIDEBAR ── */}
-          <ProfilSidebar {...tool.sidebar} />
+          <ProfilSidebar
+            {...tool.sidebar}
+            lastCheckedAt={tool.lastCheckedAt}
+          />
         </div>
       </div>
     </>

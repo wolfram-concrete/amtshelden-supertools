@@ -125,6 +125,11 @@ export interface ToolCardSummary {
   markBg?: string;
   /** Verifiziert-Status */
   verified?: boolean;
+  /**
+   * Datum der letzten redaktionellen Prüfung (ISO).
+   * Zentrales Trust-Element — wird in der Listen-Zeile angezeigt.
+   */
+  lastCheckedAt: string;
 }
 
 /** Filter-Optionen für Kategorie-Seiten */

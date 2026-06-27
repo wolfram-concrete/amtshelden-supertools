@@ -15,6 +15,7 @@ export const vivioakte: ToolProfile = {
   name: "VivioAkte",
   categorySlug: "e-akte-dokumentenmanagement",
   tier: "verified",
+  lastCheckedAt: "2026-06-12",
 
   // ----------------------------------------------------------
   // ZONE 1 — HERO

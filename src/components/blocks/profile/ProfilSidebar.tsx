@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
+import { cn, formatDateDE } from "@/lib/utils";
 import type { ProfilSidebarData } from "@/types/profile";
 
 interface ProfilSidebarProps extends ProfilSidebarData {
+  /** ISO-Datum der letzten Prüfung — zeigt „Stand"-Indikator ganz unten */
+  lastCheckedAt?: string;
   className?: string;
 }
 
@@ -22,6 +24,7 @@ export function ProfilSidebar({
   ctaHref,
   whyEntries,
   relatedLinks,
+  lastCheckedAt,
   className,
 }: ProfilSidebarProps) {
   return (
@@ -141,6 +144,30 @@ export function ProfilSidebar({
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      )}
+
+      {/* ── Stand / Aktualität ── */}
+      {lastCheckedAt && (
+        <div className="pt-2 px-1">
+          <div className="rounded-lg border border-dashed border-border bg-white px-3.5 py-3">
+            <div className="font-ui text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+              Stand der Prüfung
+            </div>
+            <div className="font-ui text-[12px] font-semibold text-dark mt-1">
+              {formatDateDE(lastCheckedAt)}
+            </div>
+            <p className="font-ui text-[10.5px] leading-[1.55] text-soft mt-1.5">
+              Profile werden quartalsweise von der Amtshelden-Redaktion
+              gegengeprüft. Angaben veraltet?{" "}
+              <Link
+                href="/kontakt?topic=korrektur"
+                className="text-brand-dark hover:underline"
+              >
+                Hinweis senden
+              </Link>
+            </p>
           </div>
         </div>
       )}

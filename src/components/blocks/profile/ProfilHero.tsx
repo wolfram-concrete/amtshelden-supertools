@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { cn, formatDateDE } from "@/lib/utils";
 import type { ProfilHeroData } from "@/types/profile";
 
 interface ProfilHeroProps extends ProfilHeroData {
+  /** ISO-Datum der letzten redaktionellen Prüfung — zentrales Trust-Element */
+  lastCheckedAt?: string;
   className?: string;
 }
 
@@ -44,6 +46,7 @@ export function ProfilHero({
   lead,
   byline,
   verified,
+  lastCheckedAt,
   heroImage,
   heroCaption,
   company,
@@ -82,9 +85,18 @@ export function ProfilHero({
           />
         )}
         <p className="font-ui text-[12px] text-soft flex-1">
-          Geprüft von{" "}
-          <strong className="font-semibold text-dark">{byline.editor}</strong>{" "}
-          · Aktualisiert {byline.updatedAt}
+          Recherchiert von{" "}
+          <strong className="font-semibold text-dark">{byline.editor}</strong>
+          {lastCheckedAt ? (
+            <>
+              {" "}·{" "}
+              <span className="font-medium text-dark">
+                Zuletzt geprüft am {formatDateDE(lastCheckedAt)}
+              </span>
+            </>
+          ) : (
+            <> · Aktualisiert {byline.updatedAt}</>
+          )}
         </p>
         {verified && (
           <Badge variant="verified" size="sm">
