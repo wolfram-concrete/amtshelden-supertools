@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Juni 2026 · **Version:** 0.16 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** Juni 2026 · **Version:** 0.18 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -19,6 +19,13 @@
   institutionell-seriös statt Lifestyle-elegant, passend zum Behörden-Vertrauen)
 - **Fonts gesamt:** Source Serif 4 (Headlines) · IBM Plex Sans (Body) · Inter Tight (UI).
   Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
+- **Bento-Sprache (seit v0.18, Referenz [byq.supply](https://byq.supply)):**
+  Off-White-Fläche (cream) trägt **randlose weiße Karten** — Trennung über
+  **Fill-Kontrast** statt feiner Konturlinien. Weiche, dezente Schatten statt
+  harter Schlagschatten; großzügige Radien (`rounded-2xl/3xl`); plakativer
+  Typo-Sprung (großes Serif-Display ↔ kleine UI-Labels).
+- **Navigation:** eine **grüne Floating-Pill (Insel)** mit allen Items inkl.
+  Actions (Anbieter/Newsletter als weiße CTA) — keine durchgezogene Trennlinie.
 
 **Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor,
 ohne Ranking, ohne gekaufte Empfehlungen.
@@ -75,7 +82,7 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.16, Juni 2026)
+## 3. AKTUELLE SITUATION (Stand v0.18, Juni 2026)
 
 ### Tech-Stack
 
@@ -83,7 +90,7 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 · Tailwind v4 (`@theme`-Tokens in CSS) · shadcn-Style Primitives (`@radix-ui/react-slot`,
 `class-variance-authority`, `clsx`, `tailwind-merge`)
 · `lucide-react` für Icons.
-**Deployment:** Vercel, Git-Auto-Deploy (GitHub-App). Build clean, **31 Routes** (alle Static/SSG).
+**Deployment:** Vercel, Git-Auto-Deploy (GitHub-App). Build clean, **32 Routes** (alle Static/SSG).
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools`.
 
 ### Strukturebene: 4 Themenfelder (seit v0.16, Strategie-Meeting 12.06.2026)
@@ -95,11 +102,11 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 
 | Route | Status | Was es ist |
 |---|---|---|
-| `/` | ✓ | Editorial-Frontpage: Hero+Tool-Finder-Wizard, TrustStrip, Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid, About (grün), Mitmachen-CTA, Newsletter |
+| `/` | ✓ | Editorial-Frontpage: Bento-Hero (Off-White, grüner Tool-Finder, festes Bild-Ratio), Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid (mit Bild-Bannern), About (grün), Mitmachen-CTA, Newsletter |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
 | `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten (Filter + Listen-Ansicht + Related) |
 | `/tools/[slug]` | ✓ | Tool-Profil (VivioAkte): 8 Zonen + Transparenz-Block + Extended-Notice + Korrektur-Widget |
-| `/wissen` + `/[slug]` | ✓ | Magazin-Index + 7 Artikel (Long-Form, 8 Block-Kinds) |
+| `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) |
 | `/anbieter` | ✓ | B2B-Landingpage (6 Sektionen) |
 | `/vorschlagen` | ✓ | Tool vorschlagen / Unternehmen eintragen (Behörde/Anbieter-Umschalter) |
 | `/ueber` | ✓ | Editorial-Seite (7 Sektionen, Amtshelden-Brücke) |
@@ -113,7 +120,7 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 8. Korrektur-Widget · 9. 6-Fragen-Tool-Finder.
 Globales Chat-Widget (Sprechblase mit „s") mit Terminbuchung übers Kalendertool.
 
-**Build:** 25 routes total, alle static prerender. TypeScript clean.
+**Build:** 32 routes total, alle static prerender. TypeScript clean.
 
 ### Komponenten-Architektur
 
@@ -203,15 +210,21 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
 - **Logo-Komponente:** `<Logo variant="default|inverse" height={n} />` —
   default für helle BG (Header, Footer), inverse für dunkle/grüne Sektionen
   (AboutBlock, ProfilCta)
+- **Bento-Layout (seit v0.18):** Off-White-Sektionen (`bg-cream`) tragen
+  **randlose weiße Karten** — Fill-Kontrast statt Konturlinien. Hover über
+  weichen Schatten-Lift / Bild-Zoom, nicht über Border-Farbwechsel. Bild-Container
+  immer mit **festem Seitenverhältnis** (`aspect-[16/10]` Hero, `[16/9]` Cards),
+  `object-cover` → kein Strecken. Referenz: [byq.supply](https://byq.supply).
 - **Editorial-Prinzipien:** Kein Glassmorphismus, kein Purple-Gradient, keine Sterne,
-  Cormorant italic für Akzente, native `<details>` statt JS-Akkordeons,
-  vertikale Hairlines zwischen Spalten
+  Source Serif italic für Akzente, native `<details>` statt JS-Akkordeons,
+  Marken-Overlay (`brand-dark` multiply) eint kuratierte Foto-Motive
 
 ### Mock-Daten-Stand
 
 - **6 Kategorien** (E-Akte, Bürgerservice, Finanzen, Personal, Geo/Bau, Kommunikation)
+- **4 Themenfelder** mit je **Bild-Motiv** (`image`-Feld, swap-bare Unsplash-Platzhalter)
 - **8 Tool-Cards** (für Listen-Ansichten) + **1 vollständiges Profil** (VivioAkte mit allen 8 Zonen)
-- **7 Pulse-Artikel** inkl. zwei Schwerpunkt-Stories („Digitalisierung Bund 2030", „Kommunen-Realität")
+- **8 Pulse-Artikel** inkl. zwei Schwerpunkt-Stories („Digitalisierung Bund 2030", „Kommunen-Realität")
 - **8 FAQ-Items** für Behörden mit `readMoreSlug`-Verlinkungen
 - **4 Trust-Stats** + **4 Methodik-Schritte**
 

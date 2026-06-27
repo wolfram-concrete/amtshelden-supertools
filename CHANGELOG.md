@@ -2,6 +2,61 @@
 
 ---
 
+## [0.18.0] — 2026-06-27
+
+### Bento-Design-Refresh: Off-White-Fläche, grüne Pill-Navi, Bild-Motive
+
+Referenz für Bento-Sprache & Schriftskalierung: [byq.supply](https://byq.supply).
+
+---
+
+### 🎨 Eigene grüne Icon-Serie statt Emojis
+
+- 13 monolineare SVG-Icons im Logo-Stil (`BrandIcon`, `currentColor`,
+  strokeWidth 1.8) ersetzen die Emoji-Icons in Kategorien, Themenfeldern,
+  Use-Cases und Nav. Icons grundsätzlich in Brand-Grün.
+
+### 🟢 Navigation: eine grüne Floating-Pill (Insel)
+
+- Durchgezogene Trennlinie raus → Header als `white/85 + backdrop-blur`.
+- Zentrale Navi als **grüne Pill** (`bg-brand-dark`) mit Mega-Menu + Wissen/Über.
+- **Actions in dieselbe Pill gezogen** (eine Einheit, Resintoi-/LINK-Referenz):
+  „Anbieter werden" als White-Link, Newsletter als **weiße CTA** (`onDark`),
+  Trenner dazwischen.
+- **Bento-Mega-Menu:** grüne Feature-Karte + 2×2 Themenfeld-Karten mit
+  Kategorie-Pills.
+
+### 🧱 Bento-Hero & Flächen-System
+
+- Hero-Sektion auf **Off-White** (`bg-cream`), Module als **randlose weiße Karten**
+  → Trennung über **Fill-Kontrast** statt feiner Konturlinien.
+- **Tool-Finder grün hinterlegt** (`brand-dark`, weiße Typo/Options); harter
+  Schlagschatten → weicher grüner Glow.
+- Hero-Bild mit **festem 16:10-Ratio** (`object-cover`) statt `flex-stretch`
+  → kein Strecken mehr; neues Motiv.
+- Kennzahlen als **kompakte Mini-Kacheln** (Zahl + Label inline) statt Großboxen.
+- **AI-Füll-Microcopy entfernt:** Bildunterschrift, „Starten Sie …"-Hinweis,
+  „Kein Login …"-Fußnote, „Eine Antwort wählen"-Hints.
+
+### 🖼️ Bild-Container in den Themenfeld-Cards
+
+- Jede der 4 „Vier Themenfelder. Volle Tiefe."-Karten erhält ein
+  **16:9-Motiv-Banner** mit einheitlichem grünem Marken-Overlay
+  (`brand-dark` multiply + Verlauf), Icon-Badge auf dem Bild, Pfeil oben rechts.
+- Kuratierte, **swap-bare** Unsplash-Motive je Feld (Lagebesprechung /
+  Bewerbungsgespräch / Technik / Controlling), zentral in
+  `mocks/themenfelder.ts` (neues `image`-Feld auf `ThemenfeldDefinition`).
+- Karten randlos auf cream, weicher Hover-Lift + Bild-Zoom statt Border.
+
+### 📚 Inhalt & Doku
+
+- Wissens-Sidebar nach **Themenfeldern** gruppiert (Topthemen) inkl.
+  „Alle Artikel lesen"-Link; 8. Artikel (Recruiting) ergänzt → alle 4
+  Themenfelder belegt.
+- README auf v0.18: Bento-/Pill-Sprache, 32 Routes, Themenfeld-Bilder.
+
+---
+
 ## [0.17.0] — 2026-06-27
 
 ### Schrift-Wechsel, Chat-Widget, README-Konsolidierung
