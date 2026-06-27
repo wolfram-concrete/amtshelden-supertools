@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { categories } from "@/mocks/categories";
 
-import { QuickFinder } from "./QuickFinder";
+import { ToolFinderWizard } from "./ToolFinderWizard";
 
 interface HeroWithFinderProps {
   eyebrow: string;
@@ -11,9 +10,9 @@ interface HeroWithFinderProps {
 }
 
 /**
- * Editorial-Hero (Magazin) + QuickFinder (Booking.com-Vibe) — beides parallel.
+ * Editorial-Hero (Magazin) + Tool-Finder-Wizard — beides parallel.
  * Linke Spalte: Cormorant-Headline, Lead, Trust-Signale.
- * Rechte Spalte: QuickFinder mit 3 Fragen.
+ * Rechte Spalte: geführter 6-Fragen-Tool-Finder.
  */
 export function HeroWithFinder({
   eyebrow,
@@ -58,8 +57,8 @@ export function HeroWithFinder({
           )}
         </div>
 
-        {/* ── Rechte Spalte: QuickFinder ── */}
-        <QuickFinder categories={categories} />
+        {/* ── Rechte Spalte: Tool-Finder-Wizard ── */}
+        <ToolFinderWizard />
       </div>
     </section>
   );

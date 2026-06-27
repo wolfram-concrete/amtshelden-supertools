@@ -73,7 +73,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO mit QuickFinder rechts ── */}
+      {/* ── HERO mit Tool-Finder-Wizard rechts ── */}
       <HeroWithFinder
         eyebrow="Beta · Mai 2026"
         title={
