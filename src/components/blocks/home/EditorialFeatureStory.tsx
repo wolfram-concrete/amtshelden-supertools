@@ -22,8 +22,8 @@ export function EditorialFeatureStory({
   background = "white",
 }: EditorialFeatureStoryProps) {
   const bgClasses = {
-    white: "bg-white",
-    cream: "bg-cream/40",
+    white: "", // transparent — durchgängige Cream-Fläche, kein Band
+    cream: "",
     brand: "bg-brand text-white",
   } as const;
 

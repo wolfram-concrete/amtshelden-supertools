@@ -27,7 +27,7 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70",
+        "sticky top-0 z-40 w-full",
         className,
       )}
     >
@@ -36,7 +36,7 @@ export function Header({ className }: HeaderProps) {
 
         {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">
-          <div className="flex items-center gap-0.5 rounded-full bg-brand-dark p-1.5 shadow-[0_10px_30px_-12px_rgba(0,107,69,0.5)]">
+          <div className="flex items-center gap-0.5 rounded-full bg-brand-dark/70 backdrop-blur-xl border border-white/15 p-1.5 shadow-[0_12px_34px_-14px_rgba(0,107,69,0.6)]">
             <MegaMenu onDark />
             {secondaryNav.map((item) => (
               <Link

@@ -24,14 +24,11 @@ export function AboutBlock({
   image,
 }: AboutBlockProps) {
   return (
-    <section className="bg-brand-dark text-white relative overflow-hidden">
-      {/* Subtiler Editorial-Akzent: leichte Verlaufslinie oben */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
-      />
-      <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-28 relative">
-        <div className="grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 items-start">
+    <section className="bg-cream">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
+        {/* Grüner Slab mit Logo-Radien — weiche Trennung statt Vollbreit-Band */}
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
+          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 items-start">
           {/* Linke Spalte */}
           <div className="space-y-5">
             <Logo variant="inverse" height={32} link={false} className="mb-2" />
@@ -76,6 +73,7 @@ export function AboutBlock({
                 </p>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </div>

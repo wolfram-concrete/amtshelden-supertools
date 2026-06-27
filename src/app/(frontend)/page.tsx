@@ -106,7 +106,7 @@ export default function HomePage() {
       />
 
       {/* ── MAIN + STICKY SIDEBAR ── */}
-      <section className="bg-cream/30">
+      <section>
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div className="min-w-0 space-y-20">

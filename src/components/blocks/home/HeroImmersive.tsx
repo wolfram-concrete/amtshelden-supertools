@@ -41,11 +41,11 @@ export function HeroImmersive({
             className="object-cover"
             priority
           />
-          {/* Lesbarkeits-Overlays */}
-          <div aria-hidden className="absolute inset-0 bg-black/35" />
+          {/* Lesbarkeits-Overlay — dezent: leichter Grundton + links etwas mehr */}
+          <div aria-hidden className="absolute inset-0 bg-black/15" />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent"
           />
 
           {/* Inhalt */}
