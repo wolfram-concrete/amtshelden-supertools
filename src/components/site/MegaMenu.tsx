@@ -16,7 +16,12 @@ import { themenfelder } from "@/mocks/themenfelder";
  * - Esc + Click-Outside schließen das Panel
  * - Booking-Style: keine versteckten Inhalte, alles 1 Klick entfernt
  */
-export function MegaMenu() {
+interface MegaMenuProps {
+  /** Darstellung auf grünem Hintergrund (Floating-Pill-Navi) */
+  onDark?: boolean;
+}
+
+export function MegaMenu({ onDark = false }: MegaMenuProps) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -65,9 +70,13 @@ export function MegaMenu() {
         onClick={() => setOpen((v) => !v)}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-full h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
-          open
-            ? "bg-cream text-dark"
-            : "text-mid hover:bg-cream hover:text-dark",
+          onDark
+            ? open
+              ? "bg-white/15 text-white"
+              : "text-white/90 hover:bg-white/10 hover:text-white"
+            : open
+              ? "bg-cream text-dark"
+              : "text-mid hover:bg-cream hover:text-dark",
         )}
       >
         Themenfelder
@@ -75,7 +84,13 @@ export function MegaMenu() {
           size={14}
           className={cn(
             "transition-transform",
-            open ? "rotate-180 text-brand-dark" : "text-soft",
+            onDark
+              ? open
+                ? "rotate-180 text-white"
+                : "text-white/70"
+              : open
+                ? "rotate-180 text-brand-dark"
+                : "text-soft",
           )}
         />
       </button>
