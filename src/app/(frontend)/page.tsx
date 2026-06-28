@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
+import { FoerderHinweis } from "@/components/blocks/home/FoerderHinweis";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
@@ -78,6 +79,10 @@ export default function HomePage() {
         lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
+
+      {/* ── TRUST: Förderhinweis (INAKTIV bis Partnerschaft + Logo-Freigabe
+            bestätigt — confirmed auf true setzen und logoUrl ergänzen) ── */}
+      <FoerderHinweis />
 
       {/* ── 2 · STIMMEN (Beispiele direkt unter dem Hero, Slider full-bleed) ── */}
       <StimmenSlider
