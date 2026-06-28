@@ -1,20 +1,20 @@
 # Supertools — Status & nächste Schritte
 
-**Stand:** 28. Juni 2026 · **Live:** https://amtshelden-supertools.vercel.app
+**Stand:** 28. Juni 2026 · **Vorschau (intern, noch nicht öffentlich live):** https://amtshelden-supertools.vercel.app
 **Für:** Christian & Julia · **Kurz:** Wo Supertools heute steht und was bis zur finalen Version fehlt.
 
 ---
 
 ## Wo wir stehen — in einem Satz
 
-Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** live: Startseite, vier Themenfelder, Kategorie-Seiten mit Tool-Listen, Tool-Profile, Anbieter- und Wissensbereich stehen. Inhaltlich arbeiten wir gerade mit einer **breiten Arbeitsbasis aus 59 echten Anbietern** — die **finale, redaktionell fixierte Tool-Liste** ist der nächste große Schritt.
+Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **interne Vorschau** (Arbeitsstand) online abrufbar — **noch nicht öffentlich live**, wir nutzen den Link, um den Aufbau gemeinsam zu prüfen. Startseite, vier Themenfelder, Kategorie-Seiten mit Tool-Listen, Tool-Profile, Anbieter- und Wissensbereich stehen. Inhaltlich arbeiten wir gerade mit einer **breiten Arbeitsbasis aus 59 echten Anbietern** — die **finale, redaktionell fixierte Tool-Liste** ist der nächste große Schritt.
 
 ---
 
 ## ✅ Was steht
 
 ### Fundament & Design
-- Eigenständige Website (Next.js), **live auf Vercel** mit Auto-Deploy bei jeder Änderung.
+- Eigenständige Website (Next.js), **online erreichbar als interne Vorschau** (Vercel, Auto-Deploy bei jeder Änderung) — noch nicht öffentlich beworben.
 - Klares Design-System: Marken-Grün, Signal-Gelb, Magazin-Typografie, „Bento"-Bildsprache.
 - **Bewegung/Lebendigkeit:** sanfte Scroll-Einblendungen + Parallax über die ganze Startseite.
 
@@ -104,7 +104,7 @@ Was bei uns buchbar sein soll, muss final entschieden und dann gebaut werden:
 
 ---
 
-## 🔗 Live-Links zum Durchklicken
+## 🔗 Links zur Vorschau (intern — zum Durchklicken)
 
 | Seite | Link |
 |---|---|
@@ -125,4 +125,4 @@ Was bei uns buchbar sein soll, muss final entschieden und dann gebaut werden:
 
 ## Wichtig einzuordnen
 
-Die Seite wirkt schon **voll und realistisch** — das ist Absicht, damit wir Layout, Dichte und Profile mit echten Daten beurteilen können. Sie ist aber noch **Arbeitsstand**: die Tool-Auswahl ist bewusst breit, einzelne Profile sind Basis-Einträge, Formulare sind noch nicht scharf. Der nächste Meilenstein ist die **finale, redaktionell kuratierte Tool-Liste** — danach Profile vertiefen und Formulare/CMS produktiv schalten.
+Die Seite wirkt schon **voll und realistisch** — das ist Absicht, damit wir Layout, Dichte und Profile mit echten Daten beurteilen können. Sie ist aber **noch nicht öffentlich live**, sondern unser **Arbeitsstand / interne Vorschau**: die Tool-Auswahl ist bewusst breit, einzelne Profile sind Basis-Einträge, Formulare sind noch nicht scharf. Den Link bekommt vorerst nur das Team. Der nächste Meilenstein ist die **finale, redaktionell kuratierte Tool-Liste** — danach Profile vertiefen und Formulare/CMS produktiv schalten.
