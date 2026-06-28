@@ -54,6 +54,11 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** live: Sta
 4. **Eigene Kategorie für IT/Sicherheit/Infrastruktur** (liegt vorläufig unter „E-Akte").
 5. **Echte Referenzen/Stimmen** statt der aktuellen Platzhalter-Personas (im Code klar als fiktiv markiert).
 
+### Redaktion, Ton & Review
+- **Review durch Julia & Christian:** Seitenaufbau und Informationssammlung noch einmal challengen — stimmt die Struktur, fehlt etwas, ist die Auswahl richtig?
+- **Tool-Informationsmodell festlegen:** Welche Infos bilden wir je Tool verbindlich ab (über Pitch + Compliance hinaus)? Einheitliches Feld-Set definieren.
+- **Editorialer Ton — kuratierter, weniger faktisch:** Die Tool-Darstellung soll stärker unsere eigene, eingeordnete Stimme tragen (nicht nur trockene Fakten). Hier wollen wir besser werden — das ist der Kern unseres „kein Verzeichnis, sondern Magazin"-Versprechens.
+
 ### Technik & Recht
 6. **Logos in höherer Qualität** (aktuell Domain-Favicons).
 7. **Formulare/Newsletter scharf schalten** (aktuell ohne echten Versand/Backend).
@@ -62,7 +67,7 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** live: Sta
 10. **Bildnachweise** (einige Stadt-/Motivbilder sind Wikimedia-Commons, CC-Lizenz) vor finalem Livegang ordnen.
 
 ### Strategisch / offen für eure Entscheidung
-11. **BMDS-Förderpartnerschaft:** Platzhalter ist angelegt, geht **erst live, wenn offiziell bestätigt + Logo-Nutzung freigegeben** ist.
+11. **Gütesiegel / Förderung BMDS:** Platzhalter ist angelegt. Offen ist die **genaue Form** (Förderung, Partnerschaft oder Gütesiegel des Bundesministeriums für Digitales und Staatsmodernisierung) — geht **erst live, wenn offiziell bestätigt + Logo-Nutzung freigegeben** ist.
 12. **Monetarisierung** (Verified-/Partner-Pakete): konzeptionell da, technisch noch nicht gebaut.
 13. SEO/Analytics, eigene Domain.
 
