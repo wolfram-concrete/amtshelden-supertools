@@ -102,7 +102,7 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
         <div className="fixed inset-x-0 top-[5.25rem] z-50 pointer-events-none">
           <div className="container mx-auto flex justify-end px-4 sm:px-6 lg:px-10">
             <div
-              className="pointer-events-auto w-full sm:max-w-2xl lg:max-w-3xl rounded-2xl bg-brand-dark text-white shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)] p-3 animate-mega"
+              className="pointer-events-auto w-full sm:max-w-2xl lg:max-w-3xl rounded-2xl bg-logo shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)] p-3 animate-mega"
               onMouseEnter={cancelClose}
               onMouseLeave={scheduleClose}
             >
@@ -112,18 +112,18 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                   return (
                     <div
                       key={tf.slug}
-                      className="group rounded-2xl bg-white/10 p-5 transition-colors hover:bg-white/[0.16]"
+                      className="group rounded-2xl bg-cream p-5 transition-colors hover:bg-white"
                     >
                       <div className="flex items-start justify-between">
                         <span
                           aria-hidden
-                          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/15 text-white"
+                          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand-dark"
                         >
                           {tf.icon && <BrandIcon name={tf.icon} size={20} />}
                         </span>
                         <ArrowUpRight
                           size={16}
-                          className="text-white/55 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white"
+                          className="text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-dark"
                           aria-hidden
                         />
                       </div>
@@ -132,27 +132,27 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                         onClick={() => setOpen(false)}
                         className="mt-3 block"
                       >
-                        <h4 className="font-serif text-[17px] font-normal leading-[1.15] text-white transition-colors">
+                        <h4 className="font-serif text-[17px] font-normal leading-[1.15] text-dark transition-colors">
                           {tf.name}
                         </h4>
-                        <p className="font-ui text-[11.5px] leading-[1.5] text-white/60 mt-1 line-clamp-2">
+                        <p className="font-ui text-[11.5px] leading-[1.5] text-mid mt-1 line-clamp-2">
                           {tf.tagline}
                         </p>
                       </Link>
                       {cats.length > 0 ? (
-                        <div className="mt-3 pt-3 border-t border-white/15 flex flex-wrap gap-1.5">
+                        <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-1.5">
                           {cats.map((c) => (
                             <Link
                               key={c.slug}
                               href={`/kategorien/${c.slug}`}
                               onClick={() => setOpen(false)}
-                              className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 font-ui text-[11px] font-medium text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+                              className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 font-ui text-[11px] font-medium text-mid transition-colors hover:bg-brand/10 hover:text-brand-dark"
                             >
                               {c.icon && (
                                 <BrandIcon
                                   name={c.icon}
                                   size={12}
-                                  className="text-white"
+                                  className="text-brand"
                                 />
                               )}
                               {c.name}
@@ -160,7 +160,7 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                           ))}
                         </div>
                       ) : (
-                        <div className="mt-3 pt-3 border-t border-white/15 font-ui text-[11px] italic text-white/55">
+                        <div className="mt-3 pt-3 border-t border-border font-ui text-[11px] italic text-soft">
                           Kategorien in Vorbereitung
                         </div>
                       )}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
+import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
@@ -138,6 +139,9 @@ export default function HomePage() {
         }}
         principles={methodSteps.map((s) => ({ title: s.title, body: s.body }))}
       />
+
+      {/* ── 8 · AMTSHELDEN-COMMUNITY (Trust: Social-Proof + Follow) ── */}
+      <AmtsheldenFeed />
 
       {/* ── NEWSLETTER ── */}
       <div id="newsletter">
