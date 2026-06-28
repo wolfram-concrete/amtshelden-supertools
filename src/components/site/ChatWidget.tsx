@@ -85,7 +85,7 @@ export function ChatWidget() {
                 href={CAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full rounded-full bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
               >
                 <Calendar size={14} aria-hidden />
                 Termin buchen

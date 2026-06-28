@@ -25,20 +25,23 @@ export function UseCaseEntry({
   useCases,
 }: UseCaseEntryProps) {
   return (
-    <section className="relative isolate overflow-hidden">
-      {/* Vollbild-Motiv im Hintergrund */}
-      <Image
-        src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover"
-        aria-hidden
-      />
-      <div aria-hidden className="absolute inset-0 bg-dark/72" />
+    <section className="bg-cream">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
+        {/* Full-Size-Bildcontainer mit radialen Logo-Kanten */}
+        <div className="relative isolate overflow-hidden rounded-[2.5rem]">
+          {/* Vollbild-Motiv im Hintergrund */}
+          <Image
+            src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden
+          />
+          <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
-        <header className="max-w-2xl space-y-3">
+          <div className="relative px-7 py-16 sm:px-12 lg:px-16 lg:py-24">
+            <header className="max-w-2xl space-y-3">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             {eyebrow}
@@ -80,6 +83,8 @@ export function UseCaseEntry({
               />
             </Link>
           ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -108,7 +108,7 @@ export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
               />
               <button
                 type="submit"
-                className="w-full rounded-full bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
+                className="w-full rounded-xl bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
               >
                 Anmelden
               </button>

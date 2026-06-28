@@ -130,7 +130,7 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
   return (
     <aside
       className={cn(
-        "rounded-2xl bg-logo p-6 lg:p-8 text-white shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)]",
+        "rounded-2xl bg-logo/85 backdrop-blur-lg ring-1 ring-inset ring-white/15 p-6 lg:p-8 text-white shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)]",
         className,
       )}
     >

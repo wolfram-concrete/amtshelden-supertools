@@ -145,7 +145,7 @@ export function CorrectionWidget({
               <div className="flex items-center gap-3 pt-1">
                 <button
                   type="submit"
-                  className="rounded-full bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
+                  className="rounded-xl bg-brand px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
                 >
                   Korrektur senden
                 </button>

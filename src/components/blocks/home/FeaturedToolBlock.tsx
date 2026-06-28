@@ -56,7 +56,7 @@ export function FeaturedToolBlock({
           )}
           <Link
             href={href}
-            className="inline-flex items-center rounded-full bg-dark px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
+            className="inline-flex items-center rounded-xl bg-dark px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand-dark"
           >
             {ctaLabel} →
           </Link>

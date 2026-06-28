@@ -47,7 +47,7 @@ export function ProfilCta({
             href={primaryCta.url}
             target={primaryCta.newTab ? "_blank" : undefined}
             rel={primaryCta.newTab ? "noopener noreferrer" : undefined}
-            className="inline-flex items-center rounded-full bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
+            className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
           >
             {primaryCta.text}
           </Link>
@@ -56,7 +56,7 @@ export function ProfilCta({
               href={secondaryCta.url}
               target={secondaryCta.newTab ? "_blank" : undefined}
               rel={secondaryCta.newTab ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center rounded-full border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-xl border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
             >
               {secondaryCta.text}
             </Link>

@@ -210,13 +210,13 @@ export default function UeberPage() {
                   href="https://www.amtshelden.de"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-white px-5 py-2.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors hover:bg-cream"
+                  className="inline-flex items-center rounded-xl bg-white px-5 py-2.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors hover:bg-cream"
                 >
                   Zu Amtshelden →
                 </a>
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center rounded-full border border-white/35 px-5 py-2.5 font-ui text-[13px] font-medium text-white transition-colors hover:bg-white/10"
+                  className="inline-flex items-center rounded-xl border border-white/35 px-5 py-2.5 font-ui text-[13px] font-medium text-white transition-colors hover:bg-white/10"
                 >
                   Kontakt aufnehmen
                 </Link>
@@ -444,13 +444,13 @@ export default function UeberPage() {
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Link
               href="/kontakt"
-              className="inline-flex items-center rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
             >
               Kontakt aufnehmen
             </Link>
             <Link
               href="/#newsletter"
-              className="inline-flex items-center rounded-full border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
+              className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
             >
               Newsletter abonnieren
             </Link>

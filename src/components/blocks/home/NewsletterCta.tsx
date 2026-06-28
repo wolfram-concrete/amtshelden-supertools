@@ -65,11 +65,11 @@ export function NewsletterCta({
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="dein.name@kommune.de"
-              className="flex-1 rounded-full border border-border bg-white px-5 py-3 font-ui text-[14px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+              className="flex-1 rounded-xl border border-border bg-white px-5 py-3 font-ui text-[14px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
             />
             <button
               type="submit"
-              className="rounded-full bg-accent px-6 py-3 font-ui text-[14px] font-semibold text-accent-ink transition-[filter] hover:brightness-95"
+              className="rounded-xl bg-accent px-6 py-3 font-ui text-[14px] font-semibold text-accent-ink transition-[filter] hover:brightness-95"
             >
               {ctaLabel}
             </button>

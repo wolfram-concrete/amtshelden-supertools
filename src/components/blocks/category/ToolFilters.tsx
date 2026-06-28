@@ -132,7 +132,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
           onClick={() => setFiltersExpanded((v) => !v)}
           aria-expanded={filtersExpanded}
           aria-controls="filter-panel"
-          className="lg:hidden w-full flex items-center justify-between rounded-full border border-border bg-white px-5 py-3 font-ui text-[13px] font-semibold text-dark transition-colors hover:bg-cream"
+          className="lg:hidden w-full flex items-center justify-between rounded-xl border border-border bg-white px-5 py-3 font-ui text-[13px] font-semibold text-dark transition-colors hover:bg-cream"
         >
           <span className="flex items-center gap-2">
             <SlidersHorizontal size={14} aria-hidden />

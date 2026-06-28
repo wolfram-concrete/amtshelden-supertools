@@ -79,13 +79,13 @@ export default function AnbieterPage() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="/kontakt?topic=anbieter"
-              className="inline-flex items-center rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
             >
               Unternehmen eintragen
             </Link>
             <Link
               href="#profilarten"
-              className="inline-flex items-center rounded-full border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
+              className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
             >
               Wie funktioniert das?
             </Link>
@@ -349,13 +349,13 @@ export default function AnbieterPage() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/kontakt?topic=anbieter"
-                className="inline-flex items-center rounded-full bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
+                className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
               >
                 Unternehmen eintragen
               </Link>
               <Link
                 href="/kontakt"
-                className="inline-flex items-center rounded-full border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center rounded-xl border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
               >
                 Fragen? Kontakt aufnehmen
               </Link>

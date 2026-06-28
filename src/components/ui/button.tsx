@@ -24,10 +24,10 @@ const buttonVariants = cva(
         link: "text-brand underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-11 px-6 text-sm rounded-full tracking-tight",
-        sm: "h-9 px-4 text-xs rounded-full",
-        lg: "h-12 px-8 text-base rounded-full",
-        icon: "h-10 w-10 rounded-full",
+        default: "h-11 px-6 text-sm rounded-xl tracking-tight",
+        sm: "h-9 px-4 text-xs rounded-xl",
+        lg: "h-12 px-8 text-base rounded-xl",
+        icon: "h-10 w-10 rounded-xl",
       },
     },
     defaultVariants: {

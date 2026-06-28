@@ -160,7 +160,7 @@ export function VorschlagForm() {
 
         <button
           type="submit"
-          className="w-full rounded-full bg-brand px-6 py-3.5 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+          className="w-full rounded-xl bg-brand px-6 py-3.5 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
         >
           {role === "behoerde" ? "Vorschlag senden" : "Eintrag anfragen"}
         </button>

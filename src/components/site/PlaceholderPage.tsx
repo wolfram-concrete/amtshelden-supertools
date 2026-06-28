@@ -37,13 +37,13 @@ export function PlaceholderPage({
           <div className="pt-4 flex flex-wrap gap-3">
             <Link
               href="/"
-              className="inline-flex items-center rounded-full bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
+              className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
             >
               Zur Startseite
             </Link>
             <Link
               href="/kategorien"
-              className="inline-flex items-center rounded-full border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
+              className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
             >
               Kategorien entdecken
             </Link>
