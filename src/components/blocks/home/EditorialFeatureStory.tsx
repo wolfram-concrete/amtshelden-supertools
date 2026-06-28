@@ -40,9 +40,9 @@ export function EditorialFeatureStory({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Cover-Bild: linke Spalte, asymmetrisch oben */}
           {article.cover?.url && (
-            <figure className="lg:col-span-6 lg:col-start-1 lg:sticky lg:top-24">
+            <figure className="lg:col-span-5 lg:col-start-1 lg:sticky lg:top-24">
               <Link href={`/wissen/${article.slug}`}>
-                <div className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-cream">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-cream">
                   <Image
                     src={article.cover.url}
                     alt={article.cover.alt}
@@ -66,7 +66,7 @@ export function EditorialFeatureStory({
           )}
 
           {/* Text: rechte Spalte */}
-          <div className="lg:col-span-6 space-y-6 lg:pt-4">
+          <div className="lg:col-span-7 space-y-6 lg:pt-4">
             <div
               className={cn(
                 "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
