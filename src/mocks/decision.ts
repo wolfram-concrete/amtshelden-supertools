@@ -9,6 +9,10 @@
  * Quelle der Antworten: verifiziertes Profil von VivioAkte (siehe
  * src/mocks/tools/vivioakte.ts), geprüft am 12. Juni 2026. Redaktionell
  * verdichtet — inhaltlich deckungsgleich mit dem Profil, nichts erfunden.
+ *
+ * LOGO: VivioAkte ist ein fiktives Referenzbeispiel → kein echtes Marken-Logo.
+ * `logoUrl` bleibt leer, die Komponente zeigt den Letter-Mark. Echte Tools
+ * tragen hier ihr Logo (logoUrl) — dann wird es statt des Marks gerendert.
  */
 
 export type DecisionTone = "default" | "gap" | "next";
@@ -25,7 +29,11 @@ export interface DecisionQuestion {
 export interface DecisionExample {
   toolSlug: string;
   toolName: string;
+  /** Fallback-Letter-Mark, wenn kein logoUrl vorhanden */
   toolMark: string;
+  markBg?: string;
+  /** Pfad zum echten Marken-Logo (sobald vorhanden) */
+  logoUrl?: string;
   category: string;
   verified: boolean;
   /** Anzeigeformat des Prüfdatums */
@@ -43,8 +51,7 @@ export const decisionExample: DecisionExample = {
   category: "E-Akte & Dokumentenmanagement",
   verified: true,
   lastChecked: "12.06.2026",
-  scenario:
-    "Ausgangslage: Kommune mit 12.400 Einwohnern, keine eigene IT-Abteilung.",
+  scenario: "Kommune mit 12.400 Einwohnern, keine eigene IT-Abteilung.",
   price: "ab 8.000 €",
   ctaHref: "/anfrage?tool=vivioakte",
   questions: [
@@ -52,42 +59,39 @@ export const decisionExample: DecisionExample = {
       icon: "Target",
       num: "01",
       label: "Passt zum Problem?",
-      answer:
-        "E-Akte & Dokumentenmanagement — von Grund auf für Kommunen ohne eigene IT gebaut.",
+      answer: "E-Akte & Dokumentenmanagement, kuratiert für kleine Kommunen.",
     },
     {
       icon: "UsersRound",
       num: "02",
       label: "Für unsere Größe?",
-      answer:
-        "Ausgelegt auf 5.000–50.000 Einwohner, erstmalige Digitalisierung.",
+      answer: "Ausgelegt auf 5.000–50.000 Einwohner.",
     },
     {
       icon: "ClipboardCheck",
       num: "03",
       label: "Voraussetzungen?",
-      answer:
-        "Keine eigene IT-Abteilung nötig. Migrations-Team & Onboarding inklusive.",
+      answer: "Keine eigene IT-Abteilung nötig. Migration & Onboarding inklusive.",
     },
     {
       icon: "Zap",
       num: "04",
-      label: "Was kann es wirklich?",
+      label: "Was kann es?",
       answer:
-        "Digitale Aktenführung, stark bei Bürgerservice & Standesamt. DSGVO · DE-Server · BSI · vergabegeeignet.",
+        "Stark bei Bürgerservice & Standesamt. DSGVO · DE-Server · BSI · vergabegeeignet.",
     },
     {
       icon: "TriangleAlert",
       num: "05",
       label: "Was fehlt noch?",
       answer:
-        "Keine öffentliche Angabe zu Barrierefreiheit (BITV 2.0) und Schnittstellen (OZG-Adapter / REST-API).",
+        "Barrierefreiheit (BITV 2.0) und Schnittstellen (OZG-Adapter) offen.",
       tone: "gap",
     },
     {
       icon: "Mail",
       num: "06",
-      label: "Wie komme ich weiter?",
+      label: "Wie weiter?",
       answer: "Amtshelden stellt den Kontakt zum Anbieter her.",
       tone: "next",
     },

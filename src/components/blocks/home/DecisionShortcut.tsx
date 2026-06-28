@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   Target,
@@ -33,39 +34,69 @@ interface DecisionShortcutProps {
 
 /**
  * Die Entscheidungsabkürzung — beantwortet die 6 Entscheidungsfragen an einem
- * konkreten, geprüften Tool. Macht den Kernnutzen sichtbar: schneller
- * einschätzen, statt Anbieter sammeln. „Was fehlt noch?" gelb hervorgehoben
- * (Ehrlichkeit als USP).
+ * geprüften Tool. Plakativ: Serif-Fragen, grünes „Geprüft"-Eckmodul, grüne
+ * Aktions-Kachel, „Was fehlt noch?" gelb (Ehrlichkeit als USP).
  */
-export function DecisionShortcut({ eyebrow, title, lead }: DecisionShortcutProps) {
+export function DecisionShortcut({
+  eyebrow,
+  title,
+  lead,
+}: DecisionShortcutProps) {
   const ex = decisionExample;
 
   return (
-    <section className="bg-cream py-10 lg:py-16">
+    <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <header className="max-w-2xl space-y-3 mb-7 lg:mb-9">
+        <header className="max-w-5xl space-y-4 mb-8 lg:mb-11">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
+          <h2 className="font-serif text-[clamp(30px,3.8vw,46px)] font-normal leading-[1.04] tracking-tight text-dark">
             {title}
           </h2>
           {lead && (
-            <p className="font-sans text-[15px] leading-[1.65] text-mid">{lead}</p>
+            <p className="max-w-2xl font-sans text-[16px] leading-[1.6] text-mid">
+              {lead}
+            </p>
           )}
         </header>
 
         {/* Entscheidungs-Karte */}
-        <div className="overflow-hidden rounded-[2rem] border border-border bg-white">
-          {/* Tool-Kopf */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-3 border-b border-border px-6 py-5 lg:px-8">
-            <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-brand-dark font-ui text-[14px] font-semibold text-white">
-              {ex.toolMark}
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-white">
+          {/* Geprüft am — grünes Eckmodul (in die Radien geschmiegt) */}
+          <div className="absolute right-0 top-0 z-10 flex flex-col items-end rounded-bl-2xl bg-brand px-4 py-2.5 text-white sm:px-5 sm:py-3">
+            <span className="flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-white/85">
+              <BadgeCheck size={12} aria-hidden /> Geprüft am
             </span>
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-serif text-[20px] font-normal text-dark">
+            <span className="font-ui text-[15px] font-bold leading-tight sm:text-[17px]">
+              {ex.lastChecked}
+            </span>
+          </div>
+
+          {/* Tool-Kopf */}
+          <div className="flex items-center gap-4 border-b border-border px-6 py-6 pr-32 sm:pr-44 lg:px-8">
+            {ex.logoUrl ? (
+              <span className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-2xl border border-border bg-white">
+                <Image
+                  src={ex.logoUrl}
+                  alt={ex.toolName}
+                  fill
+                  sizes="56px"
+                  className="object-contain p-1.5"
+                />
+              </span>
+            ) : (
+              <span
+                className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl font-ui text-[18px] font-semibold text-white"
+                style={{ background: ex.markBg || "var(--color-brand)" }}
+              >
+                {ex.toolMark}
+              </span>
+            )}
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="font-serif text-[24px] font-normal leading-none text-dark">
                   {ex.toolName}
                 </span>
                 {ex.verified && (
@@ -75,26 +106,28 @@ export function DecisionShortcut({ eyebrow, title, lead }: DecisionShortcutProps
                   </span>
                 )}
               </div>
-              <div className="mt-0.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.08em] text-soft">
+              <div className="mt-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-soft">
                 {ex.category}
               </div>
             </div>
-            <div className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft text-right leading-tight">
-              geprüft am
-              <br />
-              {ex.lastChecked}
-            </div>
           </div>
 
-          <div className="px-6 py-6 lg:px-8 lg:py-7">
-            {/* Szenario */}
-            <p className="mb-5 flex items-center gap-2 font-sans text-[13.5px] text-mid">
-              <MapPin size={15} aria-hidden className="flex-shrink-0 text-soft" />
-              {ex.scenario}
+          <div className="px-6 py-7 lg:px-8 lg:py-8">
+            {/* Ausgangslage */}
+            <p className="mb-6 flex items-start gap-2.5 font-sans text-[15px] leading-[1.5] text-mid">
+              <MapPin
+                size={18}
+                aria-hidden
+                className="mt-0.5 flex-shrink-0 text-brand"
+              />
+              <span>
+                <span className="font-semibold text-dark">Ausgangslage:</span>{" "}
+                {ex.scenario}
+              </span>
             </p>
 
             {/* 6 Fragen */}
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
               {ex.questions.map((q) => {
                 const Icon = iconMap[q.icon] ?? Target;
                 const isGap = q.tone === "gap";
@@ -103,36 +136,67 @@ export function DecisionShortcut({ eyebrow, title, lead }: DecisionShortcutProps
                   <div
                     key={q.num}
                     className={cn(
-                      "flex flex-col rounded-2xl p-4",
-                      isGap
-                        ? "bg-accent/10 ring-1 ring-inset ring-accent/40"
-                        : "bg-cream",
+                      "flex flex-col rounded-2xl p-5",
+                      isNext
+                        ? "bg-brand-dark text-white"
+                        : isGap
+                          ? "bg-accent/15 ring-1 ring-inset ring-accent/40"
+                          : "bg-cream",
                     )}
                   >
-                    <div
+                    <div className="mb-2.5 flex items-center gap-2">
+                      <Icon
+                        size={18}
+                        aria-hidden
+                        className={
+                          isNext
+                            ? "text-accent"
+                            : isGap
+                              ? "text-accent-ink"
+                              : "text-brand"
+                        }
+                      />
+                      <span
+                        className={cn(
+                          "font-mono text-[11px] font-bold uppercase tracking-[0.1em]",
+                          isNext
+                            ? "text-white/65"
+                            : isGap
+                              ? "text-accent-ink/70"
+                              : "text-soft",
+                        )}
+                      >
+                        {q.num}
+                      </span>
+                    </div>
+                    <h3
                       className={cn(
-                        "mb-2 flex items-center gap-2 font-mono text-[10.5px] font-bold uppercase tracking-[0.07em]",
-                        isGap ? "text-accent-ink" : "text-mid",
+                        "mb-2 font-serif text-[19px] font-normal leading-[1.12]",
+                        isNext ? "text-white" : "text-dark",
                       )}
                     >
-                      <Icon
-                        size={14}
-                        aria-hidden
-                        className={isGap ? "text-accent-ink" : "text-brand"}
-                      />
-                      {q.num} · {q.label}
-                    </div>
-                    <p className="font-sans text-[13.5px] leading-[1.5] text-dark">
+                      {q.label}
+                    </h3>
+                    <p
+                      className={cn(
+                        "font-sans text-[14.5px] leading-[1.55]",
+                        isNext
+                          ? "text-white/85"
+                          : isGap
+                            ? "text-dark"
+                            : "text-mid",
+                      )}
+                    >
                       {q.answer}
                     </p>
                     {isNext && (
-                      <div className="mt-3 flex flex-wrap items-center gap-3">
-                        <span className="font-ui text-[13px] font-semibold text-dark">
+                      <div className="mt-4 flex flex-wrap items-center gap-3">
+                        <span className="font-ui text-[16px] font-bold text-white">
                           {ex.price}
                         </span>
                         <Link
                           href={ex.ctaHref}
-                          className="inline-flex items-center gap-1.5 rounded-xl bg-brand-dark px-3.5 py-2 font-ui text-[12.5px] font-semibold text-white transition-colors hover:bg-brand"
+                          className="inline-flex items-center gap-1.5 rounded-xl bg-white px-3.5 py-2 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:bg-cream"
                         >
                           Unverbindlich anfragen
                           <ArrowRight size={14} aria-hidden />
@@ -145,13 +209,13 @@ export function DecisionShortcut({ eyebrow, title, lead }: DecisionShortcutProps
             </div>
 
             {/* Fußzeile */}
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
-              <span className="font-sans text-[12.5px] text-soft">
+            <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
+              <span className="font-sans text-[13px] text-soft">
                 So ist jedes Profil aufgebaut — kein Ranking, keine Sterne.
               </span>
               <Link
                 href={`/tools/${ex.toolSlug}`}
-                className="inline-flex items-center gap-1.5 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:text-brand"
+                className="inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors hover:text-brand"
               >
                 Vollständiges Profil ansehen
                 <ArrowUpRight size={14} aria-hidden />

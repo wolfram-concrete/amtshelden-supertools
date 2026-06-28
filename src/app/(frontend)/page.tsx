@@ -96,7 +96,7 @@ export default function HomePage() {
       <DecisionShortcut
         eyebrow="Die Entscheidungsabkürzung"
         title="Eine Behörde, sechs Fragen, ein Blick."
-        lead="Beispiel: eine kleine Kommune will erstmals die E-Akte einführen. So weit verkürzt ein Supertools-Profil die Entscheidung — inklusive dem, was noch fehlt."
+        lead="Beispiel: eine kleine Kommune führt erstmals die E-Akte ein. So weit verkürzt ein Supertools-Profil die Entscheidung."
       />
 
       {/* ── 4 · THEMENFELDER (kuratierte Struktur) ── */}
