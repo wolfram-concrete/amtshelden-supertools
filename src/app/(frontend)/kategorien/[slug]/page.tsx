@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { KategorieHero } from "@/components/blocks/category/KategorieHero";
+import { CrawlerApprovedTools } from "@/components/blocks/category/CrawlerApprovedTools";
 import { ToolFilters } from "@/components/blocks/category/ToolFilters";
 import { articleSummaries } from "@/mocks/articles";
 import { categories, categoryRegistry } from "@/mocks/categories";
@@ -53,6 +54,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-16">
         <ToolFilters tools={tools} />
+        <CrawlerApprovedTools categorySlug={slug} />
       </div>
 
       {/* Verwandte Wissensartikel */}

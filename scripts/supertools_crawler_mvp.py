@@ -53,11 +53,16 @@ PRIORITY_LINK_TERMS = [
 
 SIGNAL_TERMS = {
     "public_sector": [
-        "behoerde",
-        "behörde",
-        "verwaltung",
-        "kommune",
-        "kommunal",
+        "fuer behoerden",
+        "für behörden",
+        "behoerden und verwaltungen",
+        "behörden und verwaltungen",
+        "oeffentliche verwaltung",
+        "öffentliche verwaltung",
+        "oeffentlichen verwaltung",
+        "öffentlichen verwaltung",
+        "kommunen",
+        "kommunalverwaltung",
         "landkreis",
         "ministerium",
         "oeffentlicher dienst",
@@ -104,8 +109,10 @@ SIGNAL_TERMS = {
     "security": [
         "iso 27001",
         "iso/iec 27001",
+        "bsi c5",
+        "c5 testat",
+        "c5-typ",
         "bsi",
-        "c5",
         "tisax",
         "it-grundschutz",
         "verschluesselung",
@@ -123,7 +130,13 @@ SIGNAL_TERMS = {
     ],
     "operation": [
         "saas",
-        "cloud",
+        "cloud-software",
+        "cloud software",
+        "cloud-plattform",
+        "cloud plattform",
+        "cloud-lösung",
+        "cloud lösung",
+        "cloud solution",
         "on-premise",
         "on premise",
         "onpremise",
@@ -145,11 +158,61 @@ SIGNAL_TERMS = {
     ],
 }
 
+SIGNAL_LABELS = {
+    "public_sector": "Behoerden-/Verwaltungsbezug",
+    "privacy": "DSGVO/Datenschutz",
+    "hosting": "Hosting/Serverstandort",
+    "security": "Sicherheit/Zertifizierung",
+    "accessibility": "Barrierefreiheit",
+    "operation": "Betriebsmodell",
+    "references": "Referenzen/Cases",
+}
+
 MISSING_RULES = {
     "privacy": "Keine belastbare DSGVO-/Datenschutz-Aussage gefunden.",
     "hosting": "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
     "operation": "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
     "public_sector": "Keine klare Behoerden- oder Verwaltungsreferenz gefunden.",
+}
+
+CONTENT_KEYWORDS = {
+    "use_case": ["use-case", "use case", "anwendungsfall", "loesung/", "lösung/"],
+    "case_study": [
+        "case study",
+        "case-study",
+        "case",
+        "fallstudie",
+        "erfolgsgeschichte",
+        "referenzbericht",
+        "customer story",
+        "kundengeschichte",
+    ],
+    "webinar": ["webinar", "webinare", "seminar", "online-seminar", "event", "events"],
+    "whitepaper": ["whitepaper", "white paper", "ebook", "e-book", "guide", "leitfaden"],
+    "blog_article": ["blog", "magazin", "artikel", "insights", "wissen", "news"],
+    "video": ["video", "vimeo"],
+    "download": [".pdf", "download", "broschuere", "broschüre", "factsheet", "datenblatt"],
+}
+
+NOISY_CONTENT_SOURCE_TERMS = [
+    "datenschutz",
+    "privacy",
+    "data-protection",
+    "impressum",
+    "legal",
+    "terms",
+    "cookie",
+    "newsletter",
+]
+
+NOISY_CONTENT_DOMAINS = {
+    "facebook.com",
+    "de-de.facebook.com",
+    "linkedin.com",
+    "instagram.com",
+    "twitter.com",
+    "x.com",
+    "developers.facebook.com",
 }
 
 
@@ -341,10 +404,43 @@ def find_snippets(text: str, terms: list[str], limit: int = 5) -> list[str]:
     return snippets
 
 
+def find_snippet_details(page: dict[str, Any], terms: list[str], limit: int = 3) -> list[dict[str, str]]:
+    text = clean_text(page.get("markdown") or "")
+    details: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for term in terms:
+        pattern = re.escape(term)
+        if term == "kunden":
+            pattern = r"(?<![a-zäöüß])kunden(?![a-zäöüß])"
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if not match:
+            continue
+        start = match.start()
+        left = max(0, start - 120)
+        right = min(len(text), start + 260)
+        snippet = re.sub(r"\s+", " ", text[left:right].strip())
+        key = f"{page['url']}:{snippet[:100].lower()}"
+        if key not in seen:
+            details.append({"url": page["url"], "term": term, "snippet": snippet})
+            seen.add(key)
+        if len(details) >= limit:
+            break
+    return details
+
+
 def infer_operation(text: str) -> list[str]:
     found = []
     checks = {
-        "Cloud/SaaS": ["saas", "cloud"],
+        "Cloud/SaaS": [
+            "saas",
+            "cloud-software",
+            "cloud software",
+            "cloud-plattform",
+            "cloud plattform",
+            "cloud-lösung",
+            "cloud lösung",
+            "cloud solution",
+        ],
         "On-Premise": ["on-premise", "on premise", "onpremise"],
         "Hybrid": ["hybrid"],
         "Private Cloud": ["private cloud"],
@@ -356,11 +452,159 @@ def infer_operation(text: str) -> list[str]:
     return found
 
 
+def youtube_id(url: str) -> str | None:
+    parsed = urlparse(url)
+    host = parsed.netloc.replace("www.", "")
+    if host == "youtu.be":
+        candidate = parsed.path.strip("/").split("/")[0]
+        return candidate or None
+    if host in {"youtube.com", "m.youtube.com"}:
+        if parsed.path == "/watch":
+            query = dict(part.split("=", 1) for part in parsed.query.split("&") if "=" in part)
+            return query.get("v")
+        parts = [part for part in parsed.path.split("/") if part]
+        if len(parts) >= 2 and parts[0] in {"embed", "shorts", "live"}:
+            return parts[1]
+    if "youtube-nocookie.com" in host:
+        parts = [part for part in parsed.path.split("/") if part]
+        if len(parts) >= 2 and parts[0] == "embed":
+            return parts[1]
+    return None
+
+
+def classify_content_piece(url: str, label: str) -> str | None:
+    haystack = f"{url} {label}".lower()
+    if youtube_id(url):
+        return "youtube"
+    if "youtube.com" in haystack or "youtu.be" in haystack:
+        return None
+    if "vimeo.com" in haystack and re.search(r"vimeo\.com/(?:video/)?\d+", haystack):
+        return "video"
+    for kind, keywords in CONTENT_KEYWORDS.items():
+        if any(keyword in haystack for keyword in keywords):
+            return kind
+    return None
+
+
+def normalize_link(base_url: str, href: str) -> str | None:
+    href = str(href or "").strip()
+    if not href or href.startswith(("mailto:", "tel:", "#", "javascript:")):
+        return None
+    return urljoin(base_url + "/", href).split("#", 1)[0]
+
+
+def content_piece_key(piece: dict[str, Any]) -> str:
+    if piece.get("video_id"):
+        return f"{piece.get('kind')}:{piece.get('video_id')}"
+    return f"{piece.get('kind')}:{piece.get('url')}"
+
+
+def clean_content_title(title: str, url: str) -> str:
+    title = truncate(title, 140)
+    if len(title) >= 3 and not re.fullmatch(r"[\W_]+", title):
+        return title
+    filename = Path(urlparse(url).path).name
+    if filename:
+        return truncate(filename.replace("-", " ").replace("_", " "), 140)
+    return url
+
+
+def noisy_content_source(url: str) -> bool:
+    parsed = urlparse(url)
+    path = parsed.path.lower()
+    return any(term in path for term in NOISY_CONTENT_SOURCE_TERMS)
+
+
+def noisy_content_target(url: str) -> bool:
+    parsed = urlparse(url)
+    host = parsed.netloc.replace("www.", "").lower()
+    if host in NOISY_CONTENT_DOMAINS:
+        return True
+    path = parsed.path.lower()
+    if any(term in path for term in ["privacy", "datenschutz", "impressum", "legal", "terms", "cookie"]):
+        return True
+    return False
+
+
+def extract_content_pieces(pages: list[dict[str, Any]], limit: int = 20) -> list[dict[str, Any]]:
+    pieces: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    for page in pages:
+        if not page.get("ok_status"):
+            continue
+        source_url = page["url"]
+        if noisy_content_source(source_url):
+            continue
+        soup = BeautifulSoup(page.get("html") or "", "html.parser")
+
+        for frame in soup.find_all(["iframe", "embed"], src=True):
+            url = normalize_link(source_url, frame.get("src"))
+            if not url:
+                continue
+            if noisy_content_target(url):
+                continue
+            kind = classify_content_piece(url, frame.get("title") or "")
+            if not kind:
+                continue
+            video_id = youtube_id(url)
+            piece = {
+                "kind": kind,
+                "title": clean_content_title(frame.get("title") or "Eingebettetes Video", url),
+                "url": url,
+                "source_url": source_url,
+                "platform": "youtube" if video_id else "embed",
+                "video_id": video_id,
+                "thumbnail_url": f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg" if video_id else None,
+            }
+            key = content_piece_key(piece)
+            if key not in seen:
+                pieces.append(piece)
+                seen.add(key)
+
+        for anchor in soup.find_all("a", href=True):
+            url = normalize_link(source_url, anchor.get("href"))
+            if not url:
+                continue
+            if noisy_content_target(url):
+                continue
+            title = anchor.get_text(" ", strip=True) or anchor.get("title") or url
+            kind = classify_content_piece(url, title)
+            if not kind:
+                continue
+            video_id = youtube_id(url)
+            piece = {
+                "kind": kind,
+                "title": clean_content_title(title, url),
+                "url": url,
+                "source_url": source_url,
+                "platform": "youtube" if video_id else urlparse(url).netloc.replace("www.", ""),
+                "video_id": video_id,
+                "thumbnail_url": f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg" if video_id else None,
+            }
+            key = content_piece_key(piece)
+            if key not in seen:
+                pieces.append(piece)
+                seen.add(key)
+            if len(pieces) >= limit:
+                return pieces
+
+    return pieces[:limit]
+
+
 def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
-    combined = clean_text(" ".join(page["markdown"] for page in pages if page.get("ok_status")))
+    ok_pages = [page for page in pages if page.get("ok_status")]
+    combined = clean_text(" ".join(page["markdown"] for page in ok_pages))
     signals: dict[str, Any] = {}
+    signal_sources: dict[str, list[dict[str, str]]] = {}
     for key, terms in SIGNAL_TERMS.items():
-        signals[key] = find_snippets(combined, terms)
+        details: list[dict[str, str]] = []
+        for page in ok_pages:
+            details.extend(find_snippet_details(page, terms, limit=2))
+            if len(details) >= 4:
+                break
+        signal_sources[key] = details[:4]
+        signals[key] = [detail["snippet"] for detail in signal_sources[key]]
 
     operation_models = infer_operation(combined)
     if operation_models:
@@ -384,6 +628,7 @@ def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "seed": dataclasses.asdict(seed),
         "signals": signals,
+        "signal_sources": signal_sources,
         "missing_info": missing,
         "confidence": confidence,
         "content_hash": hashlib.sha256(combined.encode("utf-8")).hexdigest(),
@@ -443,6 +688,16 @@ def compare_state(slug: str, current: dict[str, Any], previous_state: dict[str, 
     }
 
 
+def suggested_decision(item: dict[str, Any]) -> str:
+    if item["crawl"]["successful_pages"] == 0:
+        return "Nachrecherche"
+    if item["missing_info"]:
+        return "Nachrecherche"
+    if item["confidence"] == "hoch":
+        return "Kandidat fuer Uebernahme"
+    return "Pruefen"
+
+
 def write_raw(raw_dir: Path, seed: Seed, pages: list[dict[str, Any]]) -> None:
     raw_dir.mkdir(parents=True, exist_ok=True)
     parts = [f"# {seed.company}", ""]
@@ -462,13 +717,44 @@ def write_raw(raw_dir: Path, seed: Seed, pages: list[dict[str, Any]]) -> None:
     (raw_dir / f"{slugify(seed.company)}.md").write_text("\n".join(parts), encoding="utf-8")
 
 
+def truncate(value: str, length: int = 260) -> str:
+    value = re.sub(r"\s+", " ", value or "").strip()
+    if len(value) <= length:
+        return value
+    return value[: length - 1].rstrip() + "..."
+
+
+def format_signal_sources(sources: list[dict[str, str]], limit: int = 2) -> list[str]:
+    if not sources:
+        return ["nicht gefunden"]
+    lines = []
+    for source in sources[:limit]:
+        lines.append(f"{source['url']} - {truncate(source['snippet'])}")
+    return lines
+
+
+def yes_no(value: bool) -> str:
+    return "ja" if value else "nein"
+
+
 def format_snippets(snippets: list[str]) -> str:
     if not snippets:
         return "nicht gefunden"
-    return "; ".join(snippet[:220] for snippet in snippets[:2])
+    return "; ".join(truncate(snippet, 220) for snippet in snippets[:2])
 
 
 def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], changes: dict[str, Any]) -> str:
+    warnings = [
+        item
+        for item in candidates
+        if item["crawl"]["successful_pages"] == 0 or item["missing_info"] or item["change"]["status"] == "changed"
+    ]
+    strong_candidates = [
+        item
+        for item in candidates
+        if item["confidence"] == "hoch" and not item["missing_info"] and item["crawl"]["successful_pages"] > 0
+    ]
+
     lines = [
         "# Supertools Crawler Review",
         "",
@@ -484,41 +770,133 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
         f"- Unveraendert: {changes['summary']['unchanged']}",
         f"- Fehlerhaft gecrawlt: {changes['summary']['failed']}",
         "",
-        "## Review-Liste",
+        "## Entscheidungstabelle",
         "",
+        "| Anbieter | Status | Vorschlag | Confidence | Seiten | Fehlende Infos / Content |",
+        "| --- | --- | --- | --- | ---: | ---: |",
     ]
 
     for item in candidates:
         seed = item["seed"]
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    seed["company"].replace("|", "\\|"),
+                    f"`{item['change']['status']}`",
+                    suggested_decision(item),
+                    f"`{item['confidence']}`",
+                    f"{item['crawl']['successful_pages']}/{item['crawl']['attempted_pages']}",
+                    f"{len(item['missing_info'])} / Content {len(item.get('content_pieces', []))}",
+                ]
+            )
+            + " |"
+        )
+
+    lines.extend(["", "## Sofort Pruefen", ""])
+    if warnings:
+        for item in warnings:
+            seed = item["seed"]
+            reasons = []
+            if item["crawl"]["successful_pages"] == 0:
+                reasons.append("keine Seite erfolgreich gecrawlt")
+            if item["missing_info"]:
+                reasons.append(f"{len(item['missing_info'])} fehlende Pflichtinfos")
+            if item["change"]["status"] == "changed":
+                reasons.append("Monitoring-Signal geaendert")
+            lines.append(f"- {seed['company']}: {', '.join(reasons)}")
+    else:
+        lines.append("- Keine harten Warnungen in diesem Lauf.")
+
+    lines.extend(["", "## Gute Kandidaten fuer die naechste Qualifizierung", ""])
+    if strong_candidates:
+        for item in strong_candidates:
+            seed = item["seed"]
+            lines.append(f"- {seed['company']} ({seed['branch']})")
+    else:
+        lines.append("- Keine Kandidaten ohne MVP-Pflichtluecke.")
+
+    lines.extend(["", "## Review-Liste", ""])
+
+    for item in candidates:
+        seed = item["seed"]
         signals = item["signals"]
+        signal_sources = item.get("signal_sources", {})
         crawl = item["crawl"]
+        content_pieces = item.get("content_pieces", [])
         status = item["change"]["status"]
+        operation_summary = ", ".join(signals.get("operation_models", [])) or format_snippets(signals.get("operation", []))
+        present = {key: bool(signals.get(key)) for key in SIGNAL_LABELS}
+        source_urls = [entry["url"] for entry in crawl["urls"]]
+        failed_urls = [entry for entry in crawl["urls"] if not entry.get("ok_status")]
+
         lines.extend(
             [
                 f"### {seed['company']}",
                 "",
-                f"- Status: `{status}`",
-                f"- Website: {seed['website']}",
-                f"- Cluster / Score intern: {seed['cluster']} / {seed['relevance_score']}",
-                f"- Branche: {seed['branch']}",
-                f"- Confidence fuer Review: `{item['confidence']}`",
-                f"- Crawling: {crawl['successful_pages']}/{crawl['attempted_pages']} Seiten erfolgreich",
-                f"- Behoerden-/Verwaltungsbezug: {format_snippets(signals.get('public_sector', []))}",
-                f"- DSGVO/Datenschutz: {format_snippets(signals.get('privacy', []))}",
-                f"- Hosting/Serverstandort: {format_snippets(signals.get('hosting', []))}",
-                f"- Sicherheit/Zertifizierung: {format_snippets(signals.get('security', []))}",
-                f"- Betriebsmodell: {', '.join(signals.get('operation_models', [])) or format_snippets(signals.get('operation', []))}",
-                f"- Barrierefreiheit: {format_snippets(signals.get('accessibility', []))}",
-                f"- Referenzen/Cases: {format_snippets(signals.get('references', []))}",
+                f"Vorschlag: **{suggested_decision(item)}**",
                 "",
-                "**Fehlende Informationen**",
+                "| Feld | Wert |",
+                "| --- | --- |",
+                f"| Status | `{status}` |",
+                f"| Website | {seed['website']} |",
+                f"| Cluster / interner Score | {seed['cluster']} / {seed['relevance_score']} |",
+                f"| Branche | {seed['branch']} |",
+                f"| Hauptsitz / Mitarbeiter | {seed['city'] or 'offen'} / {seed['employees'] or 'offen'} |",
+                f"| Review-Confidence | `{item['confidence']}` |",
+                f"| Crawling | {crawl['successful_pages']}/{crawl['attempted_pages']} Seiten erfolgreich |",
+                f"| Betriebsmodell | {operation_summary} |",
+                f"| Content Pieces | {len(content_pieces)} gefunden |",
                 "",
+                "**Signalampel**",
+                "",
+                "| Signal | Gefunden |",
+                "| --- | --- |",
             ]
         )
+
+        for key, label in SIGNAL_LABELS.items():
+            lines.append(f"| {label} | {yes_no(present[key])} |")
+
+        lines.extend(["", "**Gecrawlte Quellen**", ""])
+        lines.extend(f"- {url}" for url in source_urls)
+
+        if failed_urls:
+            lines.extend(["", "**Crawl-Probleme**", ""])
+            for entry in failed_urls:
+                lines.append(
+                    f"- {entry['url']} - Status {entry.get('status_code')}, {entry.get('error') or 'kein verwertbarer Inhalt'}"
+                )
+
+        lines.extend(["", "**Quellen-Signale**", ""])
+        for key, label in SIGNAL_LABELS.items():
+            lines.append(f"- {label}:")
+            for detail in format_signal_sources(signal_sources.get(key, [])):
+                lines.append(f"  - {detail}")
+
+        lines.extend(["", "**Fehlende Informationen**", ""])
         if item["missing_info"]:
             lines.extend(f"- {entry}" for entry in item["missing_info"])
         else:
             lines.append("- Keine MVP-Pflichtluecke erkannt.")
+
+        lines.extend(["", "**Gefundene Content Pieces**", ""])
+        if content_pieces:
+            for piece in content_pieces[:8]:
+                meta = []
+                if piece.get("platform"):
+                    meta.append(str(piece["platform"]))
+                if piece.get("video_id"):
+                    meta.append(f"video_id={piece['video_id']}")
+                lines.append(f"- `{piece['kind']}` {piece['title']} - {piece['url']}")
+                lines.append(f"  - Quelle: {piece['source_url']}")
+                if meta:
+                    lines.append(f"  - Meta: {', '.join(meta)}")
+                if piece.get("thumbnail_url"):
+                    lines.append(f"  - Thumbnail: {piece['thumbnail_url']}")
+        else:
+            lines.append("- Keine passenden Videos, Webinare, Cases, Whitepaper, Blogartikel oder PDFs gefunden.")
+
         lines.extend(
             [
                 "",
@@ -531,6 +909,18 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
                 "",
             ]
         )
+
+    lines.extend(
+        [
+            "",
+            "## Hinweise zur Nutzung",
+            "",
+            "- Dieser Report ist eine Vorqualifizierung, keine Veroeffentlichungsfreigabe.",
+            "- Snippets muessen vor Uebernahme redaktionell gegengeprueft werden.",
+            "- Fehlende Informationen sollen spaeter sichtbar gemacht oder beim Anbieter nachgefragt werden.",
+        ]
+    )
+
     return "\n".join(lines)
 
 
@@ -550,6 +940,7 @@ async def process_seed(crawler: AsyncWebCrawler, seed: Seed, max_pages: int) -> 
         pages.append(page)
 
     extracted = extract_signals(seed, pages)
+    extracted["content_pieces"] = extract_content_pieces(pages)
     extracted["crawl"] = {
         "attempted_pages": len(pages),
         "successful_pages": sum(1 for page in pages if page.get("ok_status")),
@@ -609,7 +1000,7 @@ async def run(args: argparse.Namespace) -> None:
             write_raw(raw_dir, seed, pages)
 
             changes["summary"][change["status"]] += 1
-            if not any(page["success"] for page in pages):
+            if not any(page.get("ok_status") for page in pages):
                 changes["summary"]["failed"] += 1
             changes["items"].append(
                 {
