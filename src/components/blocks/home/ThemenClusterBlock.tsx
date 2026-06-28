@@ -31,7 +31,7 @@ export function ThemenClusterBlock({
     <section className="px-6 sm:px-8 lg:px-14 pt-8 pb-12 lg:pb-16">
       {/* Schwarze Linie über die volle Gridbreite */}
       <div className="border-t border-border pt-7">
-        <header className="mb-10 lg:mb-12 max-w-3xl space-y-2">
+        <header data-reveal className="mb-10 lg:mb-12 max-w-3xl space-y-2">
           <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {sectionEyebrow}
           </div>

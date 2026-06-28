@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Parallax } from "@/components/motion/Parallax";
 import { ToolFinderWizard } from "./ToolFinderWizard";
 
 interface HeroImmersiveProps {
@@ -26,20 +27,23 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
         <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[560px] lg:min-h-[720px]">
-          {/* Hintergrund-Motiv */}
-          <Image
-            src={HERO_IMAGE.url}
-            alt={HERO_IMAGE.alt}
-            fill
-            sizes="(min-width: 1024px) 1200px, 100vw"
-            className="object-cover"
-            priority
-          />
-          {/* Lesbarkeits-Overlay — dezent: leichter Grundton + links etwas mehr */}
+          {/* Hintergrund-Motiv mit leichtem Parallax */}
+          <Parallax speed={0.12} className="absolute inset-x-0 -inset-y-[10%]">
+            <Image
+              src={HERO_IMAGE.url}
+              alt={HERO_IMAGE.alt}
+              fill
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="object-cover"
+              priority
+            />
+          </Parallax>
+          {/* Lesbarkeits-Overlay — mobil von oben (anderer Bildausschnitt),
+              ab lg von links */}
           <div aria-hidden className="absolute inset-0 bg-black/15" />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent"
+            className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent lg:bg-gradient-to-r lg:from-black/55 lg:via-black/15 lg:to-transparent"
           />
 
           {/* Inhalt */}
@@ -47,17 +51,26 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
             {/* Text links */}
             <div className="max-w-xl">
               <h1
-                style={{ lineHeight: 1.05 }}
-                className="font-serif text-[clamp(32px,4.6vw,56px)] font-normal tracking-tight text-white"
+                data-reveal
+                style={{ lineHeight: 1.02 }}
+                className="font-serif text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
               >
                 {title}
               </h1>
-              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-md">
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+                className="mt-4 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-md"
+              >
                 {lead}
               </p>
 
               {badges && badges.length > 0 && (
-                <ul className="mt-7 flex flex-wrap gap-2">
+                <ul
+                  data-reveal
+                  style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                  className="mt-5 flex flex-wrap gap-2"
+                >
                   {badges.map((badge) => (
                     <li
                       key={badge}

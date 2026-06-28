@@ -47,7 +47,7 @@ export function DecisionShortcut({
   return (
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <header className="max-w-5xl space-y-4 mb-8 lg:mb-11">
+        <header data-reveal className="max-w-5xl space-y-4 mb-8 lg:mb-11">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
             {eyebrow}
@@ -63,7 +63,11 @@ export function DecisionShortcut({
         </header>
 
         {/* Entscheidungs-Karte */}
-        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-white">
+        <div
+          data-reveal
+          style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+          className="relative overflow-hidden rounded-[2rem] border border-border bg-white"
+        >
           {/* Geprüft am — grünes Eckmodul (in die Radien geschmiegt) */}
           <div className="absolute right-0 top-0 z-10 flex flex-col items-end rounded-bl-2xl bg-brand px-4 py-2.5 text-white sm:px-5 sm:py-3">
             <span className="flex items-center gap-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-white/85">

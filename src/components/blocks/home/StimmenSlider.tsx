@@ -32,7 +32,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
   return (
     <section className="bg-cream py-10 lg:py-14">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <header className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
+        <header data-reveal className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
           <div className="max-w-2xl space-y-3">
             <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />

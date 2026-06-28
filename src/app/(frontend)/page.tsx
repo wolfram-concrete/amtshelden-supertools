@@ -69,14 +69,7 @@ export default function HomePage() {
     <>
       {/* ── HERO — Behördenalltag-Motiv + Tool-Finder ── */}
       <HeroImmersive
-        title={
-          <>
-            Die passende Software für Ihre Verwaltung.{" "}
-            <em className="not-italic font-medium text-brand-light">
-              Von Expert:innen kuratiert.
-            </em>
-          </>
-        }
+        title="Die passende Software für Ihre Verwaltung."
         lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />

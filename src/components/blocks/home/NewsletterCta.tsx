@@ -39,7 +39,7 @@ export function NewsletterCta({
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
+        <h2 data-reveal className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
           {title}
         </h2>
         <p className="font-sans text-[16px] leading-[1.65] text-mid max-w-xl mx-auto">
