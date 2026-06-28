@@ -285,7 +285,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
             </p>
           </div>
         ) : (
-          <div className="border-t border-border">
+          <div className="space-y-3">
             {filtered.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} variant="row" />
             ))}

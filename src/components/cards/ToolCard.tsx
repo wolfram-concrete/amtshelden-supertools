@@ -42,92 +42,79 @@ function RowItem({
     <Link
       href={`/tools/${tool.slug}`}
       className={cn(
-        "group grid grid-cols-[44px_minmax(0,1fr)_18px] sm:grid-cols-[44px_minmax(0,1fr)_220px_18px] items-center gap-x-4 gap-y-2 border-b border-border px-2 py-4 transition-colors hover:bg-cream/50 sm:py-5",
+        "group flex flex-col gap-5 rounded-2xl bg-white p-5 transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)] sm:flex-row sm:items-center sm:gap-6 lg:p-6",
         className,
       )}
     >
-      {/* Mark */}
-      <span
-        aria-hidden
-        className="flex h-11 w-11 items-center justify-center rounded-lg text-white font-ui text-[12px] font-extrabold tracking-tight"
-        style={{ background: tool.markBg || "var(--color-brand)" }}
-      >
-        {tool.mark}
-      </span>
+      {/* Mark + Hauptinfo */}
+      <div className="flex min-w-0 flex-1 items-start gap-4">
+        <span
+          aria-hidden
+          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl text-white font-ui text-[16px] font-extrabold tracking-tight"
+          style={{ background: tool.markBg || "var(--color-brand)" }}
+        >
+          {tool.mark}
+        </span>
 
-      {/* Main: Name + Pitch */}
-      <div className="min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <h3 className="font-serif text-[18px] font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors">
-            {tool.name}
-          </h3>
-          {tool.verified && (
-            <span className="inline-flex items-center font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand-dark">
-              ✓ Verifiziert
-            </span>
-          )}
-        </div>
-        <p className="font-sans text-[13.5px] leading-[1.55] text-mid line-clamp-2 mt-0.5">
-          <span className="text-soft">{tool.provider}</span>
-          <span className="text-soft mx-1.5" aria-hidden>
-            ·
-          </span>
-          {tool.pitch}
-        </p>
-      </div>
-
-      {/* Meta-Spalte rechts (Desktop only) */}
-      <div className="hidden sm:flex flex-col items-end gap-1.5 min-w-0">
-        <div className="font-ui text-[11.5px] text-mid leading-tight text-right">
-          <strong className="text-dark font-semibold">
-            {tool.facts.price || "Preis auf Anfrage"}
-          </strong>
-          {tool.facts.operation && (
-            <>
-              <span className="text-soft mx-1.5" aria-hidden>
-                ·
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <h3 className="font-serif text-[22px] font-normal leading-tight text-dark transition-colors group-hover:text-brand-dark lg:text-[25px]">
+              {tool.name}
+            </h3>
+            {tool.verified && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-light px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+                ✓ Verifiziert
               </span>
-              <span>{tool.facts.operation}</span>
-            </>
-          )}
-          {tool.facts.setup && (
-            <>
-              <span className="text-soft mx-1.5" aria-hidden>
-                ·
-              </span>
-              <span>{tool.facts.setup}</span>
-            </>
-          )}
-        </div>
-        <div className="flex flex-wrap justify-end gap-1">
-          {tool.compliance.dsgvo && <RowPill>DSGVO</RowPill>}
-          {tool.compliance.serverDe && <RowPill>DE</RowPill>}
-          {tool.compliance.bsi && <RowPill>BSI</RowPill>}
-          {tool.compliance.vergabe && <RowPill>UVgO</RowPill>}
-        </div>
-        {tool.lastCheckedAt && (
-          <div
-            className="font-ui text-[10px] text-soft italic mt-0.5"
-            title={`Zuletzt geprüft am ${formatDateDEShort(tool.lastCheckedAt)}`}
-          >
-            geprüft {formatDateDEShort(tool.lastCheckedAt)}
+            )}
           </div>
-        )}
+          <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-soft">
+            {tool.provider}
+          </div>
+          <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-mid line-clamp-2 max-w-2xl">
+            {tool.pitch}
+          </p>
+          <div className="mt-3.5 flex flex-wrap gap-1.5">
+            {tool.compliance.dsgvo && <RowPill>DSGVO</RowPill>}
+            {tool.compliance.serverDe && <RowPill>Server DE</RowPill>}
+            {tool.compliance.bsi && <RowPill>BSI</RowPill>}
+            {tool.compliance.vergabe && <RowPill>Vergabe</RowPill>}
+          </div>
+        </div>
       </div>
 
-      {/* Chevron */}
-      <ChevronRight
-        size={18}
-        className="text-soft transition-all group-hover:translate-x-0.5 group-hover:text-brand"
-        aria-hidden
-      />
+      {/* Facts + CTA */}
+      <div className="flex flex-shrink-0 items-end justify-between gap-4 border-t border-border pt-4 sm:w-[220px] sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+        <div className="sm:text-right">
+          <div className="font-serif text-[20px] font-normal leading-none text-dark">
+            {tool.facts.price || "auf Anfrage"}
+          </div>
+          <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
+            {[tool.facts.operation, tool.facts.setup]
+              .filter(Boolean)
+              .join(" · ")}
+          </div>
+          {tool.lastCheckedAt && (
+            <div className="mt-1.5 font-ui text-[11px] italic text-soft">
+              geprüft {formatDateDEShort(tool.lastCheckedAt)}
+            </div>
+          )}
+        </div>
+        <span className="inline-flex items-center gap-1.5 rounded-xl bg-cream px-4 py-2.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors group-hover:bg-brand-light">
+          Profil
+          <ChevronRight
+            size={15}
+            className="transition-transform group-hover:translate-x-0.5"
+            aria-hidden
+          />
+        </span>
+      </div>
     </Link>
   );
 }
 
 function RowPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-brand-light/50 px-1.5 py-0.5 font-ui text-[9.5px] font-medium text-brand-dark border border-brand/15">
+    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[10.5px] font-medium text-brand-dark">
       ✓ {children}
     </span>
   );
