@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -12,11 +13,10 @@ interface UseCaseEntryProps {
 }
 
 /**
- * Problem-/Use-Case-Einstieg als plakatives Bento-Grid.
- *
- * „Behörden suchen nicht nach einem Tooltyp, sondern nach einem Problem."
- * Große, klar abgegrenzte Kacheln mit Icon-Chip + Problem-Statement —
- * scanbar, fingerfreundlich, zielgruppengerecht proportioniert.
+ * Problem-/Use-Case-Einstieg — die Thematik wird groß über ein Vollbild-Motiv
+ * eröffnet; darüber kompakte, scanbare Glas-Zeilen (Icon + Problem-Statement)
+ * statt großer Kacheln. „Behörden suchen nach einem Problem, nicht nach einem
+ * Tooltyp."
  */
 export function UseCaseEntry({
   eyebrow,
@@ -25,49 +25,62 @@ export function UseCaseEntry({
   useCases,
 }: UseCaseEntryProps) {
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-10 py-12 lg:py-16">
-      <header className="max-w-2xl space-y-3 mb-8 lg:mb-10">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-          {eyebrow}
-        </div>
-        <h2
-          style={{ lineHeight: 1.05 }}
-          className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal tracking-tight text-dark"
-        >
-          {title}
-        </h2>
-        {description && (
-          <p className="font-sans text-[16px] leading-[1.65] text-mid">
-            {description}
-          </p>
-        )}
-      </header>
+    <section className="relative isolate overflow-hidden">
+      {/* Vollbild-Motiv im Hintergrund */}
+      <Image
+        src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+        aria-hidden
+      />
+      <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {useCases.map((uc) => (
-          <Link
-            key={uc.label}
-            href={uc.href}
-            className="group flex flex-col justify-between gap-6 rounded-2xl border border-border bg-white p-5 lg:p-6 min-h-[140px] transition-colors hover:border-brand hover:bg-cream/40"
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
+        <header className="max-w-2xl space-y-3">
+          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+            {eyebrow}
+          </div>
+          <h2
+            style={{ lineHeight: 1.05 }}
+            className="font-serif text-[clamp(30px,3.8vw,48px)] font-normal tracking-tight text-white"
           >
-            <span
-              aria-hidden
-              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
+            {title}
+          </h2>
+          {description && (
+            <p className="font-sans text-[16px] leading-[1.65] text-white/80">
+              {description}
+            </p>
+          )}
+        </header>
+
+        {/* Kompakte Glas-Zeilen */}
+        <div className="mt-10 grid gap-3 sm:grid-cols-2">
+          {useCases.map((uc) => (
+            <Link
+              key={uc.label}
+              href={uc.href}
+              className="group flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur-sm transition-colors hover:bg-white/20"
             >
-              <BrandIcon name={uc.icon} size={24} />
-            </span>
-            <div className="flex items-end justify-between gap-3">
-              <span className="font-serif text-[19px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
+              <span
+                aria-hidden
+                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/15 text-white"
+              >
+                <BrandIcon name={uc.icon} size={20} />
+              </span>
+              <span className="flex-1 font-ui text-[14.5px] font-medium text-white">
                 {uc.label}
               </span>
               <ArrowRight
-                size={17}
-                className="flex-shrink-0 mb-0.5 text-soft transition-all group-hover:translate-x-0.5 group-hover:text-brand"
+                size={16}
+                className="flex-shrink-0 text-white/55 transition-all group-hover:translate-x-0.5 group-hover:text-white"
                 aria-hidden
               />
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
