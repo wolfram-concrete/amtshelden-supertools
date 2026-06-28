@@ -30,9 +30,9 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
   }
 
   return (
-    <section className="bg-cream">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
-        <header className="flex flex-wrap items-end justify-between gap-6 mb-8 lg:mb-10">
+    <section className="bg-cream py-10 lg:py-14">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+        <header className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
           <div className="max-w-2xl space-y-3">
             <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
@@ -68,10 +68,10 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
           </div>
         </header>
 
-        {/* Teaser-Cards — Scroll-Snap */}
+        {/* Teaser-Cards — Scroll-Snap, full-bleed bis zum rechten Fensterrand */}
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 mr-[calc(50%-50vw)] pr-4 sm:pr-6 lg:pr-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {stimmen.map((s, i) => (
             <article
@@ -80,7 +80,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
               className="flex w-[280px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white sm:w-[340px]"
             >
               {/* Stadtbild-Banner (Platzhalter) */}
-              <div className="relative aspect-[16/9]">
+              <div className="relative aspect-[16/10]">
                 <Image
                   src={s.stadtbild}
                   alt={`Ansicht ${s.context}`}
@@ -90,7 +90,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
                 />
               </div>
 
-              <div className="flex flex-1 flex-col p-6">
+              <div className="flex flex-1 flex-col p-5">
               <div className="flex items-center gap-3">
                 <span className="relative h-12 w-10 flex-shrink-0">
                   <Image
@@ -115,7 +115,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
 
               <Link
                 href={`/themenfelder/${s.themenfeld.slug}`}
-                className="mt-auto inline-flex items-center gap-1.5 pt-6 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:text-brand"
+                className="mt-auto inline-flex items-center gap-1.5 pt-5 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:text-brand"
               >
                 {s.themenfeld.name}
                 <ArrowUpRight size={14} aria-hidden />

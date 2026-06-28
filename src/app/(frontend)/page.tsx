@@ -78,12 +78,11 @@ export default function HomePage() {
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
 
-      {/* ── 2 · PROBLEM-EINSTIEG (Zielgruppe kommt mit konkreter Aufgabe) ── */}
-      <UseCaseEntry
-        eyebrow="Wonach suchen Sie?"
-        title="Starten Sie beim Problem, nicht bei der Kategorie."
-        description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
-        useCases={useCases}
+      {/* ── 2 · STIMMEN (Beispiele direkt unter dem Hero, Slider full-bleed) ── */}
+      <StimmenSlider
+        eyebrow="Aus dem Verwaltungsalltag"
+        title="Womit Behörden zu uns kommen."
+        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
       {/* ── 3 · THEMENFELDER (kuratierte Struktur) ── */}
@@ -94,14 +93,7 @@ export default function HomePage() {
         themenfelder={themenfelder}
       />
 
-      {/* ── 4 · STIMMEN (Social Proof nach dem Angebot) ── */}
-      <StimmenSlider
-        eyebrow="Aus dem Verwaltungsalltag"
-        title="Womit Behörden zu uns kommen."
-        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
-      />
-
-      {/* ── 5 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
+      {/* ── 4 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
       <FeaturedToolBlock
         eyebrow="Tool im Fokus"
         title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
@@ -113,7 +105,7 @@ export default function HomePage() {
         }}
       />
 
-      {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
+      {/* ── 5 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
       <section className="bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
           <div className="rounded-[2.5rem] bg-stone">
@@ -126,6 +118,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── 6 · PROBLEM-EINSTIEG (ergänzend: vom Problem zur Auswahl) ── */}
+      <UseCaseEntry
+        eyebrow="Wonach suchen Sie?"
+        title="Starten Sie beim Problem, nicht bei der Kategorie."
+        description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
+        useCases={useCases}
+      />
 
       {/* ── 7 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
       <AboutBlock
