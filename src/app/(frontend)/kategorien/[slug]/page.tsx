@@ -59,7 +59,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
       {relatedArticles.length > 0 && (
         <section className="bg-cream/50 mt-12">
           <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-            <header className="border-t-2 border-dark pt-8 max-w-2xl space-y-3 mb-12">
+            <header className="border-t border-border pt-8 max-w-2xl space-y-3 mb-12">
               <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
                 Wissensbereich
               </div>

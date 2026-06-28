@@ -1,0 +1,11 @@
+{
+  "run_id": "first-10",
+  "started_at": "2026-06-28T12:59:24+02:00",
+  "excel": "Amtshelden_Zielkundenliste_Sponsoring_2026 (1).xlsx",
+  "limit": 10,
+  "offset": 0,
+  "cluster": null,
+  "score_min": null,
+  "pages_per_company": 3,
+  "saved_state": true
+}

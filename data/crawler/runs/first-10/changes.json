@@ -1,0 +1,110 @@
+{
+  "summary": {
+    "new": 10,
+    "changed": 0,
+    "unchanged": 0,
+    "failed": 2
+  },
+  "items": [
+    {
+      "slug": "eye-able-web-inclusion-gmbh",
+      "company": "Eye-Able (Web Inclusion GmbH)",
+      "website": "https://eye-able.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    },
+    {
+      "slug": "facelift-cloud-gmbh",
+      "company": "Facelift Cloud GmbH",
+      "website": "https://facelift-bbt.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 2
+    },
+    {
+      "slug": "just-social-just-software-ag",
+      "company": "Just Social (Just Software AG)",
+      "website": "https://justsocial.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 0
+    },
+    {
+      "slug": "socialhub-maloon-gmbh",
+      "company": "SocialHub (maloon GmbH)",
+      "website": "https://socialhub.io",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    },
+    {
+      "slug": "stage-stagelink-staffbase-familie",
+      "company": "Stage (Stagelink / Staffbase-Familie)",
+      "website": "https://staffbase.com/de",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    },
+    {
+      "slug": "iable-gmbh",
+      "company": "iAble GmbH",
+      "website": "https://iable.de",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 0
+    },
+    {
+      "slug": "haiilo-gmbh",
+      "company": "Haiilo GmbH",
+      "website": "https://haiilo.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 2
+    },
+    {
+      "slug": "ip-dynamics-gmbh",
+      "company": "IP Dynamics GmbH",
+      "website": "https://ipdynamics.de",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    },
+    {
+      "slug": "parloa-gmbh",
+      "company": "Parloa GmbH",
+      "website": "https://parloa.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    },
+    {
+      "slug": "scompler-gmbh",
+      "company": "Scompler GmbH",
+      "website": "https://scompler.com",
+      "status": "new",
+      "changed_fields": [
+        "first_seen"
+      ],
+      "successful_pages": 3
+    }
+  ]
+}

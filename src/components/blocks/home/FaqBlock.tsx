@@ -15,7 +15,7 @@ interface FaqBlockProps {
 export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
   return (
     <section id="faq" className="space-y-8 scroll-mt-24">
-      <header className="border-t-2 border-dark pt-8 space-y-3 max-w-2xl">
+      <header className="border-t border-border pt-8 space-y-3 max-w-2xl">
         <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
           {eyebrow}
         </div>

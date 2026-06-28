@@ -16,7 +16,7 @@ export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
   return (
     <header
       className={cn(
-        "pt-8 mt-12 border-t-2 border-dark space-y-3",
+        "pt-8 mt-12 border-t border-border space-y-3",
         className,
       )}
     >

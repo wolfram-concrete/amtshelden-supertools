@@ -30,7 +30,7 @@ export function PulseGrid({
 
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-      <header className="border-t-2 border-dark pt-8 mb-10 lg:mb-14 flex flex-wrap items-end justify-between gap-6">
+      <header className="border-t border-border pt-8 mb-10 lg:mb-14 flex flex-wrap items-end justify-between gap-6">
         <div className="space-y-3 max-w-2xl">
           <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
             {eyebrow}
