@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   BarChart3,
@@ -57,38 +58,56 @@ export default function AnbieterPage() {
   return (
     <>
 
-      {/* ── 1 · HERO ── */}
-      <section className="container mx-auto px-6 lg:px-10 pt-14 lg:pt-24 pb-12">
-        <div className="max-w-3xl space-y-7">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            Für Software-Anbieter
-          </div>
-          <h1 className="font-serif text-[clamp(40px,6vw,80px)] font-normal leading-[0.98] tracking-tight text-dark">
-            Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
-            <em className="not-italic font-medium text-brand-dark">
-              relevant ist
-            </em>
-            .
-          </h1>
-          <p className="font-sans text-[19px] leading-[1.7] text-mid">
-            Supertools ist das kuratierte Software-Verzeichnis für die
-            öffentliche Verwaltung. Während klassische B2B-Werbung breit streut,
-            erreichen Sie hier Behörden, die bereits mit einer konkreten
-            Suchabsicht unterwegs sind.
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Link
-              href="/kontakt?topic=anbieter"
-              className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-ui text-[14px] font-semibold text-white transition-colors hover:bg-brand-dark"
-            >
-              Unternehmen eintragen
-            </Link>
-            <Link
-              href="#profilarten"
-              className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-ui text-[14px] font-medium text-mid transition-colors hover:bg-cream hover:text-dark"
-            >
-              Wie funktioniert das?
-            </Link>
+      {/* ── 1 · HERO (immersiv, radiale Kanten — analog Startseite) ── */}
+      <section className="bg-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
+          <div className="relative flex items-center overflow-hidden rounded-[2.5rem] min-h-[480px] lg:min-h-[600px]">
+            <Image
+              src="/brand/Images/magnific_prompt-3-gemeinsame-softw_741ylKNJAL.jpg"
+              alt="Software-Team präsentiert eine Anwendung im Verwaltungskontext"
+              fill
+              sizes="(min-width: 1024px) 1200px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div aria-hidden className="absolute inset-0 bg-black/15" />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/40 to-transparent"
+            />
+
+            <div className="relative z-10 max-w-2xl p-7 sm:p-10 lg:p-16">
+              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Für Software-Anbieter
+              </div>
+              <h1 className="mt-5 font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white">
+                Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
+                <em className="not-italic font-medium text-brand-light">
+                  relevant ist
+                </em>
+                .
+              </h1>
+              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-xl">
+                Supertools ist das kuratierte Software-Verzeichnis für die
+                öffentliche Verwaltung. Während klassische B2B-Werbung breit
+                streut, erreichen Sie hier Behörden mit konkreter Suchabsicht.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/kontakt?topic=anbieter"
+                  className="inline-flex items-center rounded-xl bg-accent px-6 py-3 font-ui text-[14px] font-semibold text-accent-ink transition-[filter] hover:brightness-95"
+                >
+                  Unternehmen eintragen
+                </Link>
+                <Link
+                  href="#profilarten"
+                  className="inline-flex items-center rounded-xl border border-white/30 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
+                >
+                  Wie funktioniert das?
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
