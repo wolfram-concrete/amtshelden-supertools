@@ -18,6 +18,7 @@ import {
   type CrawlerToolContentPiece,
 } from "@/mocks/tools/crawler-preview";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
+import { publicPitch } from "@/lib/crawler-content";
 
 export const metadata: Metadata = {
   title: "Crawler Preview - Supertools",
@@ -220,14 +221,16 @@ export default function CrawlerPreviewPage() {
     <div className="container mx-auto px-6 py-10 lg:px-10 lg:py-14">
       <header className="mb-10 border-b border-border pb-8">
         <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-          Interne Vorschau
+          Interne Vorschau · Arbeits-Preview
         </div>
         <h1 className="mt-3 font-serif text-[clamp(32px,5vw,56px)] font-normal leading-[1.05] text-dark">
           Crawler Review
         </h1>
         <p className="mt-4 max-w-3xl font-sans text-[16px] leading-[1.7] text-mid">
-          {crawlerToolCardPreview.length} freigegebene Tools. Zusatzmaterial wird als kurzer,
-          redaktionell gefilterter Linkbereich direkt in der jeweiligen Karte angezeigt.
+          {crawlerToolCardPreview.length} Tools aus der breiten Crawler-Arbeits-Preview
+          — keine finale Empfehlung, sondern Datenbasis zum Prüfen von Layout,
+          Kategorien, Logos und Profil-Fallbacks. Zusatzmaterial erscheint als
+          kurzer, redaktionell gefilterter Linkbereich je Karte.
         </p>
         <div className="mt-5 flex flex-wrap gap-2 font-ui text-[12px] text-soft">
           <span className="rounded-full border border-border bg-white px-3 py-1">
@@ -260,7 +263,7 @@ export default function CrawlerPreviewPage() {
                       {tool.provider}
                     </div>
                     <p className="mt-2.5 max-w-3xl font-sans text-[15px] leading-[1.6] text-mid">
-                      {tool.pitch}
+                      {publicPitch(tool.pitch)}
                     </p>
                     <div className="mt-3.5 flex flex-wrap gap-1.5">
                       {tool.compliance.dsgvo && <SignalPill>DSGVO</SignalPill>}

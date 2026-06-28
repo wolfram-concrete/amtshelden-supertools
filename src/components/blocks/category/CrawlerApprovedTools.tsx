@@ -232,15 +232,16 @@ export function CrawlerApprovedTools({
       {showHeader && (
         <header className="mb-6 max-w-3xl">
           <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            Crawler-Freigabe
+            Crawler-Freigabe · Arbeits-Preview
           </div>
           <h2 className="mt-2 font-serif text-[clamp(26px,3vw,36px)] font-normal leading-tight text-dark">
-            Neu aus dem Review-Lauf
+            Neu aus dem Crawler-Lauf
           </h2>
           <p className="mt-3 font-sans text-[15px] leading-[1.7] text-mid">
-            Diese Einträge stammen aus dem Crawler-MVP und wurden fuer diesen
-            Testlauf freigegeben. Sie bleiben getrennt von der redaktionellen
-            Hauptliste, bis Profiltexte und Quellen final geprüft sind.
+            Breite Arbeits-Preview aus dem Crawler-Lauf — automatisch erfasste
+            Anbieter, noch keine finale redaktionelle Empfehlung. Sie bleiben
+            getrennt von der kuratierten Hauptliste, bis Profiltexte, Quellen und
+            Kategorie geprüft sind.
           </p>
         </header>
       )}

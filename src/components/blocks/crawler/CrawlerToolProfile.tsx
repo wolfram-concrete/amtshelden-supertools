@@ -92,13 +92,14 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           </span>
           <div>
             <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-accent-ink">
-              Crawler-Freigabe · noch redaktionell zu prüfen
+              Crawler-Freigabe · Arbeits-Preview · redaktionell noch zu prüfen
             </div>
             <p className="mt-1 font-sans text-[13.5px] leading-[1.6] text-mid">
-              Dieser Eintrag stammt aus dem Crawler-Lauf und wurde für den Testlauf
-              freigegeben. Die Angaben sind automatisch erfasste Signale, noch kein
-              fertiges redaktionelles Profil — Texte, Quellen und Compliance werden
-              vor der Aufnahme in die Hauptliste geprüft.
+              Dieser Eintrag stammt aus einer breiten Crawler-Arbeits-Preview (MVP)
+              — automatisch erfasste Signale, noch kein fertiges redaktionelles
+              Profil und keine finale Empfehlung. Texte, Quellen, Kategorie und
+              Compliance werden vor einer Aufnahme in die kuratierte Hauptliste
+              geprüft.
             </p>
           </div>
         </div>
