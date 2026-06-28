@@ -61,10 +61,9 @@ export function FoerderHinweis({
     );
   }
 
-  // ── Nicht bestätigt: in Produktion nichts (kein falscher Online-Zustand) ──
-  if (process.env.NODE_ENV === "production") return null;
-
-  // ── Entwicklung: neutraler Platzhalter, der den Platz definiert ──
+  // ── Nicht bestätigt: neutraler Platzhalter (kein Logo, keine Förder-Aussage) ──
+  // Sichtbar, damit der Platz definiert ist — aber bewusst ohne Hoheitszeichen
+  // und ohne „gefördert durch"-Behauptung, solange nichts bestätigt ist.
   return (
     <section className="bg-cream" aria-hidden>
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-6 lg:pt-10">
@@ -75,10 +74,10 @@ export function FoerderHinweis({
             </span>
             <div>
               <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
-                Platzhalter · Partner / Förderung
+                Förderhinweis · Platzhalter
               </div>
               <div className="mt-0.5 font-ui text-[11.5px] text-soft">
-                Erscheint live erst nach Bestätigung — nur in Entwicklung sichtbar
+                Logo &amp; Text folgen nach offizieller Freigabe
               </div>
             </div>
           </div>

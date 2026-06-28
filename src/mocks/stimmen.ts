@@ -5,6 +5,10 @@
  * und die Zuordnung zur jeweiligen Stadt sind aber FIKTIV — nur fürs Layout.
  * Vor dem Livegang durch echte, freigegebene Referenz-Cases (echtes Logo +
  * echtes Zitat + echte Stadt) ersetzen.
+ *
+ * Bild-Quellen (Wikimedia Commons, Attribution vor Produktion sicherstellen):
+ * - staedte/passau.jpg   → „Passau Luitpoldbruecke Altstadt" (CC BY-SA 3.0)
+ * - staedte/konstanz.jpg → „Konzil Gaststätten am Hafen Konstanz" (CC BY 3.0)
  */
 
 import type { BrandIconName } from "@/components/icons/BrandIcon";

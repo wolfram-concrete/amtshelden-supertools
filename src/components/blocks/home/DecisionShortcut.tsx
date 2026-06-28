@@ -194,10 +194,7 @@ export function DecisionShortcut({
                       {q.answer}
                     </p>
                     {isNext && (
-                      <div className="mt-4 flex flex-wrap items-center gap-3">
-                        <span className="font-ui text-[16px] font-bold text-white">
-                          {ex.price}
-                        </span>
+                      <div className="mt-4">
                         <Link
                           href={ex.ctaHref}
                           className="inline-flex items-center gap-1.5 rounded-xl bg-white px-3.5 py-2 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors hover:bg-cream"

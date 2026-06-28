@@ -39,7 +39,6 @@ export interface DecisionExample {
   /** Anzeigeformat des Prüfdatums */
   lastChecked: string;
   scenario: string;
-  price: string;
   ctaHref: string;
   questions: DecisionQuestion[];
 }
@@ -52,7 +51,6 @@ export const decisionExample: DecisionExample = {
   verified: true,
   lastChecked: "12.06.2026",
   scenario: "Kommune mit 12.400 Einwohnern, keine eigene IT-Abteilung.",
-  price: "ab 8.000 €",
   ctaHref: "/anfrage?tool=vivioakte",
   questions: [
     {
