@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { VorschlagForm } from "@/components/blocks/VorschlagForm";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 
 export const metadata: Metadata = {
   title: "Tool vorschlagen oder eintragen — Supertools",
@@ -12,12 +11,6 @@ export const metadata: Metadata = {
 export default function VorschlagenPage() {
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Supertools", href: "/" },
-          { label: "Tool vorschlagen" },
-        ]}
-      />
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">

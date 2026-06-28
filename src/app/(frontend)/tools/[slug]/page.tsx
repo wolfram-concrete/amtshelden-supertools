@@ -12,7 +12,6 @@ import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
 import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { toolRegistry } from "@/mocks/tools/vivioakte";
 
 interface PageProps {
@@ -54,16 +53,6 @@ export default async function ToolProfilePage({ params }: PageProps) {
 
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Supertools", href: "/" },
-          {
-            label: tool.hero.categoryLabel,
-            href: `/kategorien/${tool.categorySlug}`,
-          },
-          { label: tool.name },
-        ]}
-      />
 
       <div className="container mx-auto px-6 lg:px-10 py-10 lg:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-12 lg:gap-16">

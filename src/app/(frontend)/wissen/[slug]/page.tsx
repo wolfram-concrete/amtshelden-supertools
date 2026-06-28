@@ -5,7 +5,6 @@ import { ArticleBody } from "@/components/blocks/article/ArticleBody";
 import { ArticleHeader } from "@/components/blocks/article/ArticleHeader";
 import { AuthorBio } from "@/components/blocks/article/AuthorBio";
 import { ArticleCard } from "@/components/cards/ArticleCard";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { articleRegistry, articles } from "@/mocks/articles";
 
 interface PageProps {
@@ -49,13 +48,6 @@ export default async function WissenArtikelPage({ params }: PageProps) {
 
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Supertools", href: "/" },
-          { label: "Wissen", href: "/wissen" },
-          { label: article.title },
-        ]}
-      />
 
       <ArticleHeader article={article} />
 

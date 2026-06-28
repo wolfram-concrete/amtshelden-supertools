@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { KategorieHero } from "@/components/blocks/category/KategorieHero";
 import { ToolFilters } from "@/components/blocks/category/ToolFilters";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { articleSummaries } from "@/mocks/articles";
 import { categories, categoryRegistry } from "@/mocks/categories";
 import { toolCardsByCategory } from "@/mocks/tools";
@@ -49,13 +48,6 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Supertools", href: "/" },
-          { label: "Kategorien", href: "/kategorien" },
-          { label: category.name },
-        ]}
-      />
 
       <KategorieHero category={category} toolCount={tools.length} />
 

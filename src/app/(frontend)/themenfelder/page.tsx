@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder } from "@/mocks/themenfelder";
 
@@ -16,9 +15,6 @@ export const metadata: Metadata = {
 export default function ThemenfelderIndexPage() {
   return (
     <>
-      <Breadcrumb
-        items={[{ label: "Supertools", href: "/" }, { label: "Themenfelder" }]}
-      />
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">

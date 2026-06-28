@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { Logo } from "@/components/site/Logo";
 import { themenfelder } from "@/mocks/themenfelder";
 
@@ -57,9 +56,6 @@ const vorteile = [
 export default function AnbieterPage() {
   return (
     <>
-      <Breadcrumb
-        items={[{ label: "Supertools", href: "/" }, { label: "Für Anbieter" }]}
-      />
 
       {/* ── 1 · HERO ── */}
       <section className="container mx-auto px-6 lg:px-10 pt-14 lg:pt-24 pb-12">

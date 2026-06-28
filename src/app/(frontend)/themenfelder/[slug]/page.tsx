@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { BrandIcon } from "@/components/icons/BrandIcon";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder, themenfeldRegistry } from "@/mocks/themenfelder";
 
@@ -36,13 +35,6 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
 
   return (
     <>
-      <Breadcrumb
-        items={[
-          { label: "Supertools", href: "/" },
-          { label: "Themenfelder", href: "/themenfelder" },
-          { label: tf.name },
-        ]}
-      />
 
       {/* Hero */}
       <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-10 lg:pb-14">

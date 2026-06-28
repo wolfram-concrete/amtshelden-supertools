@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { WissenSidebar } from "@/components/sidebars/WissenSidebar";
 import { articleSummaries } from "@/mocks/articles";
 
@@ -16,9 +15,6 @@ export default function WissenIndexPage() {
 
   return (
     <>
-      <Breadcrumb
-        items={[{ label: "Supertools", href: "/" }, { label: "Wissen" }]}
-      />
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-12 lg:mb-16">

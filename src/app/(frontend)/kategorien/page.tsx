@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { CategoryCard } from "@/components/cards/CategoryCard";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { categories } from "@/mocks/categories";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export const metadata: Metadata = {
 export default function CategoriesIndexPage() {
   return (
     <>
-      <Breadcrumb items={[{ label: "Supertools", href: "/" }, { label: "Kategorien" }]} />
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
