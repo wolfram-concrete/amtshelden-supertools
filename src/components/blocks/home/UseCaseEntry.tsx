@@ -13,10 +13,9 @@ interface UseCaseEntryProps {
 }
 
 /**
- * Problem-/Use-Case-Einstieg — die Thematik wird groß über ein Vollbild-Motiv
- * eröffnet; darüber kompakte, scanbare Glas-Zeilen (Icon + Problem-Statement)
- * statt großer Kacheln. „Behörden suchen nach einem Problem, nicht nach einem
- * Tooltyp."
+ * Problem-/Use-Case-Einstieg — Full-Bleed-Motiv (Screen-zu-Screen) mit radialen
+ * Logo-Kanten; Headline links, die kompakten Glas-Zeilen rechts angedockt
+ * (links mehr Luft / Bild).
  */
 export function UseCaseEntry({
   eyebrow,
@@ -25,65 +24,62 @@ export function UseCaseEntry({
   useCases,
 }: UseCaseEntryProps) {
   return (
-    <section className="bg-cream">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
-        {/* Full-Size-Bildcontainer mit radialen Logo-Kanten */}
-        <div className="relative isolate overflow-hidden rounded-[2.5rem]">
-          {/* Vollbild-Motiv im Hintergrund */}
-          <Image
-            src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-            aria-hidden
-          />
-          <div aria-hidden className="absolute inset-0 bg-dark/72" />
+    <section className="bg-cream py-6 lg:py-10">
+      {/* Full-Bleed-Bildcontainer mit radialen Kanten */}
+      <div className="relative isolate overflow-hidden rounded-[2.5rem]">
+        <Image
+          src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          aria-hidden
+        />
+        <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
-          <div className="relative px-7 py-16 sm:px-12 lg:px-16 lg:py-24">
-            <header className="max-w-2xl space-y-3">
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-            {eyebrow}
-          </div>
-          <h2
-            style={{ lineHeight: 1.05 }}
-            className="font-serif text-[clamp(30px,3.8vw,48px)] font-normal tracking-tight text-white"
-          >
-            {title}
-          </h2>
-          {description && (
-            <p className="font-sans text-[16px] leading-[1.65] text-white/80">
-              {description}
-            </p>
-          )}
-        </header>
-
-        {/* Kompakte Glas-Zeilen */}
-        <div className="mt-10 grid gap-3 sm:grid-cols-2">
-          {useCases.map((uc) => (
-            <Link
-              key={uc.label}
-              href={uc.href}
-              className="group flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 backdrop-blur-sm transition-colors hover:bg-white/20"
-            >
-              <span
-                aria-hidden
-                className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/15 text-white"
-              >
-                <BrandIcon name={uc.icon} size={20} />
-              </span>
-              <span className="flex-1 font-ui text-[14.5px] font-medium text-white">
-                {uc.label}
-              </span>
-              <ArrowRight
-                size={16}
-                className="flex-shrink-0 text-white/55 transition-all group-hover:translate-x-0.5 group-hover:text-white"
-                aria-hidden
-              />
-            </Link>
-          ))}
+        <div className="relative container mx-auto px-6 lg:px-10 py-14 lg:py-20">
+          <header className="max-w-xl space-y-3">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+              {eyebrow}
             </div>
+            <h2
+              style={{ lineHeight: 1.05 }}
+              className="font-serif text-[clamp(30px,3.8vw,48px)] font-normal tracking-tight text-white"
+            >
+              {title}
+            </h2>
+            {description && (
+              <p className="font-sans text-[15px] leading-[1.6] text-white/80">
+                {description}
+              </p>
+            )}
+          </header>
+
+          {/* Kompakte Glas-Zeilen — rechts angedockt */}
+          <div className="mt-8 grid gap-2.5 sm:grid-cols-2 lg:ml-auto lg:w-[62%]">
+            {useCases.map((uc) => (
+              <Link
+                key={uc.label}
+                href={uc.href}
+                className="group flex items-center gap-2.5 rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm transition-colors hover:bg-white/20"
+              >
+                <span
+                  aria-hidden
+                  className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white/15 text-white"
+                >
+                  <BrandIcon name={uc.icon} size={17} />
+                </span>
+                <span className="flex-1 font-ui text-[13.5px] font-medium text-white">
+                  {uc.label}
+                </span>
+                <ArrowRight
+                  size={15}
+                  className="flex-shrink-0 text-white/55 transition-all group-hover:translate-x-0.5 group-hover:text-white"
+                  aria-hidden
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </div>

@@ -101,15 +101,19 @@ export default function HomePage() {
         useCases={useCases}
       />
 
-      {/* ── REDAKTIONELLE SCHWERPUNKTE — als eine Informationseinheit gerahmt
-             (Feature-Story + 3 Cluster auf gemeinsamem Stone-Hintergrund) ── */}
-      <section className="bg-stone">
-        <EditorialFeatureStory article={featuredStory} background="white" />
-        <ThemenClusterBlock
-          sectionEyebrow="Redaktionelle Schwerpunkte"
-          sectionTitle="Was diese Woche zählt — in der Tiefe."
-          clusters={themenCluster}
-        />
+      {/* ── REDAKTIONELLE SCHWERPUNKTE — eine Einheit als radialer Stone-Slab
+             (Feature-Story + 3 Cluster), weiche Kanten zur Cream-Fläche ── */}
+      <section className="bg-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
+          <div className="rounded-[2.5rem] bg-stone">
+            <EditorialFeatureStory article={featuredStory} background="white" />
+            <ThemenClusterBlock
+              sectionEyebrow="Redaktionelle Schwerpunkte"
+              sectionTitle="Was diese Woche zählt — in der Tiefe."
+              clusters={themenCluster}
+            />
+          </div>
+        </div>
       </section>
 
       {/* ── MAIN + STICKY SIDEBAR ── */}

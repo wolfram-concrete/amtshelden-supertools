@@ -36,7 +36,7 @@ export function EditorialFeatureStory({
 
   return (
     <section className={cn(bgClasses[background])}>
-      <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <div className="px-6 sm:px-8 lg:px-14 pt-12 lg:pt-16 pb-4">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Cover-Bild: linke Spalte, asymmetrisch oben */}
           {article.cover?.url && (

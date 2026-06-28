@@ -27,78 +27,78 @@ export function ThemenClusterBlock({
   sectionTitle,
   clusters,
 }: ThemenClusterBlockProps) {
-  return (
-    <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-      <header className="border-t-2 border-dark pt-8 mb-12 lg:mb-16 max-w-3xl space-y-2">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-          {sectionEyebrow}
-        </div>
-        <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
-          {sectionTitle}
-        </h2>
-      </header>
+    return (
+    <section className="px-6 sm:px-8 lg:px-14 pt-8 pb-12 lg:pb-16">
+      {/* Schwarze Linie über die volle Gridbreite */}
+      <div className="border-t-2 border-dark pt-7">
+        <header className="mb-10 lg:mb-12 max-w-3xl space-y-2">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            {sectionEyebrow}
+          </div>
+          <h2 className="font-serif text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark">
+            {sectionTitle}
+          </h2>
+        </header>
 
-      <div className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3 relative">
-        {clusters.map((cluster, idx) => (
-          <article
-            key={idx}
-            className="space-y-5 md:relative md:[&:not(:first-child)]:before:hidden lg:[&:not(:first-child)]:before:absolute lg:[&:not(:first-child)]:before:top-0 lg:[&:not(:first-child)]:before:bottom-0 lg:[&:not(:first-child)]:before:-left-5 lg:[&:not(:first-child)]:before:w-px lg:[&:not(:first-child)]:before:bg-border"
-          >
-            {/* Cover */}
-            {cluster.articles[0]?.cover?.url && (
-              <Link
-                href={`/wissen/${cluster.articles[0].slug}`}
-                className="block"
-              >
-                <div className="relative aspect-[5/4] overflow-hidden rounded-sm bg-cream">
+        <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+          {clusters.map((cluster, idx) => (
+            <article key={idx} className="space-y-4">
+              {/* Cover — kleiner, abgerundet, Eyebrow über dem Bild */}
+              {cluster.articles[0]?.cover?.url && (
+                <Link
+                  href={`/wissen/${cluster.articles[0].slug}`}
+                  className="group relative block aspect-[16/10] overflow-hidden rounded-xl bg-cream"
+                >
                   <Image
                     src={cluster.articles[0].cover.url}
                     alt={cluster.articles[0].cover.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                </div>
-              </Link>
-            )}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"
+                  />
+                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/35 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">
+                    {cluster.eyebrow}
+                  </span>
+                </Link>
+              )}
 
-            {/* Eyebrow */}
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-              {cluster.eyebrow}
-            </div>
+              {/* Cluster-Titel */}
+              <h3 className="font-serif text-[24px] font-normal leading-[1.08] text-dark">
+                {cluster.title}
+              </h3>
 
-            {/* Cluster-Titel */}
-            <h3 className="font-serif text-[26px] font-normal leading-[1.05] text-dark">
-              {cluster.title}
-            </h3>
+              {/* Cluster-Lead */}
+              <p className="font-sans text-[14.5px] leading-[1.6] text-mid">
+                {cluster.lead}
+              </p>
 
-            {/* Cluster-Lead */}
-            <p className="font-sans text-[15px] leading-[1.65] text-mid">
-              {cluster.lead}
-            </p>
-
-            {/* Artikel-Liste */}
-            {cluster.articles.length > 0 && (
-              <ul className="space-y-3 pt-2 border-t border-border">
-                {cluster.articles.slice(0, 3).map((a) => (
-                  <li key={a.slug}>
-                    <Link
-                      href={`/wissen/${a.slug}`}
-                      className="block group space-y-1 py-1"
-                    >
-                      <span className="block font-serif text-[16px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
-                        {a.title}
-                      </span>
-                      <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-soft">
-                        {formatDateDE(a.publishedAt)} · {a.readingTime} Min.
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </article>
-        ))}
+              {/* Artikel — modulare Karten */}
+              {cluster.articles.length > 0 && (
+                <ul className="space-y-2 pt-1">
+                  {cluster.articles.slice(0, 3).map((a) => (
+                    <li key={a.slug}>
+                      <Link
+                        href={`/wissen/${a.slug}`}
+                        className="group block rounded-xl bg-white px-4 py-3 transition-shadow hover:shadow-[0_12px_30px_-18px_rgba(17,17,17,0.25)]"
+                      >
+                        <span className="block font-serif text-[15px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
+                          {a.title}
+                        </span>
+                        <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.14em] text-soft">
+                          {formatDateDE(a.publishedAt)} · {a.readingTime} Min.
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
