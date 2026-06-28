@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
-import { DecisionShortcut } from "@/components/blocks/home/DecisionShortcut";
+import { FokusTool } from "@/components/blocks/home/FokusTool";
 import { FoerderHinweis } from "@/components/blocks/home/FoerderHinweis";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
-import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
+import { ToolTeaser } from "@/components/blocks/home/ToolTeaser";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
@@ -15,7 +15,6 @@ import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
 import { methodSteps } from "@/mocks/stats";
 import { themenfelder } from "@/mocks/themenfelder";
-import { toolCards } from "@/mocks/tools";
 import { useCases } from "@/mocks/usecases";
 
 export const metadata: Metadata = {
@@ -25,8 +24,6 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredTool = toolCards.find((t) => t.slug === "vivioakte")!;
-
   // Featured Editorial Story — der Bund-Schwerpunkt prominent
   const featuredStory =
     articleSummaries.find((a) => a.slug === "digitalisierung-bund-2030") ||
@@ -85,11 +82,13 @@ export default function HomePage() {
         lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
-      {/* ── 3 · ENTSCHEIDUNGSABKÜRZUNG (6 Fragen an einem geprüften Tool) ── */}
-      <DecisionShortcut
-        eyebrow="Die Entscheidungsabkürzung"
-        title="Eine Behörde, sechs Fragen, ein Blick."
-        lead="Beispiel: eine kleine Kommune führt erstmals die E-Akte ein. So weit verkürzt ein Supertools-Profil die Entscheidung."
+      {/* ── 3 · TOOL IM FOKUS (ein echtes, freigegebenes Tool — ehrlich eingeordnet) ── */}
+      <FokusTool
+        eyebrow="Tool im Fokus"
+        title="Eye-Able — digitale Barrierefreiheit für die Verwaltung."
+        slug="eye-able-web-inclusion-gmbh"
+        was="Eye-Able ist ein deutscher Anbieter aus Würzburg für digitale Barrierefreiheit — Werkzeuge, die Webauftritte für alle Nutzer:innen zugänglicher machen."
+        einordnung="Öffentliche Stellen sind verpflichtet, ihre Webangebote barrierefrei zu gestalten (BITV 2.0). Genau dieses Feld adressiert das Produkt — DSGVO-konform, Server in Deutschland."
       />
 
       {/* ── 4 · THEMENFELDER (kuratierte Struktur) ── */}
@@ -100,16 +99,11 @@ export default function HomePage() {
         themenfelder={themenfelder}
       />
 
-      {/* ── 5 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
-      <FeaturedToolBlock
-        eyebrow="Tool im Fokus"
-        title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
-        description="Wir prüfen Tool-Profile nicht, weil wir sie verkaufen wollen. Wir prüfen sie, weil andere Behörden darauf eine Entscheidung gründen werden. Bei VivioAkte hat uns überzeugt, wie ehrlich der Anbieter über die Grenzen des eigenen Systems spricht."
-        tool={featuredTool}
-        rationale={{
-          title: "Amtshelden-Urteil",
-          body: "Für Kommunen bis 50.000 Einwohner, die erstmals digitalisieren — ohne sich dabei zu verlieren.",
-        }}
+      {/* ── 5 · TOOL-TEASER (Breite: echte freigegebene Tools mit Logo) ── */}
+      <ToolTeaser
+        eyebrow="Frisch im Verzeichnis"
+        title="Fünf Tools aus der ersten Crawler-Freigabe."
+        lead="Echte Anbieter, automatisch erfasst und für den Testlauf freigegeben — aktuell aus dem Themenfeld Kommunikation, weitere Bereiche folgen."
       />
 
       {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
