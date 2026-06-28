@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Supertools — System & Orchestrierung (Entwurf für Entwicklung)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0d9d69; --green-dark:#006b45; --green-light:#EAF3DE;
+    --yellow:#fed007; --cream:#F6F3F0; --stone:#E6E0D6; --sand:#DBD4C9;
+    --ink:#27241f; --mid:#4A463F; --soft:#807A70; --border:#E0DAD0; --white:#fff;
+    --gray:#9a948a; --amber:#E0A93B; --red:#C0584F;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:15px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;padding:40px 20px 80px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .mono{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.12em}
+  h1,h2,h3{font-family:"IBM Plex Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;margin:0}
+  h1{font-size:38px;line-height:1.05}
+  .sub{color:var(--mid);max-width:760px;margin-top:14px;font-size:16px}
+  .tag{display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:var(--cream);
+    border-radius:999px;padding:6px 14px;font-size:11px;font-weight:700}
+  .tag .dot{width:7px;height:7px;border-radius:999px;background:var(--yellow)}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin:26px 0 8px}
+  .legend span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--mid)}
+  .legend i{width:13px;height:13px;border-radius:4px;display:inline-block}
+  /* Stage */
+  .stage{background:var(--white);border-radius:18px;padding:22px 24px;margin-top:14px;
+    border:1px solid var(--border)}
+  .stage.dark{background:var(--ink);color:var(--cream);border-color:transparent}
+  .stage.green{background:var(--green-dark);color:#fff;border-color:transparent}
+  .stage-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .num{font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:13px;
+    width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+    background:var(--green-light);color:var(--green-dark);flex:none}
+  .dark .num,.green .num{background:rgba(255,255,255,.16);color:#fff}
+  .stage h2{font-size:21px}
+  .stage .role{margin-left:auto;font-size:11px;font-weight:700}
+  .badge{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.1em;
+    font-size:10px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .b-auto{background:var(--green-light);color:var(--green-dark)}
+  .b-human{background:#FBE4C4;color:#7a5a12}
+  .b-data{background:var(--sand);color:var(--ink)}
+  .cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .card{background:var(--cream);border-radius:12px;padding:12px 14px;font-size:13px}
+  .dark .card,.green .card{background:rgba(255,255,255,.08)}
+  .card b{display:block;font-weight:600;margin-bottom:3px}
+  .card small{color:var(--soft)}
+  .dark .card small,.green .card small{color:rgba(255,255,255,.6)}
+  .arrow{display:grid;place-items:center;height:30px;color:var(--green-dark);font-size:22px;font-weight:700}
+  .split{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:14px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .panel{background:var(--stone);border-radius:18px;padding:22px 24px;margin-top:26px}
+  .panel h3{font-size:18px;margin-bottom:10px}
+  .lifecycle{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:var(--white);border:1px solid var(--border);
+    border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600}
+  .chip i{width:9px;height:9px;border-radius:999px}
+  .chip .x{color:var(--soft);font-weight:400}
+  .loop{display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px dashed var(--green);
+    border-radius:12px;padding:12px 14px;font-size:13px;margin-top:10px}
+  .loop b{color:var(--green-dark)}
+  .notes{columns:2;column-gap:28px;margin-top:8px}
+  @media(max-width:760px){.notes{columns:1}}
+  .notes li{break-inside:avoid;margin-bottom:9px;font-size:13.5px}
+  .foot{margin-top:34px;color:var(--soft);font-size:12px;text-align:center}
+  .stage-note{font-size:12.5px;color:var(--soft);margin-top:12px}
+  .dark .stage-note,.green .stage-note{color:rgba(255,255,255,.6)}
+  ul{margin:6px 0 0;padding-left:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="tag"><span class="dot"></span>ENTWURF v0.1 · 28.06.2026 · ZUR ABSTIMMUNG MIT ENTWICKLUNG</span>
+  <h1 style="margin-top:18px">Supertools — System &amp; Orchestrierung</h1>
+  <p class="sub">Wie die Website, der Anbieter-<b>Crawler</b> und das interne <b>Redaktions-Dashboard</b>
+  zusammenspielen: von der automatischen Entdeckung der Software-Anbieter über die Prüfung bis zur
+  Veröffentlichung im Verzeichnis — inkl. der Kreisläufe, die die Daten aktuell halten.</p>
+
+  <div class="legend">
+    <span><i class="b-auto" style="background:var(--green-light)"></i> Automatisch (System/KI)</span>
+    <span><i style="background:#FBE4C4"></i> Mensch (Redaktion)</span>
+    <span><i style="background:var(--sand)"></i> Daten / Speicher</span>
+    <span><i style="background:var(--yellow)"></i> Signal / Aktion</span>
+  </div>
+
+  <!-- 1 QUELLEN -->
+  <div class="stage">
+    <div class="stage-head"><span class="num">01</span><h2>Quellen</h2><span class="badge b-auto role">EINGANG</span></div>
+    <div class="cards">
+      <div class="card"><b>Anbieter-Websites</b><small>GovTech, etablierte Hersteller</small></div>
+      <div class="card"><b>Verzeichnisse &amp; Register</b><small>Messen, Ausschreibungen, KGSt</small></div>
+      <div class="card"><b>Amtshelden-Netzwerk</b><small>Empfehlungen, Community</small></div>
+      <div class="card"><b>Eigeneinreichung</b><small>„Tool vorschlagen" (Website-Formular)</small></div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- 2 CRAWLER -->
+  <div class="stage">
+    <div class="stage-head"><span class="num">02</span><h2>Crawler / Ingestion</h2><span class="badge b-auto role">SCHEDULED JOB · AUTOMATISCH</span></div>
+    <div class="cards">
+      <div class="card"><b>Discovery</b><small>findet neue Anbieter regelmäßig</small></div>
+      <div class="card"><b>Extraktion</b><small>Funktionen, DSGVO-Hinweise, Serverstandort, Preise</small></div>
+      <div class="card"><b>KI-Vorbefüllung</b><small>füllt Profil-Felder als Entwurf</small></div>
+      <div class="card"><b>Dedup &amp; Matching</b><small>gegen Bestand abgleichen</small></div>
+    </div>
+    <p class="stage-note">Ergebnis: <b>Roh-/Draft-Profil</b> in der Datenbank · Status <span class="mono" style="font-size:11px">gefunden</span> · confidence <span class="mono" style="font-size:11px">offen</span></p>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- 3 AUTO-PRÜFUNG -->
+  <div class="stage">
+    <div class="stage-head"><span class="num">03</span><h2>Automatische Prüfung</h2><span class="badge b-auto role">AUTOMATISCH</span></div>
+    <div class="cards">
+      <div class="card"><b>Compliance-Signale</b><small>DSGVO/AVV, Serverstandort DE/EU, BSI/ISO, Vergabe, BITV</small></div>
+      <div class="card"><b>confidence-Score</b><small>HOCH / MITTEL / OFFEN je Feld</small></div>
+      <div class="card"><b>Lücken-Flags</b><small>„Was wir nicht prüfen konnten"</small></div>
+      <div class="card"><b>Tote-Link- / Health-Check</b><small>erreichbar? aktuell?</small></div>
+    </div>
+    <p class="stage-note">Ergebnis: Profil wandert in die Redaktions-Queue · Status <span class="mono" style="font-size:11px">in Prüfung</span></p>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- 4 REDAKTION -->
+  <div class="stage green">
+    <div class="stage-head"><span class="num">04</span><h2>Redaktion — Mensch im Loop</h2><span class="badge b-human role">MENSCH · QUALITÄTS-GATE</span></div>
+    <div class="cards">
+      <div class="card"><b>1 · Hersteller-Gespräch</b><small>Stärken UND Grenzen</small></div>
+      <div class="card"><b>2 · 3 Referenz-Behörden</b><small>realer Einsatz</small></div>
+      <div class="card"><b>3 · Compliance-Audit</b><small>schriftlich nachgewiesen</small></div>
+      <div class="card"><b>4 · Redaktionelles Urteil</b><small>„für wen geeignet / nicht"</small></div>
+    </div>
+    <p class="stage-note">Entscheidung: <b>freigeben</b> → veröffentlichen · <b>ablehnen</b> · <b>nachfassen</b> (zurück an Anbieter/Crawler)</p>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- 5 DB -->
+  <div class="stage dark">
+    <div class="stage-head"><span class="num">05</span><h2>Datenbank / CMS — Single Source of Truth</h2><span class="badge b-data role">DATEN (Payload-ready · PostgreSQL/Supabase EU)</span></div>
+    <div class="cards">
+      <div class="card"><b>Tool</b><small>Profil, Felder, confidence, review_status, last_checked</small></div>
+      <div class="card"><b>Anbieter</b><small>Firma, Kontakt, Listing-Tier</small></div>
+      <div class="card"><b>Kategorie / Themenfeld</b><small>Struktur</small></div>
+      <div class="card"><b>Anfrage / Lead</b><small>Behörde → Anbieter</small></div>
+    </div>
+    <p class="stage-note">Speist <b>beide</b> Oberflächen unten — intern (Dashboard) und öffentlich (Website).</p>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <!-- 6 SPLIT -->
+  <div class="split">
+    <div class="stage">
+      <div class="stage-head"><span class="num">06a</span><h2>Dashboard (intern)</h2><span class="badge b-human role">DEIN ÜBERBLICK</span></div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card"><b>Pipeline-Board nach Status</b><small>Gefunden · In Prüfung · Geprüft · Veröffentlicht · Abgelehnt · Problem</small></div>
+        <div class="card"><b>Re-Check-Fälligkeiten</b><small>last_checked + Intervall → „bald prüfen"</small></div>
+        <div class="card"><b>Probleme &amp; Fehler</b><small>tote Links, DSGVO-Änderung, Anbieter-/Behörden-Feedback</small></div>
+        <div class="card"><b>KPIs</b><small>Anzahl je Status, Durchsatz, Leads</small></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-head"><span class="num">06b</span><h2>Frontend (supertools.de)</h2><span class="badge b-auto role">ÖFFENTLICH</span></div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card"><b>Verzeichnis &amp; Tool-Profile</b><small>nur Status „veröffentlicht" · „zuletzt geprüft am"</small></div>
+        <div class="card"><b>Tool-Finder &amp; Themenfelder</b><small>geführter Einstieg</small></div>
+        <div class="card"><b>Magazin / Wissen</b><small>redaktionelle Tiefe, SEO/AI-Overview</small></div>
+        <div class="card"><b>Anfrage-CTA + „Daten veraltet?"</b><small>Lead &amp; Korrektur-Feedback</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIFECYCLE -->
+  <div class="panel">
+    <h3>Status-Lebenszyklus eines Tools</h3>
+    <div class="lifecycle">
+      <span class="chip"><i style="background:var(--gray)"></i>gefunden</span><span class="chip x">→</span>
+      <span class="chip"><i style="background:var(--amber)"></i>in Prüfung</span><span class="chip x">→</span>
+      <span class="chip"><i style="background:var(--green)"></i>geprüft</span><span class="chip x">→</span>
+      <span class="chip"><i style="background:var(--green-dark)"></i>veröffentlicht</span><span class="chip x">↺</span>
+      <span class="chip"><i style="background:var(--amber)"></i>aktualisieren</span><span class="chip x">/</span>
+      <span class="chip"><i style="background:var(--red)"></i>Problem</span><span class="chip x">/</span>
+      <span class="chip"><i style="background:var(--red)"></i>abgelehnt</span>
+    </div>
+  </div>
+
+  <!-- LOOPS -->
+  <div class="panel" style="background:var(--cream);border:1px solid var(--border)">
+    <h3>Kreisläufe (halten alles aktuell &amp; monetarisieren)</h3>
+    <div class="loop"><div><b>Re-Check-Schleife:</b> Scheduler prüft veröffentlichte Tools nach Intervall erneut (Health-Check + Compliance) → bei Abweichung Status „aktualisieren/Problem" → zurück in die Redaktion.</div></div>
+    <div class="loop"><div><b>Korrektur-Schleife:</b> „Daten veraltet?"-Widget auf der Website → Meldung landet im Dashboard → Redaktion prüft → Profil aktualisiert.</div></div>
+    <div class="loop"><div><b>Lead-Schleife (Erlös):</b> Behörde stellt Anfrage → Routing über Amtshelden → qualifiziert → Anbieter kontaktiert → Status der Anfrage im Dashboard nachverfolgt.</div></div>
+  </div>
+
+  <!-- NOTES FOR DEV -->
+  <div class="panel" style="background:var(--ink);color:var(--cream)">
+    <h3 style="color:#fff">Für die Entwicklung — Annahmen &amp; offene Fragen</h3>
+    <ul class="notes" style="color:rgba(255,255,255,.85)">
+      <li><b>Stack-Vorschlag:</b> Next.js (vorhanden) + Payload CMS / PostgreSQL (Supabase EU) als SSoT; Crawler als separater Worker (Cron/Queue); Dashboard als geschützter Bereich derselben App.</li>
+      <li><b>Crawler:</b> wie viel automatisch vs. KI-assistiert? Rechtlicher Rahmen fürs Crawlen (robots, ToS)?</li>
+      <li><b>confidence/review_status</b> sind schon im Datenmodell angelegt — Dashboard baut darauf auf.</li>
+      <li><b>Re-Check-Intervall</b> pro Tool/Compliance-Feld definierbar (z. B. DSGVO halbjährlich)?</li>
+      <li><b>Mensch-Gate bleibt Pflicht</b> vor „veröffentlicht" — kein Auto-Publish (Markenversprechen Kuratierung).</li>
+      <li><b>Schnittstellen:</b> Crawler→DB, Dashboard→DB, Website liest nur „veröffentlicht", Korrektur-Widget→DB.</li>
+      <li><b>Offen:</b> Anbieter-Self-Service-Login (Profil pflegen) ab welcher Phase? Eigene Tabelle/Rollen.</li>
+      <li><b>Empfehlung erbeten:</b> Build-vs-Buy fürs Crawling, Queue/Scheduler-Tech, Auth/Rollen fürs Dashboard.</li>
+    </ul>
+  </div>
+
+  <p class="foot">Supertools · Schwesterprojekt von Amtshelden · Schaubild zur internen Abstimmung — kein Marketing-Material.</p>
+</div>
+</body>
+</html>
