@@ -68,6 +68,37 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** live: Sta
 
 ---
 
+## 💼 Geschäftsmodell & Go-to-Market — noch zu definieren / aufzusetzen
+
+*(aus dem Business Case, README Kap. 4 — konzeptionell da, operativ/technisch offen)*
+
+### Payment & Pakete — Definition + finale Preise festlegen
+Was bei uns buchbar sein soll, muss final entschieden und dann gebaut werden:
+- **Basis-Eintrag** — kostenlos, kuratiert *(inhaltlich steht das schon)*.
+- **Verified Listing** — 299–499 €/Monat: erweitertes Profil (Screenshots, Videos, Cases), „Verifiziert von Amtshelden"-Badge, direkter Anfragen-Eingang.
+- **Lead-Vermittlung** — 150–500 € pro qualifiziertem Lead bzw. 1–3 % erfolgsbasiert.
+- **Sponsored Content** (klar gekennzeichnet) — Tool-Feature/Case 1.500–3.000 €, Newsletter-Integration 500–1.000 €/Ausgabe, Webinar 800–2.000 €.
+- **Später:** Vendor-Dashboard (SaaS 99–299 €/Mo), Procurement-Tool für Behörden, „State of GovTech"-Report.
+- **To do:** Welche Pakete zum Start? Preise festklopfen. Buchung & Abrechnung technisch umsetzen (an CMS/Backend gekoppelt).
+
+### Newsletter — aufsetzen
+- **Eigener Supertools-Newsletter** (Versand-Tool, Anmeldung, Double-Opt-in). Aktuell nur Anmelde-CTA auf der Seite, **kein echter Versand**.
+- Zusätzlich feste **Supertools-Strecke im bestehenden Amtshelden-Newsletter** (Phase-1-Reichweite, ~12k Abonnent:innen).
+
+### Social Media — Profile eröffnen
+- **Eigene Profile für Amtshelden Supertools** (Instagram + LinkedIn) anlegen. Aktuell verweist der Community-Block auf die **Amtshelden-Hauptprofile** — eigene Supertools-Kanäle fehlen.
+
+### Bildmaterial & Fotos
+- Die generierten **KI-Motive nochmal prüfen und gezielt nachschießen/nachbessern** (Qualität, Konsistenz, ggf. neue Motive).
+- **Neue Fotos von Julia & Christian** (aktuell ein Foto von der Amtshelden-Seite) — für Über-Seite & Community-Block.
+- **Bildnachweise** der Commons-Stadtbilder vor finalem Livegang ordnen.
+
+### Reichweite / Go-to-Market
+- **100+ Tools** als Zielgröße (aktuell 59 als Arbeitsbasis).
+- **„Tool des Monats"** / redaktionelle Features als wiederkehrendes Format etablieren.
+
+---
+
 ## 🔗 Live-Links zum Durchklicken
 
 | Seite | Link |
