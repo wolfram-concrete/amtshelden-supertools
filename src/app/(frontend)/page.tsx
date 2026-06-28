@@ -2,19 +2,14 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
-import { FaqBlock } from "@/components/blocks/home/FaqBlock";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
-import { PulseGrid } from "@/components/blocks/home/PulseGrid";
-import { QuickGuideBlock } from "@/components/blocks/home/QuickGuideBlock";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
 import { StimmenSlider } from "@/components/blocks/home/StimmenSlider";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
 import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
-import { HomeSidebar } from "@/components/sidebars/HomeSidebar";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
-import { behoerdenFaqs } from "@/mocks/faq";
 import { methodSteps } from "@/mocks/stats";
 import { themenfelder } from "@/mocks/themenfelder";
 import { toolCards } from "@/mocks/tools";
@@ -28,9 +23,6 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const featuredTool = toolCards.find((t) => t.slug === "vivioakte")!;
-  const pulseArticles = articleSummaries
-    .filter((a) => a.type === "pulse")
-    .slice(0, 4);
 
   // Featured Editorial Story — der Bund-Schwerpunkt prominent
   const featuredStory =
@@ -86,22 +78,7 @@ export default function HomePage() {
         badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
       />
 
-      {/* ── STIMMEN AUS DER VERWALTUNG (Persona-Teaser-Slider, Trust) ── */}
-      <StimmenSlider
-        eyebrow="Aus dem Verwaltungsalltag"
-        title="Womit Behörden zu uns kommen."
-        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
-      />
-
-      {/* ── THEMENFELDER (oberste Strukturebene) — direkt unter den Stimmen ── */}
-      <ThemenfeldGrid
-        eyebrow="Struktur"
-        title="Vier Themenfelder. Volle Tiefe."
-        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
-        themenfelder={themenfelder}
-      />
-
-      {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
+      {/* ── 2 · PROBLEM-EINSTIEG (Zielgruppe kommt mit konkreter Aufgabe) ── */}
       <UseCaseEntry
         eyebrow="Wonach suchen Sie?"
         title="Starten Sie beim Problem, nicht bei der Kategorie."
@@ -109,8 +86,34 @@ export default function HomePage() {
         useCases={useCases}
       />
 
-      {/* ── REDAKTIONELLE SCHWERPUNKTE — eine Einheit als radialer Stone-Slab
-             (Feature-Story + 3 Cluster), weiche Kanten zur Cream-Fläche ── */}
+      {/* ── 3 · THEMENFELDER (kuratierte Struktur) ── */}
+      <ThemenfeldGrid
+        eyebrow="Struktur"
+        title="Vier Themenfelder. Volle Tiefe."
+        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
+        themenfelder={themenfelder}
+      />
+
+      {/* ── 4 · STIMMEN (Social Proof nach dem Angebot) ── */}
+      <StimmenSlider
+        eyebrow="Aus dem Verwaltungsalltag"
+        title="Womit Behörden zu uns kommen."
+        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
+      />
+
+      {/* ── 5 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
+      <FeaturedToolBlock
+        eyebrow="Tool im Fokus"
+        title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
+        description="Wir prüfen Tool-Profile nicht, weil wir sie verkaufen wollen. Wir prüfen sie, weil andere Behörden darauf eine Entscheidung gründen werden. Bei VivioAkte hat uns überzeugt, wie ehrlich der Anbieter über die Grenzen des eigenen Systems spricht."
+        tool={featuredTool}
+        rationale={{
+          title: "Amtshelden-Urteil",
+          body: "Für Kommunen bis 50.000 Einwohner, die erstmals digitalisieren — ohne sich dabei zu verlieren.",
+        }}
+      />
+
+      {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
       <section className="bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
           <div className="rounded-[2.5rem] bg-stone">
@@ -124,76 +127,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── MAIN + STICKY SIDEBAR ── */}
-      <section>
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-          <div className="grid gap-12 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_320px]">
-            <div className="min-w-0 space-y-20">
-              <QuickGuideBlock
-                eyebrow="Methodik"
-                title="So prüfen wir Software."
-                lead="Wir nehmen ein Tool nur auf, wenn wir es selbst eingeordnet haben — aus Behördenperspektive, mit Referenzen, mit Compliance-Check."
-                steps={methodSteps}
-              />
-
-              <FeaturedToolBlock
-                eyebrow="Tool im Fokus"
-                title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
-                description="Wir prüfen Tool-Profile nicht, weil wir sie verkaufen wollen. Wir prüfen sie, weil andere Behörden darauf eine Entscheidung gründen werden. Bei VivioAkte hat uns überzeugt, wie ehrlich der Anbieter über die Grenzen des eigenen Systems spricht."
-                tool={featuredTool}
-                rationale={{
-                  title: "Amtshelden-Urteil",
-                  body: "Für Kommunen bis 50.000 Einwohner, die erstmals digitalisieren — ohne sich dabei zu verlieren.",
-                }}
-              />
-
-              <FaqBlock
-                eyebrow="Häufig gefragt"
-                title="Was Behörden vor der Entscheidung wissen wollen."
-                items={behoerdenFaqs}
-              />
-            </div>
-
-            <HomeSidebar />
-          </div>
-        </div>
-      </section>
-
-      {/* ── PULSE-KURZ (3 Artikel quer als Magazin-Grid) ── */}
-      <PulseGrid
-        eyebrow="Supertools Magazin"
-        title="Kurze Reads."
-        description="Wöchentliche Beobachtungen — kompakter als die Schwerpunkte."
-        articles={pulseArticles}
-      />
-
-      {/* ── ABOUT (Grün, 4 Prinzipien) ── */}
+      {/* ── 7 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
       <AboutBlock
-        eyebrow="Über Supertools"
+        eyebrow="Methodik & Haltung"
         title="Wir vergleichen nicht. Wir ordnen ein."
-        lead="Capterra hat Sterne. OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Sie passt zu Strukturen, zu Menschen, zu Anforderungen. Oder eben nicht. Wir machen den Unterschied transparent."
+        lead="Capterra hat Sterne, OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Stattdessen prüfen wir jedes Tool aus Behördenperspektive — in vier Schritten."
         image={{
           url: "/brand/Images/magnific_prompt-6-burgermeister-it_IaThXmEtvE.jpg",
           alt: "Zwei Führungskräfte der Verwaltung im Gespräch vor der Stadtkulisse",
         }}
-        principles={[
-          {
-            title: "Handverlesen statt vollständig",
-            body: "Wir nehmen lieber weniger Tools auf und prüfen sie tiefer. Lieber 300 ernst gemeinte Profile als 3.000 oberflächliche.",
-          },
-          {
-            title: "Aus Behördenperspektive",
-            body: "Unsere Einschätzungen kommen aus der Perspektive der Verwaltung — nicht vom Anbieter. Wenn etwas nicht passt, schreiben wir es.",
-          },
-          {
-            title: "Kein Ranking",
-            body: 'Kein „bestes Tool"-Score, keine Sterne. Stattdessen redaktionelle Einordnung — was funktioniert für wen, und unter welchen Umständen.',
-          },
-          {
-            title: "Verantwortungsabnahme",
-            body: "Wer Software einführt, trägt Verantwortung. Wir liefern die Tiefe, die diese Verantwortung handhabbar macht.",
-          },
-        ]}
+        principles={methodSteps.map((s) => ({ title: s.title, body: s.body }))}
       />
 
       {/* ── NEWSLETTER ── */}
