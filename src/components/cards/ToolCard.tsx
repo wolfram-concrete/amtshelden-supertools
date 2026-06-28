@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { cn, formatDateDEShort } from "@/lib/utils";
+import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
+import { cn } from "@/lib/utils";
 import type { ToolCardSummary } from "@/types/content";
 
 interface ToolCardProps {
@@ -94,8 +95,8 @@ function RowItem({
               .join(" · ")}
           </div>
           {tool.lastCheckedAt && (
-            <div className="mt-1.5 font-ui text-[11px] italic text-soft">
-              geprüft {formatDateDEShort(tool.lastCheckedAt)}
+            <div className="mt-2.5 flex sm:justify-end">
+              <GeprueftBadge date={tool.lastCheckedAt} />
             </div>
           )}
         </div>

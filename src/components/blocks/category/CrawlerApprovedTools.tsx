@@ -16,7 +16,7 @@ import {
   crawlerToolLogoPreview,
   type CrawlerToolContentPiece,
 } from "@/mocks/tools/crawler-preview";
-import { formatDateDEShort } from "@/lib/utils";
+import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { publicPitch } from "@/lib/crawler-content";
 
 const resourcePriority: CrawlerToolContentPiece["kind"][] = [
@@ -282,8 +282,8 @@ export function CrawlerApprovedTools({
                       {[tool.facts.operation, tool.facts.setup].filter(Boolean).join(" · ")}
                     </div>
                     {tool.lastCheckedAt && (
-                      <div className="mt-1.5 font-ui text-[11px] italic text-soft">
-                        geprüft {formatDateDEShort(tool.lastCheckedAt)}
+                      <div className="mt-2.5 flex sm:justify-end">
+                        <GeprueftBadge date={tool.lastCheckedAt} />
                       </div>
                     )}
                   </div>

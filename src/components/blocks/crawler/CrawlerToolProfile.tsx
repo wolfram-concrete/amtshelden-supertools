@@ -24,7 +24,7 @@ import {
   crawlerToolLogoPreview,
   type CrawlerToolContentPiece,
 } from "@/mocks/tools/crawler-preview";
-import { formatDateDEShort } from "@/lib/utils";
+import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import type { ToolCardSummary } from "@/types/content";
 
 function ResourceIcon({ kind }: { kind: CrawlerToolContentPiece["kind"] }) {
@@ -150,9 +150,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               {tool.facts.price || "auf Anfrage"}
             </div>
             {tool.lastCheckedAt && (
-              <div className="font-ui text-[12px] italic text-soft">
-                Crawler-Stand {formatDateDEShort(tool.lastCheckedAt)}
-              </div>
+              <GeprueftBadge date={tool.lastCheckedAt} label="Crawler-Stand" />
             )}
           </div>
           {tool.facts.operation && (
