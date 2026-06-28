@@ -61,7 +61,7 @@ export default function AnbieterPage() {
       {/* ── 1 · HERO (immersiv, radiale Kanten — analog Startseite) ── */}
       <section className="bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
-          <div className="relative flex items-center overflow-hidden rounded-[2.5rem] min-h-[480px] lg:min-h-[600px]">
+          <div className="relative flex items-center overflow-hidden rounded-[2.5rem] min-h-[560px] lg:min-h-[720px]">
             <Image
               src="/brand/Images/magnific_prompt-3-gemeinsame-softw_741ylKNJAL.jpg"
               alt="Software-Team präsentiert eine Anwendung im Verwaltungskontext"

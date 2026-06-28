@@ -36,6 +36,12 @@ export function Header({ className }: HeaderProps) {
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
 
+  // Aktive Seite markieren — Hover-Style bleibt auf dem Punkt bestehen
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
+  const themenActive =
+    pathname.startsWith("/themenfelder") || pathname.startsWith("/kategorien");
+
   // Beim Scrollen eine leichte Frost-Ebene einblenden, damit Logo + Navi
   // über dem durchscrollenden Content lesbar bleiben.
   useEffect(() => {
@@ -49,8 +55,8 @@ export function Header({ className }: HeaderProps) {
     <header
       className={cn(
         "sticky top-0 z-40 w-full",
-        // Verankert auf Innenseiten, transparent über dem Startseiten-Hero
-        isHome ? "" : "border-b border-border bg-cream",
+        // Verankert auf Innenseiten (Cream-Fläche), keine graue Trennlinie
+        isHome ? "" : "bg-cream",
         className,
       )}
     >
@@ -69,12 +75,18 @@ export function Header({ className }: HeaderProps) {
         {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">
           <div className="flex items-center gap-0.5 rounded-2xl bg-logo p-1.5 shadow-[0_12px_34px_-14px_rgba(13,157,105,0.55)]">
-            <MegaMenu onDark />
+            <MegaMenu onDark active={themenActive} />
             {secondaryNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={cn(
+                  "inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
+                  isActive(item.href)
+                    ? "bg-white/15 text-white"
+                    : "text-white/90 hover:bg-white/10 hover:text-white",
+                )}
               >
                 {item.label}
               </Link>
@@ -85,7 +97,13 @@ export function Header({ className }: HeaderProps) {
 
             <Link
               href="/anbieter"
-              className="hidden lg:inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium text-white/90 transition-colors hover:bg-white/10 hover:text-white"
+              aria-current={isActive("/anbieter") ? "page" : undefined}
+              className={cn(
+                "hidden lg:inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
+                isActive("/anbieter")
+                  ? "bg-white/15 text-white"
+                  : "text-white/90 hover:bg-white/10 hover:text-white",
+              )}
             >
               Anbieter werden
             </Link>

@@ -19,9 +19,11 @@ import { themenfelder } from "@/mocks/themenfelder";
 interface MegaMenuProps {
   /** Darstellung auf grünem Hintergrund (Floating-Pill-Navi) */
   onDark?: boolean;
+  /** Aktive Seite (Themenfeld/Kategorie) → Trigger bleibt hervorgehoben */
+  active?: boolean;
 }
 
-export function MegaMenu({ onDark = false }: MegaMenuProps) {
+export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,10 +73,10 @@ export function MegaMenu({ onDark = false }: MegaMenuProps) {
         className={cn(
           "inline-flex items-center gap-1.5 rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
           onDark
-            ? open
+            ? open || active
               ? "bg-white/15 text-white"
               : "text-white/90 hover:bg-white/10 hover:text-white"
-            : open
+            : open || active
               ? "bg-cream text-dark"
               : "text-mid hover:bg-cream hover:text-dark",
         )}

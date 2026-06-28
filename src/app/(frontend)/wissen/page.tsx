@@ -19,7 +19,7 @@ export default function WissenIndexPage() {
       {/* HERO — immersiv, analog zur Startseite */}
       <section className="bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-8 lg:pb-12">
-          <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[380px] lg:min-h-[460px]">
+          <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[560px] lg:min-h-[720px]">
             <Image
               src="/brand/Images/magnific_open-office-inside-a-germ_UyKJgh9wny.jpg"
               alt="Mitarbeitende in einem Verwaltungsbüro bei der Arbeit"
