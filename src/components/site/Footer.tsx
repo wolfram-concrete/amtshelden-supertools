@@ -46,13 +46,13 @@ const columns: FooterColumn[] = [
 
 export function Footer() {
   return (
-    <footer className="mt-32 border-t border-border bg-cream/40">
-      <div className="container mx-auto px-6 lg:px-10 py-16">
+    <footer className="mt-24 rounded-t-[2.5rem] bg-brand-dark text-white">
+      <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           {/* Brand-Spalte */}
           <div>
-            <Logo height={36} />
-            <p className="mt-5 font-sans text-sm leading-relaxed text-soft max-w-xs">
+            <Logo variant="inverse" height={36} />
+            <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 max-w-xs">
               Das Gedächtnis der digitalen Verwaltung Deutschlands.
               Handverlesen. Aus Behördenperspektive.
             </p>
@@ -61,7 +61,7 @@ export function Footer() {
           {/* Link-Spalten */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-dark">
+              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white">
                 {col.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -69,7 +69,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="font-ui text-[13px] text-mid transition-colors hover:text-brand"
+                      className="font-ui text-[13px] text-white/70 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -78,16 +78,6 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </div>
-
-        {/* Bottom-Leiste */}
-        <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-border pt-8">
-          <p className="font-ui text-[12px] text-soft">
-            © {new Date().getFullYear()} Amtshelden GmbH. Alle Rechte vorbehalten.
-          </p>
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-soft">
-            Made in Berlin · Für die digitale Verwaltung
-          </p>
         </div>
       </div>
     </footer>
