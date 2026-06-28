@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { CategoryCard } from "@/components/cards/CategoryCard";
+import { ThemenfeldTabs } from "@/components/blocks/category/ThemenfeldTabs";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder, themenfeldRegistry } from "@/mocks/themenfelder";
+import { toolCardsByCategory } from "@/mocks/tools";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -32,6 +33,9 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
   if (!tf) notFound();
 
   const cats = categoriesByThemenfeld[slug] || [];
+  const toolsByCategory = Object.fromEntries(
+    cats.map((c) => [c.slug, toolCardsByCategory[c.slug] || []]),
+  );
 
   return (
     <>
@@ -64,21 +68,20 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Kategorien-Grid */}
+      {/* Tools direkt — mit Reiter-/Subnav zum Filtern nach Bereich */}
       <div className="container mx-auto px-6 lg:px-10 pb-16 lg:pb-24">
         {cats.length > 0 ? (
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {cats.map((c) => (
-              <CategoryCard key={c.slug} category={c} />
-            ))}
-          </div>
+          <ThemenfeldTabs
+            categories={cats}
+            toolsByCategory={toolsByCategory}
+          />
         ) : (
           <div className="rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
             <p className="font-serif text-[20px] font-normal text-dark">
-              Kategorien in Vorbereitung
+              Dieses Themenfeld wird gerade aufgebaut
             </p>
             <p className="font-sans text-[14px] text-soft mt-2">
-              Dieses Themenfeld wird gerade redaktionell aufgebaut.
+              Wir kuratieren hier gerade die passenden Bereiche und Tools.
             </p>
           </div>
         )}
