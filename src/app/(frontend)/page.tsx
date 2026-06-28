@@ -138,6 +138,7 @@ export default function HomePage() {
           alt: "Julia und Christian, Gründungsteam von Amtshelden",
         }}
         principles={methodSteps.map((s) => ({ title: s.title, body: s.body }))}
+        overlapPrev
       />
 
       {/* ── 8 · AMTSHELDEN-COMMUNITY (Trust: Social-Proof + Follow) ── */}

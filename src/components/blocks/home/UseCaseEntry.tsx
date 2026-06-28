@@ -24,8 +24,9 @@ export function UseCaseEntry({
   useCases,
 }: UseCaseEntryProps) {
   return (
-    <section className="bg-cream py-6 lg:py-10">
-      {/* Full-Bleed-Bildcontainer mit radialen Kanten */}
+    <section className="bg-cream pt-6 lg:pt-10">
+      {/* Full-Bleed-Bildcontainer mit radialen Kanten — unten verlängert,
+          damit die folgende grüne Karte sich darüber legt (Lap-Effekt). */}
       <div className="relative isolate overflow-hidden rounded-[2.5rem]">
         <Image
           src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
@@ -37,7 +38,7 @@ export function UseCaseEntry({
         />
         <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
-        <div className="relative container mx-auto px-6 lg:px-10 py-14 lg:py-20">
+        <div className="relative container mx-auto px-6 lg:px-10 pt-14 lg:pt-20 pb-32 lg:pb-52">
           <header className="max-w-xl space-y-3">
             <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />

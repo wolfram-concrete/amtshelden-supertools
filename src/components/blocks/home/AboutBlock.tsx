@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 interface AboutPrinciple {
   title: string;
   body: string;
@@ -14,6 +16,8 @@ interface AboutBlockProps {
   principles: AboutPrinciple[];
   /** Optionales Motiv in der linken Spalte */
   image?: { url: string; alt: string };
+  /** Slab über die vorige (Bild-)Sektion ziehen — Lap-Effekt */
+  overlapPrev?: boolean;
 }
 
 export function AboutBlock({
@@ -22,12 +26,18 @@ export function AboutBlock({
   lead,
   principles,
   image,
+  overlapPrev = false,
 }: AboutBlockProps) {
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
         {/* Grüner Slab mit Logo-Radien */}
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white px-6 sm:px-10 lg:px-16 py-12 lg:py-16">
+        <div
+          className={cn(
+            "relative z-10 overflow-hidden rounded-[2.5rem] bg-brand-dark text-white px-6 sm:px-10 lg:px-16 py-12 lg:py-16",
+            overlapPrev && "-mt-28 lg:-mt-44",
+          )}
+        >
           {/* Eyebrow oben — zwischen Slab-Kante und Headline */}
           <div className="mb-8 flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
