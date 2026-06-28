@@ -113,7 +113,7 @@ export default function AnbieterPage() {
       </section>
 
       {/* ── 2 · VORTEILE ── */}
-      <section className="bg-cream/40 border-y border-border">
+      <section className="bg-cream/40 border-b border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
             <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">

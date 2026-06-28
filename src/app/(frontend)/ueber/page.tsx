@@ -59,7 +59,7 @@ export default function UeberPage() {
       {/* ============================================================
           2 — EDITORIAL: Warum wir das tun (mit Drop-Cap)
           ============================================================ */}
-      <section className="bg-cream/40 border-y border-border">
+      <section className="bg-cream/40 border-b border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
