@@ -104,6 +104,7 @@ export default function HomePage() {
         eyebrow="Frisch im Verzeichnis"
         title="Fünf Tools, quer durch die Bereiche."
         lead="Echte Anbieter aus der breiten Crawler-Arbeits-Preview — je ein Beispiel aus mehreren Themenfeldern. Noch redaktionell zu prüfen, kein Ranking."
+        exclude={["eye-able-web-inclusion-gmbh"]}
       />
 
       {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
