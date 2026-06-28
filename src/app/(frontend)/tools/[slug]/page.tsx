@@ -12,15 +12,22 @@ import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
 import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
+import { CrawlerToolProfile } from "@/components/blocks/crawler/CrawlerToolProfile";
 import { toolProfileRegistry as toolRegistry } from "@/mocks/tools/profiles";
+import { crawlerToolCardPreview } from "@/mocks/tools/crawler-preview";
+import { publicPitch } from "@/lib/crawler-content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Static Params für SSG-Vorgeneration (alle Mock-Tools)
+// Static Params für SSG: vollständige Profile + freigegebene Crawler-Tools
 export function generateStaticParams() {
-  return Object.keys(toolRegistry).map((slug) => ({ slug }));
+  const slugs = new Set<string>([
+    ...Object.keys(toolRegistry),
+    ...crawlerToolCardPreview.map((t) => t.slug),
+  ]);
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -29,27 +36,41 @@ export async function generateMetadata({
   const { slug } = await params;
   const tool = toolRegistry[slug];
 
-  if (!tool) {
-    return { title: "Tool nicht gefunden" };
+  if (tool) {
+    return {
+      title: `${tool.name} — ${tool.hero.categoryLabel}`,
+      description: tool.hero.lead.slice(0, 160),
+      openGraph: {
+        title: tool.hero.title,
+        description: tool.hero.lead.slice(0, 160),
+        type: "article",
+        authors: [tool.hero.byline.editor],
+      },
+    };
   }
 
-  return {
-    title: `${tool.name} — ${tool.hero.categoryLabel}`,
-    description: tool.hero.lead.slice(0, 160),
-    openGraph: {
-      title: tool.hero.title,
-      description: tool.hero.lead.slice(0, 160),
-      type: "article",
-      authors: [tool.hero.byline.editor],
-    },
-  };
+  const crawlerTool = crawlerToolCardPreview.find((t) => t.slug === slug);
+  if (crawlerTool) {
+    return {
+      title: `${crawlerTool.name} — Crawler-Freigabe`,
+      description: publicPitch(crawlerTool.pitch).slice(0, 160),
+      robots: { index: false, follow: false },
+    };
+  }
+
+  return { title: "Tool nicht gefunden" };
 }
 
 export default async function ToolProfilePage({ params }: PageProps) {
   const { slug } = await params;
   const tool = toolRegistry[slug];
 
-  if (!tool) notFound();
+  // Fallback: freigegebenes Crawler-Tool ohne vollständiges Profil
+  if (!tool) {
+    const crawlerTool = crawlerToolCardPreview.find((t) => t.slug === slug);
+    if (crawlerTool) return <CrawlerToolProfile tool={crawlerTool} />;
+    notFound();
+  }
 
   return (
     <>
