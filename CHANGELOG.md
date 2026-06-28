@@ -2,6 +2,74 @@
 
 ---
 
+## [0.21.0] — 2026-06-28
+
+### Bewegung & Lebendigkeit, Entscheidungsabkürzung, Crawler-Profil-Integration
+
+#### 🎞️ Motion-System (Pass 1, Home)
+- Globales `ScrollReveal` (IntersectionObserver, progressive Enhancement,
+  `prefers-reduced-motion`-safe) blendet Module beim Reinscrollen ein —
+  `data-reveal` an allen Home-Modul-Headern, gestaffelt im Hero.
+- `Parallax`-Layer für das Hero-Motiv; `.lift`-Hover-Utility für Karten.
+- Reveal-/Lift-Regeln zentral in `globals.css`.
+
+#### 🦸 Hero
+- H1 auf **„Die passende Software für Ihre Verwaltung."** reduziert
+  („Von Expert:innen kuratiert." raus), deutlich größer (bis 68px),
+  Lead + Badges höher gerückt.
+- Lesbarkeits-Overlay mobil **von oben** (`bg-gradient-to-b`), ab `lg` von
+  links — passt zum anderen Bildausschnitt.
+
+#### 🧮 „Die Entscheidungsabkürzung" (neues Home-Modul)
+- Beantwortet die 6 Entscheidungsfragen (Problem-Passung, Behördengröße,
+  Voraussetzungen, Stärken, **Was fehlt noch?**, Nächster Schritt) an einem
+  geprüften Beispiel (VivioAkte), direkt unter den Stimmen.
+- Plakativ: Serif-Fragen, grünes „Geprüft am"-Eckmodul, gelbe Honesty-Kachel,
+  grüne Aktions-Kachel. **Keine Pricing-Angabe** (auf Wunsch entfernt).
+- Daten/Quelle in `src/mocks/decision.ts` (deckungsgleich mit VivioAkte-Profil).
+
+#### 🟢 Navigation & Trust
+- Mega-Menü: Außenpanel auf **Logo-Grün**, innere Karten **Off-White** mit
+  dunkler Schrift, ohne Konturkanten.
+- Neuer Trust-Block **„Teil von Amtshelden"** (Community/Follow, echtes
+  Gründer-Zitat, Links zu Instagram + LinkedIn).
+- Förderhinweis-Slot unter dem Hero als **neutraler Platzhalter** (kein Logo,
+  keine „gefördert durch"-Aussage bis zur offiziellen Bestätigung).
+
+#### 🖼️ Bild & Layout
+- Use-Case-Motiv nach unten verlängert, grüne Methodik-Karte überlappt
+  (Lap-Effekt, `overlapPrev`).
+- Stimmen-Slider full-bleed aus dem rechten Rand, kompaktere Karten;
+  Passau (1000×204 → 1280×825) und Konstanz (1000×332 → 1280×856) durch
+  hochauflösende Commons-Motive ersetzt.
+- Wissen-Artikel: zweispaltig — linksbündige Lesespalte + sticky
+  `ArticleSidebar` („Weitere Artikel"); Body nicht mehr zentriert.
+- Über + Anbieter: feine Linie direkt unter dem Hero entfernt
+  (`border-y` → `border-b`).
+
+#### 🤖 Crawler-Integration
+- **Profil-Fallback** unter `/tools/[slug]` für freigegebene Crawler-Tools
+  ohne vollständiges `ToolProfile` (`CrawlerToolProfile`), klar als
+  „Crawler-Freigabe · noch redaktionell zu prüfen" markiert (`noindex`).
+- Quelle ausschließlich `src/mocks/tools/crawler-preview.ts`; YouTube nur als
+  Thumbnail/Link, Content Pieces als kurze Shortlinks, Logos via
+  `crawlerToolLogoPreview`, keine Auto-Publish-Logik.
+- `generateStaticParams` erzeugt jetzt auch die Crawler-Slugs (SSG).
+- Neuer `publicPitch()` entfernt die interne „Crawler-Hinweis:"-Sales-Notiz
+  auf öffentlichen Oberflächen (Profil + Kategorie-Sektion); die interne
+  `/crawler-preview` behält den vollen Pitch.
+- Crawler-Freigabe-Links: `/crawler-preview#slug` → `/tools/slug`.
+- Build-Fix: bis dahin untrackte Frontend-Quellen
+  (`crawler-preview.ts`, `/crawler-preview`-Seite, Kategorie-Einbindung)
+  versioniert — der gepushte Tree war sonst nicht baubar.
+
+---
+
+### ✅ Status
+- TypeScript: clean · Build: clean (alle Routes static/SSG)
+
+---
+
 ## [0.20.0] — 2026-06-28
 
 ### Anbieter-Seed, immersive Heroes, radiale Bento-Sprache, Rechtsseiten, Schaubild

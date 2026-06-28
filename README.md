@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Juni 2026 · **Version:** 0.20 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** Juni 2026 · **Version:** 0.21 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -82,7 +82,16 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.18, Juni 2026)
+## 3. AKTUELLE SITUATION (Stand v0.21, Juni 2026)
+
+> **Seit v0.21:** Bewegung/Lebendigkeit auf der Home (globales `ScrollReveal`
+> + Hero-Parallax, `prefers-reduced-motion`-safe), reduzierte/größere Hero-H1,
+> neues Modul **„Die Entscheidungsabkürzung"** (6 Fragen an einem Beispiel,
+> ohne Pricing), Mega-Menü Off-White auf Logo-Grün, Trust-Block „Teil von
+> Amtshelden", zweispaltige Wissen-Artikel mit Sidebar, neutraler
+> Förderhinweis-Platzhalter — und die **Crawler-Profil-Integration** unter
+> `/tools/[slug]` (Fallback aus `crawler-preview.ts`, `noindex`, `publicPitch()`
+> filtert interne Notizen).
 
 ### Tech-Stack
 
@@ -90,7 +99,8 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 · Tailwind v4 (`@theme`-Tokens in CSS) · shadcn-Style Primitives (`@radix-ui/react-slot`,
 `class-variance-authority`, `clsx`, `tailwind-merge`)
 · `lucide-react` für Icons.
-**Deployment:** Vercel, Git-Auto-Deploy (GitHub-App). Build clean, **32 Routes** (alle Static/SSG).
+**Deployment:** Vercel, Git-Auto-Deploy (GitHub-App). Build clean, alle Routes Static/SSG
+(inkl. interner `/crawler-preview` + Crawler-Profil-Fallbacks unter `/tools/[slug]`).
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools`.
 
 ### Strukturebene: 4 Themenfelder (seit v0.16, Strategie-Meeting 12.06.2026)
