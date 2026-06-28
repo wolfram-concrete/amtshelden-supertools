@@ -103,7 +103,7 @@ export default function HomePage() {
       <ToolTeaser
         eyebrow="Frisch im Verzeichnis"
         title="Fünf Tools, quer durch die Bereiche."
-        lead="Echte Anbieter aus der breiten Crawler-Arbeits-Preview — je ein Beispiel aus mehreren Themenfeldern. Noch redaktionell zu prüfen, kein Ranking."
+        lead="Kuratierte Anbieter aus dem Verzeichnis — je ein Beispiel aus mehreren Themenfeldern. Profile werden laufend ausgebaut, kein Ranking."
         exclude={["eye-able-web-inclusion-gmbh"]}
       />
 

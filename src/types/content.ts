@@ -153,6 +153,9 @@ export interface ToolCardSummary {
   /** Mark-Initialen + Farbe */
   mark: string;
   markBg?: string;
+  /** Optionales echtes Logo (Bild-URL) + Hintergrundfarbe; sonst Letter-Mark */
+  logoUrl?: string;
+  logoBg?: string;
   /** Verifiziert-Status */
   verified?: boolean;
   /**

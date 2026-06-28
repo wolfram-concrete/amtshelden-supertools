@@ -18,6 +18,44 @@ interface ToolCardProps {
   variant?: "row" | "list" | "feature" | "tile";
 }
 
+/** Logo-Slot: echtes Logo (Bild) wenn vorhanden, sonst Letter-Mark. */
+function ToolMark({
+  tool,
+  size,
+}: {
+  tool: ToolCardSummary;
+  size: "sm" | "md" | "lg";
+}) {
+  const box =
+    size === "lg"
+      ? "h-14 w-14 rounded-xl text-[16px]"
+      : size === "md"
+        ? "h-11 w-11 rounded-xl text-sm"
+        : "h-10 w-10 rounded-lg text-[12px]";
+  return (
+    <span
+      aria-hidden
+      className={cn(
+        "flex flex-shrink-0 items-center justify-center overflow-hidden font-ui font-extrabold tracking-tight text-white",
+        box,
+      )}
+      style={{ background: tool.logoBg || tool.markBg || "var(--color-brand)" }}
+    >
+      {tool.logoUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={tool.logoUrl}
+          alt=""
+          className="h-full w-full object-contain p-1.5"
+          loading="lazy"
+        />
+      ) : (
+        tool.mark
+      )}
+    </span>
+  );
+}
+
 export function ToolCard({ tool, className, variant = "list" }: ToolCardProps) {
   if (variant === "row") {
     return <RowItem tool={tool} className={className} />;
@@ -49,13 +87,7 @@ function RowItem({
     >
       {/* Mark + Hauptinfo */}
       <div className="flex min-w-0 flex-1 items-start gap-4">
-        <span
-          aria-hidden
-          className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl text-white font-ui text-[16px] font-extrabold tracking-tight"
-          style={{ background: tool.markBg || "var(--color-brand)" }}
-        >
-          {tool.mark}
-        </span>
+        <ToolMark tool={tool} size="lg" />
 
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2.5">
@@ -141,13 +173,7 @@ function TileCard({
     >
       {/* Header: Mark + Name + Verified */}
       <div className="flex items-start gap-3">
-        <div
-          aria-hidden
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg text-white font-ui text-[12px] font-extrabold tracking-tight"
-          style={{ background: tool.markBg || "var(--color-brand)" }}
-        >
-          {tool.mark}
-        </div>
+        <ToolMark tool={tool} size="sm" />
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <h3 className="font-serif text-[17px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
@@ -229,16 +255,7 @@ function ExtendedCard({
     >
       <Link href={`/tools/${tool.slug}`} className="block">
         <div className="flex items-start gap-4">
-          <div
-            aria-hidden
-            className={cn(
-              "flex-shrink-0 rounded-xl flex items-center justify-center text-white font-ui font-extrabold tracking-tight",
-              isFeature ? "h-14 w-14 text-base" : "h-11 w-11 text-sm",
-            )}
-            style={{ background: tool.markBg || "var(--color-brand)" }}
-          >
-            {tool.mark}
-          </div>
+          <ToolMark tool={tool} size={isFeature ? "lg" : "md"} />
 
           <div className="flex-1 min-w-0 space-y-1">
             <div className="flex items-center gap-2 flex-wrap">

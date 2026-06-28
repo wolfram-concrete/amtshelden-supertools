@@ -50,7 +50,7 @@ export const behoerdenFaqs: FaqItem[] = [
   {
     question: "Was kostet eine Listung für Software-Anbieter?",
     answer:
-      "Das Basis-Profil ist kostenfrei (Crawler-basiert). Verified Listing 199–299 €/Mo. Add-ons (Ansprechpartner, Cases, Amtshelden-Urteil) einzeln buchbar. Kein Pay-to-Rank.",
+      "Das Basis-Profil ist kostenfrei. Verified Listing 199–299 €/Mo. Add-ons (Ansprechpartner, Cases, Amtshelden-Urteil) einzeln buchbar. Kein Pay-to-Rank.",
   },
   {
     question: "Kann ich als Behörde Erfahrungen teilen?",

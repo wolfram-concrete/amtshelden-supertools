@@ -29,11 +29,11 @@ function SignalPill({ children }: { children: React.ReactNode }) {
 }
 
 /**
- * Tool im Fokus — EIN echtes, freigegebenes Crawler-Tool prominent.
+ * Tool im Fokus — EIN echtes, freigegebenes Verzeichnis-Tool prominent.
  *
  * Ehrlich: zeigt nur belegbare Daten (Pitch, Compliance, Quelle) und eine
  * faktische Einordnung der Behörden-Relevanz — KEIN erfundenes redaktionelles
- * Urteil. Klar als „Crawler-Freigabe, Prüfung läuft" markiert.
+ * Urteil. Als „Basis-Profil" markiert; öffentlich kein Crawler-Hinweis.
  */
 export function FokusTool({
   eyebrow,
@@ -106,7 +106,7 @@ export function FokusTool({
                     {tool.name}
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-accent-ink">
-                    Crawler-Freigabe
+                    Basis-Profil
                   </span>
                 </div>
                 <div className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
@@ -130,13 +130,12 @@ export function FokusTool({
 
             {tool.lastCheckedAt && (
               <div className="mt-5">
-                <GeprueftBadge date={tool.lastCheckedAt} label="Crawler-Stand" />
+                <GeprueftBadge date={tool.lastCheckedAt} />
               </div>
             )}
             <p className="mt-3 flex items-start gap-2 font-ui text-[12px] leading-[1.5] text-soft">
               <Info size={14} className="mt-0.5 flex-shrink-0" aria-hidden />
-              Automatisch erfasste Signale aus dem Crawler-Lauf — die vollständige
-              redaktionelle Prüfung steht noch aus.
+              Basis-Eintrag — die ausführliche redaktionelle Einordnung folgt.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-border pt-5">

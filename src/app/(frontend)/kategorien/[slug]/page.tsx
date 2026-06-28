@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { KategorieHero } from "@/components/blocks/category/KategorieHero";
-import { CrawlerApprovedTools } from "@/components/blocks/category/CrawlerApprovedTools";
 import { ToolFilters } from "@/components/blocks/category/ToolFilters";
 import { articleSummaries } from "@/mocks/articles";
 import { categories, categoryRegistry } from "@/mocks/categories";
 import { toolCardsByCategory } from "@/mocks/tools";
+import {
+  crawlerToolCardPreview,
+  crawlerToolLogoPreview,
+} from "@/mocks/tools/crawler-preview";
+import { publicPitch } from "@/lib/crawler-content";
+import type { ToolCardSummary } from "@/types/content";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
 
@@ -36,7 +41,22 @@ export default async function KategorieDetailPage({ params }: PageProps) {
   const category = categoryRegistry[slug];
   if (!category) notFound();
 
-  const tools = toolCardsByCategory[slug] || [];
+  // Eine gemeinsame, kuratierte Tool-Liste je Kategorie: bestehende
+  // redaktionelle Einträge + die freigegebenen Verzeichnis-Tools (Pitch
+  // bereinigt, echtes Logo). Keine sichtbare Trennung, kein Crawler-Hinweis.
+  const editorialTools = toolCardsByCategory[slug] || [];
+  const verzeichnisTools: ToolCardSummary[] = crawlerToolCardPreview
+    .filter((t) => t.categorySlug === slug)
+    .map((t) => {
+      const logo = crawlerToolLogoPreview[t.slug];
+      return {
+        ...t,
+        pitch: publicPitch(t.pitch),
+        logoUrl: logo?.logoUrl,
+        logoBg: logo?.backgroundColor,
+      };
+    });
+  const tools = [...editorialTools, ...verzeichnisTools];
   const relatedArticles = articleSummaries
     .filter((a) =>
       a.tags?.some((tag) =>
@@ -54,7 +74,6 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-16">
         <ToolFilters tools={tools} />
-        <CrawlerApprovedTools categorySlug={slug} />
       </div>
 
       {/* Verwandte Wissensartikel */}

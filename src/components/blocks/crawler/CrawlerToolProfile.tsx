@@ -92,14 +92,12 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           </span>
           <div>
             <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-accent-ink">
-              Crawler-Freigabe · Arbeits-Preview · redaktionell noch zu prüfen
+              Basis-Profil · wird redaktionell ausgebaut
             </div>
             <p className="mt-1 font-sans text-[13.5px] leading-[1.6] text-mid">
-              Dieser Eintrag stammt aus einer breiten Crawler-Arbeits-Preview (MVP)
-              — automatisch erfasste Signale, noch kein fertiges redaktionelles
-              Profil und keine finale Empfehlung. Texte, Quellen, Kategorie und
-              Compliance werden vor einer Aufnahme in die kuratierte Hauptliste
-              geprüft.
+              Dieses Profil ist ein Basis-Eintrag: Kerninfos sind erfasst, die
+              ausführliche redaktionelle Einordnung — Stärken, Grenzen, Praxis —
+              folgt. Compliance-Angaben sind Hinweise, keine juristische Zusage.
             </p>
           </div>
         </div>
@@ -127,7 +125,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
 
           <div className="min-w-0">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-accent-ink">
-              Crawler-Freigabe
+              Basis-Profil
             </span>
             <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">
               {tool.name}
@@ -150,9 +148,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             <div className="font-serif text-[22px] font-normal leading-none text-dark">
               {tool.facts.price || "auf Anfrage"}
             </div>
-            {tool.lastCheckedAt && (
-              <GeprueftBadge date={tool.lastCheckedAt} label="Crawler-Stand" />
-            )}
+            {tool.lastCheckedAt && <GeprueftBadge date={tool.lastCheckedAt} />}
           </div>
           {tool.facts.operation && (
             <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
@@ -167,7 +163,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             {tool.compliance.vergabe && <SignalPill>Vergabe</SignalPill>}
           </div>
           <p className="mt-3 font-ui text-[11.5px] leading-[1.5] text-soft">
-            Automatisch erfasste Crawler-Signale — Hinweise, keine geprüfte
+            Angaben aus öffentlich verfügbaren Quellen — Hinweise, keine geprüfte
             juristische Zusage.
           </p>
         </div>
@@ -205,7 +201,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
         {resources.length > 0 && (
           <div className="mt-7">
             <div className="mb-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
-              Zusatzmaterial aus dem Crawler-Lauf
+              Material vom Anbieter
             </div>
             <div className="flex flex-wrap gap-2">
               {resources.map((piece) => (
@@ -257,8 +253,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
 
         {logo?.domain && (
           <p className="mt-4 font-ui text-[11.5px] text-soft">
-            Quelle der Crawler-Daten: {logo.domain}. Profil noch nicht
-            redaktionell finalisiert.
+            Quelle: {logo.domain}. Profil wird redaktionell ausgebaut.
           </p>
         )}
       </div>
