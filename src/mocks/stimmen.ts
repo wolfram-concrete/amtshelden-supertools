@@ -18,6 +18,8 @@ export interface Stimme {
   context: string;
   /** Stadtwappen (echtes Hoheitszeichen — Platzhalter, später echte Referenz) */
   wappen: string;
+  /** Repräsentatives Stadtbild (Commons — Platzhalter) */
+  stadtbild: string;
   /** Passendes Themenfeld (Verlinkung + Icon) */
   themenfeld: { slug: string; name: string; icon: BrandIconName };
 }
@@ -28,7 +30,7 @@ export const stimmen: Stimme[] = [
       "Bei einer Hochwasserlage müssen wir in Minuten über fünf Kanäle informieren — und haben kein Werkzeug, das das koordiniert.",
     role: "Pressestelle",
     context: "Stadt Passau",
-    wappen: "/brand/wappen/passau.png",
+    wappen: "/brand/wappen/passau.png",    stadtbild: "/brand/staedte/passau.jpg",
     themenfeld: {
       slug: "kommunikation-krise",
       name: "Kommunikation & Krise",
@@ -40,7 +42,7 @@ export const stimmen: Stimme[] = [
       "Wir verlieren Bewerber, weil unser Verfahren vier Wochen dauert und sich zwischendurch niemand meldet.",
     role: "Hauptamt",
     context: "Stadt Münster",
-    wappen: "/brand/wappen/muenster.png",
+    wappen: "/brand/wappen/muenster.png",    stadtbild: "/brand/staedte/muenster.jpg",
     themenfeld: {
       slug: "smartes-personalmanagement",
       name: "Smartes Personalmanagement",
@@ -52,7 +54,7 @@ export const stimmen: Stimme[] = [
       "Die E-Akte ist eingeführt — aber die Hälfte der Kolleginnen druckt weiter aus. Woran liegt das, und was hilft wirklich?",
     role: "Digitalisierungsbeauftragte",
     context: "Stadt Heidelberg",
-    wappen: "/brand/wappen/heidelberg.png",
+    wappen: "/brand/wappen/heidelberg.png",    stadtbild: "/brand/staedte/heidelberg.jpg",
     themenfeld: {
       slug: "transformation-ki",
       name: "Transformation & KI",
@@ -64,7 +66,7 @@ export const stimmen: Stimme[] = [
       "Ich soll den Haushalt steuern, sehe die entscheidenden Zahlen aber erst, wenn das Quartal längst vorbei ist.",
     role: "Kämmerei",
     context: "Stadt Konstanz",
-    wappen: "/brand/wappen/konstanz.png",
+    wappen: "/brand/wappen/konstanz.png",    stadtbild: "/brand/staedte/konstanz.jpg",
     themenfeld: {
       slug: "moderne-fuehrung",
       name: "Moderne Führung",
@@ -76,7 +78,7 @@ export const stimmen: Stimme[] = [
       "Bürger erwarten Online-Anträge. Unsere Fachverfahren sprechen aber nicht miteinander — jede Schnittstelle ist ein Projekt.",
     role: "IT-Leitung",
     context: "Stadt Freiburg",
-    wappen: "/brand/wappen/freiburg.png",
+    wappen: "/brand/wappen/freiburg.png",    stadtbild: "/brand/staedte/freiburg.jpg",
     themenfeld: {
       slug: "transformation-ki",
       name: "Transformation & KI",

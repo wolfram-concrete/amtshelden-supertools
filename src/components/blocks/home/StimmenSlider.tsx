@@ -77,8 +77,20 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
             <article
               key={i}
               data-card
-              className="flex w-[280px] flex-shrink-0 snap-start flex-col rounded-2xl bg-white p-6 sm:w-[340px]"
+              className="flex w-[280px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white sm:w-[340px]"
             >
+              {/* Stadtbild-Banner (Platzhalter) */}
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src={s.stadtbild}
+                  alt={`Ansicht ${s.context}`}
+                  fill
+                  sizes="340px"
+                  className="object-cover"
+                />
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
               <div className="flex items-center gap-3">
                 <span className="relative h-12 w-10 flex-shrink-0">
                   <Image
@@ -108,6 +120,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
                 {s.themenfeld.name}
                 <ArrowUpRight size={14} aria-hidden />
               </Link>
+              </div>
             </article>
           ))}
         </div>
