@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
+import { DecisionShortcut } from "@/components/blocks/home/DecisionShortcut";
 import { FoerderHinweis } from "@/components/blocks/home/FoerderHinweis";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { FeaturedToolBlock } from "@/components/blocks/home/FeaturedToolBlock";
@@ -91,7 +92,14 @@ export default function HomePage() {
         lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
-      {/* ── 3 · THEMENFELDER (kuratierte Struktur) ── */}
+      {/* ── 3 · ENTSCHEIDUNGSABKÜRZUNG (6 Fragen an einem geprüften Tool) ── */}
+      <DecisionShortcut
+        eyebrow="Die Entscheidungsabkürzung"
+        title="Eine Behörde, sechs Fragen, ein Blick."
+        lead="Beispiel: eine kleine Kommune will erstmals die E-Akte einführen. So weit verkürzt ein Supertools-Profil die Entscheidung — inklusive dem, was noch fehlt."
+      />
+
+      {/* ── 4 · THEMENFELDER (kuratierte Struktur) ── */}
       <ThemenfeldGrid
         eyebrow="Struktur"
         title="Vier Themenfelder. Volle Tiefe."
@@ -99,7 +107,7 @@ export default function HomePage() {
         themenfelder={themenfelder}
       />
 
-      {/* ── 4 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
+      {/* ── 5 · TOOL IM FOKUS (ein konkret geprüftes Beispiel) ── */}
       <FeaturedToolBlock
         eyebrow="Tool im Fokus"
         title="VivioAkte — wenn die E-Akte tatsächlich funktioniert"
@@ -111,7 +119,7 @@ export default function HomePage() {
         }}
       />
 
-      {/* ── 5 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
+      {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
       <section className="bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
           <div className="rounded-[2.5rem] bg-stone">
@@ -125,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 6 · PROBLEM-EINSTIEG (ergänzend: vom Problem zur Auswahl) ── */}
+      {/* ── 7 · PROBLEM-EINSTIEG (ergänzend: vom Problem zur Auswahl) ── */}
       <UseCaseEntry
         eyebrow="Wonach suchen Sie?"
         title="Starten Sie beim Problem, nicht bei der Kategorie."
@@ -133,7 +141,7 @@ export default function HomePage() {
         useCases={useCases}
       />
 
-      {/* ── 7 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
+      {/* ── 8 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
       <AboutBlock
         eyebrow="Methodik & Haltung"
         title="Wir vergleichen nicht. Wir ordnen ein."
@@ -146,7 +154,7 @@ export default function HomePage() {
         overlapPrev
       />
 
-      {/* ── 8 · AMTSHELDEN-COMMUNITY (Trust: Social-Proof + Follow) ── */}
+      {/* ── 9 · AMTSHELDEN-COMMUNITY (Trust: Social-Proof + Follow) ── */}
       <AmtsheldenFeed />
 
       {/* ── NEWSLETTER ── */}
