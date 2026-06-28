@@ -93,6 +93,14 @@ export default function HomePage() {
         lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
       />
 
+      {/* ── THEMENFELDER (oberste Strukturebene) — direkt unter den Stimmen ── */}
+      <ThemenfeldGrid
+        eyebrow="Struktur"
+        title="Vier Themenfelder. Volle Tiefe."
+        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
+        themenfelder={themenfelder}
+      />
+
       {/* ── PROBLEM-/USE-CASE-EINSTIEG (Behörden suchen nach Problem) ── */}
       <UseCaseEntry
         eyebrow="Wonach suchen Sie?"
@@ -157,14 +165,6 @@ export default function HomePage() {
         title="Kurze Reads."
         description="Wöchentliche Beobachtungen — kompakter als die Schwerpunkte."
         articles={pulseArticles}
-      />
-
-      {/* ── THEMENFELDER (oberste Strukturebene) ── */}
-      <ThemenfeldGrid
-        eyebrow="Struktur"
-        title="Vier Themenfelder. Volle Tiefe."
-        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
-        themenfelder={themenfelder}
       />
 
       {/* ── ABOUT (Grün, 4 Prinzipien) ── */}
