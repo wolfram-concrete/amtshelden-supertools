@@ -2,6 +2,51 @@
 
 ---
 
+## [0.20.0] — 2026-06-28
+
+### Anbieter-Seed, immersive Heroes, radiale Bento-Sprache, Rechtsseiten, Schaubild
+
+#### 🗂️ Anbieter-Seed aus Zielkundenliste
+- `src/mocks/zielkunden.ts`: 72 GovTech-Anbieter aus
+  `Amtshelden_Zielkundenliste_Sponsoring_2026.xlsx` typisiert übernommen, je
+  Cluster → Themenfeld gemappt (KOM/CROSS→Kommunikation, IT→Transformation,
+  HR→Personal, ORG→Führung). **Seed für die Anbieter-Pipeline**, kein
+  öffentliches Rendering. Interne Felder (Relevanz, Notiz, Kontakt) markiert;
+  öffentlich nur nach Redaktions-Gate als Basis-Profil.
+
+#### 🖼️ Immersive Heroes + Bildkontext
+- Startseite, Über (Julia & Christian von amtshelden.de), Wissen und Anbieter
+  haben jetzt großflächige Vollbild-Motive mit Overlay; Use-Case-Sektion als
+  Full-Bleed-Motiv. Stimmen-Slider mit echten Stadtwappen + Stadtbildern
+  (Platzhalter). Themenfeld-Cards ohne grünen Layer.
+
+#### 🟢 Navigation, Tool-Finder, Curving
+- Grüne Floating-Pill (Logo-Grün #0d9d69) mit allen Actions; Header verankert
+  auf Innenseiten, Scroll-Frost. Mega-Menü kontainiert (ohne Feature-Karte).
+  Tool-Finder leicht glossy. Alle CTAs auf `rounded-xl` (Navi-Curving).
+
+#### 🧱 Radiale Bento-Sprache
+- Full-Size-Bildcontainer + Kontrast-Sektionen mit radialen Logo-Kanten
+  (`rounded-[2.5rem]`); About-Slab mit integrierten CTAs; Schwerpunkte als
+  Stone-Slab mit modularen Artikel-Karten. Methodik kompaktes Bento.
+
+#### 🧭 Struktur & Inhalt
+- Themenfeld-Detailseiten: Direkteinstieg auf die Tools mit Reiter-/Subnav
+  statt vorgeschalteter Kategorie-Auswahl. Breadcrumb-Zeile entfernt.
+- Persona-Stimmen-Slider auf der Startseite. Topic-Icons in Artikel-Eyebrows,
+  „Weiterlesen"-CTA in Teaser-Cards.
+
+#### ⚖️ Rechtliches & Doku
+- Echte Impressum- + Datenschutz-Seiten (markierte Pflichtfelder, anwaltlich
+  zu prüfen). Architektur-/Orchestrierungs-Schaubild `public/architektur.html`
+  (`/architektur.html`) für die Entwicklung.
+
+#### 🔤 Design-System
+- IBM-Plex-Familie (Serif/Sans/Mono), Sun-Yellow als Signal-Akzent, warme
+  Flächen-Ladder; Regeln in `docs/design-system.md` (Basis: byq.supply).
+
+---
+
 ## [0.18.0] — 2026-06-27
 
 ### Bento-Design-Refresh: Off-White-Fläche, grüne Pill-Navi, Bild-Motive

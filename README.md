@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Juni 2026 · **Version:** 0.18 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** Juni 2026 · **Version:** 0.20 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -227,6 +227,36 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
 - **8 Pulse-Artikel** inkl. zwei Schwerpunkt-Stories („Digitalisierung Bund 2030", „Kommunen-Realität")
 - **8 FAQ-Items** für Behörden mit `readMoreSlug`-Verlinkungen
 - **4 Trust-Stats** + **4 Methodik-Schritte**
+
+### Anbieter-Seed (Zielkundenliste 2026) — `src/mocks/zielkunden.ts`
+
+Aus `Amtshelden_Zielkundenliste_Sponsoring_2026.xlsx` (72 GovTech-Anbieter)
+typisiert ins Repo übernommen — als **Seed für die Anbieter-Pipeline**
+(„Quellen → Crawler/DB" aus `public/architektur.html`), **nicht** als
+öffentliches Rendering.
+
+- **Cluster → Themenfeld:** KOM/CROSS → Kommunikation & Krise · IT →
+  Transformation & KI · HR → Smartes Personalmanagement · ORG → Moderne Führung.
+  Verteilung: KOM 14 · IT 31 · CROSS 10 · HR 10 · ORG 7.
+- **Öffentlich nutzbar (nach Redaktions-Gate):** Firma, Website, Branche,
+  Hauptsitz, Mitarbeiterzahl, Themenfeld → kuratierte **Basis-Profile** (Kap. 25)
+  in Themenfeld-/Kategorie-Tool-Listen.
+- **INTERN, nie öffentlich:** `relevanz` (1–5), `notiz` (Vertriebsnotiz),
+  `telefon`, `email`. Kein Auto-Publish — Einträge starten im Status „gefunden"
+  und durchlaufen das Mensch-Gate.
+- **Empfohlene Integration in Module:** (1) Themenfeld-Tool-Tabs &
+  Kategorie-Listen als Basis-Einträge; (2) Pipeline-Kennzahlen fürs interne
+  Dashboard (`zielkundenCountByThemenfeld`); (3) Vertriebs-Seed für gezielte
+  Anbieter-Ansprache. Vor öffentlichem Rendering: „ungeprüft/Basis"-Status im
+  UI ergänzen, damit keine Compliance suggeriert wird.
+
+### Rechtliches & Doku
+
+- **Impressum / Datenschutz** sind echte Seiten (§ 5 DDG bzw. website-spezifische
+  DSGVO-Erklärung) mit gelb markierten, noch zu ergänzenden Pflichtfeldern.
+- **Architektur-/Orchestrierungs-Schaubild** für die Entwicklung:
+  `public/architektur.html` → `/architektur.html` (Crawler → Prüfung →
+  Redaktion → DB → Dashboard + Frontend, inkl. Kreisläufen).
 
 ### Geschäftsmodell MVP
 - Manuelle Vermittlung (Anfrage → Amtshelden → Anbieter) — vor Payload-Integration weiterhin gültig
