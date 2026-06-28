@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Juni 2026 · **Version:** 0.21 · **Live:** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** Juni 2026 · **Version:** 0.22 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -82,16 +82,21 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.21, Juni 2026)
+## 3. AKTUELLE SITUATION (Stand v0.22, Juni 2026)
 
-> **Seit v0.21:** Bewegung/Lebendigkeit auf der Home (globales `ScrollReveal`
-> + Hero-Parallax, `prefers-reduced-motion`-safe), reduzierte/größere Hero-H1,
-> neues Modul **„Die Entscheidungsabkürzung"** (6 Fragen an einem Beispiel,
-> ohne Pricing), Mega-Menü Off-White auf Logo-Grün, Trust-Block „Teil von
-> Amtshelden", zweispaltige Wissen-Artikel mit Sidebar, neutraler
-> Förderhinweis-Platzhalter — und die **Crawler-Profil-Integration** unter
-> `/tools/[slug]` (Fallback aus `crawler-preview.ts`, `noindex`, `publicPitch()`
-> filtert interne Notizen).
+> **Seit v0.22:** „Tool im Fokus" zeigt ein **echtes** Verzeichnis-Tool
+> (Eye-Able), fiktives VivioAkte raus; **ToolTeaser** mit 5 echten Tools quer
+> durch die Bereiche. **59 freigegebene Anbieter** im Verzeichnis (Profil-
+> Fallback unter `/tools/[slug]`, 94 statische Seiten). **Öffentlich kein
+> „Crawler"-Wording** mehr — selbst kuratiert: „Basis-Profil", „Verzeichnis";
+> Kategorie-Seiten zeigen **eine gemeinsame Tool-Liste** mit echten Logos
+> (`ToolMark`). Prüfdatum site-weit als grüne `GeprueftBadge`. Hero-Eyebrows
+> auf Über/Wissen/Anbieter entfernt; Anbieter-CTA mit Bild. Status-Übersicht
+> für die Gründer in `docs/STATUS-SUPERTOOLS.md` (+ PDF).
+>
+> *v0.21 brachte: Bewegung/Lebendigkeit (ScrollReveal + Parallax), größere
+> Hero-H1, Mega-Menü Off-White auf Logo-Grün, Trust-Block „Teil von Amtshelden",
+> zweispaltige Wissen-Artikel.*
 
 ### Tech-Stack
 
@@ -114,8 +119,9 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 |---|---|---|
 | `/` | ✓ | Editorial-Frontpage: Bento-Hero (Off-White, grüner Tool-Finder, festes Bild-Ratio), Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid (mit Bild-Bannern), About (grün), Mitmachen-CTA, Newsletter |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
-| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten (Filter + Listen-Ansicht + Related) |
-| `/tools/[slug]` | ✓ | Tool-Profil (VivioAkte): 8 Zonen + Transparenz-Block + Extended-Notice + Korrektur-Widget |
+| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (redaktionelle + 59 Verzeichnis-Tools, echte Logos), Filter/Suche/Sortierung + Related |
+| `/tools/[slug]` | ✓ | Vollständiges Profil (VivioAkte: 8 Zonen) **oder Basis-Profil-Fallback** für Verzeichnis-Tools (Logo, Pitch, Compliance, Shortlinks, „wird redaktionell ausgebaut") |
+| `/crawler-preview` | ✓ | **Interne** Verzeichnis-Vorschau (noindex, nicht verlinkt) — Review-Tool fürs Team |
 | `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) |
 | `/anbieter` | ✓ | B2B-Landingpage (6 Sektionen) |
 | `/vorschlagen` | ✓ | Tool vorschlagen / Unternehmen eintragen (Behörde/Anbieter-Umschalter) |

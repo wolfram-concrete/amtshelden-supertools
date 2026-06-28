@@ -2,6 +2,57 @@
 
 ---
 
+## [0.22.0] — 2026-06-28
+
+### Echtes Tool im Fokus, breites Verzeichnis (59), „Crawler"-Wording raus, einheitliche Listen
+
+#### 🎯 Tool im Fokus + Teaser (echte Tools statt fiktivem VivioAkte)
+- „Tool im Fokus" und „Entscheidungsabkürzung" zusammengeführt; **fiktives
+  VivioAkte von der Home entfernt** (decision.ts, DecisionShortcut,
+  FeaturedToolBlock gelöscht).
+- **FokusTool:** ein echtes Verzeichnis-Tool (Eye-Able) mit Logo, Compliance,
+  „geprüft am" und einer **faktischen Einordnung** (Behörden-Pflicht BITV 2.0)
+  — kein erfundenes redaktionelles Urteil.
+- **ToolTeaser:** fünf echte Tools quer durch die Bereiche (Round-Robin über
+  Kategorien), Logo + Kurzbeschreibung; das Fokus-Tool ausgeschlossen.
+
+#### 📇 Breites Verzeichnis (59) — öffentlich ohne „Crawler"
+- `crawler-preview.ts` auf **59 freigegebene Anbieter** (4 Kategorien); der
+  Profil-Fallback unter `/tools/[slug]` greift für alle → **94 statische Seiten**.
+- **Öffentlich kein „Crawler"/„Arbeits-Preview"-Wording mehr** (die Tools sind
+  selbst kuratiert): „Basis-Profil", „wird redaktionell ausgebaut", „Verzeichnis".
+  Interne `/crawler-preview` (noindex) bleibt als Review-Tool.
+- **Kategorie-Seiten: EINE gemeinsame Tool-Liste** (redaktionelle +
+  Verzeichnis-Tools, Pitch über `publicPitch` bereinigt) statt separater
+  Sektion — behebt die verwirrende Trennung; Bürgerservice & Co. zeigen ihre Tools.
+- **ToolCard:** echtes Logo-Support (`logoUrl`/`logoBg` via `ToolMark`),
+  Letter-Mark als Fallback; `ToolCardSummary` erweitert. `CrawlerApprovedTools`
+  entfernt (in die Liste aufgegangen).
+
+#### 🟢 Trust & Detail
+- **GeprueftBadge:** Prüfdatum site-weit als grüne Highlight-Fläche in allen
+  Produktkarten (statt dezentem Grau).
+- Keine Pricing-Angabe im Fokus-/Entscheidungs-Kontext.
+
+#### 🧱 Layout & Seiten
+- Themenfeld-Sektion kompakter: **vier schlanke Spaltenkarten** (`lg:grid-cols-4`),
+  kleineres Bild.
+- Über / Wissen / Anbieter: **Hero-Eyebrows entfernt**.
+- Anbieter: grüner CTA **ohne Logo, zweispaltig mit Bild**; zusätzliches
+  Full-Bleed-Bild-Band zwischen den Sektionen.
+
+#### 📄 Doku
+- `docs/STATUS-SUPERTOOLS.md` (+ gebrandetes PDF): Status-Übersicht für
+  Christian & Julia — was steht / was fehlt inkl. Geschäftsmodell & Go-to-Market.
+  Klargestellt: **interne Vorschau, noch nicht öffentlich live**.
+
+---
+
+### ✅ Status
+- TypeScript: clean · Build: clean — **94 statische Seiten**
+
+---
+
 ## [0.21.0] — 2026-06-28
 
 ### Bewegung & Lebendigkeit, Entscheidungsabkürzung, Crawler-Profil-Integration
