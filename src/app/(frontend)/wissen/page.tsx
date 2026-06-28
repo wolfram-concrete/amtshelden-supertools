@@ -34,13 +34,9 @@ export default function WissenIndexPage() {
               className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"
             />
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-12">
-              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Wissen & Magazin
-              </div>
               <h1
                 style={{ lineHeight: 1.05 }}
-                className="mt-5 font-serif text-[clamp(32px,4.4vw,56px)] font-normal tracking-tight text-white"
+                className="font-serif text-[clamp(32px,4.4vw,56px)] font-normal tracking-tight text-white"
               >
                 Was diese Woche zählt.
               </h1>

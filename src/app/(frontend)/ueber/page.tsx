@@ -34,11 +34,7 @@ export default function UeberPage() {
             />
 
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-14">
-              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Über Supertools
-              </div>
-              <h1 className="mt-5 font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white">
+              <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white">
                 Vertrauen entsteht dort, wo Software{" "}
                 <em className="not-italic font-medium text-brand-light">
                   ein Gesicht bekommt

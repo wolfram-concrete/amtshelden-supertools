@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
-import { Logo } from "@/components/site/Logo";
 import { themenfelder } from "@/mocks/themenfelder";
 
 export const metadata: Metadata = {
@@ -77,11 +76,7 @@ export default function AnbieterPage() {
             />
 
             <div className="relative z-10 max-w-2xl p-7 sm:p-10 lg:p-16">
-              <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
-                Für Software-Anbieter
-              </div>
-              <h1 className="mt-5 font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white">
+              <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white">
                 Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
                 <em className="not-italic font-medium text-brand-light">
                   relevant ist
@@ -183,6 +178,21 @@ export default function AnbieterPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Bild-Band (visueller Reset zwischen den Text-Sektionen) ── */}
+      <section className="bg-cream">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
+          <figure className="relative aspect-[21/9] overflow-hidden rounded-[2.5rem]">
+            <Image
+              src="/brand/Images/magnific_four-public-administratio_dInopiZXSL.jpg"
+              alt="Mitarbeitende einer Verwaltung bei der gemeinsamen Arbeit"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </figure>
         </div>
       </section>
 
@@ -345,36 +355,47 @@ export default function AnbieterPage() {
         </div>
       </section>
 
-      {/* ── 6 · CTA (grün, radiale Kanten) ── */}
+      {/* ── 6 · CTA (grün, radiale Kanten) — Text links, Bild rechts ── */}
       <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-          <div className="max-w-2xl space-y-6">
-            <Logo variant="inverse" height={32} link={false} className="mb-2" />
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
-              Nächster Schritt
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+            <div className="max-w-2xl space-y-6">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+                Nächster Schritt
+              </div>
+              <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight">
+                Bringen Sie Ihr Tool ins Verzeichnis.
+              </h2>
+              <p className="font-sans text-[16px] leading-[1.7] text-white/85">
+                Erzählen Sie uns von Ihrem Produkt. Wir prüfen, ob es in eines
+                unserer Themenfelder passt, und legen ein quellenbasiertes Profil
+                an. Ob erweitert oder Basis — Sie entscheiden.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href="/kontakt?topic=anbieter"
+                  className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
+                >
+                  Unternehmen eintragen
+                </Link>
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center rounded-xl border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
+                >
+                  Fragen? Kontakt aufnehmen
+                </Link>
+              </div>
             </div>
-            <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight">
-              Bringen Sie Ihr Tool ins Verzeichnis.
-            </h2>
-            <p className="font-sans text-[16px] leading-[1.7] text-white/85">
-              Erzählen Sie uns von Ihrem Produkt. Wir prüfen, ob es in eines
-              unserer Themenfelder passt, und legen ein quellenbasiertes Profil
-              an. Ob erweitert oder Basis — Sie entscheiden.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href="/kontakt?topic=anbieter"
-                className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-ui text-[14px] font-semibold text-brand-dark transition-colors hover:bg-cream"
-              >
-                Unternehmen eintragen
-              </Link>
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center rounded-xl border border-white/35 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
-              >
-                Fragen? Kontakt aufnehmen
-              </Link>
-            </div>
+
+            <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/15 lg:aspect-[5/4]">
+              <Image
+                src="/brand/Images/magnific_a-project-workshop-inside_5xvrkdeKxe.jpg"
+                alt="Anbieter und Verwaltung im gemeinsamen Workshop"
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
         </div>
       </section>
