@@ -12,7 +12,7 @@ import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
 import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
-import { toolRegistry } from "@/mocks/tools/vivioakte";
+import { toolProfileRegistry as toolRegistry } from "@/mocks/tools/profiles";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
