@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 
 import { ArticleBody } from "@/components/blocks/article/ArticleBody";
 import { ArticleHeader } from "@/components/blocks/article/ArticleHeader";
+import { ArticleSidebar } from "@/components/blocks/article/ArticleSidebar";
 import { AuthorBio } from "@/components/blocks/article/AuthorBio";
 import { ArticleCard } from "@/components/cards/ArticleCard";
-import { articleRegistry, articles } from "@/mocks/articles";
+import { articleRegistry, articles, articleSummaries } from "@/mocks/articles";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -51,9 +52,16 @@ export default async function WissenArtikelPage({ params }: PageProps) {
 
       <ArticleHeader article={article} />
 
-      <ArticleBody blocks={article.body} />
-
-      <AuthorBio author={article.author} />
+      {/* Zweispaltig: Lesespalte links (linksbündig) + Sticky-Sidebar rechts */}
+      <div className="container mx-auto px-6 lg:px-10 pb-16 lg:pb-24">
+        <div className="grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
+          <div className="min-w-0">
+            <ArticleBody blocks={article.body} />
+            <AuthorBio author={article.author} />
+          </div>
+          <ArticleSidebar current={article} articles={articleSummaries} />
+        </div>
+      </div>
 
       {relatedArticles.length > 0 && (
         <section className="bg-cream/50">

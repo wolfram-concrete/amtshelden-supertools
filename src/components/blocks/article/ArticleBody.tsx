@@ -15,13 +15,11 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
   if (!blocks?.length) return null;
 
   return (
-    <div className="container mx-auto px-6 lg:px-10 pb-16 lg:pb-24">
-      <article className="mx-auto max-w-2xl space-y-6">
-        {blocks.map((block, idx) => (
-          <BlockRenderer key={idx} block={block} />
-        ))}
-      </article>
-    </div>
+    <article className="space-y-6">
+      {blocks.map((block, idx) => (
+        <BlockRenderer key={idx} block={block} />
+      ))}
+    </article>
   );
 }
 
