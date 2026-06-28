@@ -1,37 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
-import { BrandIcon, type BrandIconName } from "@/components/icons/BrandIcon";
 import { stimmen } from "@/mocks/stimmen";
 
 interface StimmenSliderProps {
   eyebrow: string;
   title: string;
   lead?: string;
-}
-
-/**
- * Stilisiertes Wappen-Emblem als Logo-Slot (generisch, markenkonform).
- * Platzhalter für ein echtes Stadtlogo, sobald eine reale Referenzkommune
- * vorliegt — echte Hoheitszeichen werden NICHT an Personas gehängt.
- */
-function WappenBadge({ icon }: { icon: BrandIconName }) {
-  return (
-    <span className="relative inline-flex h-12 w-11 flex-shrink-0 items-center justify-center">
-      <svg
-        viewBox="0 0 24 28"
-        className="absolute inset-0 h-full w-full text-brand"
-        fill="currentColor"
-        aria-hidden
-      >
-        <path d="M12 1.5 21 4.8V13c0 6-4 10.6-9 12.7C7 23.6 3 19 3 13V4.8Z" />
-      </svg>
-      <BrandIcon name={icon} size={17} className="relative text-white" />
-    </span>
-  );
 }
 
 /**
@@ -101,10 +80,18 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
               className="flex w-[280px] flex-shrink-0 snap-start flex-col rounded-2xl bg-white p-6 sm:w-[340px]"
             >
               <div className="flex items-center gap-3">
-                <WappenBadge icon={s.themenfeld.icon} />
+                <span className="relative h-12 w-10 flex-shrink-0">
+                  <Image
+                    src={s.wappen}
+                    alt={`Wappen ${s.context}`}
+                    fill
+                    sizes="40px"
+                    className="object-contain"
+                  />
+                </span>
                 <div className="font-mono text-[10.5px] font-bold uppercase leading-tight tracking-[0.1em]">
-                  <div className="text-dark">{s.role}</div>
-                  <div className="mt-0.5 text-soft">{s.context}</div>
+                  <div className="text-dark">{s.context}</div>
+                  <div className="mt-0.5 text-soft">{s.role}</div>
                 </div>
               </div>
 

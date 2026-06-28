@@ -1,9 +1,10 @@
 /**
  * Persona-Stimmen aus dem Verwaltungsalltag — typische Ausgangslagen.
  *
- * Bewusst ROLLENBASIERT (keine erfundenen Namens-Testimonials): jede Stimme
- * ist eine repräsentative Behörden-Persona mit ihrem konkreten Problemfall.
- * Zweck: Relevanz + Vertrauen — „hier wurde für Menschen wie mich gedacht".
+ * ⚠️ PLATZHALTER: Die Stadtwappen sind echt (Wikipedia/Commons), die Zitate
+ * und die Zuordnung zur jeweiligen Stadt sind aber FIKTIV — nur fürs Layout.
+ * Vor dem Livegang durch echte, freigegebene Referenz-Cases (echtes Logo +
+ * echtes Zitat + echte Stadt) ersetzen.
  */
 
 import type { BrandIconName } from "@/components/icons/BrandIcon";
@@ -13,8 +14,10 @@ export interface Stimme {
   quote: string;
   /** Rolle der Persona */
   role: string;
-  /** Behördentyp + Größe */
+  /** Stadt (Platzhalter, passend zum Wappen) */
   context: string;
+  /** Stadtwappen (echtes Hoheitszeichen — Platzhalter, später echte Referenz) */
+  wappen: string;
   /** Passendes Themenfeld (Verlinkung + Icon) */
   themenfeld: { slug: string; name: string; icon: BrandIconName };
 }
@@ -24,7 +27,8 @@ export const stimmen: Stimme[] = [
     quote:
       "Bei einer Hochwasserlage müssen wir in Minuten über fünf Kanäle informieren — und haben kein Werkzeug, das das koordiniert.",
     role: "Pressestelle",
-    context: "Landkreis · ~120.000 Einwohner",
+    context: "Stadt Passau",
+    wappen: "/brand/wappen/passau.png",
     themenfeld: {
       slug: "kommunikation-krise",
       name: "Kommunikation & Krise",
@@ -35,7 +39,8 @@ export const stimmen: Stimme[] = [
     quote:
       "Wir verlieren Bewerber, weil unser Verfahren vier Wochen dauert und sich zwischendurch niemand meldet.",
     role: "Hauptamt",
-    context: "Kommune · ~18.000 Einwohner",
+    context: "Stadt Münster",
+    wappen: "/brand/wappen/muenster.png",
     themenfeld: {
       slug: "smartes-personalmanagement",
       name: "Smartes Personalmanagement",
@@ -46,7 +51,8 @@ export const stimmen: Stimme[] = [
     quote:
       "Die E-Akte ist eingeführt — aber die Hälfte der Kolleginnen druckt weiter aus. Woran liegt das, und was hilft wirklich?",
     role: "Digitalisierungsbeauftragte",
-    context: "Stadt · ~60.000 Einwohner",
+    context: "Stadt Heidelberg",
+    wappen: "/brand/wappen/heidelberg.png",
     themenfeld: {
       slug: "transformation-ki",
       name: "Transformation & KI",
@@ -57,7 +63,8 @@ export const stimmen: Stimme[] = [
     quote:
       "Ich soll den Haushalt steuern, sehe die entscheidenden Zahlen aber erst, wenn das Quartal längst vorbei ist.",
     role: "Kämmerei",
-    context: "Gemeinde · ~9.000 Einwohner",
+    context: "Stadt Konstanz",
+    wappen: "/brand/wappen/konstanz.png",
     themenfeld: {
       slug: "moderne-fuehrung",
       name: "Moderne Führung",
@@ -68,7 +75,8 @@ export const stimmen: Stimme[] = [
     quote:
       "Bürger erwarten Online-Anträge. Unsere Fachverfahren sprechen aber nicht miteinander — jede Schnittstelle ist ein Projekt.",
     role: "IT-Leitung",
-    context: "Stadt · ~45.000 Einwohner",
+    context: "Stadt Freiburg",
+    wappen: "/brand/wappen/freiburg.png",
     themenfeld: {
       slug: "transformation-ki",
       name: "Transformation & KI",
