@@ -44,9 +44,15 @@ Keine gesättigten Farben außer Sun Yellow. Warmes Charcoal statt reinem Schwar
 ### Motion
 - Eingang: translate-Y (50px→0) + Fade (0→1), 300ms, ruhig. Bewegung dient Klarheit, nicht Spektakel.
 
-### Flächen-Trennung (Supertools-Regel)
+### Flächen-Trennung (Supertools-Regel) — DURCHGÄNGIG
 - **Durchgängige Cream-Fläche**, keine kartigen Vollbreit-Bänder.
-- Kontrast-Sektionen (z. B. grüner About-Block) als **abgerundeter Slab** (`rounded-[2.5rem]`, Logo-Radien) auf dem Canvas — weiche Trennung statt harter Kante.
+- **Jede** farbige/abgesetzte Kontrast-Sektion (grün, dark, stone) bekommt
+  **radiale Logo-Kanten** (`rounded-[2.5rem]`) — nie scharfe Vollbleed-Kanten.
+  Zwei zulässige Muster: (a) **contained Slab** (`container` + Slab, About/
+  Schwerpunkte) oder (b) **full-bleed gerundet** mit Cream-Margin
+  (`rounded-[2.5rem] my-6 lg:my-10`, Use-Case / Über- & Anbieter-Grünblock).
+- Footer: `rounded-t-[2.5rem]` (nur oben, da Seitenende).
+- Checkliste bei neuen Sektionen: farbiger BG? → radiale Kanten Pflicht.
 
 ### Signatur-Moves
 - **Section-Marker-Dot:** jeder Sektions-Eyebrow bekommt links einen `1.5×1.5` Sun-Yellow-Punkt (`bg-accent rounded-full`).

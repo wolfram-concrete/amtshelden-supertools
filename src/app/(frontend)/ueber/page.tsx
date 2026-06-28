@@ -179,12 +179,8 @@ export default function UeberPage() {
       {/* ============================================================
           4 — DIE VERBINDUNG ZU AMTSHELDEN (grüne Highlight-Sektion)
           ============================================================ */}
-      <section className="bg-brand-dark text-white relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        />
-        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
+        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
             <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <Logo

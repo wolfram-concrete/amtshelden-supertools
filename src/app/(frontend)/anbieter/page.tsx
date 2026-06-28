@@ -345,13 +345,9 @@ export default function AnbieterPage() {
         </div>
       </section>
 
-      {/* ── 6 · CTA (grün) ── */}
-      <section className="bg-brand-dark text-white relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
-        />
-        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-28">
+      {/* ── 6 · CTA (grün, radiale Kanten) ── */}
+      <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
+        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="max-w-2xl space-y-6">
             <Logo variant="inverse" height={32} link={false} className="mb-2" />
             <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
