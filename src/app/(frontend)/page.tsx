@@ -102,8 +102,8 @@ export default function HomePage() {
       {/* ── 5 · TOOL-TEASER (Breite: echte freigegebene Tools mit Logo) ── */}
       <ToolTeaser
         eyebrow="Frisch im Verzeichnis"
-        title="Fünf Tools aus der ersten Crawler-Freigabe."
-        lead="Echte Anbieter, automatisch erfasst und für den Testlauf freigegeben — aktuell aus dem Themenfeld Kommunikation, weitere Bereiche folgen."
+        title="Fünf Tools, quer durch die Bereiche."
+        lead="Echte Anbieter aus der breiten Crawler-Arbeits-Preview — je ein Beispiel aus mehreren Themenfeldern. Noch redaktionell zu prüfen, kein Ranking."
       />
 
       {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}

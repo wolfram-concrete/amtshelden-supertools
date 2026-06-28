@@ -6,6 +6,39 @@ import {
   crawlerToolCardPreview,
   crawlerToolLogoPreview,
 } from "@/mocks/tools/crawler-preview";
+import type { ToolCardSummary } from "@/types/content";
+
+/**
+ * Wählt Tools möglichst breit über die Kategorien (Round-Robin): erst je ein
+ * Tool pro Bereich, dann das zweite pro Bereich usw. — damit der Teaser
+ * verschiedene Themenfelder zeigt statt nur eines.
+ */
+function pickAcrossCategories(
+  pool: ToolCardSummary[],
+  exclude: string[],
+  limit: number,
+) {
+  const groups = new Map<string, ToolCardSummary[]>();
+  for (const t of pool) {
+    if (exclude.includes(t.slug)) continue;
+    const list = groups.get(t.categorySlug) ?? [];
+    list.push(t);
+    groups.set(t.categorySlug, list);
+  }
+  const buckets = Array.from(groups.values());
+  const out: ToolCardSummary[] = [];
+  for (let round = 0; out.length < limit; round++) {
+    let added = false;
+    for (const bucket of buckets) {
+      if (!bucket[round]) continue;
+      out.push(bucket[round]);
+      added = true;
+      if (out.length >= limit) break;
+    }
+    if (!added) break;
+  }
+  return out;
+}
 
 interface ToolTeaserProps {
   eyebrow: string;
@@ -28,9 +61,7 @@ export function ToolTeaser({
   exclude = [],
   limit = 5,
 }: ToolTeaserProps) {
-  const tools = crawlerToolCardPreview
-    .filter((t) => !exclude.includes(t.slug))
-    .slice(0, limit);
+  const tools = pickAcrossCategories(crawlerToolCardPreview, exclude, limit);
 
   if (tools.length === 0) return null;
 
@@ -90,7 +121,10 @@ export function ToolTeaser({
                   />
                 </div>
 
-                <h3 className="mt-3 font-serif text-[16px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
+                <div className="mt-3 line-clamp-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-brand">
+                  {tool.categoryLabel}
+                </div>
+                <h3 className="mt-1 font-serif text-[16px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
                   {tool.name}
                 </h3>
                 <p className="mt-1.5 line-clamp-3 font-sans text-[12.5px] leading-[1.5] text-mid">
