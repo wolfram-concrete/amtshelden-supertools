@@ -133,8 +133,8 @@ export default function HomePage() {
         title="Wir vergleichen nicht. Wir ordnen ein."
         lead="Capterra hat Sterne, OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Stattdessen prüfen wir jedes Tool aus Behördenperspektive — in vier Schritten."
         image={{
-          url: "/brand/Images/magnific_prompt-6-burgermeister-it_IaThXmEtvE.jpg",
-          alt: "Zwei Führungskräfte der Verwaltung im Gespräch vor der Stadtkulisse",
+          url: "/brand/amtshelden-gruender.jpg",
+          alt: "Julia und Christian, Gründungsteam von Amtshelden",
         }}
         principles={methodSteps.map((s) => ({ title: s.title, body: s.body }))}
       />
