@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { cn } from "@/lib/utils";
 import { socialFeed, socialProfiles } from "@/mocks/social";
 
@@ -60,15 +61,25 @@ export function AmtsheldenFeed() {
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
-        <header data-reveal className="flex flex-wrap items-end justify-between gap-6 mb-8 lg:mb-11">
+        <header className="flex flex-wrap items-end justify-between gap-6 mb-8 lg:mb-11">
           <div className="max-w-2xl space-y-3">
-            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+            <div
+              data-reveal
+              className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+            >
               Teil von Amtshelden
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
-              Hinter Supertools steht eine aktive Behörden-Community.
-            </h2>
-            <p className="font-sans text-[15px] leading-[1.65] text-mid">
+            <RevealHeading
+              as="h2"
+              text="Hinter Supertools steht eine aktive Behörden-Community."
+              baseDelay={120}
+              className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
+            />
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "260ms" } as React.CSSProperties}
+              className="font-sans text-[15px] leading-[1.65] text-mid"
+            >
               Amtshelden begleitet Verwaltungen bei Kommunikation, KI und
               Transformation. Supertools ist der kuratierte Tool-Teil davon —
               getragen von denselben Menschen, die täglich mit Behörden arbeiten.
@@ -107,6 +118,8 @@ export function AmtsheldenFeed() {
                 href={profile.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-reveal="float"
+                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
                 className="group flex flex-col rounded-2xl bg-white p-6 transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.25)]"
               >
                 <div className="flex items-center justify-between">

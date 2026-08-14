@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Parallax } from "@/components/motion/Parallax";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import type { UseCase } from "@/mocks/usecases";
 
 interface UseCaseEntryProps {
@@ -42,18 +43,26 @@ export function UseCaseEntry({
         <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
         <div className="relative container mx-auto px-6 lg:px-10 pt-14 lg:pt-20 pb-32 lg:pb-52">
-          <header data-reveal className="max-w-xl space-y-3">
-            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85">
+          <header className="max-w-xl space-y-3">
+            <div
+              data-reveal
+              className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85"
+            >
               {eyebrow}
             </div>
-            <h2
+            <RevealHeading
+              as="h2"
+              text={title}
+              baseDelay={120}
               style={{ lineHeight: 1.05 }}
               className="font-serif text-[clamp(30px,3.8vw,48px)] font-normal tracking-tight text-white"
-            >
-              {title}
-            </h2>
+            />
             {description && (
-              <p className="font-sans text-[15px] leading-[1.6] text-white/80">
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+                className="font-sans text-[15px] leading-[1.6] text-white/80"
+              >
                 {description}
               </p>
             )}
@@ -61,10 +70,12 @@ export function UseCaseEntry({
 
           {/* Kompakte Glas-Zeilen — rechts angedockt */}
           <div className="mt-8 grid gap-2.5 sm:grid-cols-2 lg:ml-auto lg:w-[62%]">
-            {useCases.map((uc) => (
+            {useCases.map((uc, i) => (
               <Link
                 key={uc.label}
                 href={uc.href}
+                data-reveal
+                style={{ "--reveal-delay": `${i * 60}ms` } as React.CSSProperties}
                 className="group flex items-center gap-2.5 rounded-xl border border-white/15 bg-white/10 px-3.5 py-2 backdrop-blur-sm transition-colors hover:bg-white/20"
               >
                 <span

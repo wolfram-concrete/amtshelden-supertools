@@ -97,7 +97,7 @@ h2 {
 @media (prefers-reduced-motion: no-preference) {
   .reveal-ready [data-reveal] {
     opacity: 0;
-    transform: translateY(26px);
+    transform: translateY(32px);
     transition:
       opacity 0.8s var(--ease-soft),
       transform 0.8s var(--ease-soft);
@@ -111,7 +111,7 @@ h2 {
   /* schwebt hoch + leicht vergrößert ein, federt sanft ein — für Bildkacheln */
   .reveal-ready [data-reveal="float"] {
     opacity: 0;
-    transform: translateY(30px) scale(0.985);
+    transform: translateY(36px) scale(0.98);
     transition:
       opacity 0.85s var(--ease-soft),
       transform 0.85s var(--ease-soft);

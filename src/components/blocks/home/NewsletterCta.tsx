@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
+
 interface NewsletterCtaProps {
   eyebrow: string;
   title: string;
@@ -35,13 +37,23 @@ export function NewsletterCta({
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-4xl rounded-3xl bg-cream border border-border px-8 py-14 lg:px-14 lg:py-20 text-center space-y-6">
-        <div className="flex items-center justify-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+        <div
+          data-reveal
+          className="flex items-center justify-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+        >
           {eyebrow}
         </div>
-        <h2 data-reveal className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
-          {title}
-        </h2>
-        <p className="font-sans text-[16px] leading-[1.65] text-mid max-w-xl mx-auto">
+        <RevealHeading
+          as="h2"
+          text={title}
+          baseDelay={120}
+          className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto"
+        />
+        <p
+          data-reveal
+          style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+          className="font-sans text-[16px] leading-[1.65] text-mid max-w-xl mx-auto"
+        >
           {description}
         </p>
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { stimmen } from "@/mocks/stimmen";
 
 interface StimmenSliderProps {
@@ -32,16 +33,26 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
   return (
     <section className="bg-cream py-10 lg:py-14">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <header data-reveal className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
+        <header className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
           <div className="max-w-2xl space-y-3">
-            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+            <div
+              data-reveal
+              className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+            >
               {eyebrow}
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
-              {title}
-            </h2>
+            <RevealHeading
+              as="h2"
+              text={title}
+              baseDelay={120}
+              className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
+            />
             {lead && (
-              <p className="font-sans text-[15px] leading-[1.65] text-mid">
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+                className="font-sans text-[15px] leading-[1.65] text-mid"
+              >
                 {lead}
               </p>
             )}
@@ -76,6 +87,8 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
             <article
               key={i}
               data-card
+              data-reveal="float"
+              style={{ "--reveal-delay": `${Math.min(i, 5) * 80}ms` } as React.CSSProperties}
               className="flex w-[280px] flex-shrink-0 snap-start flex-col overflow-hidden rounded-2xl bg-white sm:w-[340px]"
             >
               {/* Stadtbild-Banner (Platzhalter) */}

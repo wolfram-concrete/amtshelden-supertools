@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { formatDateDE } from "@/lib/utils";
 import type { ArticleSummary } from "@/types/content";
 
@@ -31,18 +32,29 @@ export function ThemenClusterBlock({
     <section className="px-6 sm:px-8 lg:px-14 pt-8 pb-12 lg:pb-16">
       {/* Schwarze Linie über die volle Gridbreite */}
       <div className="border-t border-border pt-7">
-        <header data-reveal className="mb-10 lg:mb-12 max-w-3xl space-y-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <header className="mb-10 lg:mb-12 max-w-3xl space-y-2">
+          <div
+            data-reveal
+            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+          >
             {sectionEyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark">
-            {sectionTitle}
-          </h2>
+          <RevealHeading
+            as="h2"
+            text={sectionTitle}
+            baseDelay={120}
+            className="font-serif text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark"
+          />
         </header>
 
         <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {clusters.map((cluster, idx) => (
-            <article key={idx} className="space-y-4">
+            <article
+              key={idx}
+              data-reveal="float"
+              style={{ "--reveal-delay": `${idx * 100}ms` } as React.CSSProperties}
+              className="space-y-4"
+            >
               {/* Cover — kleiner, abgerundet, Eyebrow über dem Bild */}
               {cluster.articles[0]?.cover?.url && (
                 <Link

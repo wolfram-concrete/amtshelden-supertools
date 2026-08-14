@@ -40,7 +40,10 @@ export function EditorialFeatureStory({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Cover-Bild: linke Spalte, asymmetrisch oben */}
           {article.cover?.url && (
-            <figure className="lg:col-span-5 lg:col-start-1 lg:sticky lg:top-24">
+            <figure
+              data-reveal="float"
+              className="lg:col-span-5 lg:col-start-1 lg:sticky lg:top-24"
+            >
               <Link href={`/wissen/${article.slug}`}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-cream">
                   <Image
@@ -68,6 +71,7 @@ export function EditorialFeatureStory({
           {/* Text: rechte Spalte */}
           <div className="lg:col-span-7 space-y-6 lg:pt-4">
             <div
+              data-reveal
               className={cn(
                 "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em]",
                 isOnBrand ? "text-white/85" : "text-brand",
@@ -78,7 +82,8 @@ export function EditorialFeatureStory({
             </div>
 
             <h2
-              style={{ lineHeight: 1.05 }}
+              data-reveal
+              style={{ lineHeight: 1.05, "--reveal-delay": "100ms" } as React.CSSProperties}
               className={cn(
                 "font-serif font-normal tracking-tight",
                 "text-[clamp(30px,3.4vw,44px)]",
@@ -99,6 +104,8 @@ export function EditorialFeatureStory({
             </h2>
 
             <p
+              data-reveal
+              style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
               className={cn(
                 "font-sans text-[18px] leading-[1.7]",
                 isOnBrand ? "text-white/90" : "text-mid",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import type { ThemenfeldDefinition } from "@/types/content";
 
@@ -27,26 +28,38 @@ export function ThemenfeldGrid({
   return (
     <section className="bg-cream">
       <div className="container mx-auto px-6 lg:px-10 py-14 lg:py-20">
-        <header data-reveal className="max-w-2xl space-y-3 mb-10 lg:mb-12">
-          <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+        <header className="max-w-2xl space-y-3 mb-10 lg:mb-12">
+          <div
+            data-reveal
+            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+          >
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
-            {title}
-          </h2>
+          <RevealHeading
+            as="h2"
+            text={title}
+            baseDelay={120}
+            className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+          />
           {description && (
-            <p className="font-sans text-[16px] leading-[1.65] text-mid">
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+              className="font-sans text-[16px] leading-[1.65] text-mid"
+            >
               {description}
             </p>
           )}
         </header>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {themenfelder.map((tf) => {
+          {themenfelder.map((tf, i) => {
             const cats = categoriesByThemenfeld[tf.slug] || [];
             return (
               <article
                 key={tf.slug}
+                data-reveal="float"
+                style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
                 className="group flex flex-col overflow-hidden rounded-2xl bg-white transition-shadow duration-300 hover:shadow-[0_20px_50px_-32px_rgba(17,17,17,0.22)]"
               >
                 {/* Kompaktes Motiv-Banner */}

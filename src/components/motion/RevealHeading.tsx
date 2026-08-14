@@ -5,6 +5,8 @@ interface RevealHeadingProps {
   style?: React.CSSProperties;
   /** ms Verzögerung pro Wort */
   stagger?: number;
+  /** ms Grund-Offset vor dem ersten Wort (damit die Headline z. B. nach dem Eyebrow einsetzt) */
+  baseDelay?: number;
 }
 
 /**
@@ -22,6 +24,7 @@ export function RevealHeading({
   as: Tag = "h2",
   style,
   stagger = 55,
+  baseDelay = 0,
 }: RevealHeadingProps) {
   const words = text.split(" ");
   return (
@@ -30,7 +33,9 @@ export function RevealHeading({
         <span key={i}>
           <span
             data-reveal="word"
-            style={{ "--reveal-delay": `${i * stagger}ms` } as React.CSSProperties}
+            style={
+              { "--reveal-delay": `${baseDelay + i * stagger}ms` } as React.CSSProperties
+            }
             className="inline-block"
           >
             {word}

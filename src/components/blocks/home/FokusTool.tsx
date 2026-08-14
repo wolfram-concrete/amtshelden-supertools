@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, BadgeCheck, ExternalLink, Info } from "lucide-react";
 
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import { publicPitch } from "@/lib/crawler-content";
 import {
@@ -56,15 +57,31 @@ export function FokusTool({
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
           {/* Links: faktische Einordnung */}
-          <div data-reveal className="space-y-5 lg:sticky lg:top-24">
-            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+          <div className="space-y-5 lg:sticky lg:top-24">
+            <div
+              data-reveal
+              className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+            >
               {eyebrow}
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark">
-              {title}
-            </h2>
-            <p className="font-sans text-[16px] leading-[1.7] text-mid">{was}</p>
-            <div className="border-l-2 border-brand py-1 pl-5">
+            <RevealHeading
+              as="h2"
+              text={title}
+              baseDelay={120}
+              className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
+            />
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+              className="font-sans text-[16px] leading-[1.7] text-mid"
+            >
+              {was}
+            </p>
+            <div
+              data-reveal
+              style={{ "--reveal-delay": "300ms" } as React.CSSProperties}
+              className="border-l-2 border-brand py-1 pl-5"
+            >
               <div className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
                 Einordnung
               </div>
@@ -76,8 +93,8 @@ export function FokusTool({
 
           {/* Rechts: echtes Tool */}
           <div
-            data-reveal
-            style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+            data-reveal="float"
+            style={{ "--reveal-delay": "160ms" } as React.CSSProperties}
             className="relative overflow-hidden rounded-[2rem] border border-border bg-white p-6 lg:p-8"
           >
             <div className="flex items-start gap-4">

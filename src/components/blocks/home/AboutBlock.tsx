@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { cn } from "@/lib/utils";
 
 interface AboutPrinciple {
@@ -39,17 +40,27 @@ export function AboutBlock({
           )}
         >
           {/* Eyebrow oben — zwischen Slab-Kante und Headline */}
-          <div className="mb-8 flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85">
+          <div
+            data-reveal
+            className="mb-8 flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85"
+          >
             {eyebrow}
           </div>
 
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             {/* Linke Spalte — Headline oben bündig mit den Prinzipien rechts */}
             <div className="space-y-5">
-              <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight">
-                {title}
-              </h2>
-              <p className="font-sans text-[16px] leading-[1.7] text-white/80">
+              <RevealHeading
+                as="h2"
+                text={title}
+                baseDelay={120}
+                className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight"
+              />
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+                className="font-sans text-[16px] leading-[1.7] text-white/80"
+              >
                 {lead}
               </p>
 
@@ -72,6 +83,8 @@ export function AboutBlock({
                 {principles.map((p, idx) => (
                   <div
                     key={idx}
+                    data-reveal
+                    style={{ "--reveal-delay": `${idx * 90}ms` } as React.CSSProperties}
                     className="space-y-2 border-t border-white/25 pt-5"
                   >
                     <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">
@@ -91,6 +104,7 @@ export function AboutBlock({
               <div className="grid gap-4 sm:grid-cols-2">
                 <Link
                   href="/vorschlagen"
+                  data-reveal
                   className="group rounded-2xl bg-white/10 p-5 transition-colors hover:bg-white/15"
                 >
                   <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-white/70">
@@ -111,6 +125,8 @@ export function AboutBlock({
 
                 <Link
                   href="/anbieter"
+                  data-reveal
+                  style={{ "--reveal-delay": "90ms" } as React.CSSProperties}
                   className="group rounded-2xl bg-white p-5 text-dark transition-[filter] hover:brightness-95"
                 >
                   <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-brand">

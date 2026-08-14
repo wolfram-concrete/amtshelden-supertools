@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { publicPitch } from "@/lib/crawler-content";
 import {
   crawlerToolCardPreview,
@@ -68,25 +69,39 @@ export function ToolTeaser({
   return (
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <header data-reveal className="mb-8 max-w-2xl space-y-3 lg:mb-10">
-          <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
+        <header className="mb-8 max-w-2xl space-y-3 lg:mb-10">
+          <div
+            data-reveal
+            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
+          >
             {eyebrow}
           </div>
-          <h2 className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
-            {title}
-          </h2>
+          <RevealHeading
+            as="h2"
+            text={title}
+            baseDelay={120}
+            className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+          />
           {lead && (
-            <p className="font-sans text-[15px] leading-[1.65] text-mid">{lead}</p>
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "220ms" } as React.CSSProperties}
+              className="font-sans text-[15px] leading-[1.65] text-mid"
+            >
+              {lead}
+            </p>
           )}
         </header>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {tools.map((tool) => {
+          {tools.map((tool, i) => {
             const logo = crawlerToolLogoPreview[tool.slug];
             return (
               <Link
                 key={tool.slug}
                 href={`/tools/${tool.slug}`}
+                data-reveal="float"
+                style={{ "--reveal-delay": `${i * 70}ms` } as React.CSSProperties}
                 className="group flex flex-col rounded-2xl border border-border bg-white p-4 transition-shadow hover:shadow-[0_18px_45px_-30px_rgba(17,17,17,0.28)]"
               >
                 <div className="flex items-start justify-between">
