@@ -22,6 +22,8 @@ import {
 } from "@/lib/crawler-content";
 import {
   crawlerToolLogoPreview,
+  crawlerToolScreenshotPreview,
+  crawlerToolSummaryPreview,
   type CrawlerToolContentPiece,
 } from "@/mocks/tools/crawler-preview";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
@@ -61,6 +63,8 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
   const pitch = publicPitch(tool.pitch);
   const youtube = pickProfileYoutube(tool.slug);
   const resources = selectProfileResources(tool.slug, tool.name, tool.pitch);
+  const summary = crawlerToolSummaryPreview[tool.slug];
+  const shots = crawlerToolScreenshotPreview[tool.slug];
 
   const youtubeThumb =
     youtube?.thumbnailUrl ||
@@ -142,6 +146,17 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           </p>
         )}
 
+        {summary && (
+          <div className="mt-6">
+            <div className="mb-2 font-sans text-[14px] font-semibold text-brand">
+              Über das Produkt
+            </div>
+            <p className="font-sans text-[15px] leading-[1.7] text-mid">
+              {summary}
+            </p>
+          </div>
+        )}
+
         {/* Signale + Facts */}
         <div className="mt-7 rounded-2xl border border-border bg-white p-5 lg:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -173,7 +188,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           <div className="mb-3 font-sans text-[14px] font-semibold text-brand">
             Einblick ins Produkt
           </div>
-          <ProductShots domain={logo?.domain} placeholders={2} />
+          <ProductShots domain={logo?.domain} shots={shots} placeholders={2} />
         </div>
 
         {/* Produktvideo — nur Thumbnail/Link, keine Einbettung */}

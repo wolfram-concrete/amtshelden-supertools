@@ -179,3 +179,42 @@ Crawler -> Review -> ToolCard-Preview -> lokale Sichtpruefung -> manuelle Freiga
 - redaktioneller Pitch-Generator oder manuell gepflegtes Pitch-Feld
 - Quellenhinweis pro Compliance-Aussage
 - Testseite oder Admin-Preview, bevor Daten in echte Kategorien laufen
+
+## NEU — Pflicht ab jetzt: Produkt-Screenshots + Produkt-Summary
+
+Das Frontend hat zwei neue Slots, die der Crawler **je freigegebenem Tool
+mitliefern muss**:
+
+### 1) Produkt-Screenshots (aktuelle Snapshots)
+- Der Crawler macht pro Tool **1–3 aktuelle Screenshots** der öffentlich
+  sichtbaren Produkt-/Marketing-Seite (Software-Interface, Dashboard, App-UI).
+- Eigene Aufnahmen der gerenderten Seite (Headless-Browser-Screenshot), keine
+  fremden Asset-Dateien hotlinken. Cookie-/Consent-Overlays vor dem Shot
+  wegklicken oder Regionen ohne Overlay wählen.
+- Zielformat: Breite ~1100 px, JPEG, unter ~120 KB. Ablage z. B.
+  `public/brand/screenshots/<slug>/shot-N.jpg`.
+- Export ins Frontend als:
+  ```ts
+  export const crawlerToolScreenshotPreview: Record<string, string[]> = {
+    "<slug>": ["/brand/screenshots/<slug>/shot-1.jpg", "..."],
+  };
+  ```
+- Rendern in `ProductShots` (Browser-Rahmen-Galerie); ohne Screenshots
+  erscheinen Platzhalter.
+
+### 2) Produkt-Summary (Long-Copy)
+- Der Crawler erzeugt pro Tool eine **redaktionell verdichtete Beschreibung
+  (3–5 Sätze)**: Was ist das Produkt/Unternehmen, für wen, was kann es.
+- Quelle: die öffentlichen Anbieter-Inhalte (Startseite, Produktseiten). Kein
+  1:1-Copy-Paste — verdichtet/umformuliert, faktisch, ohne Werbe-Superlative.
+- Export ins Frontend als:
+  ```ts
+  export const crawlerToolSummaryPreview: Record<string, string> = {
+    "<slug>": "Kurzbeschreibung des Produkts/Unternehmens …",
+  };
+  ```
+- Rendert auf der Profilseite als Abschnitt **„Über das Produkt"**.
+
+Beide Felder werden vom Export-Script mit ausgegeben und wie die anderen
+Preview-Daten nur nach Review sichtbar. Frontend-Quelle bleibt ausschließlich
+`src/mocks/tools/crawler-preview.ts`.

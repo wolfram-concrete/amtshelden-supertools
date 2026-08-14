@@ -7,6 +7,7 @@ import { publicPitch } from "@/lib/crawler-content";
 import {
   crawlerToolCardPreview,
   crawlerToolLogoPreview,
+  crawlerToolScreenshotPreview,
 } from "@/mocks/tools/crawler-preview";
 
 interface FokusToolProps {
@@ -48,6 +49,7 @@ export function FokusTool({
 
   const logo = crawlerToolLogoPreview[slug];
   const pitch = publicPitch(tool.pitch);
+  const shots = crawlerToolScreenshotPreview[slug];
 
   return (
     <section className="bg-cream py-12 lg:py-20">
@@ -140,6 +142,7 @@ export function FokusTool({
 
             <ProductShots
               domain={logo?.domain}
+              shots={shots}
               placeholders={1}
               className="mt-5"
             />

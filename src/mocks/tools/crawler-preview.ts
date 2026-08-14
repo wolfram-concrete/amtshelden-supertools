@@ -3414,3 +3414,25 @@ export const crawlerToolContentPreview: Record<string, CrawlerToolContentPiece[]
     },
   ],
 };
+
+/**
+ * Produkt-Screenshots je Tool — aktuelle Snapshots der öffentlich sichtbaren
+ * Produkt-/Marketing-Seite (eigene Aufnahmen). Vom Crawler-Screenshot-Schritt
+ * zu befüllen; hier vorerst manuell für die Preview.
+ */
+export const crawlerToolScreenshotPreview: Record<string, string[]> = {
+  "eye-able-web-inclusion-gmbh": [
+    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-1.jpg",
+    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-2.jpg",
+  ],
+};
+
+/**
+ * Produkt-/Unternehmens-Summary je Tool — redaktionell verdichtete Long-Copy
+ * aus den öffentlichen Anbieter-Inhalten (was ist das Produkt/Unternehmen).
+ * Vom Crawler zu liefern; hier vorerst manuell für die Preview.
+ */
+export const crawlerToolSummaryPreview: Record<string, string> = {
+  "eye-able-web-inclusion-gmbh":
+    "Eye-Able (Web Inclusion GmbH, Würzburg) ist eine All-in-One-Software für digitale Barrierefreiheit. Das Tool prüft und verbessert Webauftritte und PDFs an den Anforderungen von WCAG und BFSG — über ein Dashboard, das den Barrierefreiheits-Status bewertet, Fehler erkennt und Fortschritte dokumentiert. Kombiniert wird eine automatisierte, KI-gestützte Prüfung mit manuellen Audits durch Menschen mit Behinderungen. Nach Anbieterangaben im Einsatz bei über 20.000 Websites; entwickelt und gehostet in Deutschland.",
+};
