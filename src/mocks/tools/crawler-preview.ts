@@ -1061,7 +1061,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://socialhub.io",
     domain: "socialhub.io",
     logoUrl: "https://www.google.com/s2/favicons?domain=socialhub.io&sz=128",
-    backgroundColor: "#303030",
+    backgroundColor: "#ffffff",
   },
   "stage-stagelink-staffbase-familie": {
     website: "https://staffbase.com/de",
@@ -1085,7 +1085,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://parloa.com",
     domain: "parloa.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=parloa.com&sz=128",
-    backgroundColor: "#202020",
+    backgroundColor: "#ffffff",
   },
   "scompler-gmbh": {
     website: "https://scompler.com",
@@ -1121,7 +1121,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://deepl.com",
     domain: "deepl.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=deepl.com&sz=128",
-    backgroundColor: "#003040",
+    backgroundColor: "#ffffff",
   },
   "fabasoft-deutschland-gmbh": {
     website: "https://fabasoft.com/de",
@@ -1211,7 +1211,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://virtual-solution.com",
     domain: "virtual-solution.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=virtual-solution.com&sz=128",
-    backgroundColor: "#001020",
+    backgroundColor: "#ffffff",
   },
   "publicplan-liferay-dxp-public": {
     website: "https://publicplan.de",
@@ -1277,7 +1277,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://wire.com",
     domain: "wire.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=wire.com&sz=128",
-    backgroundColor: "#000000",
+    backgroundColor: "#ffffff",
   },
   "awesome-technologies-matrix-element": {
     website: "https://element.io",
@@ -1295,7 +1295,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://awork.com",
     domain: "awork.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=awork.com&sz=128",
-    backgroundColor: "#202030",
+    backgroundColor: "#ffffff",
   },
   "factro-schuchert-managementberatung": {
     website: "https://factro.de",
@@ -1313,7 +1313,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://owncloud.com",
     domain: "owncloud.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=owncloud.com&sz=128",
-    backgroundColor: "#002040",
+    backgroundColor: "#ffffff",
   },
   "hr4you-buesch-gmbh": {
     website: "https://hr4you.de",
@@ -1361,7 +1361,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://haufe-akademie.de",
     domain: "haufe-akademie.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=haufe-akademie.de&sz=128",
-    backgroundColor: "#7000f0",
+    backgroundColor: "#ffffff",
   },
   "prescreen-workwise": {
     website: "https://workwise.io",
@@ -1379,19 +1379,19 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://nextpublic.de",
     domain: "nextpublic.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=nextpublic.de&sz=128",
-    backgroundColor: "#606060",
+    backgroundColor: "#ffffff",
   },
   "polyteia-gmbh": {
     website: "https://polyteia.com",
     domain: "polyteia.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=polyteia.com&sz=128",
-    backgroundColor: "#2000a0",
+    backgroundColor: "#ffffff",
   },
   "digitalservice-gmbh-des-bundes-partner-ecosystem": {
     website: "https://digitalservice.bund.de",
     domain: "digitalservice.bund.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=digitalservice.bund.de&sz=128",
-    backgroundColor: "#0000ff",
+    backgroundColor: "#ffffff",
   },
   "partnerschaft-deutschland-pd-berater": {
     website: "https://pd-g.de",
@@ -1399,6 +1399,133 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     logoUrl: "https://www.google.com/s2/favicons?domain=pd-g.de&sz=128",
     backgroundColor: "#ffffff",
   },
+};
+
+export const crawlerToolScreenshotPreview: Record<string, string[]> = {
+  "eye-able-web-inclusion-gmbh": [
+    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-1.jpg",
+    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-2.jpg",
+  ],
+  "facelift-cloud-gmbh": [],
+  "socialhub-maloon-gmbh": [],
+  "stage-stagelink-staffbase-familie": [],
+  "haiilo-gmbh": [],
+  "ip-dynamics-gmbh": [],
+  "parloa-gmbh": [],
+  "scompler-gmbh": [],
+  "swat-io-die-socialisten-gmbh": [],
+  "tellent-flip-app-flip-gmbh": [],
+  "beekeeper-deutschland-gmbh": [],
+  "aleph-alpha-gmbh": [],
+  "deepl-se": [],
+  "fabasoft-deutschland-gmbh": [],
+  "form-solutions-gmbh": [],
+  "governikus-gmbh-co-kg": [],
+  "publicplan-gmbh": [],
+  "secunet-security-networks-ag": [],
+  "univention-gmbh": [],
+  "viind-gmbh": [],
+  "aura-flows-aura-technologies": [],
+  "genua-gmbh": [],
+  "axians-infoma-gmbh": [],
+  "conet-technologies-ag": [],
+  "deepset-gmbh-haystack": [],
+  "drivelock-se": [],
+  "langdock-gmbh": [],
+  "materna-virtual-solution-gmbh": [],
+  "publicplan-liferay-dxp-public": [],
+  "rohde-schwarz-cybersecurity-gmbh": [],
+  "consensedata-enclaive-gmbh": [],
+  "datakom-gmbh": [],
+  "g-data-cyberdefense-ag": [],
+  "mistral-ai-dach-aktivitaeten": [],
+  "utimaco-gmbh": [],
+  "meisterlabs-gmbh-meistertask": [],
+  "nextcloud-gmbh": [],
+  "stackfield-gmbh": [],
+  "wire-swiss-gmbh-berlin": [],
+  "awesome-technologies-matrix-element": [],
+  "open-xchange-ag": [],
+  "awork-gmbh": [],
+  "factro-schuchert-managementberatung": [],
+  "taskworld-iyopro-gmbh": [],
+  "owncloud-kiteworks": [],
+  "hr4you-buesch-gmbh": [],
+  "p-i-personal-informatik-ag-loga": [],
+  "zfm-zentrum-fuer-management-und-personalberatung": [],
+  "milch-zucker-talent-acquisition": [],
+  "rexx-systems-gmbh": [],
+  "softgarden-e-recruiting-gmbh": [],
+  "concludis-gmbh": [],
+  "haufe-akademie-hr-weiterbildung": [],
+  "prescreen-workwise": [],
+  "infora-gmbh": [],
+  "next-public-gmbh": [],
+  "polyteia-gmbh": [],
+  "digitalservice-gmbh-des-bundes-partner-ecosystem": [],
+  "partnerschaft-deutschland-pd-berater": [],
+};
+
+export const crawlerToolSummaryPreview: Record<string, string> = {
+  "eye-able-web-inclusion-gmbh": "Eye-Able ist ein Anbieter bzw. Produkt im Bereich Digitale Barrierefreiheit BFSG. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "facelift-cloud-gmbh": "Facelift Cloud GmbH ist ein Anbieter bzw. Produkt im Bereich Social Media Management (DE/DSGVO). Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Anwendungsfälle, Videos gefunden.",
+  "socialhub-maloon-gmbh": "SocialHub ist ein Anbieter bzw. Produkt im Bereich Social Media Management / Community. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "stage-stagelink-staffbase-familie": "Stage ist ein Anbieter bzw. Produkt im Bereich Mitarbeiter-App / Stage. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele gefunden.",
+  "haiilo-gmbh": "Haiilo GmbH ist ein Anbieter bzw. Produkt im Bereich Employee Comms Platform. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Anwendungsfälle, Webinare gefunden.",
+  "ip-dynamics-gmbh": "IP Dynamics GmbH ist ein Anbieter bzw. Produkt im Bereich KI-Chatbots Kommunen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Videos gefunden.",
+  "parloa-gmbh": "Parloa GmbH ist ein Anbieter bzw. Produkt im Bereich Voice-KI / Contact Center. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "scompler-gmbh": "Scompler GmbH ist ein Anbieter bzw. Produkt im Bereich Content-Strategie / Redaktionsplanung. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "swat-io-die-socialisten-gmbh": "Swat.io ist ein Anbieter bzw. Produkt im Bereich Social Media Management DACH. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "tellent-flip-app-flip-gmbh": "tellent / Flip App ist ein Anbieter bzw. Produkt im Bereich Mitarbeiter-App. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele gefunden.",
+  "beekeeper-deutschland-gmbh": "Beekeeper Deutschland GmbH ist ein Anbieter bzw. Produkt im Bereich Mitarbeiter-App Frontline. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "aleph-alpha-gmbh": "Aleph Alpha GmbH ist ein Anbieter bzw. Produkt im Bereich Souveräne KI / LLM (DE). In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf.",
+  "deepl-se": "DeepL SE ist ein Anbieter bzw. Produkt im Bereich KI-Übersetzung (DE-souverän). Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare, Whitepaper gefunden.",
+  "fabasoft-deutschland-gmbh": "Fabasoft Deutschland GmbH ist ein Anbieter bzw. Produkt im Bereich E-Akte eGov-Suite. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit auf.",
+  "form-solutions-gmbh": "Form-Solutions GmbH ist ein Anbieter bzw. Produkt im Bereich OZG-Formulare / Online-Dienste. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Videos gefunden.",
+  "governikus-gmbh-co-kg": "Governikus GmbH & Co. KG ist ein Anbieter bzw. Produkt im Bereich E-Government / Identitäten. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "publicplan-gmbh": "Publicplan GmbH ist ein Anbieter bzw. Produkt im Bereich GovTech / KI ÖD. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Anwendungsfälle, Webinare gefunden.",
+  "secunet-security-networks-ag": "Secunet Security Networks AG ist ein Anbieter bzw. Produkt im Bereich IT-Security (Ausstattungshaus des Bundes). Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "univention-gmbh": "Univention GmbH ist ein Anbieter bzw. Produkt im Bereich Open-Source-Infrastruktur. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "viind-gmbh": "Viind GmbH ist ein Anbieter bzw. Produkt im Bereich KI-Assistenten für Behörden. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Downloads, Videos gefunden.",
+  "aura-flows-aura-technologies": "aura flows ist ein Anbieter bzw. Produkt im Bereich KI-Workflow-Automatisierung ÖD. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz auf.",
+  "genua-gmbh": "genua GmbH ist ein Anbieter bzw. Produkt im Bereich Hochsichere IT-Security. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "axians-infoma-gmbh": "Axians Infoma GmbH ist ein Anbieter bzw. Produkt im Bereich Kommunale Finanzsoftware. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Webinare gefunden.",
+  "conet-technologies-ag": "CONET Technologies AG ist ein Anbieter bzw. Produkt im Bereich IT-Beratung ÖD. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, Hybrid hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+  "deepset-gmbh-haystack": "DeepSet GmbH ist ein Anbieter bzw. Produkt im Bereich Enterprise-KI / RAG. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise, Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Webinare gefunden.",
+  "drivelock-se": "DriveLock SE ist ein Anbieter bzw. Produkt im Bereich Zero Trust / Endpoint. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Videos, Webinare gefunden.",
+  "langdock-gmbh": "Langdock GmbH ist ein Anbieter bzw. Produkt im Bereich KI-Plattform DSGVO. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, On-Premise hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Praxisbeispiele, Anwendungsfälle gefunden.",
+  "materna-virtual-solution-gmbh": "Materna Virtual Solution GmbH ist ein Anbieter bzw. Produkt im Bereich Mobile Security ÖD. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf.",
+  "publicplan-liferay-dxp-public": "Publicplan / Liferay DXP Public ist ein Anbieter bzw. Produkt im Bereich Portale ÖD. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Anwendungsfälle, Webinare gefunden.",
+  "rohde-schwarz-cybersecurity-gmbh": "Rohde & Schwarz Cybersecurity GmbH ist ein Anbieter bzw. Produkt im Bereich Cybersecurity. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Anwendungsfälle gefunden.",
+  "consensedata-enclaive-gmbh": "ConsenseData / enclaive GmbH ist ein Anbieter bzw. Produkt im Bereich Confidential Computing. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Whitepaper gefunden.",
+  "datakom-gmbh": "DATAKOM GmbH ist ein Anbieter bzw. Produkt im Bereich Netzwerk/Security ÖD. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare gefunden.",
+  "g-data-cyberdefense-ag": "G DATA CyberDefense AG ist ein Anbieter bzw. Produkt im Bereich Security DE. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Downloads gefunden.",
+  "mistral-ai-dach-aktivitaeten": "Mistral AI ist ein Anbieter bzw. Produkt im Bereich Europäisches LLM. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit auf.",
+  "utimaco-gmbh": "Utimaco GmbH ist ein Anbieter bzw. Produkt im Bereich Hardware Security Modules. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Sicherheit auf.",
+  "meisterlabs-gmbh-meistertask": "MeisterLabs GmbH ist ein Anbieter bzw. Produkt im Bereich Projektmanagement DSGVO. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Anwendungsfälle gefunden.",
+  "nextcloud-gmbh": "Nextcloud GmbH ist ein Anbieter bzw. Produkt im Bereich Souveräne Cloud-Kollaboration. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Downloads gefunden.",
+  "stackfield-gmbh": "Stackfield GmbH ist ein Anbieter bzw. Produkt im Bereich Kollaboration Ende-zu-Ende verschlüsselt. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Videos, Webinare gefunden.",
+  "wire-swiss-gmbh-berlin": "Wire Swiss GmbH ist ein Anbieter bzw. Produkt im Bereich Secure Messaging Bund. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Anwendungsfälle gefunden.",
+  "awesome-technologies-matrix-element": "Awesome Technologies ist ein Anbieter bzw. Produkt im Bereich Matrix-Messenger Bund/BwMessenger. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Whitepaper gefunden.",
+  "open-xchange-ag": "Open-Xchange AG ist ein Anbieter bzw. Produkt im Bereich Open-Source-Collaboration. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+  "awork-gmbh": "awork GmbH ist ein Anbieter bzw. Produkt im Bereich Projektmanagement DE. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "factro-schuchert-managementberatung": "factro ist ein Anbieter bzw. Produkt im Bereich Projektmanagement DE. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele gefunden.",
+  "taskworld-iyopro-gmbh": "Taskworld ist ein Anbieter bzw. Produkt im Bereich Projektmanagement. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele gefunden.",
+  "owncloud-kiteworks": "ownCloud ist ein Anbieter bzw. Produkt im Bereich Filesharing souverän. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "hr4you-buesch-gmbh": "HR4YOU ist ein Anbieter bzw. Produkt im Bereich Recruiting-Software ÖD. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Downloads gefunden.",
+  "p-i-personal-informatik-ag-loga": "P&I Personal & Informatik AG ist ein Anbieter bzw. Produkt im Bereich Personalmanagement ÖD. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare gefunden.",
+  "zfm-zentrum-fuer-management-und-personalberatung": "zfm – Zentrum für Management- und Personalberatung ist ein Anbieter bzw. Produkt im Bereich Personalberatung ÖD. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads gefunden.",
+  "milch-zucker-talent-acquisition": "milch & zucker Talent Acquisition ist ein Anbieter bzw. Produkt im Bereich Recruiting / Karriereseiten. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+  "rexx-systems-gmbh": "rexx systems GmbH ist ein Anbieter bzw. Produkt im Bereich Recruiting-Software. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele, Downloads gefunden.",
+  "softgarden-e-recruiting-gmbh": "softgarden e-recruiting GmbH ist ein Anbieter bzw. Produkt im Bereich Bewerbermanagement. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+  "concludis-gmbh": "Concludis GmbH ist ein Anbieter bzw. Produkt im Bereich Bewerbermanagement. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf.",
+  "haufe-akademie-hr-weiterbildung": "Haufe Akademie ist ein Anbieter bzw. Produkt im Bereich HR-Weiterbildung. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare gefunden.",
+  "prescreen-workwise": "Prescreen / Workwise ist ein Anbieter bzw. Produkt im Bereich Recruiting-Software. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Whitepaper gefunden.",
+  "infora-gmbh": "INFORA GmbH ist ein Anbieter bzw. Produkt im Bereich Verwaltungsberatung. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Webinare, Whitepaper gefunden.",
+  "next-public-gmbh": "Next:Public GmbH ist ein Anbieter bzw. Produkt im Bereich Verwaltungstransformation. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf.",
+  "polyteia-gmbh": "Polyteia GmbH ist ein Anbieter bzw. Produkt im Bereich Data-Plattform Verwaltung. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf.",
+  "digitalservice-gmbh-des-bundes-partner-ecosystem": "DigitalService GmbH des Bundes ist ein Anbieter bzw. Produkt im Bereich GovTech Bund. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads gefunden.",
+  "partnerschaft-deutschland-pd-berater": "Partnerschaft Deutschland / PD-Berater ist ein Anbieter bzw. Produkt im Bereich Beratung ÖD. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare gefunden.",
 };
 
 export const crawlerToolContentPreview: Record<string, CrawlerToolContentPiece[]> = {
@@ -3413,26 +3540,4 @@ export const crawlerToolContentPreview: Record<string, CrawlerToolContentPiece[]
       reviewed: true,
     },
   ],
-};
-
-/**
- * Produkt-Screenshots je Tool — aktuelle Snapshots der öffentlich sichtbaren
- * Produkt-/Marketing-Seite (eigene Aufnahmen). Vom Crawler-Screenshot-Schritt
- * zu befüllen; hier vorerst manuell für die Preview.
- */
-export const crawlerToolScreenshotPreview: Record<string, string[]> = {
-  "eye-able-web-inclusion-gmbh": [
-    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-1.jpg",
-    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-2.jpg",
-  ],
-};
-
-/**
- * Produkt-/Unternehmens-Summary je Tool — redaktionell verdichtete Long-Copy
- * aus den öffentlichen Anbieter-Inhalten (was ist das Produkt/Unternehmen).
- * Vom Crawler zu liefern; hier vorerst manuell für die Preview.
- */
-export const crawlerToolSummaryPreview: Record<string, string> = {
-  "eye-able-web-inclusion-gmbh":
-    "Eye-Able (Web Inclusion GmbH, Würzburg) ist eine All-in-One-Software für digitale Barrierefreiheit. Das Tool prüft und verbessert Webauftritte und PDFs an den Anforderungen von WCAG und BFSG — über ein Dashboard, das den Barrierefreiheits-Status bewertet, Fehler erkennt und Fortschritte dokumentiert. Kombiniert wird eine automatisierte, KI-gestützte Prüfung mit manuellen Audits durch Menschen mit Behinderungen. Nach Anbieterangaben im Einsatz bei über 20.000 Websites; entwickelt und gehostet in Deutschland.",
 };

@@ -8,7 +8,6 @@ import {
   ExternalLink,
   FileText,
   Film,
-  Info,
   Newspaper,
   Play,
   Video,
@@ -28,6 +27,7 @@ import {
 } from "@/mocks/tools/crawler-preview";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
+import { InfoPopover } from "@/components/ui/InfoPopover";
 import type { ToolCardSummary } from "@/types/content";
 
 function ResourceIcon({ kind }: { kind: CrawlerToolContentPiece["kind"] }) {
@@ -86,26 +86,6 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           {tool.categoryLabel}
         </Link>
 
-        {/* Status-Hinweis: Basis-Profil, noch nicht redaktionell final */}
-        <div className="mt-6 flex items-start gap-3 rounded-2xl border border-amber-light bg-amber-light/60 p-4 lg:p-5">
-          <span
-            aria-hidden
-            className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-white/70 text-accent-ink"
-          >
-            <Info size={15} />
-          </span>
-          <div>
-            <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-accent-ink">
-              Basis-Profil · wird redaktionell ausgebaut
-            </div>
-            <p className="mt-1 font-sans text-[13.5px] leading-[1.6] text-mid">
-              Dieses Profil ist ein Basis-Eintrag: Kerninfos sind erfasst, die
-              ausführliche redaktionelle Einordnung — Stärken, Grenzen, Praxis —
-              folgt. Compliance-Angaben sind Hinweise, keine juristische Zusage.
-            </p>
-          </div>
-        </div>
-
         {/* Kopf */}
         <header className="mt-8 flex items-start gap-5">
           <span
@@ -128,8 +108,15 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           </span>
 
           <div className="min-w-0">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
-              Basis-Profil
+            <span className="inline-flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
+                Basis-Profil
+              </span>
+              <InfoPopover
+                label="Was ist ein Basis-Profil?"
+                title="Basis-Profil — wird redaktionell ausgebaut"
+                text="Dieses Profil ist ein Basis-Eintrag: Kerninfos sind erfasst, die ausführliche redaktionelle Einordnung — Stärken, Grenzen, Praxis — folgt. Compliance-Angaben sind Hinweise, keine juristische Zusage."
+              />
             </span>
             <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">
               {tool.name}
