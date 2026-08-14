@@ -35,7 +35,7 @@ function renderInline(text: string) {
   }
   return parts.map((p, i) => {
     if (p.type === "strong") return <strong key={i} className="font-semibold text-dark">{p.value}</strong>;
-    if (p.type === "em") return <em key={i} className="italic font-normal text-brand-dark">{p.value}</em>;
+    if (p.type === "em") return <em key={i} className="not-italic font-normal text-brand-dark">{p.value}</em>;
     return <span key={i}>{p.value}</span>;
   });
 }

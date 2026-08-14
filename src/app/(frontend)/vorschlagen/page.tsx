@@ -21,7 +21,7 @@ export default function VorschlagenPage() {
             </div>
             <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark">
               Ein Tool fehlt?<br />
-              <em className="italic font-normal text-brand-dark">
+              <em className="not-italic font-normal text-brand-dark">
                 Sagen Sie es uns.
               </em>
             </h1>
