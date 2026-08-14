@@ -51,7 +51,12 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           {/* Brand-Spalte */}
           <div>
-            <Logo variant="inverse" height={36} />
+            <div className="flex items-center gap-2.5">
+              <Logo variant="inverse" height={36} />
+              <span className="inline-flex items-center rounded-full bg-white/15 px-2 py-0.5 font-sans text-[11px] font-semibold text-white">
+                Beta
+              </span>
+            </div>
             <p className="mt-5 font-sans text-sm leading-relaxed text-white/70 max-w-xs">
               Das Gedächtnis der digitalen Verwaltung Deutschlands.
               Handverlesen. Aus Behördenperspektive.

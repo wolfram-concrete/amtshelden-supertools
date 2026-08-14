@@ -69,8 +69,7 @@ export function ToolTeaser({
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <header data-reveal className="mb-8 max-w-2xl space-y-3 lg:mb-10">
-          <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
-            <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
+          <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
             {eyebrow}
           </div>
           <h2 className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">

@@ -78,7 +78,7 @@ export default function AnbieterPage() {
             <div className="relative z-10 max-w-2xl p-7 sm:p-10 lg:p-16">
               <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white">
                 Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
-                <em className="not-italic font-medium text-brand-light">
+                <em className="italic font-normal text-brand-light">
                   relevant ist
                 </em>
                 .
@@ -287,7 +287,7 @@ export default function AnbieterPage() {
               Ein erweitertes Profil ist keine bessere Bewertung und keine
               Empfehlung. Es ist ausführlicher, wird aber nicht bevorzugt
               dargestellt. Unser Verkaufsversprechen lautet:{" "}
-              <em className="not-italic font-medium text-brand-dark">
+              <em className="italic font-normal text-brand-dark">
                 Je besser Ihr Profil erklärt, was Ihr Produkt für Behörden
                 leistet, desto leichter können Behörden einschätzen, ob es
                 passt.

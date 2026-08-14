@@ -40,8 +40,7 @@ export function UseCaseEntry({
 
         <div className="relative container mx-auto px-6 lg:px-10 pt-14 lg:pt-20 pb-32 lg:pb-52">
           <header data-reveal className="max-w-xl space-y-3">
-            <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-white/85">
-              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-white/45" />
+            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85">
               {eyebrow}
             </div>
             <h2

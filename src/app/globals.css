@@ -76,6 +76,12 @@ body {
   color: #fff;
 }
 
+/* Editorial-Headlines: enges, negatives Tracking (Steep-inspiriert) */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+
 /* Editorial Typography */
 .font-serif { font-family: var(--font-serif); }
 .font-sans  { font-family: var(--font-sans); }
@@ -101,6 +107,21 @@ body {
   .reveal-ready [data-reveal="right"] { transform: translateX(28px); }
   .reveal-ready [data-reveal="zoom"] { transform: scale(0.96); }
   .reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Schrift-Animation — Headlines bauen sich wortweise auf */
+  .reveal-ready [data-reveal="word"] {
+    opacity: 0;
+    transform: translateY(0.42em);
+    transition:
+      opacity 0.6s var(--ease-editorial),
+      transform 0.6s var(--ease-editorial);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal-ready [data-reveal="word"].is-visible {
     opacity: 1;
     transform: none;
   }

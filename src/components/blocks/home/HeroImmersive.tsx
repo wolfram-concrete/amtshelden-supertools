@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Parallax } from "@/components/motion/Parallax";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { ToolFinderWizard } from "./ToolFinderWizard";
 
 interface HeroImmersiveProps {
@@ -50,16 +51,25 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
           <div className="relative z-10 grid w-full items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_minmax(0,400px)] lg:gap-12 lg:p-14">
             {/* Text links */}
             <div className="max-w-xl">
-              <h1
-                data-reveal
-                style={{ lineHeight: 1.02 }}
-                className="font-serif text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
-              >
-                {title}
-              </h1>
+              {typeof title === "string" ? (
+                <RevealHeading
+                  as="h1"
+                  text={title}
+                  style={{ lineHeight: 1.02 }}
+                  className="font-serif text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
+                />
+              ) : (
+                <h1
+                  data-reveal
+                  style={{ lineHeight: 1.02 }}
+                  className="font-serif text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
+                >
+                  {title}
+                </h1>
+              )}
               <p
                 data-reveal
-                style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
+                style={{ "--reveal-delay": "480ms" } as React.CSSProperties}
                 className="mt-4 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-md"
               >
                 {lead}
@@ -68,7 +78,7 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
               {badges && badges.length > 0 && (
                 <ul
                   data-reveal
-                  style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                  style={{ "--reveal-delay": "640ms" } as React.CSSProperties}
                   className="mt-5 flex flex-wrap gap-2"
                 >
                   {badges.map((badge) => (

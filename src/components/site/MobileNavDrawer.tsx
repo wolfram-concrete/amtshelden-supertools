@@ -89,7 +89,12 @@ export function MobileNavDrawer() {
       >
         {/* Header */}
         <div className="flex-shrink-0 flex items-center justify-between border-b border-border px-5 h-20">
-          <Logo height={32} link={false} />
+          <div className="flex items-center gap-2.5">
+            <Logo height={32} link={false} />
+            <span className="inline-flex items-center rounded-full bg-accent/25 px-2 py-0.5 font-sans text-[11px] font-semibold text-accent-ink">
+              Beta
+            </span>
+          </div>
           <button
             type="button"
             onClick={() => setOpen(false)}

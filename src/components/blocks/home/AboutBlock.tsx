@@ -39,8 +39,7 @@ export function AboutBlock({
           )}
         >
           {/* Eyebrow oben — zwischen Slab-Kante und Headline */}
-          <div className="mb-8 flex items-center gap-2.5 font-sans text-[13px] font-semibold text-white/85">
-            <span aria-hidden className="h-px w-6 flex-shrink-0 bg-white/45" />
+          <div className="mb-8 flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85">
             {eyebrow}
           </div>
 

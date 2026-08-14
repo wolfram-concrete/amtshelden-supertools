@@ -54,8 +54,7 @@ export function FokusTool({
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
           {/* Links: faktische Einordnung */}
           <div data-reveal className="space-y-5 lg:sticky lg:top-24">
-            <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
-              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
+            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
               {eyebrow}
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark">

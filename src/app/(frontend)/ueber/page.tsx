@@ -36,7 +36,7 @@ export default function UeberPage() {
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-14">
               <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white">
                 Vertrauen entsteht dort, wo Software{" "}
-                <em className="not-italic font-medium text-brand-light">
+                <em className="italic font-normal text-brand-light">
                   ein Gesicht bekommt
                 </em>
                 .
@@ -64,7 +64,7 @@ export default function UeberPage() {
               </div>
               <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
                 Behörden haben kein Tool-Problem.<br />
-                <em className="not-italic font-medium text-brand-dark">
+                <em className="italic font-normal text-brand-dark">
                   Sie haben ein Orientierungsproblem.
                 </em>
               </h2>
@@ -326,7 +326,7 @@ export default function UeberPage() {
             <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
               Redaktionell.<br />
               Konsequent.<br />
-              <em className="not-italic font-medium text-brand-dark">
+              <em className="italic font-normal text-brand-dark">
                 Aus Behörden­perspektive.
               </em>
             </h2>

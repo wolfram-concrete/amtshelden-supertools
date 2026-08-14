@@ -34,8 +34,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <header data-reveal className="flex flex-wrap items-end justify-between gap-6 mb-7 lg:mb-9">
           <div className="max-w-2xl space-y-3">
-            <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
-              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
+            <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
               {eyebrow}
             </div>
             <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">

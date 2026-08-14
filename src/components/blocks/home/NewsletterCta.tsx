@@ -35,8 +35,7 @@ export function NewsletterCta({
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-4xl rounded-3xl bg-cream border border-border px-8 py-14 lg:px-14 lg:py-20 text-center space-y-6">
-        <div className="flex items-center justify-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
-          <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
+        <div className="flex items-center justify-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
           {eyebrow}
         </div>
         <h2 data-reveal className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto">
