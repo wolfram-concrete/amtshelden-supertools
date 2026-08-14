@@ -47,6 +47,8 @@
 
   /* Easing */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Sanfte Feder mit leichtem Settle — der „schwebend & weich"-Charakter */
+  --ease-soft: cubic-bezier(0.32, 1.32, 0.5, 1);
 }
 
 /* ============================================================
@@ -95,10 +97,10 @@ h2 {
 @media (prefers-reduced-motion: no-preference) {
   .reveal-ready [data-reveal] {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(26px);
     transition:
-      opacity 0.7s var(--ease-editorial),
-      transform 0.7s var(--ease-editorial);
+      opacity 0.8s var(--ease-soft),
+      transform 0.8s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
   }
@@ -106,24 +108,45 @@ h2 {
   .reveal-ready [data-reveal="left"] { transform: translateX(-28px); }
   .reveal-ready [data-reveal="right"] { transform: translateX(28px); }
   .reveal-ready [data-reveal="zoom"] { transform: scale(0.96); }
+  /* schwebt hoch + leicht vergrößert ein, federt sanft ein — für Bildkacheln */
+  .reveal-ready [data-reveal="float"] {
+    opacity: 0;
+    transform: translateY(30px) scale(0.985);
+    transition:
+      opacity 0.85s var(--ease-soft),
+      transform 0.85s var(--ease-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
   .reveal-ready [data-reveal].is-visible {
     opacity: 1;
     transform: none;
   }
 
-  /* Schrift-Animation — Headlines bauen sich wortweise auf */
+  /* Schrift-Animation — Headlines bauen sich wortweise auf und settlen weich */
   .reveal-ready [data-reveal="word"] {
     opacity: 0;
-    transform: translateY(0.42em);
+    transform: translateY(0.5em);
     transition:
-      opacity 0.6s var(--ease-editorial),
-      transform 0.6s var(--ease-editorial);
+      opacity 0.66s var(--ease-soft),
+      transform 0.66s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
   }
   .reveal-ready [data-reveal="word"].is-visible {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Hero-Motiv „atmet" beim Laden sanft ein (Scale-Settle, LCP-schonend: kein Fade) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-media {
+    animation: hero-settle 1.6s var(--ease-soft) both;
+  }
+  @keyframes hero-settle {
+    from { transform: scale(1.055); }
+    to { transform: scale(1); }
   }
 }
 

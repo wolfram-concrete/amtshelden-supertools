@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { Parallax } from "@/components/motion/Parallax";
 import type { UseCase } from "@/mocks/usecases";
 
 interface UseCaseEntryProps {
@@ -28,14 +29,16 @@ export function UseCaseEntry({
       {/* Full-Bleed-Bildcontainer mit radialen Kanten — unten verlängert,
           damit die folgende grüne Karte sich darüber legt (Lap-Effekt). */}
       <div className="relative isolate overflow-hidden rounded-[2.5rem]">
-        <Image
-          src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-          aria-hidden
-        />
+        <Parallax speed={0.1} className="absolute inset-x-0 -inset-y-[10%]">
+          <Image
+            src="/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden
+          />
+        </Parallax>
         <div aria-hidden className="absolute inset-0 bg-dark/72" />
 
         <div className="relative container mx-auto px-6 lg:px-10 pt-14 lg:pt-20 pb-32 lg:pb-52">

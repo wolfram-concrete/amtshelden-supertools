@@ -15,9 +15,9 @@ interface ProductShotsProps {
  * Galerie. Zeigt echte, freigegebene Screenshots (`shots`); solange keine da
  * sind, gerahmte Platzhalter mit Interface-Andeutung.
  *
- * Bildquelle: Screenshots dürfen erst rein, wenn sie freigegeben/lizenziert
- * sind (Anbieter liefert sie, oder Crawler-Screenshot-Schritt + Rechte-Check).
- * Fremde Produkt-UIs nicht ungefragt hosten.
+ * Bildquelle: lokale Headless-Screenshots aus dem Crawler-Review-Export.
+ * Keine fremden Asset-Dateien hotlinken; sichtbar werden nur freigegebene
+ * Pfade aus `crawler-preview.ts`.
  */
 export function ProductShots({
   domain,
@@ -35,6 +35,8 @@ export function ProductShots({
         {items.map((item, i) => (
           <figure
             key={i}
+            data-reveal="float"
+            style={{ "--reveal-delay": `${i * 110}ms` } as React.CSSProperties}
             className="w-[86%] flex-shrink-0 snap-start overflow-hidden rounded-xl border border-border bg-white sm:w-[420px]"
           >
             {/* Browser-Chrome */}

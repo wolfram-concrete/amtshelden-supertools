@@ -25,6 +25,10 @@ export function Parallax({ children, speed = 0.14, className }: ParallaxProps) {
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    // Mobile deutlich runterfahren — schwere Parallax wirkt dort schnell unruhig.
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const effSpeed = isMobile ? speed * 0.4 : speed;
+
     let raf = 0;
     const update = () => {
       raf = 0;
@@ -32,7 +36,7 @@ export function Parallax({ children, speed = 0.14, className }: ParallaxProps) {
       const viewport = window.innerHeight || 1;
       const center = rect.top + rect.height / 2;
       const progress = (center - viewport / 2) / viewport; // ~ -1 … 1
-      const shift = -progress * speed * 100;
+      const shift = -progress * effSpeed * 100;
       el.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
     };
     const onScroll = () => {

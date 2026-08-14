@@ -35,7 +35,7 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
               alt={HERO_IMAGE.alt}
               fill
               sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
+              className="hero-media object-cover"
               priority
             />
           </Parallax>
