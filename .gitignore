@@ -50,3 +50,10 @@ next-env.d.ts
 
 # Interne Quell-/Vertriebsdaten (nicht ins Repo)
 *.xlsx
+
+# Interne Crawler-Rohdaten & Review-Status (nur lokal, nie ins Frontend)
+data/crawler/runs/
+data/crawler/review-decisions.json
+
+# BMDS-Logo — erst nach offizieller Freigabe einbinden
+Bundesministerium_für_Digitales_und_Staatsmodernisierung_Logo.svg.png
