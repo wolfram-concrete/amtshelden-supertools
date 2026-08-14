@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { themenfelder } from "@/mocks/themenfelder";
 
 export const metadata: Metadata = {
@@ -76,14 +77,21 @@ export default function AnbieterPage() {
             />
 
             <div className="relative z-10 max-w-2xl p-7 sm:p-10 lg:p-16">
-              <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white">
+              <h1
+                data-reveal
+                className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white"
+              >
                 Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
                 <em className="not-italic font-normal text-brand-light">
                   relevant ist
                 </em>
                 .
               </h1>
-              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-xl">
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-xl"
+              >
                 Supertools ist das kuratierte Software-Verzeichnis für die
                 öffentliche Verwaltung. Während klassische B2B-Werbung breit
                 streut, erreichen Sie hier Behörden mit konkreter Suchabsicht.
@@ -111,12 +119,18 @@ export default function AnbieterPage() {
       <section className="bg-cream/40 border-b border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Ihr Nutzen
             </div>
-            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
-              Sichtbarkeit, die zur Verwaltung passt.
-            </h2>
+            <RevealHeading
+              as="h2"
+              text="Sichtbarkeit, die zur Verwaltung passt."
+              baseDelay={120}
+              className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            />
           </header>
 
           <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -144,13 +158,23 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
           <header className="lg:sticky lg:top-24 space-y-3">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Themenfelder
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
-              Vier Felder, in denen Behörden Sie suchen.
-            </h2>
-            <p className="font-sans text-[15px] leading-[1.7] text-mid pt-2">
+            <RevealHeading
+              as="h2"
+              text="Vier Felder, in denen Behörden Sie suchen."
+              baseDelay={120}
+              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+            />
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="font-sans text-[15px] leading-[1.7] text-mid pt-2"
+            >
               Wir nehmen nicht jede Software auf, sondern Tools, die in den
               Themenfeldern von Amtshelden für Behörden relevant sind. Passt
               Ihr Produkt in eines dieser Felder?
@@ -203,12 +227,18 @@ export default function AnbieterPage() {
       >
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Profilarten
             </div>
-            <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
-              Basis-Profil und erweitertes Profil.
-            </h2>
+            <RevealHeading
+              as="h2"
+              text="Basis-Profil und erweitertes Profil."
+              baseDelay={120}
+              className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            />
           </header>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -301,13 +331,23 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Was wir übernehmen
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
-              Wir recherchieren, strukturieren und prüfen.
-            </h2>
-            <p className="font-sans text-[15px] leading-[1.7] text-mid pt-2">
+            <RevealHeading
+              as="h2"
+              text="Wir recherchieren, strukturieren und prüfen."
+              baseDelay={120}
+              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+            />
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="font-sans text-[15px] leading-[1.7] text-mid pt-2"
+            >
               Amtshelden tritt nicht als Bewerter auf, sondern macht
               Informationen vergleichbar — aus Behördenperspektive, in einer
               einheitlichen Struktur.
@@ -360,13 +400,23 @@ export default function AnbieterPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div className="max-w-2xl space-y-6">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
+              <div
+                data-reveal
+                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80"
+              >
                 Nächster Schritt
               </div>
-              <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight">
-                Bringen Sie Ihr Tool ins Verzeichnis.
-              </h2>
-              <p className="font-sans text-[16px] leading-[1.7] text-white/85">
+              <RevealHeading
+                as="h2"
+                text="Bringen Sie Ihr Tool ins Verzeichnis."
+                baseDelay={120}
+                className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight"
+              />
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                className="font-sans text-[16px] leading-[1.7] text-white/85"
+              >
                 Erzählen Sie uns von Ihrem Produkt. Wir prüfen, ob es in eines
                 unserer Themenfelder passt, und legen ein quellenbasiertes Profil
                 an. Ob erweitert oder Basis — Sie entscheiden.

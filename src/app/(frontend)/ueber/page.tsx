@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { Logo } from "@/components/site/Logo";
 
 export const metadata: Metadata = {
@@ -34,14 +35,21 @@ export default function UeberPage() {
             />
 
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-14">
-              <h1 className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white">
+              <h1
+                data-reveal
+                className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white"
+              >
                 Vertrauen entsteht dort, wo Software{" "}
                 <em className="not-italic font-normal text-brand-light">
                   ein Gesicht bekommt
                 </em>
                 .
               </h1>
-              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85">
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85"
+              >
                 Supertools ist das Software-Schwesterprojekt von Amtshelden —
                 der Plattform für digitalen Wandel in deutschen Behörden. Wir
                 kuratieren die Werkzeuge, mit denen Verwaltungen diesen Wandel
@@ -59,10 +67,16 @@ export default function UeberPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+              <div
+                data-reveal
+                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              >
                 Warum es Supertools gibt
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
+              <h2
+                data-reveal
+                className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+              >
                 Behörden haben kein Tool-Problem.{" "}
                 <em className="not-italic font-normal text-brand-dark">
                   Sie haben ein Orientierungsproblem.
@@ -123,12 +137,18 @@ export default function UeberPage() {
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <header className="border-t border-border pt-8 mb-12 lg:mb-16 max-w-2xl space-y-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+          <div
+            data-reveal
+            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+          >
             Drei Grundsätze
           </div>
-          <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
-            Was uns von einem Verzeichnis unterscheidet.
-          </h2>
+          <RevealHeading
+            as="h2"
+            text="Was uns von einem Verzeichnis unterscheidet."
+            baseDelay={120}
+            className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+          />
         </header>
 
         <div className="grid gap-x-10 gap-y-12 md:grid-cols-3 relative">
@@ -185,13 +205,23 @@ export default function UeberPage() {
                 link={false}
                 className="mb-2"
               />
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
+              <div
+                data-reveal
+                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80"
+              >
                 Schwesterprojekt von Amtshelden
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight">
-                Eine Plattform. Zwei Perspektiven auf denselben Wandel.
-              </h2>
-              <p className="font-sans text-[16px] leading-[1.7] text-white/85">
+              <RevealHeading
+                as="h2"
+                text="Eine Plattform. Zwei Perspektiven auf denselben Wandel."
+                baseDelay={120}
+                className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight"
+              />
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                className="font-sans text-[16px] leading-[1.7] text-white/85"
+              >
                 Hinter Supertools steht Amtshelden — die Plattform für
                 Inspiration, Austausch und Lernen rund um Verwaltungs­wandel.
                 Was die einen zur Kultur sagen, sagen wir zur Technik.
@@ -319,16 +349,26 @@ export default function UeberPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <header className="lg:col-span-5 space-y-3 lg:sticky lg:top-24 lg:self-start">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Wie wir arbeiten
             </div>
-            <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
+            <h2
+              data-reveal
+              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+            >
               Redaktionell. Konsequent.{" "}
               <em className="not-italic font-normal text-brand-dark">
                 Aus Behörden­perspektive.
               </em>
             </h2>
-            <p className="font-sans text-[15px] leading-[1.7] text-mid pt-2">
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="font-sans text-[15px] leading-[1.7] text-mid pt-2"
+            >
               Wir nutzen das gleiche redaktionelle Handwerk wie ein gutes
               Fachmagazin: Recherche, Quellenarbeit, Gegenrecherche, Haltung.
               Tools werden nicht beworben, sondern beschrieben.
@@ -379,12 +419,18 @@ export default function UeberPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="space-y-3">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+              <div
+                data-reveal
+                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              >
                 Wer wir sind
               </div>
-              <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark">
-                Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background.
-              </h2>
+              <RevealHeading
+                as="h2"
+                text="Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background."
+                baseDelay={120}
+                className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark"
+              />
             </div>
             <div className="space-y-5 font-sans text-[16px] leading-[1.7] text-mid">
               <p>
@@ -418,14 +464,23 @@ export default function UeberPage() {
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+          <div
+            data-reveal
+            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+          >
             Mitmachen
           </div>
-          <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark">
-            Wenn du Verantwortung trägst, wollen wir dich nicht alleine
-            lassen.
-          </h2>
-          <p className="font-sans text-[17px] leading-[1.7] text-mid">
+          <RevealHeading
+            as="h2"
+            text="Wenn du Verantwortung trägst, wollen wir dich nicht alleine lassen."
+            baseDelay={120}
+            className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark"
+          />
+          <p
+            data-reveal
+            style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+            className="font-sans text-[17px] leading-[1.7] text-mid"
+          >
             Wir freuen uns über Implementierungs­berichte, Themen­vorschläge,
             Korrekturen und ehrliche Kritik. Schreib uns — oder abonniere
             den Newsletter, dann verpasst du nichts.

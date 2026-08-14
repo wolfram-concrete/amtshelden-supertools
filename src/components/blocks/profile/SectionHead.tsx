@@ -1,3 +1,4 @@
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadProps {
@@ -20,12 +21,18 @@ export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
         className,
       )}
     >
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+      <div
+        data-reveal
+        className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+      >
         {eyebrow}
       </div>
-      <h2 className="font-serif font-normal text-[clamp(28px,3.5vw,40px)] leading-[1.02] tracking-tight text-dark">
-        {title}
-      </h2>
+      <RevealHeading
+        as="h2"
+        text={title}
+        baseDelay={100}
+        className="font-serif font-normal text-[clamp(28px,3.5vw,40px)] leading-[1.02] tracking-tight text-dark"
+      />
     </header>
   );
 }

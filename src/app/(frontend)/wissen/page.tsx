@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { WissenSidebar } from "@/components/sidebars/WissenSidebar";
 import { articleSummaries } from "@/mocks/articles";
 
@@ -34,13 +35,18 @@ export default function WissenIndexPage() {
               className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"
             />
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-12">
-              <h1
+              <RevealHeading
+                as="h1"
+                text="Was diese Woche zählt."
+                baseDelay={120}
                 style={{ lineHeight: 1.05 }}
                 className="font-serif text-[clamp(32px,4.4vw,56px)] font-normal tracking-tight text-white"
+              />
+              <p
+                data-reveal
+                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85"
               >
-                Was diese Woche zählt.
-              </h1>
-              <p className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85">
                 Redaktionelle Beiträge, Leitfäden und aktuelle Themen aus der
                 digitalen Verwaltung — geschrieben von Menschen, die selbst aus
                 der Verwaltung kommen.

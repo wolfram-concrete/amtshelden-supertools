@@ -1,4 +1,5 @@
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import type { CategoryDefinition } from "@/types/content";
 
 interface KategorieHeroProps {
@@ -12,7 +13,7 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
       <div className="grid lg:grid-cols-[1.6fr_1fr] gap-12 items-end">
         {/* Linke Spalte: Editorial */}
         <div className="space-y-5">
-          <div className="flex items-center gap-3">
+          <div data-reveal className="flex items-center gap-3">
             <div
               aria-hidden
               className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
@@ -24,11 +25,18 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
             </div>
           </div>
 
-          <h1 className="font-serif text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.05] tracking-tight text-dark">
-            {category.name}
-          </h1>
+          <RevealHeading
+            as="h1"
+            text={category.name}
+            baseDelay={120}
+            className="font-serif text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.05] tracking-tight text-dark"
+          />
 
-          <p className="font-sans text-[18px] leading-[1.7] text-mid max-w-2xl">
+          <p
+            data-reveal
+            style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+            className="font-sans text-[18px] leading-[1.7] text-mid max-w-2xl"
+          >
             {category.tagline}
           </p>
         </div>

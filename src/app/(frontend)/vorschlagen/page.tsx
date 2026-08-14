@@ -16,16 +16,26 @@ export default function VorschlagenPage() {
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
           {/* Linke Spalte: Editorial */}
           <div className="lg:sticky lg:top-24 space-y-6">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div
+              data-reveal
+              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            >
               Mitmachen
             </div>
-            <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark">
+            <h1
+              data-reveal
+              className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark"
+            >
               Ein Tool fehlt?{" "}
               <em className="not-italic font-normal text-brand-dark">
                 Sagen Sie es uns.
               </em>
             </h1>
-            <p className="font-sans text-[17px] leading-[1.7] text-mid">
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="font-sans text-[17px] leading-[1.7] text-mid"
+            >
               Supertools wächst handverlesen — auch durch Hinweise aus der
               Praxis. Egal ob Sie als Behörde ein Tool empfehlen, eine Lösung
               vermissen, oder als Anbieter gelistet werden möchten: Hier sind

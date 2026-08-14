@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { categoriesByThemenfeld } from "@/mocks/categories";
 import { themenfelder } from "@/mocks/themenfelder";
 
@@ -18,13 +19,23 @@ export default function ThemenfelderIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+          <div
+            data-reveal
+            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+          >
             Struktur
           </div>
-          <h1 className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark">
-            Vier Themenfelder.
-          </h1>
-          <p className="font-sans text-[18px] leading-[1.7] text-mid">
+          <RevealHeading
+            as="h1"
+            text="Vier Themenfelder."
+            baseDelay={120}
+            className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark"
+          />
+          <p
+            data-reveal
+            style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+            className="font-sans text-[18px] leading-[1.7] text-mid"
+          >
             Supertools ist kein beliebiges Software-Verzeichnis. Wir kuratieren
             entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden
             stammen — und für Behörden tatsächlich relevant sind.
@@ -32,11 +43,13 @@ export default function ThemenfelderIndexPage() {
         </header>
 
         <div className="space-y-5">
-          {themenfelder.map((tf) => {
+          {themenfelder.map((tf, i) => {
             const cats = categoriesByThemenfeld[tf.slug] || [];
             return (
               <article
                 key={tf.slug}
+                data-reveal="float"
+                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
                 className="group grid lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-12 rounded-2xl border border-border bg-white p-6 lg:p-8 transition-colors hover:border-brand/60"
               >
                 <div>

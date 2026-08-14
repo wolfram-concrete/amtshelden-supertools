@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { RevealHeading } from "@/components/motion/RevealHeading";
 import { formatDateDE } from "@/lib/utils";
 import type { ArticleSummary } from "@/types/content";
 
@@ -11,18 +12,26 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
   return (
     <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-10">
       <div className="max-w-3xl space-y-7">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <div
+          data-reveal
+          className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+        >
           {article.eyebrow}
         </div>
 
-        <h1
+        <RevealHeading
+          as="h1"
+          text={article.title}
+          baseDelay={120}
           style={{ lineHeight: 1.04 }}
           className="font-serif text-[clamp(32px,4.2vw,52px)] font-normal tracking-[-0.015em] text-dark"
-        >
-          {article.title}
-        </h1>
+        />
 
-        <p className="font-sans text-[19px] leading-[1.7] text-mid">
+        <p
+          data-reveal
+          style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+          className="font-sans text-[19px] leading-[1.7] text-mid"
+        >
           {article.lead}
         </p>
 
