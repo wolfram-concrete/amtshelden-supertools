@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, BadgeCheck, ExternalLink, Info } from "lucide-react";
 
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
+import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import { publicPitch } from "@/lib/crawler-content";
 import {
   crawlerToolCardPreview,
@@ -136,6 +137,12 @@ export function FokusTool({
               <Info size={14} className="mt-0.5 flex-shrink-0" aria-hidden />
               Basis-Eintrag — die ausführliche redaktionelle Einordnung folgt.
             </p>
+
+            <ProductShots
+              domain={logo?.domain}
+              placeholders={1}
+              className="mt-5"
+            />
 
             <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-border pt-5">
               <Link

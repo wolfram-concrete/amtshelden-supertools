@@ -25,6 +25,7 @@ import {
   type CrawlerToolContentPiece,
 } from "@/mocks/tools/crawler-preview";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
+import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import type { ToolCardSummary } from "@/types/content";
 
 function ResourceIcon({ kind }: { kind: CrawlerToolContentPiece["kind"] }) {
@@ -165,6 +166,14 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             Angaben aus öffentlich verfügbaren Quellen — Hinweise, keine geprüfte
             juristische Zusage.
           </p>
+        </div>
+
+        {/* Einblick ins Produkt — Screenshots (Platzhalter bis Freigabe) */}
+        <div className="mt-8">
+          <div className="mb-3 font-sans text-[14px] font-semibold text-brand">
+            Einblick ins Produkt
+          </div>
+          <ProductShots domain={logo?.domain} placeholders={2} />
         </div>
 
         {/* Produktvideo — nur Thumbnail/Link, keine Einbettung */}
