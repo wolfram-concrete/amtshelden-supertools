@@ -63,7 +63,7 @@ export default function UeberPage() {
                 Warum es Supertools gibt
               </div>
               <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
-                Behörden haben kein Tool-Problem.<br />
+                Behörden haben kein Tool-Problem.{" "}
                 <em className="not-italic font-normal text-brand-dark">
                   Sie haben ein Orientierungsproblem.
                 </em>
@@ -189,8 +189,7 @@ export default function UeberPage() {
                 Schwesterprojekt von Amtshelden
               </div>
               <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight">
-                Eine Plattform.<br />
-                Zwei Perspektiven auf denselben Wandel.
+                Eine Plattform. Zwei Perspektiven auf denselben Wandel.
               </h2>
               <p className="font-sans text-[16px] leading-[1.7] text-white/85">
                 Hinter Supertools steht Amtshelden — die Plattform für
@@ -324,8 +323,7 @@ export default function UeberPage() {
               Wie wir arbeiten
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
-              Redaktionell.<br />
-              Konsequent.<br />
+              Redaktionell. Konsequent.{" "}
               <em className="not-italic font-normal text-brand-dark">
                 Aus Behörden­perspektive.
               </em>
@@ -385,8 +383,7 @@ export default function UeberPage() {
                 Wer wir sind
               </div>
               <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark">
-                Frankfurt am Main.<br />
-                Eine Redaktion mit Verwaltungs-Background.
+                Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background.
               </h2>
             </div>
             <div className="space-y-5 font-sans text-[16px] leading-[1.7] text-mid">
