@@ -67,7 +67,7 @@ export default function HomePage() {
       <HeroImmersive
         title="Die passende Software für Ihre Verwaltung."
         lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
-        badges={["Aus Behördenperspektive", "Kein Pay-to-Rank", "DSGVO transparent"]}
+        badges={["Aus Behördenperspektive", "DSGVO transparent"]}
       />
 
       {/* ── 2 · STIMMEN (Beispiele direkt unter dem Hero, Slider full-bleed) ── */}

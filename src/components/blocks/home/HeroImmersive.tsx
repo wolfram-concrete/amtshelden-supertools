@@ -79,16 +79,16 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
                 <ul
                   data-reveal
                   style={{ "--reveal-delay": "640ms" } as React.CSSProperties}
-                  className="mt-5 flex flex-wrap gap-2"
+                  className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2"
                 >
                   {badges.map((badge) => (
                     <li
                       key={badge}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.1em] text-white backdrop-blur"
+                      className="inline-flex items-center gap-2 font-sans text-[14px] font-medium text-white"
                     >
                       <span
                         aria-hidden
-                        className="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-brand text-white text-[8px] font-bold"
+                        className="flex h-4 w-4 items-center justify-center rounded-full bg-brand text-white text-[9px] font-bold"
                       >
                         ✓
                       </span>
