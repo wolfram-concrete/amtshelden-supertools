@@ -43,10 +43,11 @@
 #### 🧾 Basis-Profil-Seite: Zwei-Spalten-Layout + Info-Boxen
 - Fallback-Profil auf `grid [minmax(0,1fr)_320px]` mit **sticky rechter
   Info-Leiste** (Facts/Compliance, CTA, Material/Belege, Quelle).
-- „Basis-Profil"-Hinweis als **Info-Popup** (i-Button, jetzt in der Pille) statt
-  Textfeld; zusätzlich Info-Box am **„Verifiziert"**-Badge — beide erklären
-  Behörden verständlich den Unterschied (Basis-Profil = belegte Grunddaten,
-  Tiefenprüfung folgt · Verifiziert = Redaktion hat tief geprüft und steht dafür ein).
+- Info-„i" direkt **in beiden Badges** integriert (Basis-Profil-Pille + grüne
+  „Verifiziert"-Bubble, weiß auf Grün) statt separatem Kreis; das Popover
+  erklärt Behörden verständlich den Unterschied (Basis-Profil = belegte
+  Grunddaten, Tiefenprüfung folgt · Verifiziert = Redaktion hat tief geprüft
+  und steht dafür ein).
 - Popover-**Stacking-Bug** behoben: `will-change` aus den Reveal-Regeln entfernt
   + kein `data-reveal` mehr um interaktive Popover-Container (lagen sonst hinter
   der Typo); Popover-Typo neutralisiert (kein geerbtes Uppercase/Bold aus der Pille).
@@ -105,8 +106,9 @@
   zellweise aktualisierbar.
 - Zentrale native, API-fähige Tab-Datei angelegt:
   `https://docs.google.com/spreadsheets/d/1_omRLrsWPOTR2mbkpfaDSYmqGNDqkUnj2D5ZtjlgTgQ`
-- Tabs: `Website_Portfolio`, `Master_Qualifizierung`, `Review_Historie`,
-  `Discovery_Inbox`, `Multiplikatoren_Fuellhoerner`.
+- Tabs: `00_Legende`, `01_Fuellhoerner`, `02_Discovery_Inbox`,
+  `03_Master_Qualifizierung`, `04_Review_Historie`,
+  `05_Website_Datenbasis`.
 - Zielkonfiguration:
   `data/crawler/master/google-sheet-target.json`.
 
