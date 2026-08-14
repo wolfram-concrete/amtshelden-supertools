@@ -2,6 +2,116 @@
 
 ---
 
+## [0.24.0] — 2026-08-14
+
+### Frontend: Master-Datenbasis integriert · Motion-Pass · Profil-Redesign · Headline-Typo
+
+#### 🗂️ Kuratierte Software-Masterliste im Frontend (ergänzend, kein „Crawler")
+- Neue Datenbasis-Schicht: **reproduzierbarer Generator**
+  `scripts/build_software_master.py` → `src/data/software-master.ts`
+  (Single Source of Truth = `data/crawler/master/software-master.json`; die
+  interne JSON bleibt unversioniert, interne Statusfelder bleiben intern).
+- `src/data/directory.ts` bündelt **bestehende 59 + Master 13 = 72** zu einer
+  gemeinsamen Verzeichnis-Sicht. Kategorie-Seiten, `/tools/[slug]` und der
+  Home-ToolTeaser lesen jetzt daraus (Master-Tools **eingemischt**, nicht separat).
+- Breite Discovery nach Funnel **Füllhörner → Entity Matching →
+  Vorqualifizierung → gezielter Anbieter-Review** nachgezogen: `govdigital`,
+  `ITC AG` und `Empolis` in Master/Watchlist übernommen; `collect.AI`,
+  `Dimater`, `Konica Minolta ECM`, `Lime Technologies`, `ERDigital` und
+  `Modirum Platforms` bleiben als Recherche-/Reject-Historie sichtbar.
+- **Profil-Leiste erweitert:** Verfügbarkeit (z. B. *bundeslandspezifisch ·
+  Niedersachsen*), Öffentliche Signale (ehrliche Kriterien), Belege/Quellen
+  (`evidence_urls`). `body_copy` → „Über das Produkt".
+- **Ehrlichkeit:** `criteria` werden NICHT als DSGVO-/Server-DE-Zusagen gemappt
+  (privacy≠DSGVO, hosting≠Server DE) → Master-Karten ohne Compliance-Pills.
+  Kein „Crawler"-Wording nach außen.
+- Offen (dokumentiert): Screenshot-Qualität (teils Startseite/Menü statt
+  Produkt-UI) + explizites Review-Gate vor öffentlichem Livegang.
+
+#### 🎬 Motion-Pass „schwebend & weich" (Start- **und alle Unterseiten**)
+- Sanfte Feder-Easing (`--ease-soft`) auf allen Scroll-Reveals; neue
+  `[data-reveal="float"]`-Variante (Bildkacheln schweben + skalieren sanft ein).
+- **Wort-Aufbau** aller Section-Headlines (`RevealHeading`, mit `baseDelay`)
+  + gestaffelte Kaskaden (Karten/Zeilen bauen sich nacheinander auf).
+- Hero-Motiv „atmet" beim Laden (Scale-Settle); Lap-Effekt-Bild driftet sanft
+  gegen die grüne Fläche (Parallax; Mobile runtergefahren).
+- Übertragen auf die **geteilten** Komponenten (KategorieHero, ProfilHero,
+  SectionHead, ArticleHeader) → alle Kategorie-, Profil- und Artikelseiten;
+  plus Wissen, Über, Themenfelder, Anbieter, Vorschlagen, Kontakt, Anfrage.
+- `prefers-reduced-motion` respektiert; nur `transform`/`opacity`.
+
+#### 🧾 Basis-Profil-Seite: Zwei-Spalten-Layout + Info-Boxen
+- Fallback-Profil auf `grid [minmax(0,1fr)_320px]` mit **sticky rechter
+  Info-Leiste** (Facts/Compliance, CTA, Material/Belege, Quelle).
+- „Basis-Profil"-Hinweis als **Info-Popup** (i-Button, jetzt in der Pille) statt
+  Textfeld; zusätzlich Info-Box am **„Verifiziert"**-Badge — beide erklären
+  Behörden verständlich den Unterschied (Basis-Profil = belegte Grunddaten,
+  Tiefenprüfung folgt · Verifiziert = Redaktion hat tief geprüft und steht dafür ein).
+- Popover-**Stacking-Bug** behoben: `will-change` aus den Reveal-Regeln entfernt
+  + kein `data-reveal` mehr um interaktive Popover-Container (lagen sonst hinter
+  der Typo); Popover-Typo neutralisiert (kein geerbtes Uppercase/Bold aus der Pille).
+
+#### 🖼️ Produkt-Screenshots als große Close-ups
+- `ProductShots`: Browser-Rahmen raus (las sich wie Website-Link), größer
+  skaliert, dezente Quellenzeile statt Adressleiste.
+- Eye-Able: Marketing-Startseite durch echten **Dashboard-Close-up** ersetzt.
+- Crawler-Briefing präzisiert: Screenshots = eigentliche Produkt-Oberfläche,
+  nicht die Startseite; eng zugeschnitten, ohne Browser-Rahmen.
+
+#### ✍️ Headline-Typografie-Regeln (global)
+- **Keine Kursiv/Gerade-Mischung** in Headlines (AI-Tell) — Differenzierung
+  nur über Farbe (Brand-Grün), Schrift durchgehend gerade.
+- **Keine erzwungenen `<br>`** in Headlines — natürlicher Umbruch, kein Lücken-Gap.
+
+#### 🔖 Favicon + Feinschliff
+- Chat-Icon (grüne Sprechblase „s") als `favicon.ico` (multi-size) + `icon.png`.
+- „Beta"-Tag hinter dem Logo; Förder-/BMDS-Hinweis entfernt (nicht in Aussicht);
+  Hero-Trust-Badges entschlackt (grüner Check + Text, eine Zeile).
+
+---
+
+## [0.23.0] — 2026-08-14
+
+### Crawler-Masterliste, regionale Verfügbarkeit, native Google-Sheets-Arbeitskopie
+
+#### 🗂️ Drei-Listen-Logik operationalisiert
+- Discovery-Logik getrennt in **Füllhörner/Multiplikatoren**,
+  **Candidate-Inbox** und **interne Masterliste**.
+- Erster Multiplikatoren-Lauf: 17 hoch passende Public-Sector-Quellen geprüft,
+  rohe Kandidaten gefiltert und kuratierte Kandidaten in die Candidate-Inbox
+  überführt.
+- Neuer Masterlisten-Build:
+  `data/crawler/master/software-master.json`,
+  `software-master.md`, `software-master-google-sheet.csv`.
+
+#### 🧭 Regionale/bundeslandspezifische Verfügbarkeit
+- Crawler und Masterliste erkennen jetzt vorsichtig:
+  `nationwide`, `federal_state`, `regional`, `unknown`.
+- Neue Google-Sheet-Spalten:
+  `availability_scope`, `availability_label`, `availability_regions`,
+  `availability_confidence`, `availability_needs_review`,
+  `availability_evidence`.
+- Wichtig: Firmensitz oder Einzelreferenz reichen nicht automatisch für eine
+  regionale Einschränkung; unklare Fälle bleiben reviewpflichtig.
+
+#### 🖼️ Produkt-Screenshots + Bodycopy
+- Masterdaten enthalten pro Tool `body_copy` und lokale Screenshot-Pfade.
+- Screenshots liegen unter `public/brand/screenshots/<slug>/shot-1.jpg`.
+- Export bleibt intern/redaktionell; keine automatische Veröffentlichung.
+
+#### 🔗 Google-Sheets-Zielsystem
+- Ursprünglicher Link `Supertools_Datenbasis_komplett.xlsx` ist technisch eine
+  Office-/Excel-Datei in Google Drive und nicht direkt per Sheets-API
+  zellweise aktualisierbar.
+- Zentrale native, API-fähige Tab-Datei angelegt:
+  `https://docs.google.com/spreadsheets/d/1_omRLrsWPOTR2mbkpfaDSYmqGNDqkUnj2D5ZtjlgTgQ`
+- Tabs: `Website_Portfolio`, `Master_Qualifizierung`, `Review_Historie`,
+  `Discovery_Inbox`, `Multiplikatoren_Fuellhoerner`.
+- Zielkonfiguration:
+  `data/crawler/master/google-sheet-target.json`.
+
+---
+
 ## [0.22.0] — 2026-06-28
 
 ### Echtes Tool im Fokus, breites Verzeichnis (59), „Crawler"-Wording raus, einheitliche Listen
@@ -1388,4 +1498,3 @@ Mid-Section auf cream/30 mit 2-Spalter (Main + 320px Sticky-Sidebar):
   - Stufe 2: Verified Listing (Kontakt, erweitertes Profil)
   - Stufe 3: Add-ons (Ansprechpartner mit Foto, Urteil, Cases)
   - Cases statt Kundenstimmen — für Phase 2+
-

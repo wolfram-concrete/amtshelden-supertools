@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Juni 2026 · **Version:** 0.22 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** August 2026 · **Version:** 0.24 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -82,7 +82,17 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.22, Juni 2026)
+## 3. AKTUELLE SITUATION (Stand v0.23, August 2026)
+
+> **Seit v0.23:** Die Crawler-/Research-Pipeline ist als interne
+> Drei-Listen-Logik dokumentiert und lauffähig: **Füllhörner/Multiplikatoren**
+> → **Candidate-Inbox** → **interne Masterliste**. Die Masterliste enthält jetzt
+> pro Tool `body_copy`, lokale Produkt-Screenshots, Kriterien-Signale,
+> Evidence-URLs und eine vorsichtige Verfügbarkeitsklassifikation
+> (`bundesweit`, `bundeslandspezifisch`, `regional`, `unklar`). Das operative
+> API-fähige Google-Sheets-Ziel ist die zentrale native Tab-Datei
+> `Supertools_Datenbasis_Master_und_Discovery`; Details liegen unter
+> `data/crawler/master/google-sheet-target.json`.
 
 > **Seit v0.22:** „Tool im Fokus" zeigt ein **echtes** Verzeichnis-Tool
 > (Eye-Able), fiktives VivioAkte raus; **ToolTeaser** mit 5 echten Tools quer
@@ -108,6 +118,23 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 (inkl. interner `/crawler-preview` + Crawler-Profil-Fallbacks unter `/tools/[slug]`).
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools`.
 
+### Crawler-/Masterdaten (intern)
+
+Die Crawler-Daten sind keine öffentliche Website-Sprache, sondern eine interne
+kuratierte Supertools-Datenbasis. Öffentlich weiterhin nie „Crawler hat
+gefunden" o. ä. formulieren.
+
+| Datei | Zweck |
+|---|---|
+| `data/crawler/discovery/multiplier-sources.json` | Füllhörner: Messen, Konferenzen, Plattformen, Suchräume |
+| `data/crawler/discovery/curation-seeds.json` | Candidate-Inbox: manuelle und entdeckte Anbieter-Kandidaten |
+| `data/crawler/master/software-master.json` | interne Master-/Watchlist inkl. Bodycopy, Screenshots, Kriterien, Verfügbarkeit |
+| `data/crawler/master/software-master-google-sheet.csv` | Import-/Sync-Format für Google Sheets |
+| `data/crawler/master/google-sheet-target.json` | aktive native Google-Sheets-Ziel-ID |
+| `src/data/software-master.ts` | generierte Frontend-Daten der 13 neuen Master-/Watchlist-Tools |
+| `src/data/directory.ts` | gemeinsame Frontend-Sicht aus 59er-Basis + 13 neuen Master-Tools |
+| `public/brand/screenshots/<slug>/shot-1.jpg` | lokale Produkt-/Website-Snapshots |
+
 ### Strukturebene: 4 Themenfelder (seit v0.16, Strategie-Meeting 12.06.2026)
 
 Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`):
@@ -119,7 +146,7 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 |---|---|---|
 | `/` | ✓ | Editorial-Frontpage: Bento-Hero (Off-White, grüner Tool-Finder, festes Bild-Ratio), Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid (mit Bild-Bannern), About (grün), Mitmachen-CTA, Newsletter |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
-| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (redaktionelle + 59 Verzeichnis-Tools, echte Logos), Filter/Suche/Sortierung + Related |
+| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 10 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 10 noch offen |
 | `/tools/[slug]` | ✓ | Vollständiges Profil (VivioAkte: 8 Zonen) **oder Basis-Profil-Fallback** für Verzeichnis-Tools (Logo, Pitch, Compliance, Shortlinks, „wird redaktionell ausgebaut") |
 | `/crawler-preview` | ✓ | **Interne** Verzeichnis-Vorschau (noindex, nicht verlinkt) — Review-Tool fürs Team |
 | `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) |
@@ -167,6 +194,13 @@ src/
 | **`list-ui-design`** | Bei jeder Listen-/Verzeichnis-/Tabellen-Darstellung — Item-Höhe, Dichte, Hierarchie, gleichberechtigte Darstellung ohne Ranking-Anmutung | `~/.claude/skills/list-ui-design/` · `.codex-context/list-ui-design.md` |
 
 ### Dokumentation & Snapshots
+
+**Systemlogik und Qualifizierung:**
+[`docs/status-quo-2026-08-14/systemlogik-qualifizierung.md`](docs/status-quo-2026-08-14/systemlogik-qualifizierung.md)
+erklärt die vollständige Abfolge von Multiplikatoren und Candidate-Inbox über
+Crawler, Monitoring und Master-/Watchlist bis zur redaktionellen Freigabe und
+Website — inklusive einer Matrix für Nicht-Developer und der Regel, welches
+Wissen dauerhaft an welche Stelle im Repository gehört.
 
 Für Strukturbesprechungen mit Geschäftspartnern liegt eine vollständige
 Sitemap-Doku unter `public/sitemap.html` — wird von Vercel automatisch
