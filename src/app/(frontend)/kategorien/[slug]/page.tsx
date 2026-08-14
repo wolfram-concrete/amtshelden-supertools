@@ -7,9 +7,9 @@ import { articleSummaries } from "@/mocks/articles";
 import { categories, categoryRegistry } from "@/mocks/categories";
 import { toolCardsByCategory } from "@/mocks/tools";
 import {
-  crawlerToolCardPreview,
-  crawlerToolLogoPreview,
-} from "@/mocks/tools/crawler-preview";
+  directoryToolCards,
+  directoryToolLogos,
+} from "@/data/directory";
 import { publicPitch } from "@/lib/crawler-content";
 import type { ToolCardSummary } from "@/types/content";
 
@@ -45,10 +45,10 @@ export default async function KategorieDetailPage({ params }: PageProps) {
   // redaktionelle Einträge + die freigegebenen Verzeichnis-Tools (Pitch
   // bereinigt, echtes Logo). Keine sichtbare Trennung, kein Crawler-Hinweis.
   const editorialTools = toolCardsByCategory[slug] || [];
-  const verzeichnisTools: ToolCardSummary[] = crawlerToolCardPreview
+  const verzeichnisTools: ToolCardSummary[] = directoryToolCards
     .filter((t) => t.categorySlug === slug)
     .map((t) => {
-      const logo = crawlerToolLogoPreview[t.slug];
+      const logo = directoryToolLogos[t.slug];
       return {
         ...t,
         pitch: publicPitch(t.pitch),

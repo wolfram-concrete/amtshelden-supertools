@@ -8,8 +8,10 @@ import {
   ExternalLink,
   FileText,
   Film,
+  MapPin,
   Newspaper,
   Play,
+  ShieldCheck,
   Video,
 } from "lucide-react";
 
@@ -19,12 +21,15 @@ import {
   publicPitch,
   selectProfileResources,
 } from "@/lib/crawler-content";
+import { type CrawlerToolContentPiece } from "@/mocks/tools/crawler-preview";
 import {
-  crawlerToolLogoPreview,
-  crawlerToolScreenshotPreview,
-  crawlerToolSummaryPreview,
-  type CrawlerToolContentPiece,
-} from "@/mocks/tools/crawler-preview";
+  directoryToolLogos,
+  directoryToolScreenshots,
+  directoryToolSummaries,
+  directoryToolAvailability,
+  directoryToolEvidence,
+  directoryToolSignals,
+} from "@/data/directory";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import { InfoPopover } from "@/components/ui/InfoPopover";
@@ -70,12 +75,15 @@ interface CrawlerToolProfileProps {
  * (Facts/Compliance, CTA, Material vom Anbieter, Quelle).
  */
 export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
-  const logo = crawlerToolLogoPreview[tool.slug];
+  const logo = directoryToolLogos[tool.slug];
   const pitch = publicPitch(tool.pitch);
   const youtube = pickProfileYoutube(tool.slug);
   const resources = selectProfileResources(tool.slug, tool.name, tool.pitch);
-  const summary = crawlerToolSummaryPreview[tool.slug];
-  const shots = crawlerToolScreenshotPreview[tool.slug];
+  const summary = directoryToolSummaries[tool.slug];
+  const shots = directoryToolScreenshots[tool.slug];
+  const availability = directoryToolAvailability[tool.slug];
+  const evidence = directoryToolEvidence[tool.slug];
+  const signals = directoryToolSignals[tool.slug];
 
   const youtubeThumb =
     youtube?.thumbnailUrl ||
@@ -205,6 +213,31 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
 
         {/* ── STICKY INFO-LEISTE ── */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
+          {/* Verfügbarkeit — hohes Behörden-Signal (Bundesland/regional/…) */}
+          {availability && (
+            <div className="rounded-2xl border border-border bg-white p-5">
+              <div className="mb-2 flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+                <MapPin size={12} aria-hidden />
+                Verfügbarkeit
+              </div>
+              <div className="font-serif text-[18px] font-normal leading-tight text-dark">
+                {availability.label.charAt(0).toUpperCase() +
+                  availability.label.slice(1)}
+                {availability.regions.length > 0 && (
+                  <span className="text-brand-dark">
+                    {" · "}
+                    {availability.regions.join(", ")}
+                  </span>
+                )}
+              </div>
+              {availability.note && (
+                <p className="mt-1.5 font-ui text-[11.5px] leading-[1.5] text-soft">
+                  {availability.note}
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Facts + Compliance */}
           <div className="rounded-2xl border border-border bg-white p-5">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -230,6 +263,27 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               geprüfte juristische Zusage.
             </p>
           </div>
+
+          {/* Öffentliche Signale — ehrliche Kriterien, kein Zertifikat */}
+          {signals && signals.length > 0 && (
+            <div className="pt-1">
+              <RailLabel>Öffentliche Signale</RailLabel>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {signals.map((s) => (
+                  <span
+                    key={s}
+                    className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/60 px-2.5 py-1 font-ui text-[11px] font-medium text-brand-dark"
+                  >
+                    <ShieldCheck size={12} aria-hidden />
+                    {s}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-2 px-1 font-ui text-[11px] leading-[1.5] text-soft">
+                Öffentlich auffindbare Hinweise — keine geprüfte Zusage.
+              </p>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="space-y-2">
@@ -281,6 +335,33 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                       className="mt-0.5 h-3 w-3 flex-shrink-0 opacity-50 transition-transform group-hover:translate-x-0.5"
                       aria-hidden
                     />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Belege / Quellen — Nachvollziehbarkeit, kein „Crawler-Fund" */}
+          {evidence && evidence.length > 0 && (
+            <div className="pt-1">
+              <RailLabel>Belege / Quellen</RailLabel>
+              <div className="mt-2 space-y-2">
+                {evidence.map((url) => (
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center gap-2 rounded-lg border border-border bg-white px-3.5 py-2.5 font-ui text-[12px] font-medium text-mid transition-colors hover:border-brand hover:text-brand-dark"
+                  >
+                    <ExternalLink
+                      size={13}
+                      className="flex-shrink-0 opacity-60"
+                      aria-hidden
+                    />
+                    <span className="min-w-0 truncate">
+                      {url.replace(/^https?:\/\/(www\.)?/, "")}
+                    </span>
                   </a>
                 ))}
               </div>

@@ -3,10 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { RevealHeading } from "@/components/motion/RevealHeading";
 import { publicPitch } from "@/lib/crawler-content";
-import {
-  crawlerToolCardPreview,
-  crawlerToolLogoPreview,
-} from "@/mocks/tools/crawler-preview";
+import { directoryToolCards, directoryToolLogos } from "@/data/directory";
 import type { ToolCardSummary } from "@/types/content";
 
 /**
@@ -62,7 +59,7 @@ export function ToolTeaser({
   exclude = [],
   limit = 5,
 }: ToolTeaserProps) {
-  const tools = pickAcrossCategories(crawlerToolCardPreview, exclude, limit);
+  const tools = pickAcrossCategories(directoryToolCards, exclude, limit);
 
   if (tools.length === 0) return null;
 
@@ -95,7 +92,7 @@ export function ToolTeaser({
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {tools.map((tool, i) => {
-            const logo = crawlerToolLogoPreview[tool.slug];
+            const logo = directoryToolLogos[tool.slug];
             return (
               <Link
                 key={tool.slug}

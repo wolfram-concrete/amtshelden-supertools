@@ -14,7 +14,7 @@ import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
 import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
 import { CrawlerToolProfile } from "@/components/blocks/crawler/CrawlerToolProfile";
 import { toolProfileRegistry as toolRegistry } from "@/mocks/tools/profiles";
-import { crawlerToolCardPreview } from "@/mocks/tools/crawler-preview";
+import { directoryToolCards } from "@/data/directory";
 import { publicPitch } from "@/lib/crawler-content";
 
 interface PageProps {
@@ -25,7 +25,7 @@ interface PageProps {
 export function generateStaticParams() {
   const slugs = new Set<string>([
     ...Object.keys(toolRegistry),
-    ...crawlerToolCardPreview.map((t) => t.slug),
+    ...directoryToolCards.map((t) => t.slug),
   ]);
   return Array.from(slugs).map((slug) => ({ slug }));
 }
@@ -49,7 +49,7 @@ export async function generateMetadata({
     };
   }
 
-  const crawlerTool = crawlerToolCardPreview.find((t) => t.slug === slug);
+  const crawlerTool = directoryToolCards.find((t) => t.slug === slug);
   if (crawlerTool) {
     return {
       title: `${crawlerTool.name} — Basis-Profil`,
@@ -67,7 +67,7 @@ export default async function ToolProfilePage({ params }: PageProps) {
 
   // Fallback: freigegebenes Crawler-Tool ohne vollständiges Profil
   if (!tool) {
-    const crawlerTool = crawlerToolCardPreview.find((t) => t.slug === slug);
+    const crawlerTool = directoryToolCards.find((t) => t.slug === slug);
     if (crawlerTool) return <CrawlerToolProfile tool={crawlerTool} />;
     notFound();
   }
