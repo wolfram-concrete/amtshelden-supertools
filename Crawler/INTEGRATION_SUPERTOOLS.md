@@ -186,12 +186,22 @@ Das Frontend hat zwei neue Slots, die der Crawler **je freigegebenem Tool
 mitliefern muss**:
 
 ### 1) Produkt-Screenshots (aktuelle Snapshots)
-- Der Crawler macht pro Tool **1–3 aktuelle Screenshots** der öffentlich
-  sichtbaren Produkt-/Marketing-Seite (Software-Interface, Dashboard, App-UI).
+- Der Crawler macht pro Tool **1–3 aktuelle Close-ups der eigentlichen
+  Produkt-Oberfläche** (Dashboard, App-UI, Software-Interface).
+- **Qualifizierung — wichtig:** NICHT die Marketing-/Startseite abfotografieren
+  (Hero mit Navigation, Claim, Buttons). Das liest sich im Frontend wie ein
+  Link zur Website, nicht wie ein Produkt-Snapshot. Ziel ist die tatsächliche
+  Oberfläche: das eigentliche Interface-Panel möglichst formatfüllend und
+  eng zugeschnitten. Wenn die Oberfläche nur als eingebettetes Produktbild auf
+  der Marketing-Seite existiert (z. B. Dashboard-Mockup), genau dieses Panel
+  eng ausschneiden — ohne Nav, Claim und Seitenrand.
+- **Kein Browser-Rahmen nötig** (Adressleiste/Fenster-Punkte): das Frontend
+  rahmt die Bilder selbst sauber. Reiner Interface-Ausschnitt genügt.
 - Eigene Aufnahmen der gerenderten Seite (Headless-Browser-Screenshot), keine
   fremden Asset-Dateien hotlinken. Cookie-/Consent-Overlays vor dem Shot
   wegklicken oder Regionen ohne Overlay wählen.
-- Zielformat: Breite ~1100 px, JPEG, unter ~120 KB. Ablage z. B.
+- Zielformat: Breite ~1100–1400 px, JPEG, unter ~120 KB, scharf (nicht aus
+  einem winzigen Ausschnitt hochskaliert). Ablage z. B.
   `public/brand/screenshots/<slug>/shot-N.jpg`.
 - Export ins Frontend als:
   ```ts
@@ -218,3 +228,33 @@ mitliefern muss**:
 Beide Felder werden vom Export-Script mit ausgegeben und wie die anderen
 Preview-Daten nur nach Review sichtbar. Frontend-Quelle bleibt ausschließlich
 `src/mocks/tools/crawler-preview.ts`.
+
+Konkreter Export mit bestehenden lokalen Screenshots:
+
+```bash
+cd /Users/wolfram/web-projekte/supertools
+.venv/bin/python scripts/export_crawler_toolcards_preview.py \
+  data/crawler/runs/full-excel-2026-06-28/product-candidates.json \
+  --decisions data/crawler/review-decisions.json \
+  --out src/mocks/tools/crawler-preview.ts
+```
+
+Konkreter Export inklusive neuer Headless-Screenshots:
+
+```bash
+cd /Users/wolfram/web-projekte/supertools
+.venv/bin/python scripts/export_crawler_toolcards_preview.py \
+  data/crawler/runs/full-excel-2026-06-28/product-candidates.json \
+  --decisions data/crawler/review-decisions.json \
+  --out src/mocks/tools/crawler-preview.ts \
+  --capture-screenshots \
+  --screenshot-root public/brand/screenshots \
+  --screenshot-limit 3
+```
+
+Ohne `--capture-screenshots` werden nur bereits vorhandene lokale Dateien unter
+`public/brand/screenshots/<slug>/shot-N.jpg` in
+`crawlerToolScreenshotPreview` referenziert. Mit `--capture-screenshots` nimmt
+der Exporter 1-3 aktuelle Viewport-Screenshots pro freigegebenem Tool auf,
+klickt einfache Consent-Dialoge weg, skaliert auf ca. 1100 px Breite und
+komprimiert die JPEGs zielgerichtet unter ca. 120 KB.
