@@ -42,6 +42,9 @@ EDITORIAL = {
     "ceyoniq": ("e-akte-dokumentenmanagement", "ECM und Dokumentenmanagement für die kommunale Digitalisierung."),
     "inixmedia": ("kommunikation-zusammenarbeit", "Öffentlichkeitsarbeit und Bürgerservice für Kommunen."),
     "nolis": ("buergerservice-fachverfahren", "Kommunale Fachsoftware und Digitalisierungslösungen."),
+    "govdigital": ("kommunikation-zusammenarbeit", "Souveräne Verwaltungscloud und digitale Infrastruktur für die öffentliche Verwaltung."),
+    "itc-ag": ("kommunikation-zusammenarbeit", "Portale und Kundenkommunikation für kommunale Energie- und Versorgungsunternehmen."),
+    "empolis": ("kommunikation-zusammenarbeit", "Wissensmanagement für Kommunen und öffentliche Organisationen."),
 }
 
 # criteria-Key -> ehrliches Signal-Label (public_sector = Aufnahmekriterium, nicht gezeigt)
@@ -57,6 +60,7 @@ SIGNAL_LABELS = {
 AVAIL_LABEL = {
     "federal_state": "bundeslandspezifisch",
     "regional": "regional",
+    "nationwide": "bundesweit",
     "national": "bundesweit",
     "unknown": "in Prüfung",
 }
