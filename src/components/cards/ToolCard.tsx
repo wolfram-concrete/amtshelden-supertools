@@ -95,7 +95,7 @@ function RowItem({
               {tool.name}
             </h3>
             {tool.verified && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-light px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-light px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand-dark">
                 ✓ Verifiziert
               </span>
             )}
@@ -121,7 +121,7 @@ function RowItem({
           <div className="font-serif text-[20px] font-normal leading-none text-dark">
             {tool.facts.price || "auf Anfrage"}
           </div>
-          <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
+          <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
             {[tool.facts.operation, tool.facts.setup]
               .filter(Boolean)
               .join(" · ")}
@@ -147,7 +147,7 @@ function RowItem({
 
 function RowPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[10.5px] font-medium text-brand-dark">
+    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[11.5px] font-medium text-brand-dark">
       ✓ {children}
     </span>
   );
@@ -185,7 +185,7 @@ function TileCard({
               </Badge>
             )}
           </div>
-          <div className="font-ui text-[10.5px] text-soft truncate mt-0.5">
+          <div className="font-ui text-[11.5px] text-soft truncate mt-0.5">
             {tool.provider}
           </div>
         </div>
@@ -224,7 +224,7 @@ function TileCard({
 
 function TilePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-0.5 rounded-full bg-brand-light/60 px-1.5 py-0.5 font-ui text-[9.5px] font-medium text-brand-dark border border-brand/15">
+    <span className="inline-flex items-center gap-0.5 rounded-full bg-brand-light/60 px-1.5 py-0.5 font-ui text-[11px] font-medium text-brand-dark border border-brand/15">
       <span aria-hidden>✓</span>
       {children}
     </span>
@@ -314,7 +314,7 @@ function ExtendedCard({
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0">
-      <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+      <dt className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
         {label}
       </dt>
       <dd className="font-ui text-[12px] font-semibold text-dark mt-1 truncate">
@@ -326,7 +326,7 @@ function Fact({ label, value }: { label: string; value: string }) {
 
 function CompliancePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-brand-light/60 px-2 py-0.5 font-ui text-[10px] font-medium text-brand-dark border border-brand/15">
+    <span className="inline-flex items-center gap-1 rounded-full bg-brand-light/60 px-2 py-0.5 font-ui text-[11px] font-medium text-brand-dark border border-brand/15">
       <span aria-hidden>✓</span>
       {children}
     </span>

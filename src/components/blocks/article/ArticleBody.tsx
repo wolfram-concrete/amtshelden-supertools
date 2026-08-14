@@ -135,7 +135,7 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
             {icons[variant]}
           </div>
           <div className="space-y-1.5 flex-1">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               {labels[variant]}
             </div>
             <p className="font-sans text-[15px] leading-[1.6] text-dark">

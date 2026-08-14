@@ -111,7 +111,7 @@ export default function AnbieterPage() {
       <section className="bg-cream/40 border-b border-border">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Ihr Nutzen
             </div>
             <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
@@ -144,7 +144,7 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
           <header className="lg:sticky lg:top-24 space-y-3">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Themenfelder
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
@@ -203,7 +203,7 @@ export default function AnbieterPage() {
       >
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <header className="max-w-2xl space-y-3 mb-12">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Profilarten
             </div>
             <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
@@ -301,7 +301,7 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Was wir übernehmen
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
@@ -360,7 +360,7 @@ export default function AnbieterPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div className="max-w-2xl space-y-6">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
                 Nächster Schritt
               </div>
               <h2 className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight">

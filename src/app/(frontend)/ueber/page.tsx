@@ -59,7 +59,7 @@ export default function UeberPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
                 Warum es Supertools gibt
               </div>
               <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
@@ -123,7 +123,7 @@ export default function UeberPage() {
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <header className="border-t border-border pt-8 mb-12 lg:mb-16 max-w-2xl space-y-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
             Drei Grundsätze
           </div>
           <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">
@@ -185,7 +185,7 @@ export default function UeberPage() {
                 link={false}
                 className="mb-2"
               />
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
                 Schwesterprojekt von Amtshelden
               </div>
               <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight">
@@ -267,7 +267,7 @@ export default function UeberPage() {
                         />
                       </div>
                     )}
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/75">
+                    <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/75">
                       {entry.label}
                     </div>
                     <h3 className="font-serif text-[22px] font-normal leading-[1.15] mt-2">
@@ -320,7 +320,7 @@ export default function UeberPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <header className="lg:col-span-5 space-y-3 lg:sticky lg:top-24 lg:self-start">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Wie wir arbeiten
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
@@ -381,7 +381,7 @@ export default function UeberPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="space-y-3">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
                 Wer wir sind
               </div>
               <h2 className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark">
@@ -421,7 +421,7 @@ export default function UeberPage() {
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
             Mitmachen
           </div>
           <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark">

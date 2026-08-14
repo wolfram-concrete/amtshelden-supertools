@@ -11,7 +11,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
   return (
     <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-10">
       <div className="max-w-3xl space-y-7">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
           {article.eyebrow}
         </div>
 

@@ -32,7 +32,7 @@ export default function DatenschutzPage() {
   return (
     <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
           Rechtliches
         </div>
         <h1 className="mt-3 font-serif text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">

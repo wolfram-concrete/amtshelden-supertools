@@ -58,7 +58,7 @@ export function ProfilHero({
   return (
     <article className={cn("space-y-6", className)}>
       {/* Kategorie-Eyebrow */}
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
         {categoryLabel}
       </div>
 
@@ -129,7 +129,7 @@ export function ProfilHero({
                 <div className="font-ui text-[14px] font-bold text-white">
                   {company.name}
                 </div>
-                <div className="font-ui text-[10px] text-white/60">
+                <div className="font-ui text-[11px] text-white/60">
                   {company.type}
                 </div>
               </div>
@@ -145,7 +145,7 @@ export function ProfilHero({
 
       {/* Amtshelden-Urteil — Pull Quote Style */}
       <aside className="border-l-2 border-brand pl-6 py-2 my-4">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand mb-2">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand mb-2">
           Amtshelden-Urteil
         </div>
         <p className="font-serif text-[20px] font-normal leading-[1.5] italic text-dark">

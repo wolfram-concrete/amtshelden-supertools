@@ -138,7 +138,7 @@ export function ProfilSidebar({
                   <div className="font-ui text-[12px] font-semibold leading-[1.35] text-dark">
                     {link.title}
                   </div>
-                  <div className="font-ui text-[10px] text-soft mt-0.5">
+                  <div className="font-ui text-[11px] text-soft mt-0.5">
                     {link.meta}
                   </div>
                 </div>
@@ -152,13 +152,13 @@ export function ProfilSidebar({
       {lastCheckedAt && (
         <div className="pt-2 px-1">
           <div className="rounded-lg border border-dashed border-border bg-white px-3.5 py-3">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
               Stand der Prüfung
             </div>
             <div className="font-ui text-[12px] font-semibold text-dark mt-1">
               {formatDateDE(lastCheckedAt)}
             </div>
-            <p className="font-ui text-[10.5px] leading-[1.55] text-soft mt-1.5">
+            <p className="font-ui text-[11.5px] leading-[1.55] text-soft mt-1.5">
               Profile werden quartalsweise von der Amtshelden-Redaktion
               gegengeprüft. Angaben veraltet?{" "}
               <Link
@@ -185,7 +185,7 @@ function SidebarLabel({
   return (
     <div
       className={cn(
-        "font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft px-1",
+        "font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft px-1",
         className,
       )}
     >

@@ -21,8 +21,8 @@ import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { publicPitch } from "@/lib/crawler-content";
 
 export const metadata: Metadata = {
-  title: "Crawler Preview - Supertools",
-  description: "Freigegebene Crawlerdaten als interne Supertools-Vorschau.",
+  title: "Verzeichnis-Preview - Supertools",
+  description: "Interne Vorschau der freigegebenen Verzeichnisdaten.",
   robots: { index: false, follow: false },
 };
 
@@ -161,7 +161,7 @@ function ResourceLink({ piece }: { piece: CrawlerToolContentPiece }) {
     >
       <ResourceIcon kind={piece.kind} />
       <span className="min-w-0 truncate">
-        <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-brand">
+        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-brand">
           {contentLabels[piece.kind]}
         </span>
         <span className="mx-1 text-brand/45" aria-hidden>
@@ -220,16 +220,16 @@ export default function CrawlerPreviewPage() {
   return (
     <div className="container mx-auto px-6 py-10 lg:px-10 lg:py-14">
       <header className="mb-10 border-b border-border pb-8">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-          Interne Vorschau · Arbeits-Preview
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+          Interne Vorschau · Arbeitsliste
         </div>
         <h1 className="mt-3 font-serif text-[clamp(32px,5vw,56px)] font-normal leading-[1.05] text-dark">
-          Crawler Review
+          Verzeichnis-Preview
         </h1>
         <p className="mt-4 max-w-3xl font-sans text-[16px] leading-[1.7] text-mid">
-          {crawlerToolCardPreview.length} Tools aus der breiten Crawler-Arbeits-Preview
-          — keine finale Empfehlung, sondern Datenbasis zum Prüfen von Layout,
-          Kategorien, Logos und Profil-Fallbacks. Zusatzmaterial erscheint als
+          {crawlerToolCardPreview.length} Tools in der breiten Arbeitsliste —
+          keine finale Empfehlung, sondern Datenbasis zum Prüfen von Layout,
+          Kategorien, Logos und Basis-Profilen. Zusatzmaterial erscheint als
           kurzer, redaktionell gefilterter Linkbereich je Karte.
         </p>
         <div className="mt-5 flex flex-wrap gap-2 font-ui text-[12px] text-soft">
@@ -237,7 +237,7 @@ export default function CrawlerPreviewPage() {
             {visibleResourceCount} sichtbare Shortlinks
           </span>
           <span className="rounded-full border border-border bg-white px-3 py-1">
-            Rohdaten bleiben im Crawler-Report
+            Rohdaten bleiben intern
           </span>
         </div>
       </header>
@@ -279,7 +279,7 @@ export default function CrawlerPreviewPage() {
                     <div className="font-serif text-[20px] font-normal leading-none text-dark">
                       {tool.facts.price || "auf Anfrage"}
                     </div>
-                    <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
+                    <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
                       {[tool.facts.operation, tool.facts.setup].filter(Boolean).join(" · ")}
                     </div>
                     {tool.lastCheckedAt && (
@@ -300,7 +300,7 @@ export default function CrawlerPreviewPage() {
 
               {resources.length > 0 && (
                 <div className="mt-5 border-t border-border pt-4">
-                  <div className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+                  <div className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
                     Zusatzmaterial
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -320,7 +320,7 @@ export default function CrawlerPreviewPage() {
 
 function SignalPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[10.5px] font-medium text-brand-dark">
+    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[11.5px] font-medium text-brand-dark">
       <span aria-hidden>✓</span>
       {children}
     </span>

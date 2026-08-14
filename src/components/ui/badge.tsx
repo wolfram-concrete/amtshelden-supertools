@@ -18,11 +18,11 @@ const badgeVariants = cva(
         verified: "bg-brand text-white",
         outline: "border border-border text-mid bg-transparent",
         soft: "bg-cream text-mid",
-        eyebrow: "bg-transparent text-brand p-0 normal-case tracking-[0.18em]",
+        eyebrow: "bg-transparent text-brand p-0 normal-case tracking-[0.12em]",
       },
       size: {
         default: "px-2.5 py-1 text-[11px] rounded-full",
-        sm: "px-2 py-0.5 text-[10px] rounded-full",
+        sm: "px-2 py-0.5 text-[11px] rounded-full",
         lg: "px-3 py-1.5 text-xs rounded-full",
       },
     },

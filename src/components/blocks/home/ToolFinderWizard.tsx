@@ -136,7 +136,7 @@ export function ToolFinderWizard({ className }: ToolFinderWizardProps) {
     >
       {/* Kopf */}
       <div className="flex items-center justify-between mb-5">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/70">
           Tool-Finder
         </div>
         <div className="font-ui text-[11px] font-medium text-white/55">

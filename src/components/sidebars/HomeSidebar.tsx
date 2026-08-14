@@ -45,7 +45,7 @@ function SidebarCategoryNav() {
               <span className="flex-1 font-ui text-[12.5px] font-medium text-dark group-hover:text-brand-dark transition-colors">
                 {c.name}
               </span>
-              <span className="font-ui text-[10px] font-semibold text-soft">
+              <span className="font-ui text-[11px] font-semibold text-soft">
                 {c.toolCount}
               </span>
             </Link>
@@ -118,7 +118,7 @@ function SidebarNewArrivals() {
                 <div className="font-ui text-[12px] font-semibold text-dark leading-tight group-hover:text-brand-dark transition-colors">
                   {tool.name}
                 </div>
-                <div className="font-ui text-[10px] text-soft truncate">
+                <div className="font-ui text-[11px] text-soft truncate">
                   {tool.categoryLabel}
                 </div>
               </div>
@@ -136,7 +136,7 @@ function SidebarNewArrivals() {
 function SidebarNewsletterCompact() {
   return (
     <div className="rounded-xl bg-brand-dark text-white p-5 space-y-3">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/85">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/85">
         Newsletter
       </div>
       <h3 className="font-serif text-[18px] font-normal leading-[1.2]">
@@ -174,7 +174,7 @@ function Widget({
         className,
       )}
     >
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft mb-3 pb-2 border-b border-border">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft mb-3 pb-2 border-b border-border">
         {label}
       </div>
       {children}

@@ -52,7 +52,7 @@ export async function generateMetadata({
   const crawlerTool = crawlerToolCardPreview.find((t) => t.slug === slug);
   if (crawlerTool) {
     return {
-      title: `${crawlerTool.name} — Crawler-Freigabe`,
+      title: `${crawlerTool.name} — Basis-Profil`,
       description: publicPitch(crawlerTool.pitch).slice(0, 160),
       robots: { index: false, follow: false },
     };

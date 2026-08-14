@@ -51,10 +51,9 @@ interface CrawlerToolProfileProps {
 }
 
 /**
- * Tool-Profil-Fallback für freigegebene Crawler-Tools, für die noch kein
- * vollständiges ToolProfile existiert. Klar als „Crawler-Freigabe / noch
- * redaktionell zu prüfen" markiert. Speist sich ausschließlich aus
- * crawlerToolCardPreview, crawlerToolContentPreview und crawlerToolLogoPreview.
+ * Tool-Profil-Fallback für freigegebene Verzeichnis-Tools, für die noch kein
+ * vollständiges ToolProfile existiert. Öffentlich als Basis-Profil markiert.
+ * Speist sich ausschließlich aus dem geprüften Verzeichnis-Export.
  */
 export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
   const logo = crawlerToolLogoPreview[tool.slug];
@@ -82,7 +81,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           {tool.categoryLabel}
         </Link>
 
-        {/* Status-Hinweis: Crawler-Freigabe, noch nicht redaktionell final */}
+        {/* Status-Hinweis: Basis-Profil, noch nicht redaktionell final */}
         <div className="mt-6 flex items-start gap-3 rounded-2xl border border-amber-light bg-amber-light/60 p-4 lg:p-5">
           <span
             aria-hidden
@@ -91,7 +90,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             <Info size={15} />
           </span>
           <div>
-            <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-accent-ink">
+            <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-accent-ink">
               Basis-Profil · wird redaktionell ausgebaut
             </div>
             <p className="mt-1 font-sans text-[13.5px] leading-[1.6] text-mid">
@@ -124,7 +123,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           </span>
 
           <div className="min-w-0">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-accent-ink">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
               Basis-Profil
             </span>
             <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">
@@ -151,7 +150,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             {tool.lastCheckedAt && <GeprueftBadge date={tool.lastCheckedAt} />}
           </div>
           {tool.facts.operation && (
-            <div className="mt-1.5 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
+            <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
               {tool.facts.operation}
             </div>
           )}
@@ -200,7 +199,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
         {/* Zusatzmaterial — kurze, kontextualisierte Shortlinks */}
         {resources.length > 0 && (
           <div className="mt-7">
-            <div className="mb-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+            <div className="mb-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
               Material vom Anbieter
             </div>
             <div className="flex flex-wrap gap-2">
@@ -214,7 +213,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                 >
                   <ResourceIcon kind={piece.kind} />
                   <span className="min-w-0 truncate">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.08em] text-brand">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-brand">
                       {crawlerContentLabels[piece.kind]}
                     </span>
                     <span className="mx-1 text-brand/45" aria-hidden>

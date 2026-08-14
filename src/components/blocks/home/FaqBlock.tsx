@@ -16,7 +16,7 @@ export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
   return (
     <section id="faq" className="space-y-8 scroll-mt-24">
       <header className="border-t border-border pt-8 space-y-3 max-w-2xl">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
           {eyebrow}
         </div>
         <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
@@ -39,7 +39,7 @@ export function FaqBlock({ eyebrow, title, items }: FaqBlockProps) {
               </h3>
               <span
                 aria-hidden
-                className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft group-open:text-brand transition-colors hidden sm:block"
+                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft group-open:text-brand transition-colors hidden sm:block"
               >
                 <span className="group-open:hidden">Lesen</span>
                 <span className="hidden group-open:inline">Geschlossen</span>

@@ -32,7 +32,7 @@ export function ProfilCta({
       </div>
 
       <div className="max-w-xl space-y-5 relative">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">
+        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
           {eyebrow}
         </div>
         <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight whitespace-pre-line">

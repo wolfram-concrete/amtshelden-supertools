@@ -47,7 +47,7 @@ export function FoerderHinweis({
                 )}
               </span>
               <div className="max-w-[28ch]">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-brand">
+                <div className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-brand">
                   {kicker}
                 </div>
                 <div className="mt-0.5 font-ui text-[12.5px] font-medium leading-snug text-dark">
@@ -69,11 +69,11 @@ export function FoerderHinweis({
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-6 lg:pt-10">
         <div className="flex justify-end">
           <div className="inline-flex items-center gap-3 rounded-2xl border border-dashed border-border bg-cream/60 px-4 py-3">
-            <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-dashed border-border font-mono text-[9px] font-bold uppercase tracking-wide text-soft">
+            <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-dashed border-border font-mono text-[11px] font-bold uppercase tracking-wide text-soft">
               Logo
             </span>
             <div>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-soft">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-soft">
                 Förderhinweis · Platzhalter
               </div>
               <div className="mt-0.5 font-ui text-[11.5px] text-soft">

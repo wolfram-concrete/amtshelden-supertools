@@ -69,8 +69,8 @@ export function ToolTeaser({
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <header data-reveal className="mb-8 max-w-2xl space-y-3 lg:mb-10">
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
+            <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
             {eyebrow}
           </div>
           <h2 className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark">
@@ -121,7 +121,7 @@ export function ToolTeaser({
                   />
                 </div>
 
-                <div className="mt-3 line-clamp-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-brand">
+                <div className="mt-3 line-clamp-1 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-brand">
                   {tool.categoryLabel}
                 </div>
                 <h3 className="mt-1 font-serif text-[16px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">

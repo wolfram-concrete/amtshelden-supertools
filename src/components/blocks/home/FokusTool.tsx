@@ -54,8 +54,8 @@ export function FokusTool({
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
           {/* Links: faktische Einordnung */}
           <div data-reveal className="space-y-5 lg:sticky lg:top-24">
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
+              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
               {eyebrow}
             </div>
             <h2 className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark">
@@ -63,7 +63,7 @@ export function FokusTool({
             </h2>
             <p className="font-sans text-[16px] leading-[1.7] text-mid">{was}</p>
             <div className="border-l-2 border-brand py-1 pl-5">
-              <div className="mb-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+              <div className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
                 Einordnung
               </div>
               <p className="font-serif text-[18px] italic leading-[1.5] text-dark">
@@ -105,11 +105,11 @@ export function FokusTool({
                   <span className="font-serif text-[24px] font-normal text-dark">
                     {tool.name}
                   </span>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-accent-ink">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-accent-ink">
                     Basis-Profil
                   </span>
                 </div>
-                <div className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.08em] text-soft">
+                <div className="mt-1 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
                   {tool.provider}
                 </div>
               </div>

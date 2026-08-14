@@ -62,8 +62,8 @@ export function AmtsheldenFeed() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-14 lg:py-20">
         <header data-reveal className="flex flex-wrap items-end justify-between gap-6 mb-8 lg:mb-11">
           <div className="max-w-2xl space-y-3">
-            <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
+              <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
               Teil von Amtshelden
             </div>
             <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark">
@@ -111,11 +111,11 @@ export function AmtsheldenFeed() {
                 className="group flex flex-col rounded-2xl bg-white p-6 transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.25)]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-2 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+                  <span className="inline-flex items-center gap-2 font-mono text-[11.5px] font-bold uppercase tracking-[0.12em] text-brand-dark">
                     <Glyph size={15} />
                     {name}
                   </span>
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-soft">
+                  <span className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-soft">
                     {item.topic}
                   </span>
                 </div>

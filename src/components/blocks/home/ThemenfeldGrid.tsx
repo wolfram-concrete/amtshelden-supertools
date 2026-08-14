@@ -28,8 +28,8 @@ export function ThemenfeldGrid({
     <section className="bg-cream">
       <div className="container mx-auto px-6 lg:px-10 py-14 lg:py-20">
         <header data-reveal className="max-w-2xl space-y-3 mb-10 lg:mb-12">
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
+            <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
             {eyebrow}
           </div>
           <h2 className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark">

@@ -69,7 +69,7 @@ export function EditorialFeatureStory({
           <div className="lg:col-span-7 space-y-6 lg:pt-4">
             <div
               className={cn(
-                "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
+                "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em]",
                 isOnBrand ? "text-white/85" : "text-brand",
               )}
             >

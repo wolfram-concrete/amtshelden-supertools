@@ -33,7 +33,7 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
 
   return (
     <aside className="lg:sticky lg:top-24 lg:self-start space-y-6">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-soft">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
         Nach Themen
       </div>
 
@@ -52,7 +52,7 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
               <span className="flex-1 font-ui text-[12.5px] font-bold text-dark leading-tight">
                 {tf.name}
               </span>
-              <span className="font-ui text-[10px] text-soft">
+              <span className="font-ui text-[11px] text-soft">
                 {items.length}
               </span>
             </div>
@@ -71,7 +71,7 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
                   >
                     {a.title}
                   </span>
-                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.08em] text-soft">
+                  <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.08em] text-soft">
                     {formatDateDEShort(a.publishedAt)} · {a.readingTime} Min.
                   </span>
                 </Link>

@@ -138,7 +138,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
             <SlidersHorizontal size={14} aria-hidden />
             Filter
             {totalFilters > 0 && (
-              <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-brand text-white font-ui text-[10px] font-bold">
+              <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-brand text-white font-ui text-[11px] font-bold">
                 {totalFilters}
               </span>
             )}
@@ -163,7 +163,7 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
           )}
         >
           <div className="hidden lg:flex items-center justify-between">
-            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-soft">
+            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
               Filter
             </h2>
             {totalFilters > 0 && (
@@ -337,7 +337,7 @@ function FilterGroup({
 }) {
   return (
     <div className="space-y-2.5">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-soft">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
         {label}
       </div>
       <div className="space-y-1.5">{children}</div>
@@ -371,7 +371,7 @@ function FilterCheck({
             : "border-border bg-white group-hover:border-brand/60",
         )}
       >
-        {checked && <span className="text-[10px] font-bold">✓</span>}
+        {checked && <span className="text-[11px] font-bold">✓</span>}
       </span>
       <span
         className={cn(

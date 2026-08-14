@@ -20,8 +20,8 @@ export function QuickGuideBlock({
   return (
     <section className="space-y-8">
       <header className="max-w-2xl space-y-3">
-        <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
-          <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+        <div className="flex items-center gap-2.5 font-sans text-[13px] font-semibold text-brand">
+          <span aria-hidden className="h-px w-6 flex-shrink-0 bg-brand/45" />
           {eyebrow}
         </div>
         <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.08] tracking-tight text-dark">

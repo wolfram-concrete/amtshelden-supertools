@@ -20,7 +20,7 @@ export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
         className,
       )}
     >
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
         {eyebrow}
       </div>
       <h2 className="font-serif font-normal text-[clamp(28px,3.5vw,40px)] leading-[1.02] tracking-tight text-dark">

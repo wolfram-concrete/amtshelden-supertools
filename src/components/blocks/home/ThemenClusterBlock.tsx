@@ -32,7 +32,7 @@ export function ThemenClusterBlock({
       {/* Schwarze Linie über die volle Gridbreite */}
       <div className="border-t border-border pt-7">
         <header data-reveal className="mb-10 lg:mb-12 max-w-3xl space-y-2">
-          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+          <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
             {sectionEyebrow}
           </div>
           <h2 className="font-serif text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark">
@@ -60,7 +60,7 @@ export function ThemenClusterBlock({
                     aria-hidden
                     className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"
                   />
-                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/35 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">
+                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/35 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">
                     {cluster.eyebrow}
                   </span>
                 </Link>
@@ -88,7 +88,7 @@ export function ThemenClusterBlock({
                         <span className="block font-serif text-[15px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
                           {a.title}
                         </span>
-                        <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.14em] text-soft">
+                        <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.14em] text-soft">
                           {formatDateDE(a.publishedAt)} · {a.readingTime} Min.
                         </span>
                       </Link>

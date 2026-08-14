@@ -39,8 +39,8 @@ export function AboutBlock({
           )}
         >
           {/* Eyebrow oben — zwischen Slab-Kante und Headline */}
-          <div className="mb-8 flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <div className="mb-8 flex items-center gap-2.5 font-sans text-[13px] font-semibold text-white/85">
+            <span aria-hidden className="h-px w-6 flex-shrink-0 bg-white/45" />
             {eyebrow}
           </div>
 
@@ -94,7 +94,7 @@ export function AboutBlock({
                   href="/vorschlagen"
                   className="group rounded-2xl bg-white/10 p-5 transition-colors hover:bg-white/15"
                 >
-                  <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-white/70">
+                  <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-white/70">
                     Für Behörden
                   </div>
                   <h3 className="mt-1.5 font-serif text-[20px] font-normal leading-tight">
@@ -114,7 +114,7 @@ export function AboutBlock({
                   href="/anbieter"
                   className="group rounded-2xl bg-white p-5 text-dark transition-[filter] hover:brightness-95"
                 >
-                  <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.16em] text-brand">
+                  <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-brand">
                     Für Anbieter
                   </div>
                   <h3 className="mt-1.5 font-serif text-[20px] font-normal leading-tight text-dark">

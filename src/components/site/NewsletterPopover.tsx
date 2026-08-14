@@ -76,7 +76,7 @@ export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
           aria-label="Newsletter abonnieren"
         >
           <div className="space-y-1.5 mb-4">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Supertools Newsletter
             </div>
             <h3 className="font-serif text-[20px] font-normal leading-[1.15] text-dark">
@@ -112,7 +112,7 @@ export function NewsletterPopover({ onDark = false }: NewsletterPopoverProps) {
               >
                 Anmelden
               </button>
-              <p className="font-ui text-[10px] text-soft text-center pt-1">
+              <p className="font-ui text-[11px] text-soft text-center pt-1">
                 Abmelden jederzeit. DSGVO-konform.
               </p>
             </form>

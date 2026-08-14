@@ -50,7 +50,7 @@ export function ImplementierungBlock({
       {solutions?.length > 0 && (
         <div className="space-y-4">
           {solutionsHeading && (
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand pt-4">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand pt-4">
               {solutionsHeading}
             </div>
           )}
@@ -67,7 +67,7 @@ export function ImplementierungBlock({
                     {sol.challenge}
                   </div>
                   {sol.status && (
-                    <span className="flex-shrink-0 inline-flex items-center font-mono text-[10px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full bg-brand-light text-brand-dark border border-brand/20">
+                    <span className="flex-shrink-0 inline-flex items-center font-mono text-[11px] font-bold uppercase tracking-[0.14em] px-2 py-0.5 rounded-full bg-brand-light text-brand-dark border border-brand/20">
                       ✓ {sol.status === "gelöst" ? "Gelöst" : sol.status}
                     </span>
                   )}

@@ -106,7 +106,7 @@ export function MobileNavDrawer() {
           <section className="px-5 py-6 border-b border-border bg-cream/40">
             <div className="flex items-center gap-2 mb-3">
               <Mail size={14} className="text-brand" aria-hidden />
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
                 Newsletter
               </span>
             </div>
@@ -176,7 +176,7 @@ export function MobileNavDrawer() {
                         <span className="flex-1 font-ui text-[13px] text-dark">
                           {c.name}
                         </span>
-                        <span className="font-ui text-[10px] text-soft">
+                        <span className="font-ui text-[11px] text-soft">
                           {c.toolCount}
                         </span>
                       </Link>

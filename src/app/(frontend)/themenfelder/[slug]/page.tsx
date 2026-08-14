@@ -50,7 +50,7 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
             >
               {tf.icon && <BrandIcon name={tf.icon} size={22} />}
             </span>
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-brand">
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
               Themenfeld · {cats.length}{" "}
               {cats.length === 1 ? "Kategorie" : "Kategorien"}
             </div>
