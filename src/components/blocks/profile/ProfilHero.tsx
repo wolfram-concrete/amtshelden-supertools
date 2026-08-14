@@ -111,17 +111,17 @@ export function ProfilHero({
           )}
         </p>
         {verified && (
-          <span className="inline-flex items-center gap-1.5">
-            <Badge variant="verified" size="sm">
-              ✓ Verifiziert
-            </Badge>
+          <Badge variant="verified" size="sm" className="pr-1.5">
+            ✓ Verifiziert
             <InfoPopover
               label="Was bedeutet verifiziert?"
               title="Verifiziert — von der Redaktion geprüft"
               text="Dieses Profil hat die Amtshelden-Redaktion vollständig recherchiert, geprüft und verantwortet: Einordnung, Praxistauglichkeit, Compliance und Referenzen. Im Unterschied zum Basis-Profil — belegte Grunddaten, Tiefenprüfung folgt — steht die Redaktion hier für die Bewertung ein."
               align="right"
+              iconSize={11}
+              triggerClassName="-mr-0.5 flex h-4 w-4 items-center justify-center rounded-full text-white/70 transition-colors hover:text-white"
             />
-          </span>
+          </Badge>
         )}
       </div>
 
