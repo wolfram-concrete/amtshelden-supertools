@@ -102,7 +102,6 @@ h2 {
       opacity 0.8s var(--ease-soft),
       transform 0.8s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
   }
   .reveal-ready [data-reveal="fade"] { transform: none; }
   .reveal-ready [data-reveal="left"] { transform: translateX(-28px); }
@@ -116,7 +115,6 @@ h2 {
       opacity 0.85s var(--ease-soft),
       transform 0.85s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
   }
   .reveal-ready [data-reveal].is-visible {
     opacity: 1;
@@ -131,7 +129,6 @@ h2 {
       opacity 0.66s var(--ease-soft),
       transform 0.66s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
   }
   .reveal-ready [data-reveal="word"].is-visible {
     opacity: 1;

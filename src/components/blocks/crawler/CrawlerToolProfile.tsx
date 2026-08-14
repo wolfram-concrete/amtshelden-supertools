@@ -107,8 +107,9 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
       <div className="mt-6 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
         {/* ── MAIN ── */}
         <main className="min-w-0">
-          {/* Kopf */}
-          <header data-reveal className="flex items-start gap-5">
+          {/* Kopf — bewusst KEIN data-reveal: das Info-Popover liegt hierin und
+              würde sonst im Reveal-Stacking-Context eingesperrt (hinter der Typo). */}
+          <header className="flex items-start gap-5">
             <span
               className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-border bg-white"
               style={{ background: logo?.backgroundColor || tool.markBg || "var(--color-brand)" }}
@@ -129,14 +130,14 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             </span>
 
             <div className="min-w-0">
-              <span className="inline-flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
-                  Basis-Profil
-                </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 py-0.5 pl-2.5 pr-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
+                Basis-Profil
                 <InfoPopover
                   label="Was ist ein Basis-Profil?"
-                  title="Basis-Profil — wird redaktionell ausgebaut"
-                  text="Dieses Profil ist ein Basis-Eintrag: Kerninfos sind erfasst, die ausführliche redaktionelle Einordnung — Stärken, Grenzen, Praxis — folgt. Compliance-Angaben sind Hinweise, keine juristische Zusage."
+                  title="Basis-Profil — Grunddaten, Tiefenprüfung folgt"
+                  text="Erfasst sind geprüfte Grunddaten aus öffentlich verfügbaren Quellen: Anbieter, Kategorie, Kurzbeschreibung, Compliance-Hinweise und Screenshots. Die ausführliche redaktionelle Einordnung — Stärken, Grenzen, Praxistauglichkeit — folgt noch. Ein verifiziertes Profil hat die Amtshelden-Redaktion dagegen vollständig recherchiert, geprüft und verantwortet. Angaben hier sind Hinweise, keine juristische Zusage."
+                  iconSize={11}
+                  triggerClassName="-mr-0.5 flex h-4 w-4 items-center justify-center rounded-full text-accent-ink/55 transition-colors hover:text-accent-ink"
                 />
               </span>
               <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">

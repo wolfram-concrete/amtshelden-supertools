@@ -1,6 +1,8 @@
 import Image from "next/image";
 
 import { Badge } from "@/components/ui/badge";
+import { RevealHeading } from "@/components/motion/RevealHeading";
+import { InfoPopover } from "@/components/ui/InfoPopover";
 import { cn, formatDateDE } from "@/lib/utils";
 import type { ProfilHeroData } from "@/types/profile";
 
@@ -58,17 +60,27 @@ export function ProfilHero({
   return (
     <article className={cn("space-y-6", className)}>
       {/* Kategorie-Eyebrow */}
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+      <div
+        data-reveal
+        className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+      >
         {categoryLabel}
       </div>
 
       {/* Headline */}
-      <h1 className="font-serif font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark">
-        {title}
-      </h1>
+      <RevealHeading
+        as="h1"
+        text={title}
+        baseDelay={120}
+        className="font-serif font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark"
+      />
 
       {/* Lead */}
-      <p className="font-sans text-[19px] leading-relaxed text-mid max-w-[60ch]">
+      <p
+        data-reveal
+        style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+        className="font-sans text-[19px] leading-relaxed text-mid max-w-[60ch]"
+      >
         {lead}
       </p>
 
@@ -99,9 +111,17 @@ export function ProfilHero({
           )}
         </p>
         {verified && (
-          <Badge variant="verified" size="sm">
-            ✓ Verifiziert
-          </Badge>
+          <span className="inline-flex items-center gap-1.5">
+            <Badge variant="verified" size="sm">
+              ✓ Verifiziert
+            </Badge>
+            <InfoPopover
+              label="Was bedeutet verifiziert?"
+              title="Verifiziert — von der Redaktion geprüft"
+              text="Dieses Profil hat die Amtshelden-Redaktion vollständig recherchiert, geprüft und verantwortet: Einordnung, Praxistauglichkeit, Compliance und Referenzen. Im Unterschied zum Basis-Profil — belegte Grunddaten, Tiefenprüfung folgt — steht die Redaktion hier für die Bewertung ein."
+              align="right"
+            />
+          </span>
         )}
       </div>
 

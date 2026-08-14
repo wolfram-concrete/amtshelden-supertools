@@ -8,13 +8,26 @@ interface InfoPopoverProps {
   label: string;
   title: string;
   text: string;
+  /** Überschreibt das Trigger-Button-Styling (z. B. für Inline in einer Pille) */
+  triggerClassName?: string;
+  /** Icon-Größe des „i" */
+  iconSize?: number;
+  /** Öffnungsrichtung des Popovers (bei rechtsbündigen Triggern "right") */
+  align?: "left" | "right";
 }
 
 /**
  * Kleiner Info-Button (i) mit Popover — z. B. hinter einer Eyebrow/Badge.
  * Klick öffnet ein Fenster mit Erklärung. Esc + Klick-außerhalb schließen.
  */
-export function InfoPopover({ label, title, text }: InfoPopoverProps) {
+export function InfoPopover({
+  label,
+  title,
+  text,
+  triggerClassName,
+  iconSize,
+  align = "left",
+}: InfoPopoverProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -42,15 +55,20 @@ export function InfoPopover({ label, title, text }: InfoPopoverProps) {
         aria-label={label}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex h-5 w-5 items-center justify-center rounded-full border border-border text-soft transition-colors hover:border-brand hover:text-brand-dark"
+        className={
+          triggerClassName ??
+          "flex h-5 w-5 items-center justify-center rounded-full border border-border text-soft transition-colors hover:border-brand hover:text-brand-dark"
+        }
       >
-        <Info size={12} aria-hidden />
+        <Info size={iconSize ?? 12} aria-hidden />
       </button>
 
       {open && (
         <div
           role="dialog"
-          className="absolute left-0 top-7 z-30 w-72 rounded-xl border border-border bg-white p-4 text-left shadow-[0_20px_50px_-20px_rgba(17,17,17,0.35)]"
+          className={`absolute top-7 z-50 w-72 rounded-xl border border-border bg-white p-4 text-left font-sans font-normal normal-case tracking-normal shadow-[0_20px_50px_-20px_rgba(17,17,17,0.35)] ${
+            align === "right" ? "right-0" : "left-0"
+          }`}
         >
           <div className="flex items-start justify-between gap-3">
             <div className="font-sans text-[13px] font-semibold text-dark">
