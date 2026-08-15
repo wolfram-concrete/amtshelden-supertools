@@ -2,6 +2,45 @@
 
 ---
 
+## [0.25.0] — 2026-08-15
+
+### Verzeichnis konsolidiert · Produktbild-Review · Amtshelden-Feed
+
+#### 🗂️ Eine gemeinsame Verzeichnis-Datenquelle
+- Kategorie-, Themenfeld-, Navigations-, Startseiten- und Profilflächen lesen
+  jetzt über `src/data/directory.ts` statt direkt aus einzelnen Mock-Quellen.
+- Die Aggregation dedupliziert Einträge nach Slug und leitet Kategorie-Zahlen
+  aus dem tatsächlichen Bestand ab.
+- Profile erhalten eine Galerie verwandter Tools aus derselben Datenquelle;
+  Überschrift, Karten und Motion folgen dem verbindlichen Design-System.
+
+#### 🖼️ Echte Produktbilder statt Marketingseiten-Snapshots
+- Der Anbieter-Crawl sammelt jetzt bewertete `product_image_candidates` aus
+  Bild-Assets der gelesenen Seiten. Die Kandidaten bleiben ausdrücklich
+  `needs_review` und beeinflussen den Monitoring-Hash nicht.
+- Neues Research-Script `scripts/discover_product_images.py`: Es wertet bereits
+  gespeicherte Crawl-Rohdaten aus, prüft Format, Größe, Seitenverhältnis und
+  visuelle Varianz und schreibt ausschließlich interne Review-Pakete nach
+  `data/crawler/product-images/`.
+- Der Preview-Exporter erzeugt keine Viewport-Screenshots mehr. Ein Bild gelangt
+  nur mit einer expliziten Entscheidung `approved` und einem vorhandenen
+  `public_path` in `crawlerToolScreenshotPreview`.
+- 73 zuvor erzeugte Marketingseiten-Snapshots wurden aus `public/` in den
+  internen, unversionierten Quarantänebereich verschoben. Aktuell bleibt nur
+  das redaktionell freigegebene Eye-Able-Dashboard öffentlich eingebunden.
+
+#### 📣 Amtshelden und Verzeichnis-UX
+- Der Amtshelden-Block verwendet einen lokal importierten Social-Feed mit
+  echten Beitragsmedien und Swipe-/Scroll-Verhalten auf kleinen Viewports.
+- Tool-Teaser, Fokus-Tool, Sidebar, Mega-Menü und Mobile Navigation nutzen die
+  zentralen Verzeichnisdaten; Profilseiten verknüpfen sinnvoll weiter.
+
+#### 📄 Dokumentation und Sicherheit
+- README, Crawler-Anleitung und Systemlogik dokumentieren die neue
+  Produktbild-Recherche samt separatem menschlichem Bildfreigabe-Gate.
+- Produktbild-Kandidaten, Entscheidungen und quarantänisierte Rohbilder unter
+  `data/crawler/` bleiben interne Arbeitsdaten und werden nicht committed.
+
 ## [0.24.0] — 2026-08-14
 
 ### Frontend: Master-Datenbasis integriert · Motion-Pass · Profil-Redesign · Headline-Typo

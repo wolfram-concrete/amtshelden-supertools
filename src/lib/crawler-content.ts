@@ -1,8 +1,8 @@
 /**
  * Aufbereitung der freigegebenen Crawler-Inhalte für öffentliche Oberflächen.
  *
- * Einzige Frontend-Datenquelle: src/mocks/tools/crawler-preview.ts.
- * Kein Zugriff auf data/crawler/* im Frontend.
+ * Wird von der zentralen Frontend-Datenaggregation in src/data/directory.ts
+ * genutzt. Kein direkter Zugriff auf data/crawler/* im Frontend.
  */
 import {
   crawlerToolContentPreview,

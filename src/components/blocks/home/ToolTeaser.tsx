@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { RevealHeading } from "@/components/motion/RevealHeading";
-import { publicPitch } from "@/lib/crawler-content";
 import { directoryToolCards, directoryToolLogos } from "@/data/directory";
 import type { ToolCardSummary } from "@/types/content";
 
@@ -48,9 +47,9 @@ interface ToolTeaserProps {
 }
 
 /**
- * Tool-Teaser — kompakte Vorschau echter, freigegebener Crawler-Tools
+ * Tool-Teaser — kompakte Vorschau echter, freigegebener Verzeichnis-Tools
  * (Logo + Kurzbeschreibung). Verschafft Breite neben dem einen Fokus-Tool.
- * Datenquelle ausschließlich crawler-preview.ts.
+ * Datenquelle ist die zentrale Verzeichnisaggregation in src/data/directory.ts.
  */
 export function ToolTeaser({
   eyebrow,
@@ -139,7 +138,7 @@ export function ToolTeaser({
                   {tool.name}
                 </h3>
                 <p className="mt-1.5 line-clamp-3 font-sans text-[12.5px] leading-[1.5] text-mid">
-                  {publicPitch(tool.pitch)}
+                  {tool.pitch}
                 </p>
               </Link>
             );

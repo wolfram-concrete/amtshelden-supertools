@@ -7,7 +7,7 @@ import { ChevronDown, Mail, Menu, X } from "lucide-react";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Logo } from "@/components/site/Logo";
 import { cn } from "@/lib/utils";
-import { categories } from "@/mocks/categories";
+import { directoryCategories } from "@/data/directory";
 
 /**
  * Mobile-Nav: Hamburger-Button + Slide-in-Drawer von rechts.
@@ -165,7 +165,7 @@ export function MobileNavDrawer() {
               </button>
               {catsOpen && (
                 <ul className="pl-3 mt-1 space-y-px animate-drawer-fade">
-                  {categories.map((c) => (
+                  {directoryCategories.map((c) => (
                     <li key={c.slug}>
                       <Link
                         href={`/kategorien/${c.slug}`}

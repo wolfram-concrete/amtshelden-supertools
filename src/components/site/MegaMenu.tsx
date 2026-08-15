@@ -6,7 +6,7 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
-import { categoriesByThemenfeld } from "@/mocks/categories";
+import { directoryCategoriesByThemenfeld } from "@/data/directory";
 import { themenfelder } from "@/mocks/themenfelder";
 
 /**
@@ -108,7 +108,7 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
             >
               <div className="grid sm:grid-cols-2 gap-3">
                 {themenfelder.map((tf) => {
-                  const cats = categoriesByThemenfeld[tf.slug] || [];
+                  const cats = directoryCategoriesByThemenfeld[tf.slug] || [];
                   return (
                     <div
                       key={tf.slug}

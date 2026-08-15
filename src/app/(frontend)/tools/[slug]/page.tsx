@@ -10,6 +10,7 @@ import { KontaktBlock } from "@/components/blocks/profile/KontaktBlock";
 import { PassDasBlock } from "@/components/blocks/profile/PassDasBlock";
 import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
+import { RelatedToolsGallery } from "@/components/blocks/profile/RelatedToolsGallery";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
 import { TransparencyBlock } from "@/components/blocks/profile/TransparencyBlock";
 import { CrawlerToolProfile } from "@/components/blocks/crawler/CrawlerToolProfile";
@@ -68,7 +69,18 @@ export default async function ToolProfilePage({ params }: PageProps) {
   // Fallback: freigegebenes Crawler-Tool ohne vollständiges Profil
   if (!tool) {
     const crawlerTool = directoryToolCards.find((t) => t.slug === slug);
-    if (crawlerTool) return <CrawlerToolProfile tool={crawlerTool} />;
+    if (crawlerTool) {
+      return (
+        <>
+          <CrawlerToolProfile tool={crawlerTool} />
+          <RelatedToolsGallery
+            currentSlug={crawlerTool.slug}
+            categorySlug={crawlerTool.categorySlug}
+            categoryLabel={crawlerTool.categoryLabel}
+          />
+        </>
+      );
+    }
     notFound();
   }
 
@@ -112,6 +124,11 @@ export default async function ToolProfilePage({ params }: PageProps) {
           />
         </div>
       </div>
+      <RelatedToolsGallery
+        currentSlug={tool.slug}
+        categorySlug={tool.categorySlug}
+        categoryLabel={tool.hero.categoryLabel}
+      />
     </>
   );
 }

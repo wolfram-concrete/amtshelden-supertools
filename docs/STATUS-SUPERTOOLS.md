@@ -1,13 +1,19 @@
 # Supertools — Status & nächste Schritte
 
-**Stand:** 28. Juni 2026 · **Vorschau (intern, noch nicht öffentlich live):** https://amtshelden-supertools.vercel.app
+**Stand:** 14. August 2026 · **Vorschau (intern, noch nicht öffentlich live):** https://amtshelden-supertools.vercel.app
 **Für:** Christian & Julia · **Kurz:** Wo Supertools heute steht und was bis zur finalen Version fehlt.
+
+**Neu zur Systemlogik:** Die vollständige, auch für Nicht-Developer lesbare
+Abfolge von Quellen über Discovery, Crawl, Master-/Watchlist und redaktionelle
+Freigabe bis zur Website ist in
+[`docs/status-quo-2026-08-14/systemlogik-qualifizierung.md`](status-quo-2026-08-14/systemlogik-qualifizierung.md)
+dokumentiert — inklusive Prozess-, Verantwortungs- und Änderungsmatrix.
 
 ---
 
 ## Wo wir stehen — in einem Satz
 
-Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **interne Vorschau** (Arbeitsstand) online abrufbar — **noch nicht öffentlich live**, wir nutzen den Link, um den Aufbau gemeinsam zu prüfen. Startseite, vier Themenfelder, Kategorie-Seiten mit Tool-Listen, Tool-Profile, Anbieter- und Wissensbereich stehen. Inhaltlich arbeiten wir gerade mit einer **breiten Arbeitsbasis aus 59 echten Anbietern** — die **finale, redaktionell fixierte Tool-Liste** ist der nächste große Schritt.
+Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **interne Vorschau** (Arbeitsstand) online abrufbar — **noch nicht öffentlich live**, wir nutzen den Link, um den Aufbau gemeinsam zu prüfen. Startseite, vier Themenfelder, Kategorie-Seiten mit Tool-Listen, Tool-Profile, Anbieter- und Wissensbereich stehen. Inhaltlich arbeiten wir gerade mit einer **breiten Arbeitsbasis aus 72 echten Website-Tools**: 59 aus der bestehenden Review-Pipeline plus 13 technisch vorqualifizierte Master-/Watchlist-Tools. Zusätzlich existieren 2 ältere redaktionelle Vollprofil-Beispiele, sodass der Build aktuell **74 Tool-Routen** erzeugt. Die **finale, einheitlich redaktionell freigegebene Tool-Liste** ist der nächste große Schritt.
 
 ---
 
@@ -29,7 +35,15 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **int
 ### Struktur & Tools
 - **4 Themenfelder** + Detailseiten; **6 Kategorien** mit **einer gemeinsamen Tool-Liste** (Suche, Filter, Sortierung) — **echte Logos** in der Liste.
 - **Tool-Profile:** vollwertige redaktionelle Profil-Vorlage (8 Zonen) **plus** ein **Basis-Profil** für jedes Verzeichnis-Tool (Logo, Pitch, Compliance-Signale, „geprüft am", Material-Shortlinks, Video nur als Vorschau-Link).
-- **59 echte Anbieter** aus dem Crawl als Arbeitsbasis eingepflegt — öffentlich als **kuratiertes Verzeichnis** dargestellt (kein „Crawler"-Wording nach außen).
+- **Cross-Navigation auf Produktdetailseiten:** oberhalb des Footers werden weitere passende Tools vorgeschlagen, damit Nutzer:innen nicht zurück in die Liste springen müssen.
+- **72 echte Anbieter** als Arbeitsbasis eingepflegt: 59 mit bestehender Preview-Freigabe plus 13 neue Master-/Watchlist-Tools. Alle 72 haben aktuell Logo-Daten, Screenshot-Slots und Summary/Bodycopy. Für die 13 neuen Tools fehlt noch das gemeinsame maschinenlesbare Review-Gate; nach außen weiterhin kein „Crawler"-Wording.
+
+### Datenlogik / Kuratierung
+- **Drei Listen als feste interne Bausteine:** Multiplikatoren-/Quellenliste, Kandidaten-Inbox und Masterliste.
+- **Multiplikatoren-/Quellenliste:** Messen, Konferenzen, Awards, Verbände, Plattformen, Such-APIs und andere Quellen, aus denen Anbieter entdeckt werden. Wichtig: Quellen können unterschiedliche Jahrgänge/Editionen haben; nicht jede Messe findet jedes Jahr statt.
+- **Aktueller Quellenstamm:** 30 Public-Sector-Multiplikatoren aus der Messeliste von Christian erfasst (18 Messen, 12 Konferenzen; 17 mit hohem, 13 mit mittlerem Public-Sector-Fit).
+- **Kandidaten-Inbox:** konkret gefundene oder manuell genannte Anbieter aus diesen Quellen, noch ohne Website-Freigabe.
+- **Masterliste:** technisch vorqualifizierte interne Anbieter-/Tool-Arbeitsliste. Sie ist noch keine redaktionelle Freigabe; geeignete Einträge können dauerhaft beobachtet und später nach Review in Website/CMS übernommen werden.
 
 ### Vertrauen (USP)
 - **Kein Ranking, keine Sterne, kein Pay-to-Top** — konsequent umgesetzt.
@@ -40,6 +54,7 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **int
 - **Anbieter-Landingpage** (/anbieter) inkl. „Unternehmen eintragen", Anfrage- & Kontaktstrecke.
 - **„Tool vorschlagen"** (Behörde/Anbieter).
 - **Über**-Seite (Amtshelden-Brücke), **Wissen & Magazin** (Artikel zweispaltig mit Sidebar).
+- **Amtshelden-Social-Feed:** Community-Block nutzt jetzt echte lokal gespeicherte Instagram-Snapshots aus dem Amtshelden-Feed und verlinkt auf konkrete Posts/Reels; LinkedIn-Historie ist ergänzend redaktionell als Verlauf erfasst.
 - Impressum & Datenschutz (als Entwurf, gelb markierte Pflichtfelder).
 - Chat-Widget, Newsletter-CTA.
 
@@ -48,11 +63,12 @@ Supertools ist als **kuratiertes Software-Verzeichnis für Behörden** als **int
 ## ⬜ Was noch fehlt (nächste Schritte)
 
 ### Inhalt — der wichtigste Block
-1. **Finale Tool-Liste festlegen.** Die 59 sind eine breite Arbeitsbasis, **keine finale Empfehlung**. Zu klären: schwache Signale raus, Dubletten zusammenführen, unklare Produktzuschnitte schärfen, 13 technisch nicht sauber gecrawlte Anbieter nachrecherchieren.
+1. **Finale Tool-Liste festlegen.** Die 72 Website-Tools sind eine breite Arbeitsbasis, **keine finale Empfehlung**. Zuerst die 59er-Basis und die 13 neuen Master-/Watchlist-Tools in ein einheitliches Review-Gate überführen; dann schwache Signale entfernen, Dubletten zusammenführen, unklare Produktzuschnitte schärfen und die 13 technisch nicht sauber gecrawlten Alt-Einträge aus der alten Pipeline nachrecherchieren.
 2. **Fiktive Platzhalter-Tools entfernen** (Aktima, BiebriDocs … aus der frühen Entwicklung) — sobald die echte Liste steht.
 3. **Vollständige redaktionelle Profile** für die wichtigsten echten Tools (aktuell nur Basis-Profile).
 4. **Eigene Kategorie für IT/Sicherheit/Infrastruktur** (liegt vorläufig unter „E-Akte").
 5. **Echte Referenzen/Stimmen** statt der aktuellen Platzhalter-Personas (im Code klar als fiktiv markiert).
+6. **Discovery-Prozess verstetigen:** Multiplikatoren und Editionen regelmäßig aktualisieren, neue Candidate-Inbox-Einträge prüfen und technische Master-/Watchlist-Einträge in den redaktionellen Freigabeprozess überführen.
 
 ### Redaktion, Ton & Review
 - **Review durch Julia & Christian:** Seitenaufbau und Informationssammlung noch einmal challengen — stimmt die Struktur, fehlt etwas, ist die Auswahl richtig?
@@ -99,7 +115,7 @@ Was bei uns buchbar sein soll, muss final entschieden und dann gebaut werden:
 - **Bildnachweise** der Commons-Stadtbilder vor finalem Livegang ordnen.
 
 ### Reichweite / Go-to-Market
-- **100+ Tools** als Zielgröße (aktuell 59 als Arbeitsbasis).
+- **100+ Tools** als Zielgröße (aktuell 72 Website-Tools als Arbeitsbasis, noch nicht einheitlich final freigegeben).
 - **„Tool des Monats"** / redaktionelle Features als wiederkehrendes Format etablieren.
 
 ---

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import contextlib
 import dataclasses
 import datetime as dt
 import hashlib
@@ -24,6 +25,7 @@ from openpyxl import load_workbook
 
 
 DEFAULT_EXCEL = "Amtshelden_Zielkundenliste_Sponsoring_2026 (1).xlsx"
+DEFAULT_CURATION_SEEDS = "data/crawler/discovery/curation-seeds.json"
 DEFAULT_STATE = "data/crawler/state/products.json"
 DEFAULT_RUNS = "data/crawler/runs"
 
@@ -50,6 +52,44 @@ PRIORITY_LINK_TERMS = [
     "loesung",
     "lösung",
 ]
+
+PRODUCT_IMAGE_POSITIVE_TERMS = {
+    "dashboard": 10,
+    "screenshot": 10,
+    "software": 7,
+    "platform": 7,
+    "plattform": 7,
+    "interface": 7,
+    "workspace": 6,
+    "workflow": 6,
+    "cockpit": 6,
+    "portal": 5,
+    "product": 4,
+    "produkt": 4,
+    "app": 4,
+    "ui": 4,
+}
+
+PRODUCT_IMAGE_NEGATIVE_TERMS = {
+    "logo": -12,
+    "icon": -10,
+    "favicon": -12,
+    "avatar": -10,
+    "portrait": -9,
+    "team": -8,
+    "people": -7,
+    "person": -7,
+    "webinar": -7,
+    "event": -6,
+    "award": -8,
+    "badge": -8,
+    "partner": -7,
+    "customer": -6,
+    "kunde": -6,
+    "social": -8,
+    "instagram": -10,
+    "linkedin": -10,
+}
 
 SIGNAL_TERMS = {
     "public_sector": [
@@ -168,6 +208,82 @@ SIGNAL_LABELS = {
     "references": "Referenzen/Cases",
 }
 
+AVAILABILITY_SCOPE_LABELS = {
+    "nationwide": "bundesweit",
+    "federal_state": "bundeslandspezifisch",
+    "regional": "regional",
+    "unknown": "unklar",
+}
+
+FEDERAL_STATE_ALIASES = {
+    "Baden-Wuerttemberg": ["baden-wuerttemberg", "baden-württemberg"],
+    "Bayern": ["bayern", "bavaria"],
+    "Berlin": ["berlin"],
+    "Brandenburg": ["brandenburg"],
+    "Bremen": ["bremen"],
+    "Hamburg": ["hamburg"],
+    "Hessen": ["hessen"],
+    "Mecklenburg-Vorpommern": ["mecklenburg-vorpommern", "mecklenburg vorpommern"],
+    "Niedersachsen": ["niedersachsen"],
+    "Nordrhein-Westfalen": ["nordrhein-westfalen", "nordrhein westfalen", "nrw"],
+    "Rheinland-Pfalz": ["rheinland-pfalz", "rheinland pfalz"],
+    "Saarland": ["saarland"],
+    "Sachsen": ["sachsen"],
+    "Sachsen-Anhalt": ["sachsen-anhalt", "sachsen anhalt"],
+    "Schleswig-Holstein": ["schleswig-holstein", "schleswig holstein"],
+    "Thueringen": ["thueringen", "thüringen"],
+}
+
+NATIONWIDE_TERMS = [
+    "bundesweit",
+    "deutschlandweit",
+    "in ganz deutschland",
+    "deutschlandweit taetig",
+    "deutschlandweit tätig",
+    "bundesweit taetig",
+    "bundesweit tätig",
+    "fuer alle bundeslaender",
+    "für alle bundesländer",
+    "alle bundeslaender",
+    "alle bundesländer",
+]
+
+REGIONAL_TERMS = [
+    "regional",
+    "regionale",
+    "regionaler",
+    "regionale verwaltung",
+    "vor ort",
+    "im umkreis",
+    "in der region",
+]
+
+STATE_CONTEXT_TERMS = [
+    "kommunen",
+    "kommune",
+    "behoerden",
+    "behörden",
+    "verwaltung",
+    "verwaltungen",
+    "landesverwaltung",
+    "landesloesung",
+    "landeslösung",
+    "oeffentlicher sektor",
+    "öffentlicher sektor",
+]
+
+STATE_RESTRICTION_TERMS = [
+    "nur",
+    "ausschliesslich",
+    "ausschließlich",
+    "derzeit",
+    "aktuell",
+    "verfuegbar",
+    "verfügbar",
+    "begleiten",
+    "betreuen",
+]
+
 MISSING_RULES = {
     "privacy": "Keine belastbare DSGVO-/Datenschutz-Aussage gefunden.",
     "hosting": "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
@@ -229,6 +345,7 @@ class Seed:
     phone: str
     email: str
     note: str
+    source: str = "excel"
 
 
 def slugify(value: str) -> str:
@@ -278,9 +395,66 @@ def read_seeds(path: Path, cluster: str | None, score_min: int | None) -> list[S
                 phone=str(item.get("Telefon (Zentrale)") or "").strip(),
                 email=str(item.get("E-Mail (Unternehmen)") or "").strip(),
                 note=str(item.get("Begründung / Notiz") or "").strip(),
+                source="excel",
             )
         )
     return seeds
+
+
+def read_curation_seeds(path: Path, cluster: str | None, score_min: int | None) -> list[Seed]:
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    seeds: list[Seed] = []
+    for entry in payload.get("entries", []):
+        action = str(entry.get("crawl_action") or "").strip().lower()
+        if action not in {"crawl", "recrawl"}:
+            continue
+        item_cluster = str(entry.get("cluster") or "").strip()
+        item_score = entry.get("relevance_score")
+        if cluster and item_cluster.upper() != cluster.upper():
+            continue
+        if score_min and (not item_score or int(item_score) < score_min):
+            continue
+        website = normalize_url(str(entry.get("website") or ""))
+        if not entry.get("name") or not website:
+            continue
+        note_parts = [
+            str(entry.get("curation_note") or "").strip(),
+            f"Quelle: {entry.get('source_bucket')}" if entry.get("source_bucket") else "",
+            f"Status: {entry.get('status')}" if entry.get("status") else "",
+        ]
+        seeds.append(
+            Seed(
+                rank=int(entry["rank"]) if entry.get("rank") else None,
+                company=str(entry.get("name") or "").strip(),
+                website=website,
+                branch=str(entry.get("branch") or "").strip(),
+                cluster=item_cluster,
+                relevance_score=int(item_score) if item_score else None,
+                city=str(entry.get("city") or "").strip(),
+                employees=str(entry.get("employees") or "").strip(),
+                phone=str(entry.get("phone") or "").strip(),
+                email=str(entry.get("email") or "").strip(),
+                note=" | ".join(part for part in note_parts if part),
+                source="curation",
+            )
+        )
+    return seeds
+
+
+def merge_seeds(excel_seeds: list[Seed], curation_seeds: list[Seed]) -> list[Seed]:
+    merged: list[Seed] = []
+    seen_keys: set[str] = set()
+
+    for seed in [*excel_seeds, *curation_seeds]:
+        host = urlparse(seed.website).netloc.replace("www.", "").lower()
+        keys = {slugify(seed.company), host}
+        if seen_keys & keys:
+            continue
+        merged.append(seed)
+        seen_keys.update(key for key in keys if key)
+    return merged
 
 
 def load_state(path: Path) -> dict[str, Any]:
@@ -452,6 +626,127 @@ def infer_operation(text: str) -> list[str]:
     return found
 
 
+def unique_preserve(values: list[str]) -> list[str]:
+    seen: set[str] = set()
+    result = []
+    for value in values:
+        if value not in seen:
+            result.append(value)
+            seen.add(value)
+    return result
+
+
+def snippet_at(text: str, start: int, left_chars: int = 150, right_chars: int = 300) -> str:
+    left = max(0, start - left_chars)
+    right = min(len(text), start + right_chars)
+    return re.sub(r"\s+", " ", text[left:right].strip())
+
+
+def availability_term_details(
+    page: dict[str, Any],
+    terms: list[str],
+    limit: int = 3,
+) -> list[dict[str, str]]:
+    text = clean_text(page.get("markdown") or "")
+    details = []
+    seen: set[str] = set()
+    for term in terms:
+        match = re.search(re.escape(term), text, flags=re.IGNORECASE)
+        if not match:
+            continue
+        snippet = snippet_at(text, match.start())
+        key = f"{page['url']}:{snippet[:120].lower()}"
+        if key in seen:
+            continue
+        details.append({"url": page["url"], "term": term, "snippet": snippet})
+        seen.add(key)
+        if len(details) >= limit:
+            break
+    return details
+
+
+def state_details(page: dict[str, Any], limit: int = 4) -> list[dict[str, str]]:
+    text = clean_text(page.get("markdown") or "")
+    lower = text.lower()
+    details = []
+    seen: set[str] = set()
+    for state, aliases in FEDERAL_STATE_ALIASES.items():
+        for alias in aliases:
+            for match in re.finditer(re.escape(alias), lower, flags=re.IGNORECASE):
+                snippet = snippet_at(text, match.start())
+                snippet_lower = snippet.lower()
+                has_context = any(term in snippet_lower for term in STATE_CONTEXT_TERMS)
+                has_restriction = any(term in snippet_lower for term in STATE_RESTRICTION_TERMS)
+                has_state_offer_pattern = bool(
+                    re.search(
+                        rf"(fuer|für)\s+(kommunen|behoerden|behörden|verwaltungen?).{{0,80}}\b{re.escape(alias)}\b",
+                        snippet_lower,
+                    )
+                )
+                if not (has_state_offer_pattern or (has_context and has_restriction)):
+                    continue
+                key = f"{page['url']}:{state}:{snippet[:120].lower()}"
+                if key in seen:
+                    continue
+                details.append({"url": page["url"], "term": alias, "region": state, "snippet": snippet})
+                seen.add(key)
+                if len(details) >= limit:
+                    return details
+    return details
+
+
+def infer_availability(pages: list[dict[str, Any]]) -> dict[str, Any]:
+    ok_pages = [page for page in pages if page.get("ok_status")]
+    nationwide: list[dict[str, str]] = []
+    state_based: list[dict[str, str]] = []
+    regional: list[dict[str, str]] = []
+
+    for page in ok_pages:
+        nationwide.extend(availability_term_details(page, NATIONWIDE_TERMS, limit=2))
+        state_based.extend(state_details(page, limit=3))
+        regional.extend(availability_term_details(page, REGIONAL_TERMS, limit=2))
+
+    if nationwide:
+        return {
+            "scope": "nationwide",
+            "label": AVAILABILITY_SCOPE_LABELS["nationwide"],
+            "regions": [],
+            "confidence": "hoch",
+            "needs_review": False,
+            "evidence": nationwide[:4],
+        }
+
+    if state_based:
+        regions = unique_preserve([entry["region"] for entry in state_based if entry.get("region")])
+        return {
+            "scope": "federal_state",
+            "label": AVAILABILITY_SCOPE_LABELS["federal_state"],
+            "regions": regions,
+            "confidence": "mittel",
+            "needs_review": True,
+            "evidence": state_based[:4],
+        }
+
+    if regional:
+        return {
+            "scope": "regional",
+            "label": AVAILABILITY_SCOPE_LABELS["regional"],
+            "regions": [],
+            "confidence": "niedrig",
+            "needs_review": True,
+            "evidence": regional[:4],
+        }
+
+    return {
+        "scope": "unknown",
+        "label": AVAILABILITY_SCOPE_LABELS["unknown"],
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": True,
+        "evidence": [],
+    }
+
+
 def youtube_id(url: str) -> str | None:
     parsed = urlparse(url)
     host = parsed.netloc.replace("www.", "")
@@ -592,6 +887,106 @@ def extract_content_pieces(pages: list[dict[str, Any]], limit: int = 20) -> list
     return pieces[:limit]
 
 
+def largest_srcset_url(source_url: str, srcset: str) -> str | None:
+    options: list[tuple[int, str]] = []
+    for entry in (srcset or "").split(","):
+        parts = entry.strip().split()
+        if not parts:
+            continue
+        width = 0
+        if len(parts) > 1 and parts[-1].endswith("w"):
+            with contextlib.suppress(ValueError):
+                width = int(parts[-1][:-1])
+        normalized = normalize_link(source_url, parts[0])
+        if normalized:
+            options.append((width, normalized))
+    return max(options, default=(0, ""))[1] or None
+
+
+def product_image_score(url: str, label: str, source_url: str) -> tuple[int, list[str]]:
+    haystack = f"{url} {label}".lower()
+    score = 0
+    reasons: list[str] = []
+    for term, weight in PRODUCT_IMAGE_POSITIVE_TERMS.items():
+        if re.search(rf"(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])", haystack):
+            score += weight
+            reasons.append(f"+{weight}:{term}")
+    for term, weight in PRODUCT_IMAGE_NEGATIVE_TERMS.items():
+        if term in haystack:
+            score += weight
+            reasons.append(f"{weight}:{term}")
+
+    dimension_match = re.search(r"(?<!\d)(\d{3,5})x(\d{3,5})(?!\d)", url)
+    if dimension_match:
+        width, height = map(int, dimension_match.groups())
+        if width >= 900 and height >= 450:
+            score += 5
+            reasons.append("+5:grosse-quelldatei")
+        elif width <= 320 or height <= 240:
+            score -= 8
+            reasons.append("-8:kleine-quelldatei")
+
+    if any(term in source_url.lower() for term in ["produkt", "product", "plattform", "platform", "feature"]):
+        score += 3
+        reasons.append("+3:produktseite")
+    return score, reasons
+
+
+def extract_product_image_candidates(
+    pages: list[dict[str, Any]],
+    limit: int = 30,
+) -> list[dict[str, Any]]:
+    candidates: dict[str, dict[str, Any]] = {}
+    for page in pages:
+        if not page.get("ok_status") or noisy_content_source(page["url"]):
+            continue
+        source_url = page["url"]
+        soup = BeautifulSoup(page.get("html") or "", "html.parser")
+        for image in soup.find_all("img"):
+            candidate_urls: list[str] = []
+            for attribute in ["src", "data-src", "data-lazy-src", "data-original"]:
+                normalized = normalize_link(source_url, image.get(attribute))
+                if normalized:
+                    candidate_urls.append(normalized)
+            for attribute in ["srcset", "data-srcset"]:
+                largest = largest_srcset_url(source_url, image.get(attribute) or "")
+                if largest:
+                    candidate_urls.append(largest)
+
+            label = " ".join(
+                part
+                for part in [
+                    image.get("alt"),
+                    image.get("title"),
+                    image.get("aria-label"),
+                ]
+                if part
+            ).strip()
+            for image_url in candidate_urls:
+                parsed = urlparse(image_url)
+                if parsed.scheme not in {"http", "https"}:
+                    continue
+                if parsed.path.lower().endswith((".svg", ".gif")):
+                    continue
+                score, reasons = product_image_score(image_url, label, source_url)
+                record = {
+                    "url": image_url,
+                    "source_url": source_url,
+                    "alt": label,
+                    "score": score,
+                    "reasons": reasons,
+                    "review_status": "needs_review",
+                }
+                previous = candidates.get(image_url)
+                if previous is None or score > previous["score"]:
+                    candidates[image_url] = record
+
+    return sorted(
+        candidates.values(),
+        key=lambda candidate: (-candidate["score"], candidate["url"]),
+    )[:limit]
+
+
 def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
     ok_pages = [page for page in pages if page.get("ok_status")]
     combined = clean_text(" ".join(page["markdown"] for page in ok_pages))
@@ -610,17 +1005,22 @@ def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
     if operation_models:
         signals["operation_models"] = operation_models
 
+    availability = infer_availability(ok_pages)
+    product_images = extract_product_image_candidates(ok_pages)
     missing = [message for key, message in MISSING_RULES.items() if not signals.get(key)]
     evidence_count = sum(1 for key in ["public_sector", "privacy", "hosting"] if signals.get(key))
     confidence = "hoch" if evidence_count >= 3 else "mittel" if evidence_count >= 2 else "offen"
     signal_payload = {
         "signals": signals,
+        "availability": availability,
         "missing_info": missing,
         "confidence": confidence,
     }
     monitor_payload = {
         "signal_presence": {key: bool(signals.get(key)) for key in SIGNAL_TERMS},
         "operation_models": sorted(signals.get("operation_models", [])),
+        "availability_scope": availability["scope"],
+        "availability_regions": availability["regions"],
         "missing_info": missing,
         "confidence": confidence,
     }
@@ -629,6 +1029,8 @@ def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
         "seed": dataclasses.asdict(seed),
         "signals": signals,
         "signal_sources": signal_sources,
+        "availability": availability,
+        "product_image_candidates": product_images,
         "missing_info": missing,
         "confidence": confidence,
         "content_hash": hashlib.sha256(combined.encode("utf-8")).hexdigest(),
@@ -645,6 +1047,7 @@ def extract_signals(seed: Seed, pages: list[dict[str, Any]]) -> dict[str, Any]:
 def signal_hash_from_record(record: dict[str, Any]) -> str:
     payload = {
         "signals": record.get("signals", {}),
+        "availability": record.get("availability", {}),
         "missing_info": record.get("missing_info", []),
         "confidence": record.get("confidence"),
     }
@@ -656,6 +1059,8 @@ def monitor_hash_from_record(record: dict[str, Any]) -> str:
     payload = {
         "signal_presence": {key: bool(signals.get(key)) for key in SIGNAL_TERMS},
         "operation_models": sorted(signals.get("operation_models", [])),
+        "availability_scope": record.get("availability", {}).get("scope"),
+        "availability_regions": record.get("availability", {}).get("regions", []),
         "missing_info": record.get("missing_info", []),
         "confidence": record.get("confidence"),
     }
@@ -675,6 +1080,10 @@ def compare_state(slug: str, current: dict[str, Any], previous_state: dict[str, 
         changed_fields.append("confidence")
     if previous.get("missing_info") != current.get("missing_info"):
         changed_fields.append("missing_info")
+    if previous.get("availability", {}).get("scope") != current.get("availability", {}).get("scope"):
+        changed_fields.append("availability_scope")
+    if previous.get("availability", {}).get("regions", []) != current.get("availability", {}).get("regions", []):
+        changed_fields.append("availability_regions")
 
     old_signals = previous.get("signals", {})
     new_signals = current.get("signals", {})
@@ -772,7 +1181,7 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
         "",
         "## Entscheidungstabelle",
         "",
-        "| Anbieter | Status | Vorschlag | Confidence | Seiten | Fehlende Infos / Content |",
+        "| Anbieter | Status | Vorschlag | Confidence | Seiten | Fehlende Infos / Content / Bilder |",
         "| --- | --- | --- | --- | ---: | ---: |",
     ]
 
@@ -787,7 +1196,7 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
                     suggested_decision(item),
                     f"`{item['confidence']}`",
                     f"{item['crawl']['successful_pages']}/{item['crawl']['attempted_pages']}",
-                    f"{len(item['missing_info'])} / Content {len(item.get('content_pieces', []))}",
+                    f"{len(item['missing_info'])} / Content {len(item.get('content_pieces', []))} / Bilder {len(item.get('product_image_candidates', []))}",
                 ]
             )
             + " |"
@@ -824,8 +1233,15 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
         signal_sources = item.get("signal_sources", {})
         crawl = item["crawl"]
         content_pieces = item.get("content_pieces", [])
+        product_images = item.get("product_image_candidates", [])
         status = item["change"]["status"]
         operation_summary = ", ".join(signals.get("operation_models", [])) or format_snippets(signals.get("operation", []))
+        availability = item.get("availability", {})
+        availability_regions = ", ".join(availability.get("regions", []))
+        availability_summary = availability.get("label") or "unklar"
+        if availability_regions:
+            availability_summary = f"{availability_summary}: {availability_regions}"
+        availability_summary = f"{availability_summary} ({availability.get('confidence', 'offen')})"
         present = {key: bool(signals.get(key)) for key in SIGNAL_LABELS}
         source_urls = [entry["url"] for entry in crawl["urls"]]
         failed_urls = [entry for entry in crawl["urls"] if not entry.get("ok_status")]
@@ -846,7 +1262,9 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
                 f"| Review-Confidence | `{item['confidence']}` |",
                 f"| Crawling | {crawl['successful_pages']}/{crawl['attempted_pages']} Seiten erfolgreich |",
                 f"| Betriebsmodell | {operation_summary} |",
+                f"| Verfuegbarkeit | {availability_summary} |",
                 f"| Content Pieces | {len(content_pieces)} gefunden |",
+                f"| Produktbild-Kandidaten | {len(product_images)} gefunden; immer redaktionell pruefen |",
                 "",
                 "**Signalampel**",
                 "",
@@ -857,6 +1275,7 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
 
         for key, label in SIGNAL_LABELS.items():
             lines.append(f"| {label} | {yes_no(present[key])} |")
+        lines.append(f"| Verfuegbarkeit klaerbar | {yes_no(bool(availability.get('evidence')))} |")
 
         lines.extend(["", "**Gecrawlte Quellen**", ""])
         lines.extend(f"- {url}" for url in source_urls)
@@ -873,12 +1292,31 @@ def build_report(run_meta: dict[str, Any], candidates: list[dict[str, Any]], cha
             lines.append(f"- {label}:")
             for detail in format_signal_sources(signal_sources.get(key, [])):
                 lines.append(f"  - {detail}")
+        lines.append("- Verfuegbarkeit:")
+        if availability.get("evidence"):
+            for detail in availability["evidence"][:3]:
+                region = f" [{detail.get('region')}]" if detail.get("region") else ""
+                lines.append(f"  - {detail['url']}{region} - {truncate(detail['snippet'])}")
+        else:
+            lines.append("  - nicht gefunden")
 
         lines.extend(["", "**Fehlende Informationen**", ""])
         if item["missing_info"]:
             lines.extend(f"- {entry}" for entry in item["missing_info"])
         else:
             lines.append("- Keine MVP-Pflichtluecke erkannt.")
+
+        lines.extend(["", "**Produktbild-Kandidaten (keine Freigabe)**", ""])
+        if product_images:
+            for image in product_images[:8]:
+                lines.append(f"- Score {image['score']}: {image['url']}")
+                lines.append(f"  - Fundstelle: {image['source_url']}")
+                if image.get("alt"):
+                    lines.append(f"  - Alt/Text: {truncate(image['alt'], 180)}")
+                if image.get("reasons"):
+                    lines.append(f"  - Signale: {', '.join(image['reasons'])}")
+        else:
+            lines.append("- Keine Kandidaten gefunden; Produktbild beim Anbieter anfragen oder gezielt nachrecherchieren.")
 
         lines.extend(["", "**Gefundene Content Pieces**", ""])
         if content_pieces:
@@ -965,7 +1403,13 @@ async def run(args: argparse.Namespace) -> None:
     raw_dir = output_dir / "raw"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    seeds = read_seeds(Path(args.excel), args.cluster, args.score_min)
+    excel_seeds = [] if args.seed_source == "curation" else read_seeds(Path(args.excel), args.cluster, args.score_min)
+    curation_seeds = (
+        []
+        if args.seed_source == "excel"
+        else read_curation_seeds(Path(args.curation_seeds), args.cluster, args.score_min)
+    )
+    seeds = merge_seeds(excel_seeds, curation_seeds)
     seeds = seeds[args.offset : args.offset + args.limit]
     state_path = Path(args.state)
     state = load_state(state_path)
@@ -1023,6 +1467,7 @@ async def run(args: argparse.Namespace) -> None:
                 "confidence": extracted["confidence"],
                 "missing_info": extracted["missing_info"],
                 "signals": extracted["signals"],
+                "availability": extracted["availability"],
                 "crawl": extracted["crawl"],
             }
 
@@ -1030,6 +1475,10 @@ async def run(args: argparse.Namespace) -> None:
         "run_id": run_id,
         "started_at": started.isoformat(timespec="seconds"),
         "excel": args.excel,
+        "curation_seeds": args.curation_seeds,
+        "seed_source": args.seed_source,
+        "excel_seed_count": len(excel_seeds),
+        "curation_seed_count": len(curation_seeds),
         "limit": args.limit,
         "offset": args.offset,
         "cluster": args.cluster,
@@ -1055,6 +1504,8 @@ async def run(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--excel", default=DEFAULT_EXCEL)
+    parser.add_argument("--curation-seeds", default=DEFAULT_CURATION_SEEDS)
+    parser.add_argument("--seed-source", choices=["all", "excel", "curation"], default="all")
     parser.add_argument("--state", default=DEFAULT_STATE)
     parser.add_argument("--out", default=DEFAULT_RUNS)
     parser.add_argument("--run-id")

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { CategoryCard } from "@/components/cards/CategoryCard";
 import { RevealHeading } from "@/components/motion/RevealHeading";
-import { categories } from "@/mocks/categories";
+import { directoryCategories } from "@/data/directory";
 
 export const metadata: Metadata = {
   title: "Alle Kategorien — Supertools",
@@ -41,7 +41,7 @@ export default function CategoriesIndexPage() {
         </header>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => (
+          {directoryCategories.map((category) => (
             <CategoryCard key={category.slug} category={category} />
           ))}
         </div>

@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** August 2026 · **Version:** 0.24 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** August 2026 · **Version:** 0.25 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -14,10 +14,10 @@
   - `public/brand/supertools-logo-inverse.svg` — invers (dunkle/grüne Sektionen)
   - PNG-Fallbacks unter gleichem Basisnamen · AR ≈ 2.895 · Gotham-Wortmarke
   - Eingebunden über `<Logo variant="default|inverse" height={n} />`
-- **Brand-Grün:** `#009460` (Logo-Bubble `#0d9d69`) · Dunkelgrau `#3D3D3D` · Cream `#F8F4EB`
-- **Headline-Schrift:** Source Serif 4 (seit v0.16, ersetzt Cormorant Garamond —
-  institutionell-seriös statt Lifestyle-elegant, passend zum Behörden-Vertrauen)
-- **Fonts gesamt:** Source Serif 4 (Headlines) · IBM Plex Sans (Body) · Inter Tight (UI).
+- **Brand-Grün:** `#009460` (Logo-Bubble `#0d9d69`) · Dunkelgrau `#3D3D3D` · Cream `#F6F3F0`
+- **Headline-Schrift:** IBM Plex Serif, Gewicht 400, durchgehend gerade.
+- **Fonts gesamt:** IBM Plex Serif (Headlines) · IBM Plex Sans (Body und UI) ·
+  IBM Plex Mono ausschließlich für kleine Tags und Metadaten.
   Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
 - **Bento-Sprache (seit v0.18, Referenz [byq.supply](https://byq.supply)):**
   Off-White-Fläche (cream) trägt **randlose weiße Karten** — Trennung über
@@ -35,17 +35,25 @@ ohne Ranking, ohne gekaufte Empfehlungen.
 ## 1. VISION & POSITIONIERUNG
 
 ### Was ist Supertools?
-Supertools ist das führende kuratierte Software-Verzeichnis für die öffentliche Verwaltung in Deutschland. Keine generische Tool-Datenbank — sondern eine geprüfte, redaktionell verantwortete Liste von Software, die wirklich für Behörden und Kommunen taugt: DSGVO-konform, praxiserprobt, mit echten Referenzen.
+Supertools ist ein kuratiertes Software-Verzeichnis für die öffentliche
+Verwaltung in Deutschland. Keine generische Tool-Datenbank, sondern eine
+redaktionell verantwortete Orientierungshilfe mit nachvollziehbaren Quellen,
+sichtbaren Wissenslücken und vorsichtig formulierten Hinweisen.
 
 ### Wettbewerbsvorteil gegenüber OMR Reviews / Capterra
 - **Fokus:** Ausschließlich öffentlicher Sektor — kein Rauschen, keine irrelevanten Tools
-- **Kuratierung:** Redaktionell geprüft (DSGVO, Serverstandort, Behörden-Referenzen) — keine Self-Service-Listings ohne Qualitätsprüfung
+- **Kuratierung:** Quellen und Signale werden redaktionell geprüft; Hinweise zu
+  Datenschutz, Hosting oder Behördenreferenzen sind keine Rechts- oder
+  Compliance-Zusagen.
 - **Vertrauen:** Amtshelden-Brand mit 12.000+ Community, Podcast, Newsletter — kein Kaltstart
 - **Sprache:** Deutsch, verwaltungsnah, kein Tech-Jargon
 - **Unabhängigkeit:** Keine bezahlten Placements ohne Kennzeichnung (explizites Markenversprechen)
 
 ### Kernthese
-Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Einkäufer in Kommunen sind keine IT-Profis, haben wenig Zeit, und müssen trotzdem DSGVO-konforme, budgetierbare Lösungen beschaffen. Supertools löst genau das.
+Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software.
+Verantwortliche in Kommunen haben wenig Zeit und müssen trotzdem Datenschutz,
+Beschaffung, Betrieb und Budget sorgfältig prüfen. Supertools verkürzt die
+Recherche, ersetzt aber keine rechtliche oder fachliche Einzelfallprüfung.
 
 ---
 
@@ -82,7 +90,18 @@ Der öffentliche Sektor hat ein massives Orientierungsproblem bei Software. Eink
 
 ---
 
-## 3. AKTUELLE SITUATION (Stand v0.23, August 2026)
+## 3. AKTUELLE SITUATION (Stand v0.25, August 2026)
+
+> **Seit v0.25:** Alle öffentlichen Verzeichnisflächen lesen aus
+> `src/data/directory.ts`; Slugs werden dort dedupliziert und Kategorie-Zahlen
+> aus dem tatsächlichen Bestand abgeleitet. Profile verlinken in eine neue
+> Galerie verwandter Tools. Der Amtshelden-Block nutzt einen lokal importierten
+> Social-Feed. Für Produktbilder gibt es jetzt einen getrennten internen
+> Recherchelauf: Er sammelt und bewertet vorhandene WebP-/PNG-/JPEG-Assets,
+> schreibt ausschließlich nach `data/crawler/product-images/` und verlangt eine
+> explizite Bildfreigabe, bevor ein echtes Software-UI-Bild nach `public/`
+> übernommen und exportiert werden darf. Marketingseiten-Snapshots sind nicht
+> zulässig.
 
 > **Seit v0.23:** Die Crawler-/Research-Pipeline ist als interne
 > Drei-Listen-Logik dokumentiert und lauffähig: **Füllhörner/Multiplikatoren**
@@ -128,12 +147,14 @@ gefunden" o. ä. formulieren.
 |---|---|
 | `data/crawler/discovery/multiplier-sources.json` | Füllhörner: Messen, Konferenzen, Plattformen, Suchräume |
 | `data/crawler/discovery/curation-seeds.json` | Candidate-Inbox: manuelle und entdeckte Anbieter-Kandidaten |
-| `data/crawler/master/software-master.json` | interne Master-/Watchlist inkl. Bodycopy, Screenshots, Kriterien, Verfügbarkeit |
+| `data/crawler/master/software-master.json` | interne Master-/Watchlist inkl. Bodycopy, Bildhinweisen, Kriterien und Verfügbarkeit |
 | `data/crawler/master/software-master-google-sheet.csv` | Import-/Sync-Format für Google Sheets |
 | `data/crawler/master/google-sheet-target.json` | aktive native Google-Sheets-Ziel-ID |
 | `src/data/software-master.ts` | generierte Frontend-Daten der 13 neuen Master-/Watchlist-Tools |
 | `src/data/directory.ts` | gemeinsame Frontend-Sicht aus 59er-Basis + 13 neuen Master-Tools |
-| `public/brand/screenshots/<slug>/shot-1.jpg` | lokale Produkt-/Website-Snapshots |
+| `data/crawler/product-images/<run-id>/` | interne Produktbild-Kandidaten und Review-Report; nie direkt veröffentlichen |
+| `data/crawler/product-images/review-decisions.json` | explizite redaktionelle Bildfreigaben |
+| `public/brand/screenshots/<slug>/shot-N.jpg` | ausschließlich freigegebene Bilder der tatsächlichen Software-Oberfläche |
 
 ### Strukturebene: 4 Themenfelder (seit v0.16, Strategie-Meeting 12.06.2026)
 
@@ -146,7 +167,7 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 |---|---|---|
 | `/` | ✓ | Editorial-Frontpage: Bento-Hero (Off-White, grüner Tool-Finder, festes Bild-Ratio), Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid (mit Bild-Bannern), About (grün), Mitmachen-CTA, Newsletter |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
-| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 10 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 10 noch offen |
+| `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 13 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 13 noch offen |
 | `/tools/[slug]` | ✓ | Vollständiges Profil (VivioAkte: 8 Zonen) **oder Basis-Profil-Fallback** für Verzeichnis-Tools (Logo, Pitch, Compliance, Shortlinks, „wird redaktionell ausgebaut") |
 | `/crawler-preview` | ✓ | **Interne** Verzeichnis-Vorschau (noindex, nicht verlinkt) — Review-Tool fürs Team |
 | `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) |
@@ -244,18 +265,16 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
 
 ### Design-System (verbindlich)
 
-- **Fonts via `next/font/google`:** **Source Serif 4** (Headlines, italic für Akzente —
-  seit v0.16, ersetzt Cormorant Garamond für seriösere Behörden-Anmutung),
-  IBM Plex Sans (Body 17px, leading-1.75), Inter Tight (UI/Labels)
-- **Headline-Leading (Source Serif 4):**
+- **Fonts via `next/font/google`:** **IBM Plex Serif** (Headlines, 400),
+  IBM Plex Sans (Body und UI), IBM Plex Mono nur für kleine Tags/Metadaten.
+  Headlines bleiben vollständig gerade; Differenzierung erfolgt über Farbe.
+- **Headline-Leading (IBM Plex Serif):**
   - Display H1 (clamp 36–84 px): `leading-[0.96]` + `tracking-[-0.02em]`
   - Section H2 (clamp 28–48 px): `leading-[1.0]`–`[1.05]`
   - Card-Titel (17–22 px): `leading-tight` bis `leading-[1.15]`
-  - Hinweis: Source Serif 4 hat engere Metrik als Cormorant — Werte daher
-    minimal lockerer als die alten Cormorant-Tunings.
 - **Brand-Tokens als CSS-Variablen in `@theme`:**
   - `--color-brand` `#009460` · `--color-brand-dark` `#006b45` · `--color-brand-light` `#EAF3DE`
-  - `--color-cream` `#F8F4EB` · `--color-dark/mid/soft` für Editorial-Hierarchie
+  - `--color-cream` `#F6F3F0` · `--color-dark/mid/soft` für Editorial-Hierarchie
   - Tier-Farben (free/verified/partner/addon) · Semantische Hintergründe
 - **Logo-Komponente:** `<Logo variant="default|inverse" height={n} />` —
   default für helle BG (Header, Footer), inverse für dunkle/grüne Sektionen
@@ -265,9 +284,10 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
   weichen Schatten-Lift / Bild-Zoom, nicht über Border-Farbwechsel. Bild-Container
   immer mit **festem Seitenverhältnis** (`aspect-[16/10]` Hero, `[16/9]` Cards),
   `object-cover` → kein Strecken. Referenz: [byq.supply](https://byq.supply).
-- **Editorial-Prinzipien:** Kein Glassmorphismus, kein Purple-Gradient, keine Sterne,
-  Source Serif italic für Akzente, native `<details>` statt JS-Akkordeons,
-  Marken-Overlay (`brand-dark` multiply) eint kuratierte Foto-Motive
+- **Editorial-Prinzipien:** Kein Glassmorphismus, kein Purple-Gradient, keine
+  Sterne, keine Kursiv/Gerade-Mischung und keine erzwungenen `<br>` in
+  Headlines; native `<details>` statt JS-Akkordeons. Marken-Overlay
+  (`brand-dark` multiply) eint kuratierte Foto-Motive.
 
 ### Mock-Daten-Stand
 
@@ -597,7 +617,7 @@ Diese Fragen müssen im Business-Plan-Dialog geklärt werden:
 - Primärfarbe Grün: `#009460`
 - Gelb/Highlight: `#FFE500`
 - Dunkel: `#1A202C`
-- Cream/Background: `#F8F4EB`
+- Cream/Background: `#F6F3F0`
 - Font: Gotham (Light 300, Book 400, Medium 500, Bold 700)
 
 ### Amtshelden-Links
@@ -785,7 +805,7 @@ Gotham-Familie (bis Trade Gothic verfügbar als Fallback nutzbar):
   --green-dark: #006b45;   /* Hover / Vertiefung */
   --yellow:     #FFE500;   /* Akzent / Highlight */
   --dark:       #1A202C;   /* Texte / Dark Backgrounds */
-  --cream:      #F8F4EB;   /* Seitenhintergrund */
+  --cream:      #F6F3F0;   /* Seitenhintergrund */
   --white:      #ffffff;
 
   /* Semantische Farben */

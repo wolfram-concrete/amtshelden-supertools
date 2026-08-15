@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { RevealHeading } from "@/components/motion/RevealHeading";
-import { categoriesByThemenfeld } from "@/mocks/categories";
+import { directoryCategoriesByThemenfeld } from "@/data/directory";
 import { themenfelder } from "@/mocks/themenfelder";
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function ThemenfelderIndexPage() {
 
         <div className="space-y-5">
           {themenfelder.map((tf, i) => {
-            const cats = categoriesByThemenfeld[tf.slug] || [];
+            const cats = directoryCategoriesByThemenfeld[tf.slug] || [];
             return (
               <article
                 key={tf.slug}

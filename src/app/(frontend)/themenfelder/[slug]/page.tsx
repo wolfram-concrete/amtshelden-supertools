@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 
 import { ThemenfeldTabs } from "@/components/blocks/category/ThemenfeldTabs";
 import { BrandIcon } from "@/components/icons/BrandIcon";
-import { categoriesByThemenfeld } from "@/mocks/categories";
+import {
+  directoryCategoriesByThemenfeld,
+  directoryToolCardsByCategory,
+} from "@/data/directory";
 import { themenfelder, themenfeldRegistry } from "@/mocks/themenfelder";
-import { toolCardsByCategory } from "@/mocks/tools";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -32,9 +34,9 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
   const tf = themenfeldRegistry[slug];
   if (!tf) notFound();
 
-  const cats = categoriesByThemenfeld[slug] || [];
+  const cats = directoryCategoriesByThemenfeld[slug] || [];
   const toolsByCategory = Object.fromEntries(
-    cats.map((c) => [c.slug, toolCardsByCategory[c.slug] || []]),
+    cats.map((c) => [c.slug, directoryToolCardsByCategory[c.slug] || []]),
   );
 
   return (

@@ -50,6 +50,15 @@ const platformMeta = {
   linkedin: { Glyph: LinkedinGlyph, name: "LinkedIn" },
 } as const;
 
+function formatSocialDate(date?: string) {
+  if (!date) return null;
+  return new Intl.DateTimeFormat("de-DE", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(new Date(date));
+}
+
 /**
  * Amtshelden-Feed — Trust-/Community-Block im unteren Home-Bereich.
  * Verbindet Supertools sichtbar mit der etablierten Amtshelden-Community
@@ -108,68 +117,101 @@ export function AmtsheldenFeed() {
           </div>
         </header>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {socialFeed.map((item, i) => {
-            const { Glyph, name } = platformMeta[item.platform];
-            const profile = socialProfiles[item.platform];
-            return (
-              <a
-                key={i}
-                href={profile.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-reveal="float"
-                style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
-                className="group flex flex-col rounded-2xl bg-white p-6 transition-shadow hover:shadow-[0_20px_40px_-24px_rgba(0,0,0,0.25)]"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-2 font-mono text-[11.5px] font-bold uppercase tracking-[0.12em] text-brand-dark">
-                    <Glyph size={15} />
-                    {name}
-                  </span>
-                  <span className="font-mono text-[11.5px] uppercase tracking-[0.1em] text-soft">
-                    {item.topic}
-                  </span>
-                </div>
-
-                <p
-                  className={cn(
-                    "mt-5 flex-1 text-dark",
-                    item.author
-                      ? "font-serif text-[19px] leading-[1.35]"
-                      : "font-sans text-[15px] leading-[1.6]",
-                  )}
+        <div className="-mx-4 overflow-x-auto px-4 pb-12 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:-mx-6 sm:px-6 lg:-mr-10 lg:ml-0 lg:px-0 lg:pb-14 [&::-webkit-scrollbar]:hidden">
+          <div className="flex w-max snap-x snap-mandatory gap-4 lg:gap-5">
+            {socialFeed.map((item, i) => {
+              const { Glyph, name } = platformMeta[item.platform];
+              const profile = socialProfiles[item.platform];
+              const date = formatSocialDate(item.publishedAt);
+              return (
+                <a
+                  key={i}
+                  href={item.href || profile.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-reveal="float"
+                  style={
+                    { "--reveal-delay": `${i * 80}ms` } as React.CSSProperties
+                  }
+                  className="group w-[78vw] max-w-[320px] flex-shrink-0 snap-start overflow-hidden rounded-2xl bg-white transition-shadow hover:shadow-[0_24px_54px_-30px_rgba(0,0,0,0.32)] sm:w-[300px] lg:w-[320px]"
                 >
-                  {item.author && (
-                    <span aria-hidden className="text-accent">
-                      „
-                    </span>
-                  )}
-                  {item.text}
-                  {item.author && (
-                    <span aria-hidden className="text-accent">
-                      "
-                    </span>
-                  )}
-                </p>
+                  <div className="flex aspect-[9/16] flex-col">
+                    <div className="relative h-[57%] overflow-hidden bg-brand-dark">
+                      {item.image ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.image.url}
+                          alt={item.image.alt}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center bg-brand-dark px-8 text-center font-serif text-[28px] leading-tight text-white">
+                          {item.topic}
+                        </div>
+                      )}
+                      <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/94 px-2.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand-dark shadow-sm">
+                          <Glyph size={13} />
+                          {name}
+                        </span>
+                        {item.format && (
+                          <span className="rounded-full bg-dark/70 px-2.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-white">
+                            {item.format}
+                          </span>
+                        )}
+                      </div>
+                    </div>
 
-                {item.author && (
-                  <p className="mt-3 font-ui text-[12px] text-soft">
-                    {item.author}
-                  </p>
-                )}
+                    <div className="flex min-h-0 flex-1 flex-col bg-white p-5">
+                      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+                        {item.topic}
+                      </div>
+                      <p
+                        className={cn(
+                          "mt-3 text-dark",
+                          item.author
+                            ? "line-clamp-4 font-serif text-[21px] leading-[1.18]"
+                            : "line-clamp-5 font-sans text-[15px] font-medium leading-[1.45]",
+                        )}
+                      >
+                        {item.author && (
+                          <span aria-hidden className="text-accent">
+                            „
+                          </span>
+                        )}
+                        {item.text}
+                        {item.author && (
+                          <span aria-hidden className="text-accent">
+                            "
+                          </span>
+                        )}
+                      </p>
+                      {item.author && (
+                        <p className="mt-3 line-clamp-1 font-ui text-[12px] text-soft">
+                          {item.author}
+                        </p>
+                      )}
 
-                <span className="mt-5 inline-flex items-center gap-1.5 font-ui text-[12.5px] font-semibold text-brand-dark transition-colors group-hover:text-brand">
-                  Mehr auf {name}
-                  <ArrowUpRight
-                    size={14}
-                    className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </span>
-              </a>
-            );
-          })}
+                      <div className="mt-auto flex items-end justify-between gap-5 border-t border-border pt-4">
+                        <div className="min-w-0 truncate font-ui text-[12px] text-soft">
+                          {date ? `${date} · ${profile.handle}` : profile.handle}
+                        </div>
+                        <span className="inline-flex flex-shrink-0 items-center gap-1.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors group-hover:text-brand">
+                          Ansehen
+                          <ArrowUpRight
+                            size={14}
+                            className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                            aria-hidden
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -4,12 +4,11 @@ import { ArrowUpRight, BadgeCheck, ExternalLink, Info } from "lucide-react";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { RevealHeading } from "@/components/motion/RevealHeading";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
-import { publicPitch } from "@/lib/crawler-content";
 import {
-  crawlerToolCardPreview,
-  crawlerToolLogoPreview,
-  crawlerToolScreenshotPreview,
-} from "@/mocks/tools/crawler-preview";
+  directoryToolCards,
+  directoryToolLogos,
+  directoryToolScreenshots,
+} from "@/data/directory";
 
 interface FokusToolProps {
   eyebrow: string;
@@ -45,12 +44,11 @@ export function FokusTool({
   was,
   einordnung,
 }: FokusToolProps) {
-  const tool = crawlerToolCardPreview.find((t) => t.slug === slug);
+  const tool = directoryToolCards.find((t) => t.slug === slug);
   if (!tool) return null;
 
-  const logo = crawlerToolLogoPreview[slug];
-  const pitch = publicPitch(tool.pitch);
-  const shots = crawlerToolScreenshotPreview[slug];
+  const logo = directoryToolLogos[slug];
+  const shots = directoryToolScreenshots[slug];
 
   return (
     <section className="bg-cream py-12 lg:py-20">
@@ -134,9 +132,9 @@ export function FokusTool({
               </div>
             </div>
 
-            {pitch && (
+            {tool.pitch && (
               <p className="mt-5 font-sans text-[15px] leading-[1.6] text-mid">
-                {pitch}
+                {tool.pitch}
               </p>
             )}
 

@@ -1061,7 +1061,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://socialhub.io",
     domain: "socialhub.io",
     logoUrl: "https://www.google.com/s2/favicons?domain=socialhub.io&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#303030",
   },
   "stage-stagelink-staffbase-familie": {
     website: "https://staffbase.com/de",
@@ -1085,7 +1085,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://parloa.com",
     domain: "parloa.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=parloa.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#202020",
   },
   "scompler-gmbh": {
     website: "https://scompler.com",
@@ -1121,7 +1121,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://deepl.com",
     domain: "deepl.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=deepl.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#003040",
   },
   "fabasoft-deutschland-gmbh": {
     website: "https://fabasoft.com/de",
@@ -1211,7 +1211,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://virtual-solution.com",
     domain: "virtual-solution.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=virtual-solution.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#001020",
   },
   "publicplan-liferay-dxp-public": {
     website: "https://publicplan.de",
@@ -1277,7 +1277,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://wire.com",
     domain: "wire.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=wire.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#000000",
   },
   "awesome-technologies-matrix-element": {
     website: "https://element.io",
@@ -1295,7 +1295,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://awork.com",
     domain: "awork.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=awork.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#202030",
   },
   "factro-schuchert-managementberatung": {
     website: "https://factro.de",
@@ -1313,7 +1313,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://owncloud.com",
     domain: "owncloud.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=owncloud.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#002040",
   },
   "hr4you-buesch-gmbh": {
     website: "https://hr4you.de",
@@ -1349,7 +1349,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://softgarden.com/de",
     domain: "softgarden.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=softgarden.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#102040",
   },
   "concludis-gmbh": {
     website: "https://concludis.de",
@@ -1361,7 +1361,7 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://haufe-akademie.de",
     domain: "haufe-akademie.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=haufe-akademie.de&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#7000f0",
   },
   "prescreen-workwise": {
     website: "https://workwise.io",
@@ -1379,19 +1379,19 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
     website: "https://nextpublic.de",
     domain: "nextpublic.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=nextpublic.de&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#606060",
   },
   "polyteia-gmbh": {
     website: "https://polyteia.com",
     domain: "polyteia.com",
     logoUrl: "https://www.google.com/s2/favicons?domain=polyteia.com&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#2000a0",
   },
   "digitalservice-gmbh-des-bundes-partner-ecosystem": {
     website: "https://digitalservice.bund.de",
     domain: "digitalservice.bund.de",
     logoUrl: "https://www.google.com/s2/favicons?domain=digitalservice.bund.de&sz=128",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#0000ff",
   },
   "partnerschaft-deutschland-pd-berater": {
     website: "https://pd-g.de",
@@ -1404,7 +1404,6 @@ export const crawlerToolLogoPreview: Record<string, { website: string; domain: s
 export const crawlerToolScreenshotPreview: Record<string, string[]> = {
   "eye-able-web-inclusion-gmbh": [
     "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-1.jpg",
-    "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-2.jpg",
   ],
   "facelift-cloud-gmbh": [],
   "socialhub-maloon-gmbh": [],

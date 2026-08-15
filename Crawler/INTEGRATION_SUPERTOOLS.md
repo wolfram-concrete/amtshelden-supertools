@@ -55,6 +55,33 @@ src/mocks/tools/index.ts
 | `compliance.bsi` | Security-Signal | teilweise | BSI/C5/ISO sauber trennen |
 | `compliance.vergabe` | leer/false | nein | Nicht automatisch ableiten |
 | `lastCheckedAt` | Crawler-Laufdatum | ja | Sehr gut geeignet |
+| `availability` / Filter | Verfuegbarkeits-Signal | teilweise | `bundesweit`, `bundeslandspezifisch`, `regional`, `unklar`; immer mit Review-Hinweis und Quelle |
+
+## Mapping: Regionale Verfuegbarkeit
+
+Die Verfuegbarkeit ist ein eigener Review- und Filterbereich. Sie sollte nicht
+aus Firmensitz oder Einzelreferenz abgeleitet werden, sondern nur aus
+oeffentlichen Angebots- oder Verfuegbarkeitshinweisen.
+
+Empfohlene Datenform:
+
+```ts
+type ToolAvailability = {
+  scope: "nationwide" | "federal_state" | "regional" | "unknown";
+  label: "bundesweit" | "bundeslandspezifisch" | "regional" | "unklar";
+  regions: string[];
+  confidence: "hoch" | "mittel" | "niedrig" | "offen";
+  needsReview: boolean;
+  evidence: Array<{ url: string; snippet: string; region?: string }>;
+};
+```
+
+Fuer die Website ist daraus spaeter ein Filter sinnvoll:
+
+- Bundesweit verfuegbar
+- Bundeslandspezifisch verfuegbar
+- Regional verfuegbar
+- Noch zu pruefen
 
 ## Mapping: Content Pieces -> Website
 
@@ -135,29 +162,39 @@ dieser Workflow bewusst 0 Cards und 0 Content Pieces.
 6. Erst danach manuell oder per Freigabe-Script in `src/mocks/tools/index.ts`
    uebernehmen.
 
-## Aktuelle Website-Verknuepfung
+## Aktuelle Website-Verknuepfung (15.08.2026)
 
-Die freigegebenen Crawlerdaten werden aktuell nicht in die redaktionelle
-Hauptliste gemischt. Stattdessen gibt es eine separate Website-Bruecke:
+Das Frontend fuehrt inzwischen zwei Datenstraenge zusammen:
 
 ```text
+# Bestehende Excel-/Review-Basis: 59 Tools
 src/mocks/tools/crawler-preview.ts
-src/components/blocks/category/CrawlerApprovedTools.tsx
-src/app/(frontend)/kategorien/[slug]/page.tsx
+
+# Neue Master-/Watchlist: 13 Tools
+data/crawler/master/software-master.json
+  -> scripts/build_software_master.py
+  -> src/data/software-master.ts
+
+# Gemeinsame Verzeichnisquelle: 72 Tools
+src/data/directory.ts
 ```
 
-Auf Kategorie-Seiten erscheint dadurch ein eigener Abschnitt `Crawler-Freigabe`,
-wenn fuer diese Kategorie freigegebene Crawler-Tools existieren. Fuer den
-aktuellen Testlauf betrifft das:
+`src/data/directory.ts` wird aktuell unter anderem von Kategorie-Seiten,
+Tool-Profil-Fallbacks und dem Home-ToolTeaser gelesen. Die interne Route
+`/crawler-preview` zeigt weiterhin die bestehende 59er-Arbeitsbasis.
 
-```text
-/kategorien/kommunikation-zusammenarbeit
-```
+Die Aggregation fuehrt beide Arrays zusammen und dedupliziert technisch nach
+Slug. Bei identischen Slugs hat der spaeter geladene Masterdatensatz Vorrang.
+Die aktuellen 59 und 13 sichtbaren Slugs sind disjunkt; ein fachlicher
+Konflikt-Report fehlt weiterhin.
 
-Die Buttons zeigen noch auf `/crawler-preview#<tool-slug>`, weil fuer die
-Crawler-Tools noch keine vollstaendigen redaktionellen Profilseiten existieren.
-Der naechste Integrationsschritt ist ein Crawler-Profil-Fallback oder die
-Ueberfuehrung einzelner freigegebener Tools in echte `ToolProfile`-Daten.
+Wichtiger Kontroll-Gap: `scripts/build_software_master.py` uebernimmt aktuell
+alle 13 Eintraege aus der technischen Master-/Watchlist und liest dabei
+`review-decisions.json` nicht ein. Kategorie und neutraler Pitch liegen als
+manuelles `EDITORIAL`-Mapping im Script; interne Statusfelder werden nicht ins
+Frontend exportiert und Compliance-Flags bleiben bewusst leer. Vor einem
+oeffentlichen Livegang muss dieser neue Strang an dasselbe explizite Review-
+Gate wie die bestehende 59er-Basis angeschlossen werden.
 
 ## Warum noch kein Auto-Import?
 
@@ -180,28 +217,26 @@ Crawler -> Review -> ToolCard-Preview -> lokale Sichtpruefung -> manuelle Freiga
 - Quellenhinweis pro Compliance-Aussage
 - Testseite oder Admin-Preview, bevor Daten in echte Kategorien laufen
 
-## NEU — Pflicht ab jetzt: Produkt-Screenshots + Produkt-Summary
+## Pflicht: Produktbilder + Produkt-Summary
 
 Das Frontend hat zwei neue Slots, die der Crawler **je freigegebenem Tool
 mitliefern muss**:
 
-### 1) Produkt-Screenshots (aktuelle Snapshots)
-- Der Crawler macht pro Tool **1–3 aktuelle Close-ups der eigentlichen
-  Produkt-Oberfläche** (Dashboard, App-UI, Software-Interface).
+### 1) Produktbilder der tatsächlichen Software-Oberfläche
+- Der Anbieter-Crawl sammelt Bild-URLs und bewertet sie als
+  `product_image_candidates`. Bevorzugt werden vorhandene WebP-, PNG- oder
+  JPEG-Assets, deren Dateiname, Alt-Text oder Fundseite auf Dashboard, App-UI,
+  Workflow, Portal oder Software-Interface hindeutet.
 - **Qualifizierung — wichtig:** NICHT die Marketing-/Startseite abfotografieren
   (Hero mit Navigation, Claim, Buttons). Das liest sich im Frontend wie ein
-  Link zur Website, nicht wie ein Produkt-Snapshot. Ziel ist die tatsächliche
-  Oberfläche: das eigentliche Interface-Panel möglichst formatfüllend und
-  eng zugeschnitten. Wenn die Oberfläche nur als eingebettetes Produktbild auf
-  der Marketing-Seite existiert (z. B. Dashboard-Mockup), genau dieses Panel
-  eng ausschneiden — ohne Nav, Claim und Seitenrand.
+  Link zur Website, nicht wie ein Produktbild. Ziel ist die tatsächliche
+  Oberfläche: das eigentliche Interface-Panel möglichst formatfüllend.
 - **Kein Browser-Rahmen nötig** (Adressleiste/Fenster-Punkte): das Frontend
   rahmt die Bilder selbst sauber. Reiner Interface-Ausschnitt genügt.
-- Eigene Aufnahmen der gerenderten Seite (Headless-Browser-Screenshot), keine
-  fremden Asset-Dateien hotlinken. Cookie-/Consent-Overlays vor dem Shot
-  wegklicken oder Regionen ohne Overlay wählen.
+- Assets werden nur in ein internes Review-Paket heruntergeladen. Es gibt kein
+  Hotlinking und keine automatische Übernahme nach `public/`.
 - Zielformat: Breite ~1100–1400 px, JPEG, unter ~120 KB, scharf (nicht aus
-  einem winzigen Ausschnitt hochskaliert). Ablage z. B.
+  einem winzigen Ausschnitt hochskaliert). Nach expliziter Freigabe Ablage z. B.
   `public/brand/screenshots/<slug>/shot-N.jpg`.
 - Export ins Frontend als:
   ```ts
@@ -209,8 +244,7 @@ mitliefern muss**:
     "<slug>": ["/brand/screenshots/<slug>/shot-1.jpg", "..."],
   };
   ```
-- Rendern in `ProductShots` (Browser-Rahmen-Galerie); ohne Screenshots
-  erscheinen Platzhalter.
+- Rendern in `ProductShots`; ohne freigegebene Bilder erscheinen Platzhalter.
 
 ### 2) Produkt-Summary (Long-Copy)
 - Der Crawler erzeugt pro Tool eine **redaktionell verdichtete Beschreibung
@@ -225,36 +259,39 @@ mitliefern muss**:
   ```
 - Rendert auf der Profilseite als Abschnitt **„Über das Produkt"**.
 
-Beide Felder werden vom Export-Script mit ausgegeben und wie die anderen
-Preview-Daten nur nach Review sichtbar. Frontend-Quelle bleibt ausschließlich
-`src/mocks/tools/crawler-preview.ts`.
+Beide Felder werden fuer die bestehende 59er-Basis vom Preview-Export-Script
+mit ausgegeben und dort nur nach Review sichtbar. Die gemeinsame Frontend-
+Datenquelle ist inzwischen `src/data/directory.ts`; sie aggregiert
+`src/mocks/tools/crawler-preview.ts` und `src/data/software-master.ts`.
 
-Konkreter Export mit bestehenden lokalen Screenshots:
+Produktbild-Kandidaten aus einem vorhandenen Lauf recherchieren:
+
+```bash
+cd /Users/wolfram/web-projekte/supertools
+.venv/bin/python scripts/discover_product_images.py \
+  data/crawler/runs/full-excel-2026-06-28 \
+  --out data/crawler/product-images/review-2026-08-15 \
+  --decisions data/crawler/review-decisions.json
+```
+
+Der Lauf erzeugt `manifest.json`, `review-report.md`, lokale JPEG-Vorschauen
+und `review-decisions.template.json` — ausschließlich unter `data/crawler/`.
+Jeder Treffer bleibt `needs_review`, bis eine Person bestätigt, dass wirklich
+die Software-Oberfläche zu sehen ist. Fotos, Whitepaper-Cover, Marketing-Heroes,
+Logos und Website-Screenshots werden abgelehnt.
+
+Frontend-Export mit separaten Bildentscheidungen:
 
 ```bash
 cd /Users/wolfram/web-projekte/supertools
 .venv/bin/python scripts/export_crawler_toolcards_preview.py \
   data/crawler/runs/full-excel-2026-06-28/product-candidates.json \
   --decisions data/crawler/review-decisions.json \
+  --image-decisions data/crawler/product-images/review-decisions.json \
   --out src/mocks/tools/crawler-preview.ts
 ```
 
-Konkreter Export inklusive neuer Headless-Screenshots:
-
-```bash
-cd /Users/wolfram/web-projekte/supertools
-.venv/bin/python scripts/export_crawler_toolcards_preview.py \
-  data/crawler/runs/full-excel-2026-06-28/product-candidates.json \
-  --decisions data/crawler/review-decisions.json \
-  --out src/mocks/tools/crawler-preview.ts \
-  --capture-screenshots \
-  --screenshot-root public/brand/screenshots \
-  --screenshot-limit 3
-```
-
-Ohne `--capture-screenshots` werden nur bereits vorhandene lokale Dateien unter
-`public/brand/screenshots/<slug>/shot-N.jpg` in
-`crawlerToolScreenshotPreview` referenziert. Mit `--capture-screenshots` nimmt
-der Exporter 1-3 aktuelle Viewport-Screenshots pro freigegebenem Tool auf,
-klickt einfache Consent-Dialoge weg, skaliert auf ca. 1100 px Breite und
-komprimiert die JPEGs zielgerichtet unter ca. 120 KB.
+`--image-decisions` akzeptiert nur Einträge mit `status: "approved"` und einem
+vorhandenen `public_path` unter
+`/brand/screenshots/<slug>/shot-N.jpg`. Ohne diese explizite Freigabe bleibt das
+Screenshot-Array leer. Der Exporter nimmt selbst keine Screenshots mehr auf.

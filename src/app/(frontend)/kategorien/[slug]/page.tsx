@@ -4,14 +4,11 @@ import { notFound } from "next/navigation";
 import { KategorieHero } from "@/components/blocks/category/KategorieHero";
 import { ToolFilters } from "@/components/blocks/category/ToolFilters";
 import { articleSummaries } from "@/mocks/articles";
-import { categories, categoryRegistry } from "@/mocks/categories";
-import { toolCardsByCategory } from "@/mocks/tools";
 import {
-  directoryToolCards,
-  directoryToolLogos,
+  directoryCategories,
+  directoryCategoryRegistry,
+  directoryToolCardsByCategory,
 } from "@/data/directory";
-import { publicPitch } from "@/lib/crawler-content";
-import type { ToolCardSummary } from "@/types/content";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
 
@@ -20,14 +17,14 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
+  return directoryCategories.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const category = categoryRegistry[slug];
+  const category = directoryCategoryRegistry[slug];
   if (!category) return { title: "Kategorie nicht gefunden" };
 
   return {
@@ -38,25 +35,10 @@ export async function generateMetadata({
 
 export default async function KategorieDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const category = categoryRegistry[slug];
+  const category = directoryCategoryRegistry[slug];
   if (!category) notFound();
 
-  // Eine gemeinsame, kuratierte Tool-Liste je Kategorie: bestehende
-  // redaktionelle Einträge + die freigegebenen Verzeichnis-Tools (Pitch
-  // bereinigt, echtes Logo). Keine sichtbare Trennung, kein Crawler-Hinweis.
-  const editorialTools = toolCardsByCategory[slug] || [];
-  const verzeichnisTools: ToolCardSummary[] = directoryToolCards
-    .filter((t) => t.categorySlug === slug)
-    .map((t) => {
-      const logo = directoryToolLogos[t.slug];
-      return {
-        ...t,
-        pitch: publicPitch(t.pitch),
-        logoUrl: logo?.logoUrl,
-        logoBg: logo?.backgroundColor,
-      };
-    });
-  const tools = [...editorialTools, ...verzeichnisTools];
+  const tools = directoryToolCardsByCategory[slug] || [];
   const relatedArticles = articleSummaries
     .filter((a) =>
       a.tags?.some((tag) =>

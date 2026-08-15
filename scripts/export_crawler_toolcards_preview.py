@@ -24,7 +24,6 @@ CATEGORY_BY_CLUSTER = {
     "IT": ("e-akte-dokumentenmanagement", "E-Akte & Dokumentenmanagement"),
 }
 
-
 def slugify(value: str) -> str:
     value = value.strip().lower()
     value = value.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
@@ -74,6 +73,69 @@ def ts_value(value: Any, indent: int = 0) -> str:
     if isinstance(value, (int, float)):
         return str(value)
     return ts_string(str(value))
+
+
+def sentence(value: str) -> str:
+    value = re.sub(r"\s+", " ", value or "").strip()
+    if not value:
+        return ""
+    return value if value.endswith((".", "!", "?")) else value + "."
+
+
+def public_summary(item: dict[str, Any]) -> str:
+    seed = item["seed"]
+    card = card_from_item(item)
+    name = card["name"]
+    branch = seed.get("branch") or "Softwarelösung"
+    signals = item.get("signals", {})
+    content_kinds = sorted({piece.get("kind") for piece in item.get("content_pieces", []) if piece.get("kind")})
+
+    sentences = [
+        sentence(f"{name} ist ein Anbieter bzw. Produkt im Bereich {branch}"),
+    ]
+
+    operation_models = signals.get("operation_models") or []
+    if operation_models:
+        sentences.append(sentence(f"Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als {', '.join(operation_models[:2])} hin"))
+
+    if signals.get("public_sector"):
+        sentences.append(
+            "In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen."
+        )
+    else:
+        sentences.append(
+            "Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden."
+        )
+
+    evidence_topics = []
+    if signals.get("privacy"):
+        evidence_topics.append("Datenschutz")
+    if signals.get("hosting"):
+        evidence_topics.append("Hosting oder Datenstandort")
+    if signals.get("security"):
+        evidence_topics.append("Sicherheit")
+    if signals.get("accessibility"):
+        evidence_topics.append("Barrierefreiheit")
+    if signals.get("references"):
+        evidence_topics.append("Referenzen")
+    if evidence_topics:
+        sentences.append(sentence(f"Als prüfbare Themen tauchen öffentlich Hinweise zu {', '.join(evidence_topics[:4])} auf"))
+
+    if content_kinds:
+        label_by_kind = {
+            "youtube": "Videos",
+            "video": "Videos",
+            "webinar": "Webinare",
+            "case_study": "Praxisbeispiele",
+            "use_case": "Anwendungsfälle",
+            "whitepaper": "Whitepaper",
+            "blog_article": "Fachartikel",
+            "download": "Downloads",
+        }
+        labels = [label_by_kind.get(kind, str(kind)) for kind in content_kinds[:3]]
+        sentences.append(sentence(f"Ergänzend wurden öffentliche Materialien wie {', '.join(labels)} gefunden"))
+
+    return " ".join(sentences[:5])
 
 
 def has_signal(item: dict[str, Any], key: str) -> bool:
@@ -265,6 +327,38 @@ def logo_from_item(item: dict[str, Any]) -> dict[str, str]:
     }
 
 
+def load_image_decisions(path: str | None) -> dict[str, Any]:
+    if not path:
+        return {}
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def approved_screenshot_paths(
+    item: dict[str, Any],
+    decisions: dict[str, Any],
+    screenshot_root: Path,
+    limit: int,
+) -> list[str]:
+    slug = item["slug"]
+    approved: list[str] = []
+    for image in decisions.get("tools", {}).get(slug, {}).get("images", []):
+        if image.get("status") != "approved":
+            continue
+        public_path = str(image.get("public_path") or "").strip()
+        prefix = "/brand/screenshots/"
+        if not public_path.startswith(prefix):
+            continue
+        relative = Path(public_path[len(prefix) :])
+        if not relative.parts or relative.parts[0] != slug or ".." in relative.parts:
+            continue
+        if not (screenshot_root / relative).is_file():
+            continue
+        approved.append(public_path)
+        if len(approved) >= limit:
+            break
+    return approved
+
+
 def render_card(card: dict[str, Any]) -> str:
     facts = card["facts"]
     compliance = card["compliance"]
@@ -312,6 +406,9 @@ def main() -> None:
     parser.add_argument("--out")
     parser.add_argument("--decisions")
     parser.add_argument("--include-needs-research", action="store_true")
+    parser.add_argument("--image-decisions")
+    parser.add_argument("--screenshot-root", default="public/brand/screenshots")
+    parser.add_argument("--screenshot-limit", type=int, default=3)
     args = parser.parse_args()
 
     source = Path(args.candidates_json)
@@ -329,6 +426,18 @@ def main() -> None:
 
     cards = [card_from_item(item) for item in items]
     logos_by_tool = {item["slug"]: logo_from_item(item) for item in items}
+    summaries_by_tool = {item["slug"]: public_summary(item) for item in items}
+    screenshot_root = Path(args.screenshot_root)
+    image_decisions = load_image_decisions(args.image_decisions)
+    screenshots_by_tool = {
+        item["slug"]: approved_screenshot_paths(
+            item,
+            image_decisions,
+            screenshot_root,
+            args.screenshot_limit,
+        )
+        for item in items
+    }
     content_by_tool = {
         item["slug"]: approved_content_pieces(item, decision_for_item(decisions, item))
         for item in items
@@ -361,6 +470,14 @@ def main() -> None:
                 + ts_value(logos_by_tool)
                 + ";",
                 "",
+                "export const crawlerToolScreenshotPreview: Record<string, string[]> = "
+                + ts_value(screenshots_by_tool)
+                + ";",
+                "",
+                "export const crawlerToolSummaryPreview: Record<string, string> = "
+                + ts_value(summaries_by_tool)
+                + ";",
+                "",
                 "export const crawlerToolContentPreview: Record<string, CrawlerToolContentPiece[]> = "
                 + ts_value(content_by_tool)
                 + ";",
@@ -371,6 +488,8 @@ def main() -> None:
     )
     print(f"Wrote {output}")
     print(f"Exported {len(cards)} preview cards")
+    print(f"Exported {sum(len(paths) for paths in screenshots_by_tool.values())} local product screenshots")
+    print(f"Exported {len(summaries_by_tool)} product summaries")
     print(f"Exported {sum(len(pieces) for pieces in content_by_tool.values())} approved content pieces")
 
 

@@ -1,5 +1,10 @@
 # Crawler-Prozess
 
+> Dieses Schaubild zeigt nur den vereinfachten MVP-Wochenflow. Der aktuelle
+> Stand mit Multiplikatoren, Candidate-Inbox, Master-/Watchlist, den beiden
+> Frontend-Datensträngen und den noch offenen Review-Gates ist verbindlich in
+> `docs/status-quo-2026-08-14/systemlogik-qualifizierung.md` dokumentiert.
+
 ```mermaid
 flowchart TD
   A["Excel-Seedliste<br/>bestehende Anbieter"] --> B["Crawler-Lauf<br/>z.B. Sonntagabend"]

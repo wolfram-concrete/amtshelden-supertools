@@ -3,8 +3,7 @@ import Link from "next/link";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { cn } from "@/lib/utils";
 import { behoerdenFaqs } from "@/mocks/faq";
-import { categories } from "@/mocks/categories";
-import { toolCards } from "@/mocks/tools";
+import { directoryCategories, directoryToolCards } from "@/data/directory";
 
 /**
  * Aggregierte Sticky-Sidebar für die Startseite.
@@ -30,7 +29,7 @@ function SidebarCategoryNav() {
   return (
     <Widget label="Alle Kategorien">
       <ul className="space-y-px">
-        {categories.map((c) => (
+        {directoryCategories.map((c) => (
           <li key={c.slug}>
             <Link
               href={`/kategorien/${c.slug}`}
@@ -97,7 +96,7 @@ function SidebarFaqLinks() {
 // Sidebar Widget: Neue / Top Tools
 // ============================================================
 function SidebarNewArrivals() {
-  const items = toolCards.slice(0, 4);
+  const items = directoryToolCards.slice(0, 4);
   return (
     <Widget label="Neu im Verzeichnis">
       <ul className="space-y-3">

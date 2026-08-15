@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { RevealHeading } from "@/components/motion/RevealHeading";
-import { categoriesByThemenfeld } from "@/mocks/categories";
+import { directoryCategoriesByThemenfeld } from "@/data/directory";
 import type { ThemenfeldDefinition } from "@/types/content";
 
 interface ThemenfeldGridProps {
@@ -54,7 +54,7 @@ export function ThemenfeldGrid({
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {themenfelder.map((tf, i) => {
-            const cats = categoriesByThemenfeld[tf.slug] || [];
+            const cats = directoryCategoriesByThemenfeld[tf.slug] || [];
             return (
               <article
                 key={tf.slug}
