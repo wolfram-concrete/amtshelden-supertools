@@ -50,7 +50,7 @@ export const vivioakte: ToolProfile = {
       type: "Software GmbH · Hamburg",
     },
     urteil:
-      "VivioAkte ist unsere Empfehlung für Kommunen bis 50.000 Einwohner, die *zum ersten Mal digitalisieren* wollen — ohne sich dabei zu verlieren. Der Support spricht Verwaltungssprache. Das macht den Unterschied.",
+      "VivioAkte eignet sich für Kommunen bis 50.000 Einwohner, die *zum ersten Mal digitalisieren* wollen — ohne sich dabei zu verlieren. Der Support spricht Verwaltungssprache. Vor einer Entscheidung zu klären: Stehen Aktenplan und Zuständigkeiten, damit die E-Akte Ordnung schafft statt abzubilden?",
     pullQuote: {
       text: "Kein einziger Mitarbeiter will zurück zur Papierakte. Das sagt eigentlich alles.",
       source:
@@ -117,7 +117,7 @@ export const vivioakte: ToolProfile = {
         challenge:
           "Datenmigration aus dem Altsystem dauerte länger als geplant.",
         solution:
-          "VivioAkte stellt ein dediziertes Migrations-Team. Empfehlung: Datenstruktur vorab gemeinsam prüfen lassen — das ist im Onboarding-Paket enthalten.",
+          "VivioAkte stellt ein dediziertes Migrations-Team. Tipp: Datenstruktur vorab gemeinsam prüfen lassen — das ist im Onboarding-Paket enthalten.",
         context: "Erfahrung aus Gemeindeverwaltung Wiesenfeld (6.200 EW, Bayern)",
         status: "gelöst",
       },

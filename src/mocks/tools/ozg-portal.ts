@@ -44,7 +44,7 @@ export const ozgPortal: ToolProfile = {
       type: "GmbH · Berlin",
     },
     urteil:
-      "OZG-Portal ist unsere Empfehlung für Kommunen und Landkreise, die *messbar mehr Anträge digital abschließen* wollen — mit sauberer FIM-Anbindung und einem Anbieter, der die Vergabe-Realität kennt.",
+      "OZG-Portal eignet sich für Kommunen und Landkreise, die *messbar mehr Anträge digital abschließen* wollen — mit sauberer FIM-Anbindung und einem Anbieter, der die Vergabe-Realität kennt. Vor einer Entscheidung zu klären: Sind die Prozesse hinter den Anträgen definiert und die Fachverfahren anschlussfähig?",
     pullQuote: {
       text: "Zum ersten Mal kommen Anträge vollständig digital an — und nicht halb ausgefüllt auf Papier.",
       source:
