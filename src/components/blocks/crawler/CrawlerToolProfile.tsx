@@ -8,10 +8,14 @@ import {
   ExternalLink,
   FileText,
   Film,
+  HelpCircle,
+  ListChecks,
   MapPin,
   Newspaper,
+  PencilLine,
   Play,
   ShieldCheck,
+  Users,
   Video,
 } from "lucide-react";
 
@@ -30,10 +34,27 @@ import {
   directoryToolEvidence,
   directoryToolSignals,
 } from "@/data/directory";
+import { kategorieEntscheidung } from "@/data/kategorie-entscheidung";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import { InfoPopover } from "@/components/ui/InfoPopover";
 import type { ToolCardSummary } from "@/types/content";
+
+/** Grüner Section-Titel im Hauptteil (wie „Über das Produkt"). */
+function MainSectionTitle({
+  icon: Icon,
+  children,
+}: {
+  icon?: React.ComponentType<{ size?: number; "aria-hidden"?: boolean }>;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mb-3 flex items-center gap-2 font-sans text-[14px] font-semibold text-brand">
+      {Icon && <Icon size={15} aria-hidden />}
+      {children}
+    </div>
+  );
+}
 
 function ResourceIcon({ kind }: { kind: CrawlerToolContentPiece["kind"] }) {
   const cls = "h-3.5 w-3.5";
@@ -84,6 +105,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
   const availability = directoryToolAvailability[tool.slug];
   const evidence = directoryToolEvidence[tool.slug];
   const signals = directoryToolSignals[tool.slug];
+  const kat = kategorieEntscheidung[tool.categorySlug];
 
   const youtubeThumb =
     youtube?.thumbnailUrl ||
@@ -180,6 +202,108 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               Einblick ins Produkt
             </div>
             <ProductShots domain={logo?.domain} shots={shots} placeholders={2} />
+          </div>
+
+          {/* ── Entscheidungshilfe (Christian-Feedback 2.2) ── */}
+          {kat && (
+            <>
+              {/* Einordnung: wann diese Art Software hilft — und wann nicht */}
+              <div
+                data-reveal
+                className="mt-10 max-w-2xl"
+              >
+                <MainSectionTitle>Einordnung — wann diese Software hilft</MainSectionTitle>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-border bg-white p-4">
+                    <div className="mb-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand">
+                      Wann sie hilft
+                    </div>
+                    <p className="font-sans text-[13.5px] leading-[1.6] text-mid">
+                      {kat.wannSoftwareHilft}
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-accent/25 bg-accent/5 p-4">
+                    <div className="mb-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-accent-ink">
+                      Wann eher nicht
+                    </div>
+                    <p className="font-sans text-[13.5px] leading-[1.6] text-mid">
+                      {kat.wannSoftwareNichtHilft}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-2 font-ui text-[11.5px] leading-[1.5] text-soft">
+                  Kategorie-Einordnung — die tool-spezifische Bewertung folgt in der
+                  redaktionellen Vertiefung.
+                </p>
+              </div>
+
+              {/* Voraussetzungen klären */}
+              <div data-reveal className="mt-9 max-w-2xl">
+                <MainSectionTitle icon={ListChecks}>
+                  Vorab in der Behörde klären
+                </MainSectionTitle>
+                <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                  {kat.voraussetzungen.map((v) => (
+                    <li
+                      key={v}
+                      className="flex items-start gap-2 font-sans text-[13.5px] leading-[1.5] text-mid"
+                    >
+                      <span aria-hidden className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
+                      {v}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Fragen vor dem Anbietertermin */}
+              <div data-reveal className="mt-9 max-w-2xl">
+                <MainSectionTitle icon={HelpCircle}>
+                  Fragen vor dem Anbietertermin
+                </MainSectionTitle>
+                <ol className="space-y-2">
+                  {kat.fragenAnAnbieter.map((q, i) => (
+                    <li
+                      key={q}
+                      className="flex gap-3 rounded-xl border border-border bg-white px-4 py-2.5"
+                    >
+                      <span className="font-mono text-[12px] font-bold text-brand">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-sans text-[13.5px] leading-[1.5] text-mid">
+                        {q}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </>
+          )}
+
+          {/* Offene Angaben — ehrlich: fehlende Info ist auch Info */}
+          <div data-reveal className="mt-9 max-w-2xl">
+            <MainSectionTitle>Offene Angaben</MainSectionTitle>
+            <div className="rounded-xl border border-dashed border-border bg-cream/40 p-4">
+              <p className="font-sans text-[13.5px] leading-[1.6] text-mid">
+                Im Basis-Profil liegen einige Angaben noch nicht strukturiert vor —
+                typischerweise: konkrete Preislogik, benannte Behördenreferenzen,
+                Implementierungsaufwand{tool.compliance.serverDe ? "" : ", Serverstandort"}
+                {signals?.includes("Barrierefreiheit") ? "" : ", Barrierefreiheit"}.
+                Diese Punkte werden in der redaktionellen Vertiefung geprüft und
+                benannt.
+              </p>
+            </div>
+          </div>
+
+          {/* Passende Inhalte — Anschluss an die Entscheidungsstrecke */}
+          <div data-reveal className="mt-9 max-w-2xl">
+            <MainSectionTitle>Passende Inhalte</MainSectionTitle>
+            <Link
+              href={`/kategorien/${tool.categorySlug}`}
+              className="group inline-flex items-center gap-2 rounded-xl border border-border bg-white px-4 py-3 font-ui text-[13px] font-semibold text-dark transition-colors hover:border-brand hover:text-brand-dark"
+            >
+              Kategorie-Einordnung: {tool.categoryLabel}
+              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
           </div>
 
           {/* Produktvideo — nur Thumbnail/Link, keine Einbettung */}
@@ -286,6 +410,28 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             </div>
           )}
 
+          {/* Typische Nutzer in der Behörde */}
+          {kat && kat.typischeNutzer.length > 0 && (
+            <div className="pt-1">
+              <RailLabel>
+                <span className="inline-flex items-center gap-1.5">
+                  <Users size={12} aria-hidden />
+                  Typische Nutzer
+                </span>
+              </RailLabel>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {kat.typischeNutzer.map((n) => (
+                  <span
+                    key={n}
+                    className="inline-flex items-center rounded-full border border-border bg-white px-2.5 py-1 font-ui text-[11px] font-medium text-mid"
+                  >
+                    {n}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* CTA */}
           <div className="space-y-2">
             <Link
@@ -369,12 +515,21 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             </div>
           )}
 
-          {/* Quelle / Stand */}
-          {logo?.domain && (
-            <p className="px-1 pt-1 font-ui text-[11.5px] leading-[1.5] text-soft">
-              Quelle: {logo.domain}. Profil wird redaktionell ausgebaut.
-            </p>
-          )}
+          {/* Quelle / Stand + Korrektur melden */}
+          <div className="pt-1">
+            <Link
+              href={`/kontakt?korrektur=${tool.slug}`}
+              className="group inline-flex items-center gap-1.5 font-ui text-[12px] font-semibold text-brand-dark transition-colors hover:text-brand"
+            >
+              <PencilLine size={13} aria-hidden />
+              Angaben veraltet? Korrektur melden
+            </Link>
+            {logo?.domain && (
+              <p className="mt-2 px-0.5 font-ui text-[11.5px] leading-[1.5] text-soft">
+                Quelle: {logo.domain}. Profil wird redaktionell ausgebaut.
+              </p>
+            )}
+          </div>
         </aside>
       </div>
     </div>
