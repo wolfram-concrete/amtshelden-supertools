@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** August 2026 · **Version:** 0.25 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** August 2026 · **Version:** 0.26 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,

@@ -2,6 +2,49 @@
 
 ---
 
+## [0.26.0] — 2026-08-23
+
+### Christian-Feedback: Supertools als Entscheidungshilfe geschärft
+
+Überarbeitung entlang des Beta-Feedbacks von Christian — Kern: Supertools ist
+eine Software-**Entscheidungshilfe** für Behörden, nicht ein zweiter Blog.
+
+#### 🧭 Positionierung & Wording
+- „Empfehlung"-Wording raus (Hero, Über, Voll-Profile OZG-Portal/VivioAkte):
+  klingt käuflich → einordnende Sprache („eignet sich für … / vor einer
+  Entscheidung zu klären …").
+- Methodik als **4 ehrliche Profilstufen** (Basis · Anbieter-geprüft ·
+  Redaktionell vertieft · Praxis) statt Über-Prüfversprechen; Über-Seite
+  entschärft (nicht jedes Profil = 3 Referenz-Behörden + Audit).
+- Nav „Wissen & Magazin" → „Tool-Wissen"; /wissen auf Auswahl/Entscheidung
+  ausgerichtet. Newsletter reframed: „Diese Woche im Verzeichnis".
+
+#### 🧾 Basis-Profil als Entscheidungsfläche (Priorität 2)
+- Neue Bausteine: Einordnung (wann Software hilft / wann nicht),
+  „Vorab in der Behörde klären", **Fragen vor dem Anbietertermin**,
+  „Offene Angaben" (ehrlich: fehlende Info ist Info), Typische Nutzer,
+  „Korrektur melden", Anschluss an die Kategorie-Einordnung.
+- Gespeist aus neuer, redaktioneller `kategorie-entscheidung.ts` (keine
+  erfundenen Produktfakten).
+
+#### 🗂️ Kategorie-Seiten = Entscheidungshilfen (Priorität 4)
+- Vor der Tool-Liste: worum geht's, Verwaltungsprobleme, Tool-Arten, wann
+  Software (nicht) hilft, Voraussetzungen, Fragen an Anbieter — dann erst das
+  Verzeichnis. Leere Kategorien: „im Aufbau" + Rechercheaufruf.
+
+#### 🎯 Startseite: Anwendungsbeispiele
+- Neue Sektion „Vom Problem zur passenden Software": drei typische
+  Behörden-Ausgangslagen → was die Software-Art leistet → was zu klären ist →
+  ein echter Anbieter aus dem Verzeichnis (Eye-Able, OZG-Portal, Facelift).
+  Ehrlich als Beispiel gekennzeichnet, keine erfundene Auftragsreferenz.
+
+#### ✅ Qualitätssicherung
+- Production-Build grün; Gegenprüfung per Review-Agent (Empfehlung-Wording,
+  Rankings, Über-Prüfversprechen, erfundene Cases, „Crawler"-Wording, Headline-
+  Regeln, tote Links) — ein Blocker gefunden und behoben.
+
+---
+
 ## [0.25.0] — 2026-08-15
 
 ### Verzeichnis konsolidiert · Produktbild-Review · Amtshelden-Feed
