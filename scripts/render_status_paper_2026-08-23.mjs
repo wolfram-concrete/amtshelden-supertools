@@ -1,0 +1,1057 @@
+import fs from "node:fs/promises";
+import path from "node:path";
+import puppeteer from "puppeteer-core";
+
+const root = process.cwd();
+const outDir = path.join(root, "docs/status-quo-2026-08-23");
+const assetDir = path.join(outDir, "assets-clear");
+const chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const baseUrl = "http://localhost:3000";
+const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const shots = [
+  { path: "/", file: "journey-home-full.png", fullPage: true },
+  {
+    path: "/kategorien/kommunikation-zusammenarbeit",
+    file: "journey-category-list.png",
+    prepare: "category-decision",
+  },
+  {
+    path: "/tools/stackfield-gmbh",
+    file: "journey-tool-detail.png",
+    prepare: "tool-decision",
+  },
+];
+
+const sheetLegendRows = [
+  ["Tab", "Was ist das?", "Was passiert damit?"],
+  ["01_Fuellhoerner", "Fundorte und Suchraeume: Messen, Konferenzen, Plattformen, Verbaende, Suchbegriffe und Jahrgaenge.", "Breite Discovery: Aus diesen Quellen werden moegliche Anbieter gefunden."],
+  ["02_Discovery_Inbox", "Konkrete Anbieter-Kandidaten aus Fuellhoernern, Empfehlungen oder manuellen Hinweisen.", "Kandidaten werden dedupliziert, leicht vorqualifiziert und fuer gezielten Anbieter-Crawl priorisiert."],
+  ["03_Master_Qualifizierung", "Enger gepruefte Kandidaten mit Kriterien, Quellen, Verfuegbarkeit, Bodycopy und Screenshot-Pfaden.", "Basis fuer bessere Profile, Nachrecherche-Aufgaben und spaetere Website-/CMS-Freigaben."],
+  ["04_Review_Historie", "Abgelehnte, unsichere oder technisch blockierte Kandidaten.", "Begruendung, Warnliste und spaetere Re-Check-Liste."],
+  ["05_Website_Datenbasis", "Alle Tools fuer Prototype, Verzeichnis und Tool-Darstellung.", "Aktuelle Ausspielungs-/Datenbasis fuer die Website, nicht automatisch finale Qualitaetsfreigabe."],
+];
+const masterRows = [
+  ["Status", "Tool", "Cluster", "Verfuegbarkeit", "Public Sector", "Datenschutz", "Security", "Stand"],
+  ["qualified_needs_review", "SpeechMind", "KI-Protokollierung", "unklar", "ja", "ja", "ja", "2026-08-14"],
+  ["watchlist_needs_research", "Scriba", "KI-Sitzungsprotokollierung", "Niedersachsen", "ja", "ja", "ja", "2026-08-14"],
+  ["qualified_needs_review", "Convaise", "KI-Verwaltungslotse", "unklar", "ja", "ja", "ja", "2026-08-14"],
+  ["qualified", "Splitbot / KOSMO", "KI-Wissensbot", "unklar", "ja", "ja", "ja", "2026-08-14"],
+  ["qualified", "Findus One", "KI-Plattform", "unklar", "ja", "ja", "ja", "2026-08-14"],
+  ["qualified", "Intrakommuna", "Kommunikationsplattform", "unklar", "ja", "ja", "ja", "2026-08-14"],
+  ["qualified_needs_review", "openDesk", "Office- und Kollaborationssuite", "unklar", "ja", "ja", "ja", "2026-08-14"],
+];
+const websiteRows = [
+  ["Quelle", "Slug", "Name", "Anbieter", "Kategorie", "Tier", "Stand"],
+  ["website_preview_broad", "eye-able-web-inclusion-gmbh", "Eye-Able", "Web Inclusion GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "facelift-cloud-gmbh", "Facelift Cloud GmbH", "Facelift Cloud GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "socialhub-maloon-gmbh", "SocialHub", "maloon GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "stage-stagelink-staffbase-familie", "Stage", "Stagelink / Staffbase", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "haiilo-gmbh", "Haiilo GmbH", "Haiilo GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "ip-dynamics-gmbh", "IP Dynamics GmbH", "IP Dynamics GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "parloa-gmbh", "Parloa GmbH", "Parloa GmbH", "Kommunikation", "basis", "2026-06-28"],
+  ["website_preview_broad", "scompler-gmbh", "Scompler GmbH", "Scompler GmbH", "Kommunikation", "basis", "2026-06-28"],
+];
+
+const escapeHtml = (value) => String(value ?? "")
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;");
+
+const renderSheetTable = (rows) => `
+  <table class="sheet-table">
+    <tbody>
+      ${rows.map((row, index) => `
+        <tr>${row.map((cell) => `<${index === 0 ? "th" : "td"}>${escapeHtml(cell)}</${index === 0 ? "th" : "td"}>`).join("")}</tr>
+      `).join("")}
+    </tbody>
+  </table>
+`;
+
+const css = `
+  @page { size: 16in 9in; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f4f0e9;
+    color: #28241f;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .slide {
+    width: 1600px;
+    height: 900px;
+    padding: 48px 56px;
+    page-break-after: always;
+    background: #f4f0e9;
+    position: relative;
+    overflow: hidden;
+  }
+  h1, h2, h3, p { margin: 0; }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 1.02;
+  }
+  h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+  .meta {
+    color: #70675c;
+    font-size: 15px;
+    line-height: 1.45;
+    margin-top: 8px;
+  }
+  .label {
+    font-size: 11px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #087451;
+    margin-bottom: 8px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 36px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+  .header .right {
+    width: 390px;
+    border-left: 1px solid #d1c8bb;
+    padding-left: 22px;
+  }
+  .grid4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .box {
+    background: rgba(255,255,255,.82);
+    border: 1px solid #d8d0c4;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .box.green { border-top: 6px solid #0d9d69; }
+  .box.yellow { border-top: 6px solid #f1c84b; }
+  .box.dark { border-top: 6px solid #2d2a26; }
+  .box.blue { border-top: 6px solid #4f7f97; }
+  .box.red { border-top: 6px solid #bd6048; }
+  ul {
+    list-style: none;
+    margin: 14px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14.5px;
+    line-height: 1.35;
+    color: #4f4840;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .52em;
+    width: 6px;
+    height: 6px;
+    background: #0d9d69;
+    border-radius: 50%;
+  }
+  .status-table, .quality-table {
+    display: grid;
+    border: 1px solid #d2cabf;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #d2cabf;
+    gap: 1px;
+  }
+  .status-table { grid-template-columns: .9fr 1.3fr 1.3fr 1.15fr; }
+  .quality-table { grid-template-columns: .85fr 1.25fr 1.25fr 1.15fr; }
+  .agenda-road {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 16px 0 16px;
+  }
+  .agenda-card {
+    min-height: 104px;
+    background: rgba(255,255,255,.86);
+    border: 1px solid #d8d0c4;
+    border-radius: 10px;
+    padding: 12px;
+    position: relative;
+  }
+  .agenda-card:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -13px;
+    top: 42px;
+    color: #0d9d69;
+    font-weight: 700;
+    z-index: 2;
+  }
+  .agenda-card strong {
+    display: block;
+    color: #087451;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+  }
+  .agenda-card b {
+    display: block;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 7px;
+  }
+  .agenda-card span {
+    display: block;
+    color: #5b534a;
+    font-size: 11.5px;
+    line-height: 1.3;
+  }
+  .status-table .cell {
+    min-height: 66px;
+    font-size: 12.8px;
+  }
+  .sheet-layout {
+    display: grid;
+    grid-template-columns: .86fr 1.14fr;
+    grid-template-rows: .78fr 1fr;
+    gap: 16px;
+    height: 642px;
+    margin-top: 20px;
+  }
+  .sheet-panel {
+    background: rgba(255,255,255,.86);
+    border: 1px solid #d8d0c4;
+    border-radius: 10px;
+    padding: 14px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px -46px rgba(0,0,0,.52);
+  }
+  .sheet-panel.big {
+    grid-row: 1 / span 2;
+  }
+  .sheet-panel h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .sheet-note {
+    color: #5b534a;
+    font-size: 12.5px;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .sheet-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+  .sheet-tab {
+    border: 1px solid #b7dccd;
+    border-radius: 999px;
+    background: #e9f6f1;
+    color: #087451;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .07em;
+    padding: 5px 7px;
+    text-transform: uppercase;
+  }
+  .sheet-window {
+    border: 1px solid #d4ccbf;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .sheet-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2dbd2;
+    background: #f8f5ef;
+    color: #70675c;
+    font-size: 10.5px;
+  }
+  .sheet-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 10.5px;
+  }
+  .sheet-table th {
+    background: #2d2a26;
+    color: #fff9ed;
+    font-size: 9.3px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 7px 8px;
+    border-right: 1px solid #5c554d;
+  }
+  .sheet-table td {
+    color: #4f4840;
+    padding: 7px 8px;
+    border-top: 1px solid #e6dfd6;
+    border-right: 1px solid #eee7df;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sheet-table tr:nth-child(even) td {
+    background: #fbf9f5;
+  }
+  .cell {
+    min-height: 82px;
+    background: rgba(255,255,255,.88);
+    padding: 13px 14px;
+    font-size: 13.5px;
+    line-height: 1.32;
+    color: #4f4840;
+  }
+  .head {
+    min-height: auto;
+    background: #2d2a26;
+    color: #fff9ed;
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .step {
+    min-height: 130px;
+    background: rgba(255,255,255,.86);
+    border: 1px solid #cfd8d0;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative;
+  }
+  .step::after {
+    content: "→";
+    position: absolute;
+    right: -14px;
+    top: 45%;
+    color: #0d9d69;
+    font-weight: 700;
+  }
+  .step:nth-child(5)::after, .step:nth-child(10)::after { display: none; }
+  .step b {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #28241f;
+  }
+  .step span {
+    display: block;
+    font-size: 12.5px;
+    line-height: 1.35;
+    color: #5b534a;
+  }
+  .cadence {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .time {
+    background: #fff;
+    border: 1px solid #d8d0c4;
+    border-radius: 10px;
+    padding: 16px;
+    min-height: 130px;
+  }
+  .time strong {
+    display: block;
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid #b7dccd;
+    background: #e9f6f1;
+    color: #087451;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 6px 9px;
+    margin-right: 6px;
+    margin-top: 8px;
+  }
+  .shot-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .9fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    height: 620px;
+  }
+  .shot {
+    border: 1px solid #d4ccbf;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    position: relative;
+  }
+  .shot.big { grid-row: span 2; }
+  .shot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    display: block;
+  }
+  .journey-grid {
+    display: grid;
+    grid-template-columns: .66fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px 18px;
+    height: 650px;
+    margin-top: 24px;
+  }
+  .journey-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-height: 0;
+    border: 1px solid #d4ccbf;
+    border-radius: 12px;
+    background: rgba(255,255,255,.78);
+    padding: 12px;
+    box-shadow: 0 22px 60px -54px rgba(0,0,0,.5);
+  }
+  .journey-card.start {
+    grid-row: 1 / span 2;
+  }
+  .journey-card:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -17px;
+    top: 50%;
+    z-index: 5;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #0d9d69;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 10px 24px -14px rgba(0,0,0,.5);
+  }
+  .journey-card.start::after {
+    right: -17px;
+    top: 36%;
+  }
+  .journey-card:nth-child(2)::after {
+    right: 50%;
+    top: auto;
+    bottom: -23px;
+    transform: rotate(90deg);
+  }
+  .journey-card:last-child::after {
+    display: none;
+  }
+  .journey-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 40px;
+  }
+  .journey-step {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #0d9d69;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .journey-head h3 {
+    flex: 1;
+    font-size: 20px;
+  }
+  .journey-head span:last-child {
+    color: #087451;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .journey-shot {
+    flex: 1;
+    min-height: 0;
+    border: 1px solid #d8d0c4;
+    border-radius: 9px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .journey-shot img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: top center;
+  }
+  .journey-shot.full img {
+    object-fit: contain;
+    object-position: top center;
+  }
+  .journey-shot.focus img {
+    object-fit: cover;
+    object-position: center center;
+  }
+  .journey-note {
+    min-height: 0;
+    color: #5b534a;
+    font-size: 12.5px;
+    line-height: 1.35;
+  }
+  .cap {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    background: rgba(244,240,233,.95);
+    border: 1px solid #d8d0c4;
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: #087451;
+    font-size: 11px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .check-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .check-card {
+    background: rgba(255,255,255,.86);
+    border: 1px solid #d8d0c4;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 232px;
+  }
+  .check-card h3 {
+    font-size: 25px;
+    margin-bottom: 14px;
+  }
+  .check-list {
+    display: grid;
+    gap: 11px;
+    margin: 0;
+    padding: 0;
+  }
+  .check-item {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+    align-items: start;
+    color: #4f4840;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .check-item::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 2px solid #0d9d69;
+    border-radius: 4px;
+    margin-top: 2px;
+    background: #fff;
+  }
+  .decision-strip {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .decision {
+    background: #2d2a26;
+    color: #fff9ed;
+    border-radius: 10px;
+    padding: 17px 18px;
+    min-height: 104px;
+  }
+  .decision .label {
+    color: #d1f05a;
+    margin-bottom: 8px;
+  }
+  .decision p {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .footer {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    color: #746b60;
+    font-size: 12px;
+  }
+`;
+
+const html = `<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Supertools Statuspaper klar</title>
+  <style>${css}</style>
+</head>
+<body>
+  <section class="slide" id="slide-1">
+    <div class="header">
+      <div>
+        <div class="label">Supertools · interner Status · 23.08.2026 · Christian-Feedback umgesetzt</div>
+        <h1>Status quo für die Besprechung</h1>
+        <p class="meta">Ziel: gemeinsam prüfen, was bereits steht. Seit dem letzten Stand ist die Beta entlang von Christians Feedback zur Entscheidungshilfe umgebaut — Wording, Profilstruktur, Kategorie-Seiten und Startseite. Details auf der letzten Folie.</p>
+      </div>
+      <div class="right">
+        <div class="label">Leselogik</div>
+        <p class="meta">Die Kapitelnummern in dieser Agenda tauchen auf jeder Folgeseite wieder auf. So ist klar, welchen Punkt wir gerade diskutieren.</p>
+        <span class="tag">72 Website-Tools</span><span class="tag">74 Tool-Routen</span><span class="tag">Human Review</span>
+      </div>
+    </div>
+
+    <div class="agenda-road">
+      <div class="agenda-card"><strong>01 · Website</strong><b>User Journey</b><span>Was ist heute sichtbar? Startseite, Kategorie, Produktprofil, CTA.</span></div>
+      <div class="agenda-card"><strong>02 · Datenbasis</strong><b>Supertools-Liste</b><span>Wo liegen Legende, Master, Review und Website-Ausspielung?</span></div>
+      <div class="agenda-card"><strong>03 · Betrieb</strong><b>Crawler-Rhythmus</b><span>Wann läuft Monitoring, Discovery und Human Review?</span></div>
+      <div class="agenda-card"><strong>04 · Qualität</strong><b>Quellen & Kriterien</b><span>Welche Daten sind belastbar, riskant oder nicht veröffentlichbar?</span></div>
+      <div class="agenda-card"><strong>05 · System</strong><b>Crawler-Logik</b><span>Wie werden Kandidaten gefunden, belegt, bewertet und exportiert?</span></div>
+      <div class="agenda-card"><strong>06 · Team</strong><b>Entscheidungen</b><span>Was müssen wir gemeinsam abhaken, bevor die nächste Phase startet?</span></div>
+    </div>
+
+    <div class="status-table">
+      <div class="cell head">Agenda-Punkt</div><div class="cell head">Stand heute</div><div class="cell head">Offene Punkte</div><div class="cell head">Nächste Entscheidung</div>
+      <div class="cell">01 Website</div><div class="cell">Als Entscheidungshilfe umgebaut: Kategorie-Seiten führen vom Problem zur Auswahl, Basis-Profile sind Prüfflächen (Fragen an Anbieter, offene Angaben, Korrektur melden), Startseite mit Anwendungsbeispielen. „Empfehlung“-Wording raus, Profilstufen sichtbar.</div><div class="cell">Echte Praxisfälle, eigenständige Formate (Glossar, Anbieterfragen, Briefings), CMS, Formulare, Newsletter, Rechtstexte.</div><div class="cell">Welche Tools gehen in die finale öffentliche Fassung?</div>
+      <div class="cell">02 Datenbasis</div><div class="cell">Google Sheet mit Legende, Füllhörnern, Discovery Inbox, Master-Qualifizierung, Review-Historie und Website-Datenbasis ist als Arbeitsliste vorhanden.</div><div class="cell">Sync-Regeln zwischen Sheet, Crawler-Export, Website-Code und späterem CMS müssen verbindlich werden.</div><div class="cell">Welche Liste ist wann die Wahrheit?</div>
+      <div class="cell">03 Betrieb</div><div class="cell">Vorschlag steht: wöchentlich Monitoring, montags Review, monatlich Discovery, ad hoc Einzelcrawl.</div><div class="cell">Verantwortlichkeiten, Review-Gate und verbindlicher Update-Rhythmus fehlen noch.</div><div class="cell">Wer entscheidet was am Montagmorgen?</div>
+      <div class="cell">04 Qualität</div><div class="cell">Grundhaltung steht: kuratiert, keine Rankings, keine Sterne, kein automatisches Publishing, keine Crawler-Sprache nach außen.</div><div class="cell">Konkrete Kriterien für Belege, Unsicherheit, Widersprüche, Regionalität und Ausschlüsse müssen fixiert werden.</div><div class="cell">Wie messen wir “gut genug für Supertools”?</div>
+      <div class="cell">05 System</div><div class="cell">Website-Datenbasis: 59 Preview-Tools plus 13 Master-/Watchlist-Tools = 72. Drei-Listen-Logik und 30 Public-Sector-Quellen sind erfasst.</div><div class="cell">Entity Matching, Evidence Store, Goldstandard-Testset und Sync-Regeln müssen weiter geschärft werden.</div><div class="cell">Welche Datenfelder sind Pflicht vor Veröffentlichung?</div>
+      <div class="cell">06 Team</div><div class="cell">Erste Website, Datenbasis und Diskussionslogik stehen als gemeinsame Arbeitsgrundlage.</div><div class="cell">Top-20, Review-Verfahren, CMS/Tracking und Go-to-Market müssen entschieden werden.</div><div class="cell">Was nehmen wir als nächsten Meilenstein?</div>
+    </div>
+
+    <div class="footer">
+      <span>Arbeitsregel: Mission, Qualitätslogik und Freigabeprozess zuerst, danach Crawler skalieren.</span>
+      <span>Öffentliche Website-Sprache bleibt kuratiert/redaktionell, nicht technisch.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-2">
+    <div class="header">
+      <div>
+        <div class="label">01 · Website</div>
+        <h2>User Journey und aktueller sichtbarer Stand</h2>
+      </div>
+      <div class="right"><p class="meta">Die Journey folgt jetzt der Entscheidungslogik: vom Problem über die Kategorie-Einordnung zum Profil als Prüffläche. Nicht „hier sind Tools“, sondern „so erkennen Sie, ob und welche Software passt“.</p></div>
+    </div>
+
+    <div class="journey-grid">
+      <figure class="journey-card start">
+        <figcaption class="journey-head">
+          <span class="journey-step">1</span>
+          <h3>Startseite</h3>
+          <span>Einstieg</span>
+        </figcaption>
+        <div class="journey-shot full"><img src="assets-clear/journey-home-full.png" /></div>
+        <p class="journey-note">Problemorientierter Einstieg: „Starten Sie beim Problem, nicht bei der Kategorie“, dazu Anwendungsbeispiele (Ausgangslage → passende Software-Art → echter Anbieter aus dem Verzeichnis).</p>
+      </figure>
+
+      <figure class="journey-card">
+        <figcaption class="journey-head">
+          <span class="journey-step">2</span>
+          <h3>Kategorie-Einordnung</h3>
+          <span>Auswahl</span>
+        </figcaption>
+        <div class="journey-shot focus"><img src="assets-clear/journey-category-list.png" /></div>
+        <p class="journey-note">Entscheidungshilfe VOR der Tool-Liste: Verwaltungsprobleme, Tool-Arten, wann Software (nicht) hilft, Voraussetzungen und Fragen an Anbieter — erst danach die Tools.</p>
+      </figure>
+
+      <figure class="journey-card">
+        <figcaption class="journey-head">
+          <span class="journey-step">3</span>
+          <h3>Produktprofil</h3>
+          <span>Entscheidung</span>
+        </figcaption>
+        <div class="journey-shot focus"><img src="assets-clear/journey-tool-detail.png" /></div>
+        <p class="journey-note">Profil als Prüffläche: Einordnung (wofür geeignet / eher nicht), Voraussetzungen, Fragen vor dem Anbietertermin, offene Angaben, Prüfdatum, Quelle und „Korrektur melden“.</p>
+      </figure>
+    </div>
+
+    <div class="footer">
+      <span>User Journey: Einstieg → Kategorie-Liste → Produktprofil → CTA/Anfrage.</span>
+      <span>Tracking später: Tool-Klick, Profilbesuch, CTA-Klick, qualifizierte Anfrage.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-3">
+    <div class="header">
+      <div>
+        <div class="label">02 · Datenbasis</div>
+        <h2>Supertools-Liste als gemeinsame Arbeitsgrundlage</h2>
+      </div>
+      <div class="right"><p class="meta">Das Google Sheet ist die sichtbare Arbeitsliste hinter Website und Crawler: Fundorte, Kandidaten, Qualifizierung, Review und Website-Ausspielung liegen in getrennten Tabs.</p></div>
+    </div>
+
+    <div class="sheet-layout">
+      <div class="sheet-panel big">
+        <h3>Tab-Logik der Datenbasis</h3>
+        <p class="sheet-note">Quelle: Supertools_Datenbasis_Master_und_Discovery. Die Liste ist intern und trennt bewusst Discovery, Qualifizierung, Review und Website-Daten.</p>
+        <div class="sheet-tabs">
+          <span class="sheet-tab">00 Legende</span>
+          <span class="sheet-tab">01 Fuellhoerner</span>
+          <span class="sheet-tab">02 Discovery Inbox</span>
+          <span class="sheet-tab">03 Master</span>
+          <span class="sheet-tab">04 Review</span>
+          <span class="sheet-tab">05 Website</span>
+        </div>
+        <div class="sheet-window">
+          <div class="sheet-bar"><span>00_Legende · A1:H22</span><span>Google Sheet</span></div>
+          ${renderSheetTable(sheetLegendRows)}
+        </div>
+      </div>
+
+      <div class="sheet-panel">
+        <h3>03_Master_Qualifizierung</h3>
+        <p class="sheet-note">Enger geprüfte Kandidaten mit Status, Kriterien, Verfügbarkeit, Bodycopy, Screenshot-Pfaden und Quellen.</p>
+        <div class="sheet-window">
+          <div class="sheet-bar"><span>Auszug · Kandidaten und Review-Signale</span><span>Stand 14.08.2026</span></div>
+          ${renderSheetTable(masterRows)}
+        </div>
+      </div>
+
+      <div class="sheet-panel">
+        <h3>05_Website_Datenbasis</h3>
+        <p class="sheet-note">Breite Ausspielungsbasis für den Website-Prototyp. Nicht gleichzusetzen mit finaler redaktioneller Empfehlung.</p>
+        <div class="sheet-window">
+          <div class="sheet-bar"><span>Auszug · Website-Tools</span><span>72 Website-Tools</span></div>
+          ${renderSheetTable(websiteRows)}
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Google Sheet: Supertools_Datenbasis_Master_und_Discovery · Tab 05_Website_Datenbasis</span>
+      <span>Arbeitsregel: Sheet ist Review- und Sync-Grundlage, die Website zeigt nur freigegebene Felder.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-4">
+    <div class="header">
+      <div>
+        <div class="label">03 · Betrieb</div>
+        <h2>Crawler-Rhythmus und redaktioneller Review</h2>
+      </div>
+      <div class="right"><p class="meta">Der Ablauf muss redaktionell beherrschbar bleiben. Nicht jede neue Quelle erzeugt automatisch neue Website-Inhalte.</p></div>
+    </div>
+
+    <div class="cadence">
+      <div class="time"><strong>Wöchentlich</strong><ul><li>Sonntagabend Monitoring-Lauf für bestehende Tools.</li><li>Änderungen, Ausfälle und neue relevante Inhalte erfassen.</li></ul></div>
+      <div class="time"><strong>Montagmorgen</strong><ul><li>Human Review der Änderungsliste.</li><li>Freigabe, Nachrecherche oder Ignorieren.</li></ul></div>
+      <div class="time"><strong>Monatlich</strong><ul><li>Discovery-Lauf für neue Kandidaten.</li><li>Supertools-Datenbasis, Messen und Public-Sector-Queries aktualisieren.</li></ul></div>
+      <div class="time"><strong>Ad hoc</strong><ul><li>Tool-Vorschlag, Messefund, Anbieteranfrage oder redaktioneller Bedarf.</li><li>Gezielter Einzelcrawl.</li></ul></div>
+    </div>
+
+    <div class="grid3" style="margin-top: 22px;">
+      <div class="box green"><div class="label">Monitoring</div><h3>Bekannte Tools prüfen</h3><ul><li>Name, Domain, Produktstatus</li><li>Compliance-/Security-Aussagen</li><li>neue Cases, Webinare, Whitepaper</li><li>Website offline oder stark verändert</li></ul></div>
+      <div class="box yellow"><div class="label">Discovery</div><h3>Neue Kandidaten finden</h3><ul><li>Supertools-Datenbasis als Startpunkt</li><li>Public Sector + Kategorie</li><li>Messeaussteller und Sponsoren</li><li>Vergabedaten und Behördenreferenzen</li></ul></div>
+      <div class="box blue"><div class="label">Review</div><h3>Redaktion entscheidet</h3><ul><li>freigeben</li><li>nachrecherchieren</li><li>ablehnen</li><li>später beobachten</li></ul></div>
+    </div>
+
+    <div class="footer">
+      <span>Empfehlung: zuerst 15 Tools als Goldstandard manuell bewerten.</span>
+      <span>Dann Crawler gegen diese Qualitätsmatrix verbessern.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-5">
+    <div class="header">
+      <div>
+        <div class="label">04 · Qualität</div>
+        <h2>Quellen, Kriterien und Warnsignale</h2>
+      </div>
+      <div class="right"><p class="meta">Nicht jede gefundene Information ist gleich viel wert. Wir brauchen Quellenstufen und klare Warnsignale.</p></div>
+    </div>
+
+    <div class="quality-table">
+      <div class="cell head">Datenart</div><div class="cell head">Gute Quelle</div><div class="cell head">Problem / Risiko</div><div class="cell head">Nutzen für Behörden</div>
+      <div class="cell">Produktidentität</div><div class="cell">Supertools-Datenbasis, Anbieterwebsite, Impressum, Produktseite, Doku, App-/Produktname.</div><div class="cell">Firma und Produkt werden vermischt; Beratung wird als Software geführt.</div><div class="cell">Schnell verstehen, worum es wirklich geht.</div>
+      <div class="cell">Behördenbezug</div><div class="cell">Case Study, Referenz, Vergabe, Messevortrag, Public-Sector-Seite.</div><div class="cell">Generisches “Public Sector” ohne konkreten Beleg.</div><div class="cell">Relevanz für Verwaltung einschätzen.</div>
+      <div class="cell">Datenschutz/Betrieb</div><div class="cell">AVV, Subprozessoren, Trust Center, Produktdoku, Hostingregion.</div><div class="cell">Website-Datenschutz wird fälschlich als Produktbeleg gelesen.</div><div class="cell">Risiken und Nachfragen schneller erkennen.</div>
+      <div class="cell">Sicherheit</div><div class="cell">ISO, BSI/C5, SSO, Rollenmodell, Audit, Security-Doku, Zertifikatsseite.</div><div class="cell">Marketingfloskeln wie “sicher” oder “DSGVO-konform”.</div><div class="cell">IT-Prüfung und Beschaffung vorbereiten.</div>
+      <div class="cell">Content</div><div class="cell">Webinar, Whitepaper, Video, Case mit klarem Thema und Produktbezug.</div><div class="cell">Generische Blogs, leere Downloadseiten, thematisch falsche Inhalte.</div><div class="cell">Vertiefung ohne eigene Recherchearbeit.</div>
+    </div>
+
+    <div class="grid4" style="margin-top: 22px;">
+      <div class="box green"><h3>Stark</h3><ul><li>öffentliche Vergabe</li><li>Zertifikat</li><li>Produktdoku</li><li>Trust Center</li></ul></div>
+      <div class="box yellow"><h3>Mittel</h3><ul><li>Anbieterclaim</li><li>Case Study</li><li>Webinar</li><li>Presse/News</li></ul></div>
+      <div class="box red"><h3>Schwach</h3><ul><li>Keyword-Treffer</li><li>Footer-Link</li><li>allgemeiner Blog</li><li>Website-Hosting</li></ul></div>
+      <div class="box dark"><h3>Nicht veröffentlichen</h3><ul><li>widersprüchlich</li><li>ohne Quelle</li><li>nur geraten</li><li>nicht produktbezogen</li></ul></div>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-6">
+    <div class="header">
+      <div>
+        <div class="label">05 · System</div>
+        <h2>Crawler-Logik von Discovery bis Export</h2>
+      </div>
+      <div class="right"><p class="meta">Discovery findet Kandidaten. Der gezielte Crawler sammelt Belege. Die Redaktion entscheidet, was veröffentlicht wird.</p></div>
+    </div>
+
+    <div class="flow">
+      <div class="step"><b>1. Themen & Suchräume</b><span>Kategorien, Schlagworte, Messen, Behördenbedarfe, Public-Sector-Queries definieren.</span></div>
+      <div class="step"><b>2. Discovery Engine</b><span>Kandidaten über Supertools-Datenbasis, Search APIs, Events, Vergaben, News, YouTube und Anbieterlisten finden.</span></div>
+      <div class="step"><b>3. Entity Matching</b><span>Anbieter, Produkt, Domain, Kategorie und Dubletten zusammenführen.</span></div>
+      <div class="step"><b>4. Vorqualifizierung</b><span>Softwareprodukt? Behördenfit? Kategorie? Ausschlussgrund? Priorität?</span></div>
+      <div class="step"><b>5. Targeted Crawler</b><span>Definierte Quellen abgrasen: Trust, Security, Datenschutz, Docs, Cases, Webinare.</span></div>
+      <div class="step"><b>6. Evidence Store</b><span>Aussage, Quelle, Fundstelle, Datum, Screenshot/Textauszug und Signaltyp speichern.</span></div>
+      <div class="step"><b>7. Quality Scoring</b><span>Belastbar, unsicher, widersprüchlich, fehlt. Produktbezug vor Website-Bezug.</span></div>
+      <div class="step"><b>8. Human Review</b><span>Redaktion prüft: freigeben, nachrecherchieren, ablehnen oder Anbieter klären.</span></div>
+      <div class="step"><b>9. Website-Export</b><span>Nur freigegebene Daten wandern in Website/CMS. Keine Rohdaten live.</span></div>
+      <div class="step"><b>10. Nachrecherche</b><span>Unklare Fälle gehen in eine Aufgabenliste für Team, Anbieter oder manuelle Recherche.</span></div>
+    </div>
+
+    <div class="footer">
+      <span>Kerntrennung: Discovery ≠ Crawl ≠ Veröffentlichung.</span>
+      <span>Der Crawler ist Recherche-Assistent, nicht Publisher.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-7">
+    <div class="header">
+      <div>
+        <div class="label">06 · Team</div>
+        <h2>Checkliste für die nächste Phase</h2>
+      </div>
+      <div class="right"><p class="meta">Die Liste ist bewusst einfach gehalten: erst fachliche Freigabe, dann Datenprozess, dann Produktivschaltung und Go-to-Market.</p></div>
+    </div>
+
+    <div class="check-layout">
+      <div class="check-card">
+        <div class="label">1. Tool-Auswahl</div>
+        <h3>Was darf später wirklich sichtbar sein?</h3>
+        <div class="check-list">
+          <div class="check-item">72 Website-Tools gemeinsam durchgehen: behalten, nachprüfen, entfernen.</div>
+          <div class="check-item">Dubletten, Beratung statt Software und unklare Produktzuschnitte markieren.</div>
+          <div class="check-item">Top-20 Tools für tiefere redaktionelle Profile auswählen.</div>
+          <div class="check-item">Fiktive Entwicklungs-Platzhalter aus der öffentlichen Fassung entfernen.</div>
+        </div>
+      </div>
+
+      <div class="check-card">
+        <div class="label">2. Qualität & Datenmodell</div>
+        <h3>Welche Informationen sind Pflicht?</h3>
+        <div class="check-list">
+          <div class="check-item">Pflichtfelder je Tool festlegen: Kategorie, Einsatzfall, Verfügbarkeit, Datenschutz, Betrieb, Sicherheit.</div>
+          <div class="check-item">Review-Gate definieren: wer gibt frei, wer stellt zurück, wo wird es gespeichert?</div>
+          <div class="check-item">Regionalität/Bundesland-Verfügbarkeit als eigenes Feld bestätigen.</div>
+          <div class="check-item">Crawler-Quellen bewerten: stark, mittel, schwach, nicht veröffentlichen.</div>
+        </div>
+      </div>
+
+      <div class="check-card">
+        <div class="label">3. Website produktiv machen</div>
+        <h3>Was muss vor Livegang funktionieren?</h3>
+        <div class="check-list">
+          <div class="check-item">Formulare, Newsletter und Anfragewege technisch scharf schalten.</div>
+          <div class="check-item">CMS-/Payload-Entscheidung treffen und Datenmodell übertragen.</div>
+          <div class="check-item">Rechtstexte, Bildnachweise und öffentliche Aussagen final prüfen.</div>
+          <div class="check-item">Analytics/Conversion-Tracking für Profilbesuch, CTA-Klick und Anfrage einbauen.</div>
+        </div>
+      </div>
+
+      <div class="check-card">
+        <div class="label">4. Go-to-Market</div>
+        <h3>Wie kommt Nutzung auf die Seite?</h3>
+        <div class="check-list">
+          <div class="check-item">Startkanal festlegen: Amtshelden-Newsletter, LinkedIn, Instagram, Messen oder Direktansprache.</div>
+          <div class="check-item">Supertools-Newsletter mit Double-Opt-in planen.</div>
+          <div class="check-item">Anbieterpakete grob entscheiden: Basis, Verified, Lead, Sponsored Content.</div>
+          <div class="check-item">Erste Formate bestimmen: Tool des Monats, Tool Talks, Guide oder Report.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="decision-strip">
+      <div class="decision"><div class="label">Erste Team-Entscheidung</div><p>Welche 20 Tools sind gut genug, um sie als erste redaktionell zu vertiefen?</p></div>
+      <div class="decision"><div class="label">Zweite Entscheidung</div><p>Welche Felder müssen vor öffentlicher Veröffentlichung zwingend geprüft sein?</p></div>
+      <div class="decision"><div class="label">Dritte Entscheidung</div><p>Welcher Kanal liefert den ersten echten Nutzungs- und Conversion-Test?</p></div>
+    </div>
+
+    <div class="footer">
+      <span>Nächster Meilenstein: finale Tool-Auswahl und verbindliches Review-Gate.</span>
+      <span>Danach: CMS, Tracking, Formulare und Livegang vorbereiten.</span>
+    </div>
+  </section>
+
+  <section class="slide" id="slide-8">
+    <div class="header">
+      <div>
+        <div class="label">Christian-Feedback</div>
+        <h2>Umsetzungsstand der Beta-Überarbeitung</h2>
+      </div>
+      <div class="right"><p class="meta">Christians Kern — „Supertools ist eine Software-Entscheidungshilfe, keine Tool-Liste und kein zweiter Blog“ — ist jetzt die Leitlinie. Strukturell umgesetzt; offen ist bewusst nur echter Inhalt und ein paar Team-Entscheidungen.</p></div>
+    </div>
+
+    <div class="grid2" style="margin-top: 8px;">
+      <div class="box green">
+        <div class="label">Umgesetzt</div>
+        <ul>
+          <li>Positionierung: Entscheidungshilfe statt Tool-Liste; „Empfehlung“-Wording raus; keine Rankings/Sterne.</li>
+          <li>Profilstufen sichtbar (Basis · Anbieter-geprüft · Redaktionell vertieft · Praxis) statt pauschalem Über-Prüfversprechen.</li>
+          <li>Basis-Profil als Prüffläche: Einordnung (wofür geeignet / eher nicht), Voraussetzungen, Fragen vor dem Anbietertermin, offene Angaben, Prüfdatum, Quelle, Korrektur melden.</li>
+          <li>Kategorie-Seiten als Entscheidungshilfe: Problem → Tool-Arten → wann Software (nicht) hilft → Fragen → erst dann die Liste. Leere Kategorien „im Aufbau“ + Rechercheaufruf.</li>
+          <li>Startseite: Anwendungsbeispiele (Problem → passender Anbieter). Nav „Tool-Wissen“; Newsletter „Diese Woche im Verzeichnis“.</li>
+        </ul>
+      </div>
+      <div class="box yellow">
+        <div class="label">Offen · braucht Inhalt oder Entscheidung</div>
+        <ul>
+          <li>Echte Praxisfälle mit benannter Verwaltung (Format steht, echte Fälle folgen).</li>
+          <li>Eigenständige Inhaltsformate: Anbieterfragen-Seiten, Glossar, Behörden-Briefings, Tool-Talks.</li>
+          <li>Feinere Profilstatus-Skala und Zuordnung der vier Stufen je Profil.</li>
+          <li>Anbieterbereich als Profilpflege-Abo und Praxisfälle ausbauen.</li>
+          <li>Redaktionelle Grenze Amtshelden ↔ Supertools verbindlich festlegen.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="decision-strip">
+      <div class="decision"><div class="label">Entscheidung 1</div><p>Fiktive Demo-Profile (OZG-Portal, VivioAkte) entschärfen oder klar als Demo kennzeichnen?</p></div>
+      <div class="decision"><div class="label">Entscheidung 2</div><p>Welches Content-Format geht zuerst produktiv? Vorschlag: Anbieterfragen.</p></div>
+      <div class="decision"><div class="label">Entscheidung 3</div><p>Grenze Amtshelden ↔ Supertools als verbindliche Redaktionsregel.</p></div>
+    </div>
+
+    <div class="footer">
+      <span>Gebaut wurde durchgängig Struktur + ehrliche Einordnung — keine erfundenen Fakten/Cases.</span>
+      <span>Stand 23.08.2026 · Details im Repo-Changelog 0.26.</span>
+    </div>
+  </section>
+</body>
+</html>`;
+
+await fs.mkdir(assetDir, { recursive: true });
+
+const browser = await puppeteer.launch({
+  executablePath: chrome,
+  headless: true,
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+});
+
+try {
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 1 });
+  for (const shot of shots) {
+    await page.goto(`${baseUrl}${shot.path}`, { waitUntil: "networkidle0", timeout: 60000 });
+    // Reveals sofort sichtbar schalten — sonst wären die data-reveal-Sektionen
+    // (Entscheidungshilfe, Profil-Bausteine, Cases) im Screenshot unsichtbar.
+    await page.evaluate(() => {
+      document.documentElement.classList.remove("reveal-ready");
+      document
+        .querySelectorAll("[data-reveal]")
+        .forEach((el) => el.classList.add("is-visible"));
+    });
+    await pause(250);
+    if (shot.prepare === "category-decision") {
+      await page.evaluate(() => {
+        const h = [...document.querySelectorAll("h2")].find((e) =>
+          /Bevor Sie Tools vergleichen/.test(e.textContent || ""),
+        );
+        (h || document.body).scrollIntoView({ block: "start" });
+        window.scrollBy(0, -70);
+      });
+      await pause(400);
+    }
+    if (shot.prepare === "tool-decision") {
+      await page.evaluate(() => {
+        const h = [...document.querySelectorAll("div")].find((e) =>
+          /Fragen vor dem Anbietertermin/.test(e.textContent || ""),
+        );
+        if (h) {
+          h.scrollIntoView({ block: "start" });
+          window.scrollBy(0, -260);
+        }
+      });
+      await pause(400);
+    }
+    await page.screenshot({
+      path: path.join(assetDir, shot.file),
+      fullPage: Boolean(shot.fullPage),
+    });
+  }
+
+  const htmlPath = path.join(outDir, "supertools-status-quo-klar-2026-08-23.html");
+  await fs.writeFile(htmlPath, html, "utf8");
+
+  await page.setViewport({ width: 1600, height: 900, deviceScaleFactor: 1 });
+  await page.goto(`file://${htmlPath}`, { waitUntil: "networkidle0" });
+  await page.pdf({
+    path: path.join(outDir, "supertools-status-quo-klar-2026-08-23.pdf"),
+    width: "16in",
+    height: "9in",
+    printBackground: true,
+    preferCSSPageSize: true,
+  });
+
+  for (let i = 1; i <= 8; i += 1) {
+    const slide = await page.$(`#slide-${i}`);
+    await slide.screenshot({
+      path: path.join(outDir, `supertools-status-quo-klar-slide-${i}.png`),
+    });
+  }
+} finally {
+  await browser.close();
+}
+
+console.log(`Rendered clear status paper to ${outDir}`);
