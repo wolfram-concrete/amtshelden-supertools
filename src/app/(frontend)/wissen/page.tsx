@@ -7,9 +7,9 @@ import { WissenSidebar } from "@/components/sidebars/WissenSidebar";
 import { articleSummaries } from "@/mocks/articles";
 
 export const metadata: Metadata = {
-  title: "Wissen & Magazin — Supertools",
+  title: "Tool-Wissen — Supertools",
   description:
-    "Redaktionelle Beiträge, Leitfäden und aktuelle Themen aus der digitalen Verwaltung. Handverlesen, geprüft, ohne PR-Phrasen.",
+    "Einordnungen, Leitfäden und Auswahlfragen rund um Software für die Verwaltung — damit Sie vor der Entscheidung die richtigen Fragen stellen.",
 };
 
 export default function WissenIndexPage() {
@@ -37,7 +37,7 @@ export default function WissenIndexPage() {
             <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-12">
               <RevealHeading
                 as="h1"
-                text="Was diese Woche zählt."
+                text="Wissen, das bei der Auswahl hilft."
                 baseDelay={120}
                 style={{ lineHeight: 1.05 }}
                 className="font-serif text-[clamp(32px,4.4vw,56px)] font-normal tracking-tight text-white"
@@ -47,9 +47,10 @@ export default function WissenIndexPage() {
                 style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
                 className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85"
               >
-                Redaktionelle Beiträge, Leitfäden und aktuelle Themen aus der
-                digitalen Verwaltung — geschrieben von Menschen, die selbst aus
-                der Verwaltung kommen.
+                Einordnungen, Leitfäden und Auswahlfragen rund um Software für
+                die Verwaltung — damit Sie vor der Entscheidung die richtigen
+                Fragen stellen. Geschrieben von Menschen, die aus der Verwaltung
+                kommen.
               </p>
             </div>
           </div>

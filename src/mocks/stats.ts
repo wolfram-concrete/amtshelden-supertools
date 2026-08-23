@@ -33,8 +33,9 @@ export const trustStats: TrustStat[] = [
 ];
 
 /**
- * Schritte „So prüfen wir Software" — redaktionelle Methodik
- * (QuickGuide-Block).
+ * Profilstufen — statt eines Über-Prüfversprechens für jedes Tool machen wir die
+ * Tiefe transparent. Jede Stufe ist am Profil klar gekennzeichnet (Christian-
+ * Feedback 1.4/4.3). Nicht jedes Profil ist gleich tief — aber jede Tiefe ehrlich.
  */
 export interface MethodStep {
   number: string;
@@ -45,22 +46,22 @@ export interface MethodStep {
 export const methodSteps: MethodStep[] = [
   {
     number: "01",
-    title: "Hersteller-Gespräch",
-    body: "Wir sprechen mit dem Anbieter — über Stärken UND Grenzen. Wer nicht ehrlich über Schwächen redet, kommt nicht ins Verzeichnis.",
+    title: "Basis-Profil",
+    body: "Aus öffentlich auffindbaren Quellen erstellt: Anbieter, Kategorie, Kurzbeschreibung, Compliance-Hinweise. Keine Empfehlung, keine tiefe Prüfung.",
   },
   {
     number: "02",
-    title: "Drei Referenz-Behörden",
-    body: "Mindestens drei Verwaltungen, die das Tool produktiv nutzen, geben uns Einblick in den realen Einsatz — auch in das, was schiefgelaufen ist.",
+    title: "Anbieter-geprüft",
+    body: "Der Anbieter hat Angaben ergänzt oder bestätigt — sichtbar gekennzeichnet. Weiterhin keine Empfehlung, keine bessere Bewertung.",
   },
   {
     number: "03",
-    title: "Compliance-Audit",
-    body: "DSGVO-Status, Serverstandort, BSI-Zertifizierungen, Vergabeeignung — schriftlich nachgewiesen, nicht nur behauptet.",
+    title: "Redaktionell vertieft",
+    body: "Wir prüfen die Angaben strukturiert, benennen offene Punkte und formulieren Einsatzgrenzen — für wen geeignet, für wen eher nicht.",
   },
   {
     number: "04",
-    title: "Redaktionelles Urteil",
-    body: 'Erst dann schreibt unsere Redaktion das Profil — aus Behördenperspektive, mit ehrlicher „Für wen geeignet"- und „Für wen nicht"-Einordnung.',
+    title: "Praxis-Profil",
+    body: "Es gibt einen konkreten Praxisfall oder ein Gespräch mit einer Verwaltung, die das Tool tatsächlich einsetzt — nachvollziehbar gekennzeichnet.",
   },
 ];

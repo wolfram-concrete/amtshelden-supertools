@@ -17,7 +17,7 @@ const columns: FooterColumn[] = [
     links: [
       { label: "Themenfelder", href: "/themenfelder" },
       { label: "Alle Kategorien", href: "/kategorien" },
-      { label: "Wissen & Magazin", href: "/wissen" },
+      { label: "Tool-Wissen", href: "/wissen" },
       { label: "Tool vorschlagen", href: "/vorschlagen" },
     ],
   },

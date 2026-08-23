@@ -201,7 +201,7 @@ export function MobileNavDrawer() {
             </div>
 
             <DrawerLink href="/wissen" onClick={() => setOpen(false)}>
-              Wissen & Magazin
+              Tool-Wissen
             </DrawerLink>
             <DrawerLink href="/ueber" onClick={() => setOpen(false)}>
               Über uns

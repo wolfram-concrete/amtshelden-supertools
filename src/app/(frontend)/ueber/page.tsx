@@ -161,7 +161,7 @@ export default function UeberPage() {
             {
               number: "02",
               title: "Wir vertrauen Behörden, nicht Algorithmen.",
-              body: "Unsere Tool-Profile entstehen aus Gesprächen mit Anbietern und mindestens drei Referenz-Behörden. Wir schreiben auf, was funktioniert hat — und was nicht. Niemand wird durch einen Score sortiert. Niemand erkauft sich eine bessere Platzierung.",
+              body: "Unsere Profile entstehen aus öffentlichen Quellen, ergänzt durch Anbieter-Angaben und — in der tiefsten Stufe — Gespräche mit Verwaltungen, die das Tool einsetzen. Wie tief geprüft wurde, steht sichtbar am Profil. Niemand wird durch einen Score sortiert, niemand erkauft sich eine bessere Platzierung.",
             },
             {
               number: "03",
@@ -369,29 +369,30 @@ export default function UeberPage() {
               style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
               className="font-sans text-[15px] leading-[1.7] text-mid pt-2"
             >
-              Wir nutzen das gleiche redaktionelle Handwerk wie ein gutes
-              Fachmagazin: Recherche, Quellenarbeit, Gegenrecherche, Haltung.
-              Tools werden nicht beworben, sondern beschrieben.
+              Nicht jedes Profil ist gleich tief — aber jede Tiefe ist sichtbar
+              gekennzeichnet. Vier Stufen, vom öffentlich recherchierten
+              Basis-Profil bis zum Praxisfall aus einer Verwaltung. Tools werden
+              nicht beworben, sondern eingeordnet.
             </p>
           </header>
 
           <ul className="lg:col-span-7 divide-y divide-border border-y border-border">
             {[
               {
-                title: "Gespräch mit dem Anbieter — auch über die Grenzen",
-                body: "Wer nicht ehrlich über Schwächen redet, kommt nicht ins Verzeichnis. Wir fragen ausdrücklich, was nicht zur Behörde X passt — und schreiben es auf.",
+                title: "Basis-Profil",
+                body: "Aus öffentlich auffindbaren Quellen: Anbieter, Kategorie, Kurzbeschreibung, Compliance-Hinweise. Keine Empfehlung, keine tiefe Prüfung — als Basis-Profil gekennzeichnet.",
               },
               {
-                title: "Mindestens drei Referenz-Behörden",
-                body: "Direkt befragt, nicht aus PR-Material zitiert. Wir wollen wissen, was bei der Einführung schwierig war — nicht nur, was am Ende geglückt ist.",
+                title: "Anbieter-geprüft",
+                body: "Der Anbieter hat Angaben ergänzt oder bestätigt. Sichtbar gekennzeichnet — und weiterhin ohne bessere Bewertung oder Empfehlung.",
               },
               {
-                title: "Compliance-Audit",
-                body: "DSGVO, Serverstandort, BSI, Vergabeeignung — schriftlich nachgewiesen, im Profil dokumentiert. Wir reichen nichts weiter, was wir nicht selbst gesehen haben.",
+                title: "Redaktionell vertieft",
+                body: "Wir prüfen die Angaben strukturiert, benennen offene Punkte und formulieren Einsatzgrenzen: für wen geeignet, für wen eher nicht.",
               },
               {
-                title: "Redaktionelles Urteil",
-                body: "Erst dann schreibt unsere Redaktion das Profil — aus Behörden­perspektive, mit ehrlicher Für-wen-geeignet- und Für-wen-nicht-Einordnung.",
+                title: "Praxis-Profil",
+                body: "Es gibt einen konkreten Praxisfall oder ein Gespräch mit einer Verwaltung, die das Tool einsetzt — inklusive dem, was schwierig war. Anbieter-eingebrachte Fälle sind gekennzeichnet.",
               },
             ].map((step, idx) => (
               <li key={idx} className="py-6 flex gap-5">

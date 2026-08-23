@@ -66,7 +66,7 @@ export default function HomePage() {
       {/* ── HERO — Behördenalltag-Motiv + Tool-Finder ── */}
       <HeroImmersive
         title="Die passende Software für Ihre Verwaltung."
-        lead="Wir vergleichen nicht. Wir ordnen ein. Für Menschen, die Verantwortung tragen — mit Behörden­kontext und ehrlichen Empfehlungen."
+        lead="Wir vergleichen nicht. Wir ordnen ein. Aus Behördenperspektive — mit klarer Einordnung zu Einsatz, Voraussetzungen und offenen Fragen."
         badges={["Aus Behördenperspektive", "DSGVO transparent"]}
       />
 
@@ -126,9 +126,9 @@ export default function HomePage() {
 
       {/* ── 8 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
       <AboutBlock
-        eyebrow="Methodik & Haltung"
+        eyebrow="Methodik & Profilstufen"
         title="Wir vergleichen nicht. Wir ordnen ein."
-        lead="Capterra hat Sterne, OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Stattdessen prüfen wir jedes Tool aus Behördenperspektive — in vier Schritten."
+        lead="Capterra hat Sterne, OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Statt eines Urteils zeigen wir Einordnung, Quellen und offene Fragen — in vier klar gekennzeichneten Profilstufen. Nicht jedes Profil ist gleich tief, aber jede Tiefe ist sichtbar."
         image={{
           url: "/brand/amtshelden-gruender.jpg",
           alt: "Julia und Christian, Gründungsteam von Amtshelden",
@@ -143,9 +143,9 @@ export default function HomePage() {
       {/* ── NEWSLETTER ── */}
       <div id="newsletter">
         <NewsletterCta
-          eyebrow="Newsletter"
-          title="Einmal pro Woche das Wichtigste aus der digitalen Verwaltung."
-          description="Beschlüsse, Implementierungserfahrungen, neue Tools im Verzeichnis — kompakt aufbereitet. Für Menschen, die in der Behörde Entscheidungen treffen müssen."
+          eyebrow="Newsletter · Diese Woche im Verzeichnis"
+          title="Was neu ist, was aktualisiert wurde — und welche Frage Sie stellen sollten."
+          description="Neue Profile, aktualisierte Angaben, ein konkretes Behörden-Problem der Woche und die passende Auswahlfrage. Aus dem Verzeichnis heraus — kein allgemeiner Digitalisierungs-Newsletter."
         />
       </div>
     </>

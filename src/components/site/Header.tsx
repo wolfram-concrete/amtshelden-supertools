@@ -23,7 +23,7 @@ import { NewsletterPopover } from "@/components/site/NewsletterPopover";
 import { cn } from "@/lib/utils";
 
 const secondaryNav = [
-  { label: "Wissen", href: "/wissen" },
+  { label: "Tool-Wissen", href: "/wissen" },
   { label: "Über", href: "/ueber" },
 ];
 
