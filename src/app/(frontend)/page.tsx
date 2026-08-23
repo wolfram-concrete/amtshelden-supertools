@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
 import { FokusTool } from "@/components/blocks/home/FokusTool";
+import { HomeCases } from "@/components/blocks/home/HomeCases";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
 import { ToolTeaser } from "@/components/blocks/home/ToolTeaser";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
@@ -75,6 +76,13 @@ export default function HomePage() {
         eyebrow="Aus dem Verwaltungsalltag"
         title="Womit Behörden zu uns kommen."
         lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
+      />
+
+      {/* ── 2b · ANWENDUNGSBEISPIELE (Problem → Software-Art → passender Anbieter) ── */}
+      <HomeCases
+        eyebrow="Anwendungsbeispiele"
+        title="Vom Problem zur passenden Software."
+        lead="Drei typische Ausgangslagen aus der Verwaltung — und ein Anbieter aus dem Verzeichnis, der genau dieses Feld adressiert. So sehen Sie konkret, was Supertools bringt."
       />
 
       {/* ── 3 · TOOL IM FOKUS (ein echtes, freigegebenes Tool — ehrlich eingeordnet) ── */}
