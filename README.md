@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** August 2026 · **Version:** 0.26 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** September 2026 · **Version:** 0.27 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -16,9 +16,12 @@
   - Eingebunden über `<Logo variant="default|inverse" height={n} />`
 - **Brand-Grün:** `#009460` (Logo-Bubble `#0d9d69`) · Dunkelgrau `#3D3D3D` · Cream `#F6F3F0`
 - **Headline-Schrift:** IBM Plex Serif, Gewicht 400, durchgehend gerade.
-- **Fonts gesamt:** IBM Plex Serif (Headlines) · IBM Plex Sans (Body und UI) ·
-  IBM Plex Mono ausschließlich für kleine Tags und Metadaten.
+- **Fonts gesamt:** IBM Plex Serif (Headlines) · IBM Plex Sans (Body, UI **und
+  Struktur-Labels**) · IBM Plex Mono **nur noch für echte Daten, Zahlen und URLs**
+  (seit De-Slop v0.27 — Mono nicht mehr als „technisch"-Kostüm für Käppchen/Labels).
   Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
+- **Kein Eyebrow/Kicker über Überschriften** (De-Slop v0.27): die Serif-Headlines
+  tragen sich selbst — keine Mono-Uppercase-Käppchen als Section-Marker.
 - **Bento-Sprache (seit v0.18, Referenz [byq.supply](https://byq.supply)):**
   Off-White-Fläche (cream) trägt **randlose weiße Karten** — Trennung über
   **Fill-Kontrast** statt feiner Konturlinien. Weiche, dezente Schatten statt
@@ -165,7 +168,8 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 
 | Route | Status | Was es ist |
 |---|---|---|
-| `/` | ✓ | Editorial-Frontpage: Bento-Hero (Off-White, grüner Tool-Finder, festes Bild-Ratio), Use-Case-Einstieg, FeatureStory, ThemenCluster, Main+Sidebar, Pulse, Themenfeld-Grid (mit Bild-Bannern), About (grün), Mitmachen-CTA, Newsletter |
+| `/` | ✓ | **Suche-first-Frontpage (v0.27):** Hero mit Suchpanel → `/suche`; konkrete **Kategorien** direkt darunter, Anwendungsbeispiele (HomeCases), Tool im Fokus, Tool-Teaser, Themenfeld-Grid (demotet „Struktur dahinter"), Magazin, About (grün), Newsletter |
+| `/suche` | ✓ | Verzeichnis-Suche über alle Tools (Query aus `?q=`), Filter (Betrieb/Profil-Stufe/Anbieterangaben) + Sortierung, Produkt-Kachel-Grid |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
 | `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 13 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 13 noch offen |
 | `/tools/[slug]` | ✓ | Vollständiges Profil (VivioAkte: 8 Zonen) **oder Basis-Profil-Fallback** für Verzeichnis-Tools (Logo, Pitch, Compliance, Shortlinks, „wird redaktionell ausgebaut") |

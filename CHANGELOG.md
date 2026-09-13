@@ -2,6 +2,58 @@
 
 ---
 
+## [0.27.0] — 2026-09-13
+
+### Christian-Briefing (MVP): Suche-first · Produkt-first · De-Slop
+
+Umsetzung des 2. Christian-Briefings („nächster Umsetzungsschritt", MVP-fokussiert)
+auf der Präsentationsschicht — plus ein Design-Pass, der die generische KI-Anmutung
+aus der Oberfläche nimmt.
+
+#### 🔎 Suche-first Startseite (§5/§6)
+- Hero mit großem **Suchpanel** (Suchfeld + „Häufig gesucht" + „Oder nach
+  Kategorie") statt Themenfeld-Wizard; Hero-Lead task-first statt Methodik-first.
+- Neue **`/suche`**-Seite: `ToolFilters` über das gesamte Verzeichnis, Query aus
+  `?q=` vorbelegt (`key={q}` für sauberes Remount bei Client-Navigation).
+- **Konkrete Kategorien** (`CategoryMagazine`) direkt unter dem Hero als erste
+  Inhalts-Section; die vier Themenfelder nach unten als „Struktur dahinter" demotet.
+- Schlankeres MVP (§4/§21): drei überlappende Problem→Lösung-Sektionen
+  (StimmenSlider + UseCaseEntry) entfernt, `HomeCases` als USP behalten.
+- Nav: **„Suche"** als erstes Element in Desktop-Nav + Mobile-Drawer.
+
+#### 🧱 Kachel-Grid + Filter-Fix (§9/§18.1)
+- Verzeichnis-Ergebnisse als scannbare **Produkt-Kacheln** (Kategorie · Produktname ·
+  „Anbieter · …" · Preis/Betrieb · Profil-Affordance) statt langer Listenzeilen.
+- **Bug behoben:** „Filter erscheinen je nach Ansicht nicht" — Desktop immer
+  sichtbar, Mobile zuverlässiger Toggle (Desktop + Mobile geprüft).
+
+#### 🏷️ Kriterien vereinfacht: Anbieterangaben statt Zertifizierungs-Anmutung (§8)
+- Grüne „✓ DSGVO/BSI/Vergabe"-Badges (wirkten wie SuperTools-Zertifizierung) →
+  neutrale Chips + **„lt. Anbieter"**-Hinweis, site-weit inkl. Detailseiten.
+- Filter-Gruppe „Compliance" → „Anbieterangaben"; Sidebar „Compliance auf einen
+  Blick" → „Anbieterangaben auf einen Blick".
+- Suche findet zusätzlich Kategorie-Begriffe; A11y-Labels für Such-Input + Sortier-Select.
+
+#### 🎨 De-Slop-Pass (impeccable craft-floor)
+- **Eyebrow/Kicker über Überschriften** entfernt (harter craft-floor-Ban) — die
+  Serif-Headlines tragen sich selbst (Home-Sections, Seiten-Header, geteiltes
+  `SectionHead`, KategorieEntscheidung/-Hero).
+- **Monospace-als-„technisch"-Kostüm** ersetzt durch ruhiges Sans bei Struktur-Labels;
+  Mono bleibt nur für echte Daten/Zahlen/URLs.
+- Motion beruhigt: identische 32px/0.8s-Einblendung → zurückhaltender 14px-Ambient;
+  Feder-Overshoot-Easing → weiches easeOutQuint ohne Bounce.
+- **Browser-Surfaces** aus der Palette getönt (accent-color, caret, `:focus-visible`,
+  Scrollbar) statt System-Default.
+
+#### ✅ Qualitätssicherung
+- Production-Build grün (109 Seiten); Sub-Agent-Gauntlet-Review (7 von 9 Findings
+  gefixt, 2 als Entscheidung mit dem Owner geklärt); impeccable-Detector clean.
+- Noch offen (Daten-/Crawler-Arbeit, nicht Oberfläche): „eine Firma → mehrere
+  Produkte"-Split (§2), Praxisfall-/Cases-Datenbasis (§11). De-Slop-Folge-Pass:
+  Sekundärseiten (/ueber, /anbieter, /impressum, /datenschutz, /crawler-preview).
+
+---
+
 ## [0.26.0] — 2026-08-23
 
 ### Christian-Feedback: Supertools als Entscheidungshilfe geschärft
