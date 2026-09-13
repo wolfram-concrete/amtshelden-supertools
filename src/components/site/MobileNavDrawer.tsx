@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, Menu, X } from "lucide-react";
+import { ChevronDown, Mail, Menu, Search, X } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Logo } from "@/components/site/Logo";
@@ -130,7 +130,7 @@ export function MobileNavDrawer() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="dein.name@kommune.de"
+                  placeholder="ihr.name@kommune.de"
                   className="w-full rounded-full border border-border bg-white px-4 py-3 font-ui text-[14px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
                 />
                 <button
@@ -145,6 +145,16 @@ export function MobileNavDrawer() {
 
           {/* Primary Nav */}
           <nav className="px-3 py-4" aria-label="Hauptmenü">
+            {/* Suche — search-first Einstieg */}
+            <Link
+              href="/suche"
+              onClick={() => setOpen(false)}
+              className="mb-1 flex items-center gap-3 rounded-lg bg-brand-light/60 px-3 py-3.5 font-ui text-[15px] font-semibold text-brand-dark transition-colors hover:bg-brand-light"
+            >
+              <Search size={17} aria-hidden />
+              Software suchen
+            </Link>
+
             {/* Kategorien-Akkordeon */}
             <div>
               <button

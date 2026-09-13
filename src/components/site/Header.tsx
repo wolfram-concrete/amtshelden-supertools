@@ -15,6 +15,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 
 import { Logo } from "@/components/site/Logo";
 import { MegaMenu } from "@/components/site/MegaMenu";
@@ -80,6 +81,19 @@ export function Header({ className }: HeaderProps) {
         {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
         <nav className="hidden md:flex items-center">
           <div className="flex items-center gap-0.5 rounded-2xl bg-logo p-1.5 shadow-[0_12px_34px_-14px_rgba(13,157,105,0.55)]">
+            <Link
+              href="/suche"
+              aria-current={isActive("/suche") ? "page" : undefined}
+              className={cn(
+                "inline-flex items-center gap-1.5 rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
+                isActive("/suche")
+                  ? "bg-white/15 text-white"
+                  : "text-white/90 hover:bg-white/10 hover:text-white",
+              )}
+            >
+              <Search size={14} aria-hidden />
+              Suche
+            </Link>
             <MegaMenu onDark active={themenActive} />
             {secondaryNav.map((item) => (
               <Link

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Parallax } from "@/components/motion/Parallax";
 import { RevealHeading } from "@/components/motion/RevealHeading";
-import { ToolFinderWizard } from "./ToolFinderWizard";
+import { SearchPanel } from "./SearchPanel";
 
 interface HeroImmersiveProps {
   title: React.ReactNode;
@@ -99,8 +99,8 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
               )}
             </div>
 
-            {/* Tool-Finder rechts */}
-            <ToolFinderWizard className="shadow-[0_30px_70px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/10" />
+            {/* Suche-first rechts (Christian §5) */}
+            <SearchPanel />
           </div>
         </div>
       </div>

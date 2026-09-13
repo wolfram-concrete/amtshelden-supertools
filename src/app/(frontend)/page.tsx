@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { AboutBlock } from "@/components/blocks/home/AboutBlock";
 import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
+import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
 import { FokusTool } from "@/components/blocks/home/FokusTool";
 import { HomeCases } from "@/components/blocks/home/HomeCases";
 import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
@@ -9,13 +10,11 @@ import { ToolTeaser } from "@/components/blocks/home/ToolTeaser";
 import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
 import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
 import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
-import { StimmenSlider } from "@/components/blocks/home/StimmenSlider";
 import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
-import { UseCaseEntry } from "@/components/blocks/home/UseCaseEntry";
 import { articleRegistry, articleSummaries } from "@/mocks/articles";
+import { directoryCategories } from "@/data/directory";
 import { methodSteps } from "@/mocks/stats";
 import { themenfelder } from "@/mocks/themenfelder";
-import { useCases } from "@/mocks/usecases";
 
 export const metadata: Metadata = {
   title: "Software für die digitale Verwaltung — Amtshelden Supertools",
@@ -64,21 +63,23 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── HERO — Behördenalltag-Motiv + Tool-Finder ── */}
+      {/* ── HERO — Behördenalltag-Motiv + Suche-first-Panel ── */}
       <HeroImmersive
         title="Die passende Software für Ihre Verwaltung."
-        lead="Wir vergleichen nicht. Wir ordnen ein. Aus Behördenperspektive — mit klarer Einordnung zu Einsatz, Voraussetzungen und offenen Fragen."
+        lead="Suchen Sie nach Aufgabe, Tool-Art oder Anbieter — vom Projektmanagement bis zur E-Akte. Wir zeigen passende Produkte und ordnen ein, was öffentlich auffindbar ist und was fehlt."
         badges={["Aus Behördenperspektive", "DSGVO transparent"]}
       />
 
-      {/* ── 2 · STIMMEN (Beispiele direkt unter dem Hero, Slider full-bleed) ── */}
-      <StimmenSlider
-        eyebrow="Aus dem Verwaltungsalltag"
-        title="Womit Behörden zu uns kommen."
-        lead="Typische Ausgangslagen aus der Praxis — und das Themenfeld, das weiterhilft. Repräsentative Stimmen, keine geschönten Testimonials."
+      {/* ── 1 · KATEGORIEN (konkrete Bereiche direkt unter dem Hero —
+             „Findet jemand in Sekunden den Bereich, den er sucht?") ── */}
+      <CategoryMagazine
+        eyebrow="Nach Bereich finden"
+        title="Wählen Sie Ihren Aufgabenbereich."
+        description="Konkrete Software-Kategorien für die Verwaltung — von E-Akte über Bürgerservice bis Personal. Jede Kategorie führt direkt zu den passenden Produkten."
+        categories={directoryCategories}
       />
 
-      {/* ── 2b · ANWENDUNGSBEISPIELE (Problem → Software-Art → passender Anbieter) ── */}
+      {/* ── 2 · ANWENDUNGSBEISPIELE (Problem → Software-Art → passender Anbieter) ── */}
       <HomeCases
         eyebrow="Anwendungsbeispiele"
         title="Vom Problem zur passenden Software."
@@ -94,20 +95,20 @@ export default function HomePage() {
         einordnung="Öffentliche Stellen sind verpflichtet, ihre Webangebote barrierefrei zu gestalten (BITV 2.0). Genau dieses Feld adressiert das Produkt — DSGVO-konform, Server in Deutschland."
       />
 
-      {/* ── 4 · THEMENFELDER (kuratierte Struktur) ── */}
-      <ThemenfeldGrid
-        eyebrow="Struktur"
-        title="Vier Themenfelder. Volle Tiefe."
-        description="Supertools kuratiert entlang von vier Themenfeldern, die aus der Arbeit von Amtshelden stammen — und für Behörden tatsächlich relevant sind."
-        themenfelder={themenfelder}
-      />
-
-      {/* ── 5 · TOOL-TEASER (Breite: echte freigegebene Tools mit Logo) ── */}
+      {/* ── 4 · TOOL-TEASER (konkrete freigegebene Produkte mit Logo) ── */}
       <ToolTeaser
         eyebrow="Frisch im Verzeichnis"
         title="Fünf Tools, quer durch die Bereiche."
-        lead="Kuratierte Anbieter aus dem Verzeichnis — je ein Beispiel aus mehreren Themenfeldern. Profile werden laufend ausgebaut, kein Ranking."
+        lead="Kuratierte Anbieter aus dem Verzeichnis — je ein Beispiel aus mehreren Bereichen. Profile werden laufend ausgebaut, kein Ranking."
         exclude={["eye-able-web-inclusion-gmbh"]}
+      />
+
+      {/* ── 5 · THEMENFELDER (kuratierte Struktur dahinter — sekundär) ── */}
+      <ThemenfeldGrid
+        eyebrow="Struktur dahinter"
+        title="Oder entlang der vier Themenfelder."
+        description="Wer lieber über die kuratierte Struktur einsteigt: Vier Themenfelder aus der Arbeit von Amtshelden bündeln die Bereiche thematisch — für den Überblick, wenn die konkrete Kategorie noch nicht feststeht."
+        themenfelder={themenfelder}
       />
 
       {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
@@ -124,15 +125,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7 · PROBLEM-EINSTIEG (ergänzend: vom Problem zur Auswahl) ── */}
-      <UseCaseEntry
-        eyebrow="Wonach suchen Sie?"
-        title="Starten Sie beim Problem, nicht bei der Kategorie."
-        description="Die meisten kommen mit einer konkreten Aufgabe — nicht mit dem Wunsch nach einer Software-Datenbank. Wählen Sie Ihr Anliegen, wir führen Sie zur passenden Auswahl."
-        useCases={useCases}
-      />
-
-      {/* ── 8 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
+      {/* ── 7 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
       <AboutBlock
         eyebrow="Methodik & Profilstufen"
         title="Wir vergleichen nicht. Wir ordnen ein."
