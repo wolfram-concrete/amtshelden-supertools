@@ -9,6 +9,8 @@ import type { ToolCardSummary } from "@/types/content";
 
 interface ToolFiltersProps {
   tools: ToolCardSummary[];
+  /** Vorbelegter Suchbegriff (z. B. aus der URL auf der Suchseite) */
+  initialSearch?: string;
 }
 
 const OPERATION_OPTIONS = ["Cloud", "OnPremise", "Hybrid"] as const;
@@ -39,11 +41,11 @@ const SORT_OPTIONS: { key: SortKey; label: string; hint: string }[] = [
  * - Verified-Status nur als kleines ✓-Pill, nicht als Größen-Hierarchie
  * - Sortier-Default ist transparent „Redaktionell" — User kann auf A-Z/Zufall wechseln
  */
-export function ToolFilters({ tools }: ToolFiltersProps) {
+export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
   const [operations, setOperations] = useState<string[]>([]);
   const [tiers, setTiers] = useState<string[]>([]);
   const [compliance, setCompliance] = useState<string[]>([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(initialSearch);
   const [sort, setSort] = useState<SortKey>("editorial");
   const [filtersExpanded, setFiltersExpanded] = useState(false);
 
@@ -157,9 +159,10 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
         <div
           id="filter-panel"
           className={cn(
-            "space-y-6 lg:!block lg:!opacity-100",
-            !filtersExpanded && "hidden lg:block",
-            filtersExpanded && "block mt-4 lg:mt-0 animate-filters-in",
+            "space-y-6",
+            filtersExpanded
+              ? "block mt-4 lg:mt-0 animate-filters-in"
+              : "hidden lg:block",
           )}
         >
           <div className="hidden lg:flex items-center justify-between">
@@ -285,17 +288,19 @@ export function ToolFilters({ tools }: ToolFiltersProps) {
             </p>
           </div>
         ) : (
-          <div className="space-y-3">
-            {filtered.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} variant="row" />
-            ))}
+          <>
+            <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-3">
+              {filtered.map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} variant="tile" />
+              ))}
+            </div>
             {sort === "editorial" && (
-              <p className="font-ui italic text-[11px] text-soft mt-5 pl-2">
+              <p className="font-ui text-[11px] text-soft mt-5 pl-1">
                 Reihenfolge: {currentSortLabel} — kuratiert von der Amtshelden-
                 Redaktion, kein Ranking, kein Pay-to-Top.
               </p>
             )}
-          </div>
+          </>
         )}
       </div>
 

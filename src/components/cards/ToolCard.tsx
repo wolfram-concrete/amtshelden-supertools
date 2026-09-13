@@ -171,22 +171,27 @@ function TileCard({
         className,
       )}
     >
-      {/* Header: Mark + Name + Verified */}
+      {/* Header: Mark + Kategorie-Eyebrow + Produktname + Anbieter */}
       <div className="flex items-start gap-3">
         <ToolMark tool={tool} size="sm" />
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-serif text-[17px] font-normal leading-[1.15] text-dark group-hover:text-brand-dark transition-colors">
-              {tool.name}
-            </h3>
+            <div className="min-w-0">
+              <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-brand">
+                {tool.categoryLabel}
+              </div>
+              <h3 className="mt-0.5 font-serif text-[17px] font-normal leading-[1.15] text-dark transition-colors group-hover:text-brand-dark">
+                {tool.name}
+              </h3>
+            </div>
             {tool.verified && (
               <Badge variant="verified" size="sm" className="flex-shrink-0">
                 ✓
               </Badge>
             )}
           </div>
-          <div className="font-ui text-[11.5px] text-soft truncate mt-0.5">
-            {tool.provider}
+          <div className="mt-0.5 truncate font-ui text-[11.5px] text-soft">
+            Anbieter · {tool.provider}
           </div>
         </div>
       </div>
@@ -196,20 +201,30 @@ function TileCard({
         {tool.pitch}
       </p>
 
-      {/* Footer: 1 Zeile Quick-Facts + Compliance-Pills */}
-      <div className="mt-4 pt-4 border-t border-border space-y-2.5">
-        <div className="font-ui text-[11px] text-mid leading-tight">
-          <span className="font-semibold text-dark">
-            {tool.facts.price || "Preis auf Anfrage"}
+      {/* Footer: Quick-Facts + Profil-Affordance + Signal-Badges */}
+      <div className="mt-4 space-y-2.5 border-t border-border pt-4">
+        <div className="flex items-center justify-between gap-2">
+          <span className="min-w-0 truncate font-ui text-[11px] text-mid">
+            <span className="font-semibold text-dark">
+              {tool.facts.price || "Preis auf Anfrage"}
+            </span>
+            {tool.facts.operation && (
+              <>
+                <span className="mx-1.5 text-soft" aria-hidden>
+                  ·
+                </span>
+                <span>{tool.facts.operation}</span>
+              </>
+            )}
           </span>
-          {tool.facts.operation && (
-            <>
-              <span className="text-soft mx-1.5" aria-hidden>
-                ·
-              </span>
-              <span>{tool.facts.operation}</span>
-            </>
-          )}
+          <span className="inline-flex flex-shrink-0 items-center gap-1 font-ui text-[11.5px] font-semibold text-brand-dark">
+            Profil
+            <ChevronRight
+              size={13}
+              className="transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </span>
         </div>
         <div className="flex flex-wrap gap-1">
           {tool.compliance.dsgvo && <TilePill>DSGVO</TilePill>}
