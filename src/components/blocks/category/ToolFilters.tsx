@@ -32,12 +32,12 @@ const SORT_OPTIONS: { key: SortKey; label: string; hint: string }[] = [
 ];
 
 /**
- * Kompakte Listen-Ansicht (2-Zeilen-Rows, ~80px Höhe).
+ * Kachel-Ansicht (scannbares Produkt-Grid, sm:2 / 2xl:3 Spalten).
  * Default-Sortierung: Redaktionell (Reihenfolge im Verzeichnis).
- * Filter links · Suche + Sortier-Dropdown oben · Listenzeilen darunter.
+ * Filter links · Suche + Sortier-Dropdown oben · Kachel-Grid darunter.
  *
  * Bewusst gegen Ranking-Anmutung:
- * - Einheitliche Zeilenhöhe (keine Größenvorteile)
+ * - Einheitliche Kartenhöhe (line-clamp) — keine Größenvorteile
  * - Verified-Status nur als kleines ✓-Pill, nicht als Größen-Hierarchie
  * - Sortier-Default ist transparent „Redaktionell" — User kann auf A-Z/Zufall wechseln
  */
@@ -73,7 +73,8 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
         return false;
       }
       if (q) {
-        const haystack = [tool.name, tool.provider, tool.pitch]
+        const haystack = [tool.name, tool.provider, tool.pitch, tool.categoryLabel]
+          .filter(Boolean)
           .join(" ")
           .toLowerCase();
         if (!haystack.includes(q)) return false;
@@ -212,7 +213,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
           ))}
         </FilterGroup>
 
-        <FilterGroup label="Compliance">
+        <FilterGroup label="Anbieterangaben">
           {COMPLIANCE_OPTIONS.map((c) => (
             <FilterCheck
               key={c.key}
@@ -240,6 +241,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tool, Anbieter oder Stichwort suchen …"
+              aria-label="Tool, Anbieter oder Stichwort suchen"
               className="w-full rounded-full border border-border bg-white pl-10 pr-10 py-2.5 font-ui text-[13px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
             />
             {search && (
@@ -260,6 +262,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
+                aria-label="Sortieren"
                 className="sort-select font-ui text-[12.5px] font-medium text-dark"
               >
                 {SORT_OPTIONS.map((opt) => (

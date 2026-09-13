@@ -106,12 +106,18 @@ function RowItem({
           <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-mid line-clamp-2 max-w-2xl">
             {tool.pitch}
           </p>
-          <div className="mt-3.5 flex flex-wrap gap-1.5">
-            {tool.compliance.dsgvo && <RowPill>DSGVO</RowPill>}
-            {tool.compliance.serverDe && <RowPill>Server DE</RowPill>}
-            {tool.compliance.bsi && <RowPill>BSI</RowPill>}
-            {tool.compliance.vergabe && <RowPill>Vergabe</RowPill>}
-          </div>
+          {(tool.compliance.dsgvo ||
+            tool.compliance.serverDe ||
+            tool.compliance.bsi ||
+            tool.compliance.vergabe) && (
+            <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
+              <AnbieterHint className="mr-0.5" />
+              {tool.compliance.dsgvo && <RowPill>DSGVO</RowPill>}
+              {tool.compliance.serverDe && <RowPill>Server DE</RowPill>}
+              {tool.compliance.bsi && <RowPill>BSI</RowPill>}
+              {tool.compliance.vergabe && <RowPill>Vergabe</RowPill>}
+            </div>
+          )}
         </div>
       </div>
 
@@ -147,8 +153,8 @@ function RowItem({
 
 function RowPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-brand/15 bg-brand-light/50 px-2 py-0.5 font-ui text-[11.5px] font-medium text-brand-dark">
-      ✓ {children}
+    <span className="inline-flex items-center rounded-full border border-border bg-cream px-2 py-0.5 font-ui text-[11.5px] font-medium text-mid">
+      {children}
     </span>
   );
 }
@@ -226,12 +232,18 @@ function TileCard({
             />
           </span>
         </div>
-        <div className="flex flex-wrap gap-1">
-          {tool.compliance.dsgvo && <TilePill>DSGVO</TilePill>}
-          {tool.compliance.serverDe && <TilePill>Server DE</TilePill>}
-          {tool.compliance.bsi && <TilePill>BSI C5</TilePill>}
-          {tool.compliance.vergabe && <TilePill>Vergabe</TilePill>}
-        </div>
+        {(tool.compliance.dsgvo ||
+          tool.compliance.serverDe ||
+          tool.compliance.bsi ||
+          tool.compliance.vergabe) && (
+          <div className="flex flex-wrap items-center gap-1">
+            <AnbieterHint className="mr-0.5" />
+            {tool.compliance.dsgvo && <TilePill>DSGVO</TilePill>}
+            {tool.compliance.serverDe && <TilePill>Server DE</TilePill>}
+            {tool.compliance.bsi && <TilePill>BSI C5</TilePill>}
+            {tool.compliance.vergabe && <TilePill>Vergabe</TilePill>}
+          </div>
+        )}
       </div>
     </Link>
   );
@@ -239,9 +251,22 @@ function TileCard({
 
 function TilePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-0.5 rounded-full bg-brand-light/60 px-1.5 py-0.5 font-ui text-[11px] font-medium text-brand-dark border border-brand/15">
-      <span aria-hidden>✓</span>
+    <span className="inline-flex items-center rounded-full border border-border bg-cream px-1.5 py-0.5 font-ui text-[11px] font-medium text-mid">
       {children}
+    </span>
+  );
+}
+
+/** §8: Diese Angaben stammen vom Anbieter — keine SuperTools-Prüfung/-Zertifizierung. */
+function AnbieterHint({ className }: { className?: string }) {
+  return (
+    <span
+      className={cn(
+        "font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-soft",
+        className,
+      )}
+    >
+      lt. Anbieter
     </span>
   );
 }
@@ -311,16 +336,22 @@ function ExtendedCard({
           )}
         </dl>
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {tool.compliance.dsgvo && <CompliancePill>DSGVO</CompliancePill>}
-          {tool.compliance.serverDe && (
-            <CompliancePill>Server Deutschland</CompliancePill>
-          )}
-          {tool.compliance.bsi && <CompliancePill>BSI C5</CompliancePill>}
-          {tool.compliance.vergabe && (
-            <CompliancePill>UVgO/VOL-A</CompliancePill>
-          )}
-        </div>
+        {(tool.compliance.dsgvo ||
+          tool.compliance.serverDe ||
+          tool.compliance.bsi ||
+          tool.compliance.vergabe) && (
+          <div className="mt-4 flex flex-wrap items-center gap-1.5">
+            <AnbieterHint className="mr-0.5" />
+            {tool.compliance.dsgvo && <CompliancePill>DSGVO</CompliancePill>}
+            {tool.compliance.serverDe && (
+              <CompliancePill>Server Deutschland</CompliancePill>
+            )}
+            {tool.compliance.bsi && <CompliancePill>BSI C5</CompliancePill>}
+            {tool.compliance.vergabe && (
+              <CompliancePill>UVgO/VOL-A</CompliancePill>
+            )}
+          </div>
+        )}
       </Link>
     </article>
   );
@@ -341,8 +372,7 @@ function Fact({ label, value }: { label: string; value: string }) {
 
 function CompliancePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-brand-light/60 px-2 py-0.5 font-ui text-[11px] font-medium text-brand-dark border border-brand/15">
-      <span aria-hidden>✓</span>
+    <span className="inline-flex items-center rounded-full border border-border bg-cream px-2 py-0.5 font-ui text-[11px] font-medium text-mid">
       {children}
     </span>
   );

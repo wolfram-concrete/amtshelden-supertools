@@ -36,7 +36,7 @@ export function ProfilSidebar({
     >
       {/* ── Compliance-Widgets ── */}
       <div className="space-y-2">
-        <SidebarLabel>Compliance auf einen Blick</SidebarLabel>
+        <SidebarLabel>Anbieterangaben auf einen Blick</SidebarLabel>
         {complianceWidgets?.map((w, idx) => (
           <details
             key={`${w.name}-${idx}`}
