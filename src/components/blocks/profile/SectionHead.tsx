@@ -2,18 +2,18 @@ import { RevealHeading } from "@/components/motion/RevealHeading";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop) — Trennlinie + Titel tragen die Sektion. */
+  eyebrow?: string;
   title: string;
   className?: string;
 }
 
 /**
  * Wiederkehrendes Sektions-Heading (Editorial-Stil):
- * - Schwarze starke Trennlinie oben
- * - Grünes Eyebrow-Label (uppercase, gespacet)
- * - Source-Serif-Titel
+ * - Feine Trennlinie oben
+ * - Source-Serif-Titel (trägt die Sektion selbst — kein Käppchen)
  */
-export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
+export function SectionHead({ title, className }: SectionHeadProps) {
   return (
     <header
       className={cn(
@@ -21,12 +21,6 @@ export function SectionHead({ eyebrow, title, className }: SectionHeadProps) {
         className,
       )}
     >
-      <div
-        data-reveal
-        className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
-      >
-        {eyebrow}
-      </div>
       <RevealHeading
         as="h2"
         text={title}

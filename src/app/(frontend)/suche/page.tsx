@@ -21,16 +21,10 @@ export default async function SuchePage({ searchParams }: PageProps) {
     <>
       <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-16 pb-6 lg:pb-8">
         <div className="max-w-2xl">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            Suche
-          </div>
           <RevealHeading
             as="h1"
             text="Software für Ihre Aufgabe finden."
-            baseDelay={120}
+            baseDelay={40}
             className="mt-3 font-serif text-[clamp(32px,4.4vw,56px)] font-normal leading-[1.04] tracking-tight text-dark"
           />
           <p

@@ -47,8 +47,9 @@
 
   /* Easing */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
-  /* Sanfte Feder mit leichtem Settle — der „schwebend & weich"-Charakter */
-  --ease-soft: cubic-bezier(0.32, 1.32, 0.5, 1);
+  /* Weiches, langes Ease-out (easeOutQuint) — „weich" ohne Feder-Overshoot;
+     seriöser als ein springendes Settle. */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ============================================================
@@ -78,6 +79,52 @@ body {
   color: #fff;
 }
 
+/* ============================================================
+   BROWSER-SURFACES — die Teile, die man nicht „zeichnet", aber
+   die das Design mittragen: Caret, native Controls, Fokus,
+   Scrollbar. Ungetönt sind sie das billigste „assembled statt
+   built"-Signal.
+   ============================================================ */
+:root {
+  accent-color: var(--color-brand); /* native Checkbox/Radio/Select/Range */
+}
+
+input,
+textarea,
+select {
+  caret-color: var(--color-brand);
+}
+
+/* Tastatur-Fokus einheitlich aus der Palette — nicht der graue
+   Browser-Default. Nur bei :focus-visible, damit Maus-Klicks
+   keinen Ring zeigen. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Warme, ruhige Scrollbar statt System-Grau */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sand) transparent;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+  border: 3px solid var(--color-cream);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-soft);
+}
+
 /* Editorial-Headlines: enges, negatives Tracking (Steep-inspiriert) */
 h1,
 h2 {
@@ -95,12 +142,16 @@ h2 {
    ScrollReveal nach JS-Mount gesetzt) aktiv ist. Ohne JS bleibt alles da.
    ============================================================ */
 @media (prefers-reduced-motion: no-preference) {
+  /* Default-Reveal bewusst zurückhaltend: kleiner Versatz, ruhiges
+     Ease-out (kein Feder-Overshoot auf Fließtext). Der eigentliche
+     „authored moment" ist der Headline-Wortaufbau unten — nicht die
+     identische Fade-up auf jeder Section. */
   .reveal-ready [data-reveal] {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(14px);
     transition:
-      opacity 0.8s var(--ease-soft),
-      transform 0.8s var(--ease-soft);
+      opacity 0.55s var(--ease-editorial),
+      transform 0.55s var(--ease-editorial);
     transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal-ready [data-reveal="fade"] { transform: none; }

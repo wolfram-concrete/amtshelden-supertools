@@ -62,15 +62,8 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-16">
         <header className="mb-8 max-w-2xl space-y-2">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            Verzeichnis
-          </div>
           <h2
             data-reveal
-            style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
             className="font-serif text-[clamp(24px,3vw,36px)] font-normal leading-[1.1] tracking-tight text-dark"
           >
             {tools.length > 0

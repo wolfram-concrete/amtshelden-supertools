@@ -11,7 +11,8 @@ interface AboutPrinciple {
 }
 
 interface AboutBlockProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   lead: string;
   principles: AboutPrinciple[];
@@ -22,7 +23,6 @@ interface AboutBlockProps {
 }
 
 export function AboutBlock({
-  eyebrow,
   title,
   lead,
   principles,
@@ -39,14 +39,6 @@ export function AboutBlock({
             overlapPrev && "-mt-28 lg:-mt-44",
           )}
         >
-          {/* Eyebrow oben — zwischen Slab-Kante und Headline */}
-          <div
-            data-reveal
-            className="mb-8 flex items-center gap-2.5 font-sans text-[14px] font-semibold text-white/85"
-          >
-            {eyebrow}
-          </div>
-
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
             {/* Linke Spalte — Headline oben bündig mit den Prinzipien rechts */}
             <div className="space-y-5">

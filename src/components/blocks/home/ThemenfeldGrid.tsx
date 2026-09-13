@@ -8,7 +8,8 @@ import { directoryCategoriesByThemenfeld } from "@/data/directory";
 import type { ThemenfeldDefinition } from "@/types/content";
 
 interface ThemenfeldGridProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   description?: string;
   themenfelder: ThemenfeldDefinition[];
@@ -20,7 +21,6 @@ interface ThemenfeldGridProps {
  * Tagline und den enthaltenen Kategorien als Sub-Links.
  */
 export function ThemenfeldGrid({
-  eyebrow,
   title,
   description,
   themenfelder,
@@ -29,12 +29,6 @@ export function ThemenfeldGrid({
     <section className="bg-cream">
       <div className="container mx-auto px-6 lg:px-10 py-14 lg:py-20">
         <header className="max-w-2xl space-y-3 mb-10 lg:mb-12">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            {eyebrow}
-          </div>
           <RevealHeading
             as="h2"
             text={title}

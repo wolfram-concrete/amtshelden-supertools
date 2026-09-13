@@ -75,7 +75,7 @@ export function SearchPanel({ className }: SearchPanelProps) {
 
       {/* Häufige Suchen — konkrete Tool-Arten */}
       <div className="mt-5">
-        <div className="mb-2 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-soft">
+        <div className="mb-2 font-sans text-[12px] font-semibold text-soft">
           Häufig gesucht
         </div>
         <div className="flex flex-wrap gap-1.5">
@@ -93,7 +93,7 @@ export function SearchPanel({ className }: SearchPanelProps) {
 
       {/* Kategorien */}
       <div className="mt-4 border-t border-border pt-4">
-        <div className="mb-2 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-soft">
+        <div className="mb-2 font-sans text-[12px] font-semibold text-soft">
           Oder nach Kategorie
         </div>
         <div className="flex flex-wrap gap-1.5">

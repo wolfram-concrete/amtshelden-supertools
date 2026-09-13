@@ -51,7 +51,7 @@ export function ProductShots({
                   loading="lazy"
                 />
                 <figcaption className="flex items-center justify-between gap-3 border-t border-border bg-cream/50 px-4 py-2.5">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand-dark">
+                  <span className="inline-flex items-center gap-1.5 font-sans text-[11.5px] font-semibold text-brand-dark">
                     <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand" />
                     Produkt-Oberfläche
                   </span>

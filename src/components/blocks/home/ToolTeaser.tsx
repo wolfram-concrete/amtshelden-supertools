@@ -38,7 +38,8 @@ function pickAcrossCategories(
 }
 
 interface ToolTeaserProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   lead?: string;
   /** Slugs ausschließen (z. B. das bereits prominente Fokus-Tool) */
@@ -52,7 +53,6 @@ interface ToolTeaserProps {
  * Datenquelle ist die zentrale Verzeichnisaggregation in src/data/directory.ts.
  */
 export function ToolTeaser({
-  eyebrow,
   title,
   lead,
   exclude = [],
@@ -66,12 +66,6 @@ export function ToolTeaser({
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <header className="mb-8 max-w-2xl space-y-3 lg:mb-10">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            {eyebrow}
-          </div>
           <RevealHeading
             as="h2"
             text={title}

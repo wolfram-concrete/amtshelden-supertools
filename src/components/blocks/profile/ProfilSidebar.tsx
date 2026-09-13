@@ -185,7 +185,7 @@ function SidebarLabel({
   return (
     <div
       className={cn(
-        "font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft px-1",
+        "font-sans text-[12px] font-semibold text-soft px-1",
         className,
       )}
     >

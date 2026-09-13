@@ -11,7 +11,8 @@ import {
 } from "@/data/directory";
 
 interface FokusToolProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   /** Slug des hervorgehobenen (echten) Crawler-Tools */
   slug: string;
@@ -38,7 +39,6 @@ function SignalPill({ children }: { children: React.ReactNode }) {
  * Urteil. Als „Basis-Profil" markiert; öffentlich kein Crawler-Hinweis.
  */
 export function FokusTool({
-  eyebrow,
   title,
   slug,
   was,
@@ -56,12 +56,6 @@ export function FokusTool({
         <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
           {/* Links: faktische Einordnung */}
           <div className="space-y-5 lg:sticky lg:top-24">
-            <div
-              data-reveal
-              className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-            >
-              {eyebrow}
-            </div>
             <RevealHeading
               as="h2"
               text={title}

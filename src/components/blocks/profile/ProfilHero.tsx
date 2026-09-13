@@ -62,7 +62,7 @@ export function ProfilHero({
       {/* Kategorie-Eyebrow */}
       <div
         data-reveal
-        className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+        className="font-sans text-[12px] font-semibold text-brand"
       >
         {categoryLabel}
       </div>
@@ -165,7 +165,7 @@ export function ProfilHero({
 
       {/* Amtshelden-Urteil — Pull Quote Style */}
       <aside className="border-l-2 border-brand pl-6 py-2 my-4">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand mb-2">
+        <div className="font-sans text-[12px] font-semibold text-brand mb-2">
           Amtshelden-Urteil
         </div>
         <p className="font-serif text-[20px] font-normal leading-[1.5] italic text-dark">

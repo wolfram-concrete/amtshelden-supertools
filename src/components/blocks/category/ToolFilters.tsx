@@ -167,7 +167,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
           )}
         >
           <div className="hidden lg:flex items-center justify-between">
-            <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+            <h2 className="font-sans text-[13px] font-semibold text-dark">
               Filter
             </h2>
             {totalFilters > 0 && (
@@ -345,7 +345,7 @@ function FilterGroup({
 }) {
   return (
     <div className="space-y-2.5">
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+      <div className="font-sans text-[12px] font-semibold text-soft">
         {label}
       </div>
       <div className="space-y-1.5">{children}</div>

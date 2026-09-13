@@ -121,22 +121,17 @@ function ToolChip({ tool }: { tool: CaseTool }) {
 }
 
 interface HomeCasesProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   lead?: string;
 }
 
-export function HomeCases({ eyebrow, title, lead }: HomeCasesProps) {
+export function HomeCases({ title, lead }: HomeCasesProps) {
   return (
     <section className="bg-cream py-12 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <header className="mb-9 max-w-2xl space-y-3 lg:mb-12">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            {eyebrow}
-          </div>
           <RevealHeading
             as="h2"
             text={title}

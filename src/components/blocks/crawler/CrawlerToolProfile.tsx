@@ -77,7 +77,7 @@ function SignalPill({ children }: { children: React.ReactNode }) {
 
 function RailLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="px-1 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+    <div className="px-1 font-sans text-[12px] font-semibold text-soft">
       {children}
     </div>
   );
@@ -152,7 +152,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
             </span>
 
             <div className="min-w-0">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 py-0.5 pl-2.5 pr-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 py-1 pl-2.5 pr-1.5 font-sans text-[12px] font-semibold text-accent-ink">
                 Basis-Profil
                 <InfoPopover
                   label="Was ist ein Basis-Profil?"
@@ -165,7 +165,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">
                 {tool.name}
               </h1>
-              <div className="mt-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-soft">
+              <div className="mt-1.5 font-sans text-[12px] text-soft">
                 {tool.provider}
               </div>
             </div>
@@ -215,7 +215,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                 <MainSectionTitle>Einordnung — wann diese Software hilft</MainSectionTitle>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-xl border border-border bg-white p-4">
-                    <div className="mb-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand">
+                    <div className="mb-1.5 font-sans text-[11.5px] font-semibold text-brand">
                       Wann sie hilft
                     </div>
                     <p className="font-sans text-[13.5px] leading-[1.6] text-mid">
@@ -223,7 +223,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                     </p>
                   </div>
                   <div className="rounded-xl border border-accent/25 bg-accent/5 p-4">
-                    <div className="mb-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-accent-ink">
+                    <div className="mb-1.5 font-sans text-[11.5px] font-semibold text-accent-ink">
                       Wann eher nicht
                     </div>
                     <p className="font-sans text-[13.5px] leading-[1.6] text-mid">
@@ -341,7 +341,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           {/* Verfügbarkeit — hohes Behörden-Signal (Bundesland/regional/…) */}
           {availability && (
             <div className="rounded-2xl border border-border bg-white p-5">
-              <div className="mb-2 flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+              <div className="mb-2 flex items-center gap-1.5 font-sans text-[12px] font-semibold text-soft">
                 <MapPin size={12} aria-hidden />
                 Verfügbarkeit
               </div>
@@ -372,7 +372,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               {tool.lastCheckedAt && <GeprueftBadge date={tool.lastCheckedAt} />}
             </div>
             {tool.facts.operation && (
-              <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
+              <div className="mt-1.5 font-sans text-[12px] text-soft">
                 {tool.facts.operation}
               </div>
             )}
@@ -471,7 +471,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                       <ResourceIcon kind={piece.kind} />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand">
+                      <div className="font-sans text-[11.5px] font-semibold text-brand">
                         {crawlerContentLabels[piece.kind]}
                       </div>
                       <div className="mt-0.5 font-ui text-[12.5px] font-semibold leading-[1.35] text-dark transition-colors group-hover:text-brand-dark">

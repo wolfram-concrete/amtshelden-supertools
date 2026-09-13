@@ -5,7 +5,8 @@ import { FormEvent, useState } from "react";
 import { RevealHeading } from "@/components/motion/RevealHeading";
 
 interface NewsletterCtaProps {
-  eyebrow: string;
+  /** @deprecated Eyebrow entfernt (De-Slop). */
+  eyebrow?: string;
   title: string;
   description: string;
   ctaLabel?: string;
@@ -17,7 +18,6 @@ interface NewsletterCtaProps {
  * Stub: kein echter Submit, nur visuelles Feedback.
  */
 export function NewsletterCta({
-  eyebrow,
   title,
   description,
   ctaLabel = "Anmelden",
@@ -37,12 +37,6 @@ export function NewsletterCta({
   return (
     <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="mx-auto max-w-4xl rounded-3xl bg-cream border border-border px-8 py-14 lg:px-14 lg:py-20 text-center space-y-6">
-        <div
-          data-reveal
-          className="flex items-center justify-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-        >
-          {eyebrow}
-        </div>
         <RevealHeading
           as="h2"
           text={title}

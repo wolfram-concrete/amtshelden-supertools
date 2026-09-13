@@ -20,8 +20,8 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
             >
               {category.icon && <BrandIcon name={category.icon} size={22} />}
             </div>
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
-              Kategorie · {toolCount} Tools
+            <div className="font-sans text-[13px] font-semibold text-brand">
+              {toolCount} Tools
             </div>
           </div>
 
@@ -45,7 +45,7 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
         <div className="space-y-4">
           {category.topics && category.topics.length > 0 && (
             <div className="space-y-2">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+              <div className="font-sans text-[12px] font-semibold text-soft">
                 Themenfelder
               </div>
               <div className="flex flex-wrap gap-2">

@@ -183,7 +183,7 @@ function TileCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-brand">
+              <div className="truncate font-sans text-[11px] font-semibold text-brand">
                 {tool.categoryLabel}
               </div>
               <h3 className="mt-0.5 font-serif text-[17px] font-normal leading-[1.15] text-dark transition-colors group-hover:text-brand-dark">
@@ -261,10 +261,7 @@ function TilePill({ children }: { children: React.ReactNode }) {
 function AnbieterHint({ className }: { className?: string }) {
   return (
     <span
-      className={cn(
-        "font-mono text-[9px] font-bold uppercase tracking-[0.1em] text-soft",
-        className,
-      )}
+      className={cn("font-sans text-[10.5px] font-medium text-soft", className)}
     >
       lt. Anbieter
     </span>

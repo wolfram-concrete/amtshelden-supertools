@@ -22,17 +22,11 @@ export function KategorieEntscheidungBlock({
       <div className="container mx-auto px-6 lg:px-10 pb-4 lg:pb-8">
         {/* Worum geht es */}
         <div className="max-w-3xl">
-          <div
-            data-reveal
-            className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand"
-          >
-            Entscheidungshilfe
-          </div>
           <RevealHeading
             as="h2"
             text="Bevor Sie Tools vergleichen."
-            baseDelay={120}
-            className="mt-3 font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+            baseDelay={40}
+            className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           <p
             data-reveal
@@ -87,7 +81,7 @@ export function KategorieEntscheidungBlock({
         {/* Wann Software hilft — und wann nicht */}
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div data-reveal className="rounded-2xl border border-brand/15 bg-brand-light/40 p-6">
-            <div className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+            <div className="mb-2 font-sans text-[12px] font-semibold text-brand-dark">
               Wann Software wirklich hilft
             </div>
             <p className="font-sans text-[14.5px] leading-[1.6] text-dark">
@@ -99,7 +93,7 @@ export function KategorieEntscheidungBlock({
             style={{ "--reveal-delay": "90ms" } as React.CSSProperties}
             className="rounded-2xl border border-accent/30 bg-accent/5 p-6"
           >
-            <div className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-accent-ink">
+            <div className="mb-2 font-sans text-[12px] font-semibold text-accent-ink">
               Wann Software nicht die Lösung ist
             </div>
             <p className="font-sans text-[14.5px] leading-[1.6] text-dark">
