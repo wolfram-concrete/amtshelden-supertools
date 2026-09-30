@@ -73,7 +73,7 @@ export function EditorialFeatureStory({
             <div
               data-reveal
               className={cn(
-                "flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em]",
+                "flex items-center gap-2 font-sans font-semibold",
                 isOnBrand ? "text-white/85" : "text-brand",
               )}
             >
@@ -85,7 +85,7 @@ export function EditorialFeatureStory({
               data-reveal
               style={{ lineHeight: 1.05, "--reveal-delay": "100ms" } as React.CSSProperties}
               className={cn(
-                "font-serif font-normal tracking-tight",
+                "font-sans font-normal tracking-tight",
                 "text-[clamp(30px,3.4vw,44px)]",
                 isOnBrand ? "text-white" : "text-dark",
               )}
@@ -110,7 +110,7 @@ export function EditorialFeatureStory({
                 "font-sans text-[18px] leading-[1.7]",
                 isOnBrand ? "text-white/90" : "text-mid",
                 // Drop-Cap im ersten Buchstaben für Editorial-Feel
-                "first-letter:font-serif first-letter:italic first-letter:font-normal first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-1 first-letter:float-left first-letter:pt-1",
+                "first-letter:font-sans first-letter:italic first-letter:font-normal first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-1 first-letter:float-left first-letter:pt-1",
                 isOnBrand
                   ? "first-letter:text-white"
                   : "first-letter:text-brand-dark",
@@ -161,7 +161,7 @@ export function EditorialFeatureStory({
               <Link
                 href={`/wissen/${article.slug}`}
                 className={cn(
-                  "inline-flex items-center gap-1.5 font-serif italic text-[16px] font-medium flex-shrink-0 transition-colors",
+                  "inline-flex items-center gap-1.5 font-sans italic text-[16px] font-medium flex-shrink-0 transition-colors",
                   isOnBrand
                     ? "text-white hover:text-cream"
                     : "text-brand-dark hover:text-brand",

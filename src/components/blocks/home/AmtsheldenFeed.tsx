@@ -82,7 +82,7 @@ export function AmtsheldenFeed() {
               as="h2"
               text="Hinter Supertools steht eine aktive Behörden-Community."
               baseDelay={120}
-              className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
             />
             <p
               data-reveal
@@ -146,17 +146,17 @@ export function AmtsheldenFeed() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="flex h-full items-center justify-center bg-brand-dark px-8 text-center font-serif text-[28px] leading-tight text-white">
+                        <div className="flex h-full items-center justify-center bg-brand-dark px-8 text-center font-sans text-[28px] leading-tight text-white">
                           {item.topic}
                         </div>
                       )}
                       <div className="absolute left-4 top-4 flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/94 px-2.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-brand-dark shadow-sm">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/94 px-2.5 py-1 font-sans font-semibold text-brand-dark shadow-sm">
                           <Glyph size={13} />
                           {name}
                         </span>
                         {item.format && (
-                          <span className="rounded-full bg-dark/70 px-2.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-white">
+                          <span className="rounded-full bg-dark/70 px-2.5 py-1 font-sans font-semibold text-white">
                             {item.format}
                           </span>
                         )}
@@ -164,14 +164,14 @@ export function AmtsheldenFeed() {
                     </div>
 
                     <div className="flex min-h-0 flex-1 flex-col bg-white p-5">
-                      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+                      <div className="font-sans font-semibold text-brand-dark">
                         {item.topic}
                       </div>
                       <p
                         className={cn(
                           "mt-3 text-dark",
                           item.author
-                            ? "line-clamp-4 font-serif text-[21px] leading-[1.18]"
+                            ? "line-clamp-4 font-sans text-[21px] leading-[1.18]"
                             : "line-clamp-5 font-sans text-[15px] font-medium leading-[1.45]",
                         )}
                       >

@@ -91,16 +91,16 @@ function RowItem({
 
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2.5">
-            <h3 className="font-serif text-[22px] font-normal leading-tight text-dark transition-colors group-hover:text-brand-dark lg:text-[25px]">
+            <h3 className="font-sans text-[22px] font-normal leading-tight text-dark transition-colors group-hover:text-brand-dark lg:text-[25px]">
               {tool.name}
             </h3>
             {tool.verified && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-light px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand-dark">
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-light px-2 py-0.5 font-sans font-semibold text-brand-dark">
                 ✓ Verifiziert
               </span>
             )}
           </div>
-          <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-soft">
+          <div className="mt-1 font-sans font-semibold text-soft">
             {tool.provider}
           </div>
           <p className="mt-2.5 font-sans text-[15px] leading-[1.6] text-mid line-clamp-2 max-w-2xl">
@@ -124,10 +124,10 @@ function RowItem({
       {/* Facts + CTA */}
       <div className="flex flex-shrink-0 items-end justify-between gap-4 border-t border-border pt-4 sm:w-[220px] sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
         <div className="sm:text-right">
-          <div className="font-serif text-[20px] font-normal leading-none text-dark">
+          <div className="font-sans text-[20px] font-normal leading-none text-dark">
             {tool.facts.price || "auf Anfrage"}
           </div>
-          <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
+          <div className="mt-1.5 font-sans font-semibold text-soft">
             {[tool.facts.operation, tool.facts.setup]
               .filter(Boolean)
               .join(" · ")}
@@ -186,7 +186,7 @@ function TileCard({
               <div className="truncate font-sans text-[11px] font-semibold text-brand">
                 {tool.categoryLabel}
               </div>
-              <h3 className="mt-0.5 font-serif text-[17px] font-normal leading-[1.15] text-dark transition-colors group-hover:text-brand-dark">
+              <h3 className="mt-0.5 font-sans text-[17px] font-normal leading-[1.15] text-dark transition-colors group-hover:text-brand-dark">
                 {tool.name}
               </h3>
             </div>
@@ -298,7 +298,7 @@ function ExtendedCard({
             <div className="flex items-center gap-2 flex-wrap">
               <h3
                 className={cn(
-                  "font-serif font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors",
+                  "font-sans font-normal leading-tight text-dark group-hover:text-brand-dark transition-colors",
                   isFeature ? "text-[26px]" : "text-[20px]",
                 )}
               >
@@ -357,7 +357,7 @@ function ExtendedCard({
 function Fact({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0">
-      <dt className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+      <dt className="font-sans font-semibold text-soft">
         {label}
       </dt>
       <dd className="font-ui text-[12px] font-semibold text-dark mt-1 truncate">

@@ -22,7 +22,7 @@ function Section({
 }) {
   return (
     <section className="space-y-2">
-      <h2 className="font-serif text-[22px] font-normal text-dark">{title}</h2>
+      <h2 className="font-sans text-[22px] font-normal text-dark">{title}</h2>
       {children}
     </section>
   );
@@ -32,13 +32,13 @@ export default function DatenschutzPage() {
   return (
     <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <div className="font-sans font-semibold text-brand">
           Rechtliches
         </div>
-        <h1 className="mt-3 font-serif text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">
+        <h1 className="mt-3 font-sans text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">
           Datenschutzerklärung
         </h1>
-        <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.1em] text-soft">
+        <p className="mt-3 font-sans font-semibold text-soft">
           Stand: Juni 2026
         </p>
 

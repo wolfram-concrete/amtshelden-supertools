@@ -21,10 +21,10 @@ export function AuthorBio({ author }: AuthorBioProps) {
       )}
 
       <div className="space-y-1.5">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <div className="font-sans font-semibold text-brand">
           Über die Autor:in
         </div>
-        <h3 className="font-serif text-[20px] font-normal leading-tight text-dark">
+        <h3 className="font-sans text-[20px] font-normal leading-tight text-dark">
           {author.name}
         </h3>
         {author.role && (

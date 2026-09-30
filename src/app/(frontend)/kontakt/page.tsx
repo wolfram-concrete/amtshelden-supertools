@@ -22,7 +22,7 @@ export default async function KontaktPage({
         <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
           <div
             data-reveal
-            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            className="font-sans font-semibold text-brand"
           >
             Kontakt
           </div>
@@ -30,7 +30,7 @@ export default async function KontaktPage({
             as="h1"
             text="Schreiben Sie uns."
             baseDelay={120}
-            className="font-serif text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           <p
             data-reveal

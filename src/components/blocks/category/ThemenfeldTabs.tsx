@@ -71,7 +71,7 @@ export function ThemenfeldTabs({
               {t.name}
               <span
                 className={cn(
-                  "font-mono text-[11px]",
+                  "font-sans text-[11px]",
                   isActive ? "text-white/70" : "text-soft",
                 )}
               >
@@ -91,7 +91,7 @@ export function ThemenfeldTabs({
         </div>
       ) : (
         <div className="mt-6 rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
-          <p className="font-serif text-[20px] font-normal text-dark">
+          <p className="font-sans text-[20px] font-normal text-dark">
             Tools in Vorbereitung
           </p>
           <p className="mt-2 font-sans text-[14px] text-soft">

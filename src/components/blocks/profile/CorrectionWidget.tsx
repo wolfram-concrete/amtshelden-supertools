@@ -99,7 +99,7 @@ export function CorrectionWidget({
               className="mt-5 space-y-3 border-t border-border pt-5"
             >
               <label className="block space-y-1.5">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+                <span className="font-sans font-semibold text-soft">
                   Was stimmt nicht?
                 </span>
                 <select
@@ -116,7 +116,7 @@ export function CorrectionWidget({
               </label>
 
               <label className="block space-y-1.5">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+                <span className="font-sans font-semibold text-soft">
                   Details (optional)
                 </span>
                 <textarea
@@ -129,7 +129,7 @@ export function CorrectionWidget({
               </label>
 
               <label className="block space-y-1.5">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+                <span className="font-sans font-semibold text-soft">
                   E-Mail (für Rückfragen)
                 </span>
                 <input

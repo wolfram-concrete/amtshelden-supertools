@@ -33,7 +33,7 @@ export function ThemenfeldGrid({
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
           />
           {description && (
             <p
@@ -89,7 +89,7 @@ export function ThemenfeldGrid({
 
                 <div className="flex flex-1 flex-col p-5">
                   <Link href={`/themenfelder/${tf.slug}`}>
-                    <h3 className="font-serif text-[19px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
+                    <h3 className="font-sans text-[19px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
                       {tf.name}
                     </h3>
                     <p className="mt-1.5 font-sans text-[13px] leading-[1.5] text-mid">

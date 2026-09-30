@@ -78,7 +78,7 @@ function RelatedToolCard({ tool }: { tool: ToolCardSummary }) {
         />
       </div>
 
-      <div className="mt-5 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-brand">
+      <div className="mt-5 font-sans font-semibold text-brand">
         {tool.categoryLabel}
       </div>
       <h2 className="mt-1 font-sans text-[21px] font-normal leading-[1.1] text-dark transition-colors group-hover:text-brand-dark">

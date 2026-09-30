@@ -45,7 +45,7 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
               as="h2"
               text={title}
               baseDelay={120}
-              className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
             />
             {lead && (
               <p
@@ -113,13 +113,13 @@ export function StimmenSlider({ eyebrow, title, lead }: StimmenSliderProps) {
                     className="object-contain"
                   />
                 </span>
-                <div className="font-mono text-[11.5px] font-bold uppercase leading-tight tracking-[0.1em]">
+                <div className="font-sans text-[11.5px] font-bold uppercase leading-tight tracking-[0.1em]">
                   <div className="text-dark">{s.context}</div>
                   <div className="mt-0.5 text-soft">{s.role}</div>
                 </div>
               </div>
 
-              <blockquote className="mt-5 font-serif text-[18px] font-normal leading-[1.35] text-dark">
+              <blockquote className="mt-5 font-sans text-[18px] font-normal leading-[1.35] text-dark">
                 <span aria-hidden className="text-accent">„</span>
                 {s.quote}
                 <span aria-hidden className="text-accent">"</span>

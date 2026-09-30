@@ -18,13 +18,13 @@ export default function ImpressumPage() {
   return (
     <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <div className="font-sans font-semibold text-brand">
           Rechtliches
         </div>
-        <h1 className="mt-3 font-serif text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">
+        <h1 className="mt-3 font-sans text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">
           Impressum
         </h1>
-        <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.1em] text-soft">
+        <p className="mt-3 font-sans font-semibold text-soft">
           Stand: Juni 2026
         </p>
 
@@ -38,7 +38,7 @@ export default function ImpressumPage() {
 
         <div className="mt-10 space-y-9 font-sans text-[15.5px] leading-[1.75] text-mid">
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Angaben gemäß § 5 DDG
             </h2>
             <p>
@@ -55,7 +55,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Vertreten durch
             </h2>
             <p>
@@ -64,7 +64,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Kontakt
             </h2>
             <p>
@@ -81,7 +81,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Registereintrag &amp; Umsatzsteuer
             </h2>
             <p>
@@ -95,7 +95,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Redaktionell verantwortlich (§ 18 Abs. 2 MStV)
             </h2>
             <p>
@@ -104,7 +104,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Verbraucherstreitbeilegung
             </h2>
             <p>
@@ -116,7 +116,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Haftung für Inhalte
             </h2>
             <p>
@@ -129,7 +129,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Haftung für Links
             </h2>
             <p>
@@ -141,7 +141,7 @@ export default function ImpressumPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-[22px] font-normal text-dark">
+            <h2 className="font-sans text-[22px] font-normal text-dark">
               Urheberrecht
             </h2>
             <p>

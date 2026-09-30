@@ -51,7 +51,7 @@ export function KontaktForm({ initialTopic, initialTool }: KontaktFormProps) {
       <div className="rounded-2xl bg-brand-light/50 p-8 lg:p-10">
         <div className="flex items-center gap-2 text-brand-dark">
           <CheckCircle2 size={22} aria-hidden />
-          <span className="font-serif text-[22px] font-normal">
+          <span className="font-sans text-[22px] font-normal">
             Danke — Ihre Anfrage ist eingegangen.
           </span>
         </div>
@@ -168,7 +168,7 @@ function Field({
     <div className="space-y-1.5">
       <label
         htmlFor={htmlFor}
-        className="block font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft"
+        className="block font-sans font-semibold text-soft"
       >
         {label}
       </label>

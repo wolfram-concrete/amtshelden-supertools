@@ -132,7 +132,7 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                         onClick={() => setOpen(false)}
                         className="mt-3 block"
                       >
-                        <h4 className="font-serif text-[17px] font-normal leading-[1.15] text-dark transition-colors">
+                        <h4 className="font-sans text-[17px] font-normal leading-[1.15] text-dark transition-colors">
                           {tf.name}
                         </h4>
                         <p className="font-ui text-[11.5px] leading-[1.5] text-mid mt-1 line-clamp-2">

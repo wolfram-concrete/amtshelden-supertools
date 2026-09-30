@@ -46,7 +46,7 @@ export function AboutBlock({
                 as="h2"
                 text={title}
                 baseDelay={120}
-                className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight"
+                className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight"
               />
               <p
                 data-reveal
@@ -79,10 +79,10 @@ export function AboutBlock({
                     style={{ "--reveal-delay": `${idx * 90}ms` } as React.CSSProperties}
                     className="space-y-2 border-t border-white/25 pt-5"
                   >
-                    <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white/70">
+                    <div className="font-sans font-semibold text-white/70">
                       0{idx + 1}
                     </div>
-                    <h3 className="font-serif text-[20px] font-normal leading-tight">
+                    <h3 className="font-sans text-[20px] font-normal leading-tight">
                       {p.title}
                     </h3>
                     <p className="font-sans text-[14px] leading-[1.65] text-white/75">
@@ -99,10 +99,10 @@ export function AboutBlock({
                   data-reveal
                   className="group rounded-2xl bg-white/10 p-5 transition-colors hover:bg-white/15"
                 >
-                  <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-white/70">
+                  <div className="font-sans font-semibold text-white/70">
                     Für Behörden
                   </div>
-                  <h3 className="mt-1.5 font-serif text-[20px] font-normal leading-tight">
+                  <h3 className="mt-1.5 font-sans text-[20px] font-normal leading-tight">
                     Ein Tool fehlt?
                   </h3>
                   <span className="mt-3 inline-flex items-center gap-1.5 font-ui text-[12.5px] font-semibold text-white">
@@ -121,10 +121,10 @@ export function AboutBlock({
                   style={{ "--reveal-delay": "90ms" } as React.CSSProperties}
                   className="group rounded-2xl bg-white p-5 text-dark transition-[filter] hover:brightness-95"
                 >
-                  <div className="font-mono text-[11.5px] font-bold uppercase tracking-[0.16em] text-brand">
+                  <div className="font-sans font-semibold text-brand">
                     Für Anbieter
                   </div>
-                  <h3 className="mt-1.5 font-serif text-[20px] font-normal leading-tight text-dark">
+                  <h3 className="mt-1.5 font-sans text-[20px] font-normal leading-tight text-dark">
                     Erreichen Sie Ihre Behörden.
                   </h3>
                   <span className="mt-3 inline-flex items-center gap-1.5 font-ui text-[12.5px] font-semibold text-brand-dark">

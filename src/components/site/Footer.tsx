@@ -66,7 +66,7 @@ export function Footer() {
           {/* Link-Spalten */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white">
+              <h3 className="font-sans font-semibold text-white">
                 {col.title}
               </h3>
               <ul className="mt-4 space-y-2.5">

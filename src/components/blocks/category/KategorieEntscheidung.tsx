@@ -26,7 +26,7 @@ export function KategorieEntscheidungBlock({
             as="h2"
             text="Bevor Sie Tools vergleichen."
             baseDelay={40}
-            className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           <p
             data-reveal
@@ -133,7 +133,7 @@ export function KategorieEntscheidungBlock({
                   key={q}
                   className="flex gap-3 rounded-xl border border-border bg-white px-4 py-2.5"
                 >
-                  <span className="font-mono text-[12px] font-bold text-brand">
+                  <span className="font-sans text-[12px] font-bold text-brand">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="font-sans text-[13.5px] leading-[1.5] text-mid">

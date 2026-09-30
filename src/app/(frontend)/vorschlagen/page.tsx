@@ -18,13 +18,13 @@ export default function VorschlagenPage() {
           <div className="lg:sticky lg:top-24 space-y-6">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Mitmachen
             </div>
             <h1
               data-reveal
-              className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-sans text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark"
             >
               Ein Tool fehlt?{" "}
               <em className="not-italic font-normal text-brand-dark">
@@ -44,7 +44,7 @@ export default function VorschlagenPage() {
 
             <div className="space-y-4 pt-4 border-t border-border">
               <div className="flex gap-3">
-                <span className="font-serif italic text-soft text-[18px] flex-shrink-0">
+                <span className="font-sans italic text-soft text-[18px] flex-shrink-0">
                   01.
                 </span>
                 <div>
@@ -59,7 +59,7 @@ export default function VorschlagenPage() {
                 </div>
               </div>
               <div className="flex gap-3">
-                <span className="font-serif italic text-soft text-[18px] flex-shrink-0">
+                <span className="font-sans italic text-soft text-[18px] flex-shrink-0">
                   02.
                 </span>
                 <div>

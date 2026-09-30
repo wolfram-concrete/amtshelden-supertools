@@ -18,7 +18,7 @@ export default function CategoriesIndexPage() {
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
           <div
             data-reveal
-            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            className="font-sans font-semibold text-brand"
           >
             Verzeichnis
           </div>
@@ -26,7 +26,7 @@ export default function CategoriesIndexPage() {
             as="h1"
             text="Alle Kategorien im Überblick"
             baseDelay={120}
-            className="font-serif text-[clamp(36px,5vw,64px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans text-[clamp(36px,5vw,64px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           <p
             data-reveal

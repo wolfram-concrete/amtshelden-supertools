@@ -35,7 +35,7 @@ export function ThemenClusterBlock({
         <header className="mb-10 lg:mb-12 max-w-3xl space-y-2">
           <div
             data-reveal
-            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            className="font-sans font-semibold text-brand"
           >
             {sectionEyebrow}
           </div>
@@ -43,7 +43,7 @@ export function ThemenClusterBlock({
             as="h2"
             text={sectionTitle}
             baseDelay={120}
-            className="font-serif text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-sans text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark"
           />
         </header>
 
@@ -72,14 +72,14 @@ export function ThemenClusterBlock({
                     aria-hidden
                     className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"
                   />
-                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/35 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur">
+                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-black/35 px-2.5 py-1 font-sans font-semibold text-white backdrop-blur">
                     {cluster.eyebrow}
                   </span>
                 </Link>
               )}
 
               {/* Cluster-Titel */}
-              <h3 className="font-serif text-[24px] font-normal leading-[1.08] text-dark">
+              <h3 className="font-sans text-[24px] font-normal leading-[1.08] text-dark">
                 {cluster.title}
               </h3>
 
@@ -97,10 +97,10 @@ export function ThemenClusterBlock({
                         href={`/wissen/${a.slug}`}
                         className="group block rounded-xl bg-white px-4 py-3 transition-shadow hover:shadow-[0_12px_30px_-18px_rgba(17,17,17,0.25)]"
                       >
-                        <span className="block font-serif text-[15px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
+                        <span className="block font-sans text-[15px] font-normal leading-[1.25] text-dark group-hover:text-brand-dark transition-colors">
                           {a.title}
                         </span>
-                        <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.14em] text-soft">
+                        <span className="mt-1 block font-sans font-semibold text-soft">
                           {formatDateDE(a.publishedAt)} · {a.readingTime} Min.
                         </span>
                       </Link>

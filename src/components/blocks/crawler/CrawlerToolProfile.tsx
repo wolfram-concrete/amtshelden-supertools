@@ -266,7 +266,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                       key={q}
                       className="flex gap-3 rounded-xl border border-border bg-white px-4 py-2.5"
                     >
-                      <span className="font-mono text-[12px] font-bold text-brand">
+                      <span className="font-sans text-[12px] font-bold text-brand">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="font-sans text-[13.5px] leading-[1.5] text-mid">

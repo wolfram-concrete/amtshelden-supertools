@@ -41,7 +41,7 @@ export function NewsletterCta({
           as="h2"
           text={title}
           baseDelay={120}
-          className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto"
+          className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark max-w-2xl mx-auto"
         />
         <p
           data-reveal

@@ -60,7 +60,7 @@ export function FokusTool({
               as="h2"
               text={title}
               baseDelay={120}
-              className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
             />
             <p
               data-reveal
@@ -74,10 +74,10 @@ export function FokusTool({
               style={{ "--reveal-delay": "300ms" } as React.CSSProperties}
               className="border-l-2 border-brand py-1 pl-5"
             >
-              <div className="mb-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+              <div className="mb-1.5 font-sans font-semibold text-brand">
                 Einordnung
               </div>
-              <p className="font-serif text-[18px] italic leading-[1.5] text-dark">
+              <p className="font-sans text-[18px] italic leading-[1.5] text-dark">
                 {einordnung}
               </p>
             </div>
@@ -113,14 +113,14 @@ export function FokusTool({
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-serif text-[24px] font-normal text-dark">
+                  <span className="font-sans text-[24px] font-normal text-dark">
                     {tool.name}
                   </span>
-                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-accent-ink">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-accent/15 px-2.5 py-0.5 font-sans font-semibold text-accent-ink">
                     Basis-Profil
                   </span>
                 </div>
-                <div className="mt-1 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
+                <div className="mt-1 font-sans font-semibold text-soft">
                   {tool.provider}
                 </div>
               </div>

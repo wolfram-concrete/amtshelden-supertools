@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { RevealHeading } from "@/components/motion/RevealHeading";
@@ -17,45 +16,26 @@ export default function UeberPage() {
       {/* ============================================================
           1 — HERO (immersiv, analog zur Startseite — Gründer:innen-Motiv)
           ============================================================ */}
-      <section className="bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
-          <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[560px] lg:min-h-[720px]">
-            <Image
-              src="/brand/amtshelden-gruender.jpg"
-              alt="Julia und Christian, Gründungsteam von Amtshelden"
-              fill
-              sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
-              priority
-            />
-            <div aria-hidden className="absolute inset-0 bg-black/15" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"
-            />
-
-            <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-14">
-              <h1
-                data-reveal
-                className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.02] tracking-tight text-white"
-              >
-                Vertrauen entsteht dort, wo Software{" "}
-                <em className="not-italic font-normal text-brand-light">
-                  ein Gesicht bekommt
-                </em>
-                .
-              </h1>
-              <p
-                data-reveal
-                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85"
-              >
-                Supertools ist das Software-Schwesterprojekt von Amtshelden —
-                der Plattform für digitalen Wandel in deutschen Behörden. Wir
-                kuratieren die Werkzeuge, mit denen Verwaltungen diesen Wandel
-                tatsächlich gestalten.
-              </p>
-            </div>
+      <section className="bg-white">
+        <div className="container mx-auto px-6 lg:px-10 pt-16 pb-10 lg:pt-24 lg:pb-14">
+          <div className="max-w-3xl">
+            <h1
+              data-reveal
+              className="font-sans font-bold text-[clamp(36px,5.5vw,68px)] leading-[1.03] tracking-[-0.03em] text-dark"
+            >
+              Vertrauen entsteht dort, wo Software{" "}
+              <span className="text-brand">ein Gesicht bekommt</span>.
+            </h1>
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="mt-5 max-w-2xl font-sans text-[18px] lg:text-[20px] leading-[1.55] text-mid"
+            >
+              Supertools ist das Software-Schwesterprojekt von Amtshelden — der
+              Plattform für digitalen Wandel in deutschen Behörden. Wir kuratieren
+              die Werkzeuge, mit denen Verwaltungen diesen Wandel tatsächlich
+              gestalten.
+            </p>
           </div>
         </div>
       </section>
@@ -69,37 +49,23 @@ export default function UeberPage() {
             <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
               <div
                 data-reveal
-                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+                className="font-sans font-semibold text-brand"
               >
                 Warum es Supertools gibt
               </div>
               <h2
                 data-reveal
-                className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+                className="font-sans text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
               >
                 Behörden haben kein Tool-Problem.{" "}
                 <em className="not-italic font-normal text-brand-dark">
                   Sie haben ein Orientierungsproblem.
                 </em>
               </h2>
-              <figure className="space-y-2 pt-2">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-white border border-border">
-                  <Image
-                    src="/brand/amtshelden/perspektive.png"
-                    alt="Aus dem Amtshelden-Magazin: Behörden haben kein Content-Problem, sondern ein Perspektivproblem"
-                    fill
-                    sizes="(min-width: 1024px) 40vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="font-ui text-[11px] italic text-soft">
-                  Aus dem Amtshelden-Magazin · „Behörden haben kein Content-Problem"
-                </figcaption>
-              </figure>
             </header>
 
             <div className="lg:col-span-7 space-y-5 font-sans text-[17px] leading-[1.75] text-mid">
-              <p className="first-letter:font-serif first-letter:italic first-letter:font-normal first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
+              <p className="first-letter:font-sans first-letter:italic first-letter:font-normal first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
                 Die deutsche Verwaltung digitalisiert sich. Nicht so schnell, wie
                 Strategien es versprechen — aber spürbar, in vielen kleinen
                 Bewegungen, oft trotz statt wegen der Rahmenbedingungen. In
@@ -139,7 +105,7 @@ export default function UeberPage() {
         <header className="border-t border-border pt-8 mb-12 lg:mb-16 max-w-2xl space-y-2">
           <div
             data-reveal
-            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            className="font-sans font-semibold text-brand"
           >
             Drei Grundsätze
           </div>
@@ -147,7 +113,7 @@ export default function UeberPage() {
             as="h2"
             text="Was uns von einem Verzeichnis unterscheidet."
             baseDelay={120}
-            className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
           />
         </header>
 
@@ -178,10 +144,10 @@ export default function UeberPage() {
               }`}
               data-count={arr.length}
             >
-              <div className="font-serif italic text-[20px] text-soft">
+              <div className="font-sans italic text-[20px] text-soft">
                 {p.number}.
               </div>
-              <h3 className="font-serif text-[24px] font-normal leading-[1.1] text-dark">
+              <h3 className="font-sans text-[24px] font-normal leading-[1.1] text-dark">
                 {p.title}
               </h3>
               <p className="font-sans text-[15px] leading-[1.7] text-mid">
@@ -207,7 +173,7 @@ export default function UeberPage() {
               />
               <div
                 data-reveal
-                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80"
+                className="font-sans font-semibold text-white/80"
               >
                 Schwesterprojekt von Amtshelden
               </div>
@@ -215,7 +181,7 @@ export default function UeberPage() {
                 as="h2"
                 text="Eine Plattform. Zwei Perspektiven auf denselben Wandel."
                 baseDelay={120}
-                className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight"
+                className="font-sans text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight"
               />
               <p
                 data-reveal
@@ -285,21 +251,10 @@ export default function UeberPage() {
               ].map((entry, idx) => {
                 const inner = (
                   <>
-                    {entry.image && (
-                      <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-white/10 mb-4">
-                        <Image
-                          src={entry.image}
-                          alt={entry.imageAlt || entry.label}
-                          fill
-                          sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/75">
+                    <div className="font-sans font-semibold text-white/75">
                       {entry.label}
                     </div>
-                    <h3 className="font-serif text-[22px] font-normal leading-[1.15] mt-2">
+                    <h3 className="font-sans text-[22px] font-normal leading-[1.15] mt-2">
                       {entry.title}
                     </h3>
                     <p className="font-sans text-[14px] leading-[1.7] text-white/85 mt-2">
@@ -351,13 +306,13 @@ export default function UeberPage() {
           <header className="lg:col-span-5 space-y-3 lg:sticky lg:top-24 lg:self-start">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Wie wir arbeiten
             </div>
             <h2
               data-reveal
-              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
             >
               Redaktionell. Konsequent.{" "}
               <em className="not-italic font-normal text-brand-dark">
@@ -396,11 +351,11 @@ export default function UeberPage() {
               },
             ].map((step, idx) => (
               <li key={idx} className="py-6 flex gap-5">
-                <div className="font-serif italic text-soft text-[20px] flex-shrink-0 min-w-[44px]">
+                <div className="font-sans italic text-soft text-[20px] flex-shrink-0 min-w-[44px]">
                   {String(idx + 1).padStart(2, "0")}.
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-[20px] font-normal leading-[1.2] text-dark">
+                  <h3 className="font-sans text-[20px] font-normal leading-[1.2] text-dark">
                     {step.title}
                   </h3>
                   <p className="font-sans text-[14.5px] leading-[1.7] text-mid mt-2">
@@ -422,7 +377,7 @@ export default function UeberPage() {
             <div className="space-y-3">
               <div
                 data-reveal
-                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+                className="font-sans font-semibold text-brand"
               >
                 Wer wir sind
               </div>
@@ -430,7 +385,7 @@ export default function UeberPage() {
                 as="h2"
                 text="Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background."
                 baseDelay={120}
-                className="font-serif text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark"
+                className="font-sans text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark"
               />
             </div>
             <div className="space-y-5 font-sans text-[16px] leading-[1.7] text-mid">
@@ -451,7 +406,7 @@ export default function UeberPage() {
                 braucht es Substanz statt Slogans. Vertrauen statt Skala.
                 Haltung statt Wachstumsdruck.
               </p>
-              <p className="font-serif italic text-[18px] text-dark pt-2 border-t border-border">
+              <p className="font-sans italic text-[18px] text-dark pt-2 border-t border-border">
                 „Kultur entscheidet, ob Veränderung in der Verwaltung
                 überhaupt ankommt." — Amtshelden
               </p>
@@ -467,7 +422,7 @@ export default function UeberPage() {
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div
             data-reveal
-            className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+            className="font-sans font-semibold text-brand"
           >
             Mitmachen
           </div>
@@ -475,7 +430,7 @@ export default function UeberPage() {
             as="h2"
             text="Wenn du Verantwortung trägst, wollen wir dich nicht alleine lassen."
             baseDelay={120}
-            className="font-serif text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark"
+            className="font-sans text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark"
           />
           <p
             data-reveal

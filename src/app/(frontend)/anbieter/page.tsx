@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   BarChart3,
@@ -59,57 +58,38 @@ export default function AnbieterPage() {
     <>
 
       {/* ── 1 · HERO (immersiv, radiale Kanten — analog Startseite) ── */}
-      <section className="bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-10 lg:pb-14">
-          <div className="relative flex items-center overflow-hidden rounded-[2.5rem] min-h-[560px] lg:min-h-[720px]">
-            <Image
-              src="/brand/Images/magnific_prompt-3-gemeinsame-softw_741ylKNJAL.jpg"
-              alt="Software-Team präsentiert eine Anwendung im Verwaltungskontext"
-              fill
-              sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
-              priority
-            />
-            <div aria-hidden className="absolute inset-0 bg-black/15" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/40 to-transparent"
-            />
-
-            <div className="relative z-10 max-w-2xl p-7 sm:p-10 lg:p-16">
-              <h1
-                data-reveal
-                className="font-serif text-[clamp(34px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-white"
+      <section className="bg-white">
+        <div className="container mx-auto px-6 lg:px-10 pt-16 pb-10 lg:pt-24 lg:pb-14">
+          <div className="max-w-3xl">
+            <h1
+              data-reveal
+              className="font-sans font-bold text-[clamp(36px,5.5vw,68px)] leading-[1.02] tracking-[-0.03em] text-dark"
+            >
+              Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
+              <span className="text-brand">relevant ist</span>.
+            </h1>
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="mt-5 max-w-2xl font-sans text-[18px] lg:text-[20px] leading-[1.55] text-mid"
+            >
+              Supertools ist das kuratierte Software-Verzeichnis für die
+              öffentliche Verwaltung. Während klassische B2B-Werbung breit streut,
+              erreichen Sie hier Behörden mit konkreter Suchabsicht.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/kontakt?topic=anbieter"
+                className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-sans text-[14px] font-bold text-white transition-colors hover:bg-brand-dark"
               >
-                Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
-                <em className="not-italic font-normal text-brand-light">
-                  relevant ist
-                </em>
-                .
-              </h1>
-              <p
-                data-reveal
-                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85 max-w-xl"
+                Unternehmen eintragen
+              </Link>
+              <Link
+                href="#profilarten"
+                className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-sans text-[14px] font-semibold text-dark transition-colors hover:border-brand hover:text-brand-dark"
               >
-                Supertools ist das kuratierte Software-Verzeichnis für die
-                öffentliche Verwaltung. Während klassische B2B-Werbung breit
-                streut, erreichen Sie hier Behörden mit konkreter Suchabsicht.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/kontakt?topic=anbieter"
-                  className="inline-flex items-center rounded-xl bg-accent px-6 py-3 font-ui text-[14px] font-semibold text-accent-ink transition-[filter] hover:brightness-95"
-                >
-                  Unternehmen eintragen
-                </Link>
-                <Link
-                  href="#profilarten"
-                  className="inline-flex items-center rounded-xl border border-white/30 px-6 py-3 font-ui text-[14px] font-medium text-white transition-colors hover:bg-white/10"
-                >
-                  Wie funktioniert das?
-                </Link>
-              </div>
+                Wie funktioniert das?
+              </Link>
             </div>
           </div>
         </div>
@@ -121,7 +101,7 @@ export default function AnbieterPage() {
           <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Ihr Nutzen
             </div>
@@ -129,7 +109,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Sichtbarkeit, die zur Verwaltung passt."
               baseDelay={120}
-              className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
             />
           </header>
 
@@ -141,7 +121,7 @@ export default function AnbieterPage() {
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-light text-brand-dark">
                     <Icon size={18} aria-hidden />
                   </div>
-                  <h3 className="font-serif text-[20px] font-normal leading-tight text-dark">
+                  <h3 className="font-sans text-[20px] font-normal leading-tight text-dark">
                     {v.title}
                   </h3>
                   <p className="font-sans text-[14px] leading-[1.65] text-mid">
@@ -160,7 +140,7 @@ export default function AnbieterPage() {
           <header className="lg:sticky lg:top-24 space-y-3">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Themenfelder
             </div>
@@ -168,7 +148,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Vier Felder, in denen Behörden Sie suchen."
               baseDelay={120}
-              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
             />
             <p
               data-reveal
@@ -193,7 +173,7 @@ export default function AnbieterPage() {
                 >
                   {tf.icon && <BrandIcon name={tf.icon} size={20} />}
                 </span>
-                <h3 className="mt-3 font-serif text-[18px] font-normal leading-tight text-dark">
+                <h3 className="mt-3 font-sans text-[18px] font-normal leading-tight text-dark">
                   {tf.name}
                 </h3>
                 <p className="mt-1.5 font-sans text-[13px] leading-[1.55] text-soft">
@@ -202,21 +182,6 @@ export default function AnbieterPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Bild-Band (visueller Reset zwischen den Text-Sektionen) ── */}
-      <section className="bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
-          <figure className="relative aspect-[21/9] overflow-hidden rounded-[2.5rem]">
-            <Image
-              src="/brand/Images/magnific_four-public-administratio_dInopiZXSL.jpg"
-              alt="Mitarbeitende einer Verwaltung bei der gemeinsamen Arbeit"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </figure>
         </div>
       </section>
 
@@ -229,7 +194,7 @@ export default function AnbieterPage() {
           <header className="max-w-2xl space-y-3 mb-12">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Profilarten
             </div>
@@ -237,17 +202,17 @@ export default function AnbieterPage() {
               as="h2"
               text="Basis-Profil und erweitertes Profil."
               baseDelay={120}
-              className="font-serif text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
             />
           </header>
 
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Basis */}
             <div className="rounded-2xl border border-border bg-white p-7 lg:p-8">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+              <div className="font-sans font-semibold text-soft">
                 Basis-Profil
               </div>
-              <div className="mt-2 font-serif text-[28px] font-normal text-dark">
+              <div className="mt-2 font-sans text-[28px] font-normal text-dark">
                 Kostenfrei
               </div>
               <p className="mt-3 font-sans text-[14px] leading-[1.65] text-mid">
@@ -277,10 +242,10 @@ export default function AnbieterPage() {
 
             {/* Erweitert */}
             <div className="rounded-2xl border-2 border-brand bg-white p-7 lg:p-8">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-brand-dark">
+              <div className="font-sans font-semibold text-brand-dark">
                 Erweitertes Profil
               </div>
-              <div className="mt-2 font-serif text-[28px] font-normal text-dark">
+              <div className="mt-2 font-sans text-[28px] font-normal text-dark">
                 Auf Anfrage
               </div>
               <p className="mt-3 font-sans text-[14px] leading-[1.65] text-mid">
@@ -333,7 +298,7 @@ export default function AnbieterPage() {
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
             <div
               data-reveal
-              className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+              className="font-sans font-semibold text-brand"
             >
               Was wir übernehmen
             </div>
@@ -341,7 +306,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Wir recherchieren, strukturieren und prüfen."
               baseDelay={120}
-              className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
             />
             <p
               data-reveal
@@ -378,11 +343,11 @@ export default function AnbieterPage() {
               },
             ].map((step, idx) => (
               <li key={idx} className="py-5 flex gap-5">
-                <span className="font-serif italic text-soft text-[18px] flex-shrink-0 min-w-[40px]">
+                <span className="font-sans italic text-soft text-[18px] flex-shrink-0 min-w-[40px]">
                   {String(idx + 1).padStart(2, "0")}.
                 </span>
                 <div>
-                  <h3 className="font-serif text-[18px] font-normal leading-tight text-dark">
+                  <h3 className="font-sans text-[18px] font-normal leading-tight text-dark">
                     {step.t}
                   </h3>
                   <p className="font-sans text-[14px] leading-[1.6] text-mid mt-1">
@@ -395,14 +360,14 @@ export default function AnbieterPage() {
         </div>
       </section>
 
-      {/* ── 6 · CTA (grün, radiale Kanten) — Text links, Bild rechts ── */}
+      {/* ── 6 · CTA (grün, radiale Kanten) ── */}
       <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="max-w-2xl">
             <div className="max-w-2xl space-y-6">
               <div
                 data-reveal
-                className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80"
+                className="font-sans font-semibold text-white/80"
               >
                 Nächster Schritt
               </div>
@@ -410,7 +375,7 @@ export default function AnbieterPage() {
                 as="h2"
                 text="Bringen Sie Ihr Tool ins Verzeichnis."
                 baseDelay={120}
-                className="font-serif text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight"
+                className="font-sans text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight"
               />
               <p
                 data-reveal
@@ -437,15 +402,6 @@ export default function AnbieterPage() {
               </div>
             </div>
 
-            <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/15 lg:aspect-[5/4]">
-              <Image
-                src="/brand/Images/magnific_a-project-workshop-inside_5xvrkdeKxe.jpg"
-                alt="Anbieter und Verwaltung im gemeinsamen Workshop"
-                fill
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
-              />
-            </figure>
           </div>
         </div>
       </section>

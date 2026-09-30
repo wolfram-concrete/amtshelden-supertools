@@ -152,7 +152,7 @@ export function ProfilSidebar({
       {lastCheckedAt && (
         <div className="pt-2 px-1">
           <div className="rounded-lg border border-dashed border-border bg-white px-3.5 py-3">
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft">
+            <div className="font-sans font-semibold text-soft">
               Stand der Prüfung
             </div>
             <div className="font-ui text-[12px] font-semibold text-dark mt-1">

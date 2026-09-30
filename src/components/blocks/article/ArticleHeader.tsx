@@ -14,7 +14,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
       <div className="max-w-3xl space-y-7">
         <div
           data-reveal
-          className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand"
+          className="font-sans font-semibold text-brand"
         >
           {article.eyebrow}
         </div>
@@ -24,7 +24,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
           text={article.title}
           baseDelay={120}
           style={{ lineHeight: 1.04 }}
-          className="font-serif text-[clamp(32px,4.2vw,52px)] font-normal tracking-[-0.015em] text-dark"
+          className="font-sans text-[clamp(32px,4.2vw,52px)] font-normal tracking-[-0.015em] text-dark"
         />
 
         <p

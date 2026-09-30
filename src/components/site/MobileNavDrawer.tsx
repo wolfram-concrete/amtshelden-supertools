@@ -111,11 +111,11 @@ export function MobileNavDrawer() {
           <section className="px-5 py-6 border-b border-border bg-cream/40">
             <div className="flex items-center gap-2 mb-3">
               <Mail size={14} className="text-brand" aria-hidden />
-              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+              <span className="font-sans font-semibold text-brand">
                 Newsletter
               </span>
             </div>
-            <h2 className="font-serif text-[20px] font-normal leading-[1.2] text-dark mb-3">
+            <h2 className="font-sans text-[20px] font-normal leading-[1.2] text-dark mb-3">
               1× pro Woche das Wichtigste.
             </h2>
 

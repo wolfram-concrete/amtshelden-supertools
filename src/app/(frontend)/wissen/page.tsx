@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { RevealHeading } from "@/components/motion/RevealHeading";
@@ -17,42 +16,25 @@ export default function WissenIndexPage() {
 
   return (
     <>
-      {/* HERO — immersiv, analog zur Startseite */}
-      <section className="bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 pt-4 lg:pt-6 pb-8 lg:pb-12">
-          <div className="relative flex items-center overflow-hidden rounded-3xl min-h-[560px] lg:min-h-[720px]">
-            <Image
-              src="/brand/Images/magnific_open-office-inside-a-germ_UyKJgh9wny.jpg"
-              alt="Mitarbeitende in einem Verwaltungsbüro bei der Arbeit"
-              fill
-              sizes="(min-width: 1024px) 1200px, 100vw"
-              className="object-cover"
-              priority
+      {/* HERO — plakativ, ohne Foto */}
+      <section className="bg-white">
+        <div className="container mx-auto px-6 lg:px-10 pt-16 pb-8 lg:pt-24 lg:pb-12">
+          <div className="max-w-3xl">
+            <RevealHeading
+              as="h1"
+              text="Wissen, das bei der Auswahl hilft."
+              baseDelay={120}
+              className="font-sans font-bold text-[clamp(36px,5.5vw,64px)] leading-[1.04] tracking-[-0.03em] text-dark"
             />
-            <div aria-hidden className="absolute inset-0 bg-black/15" />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"
-            />
-            <div className="relative z-10 max-w-xl p-7 sm:p-10 lg:p-12">
-              <RevealHeading
-                as="h1"
-                text="Wissen, das bei der Auswahl hilft."
-                baseDelay={120}
-                style={{ lineHeight: 1.05 }}
-                className="font-serif text-[clamp(32px,4.4vw,56px)] font-normal tracking-tight text-white"
-              />
-              <p
-                data-reveal
-                style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-                className="mt-5 font-sans text-[16px] lg:text-[18px] leading-[1.6] text-white/85"
-              >
-                Einordnungen, Leitfäden und Auswahlfragen rund um Software für
-                die Verwaltung — damit Sie vor der Entscheidung die richtigen
-                Fragen stellen. Geschrieben von Menschen, die aus der Verwaltung
-                kommen.
-              </p>
-            </div>
+            <p
+              data-reveal
+              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+              className="mt-5 max-w-2xl font-sans text-[18px] lg:text-[20px] leading-[1.55] text-mid"
+            >
+              Einordnungen, Leitfäden und Auswahlfragen rund um Software für die
+              Verwaltung — damit Sie vor der Entscheidung die richtigen Fragen
+              stellen. Geschrieben von Menschen, die aus der Verwaltung kommen.
+            </p>
           </div>
         </div>
       </section>

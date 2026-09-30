@@ -56,7 +56,7 @@ export function ProductShots({
                     Produkt-Oberfläche
                   </span>
                   {domain && (
-                    <span className="truncate font-mono text-[10px] text-soft">
+                    <span className="truncate font-sans text-[10px] text-soft">
                       {domain}
                     </span>
                   )}

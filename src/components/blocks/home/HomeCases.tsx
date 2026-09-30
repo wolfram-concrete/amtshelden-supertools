@@ -104,10 +104,10 @@ function ToolChip({ tool }: { tool: CaseTool }) {
         )}
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-brand">
+        <span className="block font-sans font-semibold text-brand">
           Passend im Verzeichnis
         </span>
-        <span className="block truncate font-serif text-[16px] font-normal text-dark transition-colors group-hover:text-brand-dark">
+        <span className="block truncate font-sans text-[16px] font-normal text-dark transition-colors group-hover:text-brand-dark">
           {tool.name}
         </span>
       </span>
@@ -136,7 +136,7 @@ export function HomeCases({ title, lead }: HomeCasesProps) {
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-serif text-[clamp(28px,3.4vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans text-[clamp(28px,3.4vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           {lead && (
             <p
@@ -157,16 +157,16 @@ export function HomeCases({ title, lead }: HomeCasesProps) {
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
               className="flex flex-col rounded-2xl border border-border bg-white p-6"
             >
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-brand">
+              <div className="font-sans font-semibold text-brand">
                 {c.kategorie}
               </div>
-              <h3 className="mt-3 font-serif text-[20px] font-normal leading-[1.25] text-dark">
+              <h3 className="mt-3 font-sans text-[20px] font-normal leading-[1.25] text-dark">
                 {c.ausgangslage}
               </h3>
 
               <div className="mt-4 space-y-3">
                 <div>
-                  <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-soft">
+                  <div className="font-sans font-semibold text-soft">
                     Was Software leistet
                   </div>
                   <p className="mt-1 font-sans text-[13.5px] leading-[1.55] text-mid">
@@ -174,7 +174,7 @@ export function HomeCases({ title, lead }: HomeCasesProps) {
                   </p>
                 </div>
                 <div>
-                  <div className="font-mono text-[10.5px] font-bold uppercase tracking-[0.1em] text-soft">
+                  <div className="font-sans font-semibold text-soft">
                     Vorab klären
                   </div>
                   <p className="mt-1 font-sans text-[13.5px] leading-[1.55] text-mid">

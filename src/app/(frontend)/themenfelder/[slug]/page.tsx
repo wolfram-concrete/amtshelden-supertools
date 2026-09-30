@@ -52,13 +52,13 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
             >
               {tf.icon && <BrandIcon name={tf.icon} size={22} />}
             </span>
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+            <div className="font-sans font-semibold text-brand">
               Themenfeld · {cats.length}{" "}
               {cats.length === 1 ? "Kategorie" : "Kategorien"}
             </div>
           </div>
 
-          <h1 className="font-serif text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.0] tracking-tight text-dark">
+          <h1 className="font-sans text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.0] tracking-tight text-dark">
             {tf.name}
           </h1>
 
@@ -79,7 +79,7 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
           />
         ) : (
           <div className="rounded-2xl border border-dashed border-border bg-cream p-12 text-center">
-            <p className="font-serif text-[20px] font-normal text-dark">
+            <p className="font-sans text-[20px] font-normal text-dark">
               Dieses Themenfeld wird gerade aufgebaut
             </p>
             <p className="font-sans text-[14px] text-soft mt-2">

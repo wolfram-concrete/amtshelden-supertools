@@ -63,7 +63,7 @@ export function ArticleCard({
 
       <div className={cn("space-y-3", isLead && "lg:order-1")}>
         <Link href={`/wissen/${article.slug}`} className="block space-y-3">
-          <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+          <div className="flex items-center gap-2 font-sans font-semibold text-brand">
             {topicIcon && (
               <BrandIcon name={topicIcon} size={14} className="text-brand" />
             )}
@@ -72,7 +72,7 @@ export function ArticleCard({
 
           <h3
             className={cn(
-              "font-serif font-normal text-dark group-hover:text-brand-dark transition-colors",
+              "font-sans font-normal text-dark group-hover:text-brand-dark transition-colors",
               isLead
                 ? "text-[clamp(28px,3.5vw,42px)] leading-[1.05]"
                 : isCompact

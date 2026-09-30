@@ -70,7 +70,7 @@ export function ToolTeaser({
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-serif text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
           />
           {lead && (
             <p
@@ -125,10 +125,10 @@ export function ToolTeaser({
                   />
                 </div>
 
-                <div className="mt-3 line-clamp-1 font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-brand">
+                <div className="mt-3 line-clamp-1 font-sans font-semibold text-brand">
                   {tool.categoryLabel}
                 </div>
-                <h3 className="mt-1 font-serif text-[16px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
+                <h3 className="mt-1 font-sans text-[16px] font-normal leading-[1.2] text-dark transition-colors group-hover:text-brand-dark">
                   {tool.name}
                 </h3>
                 <p className="mt-1.5 line-clamp-3 font-sans text-[12.5px] leading-[1.5] text-mid">

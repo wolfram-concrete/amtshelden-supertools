@@ -135,10 +135,10 @@ function SidebarNewArrivals() {
 function SidebarNewsletterCompact() {
   return (
     <div className="rounded-xl bg-brand-dark text-white p-5 space-y-3">
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/85">
+      <div className="font-sans font-semibold text-white/85">
         Newsletter
       </div>
-      <h3 className="font-serif text-[18px] font-normal leading-[1.2]">
+      <h3 className="font-sans text-[18px] font-normal leading-[1.2]">
         1× pro Woche das Wichtigste.
       </h3>
       <p className="font-sans text-[12px] leading-[1.55] text-white/70">
@@ -173,7 +173,7 @@ function Widget({
         className,
       )}
     >
-      <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-soft mb-3 pb-2 border-b border-border">
+      <div className="font-sans font-semibold text-soft mb-3 pb-2 border-b border-border">
         {label}
       </div>
       {children}

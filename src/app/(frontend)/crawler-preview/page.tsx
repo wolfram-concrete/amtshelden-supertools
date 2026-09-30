@@ -161,7 +161,7 @@ function ResourceLink({ piece }: { piece: CrawlerToolContentPiece }) {
     >
       <ResourceIcon kind={piece.kind} />
       <span className="min-w-0 truncate">
-        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-brand">
+        <span className="font-sans font-semibold text-brand">
           {contentLabels[piece.kind]}
         </span>
         <span className="mx-1 text-brand/45" aria-hidden>
@@ -220,10 +220,10 @@ export default function CrawlerPreviewPage() {
   return (
     <div className="container mx-auto px-6 py-10 lg:px-10 lg:py-14">
       <header className="mb-10 border-b border-border pb-8">
-        <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
+        <div className="font-sans font-semibold text-brand">
           Interne Vorschau · Arbeitsliste
         </div>
-        <h1 className="mt-3 font-serif text-[clamp(32px,5vw,56px)] font-normal leading-[1.05] text-dark">
+        <h1 className="mt-3 font-sans text-[clamp(32px,5vw,56px)] font-normal leading-[1.05] text-dark">
           Verzeichnis-Preview
         </h1>
         <p className="mt-4 max-w-3xl font-sans text-[16px] leading-[1.7] text-mid">
@@ -256,10 +256,10 @@ export default function CrawlerPreviewPage() {
                   <ToolLogo slug={tool.slug} name={tool.name} mark={tool.mark} markBg={tool.markBg} />
 
                   <div className="min-w-0">
-                    <h2 className="font-serif text-[22px] font-normal leading-tight text-dark lg:text-[25px]">
+                    <h2 className="font-sans text-[22px] font-normal leading-tight text-dark lg:text-[25px]">
                       {tool.name}
                     </h2>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-soft">
+                    <div className="mt-1 font-sans font-semibold text-soft">
                       {tool.provider}
                     </div>
                     <p className="mt-2.5 max-w-3xl font-sans text-[15px] leading-[1.6] text-mid">
@@ -276,10 +276,10 @@ export default function CrawlerPreviewPage() {
 
                 <div className="flex flex-shrink-0 items-end justify-between gap-4 border-t border-border pt-4 sm:w-[220px] sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
                   <div className="sm:text-right">
-                    <div className="font-serif text-[20px] font-normal leading-none text-dark">
+                    <div className="font-sans text-[20px] font-normal leading-none text-dark">
                       {tool.facts.price || "auf Anfrage"}
                     </div>
-                    <div className="mt-1.5 font-mono text-[11.5px] uppercase tracking-[0.08em] text-soft">
+                    <div className="mt-1.5 font-sans font-semibold text-soft">
                       {[tool.facts.operation, tool.facts.setup].filter(Boolean).join(" · ")}
                     </div>
                     {tool.lastCheckedAt && (
@@ -300,7 +300,7 @@ export default function CrawlerPreviewPage() {
 
               {resources.length > 0 && (
                 <div className="mt-5 border-t border-border pt-4">
-                  <div className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-soft">
+                  <div className="mb-2 font-sans font-semibold text-soft">
                     Zusatzmaterial
                   </div>
                   <div className="flex flex-wrap gap-2">

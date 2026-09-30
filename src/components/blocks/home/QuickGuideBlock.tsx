@@ -23,7 +23,7 @@ export function QuickGuideBlock({
         <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.08] tracking-tight text-dark">
+        <h2 className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.08] tracking-tight text-dark">
           {title}
         </h2>
         <p className="font-sans text-[15px] leading-[1.65] text-mid">{lead}</p>
@@ -35,10 +35,10 @@ export function QuickGuideBlock({
             key={step.number}
             className="flex flex-col rounded-2xl bg-white p-6"
           >
-            <span className="font-serif text-[36px] font-normal leading-none text-brand">
+            <span className="font-sans text-[36px] font-normal leading-none text-brand">
               {step.number}
             </span>
-            <h3 className="mt-4 font-serif text-[18px] font-normal leading-[1.2] text-dark">
+            <h3 className="mt-4 font-sans text-[18px] font-normal leading-[1.2] text-dark">
               {step.title}
             </h3>
             <p className="mt-2 font-sans text-[13.5px] leading-[1.6] text-mid">
