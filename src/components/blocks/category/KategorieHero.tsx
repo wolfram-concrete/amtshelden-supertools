@@ -29,7 +29,7 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
             as="h1"
             text={category.name}
             baseDelay={120}
-            className="font-serif text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-sans font-bold text-[clamp(36px,5vw,64px)] leading-[1.04] tracking-[-0.03em] text-dark"
           />
 
           <p
@@ -62,15 +62,6 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
           )}
         </div>
       </div>
-
-      {/* Redaktioneller Intro — eine ganze Breite */}
-      {category.intro && (
-        <div className="mt-10 lg:mt-14 max-w-3xl border-l-2 border-brand pl-6 py-2">
-          <p className="font-serif text-[20px] leading-[1.55] italic text-dark">
-            {category.intro}
-          </p>
-        </div>
-      )}
     </header>
   );
 }

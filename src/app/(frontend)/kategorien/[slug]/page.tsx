@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChevronDown } from "lucide-react";
 
 import { KategorieHero } from "@/components/blocks/category/KategorieHero";
 import { KategorieEntscheidungBlock } from "@/components/blocks/category/KategorieEntscheidung";
 import { ToolFilters } from "@/components/blocks/category/ToolFilters";
-import { articleSummaries } from "@/mocks/articles";
 import { kategorieEntscheidung } from "@/data/kategorie-entscheidung";
 import {
   directoryCategories,
   directoryCategoryRegistry,
   directoryToolCardsByCategory,
 } from "@/data/directory";
-
-import { ArticleCard } from "@/components/cards/ArticleCard";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -43,32 +41,21 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
   const tools = directoryToolCardsByCategory[slug] || [];
   const kat = kategorieEntscheidung[slug];
-  const relatedArticles = articleSummaries
-    .filter((a) =>
-      a.tags?.some((tag) =>
-        category.topics?.some(
-          (t) => t.toLowerCase() === tag.toLowerCase(),
-        ),
-      ),
-    )
-    .slice(0, 3);
 
   return (
-    <>
-
+    <section className="bg-white">
       <KategorieHero category={category} toolCount={tools.length} />
 
-      {kat && <KategorieEntscheidungBlock data={kat} />}
-
-      <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-16">
-        <header className="mb-8 max-w-2xl space-y-2">
+      {/* Tools zuerst — plakativ, ohne Umweg (Christian-Call 30.09.) */}
+      <div className="container mx-auto px-6 lg:px-10 pb-12 lg:pb-16">
+        <header className="mb-8 max-w-2xl">
           <h2
             data-reveal
-            className="font-serif text-[clamp(24px,3vw,36px)] font-normal leading-[1.1] tracking-tight text-dark"
+            className="font-sans font-bold text-[clamp(24px,3vw,36px)] leading-[1.1] tracking-[-0.02em] text-dark"
           >
             {tools.length > 0
-              ? `${tools.length} Tools in dieser Kategorie`
-              : "Tools in dieser Kategorie"}
+              ? `${tools.length} Tools in diesem Bereich`
+              : "Tools in diesem Bereich"}
           </h2>
         </header>
 
@@ -76,8 +63,8 @@ export default async function KategorieDetailPage({ params }: PageProps) {
           <ToolFilters tools={tools} />
         ) : (
           <div className="rounded-2xl border border-dashed border-border bg-cream/50 p-8 text-center lg:p-12">
-            <div className="font-serif text-[22px] font-normal text-dark">
-              Diese Kategorie ist im Aufbau.
+            <div className="font-sans text-[22px] font-bold text-dark">
+              Dieser Bereich ist im Aufbau.
             </div>
             <p className="mx-auto mt-2 max-w-md font-sans text-[14.5px] leading-[1.6] text-mid">
               Wir nehmen Anbieter handverlesen auf. Sie kennen ein Tool, das hier
@@ -87,13 +74,13 @@ export default async function KategorieDetailPage({ params }: PageProps) {
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               <Link
                 href="/vorschlagen"
-                className="inline-flex items-center rounded-xl bg-brand-dark px-5 py-2.5 font-ui text-[13px] font-semibold text-white transition-colors hover:bg-brand"
+                className="inline-flex items-center rounded-xl bg-brand px-5 py-2.5 font-sans text-[13px] font-bold text-white transition-colors hover:bg-brand-dark"
               >
                 Tool vorschlagen
               </Link>
               <Link
                 href="/kontakt"
-                className="inline-flex items-center rounded-xl border border-border bg-white px-5 py-2.5 font-ui text-[13px] font-semibold text-dark transition-colors hover:border-brand hover:text-brand-dark"
+                className="inline-flex items-center rounded-xl border border-border bg-white px-5 py-2.5 font-sans text-[13px] font-semibold text-dark transition-colors hover:border-brand hover:text-brand-dark"
               >
                 Praxisfall melden
               </Link>
@@ -102,31 +89,23 @@ export default async function KategorieDetailPage({ params }: PageProps) {
         )}
       </div>
 
-      {/* Verwandte Wissensartikel */}
-      {relatedArticles.length > 0 && (
-        <section className="bg-cream/50 mt-12">
-          <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-            <header className="border-t border-border pt-8 max-w-2xl space-y-3 mb-12">
-              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-brand">
-                Wissensbereich
-              </div>
-              <h2 className="font-serif text-[clamp(28px,3.5vw,40px)] font-normal leading-[1.1] tracking-tight text-dark">
-                Lesenswert für diese Kategorie
-              </h2>
-            </header>
-
-            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-              {relatedArticles.map((article) => (
-                <ArticleCard
-                  key={article.slug}
-                  article={article}
-                  variant="list"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Entscheidungshilfe — einklappbar UNTER den Tools (Christian-Call 30.09.) */}
+      {kat && (
+        <details className="group border-t border-border">
+          <summary className="container mx-auto flex cursor-pointer list-none items-center justify-between gap-4 px-6 lg:px-10 py-6 font-sans text-[17px] font-semibold text-dark [&::-webkit-details-marker]:hidden hover:text-brand-dark">
+            <span>
+              Entscheidungshilfe: Wann lohnt sich Software in diesem Bereich — und
+              was sollten Sie vorab klären?
+            </span>
+            <ChevronDown
+              size={20}
+              className="flex-shrink-0 text-soft transition-transform group-open:rotate-180"
+              aria-hidden
+            />
+          </summary>
+          <KategorieEntscheidungBlock data={kat} />
+        </details>
       )}
-    </>
+    </section>
   );
 }

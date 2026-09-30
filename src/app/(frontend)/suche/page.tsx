@@ -18,19 +18,19 @@ export default async function SuchePage({ searchParams }: PageProps) {
   const { q = "" } = await searchParams;
 
   return (
-    <>
+    <section className="bg-white">
       <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-16 pb-6 lg:pb-8">
         <div className="max-w-2xl">
           <RevealHeading
             as="h1"
             text="Software für Ihre Aufgabe finden."
             baseDelay={40}
-            className="mt-3 font-serif text-[clamp(32px,4.4vw,56px)] font-normal leading-[1.04] tracking-tight text-dark"
+            className="font-sans font-bold text-[clamp(30px,4.4vw,52px)] leading-[1.05] tracking-[-0.02em] text-dark"
           />
           <p
             data-reveal
             style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-            className="mt-4 font-sans text-[17px] leading-[1.7] text-mid"
+            className="mt-4 font-sans text-[17px] leading-[1.6] text-mid"
           >
             {q ? (
               <>
@@ -48,6 +48,6 @@ export default async function SuchePage({ searchParams }: PageProps) {
       <div className="container mx-auto px-6 lg:px-10 pb-12 lg:pb-16">
         <ToolFilters key={q} tools={directoryToolCards} initialSearch={q} />
       </div>
-    </>
+    </section>
   );
 }
