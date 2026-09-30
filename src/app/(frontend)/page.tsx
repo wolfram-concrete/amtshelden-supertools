@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
+import { CategoryTiles } from "@/components/blocks/home/CategoryTiles";
 import { HeroSearch } from "@/components/blocks/home/HeroSearch";
 import { directoryCategories } from "@/data/directory";
 
@@ -11,21 +11,25 @@ export const metadata: Metadata = {
 };
 
 /**
- * Startseite — radikal funktional (Christian-Call 30.09.2026, Airbnb-Standard):
- * eine Such-Maske, die sofort in den Nutzen führt, und darunter die konkreten
- * Kategorien zum Stöbern. Bewusst nichts weiter — kein Magazin, keine
- * Community, keine Themenfeld-Struktur, keine emotionalen Ablenkungen. Diese
- * Inhalte bleiben auf ihren Unterseiten erreichbar.
+ * Startseite — radikal funktional & plakativ (Christian-Call 30.09.2026,
+ * Airbnb-DNA): eine Such-Maske, die sofort in den Nutzen führt, darunter die
+ * konkreten Bereiche als große farbige Kacheln. Bewusst nichts weiter — kein
+ * Magazin, keine Community, keine emotionalen Ablenkungen. Leere Kategorien
+ * (0 Tools) sind ausgeblendet.
  */
 export default function HomePage() {
+  const populatedCategories = directoryCategories.filter(
+    (c) => (c.toolCount ?? 0) > 0,
+  );
+
   return (
     <>
       <HeroSearch />
 
-      <CategoryMagazine
-        title="Wählen Sie Ihren Aufgabenbereich."
-        description="Konkrete Software-Kategorien für die Verwaltung — von E-Akte über Bürgerservice bis Personal. Jede Kategorie führt direkt zu den passenden Produkten."
-        categories={directoryCategories}
+      <CategoryTiles
+        title="Wählen Sie Ihren Bereich."
+        description="Konkrete Software-Bereiche für die Verwaltung — ein Klick zu den passenden Tools."
+        categories={populatedCategories}
       />
     </>
   );
