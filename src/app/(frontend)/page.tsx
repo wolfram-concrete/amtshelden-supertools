@@ -1,154 +1,32 @@
 import type { Metadata } from "next";
 
-import { AboutBlock } from "@/components/blocks/home/AboutBlock";
-import { AmtsheldenFeed } from "@/components/blocks/home/AmtsheldenFeed";
 import { CategoryMagazine } from "@/components/blocks/home/CategoryMagazine";
-import { FokusTool } from "@/components/blocks/home/FokusTool";
-import { HomeCases } from "@/components/blocks/home/HomeCases";
-import { EditorialFeatureStory } from "@/components/blocks/home/EditorialFeatureStory";
-import { ToolTeaser } from "@/components/blocks/home/ToolTeaser";
-import { HeroImmersive } from "@/components/blocks/home/HeroImmersive";
-import { NewsletterCta } from "@/components/blocks/home/NewsletterCta";
-import { ThemenClusterBlock } from "@/components/blocks/home/ThemenClusterBlock";
-import { ThemenfeldGrid } from "@/components/blocks/home/ThemenfeldGrid";
-import { articleRegistry, articleSummaries } from "@/mocks/articles";
+import { HeroSearch } from "@/components/blocks/home/HeroSearch";
 import { directoryCategories } from "@/data/directory";
-import { methodSteps } from "@/mocks/stats";
-import { themenfelder } from "@/mocks/themenfelder";
 
 export const metadata: Metadata = {
   title: "Software für die digitale Verwaltung — Amtshelden Supertools",
   description:
-    "Handverlesene Software für Behörden. Kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Tool-Finder, redaktionelle Schwerpunkte zu Digitalisierung Deutschland, Kommunen, Vergabe.",
+    "Handverlesene Software für Behörden. Suchen Sie nach Aufgabe, Tool-Art oder Anbieter — kuratiert, ehrlich, aus Behördenperspektive eingeordnet. Kein Ranking, keine Sterne.",
 };
 
+/**
+ * Startseite — radikal funktional (Christian-Call 30.09.2026, Airbnb-Standard):
+ * eine Such-Maske, die sofort in den Nutzen führt, und darunter die konkreten
+ * Kategorien zum Stöbern. Bewusst nichts weiter — kein Magazin, keine
+ * Community, keine Themenfeld-Struktur, keine emotionalen Ablenkungen. Diese
+ * Inhalte bleiben auf ihren Unterseiten erreichbar.
+ */
 export default function HomePage() {
-  // Featured Editorial Story — der Bund-Schwerpunkt prominent
-  const featuredStory =
-    articleSummaries.find((a) => a.slug === "digitalisierung-bund-2030") ||
-    articleSummaries[0];
-
-  // Themen-Cluster für die Schwerpunkte-Section
-  const themenCluster = [
-    {
-      eyebrow: "Digitalisierung Deutschland",
-      title: "Was der Bund vorgibt — und was kommunal funktioniert.",
-      lead: "Strategien, Förderprogramme, OZG-Folgenutzen. Wir ordnen ein, was auf der kommunalen Ebene wirklich greift.",
-      articles: [
-        articleRegistry["digitalisierung-bund-2030"],
-        articleRegistry["ozg-e-akte"],
-        articleRegistry["vergabe-software"],
-      ].filter(Boolean),
-    },
-    {
-      eyebrow: "Behörden im Wandel",
-      title: "Drei Realitäten, die jede Software-Strategie vergisst.",
-      lead: "Wir sprechen mit Bürgermeisterinnen, Hauptamtsleitern und Kämmerinnen — und dokumentieren, was im Tagesgeschäft tatsächlich entscheidet.",
-      articles: [
-        articleRegistry["kommunen-realer-stand"],
-        articleRegistry["doppik-stolpersteine"],
-        articleRegistry["e-akte-einfuehrung"],
-      ].filter(Boolean),
-    },
-    {
-      eyebrow: "Methodik & Haltung",
-      title: "Warum wir nicht ranken — und was wir stattdessen tun.",
-      lead: "Behörden-Software lässt sich nicht in Sternen messen. Wir erklären unsere redaktionellen Grundsätze und warum sie für Verwaltungen relevanter sind.",
-      articles: [
-        articleRegistry["warum-kein-ranking"],
-        articleRegistry["vergabe-software"],
-      ].filter(Boolean),
-    },
-  ];
-
   return (
     <>
-      {/* ── HERO — Behördenalltag-Motiv + Suche-first-Panel ── */}
-      <HeroImmersive
-        title="Die passende Software für Ihre Verwaltung."
-        lead="Suchen Sie nach Aufgabe, Tool-Art oder Anbieter — vom Projektmanagement bis zur E-Akte. Wir zeigen passende Produkte und ordnen ein, was öffentlich auffindbar ist und was fehlt."
-        badges={["Aus Behördenperspektive", "DSGVO transparent"]}
-      />
+      <HeroSearch />
 
-      {/* ── 1 · KATEGORIEN (konkrete Bereiche direkt unter dem Hero —
-             „Findet jemand in Sekunden den Bereich, den er sucht?") ── */}
       <CategoryMagazine
-        eyebrow="Nach Bereich finden"
         title="Wählen Sie Ihren Aufgabenbereich."
         description="Konkrete Software-Kategorien für die Verwaltung — von E-Akte über Bürgerservice bis Personal. Jede Kategorie führt direkt zu den passenden Produkten."
         categories={directoryCategories}
       />
-
-      {/* ── 2 · ANWENDUNGSBEISPIELE (Problem → Software-Art → passender Anbieter) ── */}
-      <HomeCases
-        eyebrow="Anwendungsbeispiele"
-        title="Vom Problem zur passenden Software."
-        lead="Drei typische Ausgangslagen aus der Verwaltung — und ein Anbieter aus dem Verzeichnis, der genau dieses Feld adressiert. So sehen Sie konkret, was Supertools bringt."
-      />
-
-      {/* ── 3 · TOOL IM FOKUS (ein echtes, freigegebenes Tool — ehrlich eingeordnet) ── */}
-      <FokusTool
-        eyebrow="Tool im Fokus"
-        title="Eye-Able — digitale Barrierefreiheit für die Verwaltung."
-        slug="eye-able-web-inclusion-gmbh"
-        was="Eye-Able ist ein deutscher Anbieter aus Würzburg für digitale Barrierefreiheit — Werkzeuge, die Webauftritte für alle Nutzer:innen zugänglicher machen."
-        einordnung="Öffentliche Stellen sind verpflichtet, ihre Webangebote barrierefrei zu gestalten (BITV 2.0). Genau dieses Feld adressiert das Produkt — DSGVO-konform, Server in Deutschland."
-      />
-
-      {/* ── 4 · TOOL-TEASER (konkrete freigegebene Produkte mit Logo) ── */}
-      <ToolTeaser
-        eyebrow="Frisch im Verzeichnis"
-        title="Fünf Tools, quer durch die Bereiche."
-        lead="Kuratierte Anbieter aus dem Verzeichnis — je ein Beispiel aus mehreren Bereichen. Profile werden laufend ausgebaut, kein Ranking."
-        exclude={["eye-able-web-inclusion-gmbh"]}
-      />
-
-      {/* ── 5 · THEMENFELDER (kuratierte Struktur dahinter — sekundär) ── */}
-      <ThemenfeldGrid
-        eyebrow="Struktur dahinter"
-        title="Oder entlang der vier Themenfelder."
-        description="Wer lieber über die kuratierte Struktur einsteigt: Vier Themenfelder aus der Arbeit von Amtshelden bündeln die Bereiche thematisch — für den Überblick, wenn die konkrete Kategorie noch nicht feststeht."
-        themenfelder={themenfelder}
-      />
-
-      {/* ── 6 · MAGAZIN: Redaktionelle Schwerpunkte (radialer Stone-Slab) ── */}
-      <section className="bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-6 lg:py-10">
-          <div className="rounded-[2.5rem] bg-stone">
-            <EditorialFeatureStory article={featuredStory} background="white" />
-            <ThemenClusterBlock
-              sectionEyebrow="Redaktionelle Schwerpunkte"
-              sectionTitle="Was diese Woche zählt — in der Tiefe."
-              clusters={themenCluster}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7 · METHODIK + HALTUNG (zusammengeführt) + Mitmachen-CTAs ── */}
-      <AboutBlock
-        eyebrow="Methodik & Profilstufen"
-        title="Wir vergleichen nicht. Wir ordnen ein."
-        lead="Capterra hat Sterne, OMR Reviews hat Sterne. Wir nicht — und das ist Absicht. Behörden-Software lässt sich nicht in Punkten messen. Statt eines Urteils zeigen wir Einordnung, Quellen und offene Fragen — in vier klar gekennzeichneten Profilstufen. Nicht jedes Profil ist gleich tief, aber jede Tiefe ist sichtbar."
-        image={{
-          url: "/brand/amtshelden-gruender.jpg",
-          alt: "Julia und Christian, Gründungsteam von Amtshelden",
-        }}
-        principles={methodSteps.map((s) => ({ title: s.title, body: s.body }))}
-        overlapPrev
-      />
-
-      {/* ── 9 · AMTSHELDEN-COMMUNITY (Trust: Social-Proof + Follow) ── */}
-      <AmtsheldenFeed />
-
-      {/* ── NEWSLETTER ── */}
-      <div id="newsletter">
-        <NewsletterCta
-          eyebrow="Newsletter · Diese Woche im Verzeichnis"
-          title="Was neu ist, was aktualisiert wurde — und welche Frage Sie stellen sollten."
-          description="Neue Profile, aktualisierte Angaben, ein konkretes Behörden-Problem der Woche und die passende Auswahlfrage. Aus dem Verzeichnis heraus — kein allgemeiner Digitalisierungs-Newsletter."
-        />
-      </div>
     </>
   );
 }
