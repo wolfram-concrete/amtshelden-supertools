@@ -35,7 +35,7 @@ export function ProfilCta({
         <div className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-white/80">
           {eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight whitespace-pre-line">
+        <h2 className="font-sans font-bold text-[clamp(28px,3.5vw,42px)] leading-[1.02] tracking-[-0.02em] whitespace-pre-line">
           {title}
         </h2>
         <p className="font-sans text-[16px] leading-[1.7] text-white/85">

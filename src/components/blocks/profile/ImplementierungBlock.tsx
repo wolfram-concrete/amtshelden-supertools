@@ -35,7 +35,7 @@ export function ImplementierungBlock({
               <div className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-brand">
                 {tile.label}
               </div>
-              <div className="font-serif text-[28px] font-normal leading-tight text-dark">
+              <div className="font-sans text-[28px] font-normal leading-tight text-dark">
                 {tile.value}
               </div>
               <div className="font-ui text-[12px] leading-[1.5] text-soft">
@@ -63,7 +63,7 @@ export function ImplementierungBlock({
               <div className="w-1 flex-shrink-0 bg-brand" aria-hidden />
               <div className="flex-1 p-5 space-y-2">
                 <div className="flex items-start justify-between gap-4">
-                  <div className="font-serif text-[17px] font-normal leading-[1.35] text-dark">
+                  <div className="font-sans text-[17px] font-normal leading-[1.35] text-dark">
                     {sol.challenge}
                   </div>
                   {sol.status && (

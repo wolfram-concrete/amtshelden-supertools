@@ -81,7 +81,7 @@ function RelatedToolCard({ tool }: { tool: ToolCardSummary }) {
       <div className="mt-5 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-brand">
         {tool.categoryLabel}
       </div>
-      <h2 className="mt-1 font-serif text-[21px] font-normal leading-[1.1] text-dark transition-colors group-hover:text-brand-dark">
+      <h2 className="mt-1 font-sans text-[21px] font-normal leading-[1.1] text-dark transition-colors group-hover:text-brand-dark">
         {tool.name}
       </h2>
       <p className="mt-2 line-clamp-3 font-sans text-[13.5px] leading-[1.6] text-mid">
@@ -139,7 +139,7 @@ export function RelatedToolsGallery({
                 as="h2"
                 text="Weiter im Verzeichnis"
                 baseDelay={120}
-                className="font-serif text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+                className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
               />
               <p
                 data-reveal

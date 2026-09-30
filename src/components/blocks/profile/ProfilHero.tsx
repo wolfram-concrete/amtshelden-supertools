@@ -72,7 +72,7 @@ export function ProfilHero({
         as="h1"
         text={title}
         baseDelay={120}
-        className="font-serif font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark"
+        className="font-sans font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark"
       />
 
       {/* Lead */}
@@ -168,7 +168,7 @@ export function ProfilHero({
         <div className="font-sans text-[12px] font-semibold text-brand mb-2">
           Amtshelden-Urteil
         </div>
-        <p className="font-serif text-[20px] font-normal leading-[1.5] italic text-dark">
+        <p className="font-sans text-[20px] font-normal leading-[1.5] italic text-dark">
           {renderInline(urteil)}
         </p>
       </aside>
@@ -176,7 +176,7 @@ export function ProfilHero({
       {/* Pull Quote — menschliche Stimme früh */}
       {pullQuote && (
         <blockquote className="bg-cream/60 border border-border rounded-xl px-6 py-5">
-          <p className="font-serif text-[22px] font-normal leading-tight italic text-dark">
+          <p className="font-sans text-[22px] font-normal leading-tight italic text-dark">
             „{pullQuote.text}"
           </p>
           <footer className="mt-3 font-ui text-[12px] text-soft">

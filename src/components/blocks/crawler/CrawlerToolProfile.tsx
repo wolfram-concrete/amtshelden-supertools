@@ -162,7 +162,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                   triggerClassName="-mr-0.5 flex h-4 w-4 items-center justify-center rounded-full text-accent-ink/55 transition-colors hover:text-accent-ink"
                 />
               </span>
-              <h1 className="mt-2 font-serif text-[clamp(30px,4vw,46px)] font-normal leading-[1.05] tracking-tight text-dark">
+              <h1 className="mt-2 font-sans font-bold text-[clamp(30px,4vw,46px)] leading-[1.05] tracking-[-0.02em] text-dark">
                 {tool.name}
               </h1>
               <div className="mt-1.5 font-sans text-[12px] text-soft">
@@ -345,7 +345,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                 <MapPin size={12} aria-hidden />
                 Verfügbarkeit
               </div>
-              <div className="font-serif text-[18px] font-normal leading-tight text-dark">
+              <div className="font-sans text-[18px] font-normal leading-tight text-dark">
                 {availability.label.charAt(0).toUpperCase() +
                   availability.label.slice(1)}
                 {availability.regions.length > 0 && (
@@ -366,7 +366,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           {/* Facts + Compliance */}
           <div className="rounded-2xl border border-border bg-white p-5">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <div className="font-serif text-[22px] font-normal leading-none text-dark">
+              <div className="font-sans text-[22px] font-normal leading-none text-dark">
                 {tool.facts.price || "auf Anfrage"}
               </div>
               {tool.lastCheckedAt && <GeprueftBadge date={tool.lastCheckedAt} />}
