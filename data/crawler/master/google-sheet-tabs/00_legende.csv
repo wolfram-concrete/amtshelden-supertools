@@ -1,0 +1,6 @@
+﻿tab,was_ist_das,was_passiert_damit
+01_Fuellhoerner,"Fundorte und Suchraeume: Messen, Konferenzen, Plattformen, Verbaende, Suchbegriffe und Jahrgaenge.",Hier beginnt die breite Discovery. Aus diesen Quellen werden moegliche Anbieter gefunden.
+02_Discovery_Inbox,"Konkrete Anbieter-Kandidaten, die aus Fuellhoernern, Empfehlungen oder manuellen Hinweisen stammen.","Diese Kandidaten werden dedupliziert, leicht vorqualifiziert und fuer gezielten Anbieter-Crawl priorisiert."
+03_Master_Qualifizierung,"Enger gepruefte Kandidaten mit Kriterien, Quellen, Verfuegbarkeit, Bodycopy und Screenshot-Pfaden.","Aus dieser Liste entstehen bessere Profile, Nachrecherche-Aufgaben und spaetere Website-/CMS-Freigaben."
+04_Review_Historie,"Kandidaten, die abgelehnt, unsicher oder technisch blockiert sind.","Diese Eintraege dienen als Begruendung, Warnliste und spaetere Re-Check-Liste."
+05_Website_Datenbasis,"Alle Tools, die aktuell als breite Website-Datenbasis fuer Prototyp, Verzeichnis und Darstellung dienen.","Keine finale Qualitaetsfreigabe, sondern aktuelle Ausspielungs-/Datenbasis fuer die Website."

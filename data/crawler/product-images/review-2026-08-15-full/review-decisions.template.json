@@ -1,0 +1,657 @@
+{
+  "status": "editorial_image_review_required",
+  "tools": {
+    "eye-able-web-inclusion-gmbh": {
+      "images": [
+        {
+          "candidate": "eye-able-web-inclusion-gmbh/candidate-01.jpg",
+          "source_url": "https://a2.storyblok.com/f/259811/2156x1144/37879bf91c/dashboard_en.png/m/1920x0/filters:quality(70):no_upscale()",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "facelift-cloud-gmbh": {
+      "images": [
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-01.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Amplify.png?width=1492&height=1085&name=Product_Amplify.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-02.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Analyze.png?width=1494&height=1094&name=Product_Analyze.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-03.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Engage.png?width=1538&height=1052&name=Product_Engage.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-04.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Orchestrate.png?width=1506&height=1064&name=Product_Orchestrate.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-05.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Amplify_Branch_Network_Locations.png?width=1498&height=1040&name=Amplify_Branch_Network_Locations.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "stage-stagelink-staffbase-familie": {
+      "images": [
+        {
+          "candidate": "stage-stagelink-staffbase-familie/candidate-01.jpg",
+          "source_url": "https://staffbase.com/f/e02207339dd64d27/1328x1328-homepage-intranet-de-2025-09-15v2.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stage-stagelink-staffbase-familie/candidate-02.jpg",
+          "source_url": "https://staffbase.com/f/e9857f702842fe08/1328x1328-homepage-email-de-2025-09-15v2.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stage-stagelink-staffbase-familie/candidate-03.jpg",
+          "source_url": "https://staffbase.com/f/f162dbbeca7bfbd9/1328x1328-app_de_2025_09_24.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stage-stagelink-staffbase-familie/candidate-04.jpg",
+          "source_url": "https://staffbase.com/f/ab480fead4bb1fe8/2736x1539-shared-news-de.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stage-stagelink-staffbase-familie/candidate-05.jpg",
+          "source_url": "https://staffbase.com/f/37e82a2ec0498aa9/1003x715-youtube-personal-data-collected.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "haiilo-gmbh": {
+      "images": [
+        {
+          "candidate": "haiilo-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/698dce64b0fee67aeca65f51/69a1c92145412ec5cd999a0a_advocacy%20image.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haiilo-gmbh/candidate-02.jpg",
+          "source_url": "https://cdn.prod.website-files.com/698dce64b0fee67aeca65f51/69b3d94238517e8a8341581a_7335d9f66308a02b083ac0d6897f42f6_Search%20Container.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haiilo-gmbh/candidate-03.jpg",
+          "source_url": "https://cdn.prod.website-files.com/698dce64b0fee67aeca65f51/69a1be045eed21fc6f54087c_haiilo%20dashboard.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haiilo-gmbh/candidate-04.jpg",
+          "source_url": "https://cdn.prod.website-files.com/698df1ed7556a9989a305556/6a13200e0a3a73d9d6346217_illwerke%2Bvkw_Pressebild%2BMonteur%2BWasserkraft-1920w.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haiilo-gmbh/candidate-05.jpg",
+          "source_url": "https://cdn.prod.website-files.com/698df1ed7556a9989a305556/6a1320d6bb084731fef4f835_LBS%2BSu-d-1920w.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "swat-io-die-socialisten-gmbh": {
+      "images": [
+        {
+          "candidate": "swat-io-die-socialisten-gmbh/candidate-01.jpg",
+          "source_url": "https://swat.io/wp-content/uploads/2021/11/Swat.io-Mentor-1080x718.jpeg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "swat-io-die-socialisten-gmbh/candidate-02.jpg",
+          "source_url": "https://swat.io/wp-content/uploads/2024/07/Screens24_Album-DE-2160x1350.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "swat-io-die-socialisten-gmbh/candidate-03.jpg",
+          "source_url": "https://swat.io/wp-content/uploads/2024/07/Screens24_Calendar_DE-1080x675.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "swat-io-die-socialisten-gmbh/candidate-04.jpg",
+          "source_url": "https://swat.io/wp-content/uploads/2024/07/Screens24_Content-Posts-DE-2160x1350.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "swat-io-die-socialisten-gmbh/candidate-05.jpg",
+          "source_url": "https://swat.io/wp-content/uploads/2024/07/Screens24_Edit-Inbox_DE-1080x675.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "tellent-flip-app-flip-gmbh": {
+      "images": [
+        {
+          "candidate": "tellent-flip-app-flip-gmbh/candidate-01.jpg",
+          "source_url": "https://a.storyblok.com/f/300895/8f2ac79c4c/features-privacy-accordion-data.png/m/960x0/smart/",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "tellent-flip-app-flip-gmbh/candidate-02.jpg",
+          "source_url": "https://a.storyblok.com/f/300895/1920x1058/2a1151f407/flip_homepage_en.png/m/1176x0/smart/",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "tellent-flip-app-flip-gmbh/candidate-03.jpg",
+          "source_url": "https://a.storyblok.com/f/300895/5c7102799d/features-privacy-accordion-tom.png/m/960x0/smart/",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "tellent-flip-app-flip-gmbh/candidate-04.jpg",
+          "source_url": "https://a.storyblok.com/f/300895/d6fbb10473/features-privacy-accordion-iso.png/m/960x0/smart/",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "tellent-flip-app-flip-gmbh/candidate-05.jpg",
+          "source_url": "https://a.storyblok.com/f/300895/e4f2b633a5/features-privacy-accordion-encripted.png/m/960x0/smart/",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "univention-gmbh": {
+      "images": [
+        {
+          "candidate": "univention-gmbh/candidate-01.jpg",
+          "source_url": "https://www.univention.de/wp-content/uploads/2024/01/ucs-at-school-1016x1024.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "genua-gmbh": {
+      "images": [
+        {
+          "candidate": "genua-gmbh/candidate-01.jpg",
+          "source_url": "https://www.genua.de/fileadmin/_processed_/7/6/csm_kritis_anlage_AdobeStock_247850809_40e0ccde3f.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "conet-technologies-ag": {
+      "images": [
+        {
+          "candidate": "conet-technologies-ag/candidate-01.jpg",
+          "source_url": "https://www.conet.de/fileadmin/_processed_/9/6/csm_header_default_6a1b921ba0.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "deepset-gmbh-haystack": {
+      "images": [
+        {
+          "candidate": "deepset-gmbh-haystack/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6752ed90ddf74c98d49aa0a4/6925e0b4f34b0164266576f1_enterprise-platform.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "deepset-gmbh-haystack/candidate-02.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6752ed90ddf74c98d49aa0a4/67613d161b69a1d2ec32851d_banner-background.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "deepset-gmbh-haystack/candidate-03.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6752ed90ddf74c98d49aa0a4/679e3bf32aa2f550c31f3362_Airbus_Case%20Study%20v1.0.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "deepset-gmbh-haystack/candidate-04.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6752ed90ddf74c98d49aa0a4/67a097c68e6a413218a52e08_graphic%20Intelligent%20Document%20Processing.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "deepset-gmbh-haystack/candidate-05.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6752ed90ddf74c98d49aa0a4/67a27c7cebc390b001f3b751_Die%20Zeit_Case%20Study_v1.0.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "drivelock-se": {
+      "images": [
+        {
+          "candidate": "drivelock-se/candidate-01.jpg",
+          "source_url": "https://www.drivelock.com/hs-fs/hubfs/0_Bilder/Home/260415_DL_IDG_Platform_for_bright_backgrounds_s.png?width=1600&height=1167&name=260415_DL_IDG_Platform_for_bright_backgrounds_s.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "drivelock-se/candidate-02.jpg",
+          "source_url": "https://www.drivelock.com/hs-fs/hubfs/2023_Redesign/Backgrounds/Ausschnitte%20Keyvisual%20Kopie%205.jpg?width=1552&height=698&name=Ausschnitte%20Keyvisual%20Kopie%205.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "langdock-gmbh": {
+      "images": [
+        {
+          "candidate": "langdock-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/69358127577725733df731fb/69e894a7980235630e6dc34c_BASFo_wh100db_3c-1.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "materna-virtual-solution-gmbh": {
+      "images": [
+        {
+          "candidate": "materna-virtual-solution-gmbh/candidate-01.jpg",
+          "source_url": "https://www.virtual-solution.com/wp-content/uploads/02_Artikel-1.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "materna-virtual-solution-gmbh/candidate-02.jpg",
+          "source_url": "https://www.virtual-solution.com/wp-content/uploads/03_Artikel-4.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "datakom-gmbh": {
+      "images": [
+        {
+          "candidate": "datakom-gmbh/candidate-01.jpg",
+          "source_url": "https://datakom.de/wp-content/uploads/2026/05/39_digitalForensics_1080-1024x683.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "datakom-gmbh/candidate-02.jpg",
+          "source_url": "https://datakom.de/wp-content/uploads/2026/06/40_pciDssCompliance_1080-1024x683.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "datakom-gmbh/candidate-03.jpg",
+          "source_url": "https://datakom.de/wp-content/uploads/2026/06/41_IndustryAnalysis_1080-1024x683.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "mistral-ai-dach-aktivitaeten": {
+      "images": [
+        {
+          "candidate": "mistral-ai-dach-aktivitaeten/candidate-01.jpg",
+          "source_url": "https://mistral.ai/_astro/Advanced%20R_D_Z1aAB1x.webp?dpl=6a3c194ba5ef330008aaa4d8",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "mistral-ai-dach-aktivitaeten/candidate-02.jpg",
+          "source_url": "https://mistral.ai/_astro/Forge_1ftrWd.webp?dpl=6a3c194ba5ef330008aaa4d8",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "mistral-ai-dach-aktivitaeten/candidate-03.jpg",
+          "source_url": "https://mistral.ai/_astro/Studio_yuEsE.webp?dpl=6a3c194ba5ef330008aaa4d8",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "mistral-ai-dach-aktivitaeten/candidate-04.jpg",
+          "source_url": "https://mistral.ai/_astro/Vibe%20for%20code_ZVhAxB.webp?dpl=6a3c194ba5ef330008aaa4d8",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "mistral-ai-dach-aktivitaeten/candidate-05.jpg",
+          "source_url": "https://mistral.ai/_astro/Vibe_H432M.webp?dpl=6a3c194ba5ef330008aaa4d8",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "meisterlabs-gmbh-meistertask": {
+      "images": [
+        {
+          "candidate": "meisterlabs-gmbh-meistertask/candidate-01.jpg",
+          "source_url": "https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F1521x1001%2F8646432963%2Fui-image_project-management_de.png%2Fm%2F&w=3840&q=75",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "meisterlabs-gmbh-meistertask/candidate-02.jpg",
+          "source_url": "https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F1521x1001%2Fcc9fc25abb%2Fui-image_documentation_de.png%2Fm%2F&w=3840&q=75",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "meisterlabs-gmbh-meistertask/candidate-03.jpg",
+          "source_url": "https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F1120x841%2F94fee5b79e%2Findustries_hero_public-sector_de.png%2Fm%2F&w=3840&q=75",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "meisterlabs-gmbh-meistertask/candidate-04.jpg",
+          "source_url": "https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F1120x841%2F955b6b23ed%2Findustries_hero_manufacturing_de.png%2Fm%2F&w=3840&q=75",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "meisterlabs-gmbh-meistertask/candidate-05.jpg",
+          "source_url": "https://www.meistertask.com/_next/image?url=https%3A%2F%2Fa.storyblok.com%2Ff%2F289344%2F1120x841%2Fa96d0a556d%2Findustries_hero_insurance_de.png%2Fm%2F&w=3840&q=75",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "stackfield-gmbh": {
+      "images": [
+        {
+          "candidate": "stackfield-gmbh/candidate-01.jpg",
+          "source_url": "https://www.stackfield.com/images/offline2@2x.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stackfield-gmbh/candidate-02.jpg",
+          "source_url": "https://www.stackfield.com/images/startimage1_v5_de.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stackfield-gmbh/candidate-03.jpg",
+          "source_url": "https://www.stackfield.com/images/startimage2_v1_de.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stackfield-gmbh/candidate-04.jpg",
+          "source_url": "https://www.stackfield.com/images/startimage3_v2_de.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "stackfield-gmbh/candidate-05.jpg",
+          "source_url": "https://www.stackfield.com/images/startimage4_v2_de.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "wire-swiss-gmbh-berlin": {
+      "images": [
+        {
+          "candidate": "wire-swiss-gmbh-berlin/candidate-01.jpg",
+          "source_url": "https://wire.com/hs-fs/hubfs/Wire%202025-11-27%20at%2009_25.png?width=2400&height=1792&name=Wire%202025-11-27%20at%2009_25.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "awesome-technologies-matrix-element": {
+      "images": [
+        {
+          "candidate": "awesome-technologies-matrix-element/candidate-01.jpg",
+          "source_url": "https://element.io/assets-32bb636196f91ed59d7a49190e26b42c/5ef25c0d30ee3108da4c25e9/65aaa1c373d684ff370bb6bc_matrix-founders-crop.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "open-xchange-ag": {
+      "images": [
+        {
+          "candidate": "open-xchange-ag/candidate-01.jpg",
+          "source_url": "https://www.open-xchange.com/hubfs/App_Suite_UI-opt.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "open-xchange-ag/candidate-02.jpg",
+          "source_url": "https://www.open-xchange.com/hs-fs/hubfs/App_Suite_Home.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "awork-gmbh": {
+      "images": [
+        {
+          "candidate": "awork-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6418f5bfe5bc0a3438109c1d/67068fbd236f5708c2ec8147_DE_Workload.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "awork-gmbh/candidate-02.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6418f5bfe5bc0a3438109c1d/67068fbd2db04ce4ff83f3a0_DE_Kalender.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "awork-gmbh/candidate-03.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6418f5bfe5bc0a3438109c1d/67068fbd32f1ff6a1277dbd3_DE_Timetracking.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "awork-gmbh/candidate-04.jpg",
+          "source_url": "https://cdn.prod.website-files.com/6418f5bfe5bc0a3438109c1d/67068fbd84bdb2685dbbd4d0_DE_Projekt-Timeline-zoom.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "factro-schuchert-managementberatung": {
+      "images": [
+        {
+          "candidate": "factro-schuchert-managementberatung/candidate-01.jpg",
+          "source_url": "https://www.factro.de/wp-content/uploads/2026/01/psb.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "owncloud-kiteworks": {
+      "images": [
+        {
+          "candidate": "owncloud-kiteworks/candidate-01.jpg",
+          "source_url": "https://owncloud.com/wp-content/uploads/2020/08/Home-UI.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "owncloud-kiteworks/candidate-02.jpg",
+          "source_url": "https://owncloud.com/wp-content/uploads/2020/06/ControlData-2.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "owncloud-kiteworks/candidate-03.jpg",
+          "source_url": "https://owncloud.com/wp-content/uploads/2020/06/Productivity-1.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "owncloud-kiteworks/candidate-04.jpg",
+          "source_url": "https://owncloud.com/wp-content/uploads/2022/11/5107998E-B29E-4485-AE1C-43EF601E1A67.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "owncloud-kiteworks/candidate-05.jpg",
+          "source_url": "https://owncloud.com/wp-content/uploads/2022/11/example.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "hr4you-buesch-gmbh": {
+      "images": [
+        {
+          "candidate": "hr4you-buesch-gmbh/candidate-01.jpg",
+          "source_url": "https://www.hr4you.de/wp-content/uploads/2025/01/Active-Sourcing-1024x680.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "hr4you-buesch-gmbh/candidate-02.jpg",
+          "source_url": "https://www.hr4you.de/wp-content/uploads/2025/01/CV-Parsing-1024x680.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "hr4you-buesch-gmbh/candidate-03.jpg",
+          "source_url": "https://www.hr4you.de/wp-content/uploads/2025/01/KI-Assistent-1024x680.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "hr4you-buesch-gmbh/candidate-04.jpg",
+          "source_url": "https://www.hr4you.de/wp-content/uploads/2025/01/Multichanneling-1024x680.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "hr4you-buesch-gmbh/candidate-05.jpg",
+          "source_url": "https://www.hr4you.de/wp-content/uploads/2025/01/Smart_Search-1024x680.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "rexx-systems-gmbh": {
+      "images": [
+        {
+          "candidate": "rexx-systems-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.rexx-systems.com/wp-content/uploads/2026/03/hr-software-loesungen-als-cloud-oder-on-premise-1024x576.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "rexx-systems-gmbh/candidate-02.jpg",
+          "source_url": "https://cdn.rexx-systems.com/wp-content/uploads/2026/03/hr-software-360-grad-feedback-zielvereinbarungen-ki.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "rexx-systems-gmbh/candidate-03.jpg",
+          "source_url": "https://cdn.rexx-systems.com/wp-content/uploads/2026/03/rexx-systems-home-iso-und-dsgvo.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "rexx-systems-gmbh/candidate-04.jpg",
+          "source_url": "https://cdn.rexx-systems.com/wp-content/uploads/2026/03/rexx-systems-bewerbermanagement.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "rexx-systems-gmbh/candidate-05.jpg",
+          "source_url": "https://cdn.rexx-systems.com/wp-content/uploads/2026/03/rexx-systems_multiposting-jobportale-stellenanzeigen.webp",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "softgarden-e-recruiting-gmbh": {
+      "images": [
+        {
+          "candidate": "softgarden-e-recruiting-gmbh/candidate-01.jpg",
+          "source_url": "https://softgarden.com/app/uploads/2025/09/grafik-14-1024x1024.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "softgarden-e-recruiting-gmbh/candidate-02.jpg",
+          "source_url": "https://softgarden.com/app/uploads/2025/09/grafik-6-1024x854.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "softgarden-e-recruiting-gmbh/candidate-03.jpg",
+          "source_url": "https://softgarden.com/app/uploads/2025/09/srs-advantage-02-de-1024x768.webp",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "softgarden-e-recruiting-gmbh/candidate-04.jpg",
+          "source_url": "https://softgarden.com/app/uploads/2025/11/Group-1171275010-1024x1024.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "softgarden-e-recruiting-gmbh/candidate-05.jpg",
+          "source_url": "https://softgarden.com/app/uploads/2025/11/Group-1171275025-1-1024x857.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "concludis-gmbh": {
+      "images": [
+        {
+          "candidate": "concludis-gmbh/candidate-01.jpg",
+          "source_url": "https://www.mein-helix.de/images/solutions/recruiting-concludis/content-1_hu14029119178223275732.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "concludis-gmbh/candidate-02.jpg",
+          "source_url": "https://www.mein-helix.de/images/solutions/recruiting-concludis/content-2_hu16016929946326604355.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "concludis-gmbh/candidate-03.jpg",
+          "source_url": "https://www.mein-helix.de/images/solutions/recruiting-concludis/content-3_hu12796060587636354811.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "haufe-akademie-hr-weiterbildung": {
+      "images": [
+        {
+          "candidate": "haufe-akademie-hr-weiterbildung/candidate-01.jpg",
+          "source_url": "https://res.cloudinary.com/dbkp1mgif/image/upload/t_mw-text-module-sm/v1768405241/uploads/shop/stages/Kopie_von_Text_Only_Inxmail_Mobile_600x510_px_1200_x_628_px_3_ibfzsp.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haufe-akademie-hr-weiterbildung/candidate-02.jpg",
+          "source_url": "https://www.haufe-akademie.de/downloads_shop/pages/FJC_1440-1440.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haufe-akademie-hr-weiterbildung/candidate-03.jpg",
+          "source_url": "https://www.haufe-akademie.de/downloads_shop/pages/Recht%20und%20Datenschutz.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haufe-akademie-hr-weiterbildung/candidate-04.jpg",
+          "source_url": "https://www.haufe-akademie.de/downloads_shop/pages/RechtundDatenschutz.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "haufe-akademie-hr-weiterbildung/candidate-05.jpg",
+          "source_url": "https://www.haufe-akademie.de/downloads_shop/pages/Top-10-PSK-Seminare-1440-1440.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "infora-gmbh": {
+      "images": [
+        {
+          "candidate": "infora-gmbh/candidate-01.jpg",
+          "source_url": "https://www.infora.de/wp-content/uploads/Whitepaper_Teaser.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "infora-gmbh/candidate-02.jpg",
+          "source_url": "https://www.infora.de/wp-content/uploads/infora-teaserbild-smart-procurement.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "next-public-gmbh": {
+      "images": [
+        {
+          "candidate": "next-public-gmbh/candidate-01.jpg",
+          "source_url": "https://nextpublic.de/wp-content/uploads/2025/12/Souveraenitaetsbarometer-1-1024x768.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "polyteia-gmbh": {
+      "images": [
+        {
+          "candidate": "polyteia-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/64f07393c02984e046baf5f8/67f672bbaea8313ff17c42c8_EN%20UI-Home.avif",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "digitalservice-gmbh-des-bundes-partner-ecosystem": {
+      "images": [
+        {
+          "candidate": "digitalservice-gmbh-des-bundes-partner-ecosystem/candidate-01.jpg",
+          "source_url": "https://digitalservice.bund.de/media/pages/blog/interdisziplinaer-zu-besseren-gesetzen/30b44f4a1e-1780422623/dsc_3354_edit-1.jpeg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "digitalservice-gmbh-des-bundes-partner-ecosystem/candidate-02.jpg",
+          "source_url": "https://digitalservice.bund.de/media/pages/home/3e9b279511-1770042310/jetzt-2.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "digitalservice-gmbh-des-bundes-partner-ecosystem/candidate-03.jpg",
+          "source_url": "https://digitalservice.bund.de/media/pages/home/78edd11b6d-1779105111/govimpact_digitalrendite_preview_2.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "digitalservice-gmbh-des-bundes-partner-ecosystem/candidate-04.jpg",
+          "source_url": "https://digitalservice.bund.de/media/pages/projekte/neues-rechtsinformationssystem/5bb32a566e-1698682003/neuris_preview.jpg",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "digitalservice-gmbh-des-bundes-partner-ecosystem/candidate-05.jpg",
+          "source_url": "https://digitalservice.bund.de/media/pages/projekte/zentrum-fuer-legistik/d2914a99ca-1749740359/digitalcheck_preview_new.jpg",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "partnerschaft-deutschland-pd-berater": {
+      "images": [
+        {
+          "candidate": "partnerschaft-deutschland-pd-berater/candidate-01.jpg",
+          "source_url": "https://www.pd-g.de/assets/_processed_/8/3/csm_PD-Rebranding-Homepage-Header_f927ac2a45.jpg",
+          "status": "needs_review"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "status": "editorial_image_review_required",
+  "tools": {
+    "eye-able-web-inclusion-gmbh": {
+      "images": [
+        {
+          "candidate": "eye-able-web-inclusion-gmbh/candidate-01.jpg",
+          "source_url": "https://a2.storyblok.com/f/259811/2156x1144/37879bf91c/dashboard_en.png/m/1920x0/filters:quality(70):no_upscale()",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "eye-able-web-inclusion-gmbh/candidate-02.jpg",
+          "source_url": "https://a2.storyblok.com/f/259811/3840x900/54314204ae/hero-image-de.png/m/1920x0/filters:quality(70):no_upscale()",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "facelift-cloud-gmbh": {
+      "images": [
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-01.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Amplify.png?width=1492&height=1085&name=Product_Amplify.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-02.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Analyze.png?width=1494&height=1094&name=Product_Analyze.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-03.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Engage.png?width=1538&height=1052&name=Product_Engage.png",
+          "status": "needs_review"
+        },
+        {
+          "candidate": "facelift-cloud-gmbh/candidate-04.jpg",
+          "source_url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Orchestrate.png?width=1506&height=1064&name=Product_Orchestrate.png",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "parloa-gmbh": {
+      "images": [
+        {
+          "candidate": "parloa-gmbh/candidate-01.jpg",
+          "source_url": "https://a.storyblok.com/f/330303/1940x860/1ec2cf42fa/tui.png/m/1400x0/filters:quality(undefined):format(webp)",
+          "status": "needs_review"
+        }
+      ]
+    },
+    "polyteia-gmbh": {
+      "images": [
+        {
+          "candidate": "polyteia-gmbh/candidate-01.jpg",
+          "source_url": "https://cdn.prod.website-files.com/64f07393c02984e046baf5f8/67f672bbaea8313ff17c42c8_EN%20UI-Home.avif",
+          "status": "needs_review"
+        }
+      ]
+    }
+  }
+}

@@ -187,13 +187,14 @@ ungeprüfte Inhalte dürfen dort nicht abgelegt werden.
 
 ---
 
-## 3. Die drei Listen — und warum sie getrennt bleiben
+## 3. Die drei Listen plus Kriterienmatrix — und warum sie getrennt bleiben
 
 | Liste | Einfache Übersetzung | Enthält | Enthält ausdrücklich nicht | Aktueller Stand |
 | --- | --- | --- | --- | ---: |
 | Multiplikatorenliste | „Wo suchen wir?“ | 30 Quellen: 18 Messen und 12 Konferenzen; davon 17 mit hohem und 13 mit mittlerem Public-Sector-Fit | keine freigegebenen Tools | 30 Quellen |
 | Candidate-Inbox | „Was sollten wir prüfen?“ | konkrete Anbieter, Dublettenhinweise, Status und Crawl-Aktion | keine Website-Freigabe | 56 Einträge; 17 `crawl`, 5 `monitor_existing`, 34 `skip` |
 | Master-/Watchlist | „Wo reicht die Evidenz für eine technische Arbeitsliste oder weitere Beobachtung?“ | eine Datei mit zwei Gruppen: stärkere Master-Kandidaten und Watchlist-Fälle mit weiterem Recherchebedarf; dazu Kriterien, Evidenz-URLs, Verfügbarkeit, Screenshots und Arbeitsstatus | keine öffentliche Empfehlung, kein Qualitätssiegel und keine redaktionelle Freigabe | 13 Master-/Watchlist-Einträge; weitere Fälle mit unzureichender Evidenz bzw. technischem Recrawl bleiben im Lauf dokumentiert |
+| Kriterienmatrix | „Hilft dieses Tool einer Behörde wirklich bei einer Entscheidung?“ | redaktionelle Prüffelder zu Behördenproblem, Zielkontext, Eignung, Nicht-Eignung, Einführungsaufwand, Vergabe-/Beschaffungsfragen, Evidenzstärke und Review-Entscheidung | keine automatische Crawler-Bewertung, kein Ranking und keine bezahlte Anbieter-Stufe | Google-Sheet-Tab `06_Kriterienmatrix`; am 24.08.2026 mit den 13 Master-/Watchlist-Kandidaten vorbefüllt |
 
 Die ältere/breitere Website-Arbeitsbasis aus der Excel-Pipeline ist **keine
 vierte Discovery-Liste**, sondern ein paralleler, früherer Arbeitsstrang: 72
@@ -201,6 +202,12 @@ Einträge in `review-decisions.json`, davon 59 für die interne Arbeitsvorschau
 freigegeben und 13 in Nachrecherche. Zusammen mit den 13 neuen Master-/Watchlist-
 Einträgen ergibt das aktuell 72 Website-Tools. Diese 72 sind noch keine finale
 kuratierte Tool-Liste.
+
+Die Kriterienmatrix ist bewusst **keine vierte Fund- oder Masterliste**. Sie ist
+die zusätzliche redaktionelle Prüfschicht zwischen technischer Qualifizierung
+und Website-/CMS-Ausspielung. Damit bildet sie Christians fachliche Leitfrage ab:
+Nicht nur „finden wir öffentliche Signale?“, sondern „liefert dieses Profil
+einer Behörde Orientierung für eine echte Softwareentscheidung?“
 
 ### Wenn ein Anbieter manuell vorgeschlagen wird
 
@@ -285,7 +292,7 @@ passende Repo-Ebene übertragen werden.
 | Fachliche Produktentscheidung | Erklärt Menschen, warum Supertools etwas auf eine bestimmte Weise macht. | `README.md`, `Crawler/README.md`, `docs/` | „Masterliste ist kein Gütesiegel.“ | Gilt, bis eine dokumentierte neue Entscheidung sie ersetzt. |
 | Wiederholbarer Arbeitsablauf | Beschreibt eine Aufgabe mit festen Schritten und erwartetem Ergebnis. | Skill oder Runbook; kritische Projektregeln zusätzlich im Repo | „Wöchentlichen Crawl prüfen und Report erzeugen.“ | Wiederverwendbar; darf die Repo-Wahrheit nicht duplizieren oder überstimmen. |
 | Ausführbare technische Regel | Ist die tatsächliche Maschinenlogik. | `scripts/*.py`, später Backend/CMS-Code, plus Tests | Schwellen für `qualified_needs_review` | Gilt tatsächlich zur Laufzeit. |
-| Aktueller Datenstand | Speichert Quellen, Kandidaten, Entscheidungen und Monitoring-Zustand. | versionierte JSON-/CSV-Dateien unter `data/crawler/` | Candidate-Inbox, Masterliste, Review-Entscheidungen | Ändert sich mit Research und Läufen. |
+| Aktueller Datenstand | Speichert Quellen, Kandidaten, Entscheidungen und Monitoring-Zustand. | versionierte JSON-/CSV-Dateien unter `data/crawler/` sowie die native Google-Sheet-Arbeitsdatei mit `06_Kriterienmatrix` | Candidate-Inbox, Masterliste, Kriterienmatrix, Review-Entscheidungen | Ändert sich mit Research, Reviews und Läufen. |
 | Beleg eines einzelnen Laufs | Macht nachvollziehbar, was ein Lauf wann gefunden hat. | `data/crawler/**/runs/<run-id>/` | Report, Kandidaten, Changes, Rohtexte | Historischer Snapshot; nicht nachträglich zur Wahrheit umdeuten. |
 | Gespräch / Entwurf | Hilft beim Denken, hat aber allein keine dauerhafte Verbindlichkeit. | Codex-Chat | Diskussion über eine neue Kategorie | Flüchtig, bis die Entscheidung ins Repo übertragen ist. |
 
@@ -312,7 +319,7 @@ und [wiederverwendbare Workflows mit Skills](https://learn.chatgpt.com/docs/skil
 | Änderung | Zuerst aktualisieren | Danach prüfen/aktualisieren | Nicht ausreichend |
 | --- | --- | --- | --- |
 | Neue dauerhafte Arbeitsregel | `AGENTS.md` | betroffene Fach-Doku und ggf. Tests | nur im Chat erwähnen |
-| Neue fachliche Qualifizierungsregel | Fach-Doku in `docs/` | Script, Tests, Statusmatrix und Changelog | nur den Script-Code ändern |
+| Neue fachliche Qualifizierungsregel | Fach-Doku in `docs/` und ggf. `06_Kriterienmatrix` im Google Sheet | Script, Tests, Statusmatrix und Changelog | nur den Script-Code ändern |
 | Neue Messe, Konferenz oder Plattform | `multiplier-sources.json` | Edition, Datum, Crawl-Status und Quellenreport | direkt als Tool eintragen |
 | Neuer konkreter Anbieterhinweis | `curation-seeds.json` | Dublettencheck, Crawl-Aktion, Quelle | direkt veröffentlichen |
 | Neuer Crawler-Lauf | neuer Run-Ordner | Für Research/Test `--no-save-state`; für Monitoring den neuen Signalstand speichern | alte Run-Dateien überschreiben |

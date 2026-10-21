@@ -1,0 +1,1262 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-14",
+  "purpose": "Quellen- und Multiplikatorenliste fuer die Supertools-Discovery. Diese Datei enthaelt keine final kuratierten Tools, sondern Orte, an denen der Crawler potenzielle Anbieter finden soll.",
+  "principle": "Eine Quelle kann mehrere Jahrgaenge oder Editionen haben. Nicht jede Messe findet jedes Jahr statt; deshalb werden Serie und konkrete Ausgabe getrennt gepflegt.",
+  "workflow": [
+    "Multiplier Source crawlen",
+    "potenzielle Anbieter extrahieren",
+    "Dubletten gegen Masterliste und Candidate-Inbox pruefen",
+    "Kandidaten in curation-seeds.json aufnehmen",
+    "nach menschlicher Kuratierung in die Masterliste uebernehmen"
+  ],
+  "source_types": [
+    "messe",
+    "konferenz",
+    "verband",
+    "award",
+    "reviewplattform",
+    "marktplatz",
+    "such-api",
+    "behoerdenportal",
+    "open-source-verzeichnis"
+  ],
+  "quality_fields": [
+    "public_sector_fit",
+    "topic_fit",
+    "freshness",
+    "extractability",
+    "duplicate_risk",
+    "expected_candidate_yield"
+  ],
+  "entry_model": {
+    "source_id": "stabiler technischer Key, z.B. smart-country-convention",
+    "name": "Name der Messe, Plattform oder Quelle",
+    "source_type": "messe | konferenz | verband | award | reviewplattform | marktplatz | such-api | behoerdenportal | open-source-verzeichnis",
+    "url": "Haupt-URL der Quelle",
+    "cadence": "annual | biennial | irregular | one_off | unknown",
+    "active_status": "active | paused | discontinued | unknown",
+    "topic_focus": [
+      "Public Sector",
+      "KI",
+      "Kollaboration"
+    ],
+    "public_sector_fit": "high | medium | low | unknown",
+    "editions": [
+      {
+        "year": 2026,
+        "edition_name": "konkreter Jahrgang oder Eventname",
+        "edition_url": "Aussteller- oder Programm-URL fuer diesen Jahrgang",
+        "date_from": "YYYY-MM-DD oder leer",
+        "date_to": "YYYY-MM-DD oder leer",
+        "crawl_status": "planned | crawled | reviewed | skipped | unavailable",
+        "candidate_count_found": 0,
+        "candidate_count_promoted": 0,
+        "notes": "z.B. Ausstellerliste fehlt, nur PDF, Login erforderlich"
+      }
+    ],
+    "last_checked_at": "YYYY-MM-DD",
+    "next_check_at": "YYYY-MM-DD",
+    "notes": "redaktionelle Einordnung der Quelle"
+  },
+  "entries": [
+    {
+      "source_id": "smart-country-convention",
+      "name": "Smart Country Convention",
+      "source_type": "messe",
+      "url": "https://www.smartcountry.berlin/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "GovTech",
+        "digitale Verwaltung",
+        "KI",
+        "Cloud",
+        "Cybersicherheit",
+        "Smart City"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Smart Country Convention 2026",
+          "edition_url": "https://www.smartcountry.berlin/",
+          "location": "Berlin",
+          "date_from": "2026-10-13",
+          "date_to": "2026-10-15",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "rund 23.000 Teilnehmende sowie 500 Partner und Aussteller angekuendigt",
+          "research_use": "Sehr hoch. Vermutlich die ergiebigste Ausstellerliste fuer allgemeine GovTech- und Public-Sector-Anbieter.",
+          "notes": "Sehr hoch. Vermutlich die ergiebigste Ausstellerliste fuer allgemeine GovTech- und Public-Sector-Anbieter."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Vermutlich die ergiebigste Ausstellerliste fuer allgemeine GovTech- und Public-Sector-Anbieter."
+    },
+    {
+      "source_id": "kommunale",
+      "name": "KOMMUNALE",
+      "source_type": "messe",
+      "url": "https://www.kommunale.de/",
+      "cadence": "biennial",
+      "active_status": "active",
+      "topic_focus": [
+        "Kommunalbedarf",
+        "IT",
+        "Energie",
+        "Finanzen",
+        "Verwaltungsbedarf"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2025,
+          "edition_name": "KOMMUNALE 2025",
+          "edition_url": "https://www.kommunale.de/",
+          "location": "Nuernberg",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "rund 8.000 Fachbesucher und 624 Aussteller",
+          "research_use": "Sehr hoch. Besonders breit: IT, Fahrzeuge, Energie, Ausstattung, Dienstleistungen, Finanzen und Verwaltungsbedarf.",
+          "notes": "Sehr hoch. Besonders breit: IT, Fahrzeuge, Energie, Ausstattung, Dienstleistungen, Finanzen und Verwaltungsbedarf."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Besonders breit: IT, Fahrzeuge, Energie, Ausstattung, Dienstleistungen, Finanzen und Verwaltungsbedarf."
+    },
+    {
+      "source_id": "kgst-forum",
+      "name": "KGSt-FORUM",
+      "source_type": "konferenz",
+      "url": "https://forum.kgst.de/",
+      "cadence": "irregular",
+      "active_status": "active",
+      "topic_focus": [
+        "kommunale Organisation",
+        "Personal",
+        "Finanzen",
+        "Fuehrung",
+        "Digitalisierung",
+        "Beratung"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "KGSt-FORUM 2026",
+          "edition_url": "https://forum.kgst.de/",
+          "location": "Leipzig",
+          "date_from": "2026-09-16",
+          "date_to": "2026-09-18",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "mehr als 5.000 Verwaltungsfachleute, ueber 750 Kommunen/Institutionen und ueber 100 Partner",
+          "research_use": "Sehr hoch. Stark bei kommunaler Organisation, Personal, Finanzen, Fuehrung, Digitalisierung und Beratung.",
+          "notes": "Sehr hoch. Stark bei kommunaler Organisation, Personal, Finanzen, Fuehrung, Digitalisierung und Beratung."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Stark bei kommunaler Organisation, Personal, Finanzen, Fuehrung, Digitalisierung und Beratung."
+    },
+    {
+      "source_id": "digitaler-staat",
+      "name": "Digitaler Staat",
+      "source_type": "konferenz",
+      "url": "https://www.digitaler-staat.org/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Bundesverwaltung",
+        "Landesverwaltung",
+        "oeffentliche IT",
+        "digitale Verwaltung"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Digitaler Staat",
+          "edition_url": "https://www.digitaler-staat.org/",
+          "location": "Berlin",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "vergangene Ausgaben ca. 2.000 bis 3.000 Teilnehmende",
+          "research_use": "Sehr hoch. Gute Mischung aus Bundes- und Landesverwaltung, oeffentlicher IT und Loesungsanbietern.",
+          "notes": "Sehr hoch. Gute Mischung aus Bundes- und Landesverwaltung, oeffentlicher IT und Loesungsanbietern."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Gute Mischung aus Bundes- und Landesverwaltung, oeffentlicher IT und Loesungsanbietern."
+    },
+    {
+      "source_id": "zukunftskongress-staat-verwaltung",
+      "name": "Zukunftskongress Staat & Verwaltung",
+      "source_type": "konferenz",
+      "url": "https://www.zukunftskongress.de/de",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Staatsmodernisierung",
+        "digitale Verwaltung",
+        "Public Sector",
+        "Partner/Sponsoren"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2027,
+          "edition_name": "13. Zukunftskongress Staat & Verwaltung 2027",
+          "edition_url": "https://www.zukunftskongress.de/de/ZuKo_2027",
+          "location": "Berlin",
+          "date_from": "2027-06-08",
+          "date_to": "2027-06-09",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "zentrale bundesweite Verwaltungskonferenz mit Partnerpaketen und Ausstellungsflaechen",
+          "research_use": "Sehr hoch, wobei die Firmenbasis staerker aus Partnern und Sponsoren als aus einer riesigen Messeausstellung besteht.",
+          "notes": "Sehr hoch, wobei die Firmenbasis staerker aus Partnern und Sponsoren als aus einer riesigen Messeausstellung besteht."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch, wobei die Firmenbasis staerker aus Partnern und Sponsoren als aus einer riesigen Messeausstellung besteht."
+    },
+    {
+      "source_id": "kommdigitale",
+      "name": "KommDIGITALE",
+      "source_type": "messe",
+      "url": "https://kommdigitale.de/",
+      "cadence": "irregular",
+      "active_status": "active",
+      "topic_focus": [
+        "kommunale Digitalisierung",
+        "Software",
+        "Plattformen",
+        "Prozesse",
+        "IT-Anbieter"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "KommDIGITALE 2026",
+          "edition_url": "https://kommdigitale.de/",
+          "location": "Bielefeld",
+          "date_from": "2026-03-25",
+          "date_to": "2026-03-26",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "mehr als 2.000 Fachbesucher, 124 Aussteller, knapp 200 Programmpunkte",
+          "research_use": "Sehr hoch. Eine der saubersten Quellen fuer Software-, Plattform-, Prozess- und IT-Anbieter im kommunalen Markt.",
+          "notes": "Sehr hoch. Eine der saubersten Quellen fuer Software-, Plattform-, Prozess- und IT-Anbieter im kommunalen Markt."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Eine der saubersten Quellen fuer Software-, Plattform-, Prozess- und IT-Anbieter im kommunalen Markt."
+    },
+    {
+      "source_id": "messe-kommunal",
+      "name": "Messe KOMMUNAL",
+      "source_type": "messe",
+      "url": "https://www.messe-kommunal.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Kommunalbedarf",
+        "Verwaltung",
+        "kommunale Dienste",
+        "Ausstattung",
+        "Digitalisierung"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Messe KOMMUNAL 2026",
+          "edition_url": "https://www.messe-erfurt.de/besucher/veranstaltungskalender/veranstaltung/messe-kommunal",
+          "location": "Erfurt",
+          "date_from": "2026-11-18",
+          "date_to": "2026-11-19",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2025: 2.533 Besucher; 2026: mehr als 160 Aussteller genannt",
+          "research_use": "Sehr hoch. Breiter als reine Digitalveranstaltungen und deshalb fuer unterschiedliche Produktkategorien interessant.",
+          "notes": "Sehr hoch. Breiter als reine Digitalveranstaltungen und deshalb fuer unterschiedliche Produktkategorien interessant."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch. Breiter als reine Digitalveranstaltungen und deshalb fuer unterschiedliche Produktkategorien interessant."
+    },
+    {
+      "source_id": "e-nrw",
+      "name": "e-nrw",
+      "source_type": "konferenz",
+      "url": "https://www.e-nrw.info/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "NRW",
+        "Landesverwaltung",
+        "Kommunalverwaltung",
+        "Verwaltungsdigitalisierung",
+        "IT-Strategie"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "e-nrw 2026",
+          "edition_url": "https://www.e-nrw.info/",
+          "location": "Neuss",
+          "date_from": "2026-07-07",
+          "date_to": "2026-07-07",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "Partnerausstellung und mehrere parallele Fachforen; aktuelle Groessenangabe offen",
+          "research_use": "Hoch fuer NRW. Regional begrenzt, dafuer sehr nah an konkreten Verwaltungsprojekten.",
+          "notes": "Hoch fuer NRW. Regional begrenzt, dafuer sehr nah an konkreten Verwaltungsprojekten."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer NRW. Regional begrenzt, dafuer sehr nah an konkreten Verwaltungsprojekten."
+    },
+    {
+      "source_id": "pits-public-it-security",
+      "name": "PITS - Public IT Security",
+      "source_type": "konferenz",
+      "url": "https://www.public-it-security.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Cybersecurity",
+        "Public IT",
+        "Identitaet",
+        "Cloud",
+        "Infrastruktur",
+        "KRITIS"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2027,
+          "edition_name": "PITS 2027",
+          "edition_url": "https://www.public-it-security.de/",
+          "location": "Berlin",
+          "date_from": "2027-06-29",
+          "date_to": "2027-06-30",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "Fachkongress mit Ausstellung fuer IT-Sicherheit im oeffentlichen Sektor",
+          "research_use": "Hoch fuer Cybersecurity. Gute Quelle fuer Sicherheits-, Identitaets-, Cloud- und Infrastrukturunternehmen.",
+          "notes": "Hoch fuer Cybersecurity. Gute Quelle fuer Sicherheits-, Identitaets-, Cloud- und Infrastrukturunternehmen."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer Cybersecurity. Gute Quelle fuer Sicherheits-, Identitaets-, Cloud- und Infrastrukturunternehmen."
+    },
+    {
+      "source_id": "ministerialkongress",
+      "name": "Ministerialkongress",
+      "source_type": "konferenz",
+      "url": "https://www.ministerialkongress.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Bundesverwaltung",
+        "Landesverwaltung",
+        "Ministerien",
+        "Partnerformat"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Ministerialkongress",
+          "edition_url": "https://www.ministerialkongress.de/",
+          "location": "Berlin",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "vorherige Ausgabe: mehr als 400 Teilnehmende aus ueber 200 Behoerden und oeffentlichen Institutionen",
+          "research_use": "Gezielt. Weniger Firmen als auf einer Messe, dafuer viele etablierte Anbieter mit Zugang zu Ministerien.",
+          "notes": "Gezielt. Weniger Firmen als auf einer Messe, dafuer viele etablierte Anbieter mit Zugang zu Ministerien."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Gezielt. Weniger Firmen als auf einer Messe, dafuer viele etablierte Anbieter mit Zugang zu Ministerien."
+    },
+    {
+      "source_id": "bayerisches-anwenderforum",
+      "name": "Bayerisches Anwenderforum",
+      "source_type": "konferenz",
+      "url": "https://bayerisches-anwenderforum.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Bayern",
+        "E-Government",
+        "staatliche Digitalisierung",
+        "kommunale Digitalisierung"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2025,
+          "edition_name": "Bayerisches Anwenderforum 2025",
+          "edition_url": "https://bayerisches-anwenderforum.de/agenda/",
+          "location": "Muenchen",
+          "date_from": "2025-07-16",
+          "date_to": "2025-07-17",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "vorherige Ausgabe mit 378 Besuchern genannt",
+          "research_use": "Hoch fuer Bayern. Kleine, aber fachlich eng passende Aussteller- und Partnerbasis.",
+          "notes": "Hoch fuer Bayern. Kleine, aber fachlich eng passende Aussteller- und Partnerbasis."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer Bayern. Kleine, aber fachlich eng passende Aussteller- und Partnerbasis."
+    },
+    {
+      "source_id": "deutscher-vergabetag",
+      "name": "Deutscher Vergabetag",
+      "source_type": "konferenz",
+      "url": "https://www.deutscher-vergabetag.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Vergabe",
+        "Beschaffung",
+        "Vergaberecht",
+        "E-Procurement"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "13. Deutscher Vergabetag 2026",
+          "edition_url": "https://www.deutscher-vergabetag.de/",
+          "location": "Berlin",
+          "date_from": "2026-11-12",
+          "date_to": "2026-11-13",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "Kongress fuer oeffentliches Beschaffungswesen und Vergaberecht mit Fachausstellung",
+          "research_use": "Hoch. Interessant fuer Anbieter, die bereits an Ausschreibungen teilnehmen oder oeffentliche Auftraggeber beraten.",
+          "notes": "Hoch. Interessant fuer Anbieter, die bereits an Ausschreibungen teilnehmen oder oeffentliche Auftraggeber beraten."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch. Interessant fuer Anbieter, die bereits an Ausschreibungen teilnehmen oder oeffentliche Auftraggeber beraten."
+    },
+    {
+      "source_id": "beschaffungskonferenz",
+      "name": "Beschaffungskonferenz",
+      "source_type": "konferenz",
+      "url": "https://www.beschaffungskonferenz.de/de",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "oeffentliche Beschaffung",
+        "strategischer Einkauf",
+        "Vergabe",
+        "Einkaufssysteme"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "27. Beschaffungskonferenz 2026",
+          "edition_url": "https://www.beschaffungskonferenz.de/de",
+          "location": "Berlin",
+          "date_from": "2026-09-14",
+          "date_to": "2026-09-15",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "zentrale Weiterbildungsveranstaltung mit ueber 400 Teilnehmern aus Bund, Laendern und Kommunen",
+          "research_use": "Hoch. Gute Quelle fuer E-Procurement, Beratung, Einkaufssysteme, Recht und Ausschreibungsplattformen.",
+          "notes": "Hoch. Gute Quelle fuer E-Procurement, Beratung, Einkaufssysteme, Recht und Ausschreibungsplattformen."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch. Gute Quelle fuer E-Procurement, Beratung, Einkaufssysteme, Recht und Ausschreibungsplattformen."
+    },
+    {
+      "source_id": "vergabesymposium",
+      "name": "Vergabesymposium",
+      "source_type": "konferenz",
+      "url": "https://www.cosinex.de/vergabewissen/vergabesymposium/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Vergabe",
+        "E-Vergabe",
+        "Beschaffungsorganisation",
+        "Vergabestellen"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Vergabesymposium 2026",
+          "edition_url": "https://www.vergabesymposium.de/buchen.html",
+          "location": "Bochum",
+          "date_from": "2026-05-19",
+          "date_to": "2026-05-20",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2026 mit mehr als 500 Teilnehmenden ausverkauft",
+          "research_use": "Hoch innerhalb der Beschaffungsnische. Weniger Firmen, aber sehr klare Zielgruppe.",
+          "notes": "Hoch innerhalb der Beschaffungsnische. Weniger Firmen, aber sehr klare Zielgruppe."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch innerhalb der Beschaffungsnische. Weniger Firmen, aber sehr klare Zielgruppe."
+    },
+    {
+      "source_id": "deutscher-kaemmerertag",
+      "name": "Deutscher Kaemmerertag",
+      "source_type": "konferenz",
+      "url": "https://www.derneuekaemmerer.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Kommunalfinanzen",
+        "Haushaltssteuerung",
+        "Finanzsoftware",
+        "Beratung"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "Deutscher Kaemmerertag",
+          "edition_url": "https://www.derneuekaemmerer.de/",
+          "location": "Berlin",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "Jahrestreffen fuer kommunale Finanzverantwortliche mit Fachpartnerschaften und Themensessions",
+          "research_use": "Gezielt. Besonders relevant fuer Finanzsoftware, Haushaltssteuerung, Beratung, Banken und Infrastrukturfinanzierung.",
+          "notes": "Gezielt. Besonders relevant fuer Finanzsoftware, Haushaltssteuerung, Beratung, Banken und Infrastrukturfinanzierung."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Gezielt. Besonders relevant fuer Finanzsoftware, Haushaltssteuerung, Beratung, Banken und Infrastrukturfinanzierung."
+    },
+    {
+      "source_id": "vku-stadtwerkekongress",
+      "name": "VKU-Stadtwerkekongress",
+      "source_type": "konferenz",
+      "url": "https://stadtwerkekongress.kommunaldigital.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Stadtwerke",
+        "kommunale Unternehmen",
+        "Energie",
+        "IT",
+        "kritische Infrastruktur"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "VKU-Stadtwerkekongress 2026",
+          "edition_url": "https://stadtwerkekongress.kommunaldigital.de/",
+          "location": "Mainz",
+          "date_from": "2026-09-16",
+          "date_to": "2026-09-17",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "rund 700 Teilnehmende und 70 Speaker",
+          "research_use": "Hoch. Stadtwerke sind oeffentliche Unternehmen mit grossen Budgets und breitem Bedarf an IT, Energie-, Kommunikations- und Beratungsleistungen.",
+          "notes": "Hoch. Stadtwerke sind oeffentliche Unternehmen mit grossen Budgets und breitem Bedarf an IT, Energie-, Kommunikations- und Beratungsleistungen. PDF nennt Berlin; offizielle VKU-Seite nennt Mainz fuer 2026."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch. Stadtwerke sind oeffentliche Unternehmen mit grossen Budgets und breitem Bedarf an IT, Energie-, Kommunikations- und Beratungsleistungen. PDF nennt Berlin; offizielle VKU-Seite nennt Mainz fuer 2026."
+    },
+    {
+      "source_id": "ifat-munich",
+      "name": "IFAT Munich",
+      "source_type": "messe",
+      "url": "https://ifat.de/",
+      "cadence": "biennial",
+      "active_status": "active",
+      "topic_focus": [
+        "Wasser",
+        "Abwasser",
+        "Abfall",
+        "Kreislaufwirtschaft",
+        "kommunale Infrastruktur"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "IFAT Munich 2026",
+          "edition_url": "https://ifat.de/en/trade-fair/exhibitor-directory/",
+          "location": "Muenchen",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "rund 142.000 Besucher und 3.400 Aussteller",
+          "research_use": "Sehr hoch fuer kommunale Infrastruktur. Riesiger Firmenpool, aber viel Industrie und internationales Geschaeft.",
+          "notes": "Sehr hoch fuer kommunale Infrastruktur. Riesiger Firmenpool, aber viel Industrie und internationales Geschaeft."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer kommunale Infrastruktur. Riesiger Firmenpool, aber viel Industrie und internationales Geschaeft."
+    },
+    {
+      "source_id": "e-world-energy-water",
+      "name": "E-world energy & water",
+      "source_type": "messe",
+      "url": "https://www.e-world-essen.com/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Stadtwerke",
+        "Energie",
+        "Wasser",
+        "Netze",
+        "IT",
+        "kritische Infrastruktur"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "E-world energy & water 2026",
+          "edition_url": "https://www.e-world-essen.com/",
+          "location": "Essen",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "mehr als 37.000 Fachbesucher und 1.136 Aussteller",
+          "research_use": "Sehr hoch fuer Stadtwerke, Energie, Netze, IT und kritische Infrastruktur.",
+          "notes": "Sehr hoch fuer Stadtwerke, Energie, Netze, IT und kritische Infrastruktur."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer Stadtwerke, Energie, Netze, IT und kritische Infrastruktur."
+    },
+    {
+      "source_id": "intergeo",
+      "name": "INTERGEO",
+      "source_type": "messe",
+      "url": "https://www.intergeo.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "GIS",
+        "Geoinformation",
+        "Vermessung",
+        "Landmanagement",
+        "Smart City",
+        "digitale Zwillinge"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "INTERGEO 2026",
+          "edition_url": "https://www.intergeo.de/",
+          "location": "wechselnder deutscher Standort",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "mehr als 18.500 Besucher und ueber 530 Aussteller genannt",
+          "research_use": "Sehr hoch fuer GIS, digitale Zwillinge, Stadtplanung, Vermessung und Smart City.",
+          "notes": "Sehr hoch fuer GIS, digitale Zwillinge, Stadtplanung, Vermessung und Smart City."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer GIS, digitale Zwillinge, Stadtplanung, Vermessung und Smart City."
+    },
+    {
+      "source_id": "polis-convention",
+      "name": "polis Convention",
+      "source_type": "messe",
+      "url": "https://www.polis-convention.com/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Stadtentwicklung",
+        "Projektentwicklung",
+        "Quartiere",
+        "Immobilien",
+        "Mobilitaet",
+        "Beteiligung"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "polis Convention 2026",
+          "edition_url": "https://www.polis-convention.com/",
+          "location": "Duesseldorf",
+          "date_from": "2026-05-06",
+          "date_to": "2026-05-07",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "ungefaehr 8.000 Fachbesucher und rund 400 Aussteller",
+          "research_use": "Hoch. Besonders passend fuer Stadtentwicklung, Immobilien, Quartiere, Mobilitaet und Beteiligung.",
+          "notes": "Hoch. Besonders passend fuer Stadtentwicklung, Immobilien, Quartiere, Mobilitaet und Beteiligung."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch. Besonders passend fuer Stadtentwicklung, Immobilien, Quartiere, Mobilitaet und Beteiligung."
+    },
+    {
+      "source_id": "dmea",
+      "name": "DMEA",
+      "source_type": "messe",
+      "url": "https://dmea.de/de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Digital Health",
+        "Krankenhaus-IT",
+        "Gesundheitsaemter",
+        "Krankenkassen",
+        "oeffentliche Traeger"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2027,
+          "edition_name": "DMEA 2027",
+          "edition_url": "https://dmea.de/de/",
+          "location": "Muenchen",
+          "date_from": "2027-04-13",
+          "date_to": "2027-04-15",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2026: 22.000 Teilnehmende, 900 Aussteller, 550 Speaker",
+          "research_use": "Hoch fuer den oeffentlichen Gesundheitssektor. Relevant fuer Kliniken, Gesundheitsaemter, oeffentliche Traeger und Krankenkassen.",
+          "notes": "Hoch fuer den oeffentlichen Gesundheitssektor. Relevant fuer Kliniken, Gesundheitsaemter, oeffentliche Traeger und Krankenkassen."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer den oeffentlichen Gesundheitssektor. Relevant fuer Kliniken, Gesundheitsaemter, oeffentliche Traeger und Krankenkassen."
+    },
+    {
+      "source_id": "it-trans",
+      "name": "IT-TRANS",
+      "source_type": "messe",
+      "url": "https://www.it-trans.org/de/",
+      "cadence": "biennial",
+      "active_status": "active",
+      "topic_focus": [
+        "OePNV",
+        "Mobilitaet",
+        "Verkehrsunternehmen",
+        "Ticketing",
+        "Flottenmanagement"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "IT-TRANS 2026",
+          "edition_url": "https://www.it-trans.org/de/fachmesse/ausstellerliste/",
+          "location": "Karlsruhe",
+          "date_from": "2026-03-03",
+          "date_to": "2026-03-05",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "5.500 Teilnehmende und rund 200 Aussteller",
+          "research_use": "Hoch fuer OePNV und Mobilitaet. Verkehrsunternehmen, Staedte, Verkehrsverbuende und Technologieanbieter.",
+          "notes": "Hoch fuer OePNV und Mobilitaet. Verkehrsunternehmen, Staedte, Verkehrsverbuende und Technologieanbieter."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer OePNV und Mobilitaet. Verkehrsunternehmen, Staedte, Verkehrsverbuende und Technologieanbieter."
+    },
+    {
+      "source_id": "fiberdays",
+      "name": "fiberdays",
+      "source_type": "messe",
+      "url": "https://fiberdays.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Breitband",
+        "Glasfaser",
+        "Digitalinfrastruktur",
+        "Rechenzentren",
+        "Stadtwerke"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "fiberdays 2026",
+          "edition_url": "https://fiberdays.de/besucher/",
+          "location": "Frankfurt am Main",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "318 Aussteller gemeldet",
+          "research_use": "Hoch fuer Breitband, Rechenzentren, Stadtwerke und kommunale Infrastruktur.",
+          "notes": "Hoch fuer Breitband, Rechenzentren, Stadtwerke und kommunale Infrastruktur."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer Breitband, Rechenzentren, Stadtwerke und kommunale Infrastruktur."
+    },
+    {
+      "source_id": "anga-com",
+      "name": "ANGA COM",
+      "source_type": "messe",
+      "url": "https://angacom.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Breitband",
+        "Telekommunikation",
+        "Medien",
+        "Kommunen",
+        "Stadtwerke"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "ANGA COM 2026",
+          "edition_url": "https://angacom.de/",
+          "location": "Koeln",
+          "date_from": "2026-05-19",
+          "date_to": "2026-05-21",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "20.000 Teilnehmende und 450 Aussteller",
+          "research_use": "Hoch mit Filter. Der groesste Teil der Messe ist privatwirtschaftlich, der kommunale Breitbandmarkt ist aber klar vertreten.",
+          "notes": "Hoch mit Filter. Der groesste Teil der Messe ist privatwirtschaftlich, der kommunale Breitbandmarkt ist aber klar vertreten."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch mit Filter. Der groesste Teil der Messe ist privatwirtschaftlich, der kommunale Breitbandmarkt ist aber klar vertreten."
+    },
+    {
+      "source_id": "it-sa-expo-congress",
+      "name": "it-sa Expo&Congress",
+      "source_type": "messe",
+      "url": "https://www.itsa365.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "IT-Sicherheit",
+        "Cybersecurity",
+        "KRITIS",
+        "Behoerden",
+        "Infrastruktur"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "it-sa Expo&Congress 2026",
+          "edition_url": "https://www.itsa365.de/en/it-sa-expo-congress/visit/visit-itsa-expo",
+          "location": "Nuernberg",
+          "date_from": "2026-10-27",
+          "date_to": "2026-10-29",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2025: 28.267 Fachbesucher und 993 Aussteller; 2026 rund 900 Aussteller erwartet",
+          "research_use": "Hoch mit starkem Filter. Viele Anbieter verkaufen sowohl an Unternehmen als auch an Behoerden.",
+          "notes": "Hoch mit starkem Filter. Viele Anbieter verkaufen sowohl an Unternehmen als auch an Behoerden."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch mit starkem Filter. Viele Anbieter verkaufen sowohl an Unternehmen als auch an Behoerden."
+    },
+    {
+      "source_id": "pmrexpo",
+      "name": "PMRExpo",
+      "source_type": "messe",
+      "url": "https://www.pmrexpo.com/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "sichere Kommunikation",
+        "Leitstellen",
+        "BOS",
+        "KRITIS",
+        "Energie",
+        "Verkehr"
+      ],
+      "public_sector_fit": "high",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "high",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "PMRExpo 2026",
+          "edition_url": "https://www.pmrexpo.com/",
+          "location": "Koeln",
+          "date_from": "2026-11-24",
+          "date_to": "2026-11-26",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2025: rund 6.000 Besucher und 268 Aussteller",
+          "research_use": "Hoch fuer Sicherheitsbehoerden, Feuerwehr, Rettungsdienste, Energie und Verkehr.",
+          "notes": "Hoch fuer Sicherheitsbehoerden, Feuerwehr, Rettungsdienste, Energie und Verkehr."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Hoch fuer Sicherheitsbehoerden, Feuerwehr, Rettungsdienste, Energie und Verkehr."
+    },
+    {
+      "source_id": "gpec",
+      "name": "GPEC",
+      "source_type": "messe",
+      "url": "https://www.gpec.de/",
+      "cadence": "biennial",
+      "active_status": "active",
+      "topic_focus": [
+        "Polizei",
+        "Sicherheitsbehoerden",
+        "innere Sicherheit",
+        "geschlossene Fachmesse"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "GPEC 2026",
+          "edition_url": "https://www.gpec.de/en/information",
+          "location": "Leipzig",
+          "date_from": "2026-05-20",
+          "date_to": "2026-05-22",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2024: 7.684 Teilnehmende und 471 Aussteller",
+          "research_use": "Sehr hoch fuer Polizei und innere Sicherheit, fuer allgemeine Verwaltungsanbieter kaum relevant.",
+          "notes": "Sehr hoch fuer Polizei und innere Sicherheit, fuer allgemeine Verwaltungsanbieter kaum relevant."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer Polizei und innere Sicherheit, fuer allgemeine Verwaltungsanbieter kaum relevant."
+    },
+    {
+      "source_id": "florian",
+      "name": "FLORIAN",
+      "source_type": "messe",
+      "url": "https://www.messe-florian.de/",
+      "cadence": "annual",
+      "active_status": "active",
+      "topic_focus": [
+        "Feuerwehr",
+        "Zivilschutz",
+        "Katastrophenschutz",
+        "Rettungswesen",
+        "kommunale Sicherheit"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2026,
+          "edition_name": "FLORIAN 2026",
+          "edition_url": "https://www.messe-florian.de/",
+          "location": "Dresden",
+          "date_from": "2026-10-08",
+          "date_to": "2026-10-10",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2025: mehr als 30.000 Besucher und ueber 400 Aussteller; 2026 rund 350 Aussteller angekuendigt",
+          "research_use": "Sehr hoch fuer kommunale Sicherheit, Krisenmanagement und Einsatzorganisationen.",
+          "notes": "Sehr hoch fuer kommunale Sicherheit, Krisenmanagement und Einsatzorganisationen."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer kommunale Sicherheit, Krisenmanagement und Einsatzorganisationen."
+    },
+    {
+      "source_id": "interschutz",
+      "name": "INTERSCHUTZ",
+      "source_type": "messe",
+      "url": "https://www.interschutz.de/",
+      "cadence": "quadrennial",
+      "active_status": "active",
+      "topic_focus": [
+        "Feuerwehr",
+        "Rettungswesen",
+        "Bevoelkerungsschutz",
+        "Sicherheit",
+        "KRITIS"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2030,
+          "edition_name": "INTERSCHUTZ 2030",
+          "edition_url": "https://www.interschutz.de/",
+          "location": "Hannover",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "2026: rund 140.000 Besucher und 1.772 Aussteller; naechste Ausgabe 2030",
+          "research_use": "Sehr hoch innerhalb des Sicherheitsmarktes. Enormer Firmenpool, aber stark international und fachlich eng.",
+          "notes": "Sehr hoch innerhalb des Sicherheitsmarktes. Enormer Firmenpool, aber stark international und fachlich eng."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch innerhalb des Sicherheitsmarktes. Enormer Firmenpool, aber stark international und fachlich eng."
+    },
+    {
+      "source_id": "demopark",
+      "name": "demopark",
+      "source_type": "messe",
+      "url": "https://www.demopark.de/",
+      "cadence": "biennial",
+      "active_status": "active",
+      "topic_focus": [
+        "Kommunaltechnik",
+        "Bauhoefe",
+        "Gruenflaechenmanagement",
+        "Winterdienst",
+        "Betriebstechnik"
+      ],
+      "public_sector_fit": "medium",
+      "freshness": "current_or_recent",
+      "extractability": "unknown",
+      "duplicate_risk": "unknown",
+      "expected_candidate_yield": "medium",
+      "source_pdf": "/Users/wolfram/Downloads/Amtshelden_Messen-PublicSector - Tabellenblatt1.pdf",
+      "editions": [
+        {
+          "year": 2025,
+          "edition_name": "demopark 2025",
+          "edition_url": "https://www.demopark.de/",
+          "location": "Eisenach",
+          "date_from": "",
+          "date_to": "",
+          "crawl_status": "planned",
+          "candidate_count_found": 0,
+          "candidate_count_promoted": 0,
+          "size_summary": "34.000 Besucher und mehr als 400 Aussteller",
+          "research_use": "Sehr hoch fuer Bauhoefe, Fahrzeuge, Maschinen, Gruenflaechenmanagement und kommunale Betriebstechnik.",
+          "notes": "Sehr hoch fuer Bauhoefe, Fahrzeuge, Maschinen, Gruenflaechenmanagement und kommunale Betriebstechnik."
+        }
+      ],
+      "last_checked_at": "2026-08-14",
+      "next_check_at": "",
+      "notes": "Sehr hoch fuer Bauhoefe, Fahrzeuge, Maschinen, Gruenflaechenmanagement und kommunale Betriebstechnik."
+    }
+  ]
+}

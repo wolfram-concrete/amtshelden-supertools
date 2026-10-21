@@ -1,0 +1,1250 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "updated_at": "2026-08-14",
+    "source_candidate_files": [
+      "data/crawler/runs/curated-discovery-2026-08-14/product-candidates.json",
+      "data/crawler/runs/broad-promotions-provider-review-2026-08-14/product-candidates.json"
+    ],
+    "policy": "Internal master list. Only records with qualified/watchlist status should be considered for editorial review; no automatic website publish."
+  },
+  "tools": [
+    {
+      "slug": "speechmind",
+      "name": "SpeechMind",
+      "website": "https://www.speechmind.com/use-cases/public-sector",
+      "provider": "SpeechMind",
+      "branch": "KI-Protokollierung fuer kommunale Sitzungen",
+      "cluster": "IT",
+      "source_bucket": "Julia",
+      "master_status": "qualified_needs_review",
+      "master_status_reason": "Starker Fit, aber mindestens eine Pflichtinformation muss redaktionell nachgeprueft werden.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "SpeechMind ist ein Anbieter bzw. Produkt im Bereich KI-Protokollierung fuer kommunale Sitzungen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+      "screenshots": [
+        "/brand/screenshots/speechmind/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 8,
+      "evidence_urls": [
+        "https://www.speechmind.com/use-cases/public-sector",
+        "https://www.speechmind.com/privacy",
+        "https://www.speechmind.com/security"
+      ]
+    },
+    {
+      "slug": "scriba",
+      "name": "Scriba",
+      "website": "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php",
+      "provider": "Scriba",
+      "branch": "KI-Sitzungsprotokollierung fuer oeffentliche Verwaltung",
+      "cluster": "IT",
+      "source_bucket": "Julia",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "federal_state",
+        "label": "bundeslandspezifisch",
+        "regions": [
+          "Niedersachsen"
+        ],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php",
+            "term": "kommunen",
+            "snippet": "### Veranstaltungen * * * 17.08.2026 15:30 bis 16:30 Uhr #### [Infoveranstaltung \"Security Operations Center (SOC) für Kommunen in Niedersachsen\" am 17.08.2026 ](https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/Infoveranstaltung-Security-Operations-Center-SOC-f%C3%BCr-Kommunen-in-Niedersachsen-am-17-08-2026-.php?object=tx,2889.4&ModID=11&FID=2889.110.1&NavID=2889",
+            "region": "Niedersachsen"
+          },
+          {
+            "url": "",
+            "term": "",
+            "snippet": "### Veranstaltungen * * * 17.08.2026 15:30 bis 16:30 Uhr #### [Infoveranstaltung \"Security Operations Center (SOC) für Kommunen in Niedersachsen\" am 17.08.2026 ](https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/Infoveranstaltung-Security-Operations-Center-SOC-f%C3%BCr-Kommunen-in-Niedersachsen-am-17-08-2026-.php?object=tx,2889.4&ModID=11&FID=2889.110.1&NavID=2889",
+            "region": "Niedersachsen"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Scriba ist ein Anbieter bzw. Produkt im Bereich KI-Sitzungsprotokollierung fuer oeffentliche Verwaltung. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads gefunden.",
+      "screenshots": [
+        "/brand/screenshots/scriba/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 3,
+      "evidence_urls": [
+        "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php",
+        "https://www.govconnect.de/Kurzmen%C3%BC/Datenschutz",
+        "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php/datenschutz",
+        "https://www.govconnect.de/Kurzmen%C3%BC/Impressum"
+      ]
+    },
+    {
+      "slug": "convaise",
+      "name": "Convaise",
+      "website": "https://www.convaise.com/behoerden",
+      "provider": "Convaise",
+      "branch": "KI-Verwaltungslotse / Buergerdialog",
+      "cluster": "IT",
+      "source_bucket": "Christian",
+      "master_status": "qualified_needs_review",
+      "master_status_reason": "Starker Fit, aber mindestens eine Pflichtinformation muss redaktionell nachgeprueft werden.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Convaise ist ein Anbieter bzw. Produkt im Bereich KI-Verwaltungslotse / Buergerdialog. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+      "screenshots": [
+        "/brand/screenshots/convaise/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": true,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 1,
+      "evidence_urls": [
+        "https://www.convaise.com/behoerden",
+        "https://www.convaise.com/datenschutz"
+      ]
+    },
+    {
+      "slug": "splitbot-kosmo",
+      "name": "Splitbot / KOSMO",
+      "website": "https://splitbot.ai",
+      "provider": "Splitbot / KOSMO",
+      "branch": "KI-Wissensbot / interner KI-Assistent",
+      "cluster": "IT",
+      "source_bucket": "Christian",
+      "master_status": "qualified",
+      "master_status_reason": "Erfuellt die MVP-Kriterien im automatischen Signalcheck.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Splitbot / KOSMO ist ein Anbieter bzw. Produkt im Bereich KI-Wissensbot / interner KI-Assistent. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+      "screenshots": [
+        "/brand/screenshots/splitbot-kosmo/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Cloud/SaaS",
+        "On-Premise"
+      ],
+      "missing_info": [],
+      "content_piece_count": 3,
+      "evidence_urls": [
+        "https://splitbot.ai",
+        "https://splitbot.ai/anwendung",
+        "https://splitbot.ai/datenschutz",
+        "https://splitbot.ai/impressum"
+      ]
+    },
+    {
+      "slug": "findus-one",
+      "name": "Findus One",
+      "website": "https://www.findus-one.de",
+      "provider": "Findus One",
+      "branch": "KI-Plattform fuer oeffentlichen Bereich",
+      "cluster": "IT",
+      "source_bucket": "Christian",
+      "master_status": "qualified",
+      "master_status_reason": "Erfuellt die MVP-Kriterien im automatischen Signalcheck.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Findus One ist ein Anbieter bzw. Produkt im Bereich KI-Plattform fuer oeffentlichen Bereich. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf.",
+      "screenshots": [
+        "/brand/screenshots/findus-one/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "On-Premise"
+      ],
+      "missing_info": [],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://www.findus-one.de",
+        "https://www.findus-one.de/datenschutz",
+        "https://www.findus-one.de/impressum"
+      ]
+    },
+    {
+      "slug": "intrakommuna",
+      "name": "Intrakommuna",
+      "website": "https://www.intrakommuna.de",
+      "provider": "Intrakommuna",
+      "branch": "Kommunikationsplattform / Wissensmanagement fuer Verwaltungen und Kommunen",
+      "cluster": "KOM",
+      "source_bucket": "Christian",
+      "master_status": "qualified",
+      "master_status_reason": "Erfuellt die MVP-Kriterien im automatischen Signalcheck.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Intrakommuna ist ein Anbieter bzw. Produkt im Bereich Kommunikationsplattform / Wissensmanagement fuer Verwaltungen und Kommunen. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf.",
+      "screenshots": [
+        "/brand/screenshots/intrakommuna/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Cloud/SaaS"
+      ],
+      "missing_info": [],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://www.intrakommuna.de",
+        "https://www.intrakommuna.de/datenschutz",
+        "https://www.intrakommuna.de/impressum"
+      ]
+    },
+    {
+      "slug": "opendesk",
+      "name": "openDesk",
+      "website": "https://www.opendesk.eu/de",
+      "provider": "openDesk",
+      "branch": "Office- und Kollaborationssuite fuer oeffentliche Verwaltung",
+      "cluster": "CROSS",
+      "source_bucket": "Christian",
+      "master_status": "qualified_needs_review",
+      "master_status_reason": "Starker Fit, aber mindestens eine Pflichtinformation muss redaktionell nachgeprueft werden.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "openDesk ist ein Anbieter bzw. Produkt im Bereich Office- und Kollaborationssuite fuer oeffentliche Verwaltung. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Videos gefunden.",
+      "screenshots": [
+        "/brand/screenshots/opendesk/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": true,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 6,
+      "evidence_urls": [
+        "https://www.opendesk.eu/de",
+        "https://www.opendesk.eu/de/datenschutz",
+        "https://www.opendesk.eu/de/impressum"
+      ]
+    },
+    {
+      "slug": "ceyoniq",
+      "name": "Ceyoniq",
+      "website": "https://ceyoniq.com",
+      "provider": "Ceyoniq",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Ceyoniq ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Videos gefunden.",
+      "screenshots": [
+        "/brand/screenshots/ceyoniq/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 9,
+      "evidence_urls": [
+        "https://ceyoniq.com",
+        "https://ceyoniq.com/datenschutz",
+        "https://ceyoniq.com/datenschutzerklaerung",
+        "https://ceyoniq.com/impressum"
+      ]
+    },
+    {
+      "slug": "inixmedia",
+      "name": "Inixmedia",
+      "website": "https://www.inixmedia.de",
+      "provider": "Inixmedia",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "qualified_needs_review",
+      "master_status_reason": "Starker Fit, aber mindestens eine Pflichtinformation muss redaktionell nachgeprueft werden.",
+      "review_confidence": "hoch",
+      "availability": {
+        "scope": "regional",
+        "label": "regional",
+        "regions": [],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://www.inixmedia.de",
+            "term": "kommunen",
+            "snippet": "# Die Agentur für Kommunen ## persönlich » verlässlich » wirtschaftlich Als Partner vor Ort verhelfen wir Ihrer Kommune zu wirksamer und rechtssicherer Öffentlichkeitsarbeit, zeitgemäßem Bürgerservice in Print und Digital und vernetzen die Medien zu einem crossmedialen Gesamtko"
+          },
+          {
+            "url": "",
+            "term": "",
+            "snippet": "# Die Agentur für Kommunen ## persönlich » verlässlich » wirtschaftlich Als Partner vor Ort verhelfen wir Ihrer Kommune zu wirksamer und rechtssicherer Öffentlichkeitsarbeit, zeitgemäßem Bürgerservice in Print und Digital und vernetzen die Medien zu einem crossmedialen Gesamtko"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Inixmedia ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads gefunden.",
+      "screenshots": [
+        "/brand/screenshots/inixmedia/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": true,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 2,
+      "evidence_urls": [
+        "https://www.inixmedia.de",
+        "https://www.inixmedia.de/datenschutz",
+        "https://www.inixmedia.de/impressum"
+      ]
+    },
+    {
+      "slug": "nolis",
+      "name": "Nolis",
+      "website": "https://www.nolis.de",
+      "provider": "Nolis",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Nolis ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Barrierefreiheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare gefunden.",
+      "screenshots": [
+        "/brand/screenshots/nolis/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": true,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 8,
+      "evidence_urls": [
+        "https://www.nolis.de",
+        "https://www.nolis.de/datenschutz",
+        "https://www.nolis.de/impressum"
+      ]
+    },
+    {
+      "slug": "govdigital",
+      "name": "govdigital",
+      "website": "https://govdigital.de",
+      "provider": "govdigital",
+      "branch": "Souveraene Verwaltungscloud / digitale Infrastruktur",
+      "cluster": "CROSS",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "nationwide",
+        "label": "bundesweit",
+        "regions": [],
+        "confidence": "hoch",
+        "needs_review": false,
+        "evidence": [
+          {
+            "url": "https://govdigital.de",
+            "term": "deutschlandweit",
+            "snippet": "Willkommen bei govdigital! Wir sind die Genossenschaft der öffentlichen IT-Dienstleister. Wir organisieren deutschlandweite Kooperation und gemeinsame Plattformen für die digitale Verwaltung. Wir arbeiten an digitaler Souveränität und für eine zeitgemäße digitale Daseinsvorsorge. [Weiterlesen](https://govdigital.de/die-genossenschaft/) ## Unsere Themen & Leistungen ![Themen-Icon](https://govdigital.de/wp"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "govdigital ist ein Anbieter bzw. Produkt im Bereich Souveraene Verwaltungscloud / digitale Infrastruktur. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als On-Premise, Hybrid hin. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+      "screenshots": [
+        "/brand/screenshots/govdigital/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "On-Premise",
+        "Hybrid"
+      ],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar."
+      ],
+      "content_piece_count": 1,
+      "evidence_urls": [
+        "https://govdigital.de",
+        "https://govdigital.de/datenschutz",
+        "https://govdigital.de/datenschutzerklaerung",
+        "https://govdigital.de/impressum"
+      ]
+    },
+    {
+      "slug": "itc-ag",
+      "name": "ITC AG",
+      "website": "https://www.itc-ag.com",
+      "provider": "ITC AG",
+      "branch": "Portale / Kundenkommunikation fuer Energie und Versorger",
+      "cluster": "CROSS",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "regional",
+        "label": "regional",
+        "regions": [],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://www.itc-ag.com",
+            "term": "vor ort",
+            "snippet": "mmunalwirtschaft und als Pflichttermin für Stadtwerke und kommunale Energieversorger. Die ITC AG präsentiert sich als Logopartner und freut sich auch vor Ort auf den persönlichen Austausch. [ Weiterlesen ![](https://www.itc-ag.com/files/itc_extern/arrow-right-circle-fill.svg) ](https://www.itc-ag.com/events-anzeigen/vku-stadtwerkekongress-berlin.html) CRM-Kongress, Metzingen 23.09.2026 – 24.09.2026 | Metzingen, Motorworld Village ![](https://www."
+          },
+          {
+            "url": "https://www.itc-ag.com/Datenschutzinformation.html",
+            "term": "regional",
+            "snippet": "n CDN ist ein Dienst, mit dessen Hilfe die Inhalte unseres Online-Angebots, insbesondere große Mediendateien wie Grafiken oder Skripte, mit Hilfe von regional verteilten, über das Internet verbundenen Servern schneller ausgeliefert werden. Die Verarbeitung Ihrer Daten erfolgt ausschließlich zu den vorgenannten Zwecken und zur Aufrechterhaltung der Sicherheit und Funktionalität des CDN. Fastly als US-Unternehmen ist unter dem EU-US Data Privacy Fr"
+          },
+          {
+            "url": "https://www.itc-ag.com/datenschutz",
+            "term": "regional",
+            "snippet": "n CDN ist ein Dienst, mit dessen Hilfe die Inhalte unseres Online-Angebots, insbesondere große Mediendateien wie Grafiken oder Skripte, mit Hilfe von regional verteilten, über das Internet verbundenen Servern schneller ausgeliefert werden. Die Verarbeitung Ihrer Daten erfolgt ausschließlich zu den vorgenannten Zwecken und zur Aufrechterhaltung der Sicherheit und Funktionalität des CDN. Fastly als US-Unternehmen ist unter dem EU-US Data Privacy Fr"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "ITC AG ist ein Anbieter bzw. Produkt im Bereich Portale / Kundenkommunikation fuer Energie und Versorger. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+      "screenshots": [
+        "/brand/screenshots/itc-ag/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 14,
+      "evidence_urls": [
+        "https://www.itc-ag.com",
+        "https://www.itc-ag.com/Datenschutzinformation.html",
+        "https://www.itc-ag.com/datenschutz",
+        "https://www.itc-ag.com/impressum"
+      ]
+    },
+    {
+      "slug": "empolis",
+      "name": "Empolis",
+      "website": "https://empolis.com/de/wissensmanagement-fuer-kommunen",
+      "provider": "Empolis",
+      "branch": "Wissensmanagement fuer Kommunen",
+      "cluster": "IT",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "watchlist_needs_research",
+      "master_status_reason": "Fachlich relevant, aber Datenlage ist noch nicht vollstaendig genug.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Empolis ist ein Anbieter bzw. Produkt im Bereich Wissensmanagement fuer Kommunen. In den ausgewerteten Anbieterinhalten finden sich Hinweise auf Einsatzfelder im öffentlichen Sektor, in Verwaltungen oder bei kommunalen Organisationen. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Webinare, Whitepaper gefunden.",
+      "screenshots": [
+        "/brand/screenshots/empolis/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": true,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden."
+      ],
+      "content_piece_count": 8,
+      "evidence_urls": [
+        "https://empolis.com/de/wissensmanagement-fuer-kommunen",
+        "https://empolis.com/de/datenschutz",
+        "https://empolis.com/de/impressum"
+      ]
+    }
+  ],
+  "rejected_or_blocked": [
+    {
+      "slug": "ivicos-ivcampus",
+      "name": "Ivicos / ivCAMPUS",
+      "website": "https://www.ivicos.eu/de-home",
+      "provider": "Ivicos / ivCAMPUS",
+      "branch": "Virtuelles Buero / digitale Zusammenarbeit",
+      "cluster": "CROSS",
+      "source_bucket": "Julia",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Ivicos / ivCAMPUS ist ein Anbieter bzw. Produkt im Bereich Virtuelles Buero / digitale Zusammenarbeit. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Videos gefunden.",
+      "screenshots": [
+        "/brand/screenshots/ivicos-ivcampus/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Hybrid"
+      ],
+      "missing_info": [
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 1,
+      "evidence_urls": [
+        "https://www.ivicos.eu/de-home",
+        "https://www.ivicos.eu/en/privacy"
+      ]
+    },
+    {
+      "slug": "gospeech",
+      "name": "GoSpeech",
+      "website": "https://www.gospeech.com/en/industries/public-administration",
+      "provider": "GoSpeech",
+      "branch": "KI-Transkription fuer Verwaltung und Sitzungen",
+      "cluster": "IT",
+      "source_bucket": "Julia",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "GoSpeech ist ein Anbieter bzw. Produkt im Bereich KI-Transkription fuer Verwaltung und Sitzungen. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit auf.",
+      "screenshots": [
+        "/brand/screenshots/gospeech/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://www.gospeech.com/en/industries/public-administration",
+        "https://www.gospeech.com/en/1/homepage/privacy-statement"
+      ]
+    },
+    {
+      "slug": "threema-work",
+      "name": "Threema Work",
+      "website": "https://threema.com/de/products/work",
+      "provider": "Threema Work",
+      "branch": "Sicherer Messenger / Behoerdenkommunikation",
+      "cluster": "KOM",
+      "source_bucket": "Julia",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Threema Work ist ein Anbieter bzw. Produkt im Bereich Sicherer Messenger / Behoerdenkommunikation. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, On-Premise hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Anwendungsfälle gefunden.",
+      "screenshots": [
+        "/brand/screenshots/threema-work/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Cloud/SaaS",
+        "On-Premise"
+      ],
+      "missing_info": [
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 17,
+      "evidence_urls": [
+        "https://threema.com/de/products/work",
+        "https://threema.com/de/kunden/abiomed",
+        "https://threema.com/de/privacy-note"
+      ]
+    },
+    {
+      "slug": "picture-gmbh",
+      "name": "Picture Gmbh",
+      "website": "https://www.picture-gmbh.de",
+      "provider": "Picture Gmbh",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Picture Gmbh ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": false,
+        "hosting": false,
+        "security": false,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Keine belastbare DSGVO-/Datenschutz-Aussage gefunden.",
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://www.picture-gmbh.de",
+        "https://www.picture-gmbh.de/datenschutz",
+        "https://www.picture-gmbh.de/impressum"
+      ]
+    },
+    {
+      "slug": "bechtle",
+      "name": "Bechtle",
+      "website": "https://www.bechtle.com",
+      "provider": "Bechtle",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "regional",
+        "label": "regional",
+        "regions": [],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://www.bechtle.com",
+            "term": "kunden",
+            "snippet": "## People business. Über 16.000 Mitarbeitende Menschen aus 112 Nationen Aktuell 807 Azubis und Studierende Über 70.000 Kunden [ Mehr erfahren ](https://www.bechtle.com/karriere \"Erfahre mehr über die Karrieremöglichkeiten bei Bechtle\") Unsere Standorte. Wir verbinden die Stärke eines internationalen Konzerns mit der Nähe und Flexibilität eines regionalen Dienstleisters und bie"
+          },
+          {
+            "url": "",
+            "term": "",
+            "snippet": "## People business. Über 16.000 Mitarbeitende Menschen aus 112 Nationen Aktuell 807 Azubis und Studierende Über 70.000 Kunden [ Mehr erfahren ](https://www.bechtle.com/karriere \"Erfahre mehr über die Karrieremöglichkeiten bei Bechtle\") Unsere Standorte. Wir verbinden die Stärke eines internationalen Konzerns mit der Nähe und Flexibilität eines regionalen Dienstleisters und bie"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Bechtle ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+      "screenshots": [
+        "/brand/screenshots/bechtle/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": true,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Hybrid"
+      ],
+      "missing_info": [
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 12,
+      "evidence_urls": [
+        "https://www.bechtle.com",
+        "https://www.bechtle.com/privacy-policy",
+        "https://www.bechtle.com/impressum"
+      ]
+    },
+    {
+      "slug": "junikom",
+      "name": "Junikom",
+      "website": "https://junikom.de",
+      "provider": "Junikom",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "cluster": "IT",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Junikom ist ein Anbieter bzw. Produkt im Bereich kommunale Digitalisierung / Software / Plattformen. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit auf.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://junikom.de",
+        "https://junikom.de/datenschutz",
+        "https://junikom.de/datenschutzerklaerung",
+        "https://junikom.de/impressum"
+      ]
+    },
+    {
+      "slug": "vois",
+      "name": "VOIS",
+      "website": "https://www.vois.org",
+      "provider": "VOIS",
+      "branch": "Verwaltungsplattform / Fachverfahren im kommunalen Kontext",
+      "cluster": "ORG",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "master_status": "blocked_recrawl",
+      "master_status_reason": "Crawler konnte keine verwertbare Anbieter-Seite lesen.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "VOIS ist ein Anbieter bzw. Produkt im Bereich Verwaltungsplattform / Fachverfahren im kommunalen Kontext. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": false,
+        "hosting": false,
+        "security": false,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Keine belastbare DSGVO-/Datenschutz-Aussage gefunden.",
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": []
+    },
+    {
+      "slug": "collect-ai",
+      "name": "collect.AI",
+      "website": "https://collect.ai/benefit-by-industry-energieversorger-0",
+      "provider": "collect.AI",
+      "branch": "Digitale Zahlungs-/Forderungsprozesse fuer Versorger und oeffentliche Unternehmen",
+      "cluster": "CROSS",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "collect.AI ist ein Anbieter bzw. Produkt im Bereich Digitale Zahlungs-/Forderungsprozesse fuer Versorger und oeffentliche Unternehmen. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS, Hybrid hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Praxisbeispiele gefunden.",
+      "screenshots": [
+        "/brand/screenshots/collect-ai/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Cloud/SaaS",
+        "Hybrid"
+      ],
+      "missing_info": [
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 3,
+      "evidence_urls": [
+        "https://collect.ai/benefit-by-industry-energieversorger-0",
+        "https://collect.ai/datenschutz"
+      ]
+    },
+    {
+      "slug": "dimater",
+      "name": "Dimater",
+      "website": "https://dimater.cloud",
+      "provider": "Dimater",
+      "branch": "Cloud-/Datenplattform fuer Energie- und Versorgungsumfeld",
+      "cluster": "IT",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Dimater ist ein Anbieter bzw. Produkt im Bereich Cloud-/Datenplattform fuer Energie- und Versorgungsumfeld. Öffentlich auffindbare Inhalte deuten auf ein Betriebsmodell als Cloud/SaaS hin. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel gefunden.",
+      "screenshots": [
+        "/brand/screenshots/dimater/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": false,
+        "operation": true,
+        "references": true
+      },
+      "operation_models": [
+        "Cloud/SaaS"
+      ],
+      "missing_info": [
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 4,
+      "evidence_urls": [
+        "https://dimater.cloud",
+        "https://dimater.cloud/datenschutz",
+        "https://dimater.cloud/impressum"
+      ]
+    },
+    {
+      "slug": "konica-minolta-ecm",
+      "name": "Konica Minolta ECM",
+      "website": "https://www.konicaminolta.de/de-de/unternehmenssoftware/ecm",
+      "provider": "Konica Minolta ECM",
+      "branch": "ECM / Dokumentenmanagement",
+      "cluster": "IT",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "mittel",
+      "availability": {
+        "scope": "regional",
+        "label": "regional",
+        "regions": [],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://www.konicaminolta.de/de-de/datenschutz",
+            "term": "vor ort",
+            "snippet": "rgon ihre Daten zur weiteren vertrieblichen Kontaktaufnahme überlassen. Dabei werden personenbezogene Daten über die Eingabemaske von entergon direkt vor Ort (neu) erhoben. Die Daten können direkt über eine Eingabemaske erfasst werden oder von einer Visitenkarte mit der OCR-Funktion eingelesen werden. Ist der Lead bereits in einem unserer Systeme vorhanden, kann eine Abfrage bei der jeweiligen CRM-Datenbank durchgeführt werden. Etwaig vorhandene"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Konica Minolta ECM ist ein Anbieter bzw. Produkt im Bereich ECM / Dokumentenmanagement. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Hosting oder Datenstandort, Sicherheit, Barrierefreiheit auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Webinare gefunden.",
+      "screenshots": [
+        "/brand/screenshots/konica-minolta-ecm/shot-1.jpg"
+      ],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": true,
+        "security": true,
+        "accessibility": true,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 7,
+      "evidence_urls": [
+        "https://www.konicaminolta.de/de-de/unternehmenssoftware/ecm",
+        "https://www.konicaminolta.de/de-de/datenschutz",
+        "https://www.konicaminolta.de/de-de/impressum"
+      ]
+    },
+    {
+      "slug": "lime-technologies",
+      "name": "Lime Technologies",
+      "website": "https://www.lime-technologies.com/de/produkte/lime-crm/branchenloesungen/versorgungswirtschaft",
+      "provider": "Lime Technologies",
+      "branch": "CRM fuer Versorgungswirtschaft",
+      "cluster": "CROSS",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Lime Technologies ist ein Anbieter bzw. Produkt im Bereich CRM fuer Versorgungswirtschaft. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf. Ergänzend wurden öffentliche Materialien wie Fachartikel, Downloads, Videos gefunden.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 12,
+      "evidence_urls": [
+        "https://www.lime-technologies.com/de/produkte/lime-crm/branchenloesungen/versorgungswirtschaft",
+        "https://www.lime-technologies.com/de/rechtliches/datenschutzerklarung"
+      ]
+    },
+    {
+      "slug": "erdigital",
+      "name": "ERDigital",
+      "website": "http://www.erdigital.de",
+      "provider": "ERDigital",
+      "branch": "Digitalisierung im Energie-/Versorgungsumfeld",
+      "cluster": "CROSS",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "blocked_recrawl",
+      "master_status_reason": "Crawler konnte keine verwertbare Anbieter-Seite lesen.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "unknown",
+        "label": "unklar",
+        "regions": [],
+        "confidence": "offen",
+        "needs_review": true,
+        "evidence": []
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "ERDigital ist ein Anbieter bzw. Produkt im Bereich Digitalisierung im Energie-/Versorgungsumfeld. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": false,
+        "hosting": false,
+        "security": false,
+        "accessibility": false,
+        "operation": false,
+        "references": false
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Keine belastbare DSGVO-/Datenschutz-Aussage gefunden.",
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": []
+    },
+    {
+      "slug": "modirum-platforms",
+      "name": "Modirum Platforms",
+      "website": "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3",
+      "provider": "Modirum Platforms",
+      "branch": "Kritische Kommunikation / Public Safety Plattform",
+      "cluster": "IT",
+      "source_bucket": "Broad Discovery Curated",
+      "master_status": "research_or_reject",
+      "master_status_reason": "Zu wenige belastbare Signale fuer die Masterliste.",
+      "review_confidence": "offen",
+      "availability": {
+        "scope": "regional",
+        "label": "regional",
+        "regions": [],
+        "confidence": "niedrig",
+        "needs_review": true,
+        "evidence": [
+          {
+            "url": "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3",
+            "term": "vor ort",
+            "snippet": "t-Videofeeds aus stationären Überwachungsquellen (CCTV) und Feldteams. * Bereitstellung eines einheitlichen Lagebildes für Leitstellen, Einsatzleiter vor Ort und mobile Einheiten. * Ermöglichung koordinierter Gemeinschaftseinsätze zwischen Behörden und Teams. ![](https://modirumplatforms.com/storage/app/media/nsc3-new/icons/smartphone-icon.svg) #### Bürgerunterstützung & Fernberatung * Bürger können temporäre Live-Videos von Einsatzstellen übermi"
+          }
+        ]
+      },
+      "last_checked_at": "2026-08-14",
+      "body_copy": "Modirum Platforms ist ein Anbieter bzw. Produkt im Bereich Kritische Kommunikation / Public Safety Plattform. Ein konkreter Behörden- oder Verwaltungsbezug sollte redaktionell noch gesondert geprüft werden. Als prüfbare Themen tauchen öffentlich Hinweise zu Datenschutz, Sicherheit, Referenzen auf.",
+      "screenshots": [],
+      "criteria": {
+        "public_sector": false,
+        "privacy": true,
+        "hosting": false,
+        "security": true,
+        "accessibility": false,
+        "operation": false,
+        "references": true
+      },
+      "operation_models": [],
+      "missing_info": [
+        "Kein Serverstandort oder Hosting-Ort oeffentlich auffindbar.",
+        "Kein klares Betriebsmodell (Cloud/On-Premise/Hybrid) gefunden.",
+        "Keine klare Behoerden- oder Verwaltungsreferenz gefunden."
+      ],
+      "content_piece_count": 0,
+      "evidence_urls": [
+        "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3",
+        "https://modirumplatforms.com/de/datenschutzrichtlinie",
+        "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3/datenschutz",
+        "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3/impressum"
+      ]
+    }
+  ]
+}

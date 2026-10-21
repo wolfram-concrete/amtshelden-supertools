@@ -1,0 +1,36 @@
+{
+  "status": "technical_preview_needs_editorial_review",
+  "source_run": "data/crawler/runs/full-excel-2026-06-28",
+  "summary": {
+    "tools_checked": 5,
+    "tools_with_candidates": 0,
+    "downloaded_candidates": 0
+  },
+  "tools": [
+    {
+      "slug": "eye-able-web-inclusion-gmbh",
+      "company": "Eye-Able (Web Inclusion GmbH)",
+      "candidates": []
+    },
+    {
+      "slug": "facelift-cloud-gmbh",
+      "company": "Facelift Cloud GmbH",
+      "candidates": []
+    },
+    {
+      "slug": "parloa-gmbh",
+      "company": "Parloa GmbH",
+      "candidates": []
+    },
+    {
+      "slug": "nextcloud-gmbh",
+      "company": "Nextcloud GmbH",
+      "candidates": []
+    },
+    {
+      "slug": "polyteia-gmbh",
+      "company": "Polyteia GmbH",
+      "candidates": []
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "editorial_image_review",
+  "tools": {
+    "eye-able-web-inclusion-gmbh": {
+      "images": [
+        {
+          "status": "approved",
+          "public_path": "/brand/screenshots/eye-able-web-inclusion-gmbh/shot-1.jpg",
+          "source_url": "https://a2.storyblok.com/f/259811/2156x1144/37879bf91c/dashboard_en.png/m/1920x0/filters:quality(70):no_upscale()",
+          "review_note": "Echte Eye-Able-Dashboard-Oberfläche; bestehendes, bereits geprüftes Produktbild."
+        }
+      ]
+    }
+  }
+}

@@ -273,6 +273,25 @@ Die am 2026-08-14 ergaenzte Liste liegt zusaetzlich menschlich lesbar hier:
 /Users/wolfram/web-projekte/supertools/data/crawler/discovery/curation-seeds-2026-08-14.md
 ```
 
+## Redaktionelle Kriterienmatrix
+
+Die native Google-Sheet-Arbeitsdatei enthaelt seit 2026-08-24 zusaetzlich den
+Tab `06_Kriterienmatrix`. Diese Matrix ist keine weitere Fundliste, sondern die
+redaktionelle Pruefschicht nach der technischen Master-Qualifizierung.
+
+Sie beantwortet je Tool vor der Website-/CMS-Freigabe vor allem:
+
+- Welches konkrete Behoerdenproblem loest das Tool?
+- Fuer welche Behoerdentypen, Fachbereiche oder Groessen passt es?
+- Fuer wen ist es ausdruecklich nicht geeignet?
+- Welche Voraussetzungen, Einfuehrungsaufwaende und Beschaffungsfragen sind
+  sichtbar oder noch offen?
+- Wie stark ist die Evidenz: stark, mittel, schwach, widerspruechlich oder offen?
+
+Wichtig: Die Kriterienmatrix uebersetzt Christians fachliche Bewertungslogik in
+einen Human-Review-Schritt. Sie ersetzt nicht `review-decisions.json` und macht
+aus einem Crawler-Status keine Website-Freigabe.
+
 ## Aktueller Discovery-Lauf vom 2026-08-14
 
 Der erste Lauf nach der Drei-Listen-Logik ist abgeschlossen:

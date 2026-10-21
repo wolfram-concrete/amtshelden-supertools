@@ -1,0 +1,1709 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-14",
+  "purpose": "Kuratierte Discovery-Seedliste fuer zusaetzliche Supertools-Kandidaten. Diese Eintraege sind Recherchefutter fuer den Crawler und keine Website-Freigabe.",
+  "notes": [
+    "Die Messe-/Eventquellen aus Christians Liste fehlen in der Nutzernachricht noch als konkrete URLs oder Namen und muessen nachgetragen werden.",
+    "Dubletten bleiben als Memory-Eintrag sichtbar, werden aber nicht erneut als eigener Seed gecrawlt.",
+    "Gospeech wurde in der Nutzernachricht doppelt genannt und hier dedupliziert."
+  ],
+  "entries": [
+    {
+      "rank": 1001,
+      "name": "Ivicos / ivCAMPUS",
+      "submitted_names": [
+        "Ivicos / ivcampus"
+      ],
+      "slug": "ivicos-ivcampus",
+      "website": "https://www.ivicos.eu/de-home",
+      "source_bucket": "Julia",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Virtuelles Buero / digitale Zusammenarbeit",
+      "relevance_score": 4,
+      "curation_note": "Virtuelles Buero fuer Remote- und Hybridarbeit; in oeffentlichen Snippets mit Kommunal-/Buergerberatungskontext auffindbar.",
+      "discovery_sources": [
+        "https://www.ivicos.eu/de-home",
+        "https://www.ivicos.eu/home-2026",
+        "https://www.ivicos.eu/de/faq"
+      ]
+    },
+    {
+      "rank": 1002,
+      "name": "MeisterLabs GmbH (MeisterTask)",
+      "submitted_names": [
+        "Meistertask"
+      ],
+      "slug": "meisterlabs-gmbh-meistertask",
+      "website": "https://meistertask.com",
+      "source_bucket": "Julia",
+      "status": "already_in_seed",
+      "crawl_action": "monitor_existing",
+      "matched_existing_slug": "meisterlabs-gmbh-meistertask",
+      "cluster": "CROSS",
+      "branch": "Projektmanagement DSGVO",
+      "relevance_score": 5,
+      "curation_note": "Bereits in der 72er Excel-Seedliste enthalten."
+    },
+    {
+      "rank": 1003,
+      "name": "Stackfield GmbH",
+      "submitted_names": [
+        "Stackfield"
+      ],
+      "slug": "stackfield-gmbh",
+      "website": "https://stackfield.com",
+      "source_bucket": "Julia",
+      "status": "already_in_seed",
+      "crawl_action": "monitor_existing",
+      "matched_existing_slug": "stackfield-gmbh",
+      "cluster": "CROSS",
+      "branch": "Kollaboration Ende-zu-Ende verschluesselt",
+      "relevance_score": 5,
+      "curation_note": "Bereits in der 72er Excel-Seedliste enthalten."
+    },
+    {
+      "rank": 1004,
+      "name": "factro (Schuchert Managementberatung)",
+      "submitted_names": [
+        "Factro"
+      ],
+      "slug": "factro-schuchert-managementberatung",
+      "website": "https://factro.de",
+      "source_bucket": "Julia",
+      "status": "already_in_seed",
+      "crawl_action": "monitor_existing",
+      "matched_existing_slug": "factro-schuchert-managementberatung",
+      "cluster": "CROSS",
+      "branch": "Projektmanagement DE",
+      "relevance_score": 5,
+      "curation_note": "Bereits in der 72er Excel-Seedliste enthalten; oeffentliche Verwaltung und DSGVO/Deutschland-Hosting bleiben starke Monitoring-Signale."
+    },
+    {
+      "rank": 1005,
+      "name": "SpeechMind",
+      "submitted_names": [
+        "Speech Mind"
+      ],
+      "slug": "speechmind",
+      "website": "https://www.speechmind.com/use-cases/public-sector/",
+      "source_bucket": "Julia",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Protokollierung fuer kommunale Sitzungen",
+      "relevance_score": 5,
+      "curation_note": "Starker Public-Sector-Fit durch kommunale Sitzungsprotokollierung, Kommunenreferenzen und DSGVO-Positionierung.",
+      "discovery_sources": [
+        "https://www.speechmind.com/",
+        "https://www.speechmind.com/use-cases/public-sector/",
+        "https://www.speechmind.com/fallstudien/",
+        "https://www.speechmind.com/newsroom/"
+      ]
+    },
+    {
+      "rank": 1006,
+      "name": "GoSpeech",
+      "submitted_names": [
+        "Gospeech",
+        "Gospeech"
+      ],
+      "slug": "gospeech",
+      "website": "https://www.gospeech.com/en/industries/public-administration",
+      "source_bucket": "Julia",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Transkription fuer Verwaltung und Sitzungen",
+      "relevance_score": 5,
+      "curation_note": "Public-Administration-Seite nennt KI-Transkription, DSGVO und deutsche Server; sehr passender Kandidat fuer Sitzungs-/Protokollierungscluster.",
+      "discovery_sources": [
+        "https://www.gospeech.com/en/",
+        "https://www.gospeech.com/en/industries/public-administration",
+        "https://www.gospeech.com/blog/datensicherheit-in-gospeech"
+      ]
+    },
+    {
+      "rank": 1007,
+      "name": "Scriba",
+      "submitted_names": [
+        "Scriba"
+      ],
+      "slug": "scriba",
+      "website": "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php",
+      "source_bucket": "Julia",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Sitzungsprotokollierung fuer oeffentliche Verwaltung",
+      "relevance_score": 5,
+      "curation_note": "GovConnect/VÖB-Kontext mit explizitem Fokus auf oeffentliche Verwaltung, lokale Datenverarbeitung und Protokollierung.",
+      "discovery_sources": [
+        "https://www.govconnect.de/Produkte/Partnerl%C3%B6sungen/Scriba/index.php",
+        "https://www.voeb-service.de/bankensoftware/kooperationen/scriba"
+      ]
+    },
+    {
+      "rank": 1008,
+      "name": "Threema Work",
+      "submitted_names": [
+        "Threema work"
+      ],
+      "slug": "threema-work",
+      "website": "https://threema.com/de/products/work",
+      "source_bucket": "Julia",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "KOM",
+      "branch": "Sicherer Messenger / Behoerdenkommunikation",
+      "relevance_score": 4,
+      "curation_note": "Sicherer Business-Messenger mit DSGVO, Ende-zu-Ende-Verschluesselung, Schweizer Servern und Behoerden-/Militaerreferenzen.",
+      "discovery_sources": [
+        "https://threema.com/de/products/work",
+        "https://threema.com/de/support/work"
+      ]
+    },
+    {
+      "rank": 1009,
+      "name": "Viind GmbH",
+      "submitted_names": [
+        "Viind"
+      ],
+      "slug": "viind-gmbh",
+      "website": "https://viind.com",
+      "source_bucket": "Julia",
+      "status": "already_in_seed",
+      "crawl_action": "monitor_existing",
+      "matched_existing_slug": "viind-gmbh",
+      "cluster": "IT",
+      "branch": "KI-Assistenten fuer Behoerden",
+      "relevance_score": 5,
+      "curation_note": "Bereits in der 72er Excel-Seedliste enthalten."
+    },
+    {
+      "rank": 1010,
+      "name": "Convaise",
+      "submitted_names": [
+        "Convaise"
+      ],
+      "slug": "convaise",
+      "website": "https://www.convaise.com/behoerden",
+      "source_bucket": "Christian",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Verwaltungslotse / Buergerdialog",
+      "relevance_score": 5,
+      "curation_note": "Expliziter KI-Verwaltungslotse fuer Behoerden mit XZuFi-/CMS-Anbindung, Quellenangaben, Barrierefreiheit und DSGVO/EU-Betrieb.",
+      "discovery_sources": [
+        "https://www.convaise.com/behoerden",
+        "https://www.convaise.com/"
+      ]
+    },
+    {
+      "rank": 1011,
+      "name": "Splitbot / KOSMO",
+      "submitted_names": [
+        "Splitbot"
+      ],
+      "slug": "splitbot-kosmo",
+      "website": "https://splitbot.ai/",
+      "source_bucket": "Christian",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Wissensbot / interner KI-Assistent",
+      "relevance_score": 4,
+      "curation_note": "KOSMO positioniert sich fuer Kommunen und Organisationen mit hohem Datenschutzbedarf; On-Premise bzw. deutsches Rechenzentrum als relevante Signale.",
+      "discovery_sources": [
+        "https://splitbot.ai/",
+        "https://splitbot.ai/en/contact/",
+        "https://splitbot.ai/blog/"
+      ]
+    },
+    {
+      "rank": 1012,
+      "name": "Findus One",
+      "submitted_names": [
+        "Findus"
+      ],
+      "slug": "findus-one",
+      "website": "https://www.findus-one.de/",
+      "source_bucket": "Christian",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "KI-Plattform fuer oeffentlichen Bereich",
+      "relevance_score": 5,
+      "curation_note": "Findus One ist als zentrale KI-Plattform fuer den oeffentlichen Bereich positioniert; deutsche Rechenzentren und Datenschutz sind zentrale Signale.",
+      "discovery_sources": [
+        "https://www.findus-one.de/"
+      ]
+    },
+    {
+      "rank": 1013,
+      "name": "Just Social (Just Software AG)",
+      "submitted_names": [
+        "Just social"
+      ],
+      "slug": "just-social-just-software-ag",
+      "website": "https://justsocial.com",
+      "source_bucket": "Christian",
+      "status": "already_in_seed",
+      "crawl_action": "monitor_existing",
+      "matched_existing_slug": "just-social-just-software-ag",
+      "cluster": "KOM",
+      "branch": "Mitarbeiter-Kommunikation / Social Intranet",
+      "relevance_score": 5,
+      "curation_note": "Bereits in der 72er Excel-Seedliste enthalten; bisheriger Crawl war technisch blockiert und bleibt Nachrecherchefall."
+    },
+    {
+      "rank": 1014,
+      "name": "Intrakommuna",
+      "submitted_names": [
+        "Intrakommuna"
+      ],
+      "slug": "intrakommuna",
+      "website": "https://www.intrakommuna.de/",
+      "source_bucket": "Christian",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "KOM",
+      "branch": "Kommunikationsplattform / Wissensmanagement fuer Verwaltungen und Kommunen",
+      "relevance_score": 5,
+      "curation_note": "Explizite Plattform fuer Verwaltungen und Kommunen mit Wissensmanagement, Social Intranet, Dokumentenmanagement und Messenger.",
+      "discovery_sources": [
+        "https://www.intrakommuna.de/",
+        "https://www.intrakommuna.de/kommunen/",
+        "https://www.intrakommuna.de/anwendungsfaelle/wissensmanagement-online-wissensplattform/"
+      ]
+    },
+    {
+      "rank": 1015,
+      "name": "openDesk",
+      "submitted_names": [
+        "Opendesk"
+      ],
+      "slug": "opendesk",
+      "website": "https://www.opendesk.eu/de",
+      "source_bucket": "Christian",
+      "status": "new_seed",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Office- und Kollaborationssuite fuer oeffentliche Verwaltung",
+      "relevance_score": 5,
+      "curation_note": "Souveraene Office- und Kollaborationssuite fuer die oeffentliche Verwaltung, entwickelt im ZenDiS/BMI-Kontext.",
+      "discovery_sources": [
+        "https://www.opendesk.eu/de",
+        "https://docs.opendesk.eu/operations/introduction/"
+      ]
+    },
+    {
+      "rank": 2001,
+      "name": "Picture Gmbh",
+      "submitted_names": [
+        "Picture Gmbh"
+      ],
+      "slug": "picture-gmbh",
+      "website": "https://www.picture-gmbh.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 9,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Firmen-/Software-Signal im Namen",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2002,
+      "name": "Bechtle",
+      "submitted_names": [
+        "Bechtle"
+      ],
+      "slug": "bechtle",
+      "website": "https://www.bechtle.com",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2003,
+      "name": "Bielefeld",
+      "submitted_names": [
+        "Bielefeld"
+      ],
+      "slug": "bielefeld",
+      "website": "https://www.bielefeld.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2004,
+      "name": "Ceyoniq",
+      "submitted_names": [
+        "Ceyoniq"
+      ],
+      "slug": "ceyoniq",
+      "website": "https://ceyoniq.com",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2005,
+      "name": "DB-Veranstaltungsticket",
+      "submitted_names": [
+        "DB-Veranstaltungsticket"
+      ],
+      "slug": "db-veranstaltungsticket",
+      "website": "https://www.eventanreise-bahn.de/de/events/35803",
+      "source_bucket": "Multiplier: KGSt-FORUM",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "HR",
+      "branch": "kommunale Organisation / Personal / Finanzen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://forum.kgst.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2006,
+      "name": "Databund",
+      "submitted_names": [
+        "Databund"
+      ],
+      "slug": "databund",
+      "website": "https://databund.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "needs_research",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber eher Verband/kommunales Netzwerk oder unklarer Produktzuschnitt; vor Crawl manuell pruefen.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2007,
+      "name": "Dstgb",
+      "submitted_names": [
+        "Dstgb"
+      ],
+      "slug": "dstgb",
+      "website": "https://www.dstgb.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2008,
+      "name": "Eventweb",
+      "submitted_names": [
+        "Eventweb"
+      ],
+      "slug": "eventweb",
+      "website": "https://kgst-forum-2026.eventweb.site/index.html",
+      "source_bucket": "Multiplier: KGSt-FORUM",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "HR",
+      "branch": "kommunale Organisation / Personal / Finanzen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://forum.kgst.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2009,
+      "name": "FAQs der Moritzbastei.",
+      "submitted_names": [
+        "FAQs der Moritzbastei."
+      ],
+      "slug": "faqs-der-moritzbastei",
+      "website": "https://www.moritzbastei.de/dein-besuch-bei-uns-frequently-asked-questions",
+      "source_bucket": "Multiplier: KGSt-FORUM",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "HR",
+      "branch": "kommunale Organisation / Personal / Finanzen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://forum.kgst.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2010,
+      "name": "Hier gehts zur Anmeldung",
+      "submitted_names": [
+        "Hier gehts zur Anmeldung"
+      ],
+      "slug": "hier-gehts-zur-anmeldung",
+      "website": "https://kgst-forum-2026.event-webseite.de",
+      "source_bucket": "Multiplier: KGSt-FORUM",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "HR",
+      "branch": "kommunale Organisation / Personal / Finanzen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://forum.kgst.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2011,
+      "name": "Inixmedia",
+      "submitted_names": [
+        "Inixmedia"
+      ],
+      "slug": "inixmedia",
+      "website": "https://www.inixmedia.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2012,
+      "name": "Junikom",
+      "submitted_names": [
+        "Junikom"
+      ],
+      "slug": "junikom",
+      "website": "https://junikom.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2013,
+      "name": "Kdn",
+      "submitted_names": [
+        "Kdn"
+      ],
+      "slug": "kdn",
+      "website": "https://www.kdn.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "needs_research",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber eher Verband/kommunales Netzwerk oder unklarer Produktzuschnitt; vor Crawl manuell pruefen.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2014,
+      "name": "Kgst",
+      "submitted_names": [
+        "Kgst"
+      ],
+      "slug": "kgst",
+      "website": "https://www.kgst.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2015,
+      "name": "Kommunal",
+      "submitted_names": [
+        "Kommunal"
+      ],
+      "slug": "kommunal",
+      "website": "https://kommunal.de/veranstaltung/messe-kommunal-2026",
+      "source_bucket": "Multiplier: Messe KOMMUNAL",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "CROSS",
+      "branch": "Kommunalbedarf / Verwaltung / kommunale Dienste",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://www.messe-erfurt.de/besucher/veranstaltungskalender/veranstaltung/messe-kommunal"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2016,
+      "name": "Kommunale",
+      "submitted_names": [
+        "Kommunale"
+      ],
+      "slug": "kommunale",
+      "website": "https://kommunale.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2017,
+      "name": "Landkreistag",
+      "submitted_names": [
+        "Landkreistag"
+      ],
+      "slug": "landkreistag",
+      "website": "https://www.landkreistag.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2018,
+      "name": "Leipziger Verkehrsbetrieben",
+      "submitted_names": [
+        "Leipziger Verkehrsbetrieben"
+      ],
+      "slug": "leipziger-verkehrsbetrieben",
+      "website": "https://www.l.de/verkehrsbetriebe/fahren/anreisen/leipziger-messe",
+      "source_bucket": "Multiplier: KGSt-FORUM",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "HR",
+      "branch": "kommunale Organisation / Personal / Finanzen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://forum.kgst.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2019,
+      "name": "Nolis",
+      "submitted_names": [
+        "Nolis"
+      ],
+      "slug": "nolis",
+      "website": "https://www.nolis.de",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "kommunale Digitalisierung / Software / Plattformen",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch weitergegeben in den Provider-Crawl, weil Anbieter-/Softwarefit plausibel ist.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2020,
+      "name": "Portugalglobal",
+      "submitted_names": [
+        "Portugalglobal"
+      ],
+      "slug": "portugalglobal",
+      "website": "https://portugalglobal.pt/en",
+      "source_bucket": "Multiplier: Smart Country Convention",
+      "status": "rejected_noise",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus Multiplikatorenquelle entdeckt, aber als Navigation, Verband, Stadt, Veranstalter-, Medien- oder Infrastrukturrauschen ausgesiebt.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2021,
+      "name": "VOIS",
+      "submitted_names": [
+        "Vois"
+      ],
+      "slug": "vois",
+      "website": "https://www.vois.org",
+      "source_bucket": "Multiplier: KommDIGITALE",
+      "status": "discovered_from_multiplier",
+      "crawl_action": "crawl",
+      "cluster": "ORG",
+      "branch": "Verwaltungsplattform / Fachverfahren im kommunalen Kontext",
+      "relevance_score": 5,
+      "curation_note": "Aus KommDIGITALE entdeckt; starker Public-Sector- und Fachverfahrensfit, in Provider-Crawl aufgenommen.",
+      "discovery_sources": [
+        "https://kommdigitale.de"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "externer Anbieterlink",
+        "Quelle mit hohem Public-Sector-Fit",
+        "Public-Sector-Begriff im Kontext",
+        "Software-/Digital-Signal im Kontext"
+      ]
+    },
+    {
+      "rank": 2022,
+      "name": "Kommune Digital Forum",
+      "submitted_names": [
+        "Kommune Digital Forum"
+      ],
+      "slug": "kommune-digital-forum",
+      "website": "https://www.kommune-digital-forum.de/de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 13,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, kommune, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:kommune-digital-forum.de",
+        "source_count": 1,
+        "best_score": 10
+      }
+    },
+    {
+      "rank": 2023,
+      "name": "www.motiv-group.de",
+      "submitted_names": [
+        "www.motiv-group.de"
+      ],
+      "slug": "www-motiv-group-de",
+      "website": "http://www.motiv-group.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "CROSS",
+      "branch": "Kommunalbedarf / Verwaltung / kommunale Dienste",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.messe-erfurt.de/unternehmen/partner"
+      ],
+      "discovery_score": 12,
+      "discovery_score_reasons": [
+        "Software-Hinweise: software",
+        "Public-Sector-Hinweise: kommunal, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:motiv-group.de",
+        "source_count": 1,
+        "best_score": 10
+      }
+    },
+    {
+      "rank": 2024,
+      "name": "Accenture",
+      "submitted_names": [
+        "Accenture"
+      ],
+      "slug": "accenture",
+      "website": "https://www.accenture.com/de-de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:accenture.com",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2025,
+      "name": "Adesso",
+      "submitted_names": [
+        "Adesso"
+      ],
+      "slug": "adesso",
+      "website": "https://www.adesso.de/de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:adesso.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2026,
+      "name": "Amtshelden",
+      "submitted_names": [
+        "Amtshelden"
+      ],
+      "slug": "amtshelden",
+      "website": "https://www.amtshelden.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:amtshelden.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2027,
+      "name": "Behoerden Spiegel",
+      "submitted_names": [
+        "Behoerden Spiegel"
+      ],
+      "slug": "behoerden-spiegel",
+      "website": "https://www.behoerden-spiegel.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: behoerde, govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:behoerden-spiegel.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2028,
+      "name": "Berlin Partner",
+      "submitted_names": [
+        "Berlin Partner"
+      ],
+      "slug": "berlin-partner",
+      "website": "https://www.berlin-partner.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:berlin-partner.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2029,
+      "name": "Bitkom Akademie",
+      "submitted_names": [
+        "Bitkom Akademie"
+      ],
+      "slug": "bitkom-akademie",
+      "website": "https://www.bitkom-akademie.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:bitkom-akademie.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2030,
+      "name": "Bmv",
+      "submitted_names": [
+        "Bmv"
+      ],
+      "slug": "bmv",
+      "website": "https://www.bmv.de/DE/Home/home.html",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:bmv.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2031,
+      "name": "Capgemini",
+      "submitted_names": [
+        "Capgemini"
+      ],
+      "slug": "capgemini",
+      "website": "https://www.capgemini.com/de-de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:capgemini.com",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2032,
+      "name": "Chgemeinden",
+      "submitted_names": [
+        "Chgemeinden"
+      ],
+      "slug": "chgemeinden",
+      "website": "https://www.chgemeinden.ch/de/zeitschrift",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:chgemeinden.ch",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2033,
+      "name": "Cities Today",
+      "submitted_names": [
+        "Cities Today"
+      ],
+      "slug": "cities-today",
+      "website": "https://cities-today.com",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:cities-today.com",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2034,
+      "name": "Dataport",
+      "submitted_names": [
+        "Dataport"
+      ],
+      "slug": "dataport",
+      "website": "https://www.dataport.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:dataport.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2035,
+      "name": "Deloitte",
+      "submitted_names": [
+        "Deloitte"
+      ],
+      "slug": "deloitte",
+      "website": "https://www.deloitte.com/de/de/Industries/government-public/about.html",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:deloitte.com",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2036,
+      "name": "Digitalisierung Und Bildung Fuer Aeltere Menschen",
+      "submitted_names": [
+        "Digitalisierung Und Bildung Fuer Aeltere Menschen"
+      ],
+      "slug": "digitalisierung-und-bildung-fuer-aeltere-menschen",
+      "website": "https://www.digitalisierung-und-bildung-fuer-aeltere-menschen.de/fachbeirat",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 12,
+      "discovery_score_reasons": [
+        "Software-Hinweise: digitalisierung, ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:digitalisierung-und-bildung-fuer-aeltere-menschen.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2037,
+      "name": "Egovernment",
+      "submitted_names": [
+        "Egovernment"
+      ],
+      "slug": "egovernment",
+      "website": "https://www.egovernment.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: egovernment, govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:egovernment.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2038,
+      "name": "Egovernment Podcast",
+      "submitted_names": [
+        "Egovernment Podcast"
+      ],
+      "slug": "egovernment-podcast",
+      "website": "https://egovernment-podcast.com",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: egovernment, govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:egovernment-podcast.com",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2039,
+      "name": "Ehrenbehoer",
+      "submitted_names": [
+        "Ehrenbehoer"
+      ],
+      "slug": "ehrenbehoer",
+      "website": "https://www.ehrenbehoer.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:ehrenbehoer.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2040,
+      "name": "Fraunhofer",
+      "submitted_names": [
+        "Fraunhofer"
+      ],
+      "slug": "fraunhofer",
+      "website": "https://www.fraunhofer.de",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:fraunhofer.de",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 2041,
+      "name": "Gemeindemagazin",
+      "submitted_names": [
+        "Gemeindemagazin"
+      ],
+      "slug": "gemeindemagazin",
+      "website": "http://www.gemeindemagazin.at",
+      "source_bucket": "Broad Multiplier Discovery",
+      "status": "needs_entity_review",
+      "crawl_action": "skip",
+      "cluster": "IT",
+      "branch": "GovTech / digitale Verwaltung / KI",
+      "relevance_score": 5,
+      "curation_note": "Aus breiter Multiplikatoren-Discovery entdeckt; vor Website-Nutzung redaktionell pruefen. Automatisch aus Batch A gefunden; wegen breiter Trefferlogik erst Entity-Review, dann Crawl-Freigabe.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 11,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ki, software",
+        "Public-Sector-Hinweise: govtech, verwaltung"
+      ],
+      "entity_match": {
+        "entity_key": "host:gemeindemagazin.at",
+        "source_count": 1,
+        "best_score": 8
+      }
+    },
+    {
+      "rank": 3001,
+      "name": "govdigital",
+      "submitted_names": [
+        "govdigital"
+      ],
+      "slug": "govdigital",
+      "website": "https://govdigital.de",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Souveraene Verwaltungscloud / digitale Infrastruktur",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://www.smartcountry.berlin/de/konzept/partner"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "Software-Hinweise: software"
+      ],
+      "entity_match": {
+        "host": "govdigital.de",
+        "source_count": 1,
+        "best_score": 5,
+        "source_runs": [
+          "broad-discovery-2026-08-14-a-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3002,
+      "name": "collect.AI",
+      "submitted_names": [
+        "collect.AI"
+      ],
+      "slug": "collect-ai",
+      "website": "https://collect.ai/benefit-by-industry-energieversorger-0",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Digitale Zahlungs-/Forderungsprozesse fuer Versorger und oeffentliche Unternehmen",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 9,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ai, software"
+      ],
+      "entity_match": {
+        "host": "collect.ai",
+        "source_count": 1,
+        "best_score": 6,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3003,
+      "name": "Dimater",
+      "submitted_names": [
+        "Dimater"
+      ],
+      "slug": "dimater",
+      "website": "https://dimater.cloud",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "Cloud-/Datenplattform fuer Energie- und Versorgungsumfeld",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 9,
+      "discovery_score_reasons": [
+        "Software-Hinweise: cloud, software"
+      ],
+      "entity_match": {
+        "host": "dimater.cloud",
+        "source_count": 1,
+        "best_score": 6,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3004,
+      "name": "Konica Minolta ECM",
+      "submitted_names": [
+        "Konica Minolta ECM"
+      ],
+      "slug": "konica-minolta-ecm",
+      "website": "https://www.konicaminolta.de/de-de/unternehmenssoftware/ecm",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "ECM / Dokumentenmanagement",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 9,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ecm, software"
+      ],
+      "entity_match": {
+        "host": "konicaminolta.de",
+        "source_count": 1,
+        "best_score": 6,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3005,
+      "name": "Lime Technologies",
+      "submitted_names": [
+        "Lime Technologies"
+      ],
+      "slug": "lime-technologies",
+      "website": "https://www.lime-technologies.com/de/produkte/lime-crm/branchenloesungen/versorgungswirtschaft",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "CRM fuer Versorgungswirtschaft",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 9,
+      "discovery_score_reasons": [
+        "Software-Hinweise: crm, software"
+      ],
+      "entity_match": {
+        "host": "lime-technologies.com",
+        "source_count": 1,
+        "best_score": 6,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3006,
+      "name": "ERDigital",
+      "submitted_names": [
+        "ERDigital"
+      ],
+      "slug": "erdigital",
+      "website": "http://www.erdigital.de",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Digitalisierung im Energie-/Versorgungsumfeld",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "Software-Hinweise: software"
+      ],
+      "entity_match": {
+        "host": "erdigital.de",
+        "source_count": 1,
+        "best_score": 5,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3007,
+      "name": "ITC AG",
+      "submitted_names": [
+        "ITC AG"
+      ],
+      "slug": "itc-ag",
+      "website": "https://www.itc-ag.com",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "CROSS",
+      "branch": "Portale / Kundenkommunikation fuer Energie und Versorger",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 7,
+      "discovery_score_reasons": [
+        "Software-Hinweise: software"
+      ],
+      "entity_match": {
+        "host": "itc-ag.com",
+        "source_count": 1,
+        "best_score": 5,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3008,
+      "name": "Empolis",
+      "submitted_names": [
+        "Empolis"
+      ],
+      "slug": "empolis",
+      "website": "https://empolis.com/de/wissensmanagement-fuer-kommunen",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "Wissensmanagement fuer Kommunen",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://stadtwerkekongress.kommunaldigital.de/vku-partner"
+      ],
+      "discovery_score": 6,
+      "discovery_score_reasons": [
+        "Public-Sector-Hinweise: kommune"
+      ],
+      "entity_match": {
+        "host": "empolis.com",
+        "source_count": 1,
+        "best_score": 5,
+        "source_runs": [
+          "broad-discovery-2026-08-14-b-tuned"
+        ]
+      }
+    },
+    {
+      "rank": 3009,
+      "name": "Modirum Platforms",
+      "submitted_names": [
+        "Modirum Platforms"
+      ],
+      "slug": "modirum-platforms",
+      "website": "https://modirumplatforms.com/plattformen/kritische-kommunikation/oeffentliche-sicherheit/nsc3",
+      "source_bucket": "Broad Discovery Curated",
+      "status": "curated_for_provider_crawl",
+      "crawl_action": "crawl",
+      "cluster": "IT",
+      "branch": "Kritische Kommunikation / Public Safety Plattform",
+      "relevance_score": 4,
+      "curation_note": "Manuell aus breiter Discovery als plausibler Software-/Plattformanbieter fuer gezielten Anbieter-Crawl ausgewaehlt.",
+      "discovery_sources": [
+        "https://www.gpec.de"
+      ],
+      "discovery_score": 10,
+      "discovery_score_reasons": [
+        "Software-Hinweise: ai, platform, plattform, software"
+      ],
+      "entity_match": {
+        "host": "modirumplatforms.com",
+        "source_count": 1,
+        "best_score": 5,
+        "source_runs": [
+          "broad-discovery-2026-08-14-c-tuned"
+        ]
+      }
+    }
+  ]
+}

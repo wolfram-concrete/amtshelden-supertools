@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "status": "central_native_google_sheet_ready",
+  "original_office_file": {
+    "id": "1EN79qleCexFDWlL5aVbi3EMCZS4Z0JuQ",
+    "name": "Supertools_Datenbasis_komplett.xlsx",
+    "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "url": "https://docs.google.com/spreadsheets/d/1EN79qleCexFDWlL5aVbi3EMCZS4Z0JuQ/edit?gid=483711098#gid=483711098",
+    "note": "Diese Datei ist eine in Google Drive liegende Office-/Excel-Datei. Die Google-Sheets-API kann sie nicht direkt zellweise aktualisieren. Sie bleibt als historische Quelle erhalten."
+  },
+  "central_native_google_sheet": {
+    "id": "1_omRLrsWPOTR2mbkpfaDSYmqGNDqkUnj2D5ZtjlgTgQ",
+    "name": "Supertools_Datenbasis_Master_und_Discovery",
+    "url": "https://docs.google.com/spreadsheets/d/1_omRLrsWPOTR2mbkpfaDSYmqGNDqkUnj2D5ZtjlgTgQ",
+    "tabs": {
+      "legende": {
+        "title": "00_Legende",
+        "sheet_id": 987654321,
+        "purpose": "Erklaert Prozesslogik, Tab-Reihenfolge und Unterschied zwischen Fuellhoernern, Kandidaten, Qualifizierung, Review und Website-Datenbasis."
+      },
+      "fuellhoerner": {
+        "title": "01_Fuellhoerner",
+        "sheet_id": 390220949,
+        "purpose": "Messen, Konferenzen, Plattformen, Suchraeume und andere Fundorte."
+      },
+      "discovery_inbox": {
+        "title": "02_Discovery_Inbox",
+        "sheet_id": 267246500,
+        "purpose": "Neue Anbieter-Funde aus Hinweisen, Messen, Suchlaeufen und manueller Kuration vor dem gezielten Anbieter-Crawl."
+      },
+      "master_qualifizierung": {
+        "title": "03_Master_Qualifizierung",
+        "sheet_id": 1264304280,
+        "purpose": "Enger qualifizierte Kandidaten fuer Review, Nachrecherche und spaetere Website-/CMS-Uebernahme."
+      },
+      "review_historie": {
+        "title": "04_Review_Historie",
+        "sheet_id": 1454742732,
+        "purpose": "Abgelehnte, unsichere oder technisch blockierte Kandidaten mit Begruendung."
+      },
+      "website_datenbasis": {
+        "title": "05_Website_Datenbasis",
+        "sheet_id": 1294639512,
+        "purpose": "Breite Website-Masse: 59 Preview-Tools plus 13 Master-/Watchlist-Tools. Keine finale Qualitaetsfreigabe."
+      }
+    }
+  },
+  "local_exports": {
+    "xlsx": "data/crawler/master/Supertools_Datenbasis_Master_und_Discovery.xlsx",
+    "csv_tabs_dir": "data/crawler/master/google-sheet-tabs"
+  },
+  "recommended_next_step": "Kuenftige Crawler-Exporte zuerst als lokale Tab-CSV/XLSX bauen und dann diese zentrale native Google-Sheets-Datei aktualisieren."
+}

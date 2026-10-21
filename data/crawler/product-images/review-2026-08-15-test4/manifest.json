@@ -1,0 +1,159 @@
+{
+  "status": "technical_preview_needs_editorial_review",
+  "source_run": "data/crawler/runs/full-excel-2026-06-28",
+  "summary": {
+    "tools_checked": 5,
+    "tools_with_candidates": 3,
+    "downloaded_candidates": 6
+  },
+  "tools": [
+    {
+      "slug": "eye-able-web-inclusion-gmbh",
+      "company": "Eye-Able (Web Inclusion GmbH)",
+      "candidates": [
+        {
+          "url": "https://a2.storyblok.com/f/259811/2156x1144/37879bf91c/dashboard_en.png/m/1920x0/filters:quality(70):no_upscale()",
+          "source_url": "https://eye-able.com",
+          "alt": "",
+          "initial_score": 18,
+          "reasons": [
+            "+12:dashboard",
+            "+6:grosse-quelldatei",
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 1,
+          "score": 32,
+          "content_type": "image/webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1019,
+          "visual_variance": 32.99,
+          "local_path": "eye-able-web-inclusion-gmbh/candidate-01.jpg",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    {
+      "slug": "facelift-cloud-gmbh",
+      "company": "Facelift Cloud GmbH",
+      "candidates": [
+        {
+          "url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Amplify.png?width=1492&height=1085&name=Product_Amplify.png",
+          "source_url": "https://facelift-bbt.com",
+          "alt": "Product_Amplify",
+          "initial_score": 5,
+          "reasons": [
+            "+5:product",
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 1,
+          "score": 19,
+          "content_type": "image/webp",
+          "format": "webp",
+          "width": 1492,
+          "height": 974,
+          "visual_variance": 75.45,
+          "local_path": "facelift-cloud-gmbh/candidate-01.jpg",
+          "review_status": "needs_review"
+        },
+        {
+          "url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Analyze.png?width=1494&height=1094&name=Product_Analyze.png",
+          "source_url": "https://facelift-bbt.com",
+          "alt": "Product_Analyze",
+          "initial_score": 5,
+          "reasons": [
+            "+5:product",
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 2,
+          "score": 19,
+          "content_type": "image/webp",
+          "format": "webp",
+          "width": 1494,
+          "height": 1094,
+          "visual_variance": 77.78,
+          "local_path": "facelift-cloud-gmbh/candidate-02.jpg",
+          "review_status": "needs_review"
+        },
+        {
+          "url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Engage.png?width=1538&height=1052&name=Product_Engage.png",
+          "source_url": "https://facelift-bbt.com",
+          "alt": "Product_Engage",
+          "initial_score": 5,
+          "reasons": [
+            "+5:product",
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 3,
+          "score": 19,
+          "content_type": "image/webp",
+          "format": "webp",
+          "width": 1538,
+          "height": 1052,
+          "visual_variance": 79.56,
+          "local_path": "facelift-cloud-gmbh/candidate-03.jpg",
+          "review_status": "needs_review"
+        },
+        {
+          "url": "https://facelift-bbt.com/hs-fs/hubfs/Product_Orchestrate.png?width=1506&height=1064&name=Product_Orchestrate.png",
+          "source_url": "https://facelift-bbt.com",
+          "alt": "Product_Orchestrate",
+          "initial_score": 5,
+          "reasons": [
+            "+5:product",
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 4,
+          "score": 19,
+          "content_type": "image/webp",
+          "format": "webp",
+          "width": 1506,
+          "height": 1041,
+          "visual_variance": 81.83,
+          "local_path": "facelift-cloud-gmbh/candidate-04.jpg",
+          "review_status": "needs_review"
+        }
+      ]
+    },
+    {
+      "slug": "parloa-gmbh",
+      "company": "Parloa GmbH",
+      "candidates": []
+    },
+    {
+      "slug": "nextcloud-gmbh",
+      "company": "Nextcloud GmbH",
+      "candidates": []
+    },
+    {
+      "slug": "polyteia-gmbh",
+      "company": "Polyteia GmbH",
+      "candidates": [
+        {
+          "url": "https://cdn.prod.website-files.com/64f07393c02984e046baf5f8/67f672bbaea8313ff17c42c8_EN%20UI-Home.avif",
+          "source_url": "https://polyteia.com",
+          "alt": "",
+          "initial_score": 0,
+          "reasons": [
+            "+8:hohe-aufloesung",
+            "+6:produktbild-format"
+          ],
+          "rank": 1,
+          "score": 14,
+          "content_type": "image/avif",
+          "format": "avif",
+          "width": 2788,
+          "height": 1517,
+          "visual_variance": 106.74,
+          "local_path": "polyteia-gmbh/candidate-01.jpg",
+          "review_status": "needs_review"
+        }
+      ]
+    }
+  ]
+}
