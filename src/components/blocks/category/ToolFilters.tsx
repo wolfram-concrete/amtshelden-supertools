@@ -242,7 +242,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Tool, Anbieter oder Stichwort suchen …"
               aria-label="Tool, Anbieter oder Stichwort suchen"
-              className="w-full rounded-full border border-border bg-white pl-10 pr-10 py-2.5 font-ui text-[13px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+              className="w-full rounded-xl border border-border bg-white pl-10 pr-10 py-2.5 font-ui text-[13px] text-dark placeholder:text-soft outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
             />
             {search && (
               <button
@@ -317,7 +317,7 @@ export function ToolFilters({ tools, initialSearch = "" }: ToolFiltersProps) {
         .sort-select {
           background: transparent;
           border: 1px solid var(--color-border);
-          border-radius: 999px;
+          border-radius: 12px;
           padding: 0.4rem 2rem 0.4rem 0.85rem;
           appearance: none;
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
