@@ -27,10 +27,12 @@ const HERO_IMAGE = "/brand/generated/hero-verwaltung.jpg";
 const GREEN_BAR =
   "box-decoration-clone inline-block rounded-xl px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]";
 const GREEN_BAR_STYLE: React.CSSProperties = {
-  backgroundColor: "#0d9d69",
+  // Mastergrün #009460 — exakt der Suchen-Button, kein giftiger Hue-Verlauf;
+  // nur entsättigte Grain-Textur + dezenter Sheen für etwas Tiefe.
+  backgroundColor: "#009460",
   backgroundImage:
-    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\"), linear-gradient(135deg, #15b580 0%, #0d9d69 52%, #0a7a50 100%)",
-  backgroundBlendMode: "soft-light",
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.12) 100%)",
+  backgroundBlendMode: "soft-light, normal",
 };
 
 export function HeroSearch() {

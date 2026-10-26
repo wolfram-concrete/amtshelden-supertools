@@ -37,6 +37,14 @@ onefinestay als Referenz, Refero für moderne Plattform-Muster geprüft).
 #### Typografie
 - Headlines fett IBM Plex Sans (bewusste, nicht-generische Wahl; kein AI-Slop).
 
+#### 🧩 Feinschliff Startseite
+- Hero-Headline auf grüne Balken im Logo-Trägerstil (Zeile für Zeile, abgerundet,
+  kleine Lücke, ohne Sprechblasenzacken), Mastergrün #009460 mit feiner Grain-Textur.
+- Bereichs-Kacheln: Titel auf solidem Farbband (Farbe je Bereich als Code), die vier
+  Bereiche auf einen Blick eindeutig; Motive heller/wärmer abgestimmt.
+- Einheitliches Curving (`rounded-xl`) für Suchfeld, Button, Chips, Beta, Newsletter.
+- Hero-Unterkante abgerundet (`rounded-b-[2.5rem]`), synchron zum Footer.
+
 ---
 
 ## [0.27.0] — 2026-09-13
