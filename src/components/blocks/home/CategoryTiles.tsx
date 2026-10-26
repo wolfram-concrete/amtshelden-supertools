@@ -17,21 +17,12 @@ interface CategoryTilesProps {
  * Bühne zusammen, ein Grün-Akzent als Signal. Vier Spalten.
  */
 const TILE_IMAGE: Record<string, string> = {
-  "e-akte-dokumentenmanagement":
-    "/brand/Images/magnific_open-office-inside-a-germ_UyKJgh9wny.jpg",
-  "buergerservice-fachverfahren":
-    "/brand/Images/magnific_the-mayor-and-the-head-of_8v0mBVEIrU.jpg",
-  "personal-organisation":
-    "/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg",
-  "kommunikation-zusammenarbeit":
-    "/brand/Images/magnific_a-project-workshop-inside_5xvrkdeKxe.jpg",
-  "finanzen-haushalt":
-    "/brand/Images/magnific_prompt-6-burgermeister-it_IaThXmEtvE.jpg",
-  "geo-bauen-umwelt":
-    "/brand/Images/magnific_a-municipal-employee-walk_VdZp0ijMMU.jpg",
+  "e-akte-dokumentenmanagement": "/brand/generated/bereich-e-akte.jpg",
+  "buergerservice-fachverfahren": "/brand/generated/bereich-buergerservice.jpg",
+  "personal-organisation": "/brand/generated/bereich-personal.jpg",
+  "kommunikation-zusammenarbeit": "/brand/generated/bereich-kommunikation.jpg",
 };
-const FALLBACK_IMAGE =
-  "/brand/Images/magnific_wide-view-inside-a-modern_dIn8okKXSL.jpg";
+const FALLBACK_IMAGE = "/brand/generated/hero-verwaltung.jpg";
 
 export function CategoryTiles({
   title,

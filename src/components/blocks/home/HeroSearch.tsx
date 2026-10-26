@@ -20,8 +20,7 @@ const HAEUFIGE_SUCHEN = [
   "Bürgerdialog",
 ];
 
-const HERO_IMAGE =
-  "/brand/Images/magnific_wide-view-inside-a-modern_dIn8okKXSL.jpg";
+const HERO_IMAGE = "/brand/generated/hero-verwaltung.jpg";
 
 export function HeroSearch() {
   const router = useRouter();
