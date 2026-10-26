@@ -30,7 +30,7 @@ export default async function AnfragePage({
             as="h1"
             text="Wir melden uns persönlich."
             baseDelay={120}
-            className="font-sans text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-display text-[clamp(34px,4.4vw,56px)] leading-[1.05] text-dark"
           />
           <p
             data-reveal

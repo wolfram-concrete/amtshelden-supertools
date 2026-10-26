@@ -25,7 +25,7 @@ export function SectionHead({ title, className }: SectionHeadProps) {
         as="h2"
         text={title}
         baseDelay={100}
-        className="font-sans font-bold text-[clamp(28px,3.5vw,40px)] leading-[1.02] tracking-[-0.02em] text-dark"
+        className="font-display text-[clamp(28px,3.5vw,40px)] leading-[1.02] text-dark"
       />
     </header>
   );

@@ -56,13 +56,13 @@ export function HeroImmersive({ title, lead, badges }: HeroImmersiveProps) {
                   as="h1"
                   text={title}
                   style={{ lineHeight: 1.02 }}
-                  className="font-sans text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
+                  className="font-display text-[clamp(38px,5.4vw,68px)] text-white"
                 />
               ) : (
                 <h1
                   data-reveal
                   style={{ lineHeight: 1.02 }}
-                  className="font-sans text-[clamp(38px,5.4vw,68px)] font-normal tracking-tight text-white"
+                  className="font-display text-[clamp(38px,5.4vw,68px)] text-white"
                 >
                   {title}
                 </h1>

@@ -24,7 +24,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
           text={article.title}
           baseDelay={120}
           style={{ lineHeight: 1.04 }}
-          className="font-sans text-[clamp(32px,4.2vw,52px)] font-normal tracking-[-0.015em] text-dark"
+          className="font-display text-[clamp(32px,4.2vw,52px)] text-dark"
         />
 
         <p

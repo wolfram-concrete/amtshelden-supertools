@@ -136,7 +136,7 @@ export function HomeCases({ title, lead }: HomeCasesProps) {
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-sans text-[clamp(28px,3.4vw,44px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-display text-[clamp(28px,3.4vw,44px)] leading-[1.05] text-dark"
           />
           {lead && (
             <p

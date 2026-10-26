@@ -44,6 +44,7 @@
   --font-sans:  var(--font-ibm-plex);    /* Body + UI/Buttons */
   --font-ui:    var(--font-ibm-plex);    /* UI = Sans (Baseframe) */
   --font-mono:  var(--font-ibm-mono);    /* Labels/Tags/Metadata */
+  --font-display: var(--font-archivo);   /* Display-Headlines (Hero + Sektionen) */
 
   /* Easing */
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
@@ -135,6 +136,14 @@ h2 {
 .font-serif { font-family: var(--font-serif); }
 .font-sans  { font-family: var(--font-sans); }
 .font-ui    { font-family: var(--font-ui); }
+
+/* Display-Headlines: schwere, leicht geöffnete Grotesk (Archivo) — Haltung aus
+   Designthese B/D3, gemischtschriftlich. Für Hero- und Section-Überschriften. */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.012em;
+}
 
 /* ============================================================
    MOTION — Scroll-Reveal + sanfte Bewegung

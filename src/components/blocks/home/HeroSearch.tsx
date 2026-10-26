@@ -132,8 +132,8 @@ export function HeroSearch() {
             Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
         <h1
-          style={{ fontFamily: "var(--font-archivo)", fontStretch: "110%" }}
-          className="flex flex-col items-center gap-2.5 font-extrabold text-[clamp(27px,4.5vw,53px)] leading-[1.06] tracking-[-0.012em]"
+          style={{ fontStretch: "110%" }}
+          className="font-display flex flex-col items-center gap-2.5 text-[clamp(27px,4.5vw,53px)] leading-[1.06]"
         >
           <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             Welche Software passt

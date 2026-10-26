@@ -27,7 +27,7 @@ function BlockRenderer({ block }: { block: ArticleBlock }) {
   switch (block.kind) {
     case "heading":
       return (
-        <h2 className="font-sans text-[clamp(24px,3vw,32px)] font-normal leading-[1.2] tracking-tight text-dark mt-12 first:mt-0 pt-4 border-t border-border">
+        <h2 className="font-display text-[clamp(24px,3vw,32px)] leading-[1.2] text-dark mt-12 first:mt-0 pt-4 border-t border-border">
           {block.text}
         </h2>
       );

@@ -63,7 +63,7 @@ export default function AnbieterPage() {
           <div className="max-w-3xl">
             <h1
               data-reveal
-              className="font-sans font-bold text-[clamp(36px,5.5vw,68px)] leading-[1.02] tracking-[-0.03em] text-dark"
+              className="font-display text-[clamp(36px,5.5vw,68px)] leading-[1.02] text-dark"
             >
               Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
               <span className="text-brand">relevant ist</span>.
@@ -109,7 +109,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Sichtbarkeit, die zur Verwaltung passt."
               baseDelay={120}
-              className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
             />
           </header>
 
@@ -148,7 +148,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Vier Felder, in denen Behörden Sie suchen."
               baseDelay={120}
-              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
             />
             <p
               data-reveal
@@ -202,7 +202,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Basis-Profil und erweitertes Profil."
               baseDelay={120}
-              className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
             />
           </header>
 
@@ -306,7 +306,7 @@ export default function AnbieterPage() {
               as="h2"
               text="Wir recherchieren, strukturieren und prüfen."
               baseDelay={120}
-              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
             />
             <p
               data-reveal
@@ -375,7 +375,7 @@ export default function AnbieterPage() {
                 as="h2"
                 text="Bringen Sie Ihr Tool ins Verzeichnis."
                 baseDelay={120}
-                className="font-sans text-[clamp(32px,4vw,56px)] font-normal leading-[1.0] tracking-tight"
+                className="font-display text-[clamp(32px,4vw,56px)] leading-[1.0]"
               />
               <p
                 data-reveal

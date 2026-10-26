@@ -28,7 +28,7 @@ export function PlaceholderPage({
           <div className="font-sans font-semibold text-brand">
             {eyebrow}
           </div>
-          <h1 className="font-sans text-[clamp(36px,5vw,64px)] font-normal leading-[1.05] tracking-tight text-dark">
+          <h1 className="font-display text-[clamp(36px,5vw,64px)] leading-[1.05] text-dark">
             {title}
           </h1>
           <p className="font-sans text-[18px] leading-[1.7] text-mid">

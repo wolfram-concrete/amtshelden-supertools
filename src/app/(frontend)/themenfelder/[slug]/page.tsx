@@ -58,7 +58,7 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <h1 className="font-sans text-[clamp(40px,5.5vw,72px)] font-normal leading-[1.0] tracking-tight text-dark">
+          <h1 className="font-display text-[clamp(40px,5.5vw,72px)] leading-[1.0] text-dark">
             {tf.name}
           </h1>
 

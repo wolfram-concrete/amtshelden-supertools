@@ -55,7 +55,7 @@ export function UseCaseEntry({
               text={title}
               baseDelay={120}
               style={{ lineHeight: 1.05 }}
-              className="font-sans text-[clamp(30px,3.8vw,48px)] font-normal tracking-tight text-white"
+              className="font-display text-[clamp(30px,3.8vw,48px)] text-white"
             />
             {description && (
               <p

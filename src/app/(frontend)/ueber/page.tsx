@@ -21,7 +21,7 @@ export default function UeberPage() {
           <div className="max-w-3xl">
             <h1
               data-reveal
-              className="font-sans font-bold text-[clamp(36px,5.5vw,68px)] leading-[1.03] tracking-[-0.03em] text-dark"
+              className="font-display text-[clamp(36px,5.5vw,68px)] leading-[1.03] text-dark"
             >
               Vertrauen entsteht dort, wo Software{" "}
               <span className="text-brand">ein Gesicht bekommt</span>.
@@ -55,7 +55,7 @@ export default function UeberPage() {
               </div>
               <h2
                 data-reveal
-                className="font-sans text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+                className="font-display text-[clamp(28px,3.2vw,40px)] leading-[1.05] text-dark"
               >
                 Behörden haben kein Tool-Problem.{" "}
                 <em className="not-italic font-normal text-brand-dark">
@@ -113,7 +113,7 @@ export default function UeberPage() {
             as="h2"
             text="Was uns von einem Verzeichnis unterscheidet."
             baseDelay={120}
-            className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
           />
         </header>
 
@@ -181,7 +181,7 @@ export default function UeberPage() {
                 as="h2"
                 text="Eine Plattform. Zwei Perspektiven auf denselben Wandel."
                 baseDelay={120}
-                className="font-sans text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight"
+                className="font-display text-[clamp(28px,3.5vw,44px)] leading-[1.02]"
               />
               <p
                 data-reveal
@@ -312,7 +312,7 @@ export default function UeberPage() {
             </div>
             <h2
               data-reveal
-              className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
             >
               Redaktionell. Konsequent.{" "}
               <em className="not-italic font-normal text-brand-dark">
@@ -385,7 +385,7 @@ export default function UeberPage() {
                 as="h2"
                 text="Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background."
                 baseDelay={120}
-                className="font-sans text-[clamp(28px,3.2vw,40px)] font-normal leading-[1.02] tracking-tight text-dark"
+                className="font-display text-[clamp(28px,3.2vw,40px)] leading-[1.02] text-dark"
               />
             </div>
             <div className="space-y-5 font-sans text-[16px] leading-[1.7] text-mid">
@@ -430,7 +430,7 @@ export default function UeberPage() {
             as="h2"
             text="Wenn du Verantwortung trägst, wollen wir dich nicht alleine lassen."
             baseDelay={120}
-            className="font-sans text-[clamp(28px,3.5vw,44px)] font-normal leading-[1.02] tracking-tight text-dark"
+            className="font-display text-[clamp(28px,3.5vw,44px)] leading-[1.02] text-dark"
           />
           <p
             data-reveal

@@ -25,7 +25,7 @@ export default async function SuchePage({ searchParams }: PageProps) {
             as="h1"
             text="Software für Ihre Aufgabe finden."
             baseDelay={40}
-            className="font-sans font-bold text-[clamp(30px,4.4vw,52px)] leading-[1.05] tracking-[-0.02em] text-dark"
+            className="font-display text-[clamp(30px,4.4vw,52px)] leading-[1.05] text-dark"
           />
           <p
             data-reveal

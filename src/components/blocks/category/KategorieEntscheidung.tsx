@@ -26,7 +26,7 @@ export function KategorieEntscheidungBlock({
             as="h2"
             text="Bevor Sie Tools vergleichen."
             baseDelay={40}
-            className="font-sans text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-display text-[clamp(26px,3.2vw,40px)] leading-[1.05] text-dark"
           />
           <p
             data-reveal

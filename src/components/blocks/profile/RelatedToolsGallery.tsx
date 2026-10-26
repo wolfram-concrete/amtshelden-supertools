@@ -139,7 +139,7 @@ export function RelatedToolsGallery({
                 as="h2"
                 text="Weiter im Verzeichnis"
                 baseDelay={120}
-                className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.02] tracking-tight text-dark"
+                className="font-display text-[clamp(28px,3.4vw,42px)] leading-[1.02] text-dark"
               />
               <p
                 data-reveal

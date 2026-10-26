@@ -36,10 +36,7 @@ export function CategoryTiles({
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
         <header className="mb-8 max-w-2xl lg:mb-10">
-          <h2
-            style={{ fontFamily: "var(--font-archivo)" }}
-            className="font-extrabold text-[clamp(26px,3.4vw,42px)] leading-[1.05] tracking-[-0.012em] text-dark"
-          >
+          <h2 className="font-display text-[clamp(26px,3.4vw,42px)] leading-[1.05] text-dark">
             {title}
           </h2>
           {description && (

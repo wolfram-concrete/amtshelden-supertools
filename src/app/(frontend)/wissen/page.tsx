@@ -24,7 +24,7 @@ export default function WissenIndexPage() {
               as="h1"
               text="Wissen, das bei der Auswahl hilft."
               baseDelay={120}
-              className="font-sans font-bold text-[clamp(36px,5.5vw,64px)] leading-[1.04] tracking-[-0.03em] text-dark"
+              className="font-display text-[clamp(36px,5.5vw,64px)] leading-[1.04] text-dark"
             />
             <p
               data-reveal

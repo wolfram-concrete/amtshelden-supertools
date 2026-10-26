@@ -70,7 +70,7 @@ export function ToolTeaser({
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-sans text-[clamp(26px,3.2vw,40px)] font-normal leading-[1.05] tracking-tight text-dark"
+            className="font-display text-[clamp(26px,3.2vw,40px)] leading-[1.05] text-dark"
           />
           {lead && (
             <p

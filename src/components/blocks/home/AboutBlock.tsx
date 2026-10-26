@@ -46,7 +46,7 @@ export function AboutBlock({
                 as="h2"
                 text={title}
                 baseDelay={120}
-                className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight"
+                className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02]"
               />
               <p
                 data-reveal

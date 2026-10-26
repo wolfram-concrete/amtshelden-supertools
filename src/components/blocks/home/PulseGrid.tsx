@@ -35,7 +35,7 @@ export function PulseGrid({
           <div className="font-sans font-semibold text-brand">
             {eyebrow}
           </div>
-          <h2 className="font-sans text-[clamp(28px,3.5vw,42px)] font-normal leading-[1.02] tracking-tight text-dark">
+          <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark">
             {title}
           </h2>
           {description && (

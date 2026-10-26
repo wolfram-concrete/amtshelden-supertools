@@ -29,7 +29,7 @@ export function KategorieHero({ category, toolCount }: KategorieHeroProps) {
             as="h1"
             text={category.name}
             baseDelay={120}
-            className="font-sans font-bold text-[clamp(36px,5vw,64px)] leading-[1.04] tracking-[-0.03em] text-dark"
+            className="font-display text-[clamp(36px,5vw,64px)] leading-[1.04] text-dark"
           />
 
           <p

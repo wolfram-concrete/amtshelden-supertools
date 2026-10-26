@@ -51,7 +51,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
         <header className="mb-8 max-w-2xl">
           <h2
             data-reveal
-            className="font-sans font-bold text-[clamp(24px,3vw,36px)] leading-[1.1] tracking-[-0.02em] text-dark"
+            className="font-display text-[clamp(24px,3vw,36px)] leading-[1.1] text-dark"
           >
             {tools.length > 0
               ? `${tools.length} Tools in diesem Bereich`

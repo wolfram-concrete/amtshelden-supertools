@@ -24,7 +24,7 @@ export default function VorschlagenPage() {
             </div>
             <h1
               data-reveal
-              className="font-sans text-[clamp(36px,5vw,64px)] font-normal leading-[1.0] tracking-tight text-dark"
+              className="font-display text-[clamp(36px,5vw,64px)] leading-[1.0] text-dark"
             >
               Ein Tool fehlt?{" "}
               <em className="not-italic font-normal text-brand-dark">

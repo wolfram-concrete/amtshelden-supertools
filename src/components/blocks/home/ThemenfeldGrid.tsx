@@ -33,7 +33,7 @@ export function ThemenfeldGrid({
             as="h2"
             text={title}
             baseDelay={120}
-            className="font-sans text-[clamp(32px,3.8vw,48px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
           />
           {description && (
             <p

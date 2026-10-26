@@ -223,7 +223,7 @@ export default function CrawlerPreviewPage() {
         <div className="font-sans font-semibold text-brand">
           Interne Vorschau · Arbeitsliste
         </div>
-        <h1 className="mt-3 font-sans text-[clamp(32px,5vw,56px)] font-normal leading-[1.05] text-dark">
+        <h1 className="mt-3 font-display text-[clamp(32px,5vw,56px)] leading-[1.05] text-dark">
           Verzeichnis-Preview
         </h1>
         <p className="mt-4 max-w-3xl font-sans text-[16px] leading-[1.7] text-mid">

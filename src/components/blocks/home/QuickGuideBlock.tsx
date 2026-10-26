@@ -23,7 +23,7 @@ export function QuickGuideBlock({
         <div className="flex items-center gap-2.5 font-sans text-[14px] font-semibold text-brand">
           {eyebrow}
         </div>
-        <h2 className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.08] tracking-tight text-dark">
+        <h2 className="font-display text-[clamp(28px,3.4vw,42px)] leading-[1.08] text-dark">
           {title}
         </h2>
         <p className="font-sans text-[15px] leading-[1.65] text-mid">{lead}</p>

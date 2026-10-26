@@ -43,7 +43,7 @@ export function ThemenClusterBlock({
             as="h2"
             text={sectionTitle}
             baseDelay={120}
-            className="font-sans text-[clamp(30px,3.6vw,46px)] font-normal leading-[1.0] tracking-tight text-dark"
+            className="font-display text-[clamp(30px,3.6vw,46px)] leading-[1.0] text-dark"
           />
         </header>
 

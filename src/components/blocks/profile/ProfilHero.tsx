@@ -72,7 +72,7 @@ export function ProfilHero({
         as="h1"
         text={title}
         baseDelay={120}
-        className="font-sans font-normal text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-tight text-dark"
+        className="font-display text-[clamp(36px,5vw,56px)] leading-[1.05] text-dark"
       />
 
       {/* Lead */}

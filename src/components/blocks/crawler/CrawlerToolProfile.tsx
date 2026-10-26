@@ -162,7 +162,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                   triggerClassName="-mr-0.5 flex h-4 w-4 items-center justify-center rounded-full text-accent-ink/55 transition-colors hover:text-accent-ink"
                 />
               </span>
-              <h1 className="mt-2 font-sans font-bold text-[clamp(30px,4vw,46px)] leading-[1.05] tracking-[-0.02em] text-dark">
+              <h1 className="mt-2 font-display text-[clamp(30px,4vw,46px)] leading-[1.05] text-dark">
                 {tool.name}
               </h1>
               <div className="mt-1.5 font-sans text-[12px] text-soft">

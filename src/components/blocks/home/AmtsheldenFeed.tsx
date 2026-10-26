@@ -82,7 +82,7 @@ export function AmtsheldenFeed() {
               as="h2"
               text="Hinter Supertools steht eine aktive Behörden-Community."
               baseDelay={120}
-              className="font-sans text-[clamp(28px,3.4vw,42px)] font-normal leading-[1.05] tracking-tight text-dark"
+              className="font-display text-[clamp(28px,3.4vw,42px)] leading-[1.05] text-dark"
             />
             <p
               data-reveal

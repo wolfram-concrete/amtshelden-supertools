@@ -35,7 +35,7 @@ export default function DatenschutzPage() {
         <div className="font-sans font-semibold text-brand">
           Rechtliches
         </div>
-        <h1 className="mt-3 font-sans text-[clamp(34px,4.4vw,56px)] font-normal leading-[1.05] tracking-tight text-dark">
+        <h1 className="mt-3 font-display text-[clamp(34px,4.4vw,56px)] leading-[1.05] text-dark">
           Datenschutzerklärung
         </h1>
         <p className="mt-3 font-sans font-semibold text-soft">

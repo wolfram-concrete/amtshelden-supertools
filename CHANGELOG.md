@@ -2,6 +2,21 @@
 
 ---
 
+## [0.29.3] — 2026-10-26
+
+### Display-Typo site-weit: Archivo auf alle Section-Headlines
+
+- **Zentrale `.font-display`-Utility** (Archivo, schwer, geöffnete Laufweite) in
+  `globals.css`; Hero-h1 und Home-h2 darauf umgestellt (eine Quelle).
+- **Innenseiten nachgezogen:** Seitentitel (h1) und Section-Überschriften (h2) auf
+  Kategorie-, Themenfeld-, Wissen-, Über-, Anbieter-, Suche-, Tool-Profil- und
+  Rechtsseiten tragen jetzt die Archivo-Display-Haltung (inkl. wiederverwendbarem
+  `SectionHead`, `ProfilHero`, `ArticleHeader`).
+- **Bewusst IBM Plex belassen:** Fließtext und In-Artikel-Prosa, kleine UI-Headings
+  (Newsletter-Widget) und Kennzahlen (Stat-Figuren) — Lesbarkeit und Hierarchie.
+
+---
+
 ## [0.29.2] — 2026-10-26
 
 ### Display-Typo: Archivo auch auf Section-Headlines, Laufweite geöffnet

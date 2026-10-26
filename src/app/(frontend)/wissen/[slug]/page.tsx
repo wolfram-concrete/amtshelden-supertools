@@ -70,7 +70,7 @@ export default async function WissenArtikelPage({ params }: PageProps) {
               <div className="font-sans font-semibold text-brand">
                 Weiterlesen
               </div>
-              <h2 className="font-sans text-[clamp(24px,3vw,36px)] font-normal leading-[1.1] tracking-tight text-dark">
+              <h2 className="font-display text-[clamp(24px,3vw,36px)] leading-[1.1] text-dark">
                 Verwandte Beiträge
               </h2>
             </header>
