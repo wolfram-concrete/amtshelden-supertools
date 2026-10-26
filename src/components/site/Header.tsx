@@ -43,6 +43,15 @@ export function Header({ className }: HeaderProps) {
   const themenActive =
     pathname.startsWith("/themenfelder") || pathname.startsWith("/kategorien");
 
+  // Nav ohne Trägerelement: weiße, verteilte Schrift auf der Home (über dem
+  // Bild), dunkle Schrift auf Innenseiten (Cream).
+  const navBase =
+    "inline-flex items-center gap-1.5 font-ui text-[14px] font-medium transition-colors";
+  const navColor = isHome
+    ? "text-white/80 hover:text-white"
+    : "text-dark/70 hover:text-dark";
+  const navActive = isHome ? "text-white" : "text-dark";
+
   // Beim Scrollen eine leichte Frost-Ebene einblenden, damit Logo + Navi
   // über dem durchscrollenden Content lesbar bleiben.
   useEffect(() => {
@@ -66,68 +75,65 @@ export function Header({ className }: HeaderProps) {
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[160%] backdrop-blur-md bg-gradient-to-b from-cream/65 to-transparent transition-opacity duration-300 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]",
+          "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[160%] backdrop-blur-md bg-gradient-to-b from-[rgba(9,26,18,0.92)] to-transparent transition-opacity duration-300 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]",
           scrolled && isHome ? "opacity-100" : "opacity-0",
         )}
       />
       <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
         <div className="flex items-center gap-2.5">
-          <Logo height={43} priority />
-          <span className="inline-flex items-center rounded-full bg-accent/25 px-2 py-0.5 font-sans text-[11px] font-semibold text-accent-ink">
+          <Logo
+            height={43}
+            priority
+            variant={isHome ? "inverse" : "default"}
+          />
+          <span
+            className={cn(
+              "inline-flex items-center rounded-full px-2 py-0.5 font-sans text-[11px] font-semibold",
+              isHome
+                ? "border border-white/45 text-white"
+                : "bg-accent/25 text-accent-ink",
+            )}
+          >
             Beta
           </span>
         </div>
 
-        {/* Desktop-Nav — eine grüne Floating-Pill mit allem (Insel) */}
-        <nav className="hidden md:flex items-center">
-          <div className="flex items-center gap-0.5 rounded-2xl bg-logo p-1.5 shadow-[0_12px_34px_-14px_rgba(13,157,105,0.55)]">
+        {/* Desktop-Nav — ohne Trägerelement, Schrift verteilt */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-7">
+          <Link
+            href="/suche"
+            aria-current={isActive("/suche") ? "page" : undefined}
+            className={cn(navBase, isActive("/suche") ? navActive : navColor)}
+          >
+            <Search size={15} aria-hidden />
+            Suche
+          </Link>
+          <MegaMenu onDark={isHome} active={themenActive} />
+          {secondaryNav.map((item) => (
             <Link
-              href="/suche"
-              aria-current={isActive("/suche") ? "page" : undefined}
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
-                isActive("/suche")
-                  ? "bg-white/15 text-white"
-                  : "text-white/90 hover:bg-white/10 hover:text-white",
+                navBase,
+                isActive(item.href) ? navActive : navColor,
               )}
             >
-              <Search size={14} aria-hidden />
-              Suche
+              {item.label}
             </Link>
-            <MegaMenu onDark active={themenActive} />
-            {secondaryNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
-                  isActive(item.href)
-                    ? "bg-white/15 text-white"
-                    : "text-white/90 hover:bg-white/10 hover:text-white",
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            {/* Trenner */}
-            <span aria-hidden className="mx-1 h-5 w-px bg-white/15" />
-
-            <Link
-              href="/anbieter"
-              aria-current={isActive("/anbieter") ? "page" : undefined}
-              className={cn(
-                "hidden lg:inline-flex items-center rounded-xl h-9 px-3.5 font-ui text-[13px] font-medium transition-colors",
-                isActive("/anbieter")
-                  ? "bg-white/15 text-white"
-                  : "text-white/90 hover:bg-white/10 hover:text-white",
-              )}
-            >
-              Anbieter werden
-            </Link>
-            <NewsletterPopover onDark />
-          </div>
+          ))}
+          <Link
+            href="/anbieter"
+            aria-current={isActive("/anbieter") ? "page" : undefined}
+            className={cn(
+              navBase,
+              "hidden lg:inline-flex",
+              isActive("/anbieter") ? navActive : navColor,
+            )}
+          >
+            Anbieter werden
+          </Link>
+          <NewsletterPopover onDark={isHome} />
         </nav>
 
         {/* Mobile-Trigger */}

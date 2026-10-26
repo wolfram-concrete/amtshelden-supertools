@@ -18,7 +18,7 @@ export default async function SuchePage({ searchParams }: PageProps) {
   const { q = "" } = await searchParams;
 
   return (
-    <section className="bg-white">
+    <section className="bg-cream">
       <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-16 pb-6 lg:pb-8">
         <div className="max-w-2xl">
           <RevealHeading

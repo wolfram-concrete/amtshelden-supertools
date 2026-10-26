@@ -43,7 +43,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
   const kat = kategorieEntscheidung[slug];
 
   return (
-    <section className="bg-white">
+    <section className="bg-cream">
       <KategorieHero category={category} toolCount={tools.length} />
 
       {/* Tools zuerst — plakativ, ohne Umweg (Christian-Call 30.09.) */}

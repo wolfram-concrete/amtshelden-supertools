@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -11,20 +12,26 @@ interface CategoryTilesProps {
 }
 
 /**
- * Plakative, farbige Kategorie-Kacheln (Christian-Call 30.09.2026, Airbnb-DNA).
- * Da wir keine Fotos nutzen, trägt Farbe die visuelle Wucht: jede Kategorie ist
- * eine große, farbige, sofort scannbare Fläche mit dickem Icon, großem Titel und
- * Tool-Zahl. Das ist das plakative Zentrum der Startseite.
+ * Bereichs-Kacheln als Bild-Karten (Wolfram 26.10.): echtes AMS-Motiv je
+ * Bereich macht sofort klar, worum es geht; dunkler Tannengrün-Film hält die
+ * Bühne zusammen, ein Grün-Akzent als Signal. Vier Spalten.
  */
-const TILE_COLORS: Record<string, string> = {
-  "kommunikation-zusammenarbeit": "#006b45",
-  "e-akte-dokumentenmanagement": "#215E8C",
-  "personal-organisation": "#B0530F",
-  "buergerservice-fachverfahren": "#5A4A88",
-  "finanzen-haushalt": "#0E7C74",
-  "geo-bauen-umwelt": "#4E6B26",
+const TILE_IMAGE: Record<string, string> = {
+  "e-akte-dokumentenmanagement":
+    "/brand/Images/magnific_open-office-inside-a-germ_UyKJgh9wny.jpg",
+  "buergerservice-fachverfahren":
+    "/brand/Images/magnific_the-mayor-and-the-head-of_8v0mBVEIrU.jpg",
+  "personal-organisation":
+    "/brand/Images/magnific_two-municipal-employees-s_jSQglw9LD0.jpg",
+  "kommunikation-zusammenarbeit":
+    "/brand/Images/magnific_a-project-workshop-inside_5xvrkdeKxe.jpg",
+  "finanzen-haushalt":
+    "/brand/Images/magnific_prompt-6-burgermeister-it_IaThXmEtvE.jpg",
+  "geo-bauen-umwelt":
+    "/brand/Images/magnific_a-municipal-employee-walk_VdZp0ijMMU.jpg",
 };
-const FALLBACK = "#006b45";
+const FALLBACK_IMAGE =
+  "/brand/Images/magnific_wide-view-inside-a-modern_dIn8okKXSL.jpg";
 
 export function CategoryTiles({
   title,
@@ -32,8 +39,8 @@ export function CategoryTiles({
   categories,
 }: CategoryTilesProps) {
   return (
-    <section className="bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 pb-16 lg:pb-24">
+    <section className="bg-cream">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
         <header className="mb-8 max-w-2xl lg:mb-10">
           <h2 className="font-sans font-bold text-[clamp(26px,3.4vw,42px)] leading-[1.05] tracking-[-0.02em] text-dark">
             {title}
@@ -45,47 +52,57 @@ export function CategoryTiles({
           )}
         </header>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          {categories.map((category) => {
-            const color = TILE_COLORS[category.slug] || FALLBACK;
-            return (
-              <Link
-                key={category.slug}
-                href={`/kategorien/${category.slug}`}
-                style={{ backgroundColor: color }}
-                className="group relative flex min-h-[200px] flex-col justify-between overflow-hidden rounded-3xl p-7 text-white transition-transform duration-300 hover:-translate-y-1 lg:min-h-[220px] lg:p-8"
-              >
-                <div className="flex items-start justify-between">
-                  <span
-                    aria-hidden
-                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15"
-                  >
-                    {category.icon && (
-                      <BrandIcon
-                        name={category.icon}
-                        size={32}
-                        strokeWidth={2.2}
-                      />
-                    )}
-                  </span>
-                  <ArrowRight
-                    size={24}
-                    className="text-white/75 transition-transform group-hover:translate-x-1 group-hover:text-white"
-                    aria-hidden
-                  />
-                </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {categories.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/kategorien/${category.slug}`}
+              className="group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl p-5 text-white"
+            >
+              <Image
+                src={TILE_IMAGE[category.slug] || FALLBACK_IMAGE}
+                alt=""
+                fill
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+              {/* Tannengrün-Film für Lesbarkeit + Markenbühne */}
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(9,26,18,0.25) 0%, rgba(9,26,18,0.35) 45%, rgba(9,26,18,0.88) 100%)",
+                }}
+              />
 
-                <div className="mt-6">
-                  <h3 className="font-sans font-bold text-[26px] leading-[1.1] tracking-[-0.01em] [overflow-wrap:anywhere] hyphens-auto">
-                    {category.name}
-                  </h3>
-                  <div className="mt-2 font-sans text-[15px] font-semibold text-white">
-                    {category.toolCount} Tools
-                  </div>
+              <div className="relative z-10 flex items-start justify-between">
+                <span
+                  aria-hidden
+                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm"
+                >
+                  {category.icon && (
+                    <BrandIcon name={category.icon} size={22} strokeWidth={2.2} />
+                  )}
+                </span>
+                <ArrowRight
+                  size={20}
+                  className="text-white/70 transition-transform group-hover:translate-x-1 group-hover:text-white"
+                  aria-hidden
+                />
+              </div>
+
+              <div className="relative z-10">
+                <h3 className="font-sans font-bold text-[18px] leading-[1.15] tracking-[-0.01em] [overflow-wrap:anywhere] hyphens-auto">
+                  {category.name}
+                </h3>
+                <div className="mt-1.5 inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-white/85">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden />
+                  {category.toolCount} Tools
                 </div>
-              </Link>
-            );
-          })}
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
