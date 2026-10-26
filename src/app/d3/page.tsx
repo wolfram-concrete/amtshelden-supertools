@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { directoryCategories } from "@/data/directory";
@@ -56,44 +57,62 @@ export default function D3ThesisPage() {
         </nav>
       </header>
 
-      {/* Hero */}
+      {/* Hero — zweispaltig: Text + Suche links, ein ruhiges Bildmotiv rechts.
+          Bewusst reduziert: ein Motiv, eckiger Hairline-Rahmen, kein Dekor. */}
       <section className="d3t-hero">
-        <span className="d3t-eyebrow">
-          <D3Star />
-          <span className="d3t-label">Software-Verzeichnis für die Verwaltung</span>
-        </span>
+        <div className="d3t-hero-grid">
+          <div className="d3t-hero-text">
+            <span className="d3t-eyebrow">
+              <D3Star />
+              <span className="d3t-label">
+                Software-Verzeichnis für die Verwaltung
+              </span>
+            </span>
 
-        <h1 className="d3t-h1">
-          Welche Software passt zu Ihrer <mark>Verwaltung?</mark>
-        </h1>
+            <h1 className="d3t-h1">
+              Welche Software passt zu Ihrer <mark>Verwaltung?</mark>
+            </h1>
 
-        <p className="d3t-sub">
-          Handverlesene Software für Behörden. Suchen Sie nach Aufgabe, Tool-Art
-          oder Anbieter — kuratiert, ehrlich aus Behördenperspektive eingeordnet.
-          Kein Ranking, keine Sterne.
-        </p>
+            <p className="d3t-sub">
+              Handverlesene Software für Behörden. Suchen Sie nach Aufgabe,
+              Tool-Art oder Anbieter. Kuratiert, ehrlich eingeordnet. Kein
+              Ranking, keine Sterne.
+            </p>
 
-        <form className="d3t-search" action="/suche" method="get">
-          <input
-            type="search"
-            name="q"
-            aria-label="Software suchen"
-            placeholder="z. B. Projektmanagement, Chatbot, E-Akte"
-          />
-          <button type="submit">Suchen →</button>
-        </form>
+            <form className="d3t-search" action="/suche" method="get">
+              <input
+                type="search"
+                name="q"
+                aria-label="Software suchen"
+                placeholder="z. B. Projektmanagement, Chatbot, E-Akte"
+              />
+              <button type="submit">Suchen →</button>
+            </form>
 
-        <div className="d3t-common">
-          <span className="d3t-label">Häufig gesucht</span>
-          {HAEUFIGE_SUCHEN.map((term) => (
-            <Link
-              key={term}
-              href={`/suche?q=${encodeURIComponent(term)}`}
-              className="d3t-chip"
-            >
-              {term}
-            </Link>
-          ))}
+            <div className="d3t-common">
+              <span className="d3t-label">Häufig gesucht</span>
+              {HAEUFIGE_SUCHEN.map((term) => (
+                <Link
+                  key={term}
+                  href={`/suche?q=${encodeURIComponent(term)}`}
+                  className="d3t-chip"
+                >
+                  {term}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <figure className="d3t-figure">
+            <Image
+              src="/brand/generated/hero-verwaltung-quadrat.jpg"
+              alt="Blick in eine moderne Verwaltung bei der Arbeit"
+              fill
+              sizes="(min-width: 900px) 42vw, 100vw"
+              className="d3t-figure-img"
+              priority
+            />
+          </figure>
         </div>
       </section>
 

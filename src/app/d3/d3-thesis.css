@@ -258,6 +258,41 @@
   border-color: var(--ink);
 }
 
+/* Hero zweispaltig: Text + ein gerahmtes Bildmotiv (Reduktion) */
+.d3t-hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(28px, 4.5vw, 64px);
+  align-items: center;
+}
+
+.d3t-hero-grid .d3t-h1 {
+  font-size: clamp(38px, 5.2vw, 74px);
+  max-width: 12ch;
+}
+
+.d3t-figure {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--ink);
+  background: var(--bone-2);
+  overflow: hidden;
+}
+
+.d3t-figure-img {
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .d3t-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .d3t-figure {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 /* ===== Bereiche ===== */
 .d3t-areas {
   border-top: 1px solid var(--line);
