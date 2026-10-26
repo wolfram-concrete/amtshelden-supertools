@@ -55,15 +55,16 @@ export function CategoryTiles({
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                className="object-cover brightness-[1.1] saturate-[1.12] transition-transform duration-500 group-hover:scale-[1.04]"
               />
-              {/* Tannengrün-Film für Lesbarkeit + Markenbühne */}
+              {/* Leichter, neutral-warmer Verlauf: Bild oben fast voll farbig,
+                  nur unten so weit abgesenkt, wie Titel + Zahl es brauchen. */}
               <div
                 aria-hidden
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(9,26,18,0.25) 0%, rgba(9,26,18,0.35) 45%, rgba(9,26,18,0.88) 100%)",
+                    "linear-gradient(180deg, rgba(12,16,12,0.22) 0%, rgba(12,16,12,0.06) 38%, rgba(10,14,10,0.80) 100%)",
                 }}
               />
 
