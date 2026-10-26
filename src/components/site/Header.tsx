@@ -88,7 +88,7 @@ export function Header({ className }: HeaderProps) {
           />
           <span
             className={cn(
-              "inline-flex items-center rounded-full px-2 py-0.5 font-sans text-[11px] font-semibold",
+              "inline-flex items-center rounded-xl px-2 py-0.5 font-sans text-[11px] font-semibold",
               isHome
                 ? "border border-white/45 text-white"
                 : "bg-accent/25 text-accent-ink",

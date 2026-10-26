@@ -22,6 +22,17 @@ const HAEUFIGE_SUCHEN = [
 
 const HERO_IMAGE = "/brand/generated/hero-verwaltung.jpg";
 
+// Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
+// Textur über einem leichten Grün-Verlauf (soft-light), für etwas Leben.
+const GREEN_BAR =
+  "box-decoration-clone inline-block rounded-xl px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]";
+const GREEN_BAR_STYLE: React.CSSProperties = {
+  backgroundColor: "#0d9d69",
+  backgroundImage:
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\"), linear-gradient(135deg, #15b580 0%, #0d9d69 52%, #0a7a50 100%)",
+  backgroundBlendMode: "soft-light",
+};
+
 export function HeroSearch() {
   const router = useRouter();
   const [q, setQ] = useState("");
@@ -33,7 +44,7 @@ export function HeroSearch() {
   }
 
   return (
-    <section className="relative -mt-20 flex min-h-[640px] w-full items-center justify-center overflow-hidden pt-20 lg:min-h-[800px]">
+    <section className="relative -mt-20 flex min-h-[640px] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20 lg:min-h-[800px]">
       {/* Bild-Bühne voll aufgezogen */}
       <Image
         src={HERO_IMAGE}
@@ -57,19 +68,20 @@ export function HeroSearch() {
       {/* Schaltpult, mittelachsig */}
       <div className="relative z-10 w-full max-w-2xl px-6 text-center">
         {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
-            Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken. */}
+            Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
+            Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
         <h1 className="flex flex-col items-center gap-2 font-sans font-bold text-[clamp(26px,4.6vw,54px)] leading-[1.08] tracking-[-0.02em]">
-          <span className="box-decoration-clone inline-block rounded-xl bg-logo px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]">
+          <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             Welche Software passt
           </span>
-          <span className="box-decoration-clone inline-block rounded-xl bg-logo px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]">
+          <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             zu Ihrer Verwaltung?
           </span>
         </h1>
 
         <form
           onSubmit={submit}
-          className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full bg-white p-2 shadow-[0_30px_70px_-26px_rgba(0,0,0,0.7)] transition focus-within:ring-4 focus-within:ring-white/30"
+          className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-xl bg-white p-2 shadow-[0_30px_70px_-26px_rgba(0,0,0,0.7)] transition focus-within:ring-4 focus-within:ring-white/30"
         >
           <Search size={22} className="ml-4 flex-shrink-0 text-soft" aria-hidden />
           <input
@@ -82,7 +94,7 @@ export function HeroSearch() {
           />
           <button
             type="submit"
-            className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white transition-colors hover:bg-brand-dark"
+            className="inline-flex flex-shrink-0 items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white transition-colors hover:bg-brand-dark"
           >
             Suchen
             <ArrowRight size={17} aria-hidden />
@@ -94,7 +106,7 @@ export function HeroSearch() {
             <Link
               key={term}
               href={`/suche?q=${encodeURIComponent(term)}`}
-              className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 font-sans text-[13px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+              className="inline-flex items-center rounded-xl border border-white/25 bg-white/10 px-3.5 py-1.5 font-sans text-[13px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
             >
               {term}
             </Link>
