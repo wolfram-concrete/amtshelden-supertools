@@ -12,9 +12,9 @@ interface CategoryTilesProps {
 }
 
 /**
- * Bereichs-Kacheln als Bild-Karten (Wolfram 26.10.): echtes AMS-Motiv je
- * Bereich macht sofort klar, worum es geht; dunkler Tannengrün-Film hält die
- * Bühne zusammen, ein Grün-Akzent als Signal. Vier Spalten.
+ * Bereichs-Kacheln (Wolfram 26.10.): oben das echte AMS-Motiv, unten ein
+ * solides Farbband mit dem Titel in Weiß — die vier Bereiche sind so auf einen
+ * Blick eindeutig und heben sich klar ab. Farbe je Bereich als Code (DNA §6).
  */
 const TILE_IMAGE: Record<string, string> = {
   "e-akte-dokumentenmanagement": "/brand/generated/bereich-e-akte.jpg",
@@ -22,7 +22,14 @@ const TILE_IMAGE: Record<string, string> = {
   "personal-organisation": "/brand/generated/bereich-personal.jpg",
   "kommunikation-zusammenarbeit": "/brand/generated/bereich-kommunikation.jpg",
 };
+const TILE_COLOR: Record<string, string> = {
+  "e-akte-dokumentenmanagement": "#215E8C",
+  "buergerservice-fachverfahren": "#5A4A88",
+  "personal-organisation": "#B0530F",
+  "kommunikation-zusammenarbeit": "#006b45",
+};
 const FALLBACK_IMAGE = "/brand/generated/hero-verwaltung.jpg";
+const FALLBACK_COLOR = "#006b45";
 
 export function CategoryTiles({
   title,
@@ -44,57 +51,56 @@ export function CategoryTiles({
         </header>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/kategorien/${category.slug}`}
-              className="group relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-2xl p-5 text-white"
-            >
-              <Image
-                src={TILE_IMAGE[category.slug] || FALLBACK_IMAGE}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover brightness-[1.1] saturate-[1.12] transition-transform duration-500 group-hover:scale-[1.04]"
-              />
-              {/* Leichter, neutral-warmer Verlauf: Bild oben fast voll farbig,
-                  nur unten so weit abgesenkt, wie Titel + Zahl es brauchen. */}
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(12,16,12,0.22) 0%, rgba(12,16,12,0.06) 38%, rgba(10,14,10,0.80) 100%)",
-                }}
-              />
-
-              <div className="relative z-10 flex items-start justify-between">
-                <span
-                  aria-hidden
-                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm"
-                >
-                  {category.icon && (
-                    <BrandIcon name={category.icon} size={22} strokeWidth={2.2} />
-                  )}
-                </span>
-                <ArrowRight
-                  size={20}
-                  className="text-white/70 transition-transform group-hover:translate-x-1 group-hover:text-white"
-                  aria-hidden
-                />
-              </div>
-
-              <div className="relative z-10">
-                <h3 className="font-sans font-bold text-[18px] leading-[1.15] tracking-[-0.01em] [overflow-wrap:anywhere] hyphens-auto">
-                  {category.name}
-                </h3>
-                <div className="mt-1.5 inline-flex items-center gap-1.5 font-sans text-[13px] font-semibold text-white/85">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden />
-                  {category.toolCount} Tools
+          {categories.map((category) => {
+            const color = TILE_COLOR[category.slug] || FALLBACK_COLOR;
+            return (
+              <Link
+                key={category.slug}
+                href={`/kategorien/${category.slug}`}
+                className="group flex flex-col overflow-hidden rounded-2xl shadow-[0_18px_40px_-28px_rgba(0,0,0,0.5)] transition-shadow hover:shadow-[0_26px_55px_-28px_rgba(0,0,0,0.6)]"
+              >
+                {/* Motiv */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={TILE_IMAGE[category.slug] || FALLBACK_IMAGE}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover brightness-[1.1] saturate-[1.12] transition-transform duration-500 group-hover:scale-[1.05]"
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute left-3 top-3 flex h-10 w-10 items-center justify-center rounded-xl text-white shadow-sm"
+                    style={{ backgroundColor: color }}
+                  >
+                    {category.icon && (
+                      <BrandIcon name={category.icon} size={20} strokeWidth={2.2} />
+                    )}
+                  </span>
                 </div>
-              </div>
-            </Link>
-          ))}
+
+                {/* Farbband mit Titel */}
+                <div
+                  className="flex flex-1 items-center justify-between gap-3 px-5 py-4 text-white"
+                  style={{ backgroundColor: color }}
+                >
+                  <div className="min-w-0">
+                    <h3 className="font-sans font-bold text-[17px] leading-[1.15] tracking-[-0.01em] [overflow-wrap:anywhere] hyphens-auto">
+                      {category.name}
+                    </h3>
+                    <div className="mt-1 font-sans text-[13px] font-semibold text-white/85">
+                      {category.toolCount} Tools
+                    </div>
+                  </div>
+                  <ArrowRight
+                    size={20}
+                    className="flex-shrink-0 text-white/80 transition-transform group-hover:translate-x-1"
+                    aria-hidden
+                  />
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
