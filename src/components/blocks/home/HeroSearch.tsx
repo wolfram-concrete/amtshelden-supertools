@@ -56,11 +56,15 @@ export function HeroSearch() {
 
       {/* Schaltpult, mittelachsig */}
       <div className="relative z-10 w-full max-w-2xl px-6 text-center">
-        <h1
-          className="mx-auto font-sans font-bold text-[clamp(32px,5vw,58px)] leading-[1.05] tracking-[-0.03em] text-white text-balance"
-          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
-        >
-          Welche Software passt zu Ihrer Verwaltung?
+        {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
+            Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken. */}
+        <h1 className="flex flex-col items-center gap-2 font-sans font-bold text-[clamp(26px,4.6vw,54px)] leading-[1.08] tracking-[-0.02em]">
+          <span className="box-decoration-clone inline-block rounded-xl bg-logo px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]">
+            Welche Software passt
+          </span>
+          <span className="box-decoration-clone inline-block rounded-xl bg-logo px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]">
+            zu Ihrer Verwaltung?
+          </span>
         </h1>
 
         <form
