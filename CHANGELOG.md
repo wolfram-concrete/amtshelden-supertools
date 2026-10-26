@@ -2,6 +2,26 @@
 
 ---
 
+## [0.29.0] — 2026-10-26
+
+### Zweite visuelle These: D3-Designsprache (`/d3`)
+
+Zum Vergleich der Richtungen eine eigenständige, parallel aufrufbare Startseiten-
+These unter **`/d3`** — als bewusster Gegenpol zur warmen Foto-Bühne (These A, `/`).
+
+- **D3-Formsprache** (aus Amtshelden Deep Dive Day übernommen): Bone-Grund
+  (#EEEDE4), Indigo-Tinte (#1E1B36), **Gelb #FFE500 als Signal** neben Grün
+  #009460; kondensierte Versal-Display (Archivo-Haltung), Mono-Labels (Fragment
+  Mono, uppercase/getrackt), **Hairline-Module statt runder Karten**, flache
+  eckige Flächen, geometrisches Stern-Icon aus der D3-Formel.
+- **Gleiche Aufgabe, andere Haltung:** dieselbe Such-Maske + die vier Bereiche
+  (aus der bestehenden Verzeichnis-Datenbasis), rein als Präsentationsschicht.
+- **A/B-Umschalter** unten rechts auf beiden Seiten; `/d3` ist `noindex`.
+- Isolierte Route außerhalb der `(frontend)`-Gruppe mit eigenem Layout, Styles
+  unter `.d3t` gescoped — kein Einfluss auf die Hauptseite.
+
+---
+
 ## [0.28.3] — 2026-10-26
 
 ### Hero: freie Bildmitte, drei Sprechblasen, höhere Auflösung

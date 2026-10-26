@@ -1,0 +1,478 @@
+/*
+ * Designthese B — Angleichung an das D3-Designsystem (Amtshelden Deep Dive Day).
+ * Bewusster Gegenentwurf zur warmen Foto-Bühne (These A, "/"):
+ * flach, editorial, Bone-Grund + Indigo-Tinte, Gelb als Signal, kondensierte
+ * Versal-Headlines, Mono-Labels, Hairline-Module, geometrisches Stern-Icon.
+ * Alles unter .d3t gescoped, damit nichts in die Hauptseite leckt.
+ */
+
+.d3t {
+  --bone: #eeede4;
+  --bone-2: #e3e2d7;
+  --white: #f8f7f2;
+  --ink: #1e1b36;
+  --yellow: #ffe500;
+  --green: #009460;
+  --orange: #ff4b23;
+  --mute: #56554f;
+  --line: rgba(30, 27, 54, 0.14);
+  --line-strong: rgba(30, 27, 54, 0.26);
+  --gutter: clamp(16px, 3.4vw, 48px);
+
+  min-height: 100vh;
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--d3t-display), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.d3t *,
+.d3t *::before,
+.d3t *::after {
+  box-sizing: border-box;
+}
+
+.d3t a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.d3t ::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.d3t :focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* --- Mono-Label (Fragment Mono, uppercase, getrackt) --- */
+.d3t-label {
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* --- Kondensierte Versal-Display --- */
+.d3t-display {
+  font-family: var(--d3t-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+/* ===== Topbar ===== */
+.d3t-top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px var(--gutter);
+  background: color-mix(in srgb, var(--bone) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.d3t-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.d3t-wordmark b {
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: 20px;
+}
+
+.d3t-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.d3t-nav a {
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.18s;
+}
+
+.d3t-nav a:hover {
+  border-color: var(--yellow);
+}
+
+@media (max-width: 720px) {
+  .d3t-nav {
+    display: none;
+  }
+}
+
+/* ===== Hero ===== */
+.d3t-hero {
+  padding: clamp(48px, 9vw, 120px) var(--gutter) clamp(40px, 6vw, 80px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.d3t-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.d3t-eyebrow .d3t-star {
+  width: 15px;
+  height: 15px;
+  color: var(--green);
+}
+
+.d3t-h1 {
+  font-family: var(--d3t-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.022em;
+  line-height: 0.9;
+  font-size: clamp(42px, 7.6vw, 104px);
+  margin: 0;
+  max-width: 14ch;
+}
+
+.d3t-h1 mark {
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.d3t-sub {
+  margin-top: 22px;
+  max-width: 54ch;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.5;
+  color: var(--mute);
+  font-stretch: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Suche — flach, eckig, Mono */
+.d3t-search {
+  margin-top: 34px;
+  display: flex;
+  align-items: stretch;
+  max-width: 680px;
+  border: 1.5px solid var(--ink);
+  background: var(--white);
+}
+
+.d3t-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 18px 18px;
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  outline: none;
+}
+
+.d3t-search input::placeholder {
+  color: var(--mute);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 12px;
+}
+
+.d3t-search button {
+  flex-shrink: 0;
+  border: 0;
+  border-left: 1.5px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  padding: 0 26px;
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.16s;
+}
+
+.d3t-search button:hover {
+  background: var(--ink);
+  color: var(--yellow);
+}
+
+/* Häufig gesucht */
+.d3t-common {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.d3t-common > span {
+  margin-right: 4px;
+}
+
+.d3t-chip {
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 7px 12px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  transition:
+    background 0.16s,
+    border-color 0.16s;
+}
+
+.d3t-chip:hover {
+  background: var(--ink);
+  color: var(--bone);
+  border-color: var(--ink);
+}
+
+/* ===== Bereiche ===== */
+.d3t-areas {
+  border-top: 1px solid var(--line);
+  padding: clamp(40px, 6vw, 72px) var(--gutter) clamp(56px, 8vw, 96px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.d3t-areas-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.d3t-areas-head h2 {
+  font-family: var(--d3t-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-size: clamp(24px, 3.2vw, 40px);
+  margin: 0;
+}
+
+.d3t-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .d3t-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .d3t-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.d3t-mod {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 232px;
+  padding: 20px;
+  background: var(--bone);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition:
+    background 0.18s,
+    transform 0.18s;
+}
+
+/* Hairline-Raster sauber schließen */
+.d3t-grid .d3t-mod:nth-child(4n) {
+  border-right: 0;
+}
+@media (max-width: 900px) {
+  .d3t-grid .d3t-mod:nth-child(4n) {
+    border-right: 1px solid var(--line);
+  }
+  .d3t-grid .d3t-mod:nth-child(2n) {
+    border-right: 0;
+  }
+}
+@media (max-width: 540px) {
+  .d3t-grid .d3t-mod {
+    border-right: 0 !important;
+  }
+}
+
+.d3t-mod::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--yellow);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.22s var(--ease, cubic-bezier(0.76, 0, 0.18, 1));
+}
+
+.d3t-mod:hover {
+  background: var(--white);
+}
+
+.d3t-mod:hover::before {
+  transform: scaleY(1);
+}
+
+.d3t-mod-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.d3t-mod-top .d3t-star {
+  width: 24px;
+  height: 24px;
+  color: var(--ink);
+  transition:
+    color 0.18s,
+    transform 0.4s var(--ease, cubic-bezier(0.76, 0, 0.18, 1));
+}
+
+.d3t-mod:hover .d3t-star {
+  color: var(--green);
+  transform: rotate(45deg);
+}
+
+.d3t-mod-no {
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.d3t-mod-name {
+  margin-top: auto;
+  font-family: var(--d3t-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 108%;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+  font-size: 19px;
+}
+
+.d3t-mod-tag {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--mute);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.d3t-mod-meta {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.d3t-mod-meta .n {
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.d3t-mod-meta .arr {
+  font-size: 16px;
+  transition: transform 0.22s;
+}
+
+.d3t-mod:hover .d3t-mod-meta .arr {
+  transform: translateX(4px);
+}
+
+/* ===== Footer-Strip ===== */
+.d3t-foot {
+  border-top: 1px solid var(--line);
+  padding: 22px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* ===== These-Umschalter (A/B) ===== */
+.d3t-switch {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--ink);
+  background: var(--white);
+  font-family: var(--d3t-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  box-shadow: 0 14px 30px -18px rgba(30, 27, 54, 0.6);
+}
+
+.d3t-switch a {
+  padding: 9px 13px;
+}
+
+.d3t-switch a + a {
+  border-left: 1.5px solid var(--ink);
+}
+
+.d3t-switch .is-active {
+  background: var(--ink);
+  color: var(--yellow);
+}
