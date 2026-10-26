@@ -4,29 +4,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, FileText, MessageSquare, Search } from "lucide-react";
+import { ArrowRight, FileText, MessageSquare, Search, Users } from "lucide-react";
 
-/** Glas-Sprechblase im Logo-Balken-Stil (grün, Zacken nach unten), über Köpfen. */
+/** Glas-Sprechblase im Logo-Balken-Stil (grün, Zacken nach unten), über Köpfen.
+ *  Zacken-Seite (`tail`) zeigt zur jeweiligen Person. */
 function Bubble({
   icon: Icon,
   label,
   className,
+  tail = "left",
 }: {
   icon: typeof Search;
   label: string;
   className?: string;
+  tail?: "left" | "right";
 }) {
   return (
     <div className={`absolute z-20 hidden lg:block ${className ?? ""}`}>
-      <div className="relative inline-flex items-center gap-2 rounded-xl bg-[rgba(0,148,96,0.82)] px-3.5 py-2 text-white shadow-[0_16px_34px_-16px_rgba(0,0,0,0.65)] ring-1 ring-white/25 backdrop-blur-md">
+      <div className="relative inline-flex items-center gap-2 rounded-xl bg-[rgba(0,148,96,0.86)] px-3.5 py-2 text-white shadow-[0_16px_34px_-16px_rgba(0,0,0,0.65)] ring-1 ring-white/25 backdrop-blur-md">
         <Icon size={14} className="flex-shrink-0 text-white/90" aria-hidden />
         <span className="whitespace-nowrap font-sans text-[12.5px] font-semibold">
           {label}
         </span>
         <span
           aria-hidden
-          className="absolute left-6 -bottom-[7px] h-0 w-0 border-l-[7px] border-r-[7px] border-t-[8px] border-l-transparent border-r-transparent"
-          style={{ borderTopColor: "rgba(0,148,96,0.82)" }}
+          className={`absolute -bottom-[7px] h-0 w-0 border-l-[7px] border-r-[7px] border-t-[8px] border-l-transparent border-r-transparent ${
+            tail === "right" ? "right-6" : "left-6"
+          }`}
+          style={{ borderTopColor: "rgba(0,148,96,0.86)" }}
         />
       </div>
     </div>
@@ -51,9 +56,10 @@ const HAEUFIGE_SUCHEN = [
 ];
 
 // Quadratischer Master trägt alle Breiten: Desktop zeigt das horizontale Band
-// (Menschen links + rechts, ruhige Wandmitte), Mobil den vertikalen Anschnitt
-// mit Menschen statt nur Hintergrund (Wolfram 26.10.). Die breite 16:9-Fassung
-// derselben Szene liegt als hero-verwaltung.jpg als Reserve bereit.
+// (Menschen links + rechts, ruhige freie Bildmitte für Headline + Suche), Mobil
+// den vertikalen Anschnitt mit Menschen statt nur Hintergrund (Wolfram 26.10.,
+// Seedream 5 Pro, 2K). Eine breite 16:9-Fassung liegt als hero-verwaltung.jpg
+// als Reserve bereit.
 const HERO_IMAGE = "/brand/generated/hero-verwaltung-quadrat.jpg";
 
 // Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
@@ -96,15 +102,26 @@ export function HeroSearch() {
 
       {SHOW_BUBBLES && (
         <>
+          {/* stehendes Paar mit Tablet (links) */}
+          <Bubble
+            icon={Users}
+            label="Fachverfahren vergleichen"
+            className="left-[11%] top-[14%]"
+            tail="left"
+          />
+          {/* Frau vorne am Monitor (links unten) */}
           <Bubble
             icon={FileText}
             label="E-Akte vergleichen"
-            className="left-[4%] top-[15%]"
+            className="left-[2%] top-[47%]"
+            tail="left"
           />
+          {/* Dreiergruppe am Laptop (rechts) */}
           <Bubble
             icon={MessageSquare}
             label="Chatbot für Bürgerdialog"
-            className="right-[5%] top-[26%]"
+            className="right-[6%] top-[20%]"
+            tail="right"
           />
         </>
       )}

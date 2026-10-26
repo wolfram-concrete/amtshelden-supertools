@@ -2,6 +2,20 @@
 
 ---
 
+## [0.28.3] — 2026-10-26
+
+### Hero: freie Bildmitte, drei Sprechblasen, höhere Auflösung
+
+- Neues Motiv (Seedream 5 Pro, 2K): Menschen an den Rändern gruppiert, **freie
+  ruhige Bildmitte** für Headline + Suche. Stehendes Paar nach links gerückt und
+  mit **Tablet** (erkennbares Gespräch), Frau vorne links am Monitor, Dreiergruppe
+  am Laptop rechts. Deutlich höhere Auflösung als zuvor.
+- **Drei Sprechblasen** statt zwei, je eine pro Personengruppe und näher an den
+  Köpfen: „Fachverfahren vergleichen" (Paar), „E-Akte vergleichen" (Frau vorne),
+  „Chatbot für Bürgerdialog" (Dreiergruppe). Zacken-Seite zeigt zur Person.
+
+---
+
 ## [0.28.2] — 2026-10-26
 
 ### Hero-Motiv: quadratischer Master für Desktop + Mobil
