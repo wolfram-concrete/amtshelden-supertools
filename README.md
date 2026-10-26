@@ -27,11 +27,14 @@
   Grund, dunkler Tannengrün-Gegenpol für Bild-Bühnen, ein Grün-Akzent.** Durchgehend
   cream, kein Weiß gegen Off-White. Weiße Karten auf Cream (Fill-Kontrast), großzügige
   Radien (`rounded-2xl/3xl`).
-- **Startseite = Schaltpult:** Hero full-bleed bis hinter die Navigation (echtes
-  Verwaltungsmotiv), Suche mittelachsig als zentrales Instrument; darunter die
-  Bereiche als vier Bild-Kacheln. Referenz: Airbnb/Fiverr/onefinestay.
-- **Bildwelt:** eigene, **dokumentarische** Motive (Freepik, nach CONCRETE-Bildregeln,
-  entsättigt/echt, keine KI-Slop-Hochglanz) — Hero + ein Motiv je Bereich.
+- **Startseite = Schaltpult:** Hero als **Vollbild** (`min-h-[100svh]`) bis hinter die
+  Navigation (echtes Open-Space-Verwaltungsmotiv), Suche mittelachsig als zentrales
+  Instrument; darunter die Bereiche als vier Bild-Kacheln. Referenz: Airbnb/Fiverr/onefinestay.
+- **Bildwelt:** eigene Motive (Freepik, nach CONCRETE-Bildregeln, echt/entsättigt, keine
+  KI-Slop-Hochglanz) — Hero + ein Motiv je Bereich. Corporate-Grün als echtes Requisit
+  im Raum, nicht als Hintergrundfläche.
+- **Sprechblasen im Hero:** grüne Glas-Bubbles im Logo-Balken-Stil (mit Zacken) über den
+  Personen, die ihr aktuelles SuperTools-Thema zeigen (Desktop).
 - **Navigation:** zurückgenommen, **ohne Trägerelement** — verteilte Schrift, weiß
   auf der Home (über Bild), dunkel auf Innenseiten. Logo invers auf der Home.
 

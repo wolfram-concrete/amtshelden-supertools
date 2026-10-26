@@ -2,6 +2,32 @@
 
 ---
 
+## [0.28.1] — 2026-10-26
+
+### Hero finalisiert: Vollbild, neues Motiv, Sprechblasen
+
+#### 🖥️ Vollbild-Hero
+- Hero nimmt beim Öffnen das komplette Browserfenster ein (`min-h-[100svh]`),
+  bis hinter die Navigation, Unterkante abgerundet.
+
+#### 📷 Neues Hero-Motiv (Freepik)
+- Weiter Open-Space mit mehreren Arbeitsplätzen (Komposition von Wolfram bestätigt).
+- Grüne Rückwand entfernt — Corporate-Grün #009460 jetzt als echtes Requisit im
+  Raum (Akustikpaneel, Bürostühle, Tasse), nicht als Hintergrundfläche.
+- Anatomie der Personen überarbeitet (saubere Hände, Haltungen), warme natürliche
+  Gradation, dokumentarische Reibung; ruhige Bildmitte für Headline + Suche.
+
+#### 💬 Glas-Sprechblasen über den Personen
+- Zwei grüne Bubbles im Logo-Balken-Stil mit Sprechblasen-Zacken, glossy-transparente
+  Blurry-Glass-Optik (Desktop): „E-Akte vergleichen", „Chatbot für Bürgerdialog".
+
+#### 🧩 Textboxen
+- Gradient aus den Headline-Balken entfernt (flaches Mastergrün + feine Grain),
+  mehr Innenabstand (Unterlängen klemmen nicht), glossy Kante über Inset-Highlight.
+- Abdunkel-Layer entfernt (Motiv in voller Farbe).
+
+---
+
 ## [0.28.0] — 2026-10-26
 
 ### Visuelle Neuausrichtung: Schaltpult-Startseite + eigene Bildwelt (CONCRETE-DNA)

@@ -4,7 +4,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, FileText, MessageSquare, Search } from "lucide-react";
+
+/** Glas-Sprechblase im Logo-Balken-Stil (grün, Zacken nach unten), über Köpfen. */
+function Bubble({
+  icon: Icon,
+  label,
+  className,
+}: {
+  icon: typeof Search;
+  label: string;
+  className?: string;
+}) {
+  return (
+    <div className={`absolute z-20 hidden lg:block ${className ?? ""}`}>
+      <div className="relative inline-flex items-center gap-2 rounded-xl bg-[rgba(0,148,96,0.82)] px-3.5 py-2 text-white shadow-[0_16px_34px_-16px_rgba(0,0,0,0.65)] ring-1 ring-white/25 backdrop-blur-md">
+        <Icon size={14} className="flex-shrink-0 text-white/90" aria-hidden />
+        <span className="whitespace-nowrap font-sans text-[12.5px] font-semibold">
+          {label}
+        </span>
+        <span
+          aria-hidden
+          className="absolute left-6 -bottom-[7px] h-0 w-0 border-l-[7px] border-r-[7px] border-t-[8px] border-l-transparent border-r-transparent"
+          style={{ borderTopColor: "rgba(0,148,96,0.82)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+// Sprechblasen-Variante (A/B): true zeigt die Glas-Bubbles über den Köpfen.
+const SHOW_BUBBLES = true;
 
 /**
  * Hero als Schaltpult: großflächiges, voll aufgezogenes AMS-Verwaltungsmotiv,
@@ -25,14 +55,15 @@ const HERO_IMAGE = "/brand/generated/hero-verwaltung.jpg";
 // Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
 // Textur über einem leichten Grün-Verlauf (soft-light), für etwas Leben.
 const GREEN_BAR =
-  "box-decoration-clone inline-block rounded-xl px-4 py-1.5 text-white shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)]";
+  "box-decoration-clone inline-block rounded-xl px-5 py-2.5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_14px_30px_-16px_rgba(0,0,0,0.5)]";
 const GREEN_BAR_STYLE: React.CSSProperties = {
-  // Mastergrün #009460 — exakt der Suchen-Button, kein giftiger Hue-Verlauf;
-  // nur entsättigte Grain-Textur + dezenter Sheen für etwas Tiefe.
+  // Flaches Mastergrün #009460 (= Suchen-Button), KEIN Gradient/Verlauf im
+  // Container; nur eine feine entsättigte Körnung. Die glossy Kante kommt über
+  // den inset-Highlight im Shadow.
   backgroundColor: "#009460",
   backgroundImage:
-    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\"), linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.12) 100%)",
-  backgroundBlendMode: "soft-light, normal",
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E\")",
+  backgroundBlendMode: "soft-light",
 };
 
 export function HeroSearch() {
@@ -46,33 +77,38 @@ export function HeroSearch() {
   }
 
   return (
-    <section className="relative -mt-20 flex min-h-[640px] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20 lg:min-h-[800px]">
+    <section className="relative -mt-20 flex min-h-[100svh] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20">
       {/* Bild-Bühne voll aufgezogen */}
       <Image
         src={HERO_IMAGE}
         alt="Blick in eine moderne Verwaltung bei der Arbeit"
         fill
         sizes="100vw"
-        className="object-cover brightness-[1.12] saturate-[1.14]"
+        className="object-cover"
         priority
       />
-      {/* Leichter, neutral-warmer Schleier — Bild bleibt farbig, Mitte nur
-          so weit abgesenkt, dass Headline + Suche sicher lesen. */}
-      <div
-        aria-hidden
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(130% 115% at 50% 46%, rgba(20,24,18,0.14) 0%, rgba(16,20,15,0.30) 60%, rgba(12,16,12,0.52) 100%)",
-        }}
-      />
+
+      {SHOW_BUBBLES && (
+        <>
+          <Bubble
+            icon={FileText}
+            label="E-Akte vergleichen"
+            className="left-[4%] top-[15%]"
+          />
+          <Bubble
+            icon={MessageSquare}
+            label="Chatbot für Bürgerdialog"
+            className="right-[5%] top-[26%]"
+          />
+        </>
+      )}
 
       {/* Schaltpult, mittelachsig */}
       <div className="relative z-10 w-full max-w-2xl px-6 text-center">
         {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
             Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
-        <h1 className="flex flex-col items-center gap-2 font-sans font-bold text-[clamp(26px,4.6vw,54px)] leading-[1.08] tracking-[-0.02em]">
+        <h1 className="flex flex-col items-center gap-2.5 font-sans font-bold text-[clamp(26px,4.6vw,54px)] leading-[1.2] tracking-[-0.02em]">
           <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             Welche Software passt
           </span>
