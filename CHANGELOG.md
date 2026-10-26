@@ -2,6 +2,18 @@
 
 ---
 
+## [0.29.2] — 2026-10-26
+
+### Display-Typo: Archivo auch auf Section-Headlines, Laufweite geöffnet
+
+- **Archivo auf die Section-Headline (h2)** übertragen (Home: „Wählen Sie Ihren
+  Bereich."), gemischtschriftlich — gleiche Display-Haltung wie die Hero-h1.
+  Kleine UI-Headings (z. B. Newsletter-Widget) bleiben bewusst IBM Plex.
+- **Laufweite geöffnet:** Tracking von h1 und h2 weniger eng gestellt
+  (−0.012em statt −0.03em).
+
+---
+
 ## [0.29.1] — 2026-10-26
 
 ### These A: holistische Farblogik im Mega-Menü + Hero-Typo

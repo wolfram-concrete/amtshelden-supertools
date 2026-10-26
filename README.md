@@ -40,6 +40,10 @@
   Personen, die ihr aktuelles SuperTools-Thema zeigen (Desktop).
 - **Navigation:** zurückgenommen, **ohne Trägerelement** — verteilte Schrift, weiß
   auf der Home (über Bild), dunkel auf Innenseiten. Logo invers auf der Home.
+- **Display-Headlines:** Hero-h1 und Section-h2 in **Archivo** (schwer, leicht
+  geöffnete Laufweite), gemischtschriftlich — Haltung aus Designthese B/D3.
+- **Holistische Farblogik:** eine Farbe je Bereich, zentral in `src/lib/category-colors.ts`;
+  gemeinsam genutzt von Home-Bereichskacheln und Themenfelder-Mega-Menü.
 
 **Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor,
 ohne Ranking, ohne gekaufte Empfehlungen.

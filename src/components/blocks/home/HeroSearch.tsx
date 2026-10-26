@@ -133,7 +133,7 @@ export function HeroSearch() {
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
         <h1
           style={{ fontFamily: "var(--font-archivo)", fontStretch: "110%" }}
-          className="flex flex-col items-center gap-2.5 font-extrabold text-[clamp(27px,4.5vw,53px)] leading-[1.06] tracking-[-0.03em]"
+          className="flex flex-col items-center gap-2.5 font-extrabold text-[clamp(27px,4.5vw,53px)] leading-[1.06] tracking-[-0.012em]"
         >
           <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             Welche Software passt
