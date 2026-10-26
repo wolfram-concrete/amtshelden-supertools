@@ -26,13 +26,15 @@ onefinestay als Referenz, Refero für moderne Plattform-Muster geprüft).
   (über Bild), dunkel auf Innenseiten; Scroll-Frost dunkel. Fokus liegt auf der
   Suche. Logo invers auf der Home (Transparenz-Problem auf dem Bild behoben).
 
-#### 📷 Eigene dokumentarische Bildwelt (Freepik)
-- Serie nach CONCRETE-Bildregeln generiert (dokumentarisch, entsättigt, echte
-  deutsche Verwaltung, Reibung statt Hochglanz, Slop-Checkliste bestanden):
-  Hero (Blick durch Glastrennwand), E-Akte (Akten/Posteingang), Bürgerservice
-  (Bürgeramt mit Bundesadler), Personal (Personalakte/Schichtplan), Kommunikation
-  (Besprechung mit Fachverfahren-Screen). Ersetzt die glatten KI-Platzhalter.
-- Hero-Motiv heller und wärmer abgestimmt (kein düsterer Ton).
+#### 📷 Eigene Bildwelt (Freepik) — Art Direction „Everyday Administration, beautifully reimagined"
+- Neue inszenierte Commercial-Bildwelt nach verbindlichem Creative-Briefing:
+  reduziert, komponiert, premium statt dokumentarisch; Corporate-Grün als echtes
+  Objekt im Raum (Halbkreis, grüner Tresen, grüner Quader, grüne Tischkante),
+  Geometrie als System, warme natürliche Gradation, glaubwürdige Menschen statt
+  Models, keine Schrift/UI/Logos im Bild.
+- Fünf Motive: Hero (ruhige freie Bildmitte für Headline + Suche), E-Akte
+  („Everything in Order"), Bürgerservice („Making things easier"), Personal
+  („Better together"), Kommunikation („Connected perspectives").
 
 #### Typografie
 - Headlines fett IBM Plex Sans (bewusste, nicht-generische Wahl; kein AI-Slop).
