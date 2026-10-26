@@ -371,25 +371,8 @@
   }
 }
 
-.d3t-mod::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--yellow);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.22s var(--ease, cubic-bezier(0.76, 0, 0.18, 1));
-}
-
 .d3t-mod:hover {
   background: var(--white);
-}
-
-.d3t-mod:hover::before {
-  transform: scaleY(1);
 }
 
 .d3t-mod-top {
