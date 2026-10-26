@@ -50,7 +50,11 @@ const HAEUFIGE_SUCHEN = [
   "Bürgerdialog",
 ];
 
-const HERO_IMAGE = "/brand/generated/hero-verwaltung.jpg";
+// Quadratischer Master trägt alle Breiten: Desktop zeigt das horizontale Band
+// (Menschen links + rechts, ruhige Wandmitte), Mobil den vertikalen Anschnitt
+// mit Menschen statt nur Hintergrund (Wolfram 26.10.). Die breite 16:9-Fassung
+// derselben Szene liegt als hero-verwaltung.jpg als Reserve bereit.
+const HERO_IMAGE = "/brand/generated/hero-verwaltung-quadrat.jpg";
 
 // Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
 // Textur über einem leichten Grün-Verlauf (soft-light), für etwas Leben.
@@ -78,7 +82,9 @@ export function HeroSearch() {
 
   return (
     <section className="relative -mt-20 flex min-h-[100svh] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20">
-      {/* Bild-Bühne voll aufgezogen */}
+      {/* Bild-Bühne voll aufgezogen — quadratischer Master trägt beide
+          Richtungen: Desktop zeigt das horizontale Band (Menschen links + rechts,
+          ruhige Wandmitte), Mobil den vertikalen Anschnitt mit Menschen. */}
       <Image
         src={HERO_IMAGE}
         alt="Blick in eine moderne Verwaltung bei der Arbeit"

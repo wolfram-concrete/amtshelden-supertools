@@ -30,6 +30,9 @@
 - **Startseite = Schaltpult:** Hero als **Vollbild** (`min-h-[100svh]`) bis hinter die
   Navigation (echtes Open-Space-Verwaltungsmotiv), Suche mittelachsig als zentrales
   Instrument; darunter die Bereiche als vier Bild-Kacheln. Referenz: Airbnb/Fiverr/onefinestay.
+- **Hero-Motiv = quadratischer Master:** ein 1:1-Bild trägt alle Breiten — Desktop zeigt
+  das horizontale Band, Mobil den vertikalen Anschnitt, sodass auch im Hochformat Menschen
+  im Bild bleiben statt nur Hintergrund. 16:9-Fassung derselben Szene als Reserve.
 - **Bildwelt:** eigene Motive (Freepik, nach CONCRETE-Bildregeln, echt/entsättigt, keine
   KI-Slop-Hochglanz) — Hero + ein Motiv je Bereich. Corporate-Grün als echtes Requisit
   im Raum, nicht als Hintergrundfläche.

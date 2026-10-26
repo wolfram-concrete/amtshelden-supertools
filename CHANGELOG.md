@@ -2,6 +2,20 @@
 
 ---
 
+## [0.28.2] — 2026-10-26
+
+### Hero-Motiv: quadratischer Master für Desktop + Mobil
+
+- Neues Hero-Motiv (Freepik, von Wolfram favorisiert): warmes Tageslicht, stehendes
+  Paar links, Dreiergruppe am Laptop rechts, saubere Anatomie; Grün nur als kleines
+  Requisit (Stuhl, Tasse).
+- **Quadratischer Master** (`hero-verwaltung-quadrat.jpg`) trägt alle Breiten:
+  Desktop zeigt das horizontale Band (Menschen links + rechts, ruhige Wandmitte für
+  die Headline), Mobil den vertikalen Anschnitt — dort bleiben Menschen im Bild statt
+  nur Hintergrund. Breite 16:9-Fassung derselben Szene als Reserve (`hero-verwaltung.jpg`).
+
+---
+
 ## [0.28.1] — 2026-10-26
 
 ### Hero finalisiert: Vollbild, neues Motiv, Sprechblasen
