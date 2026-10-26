@@ -40,22 +40,26 @@ export function HeroSearch() {
         alt="Blick in eine moderne Verwaltung bei der Arbeit"
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover brightness-[1.12] saturate-[1.14]"
         priority
       />
-      {/* Entsättigter Tannengrün-Film, mittig stärker für zentrierte Lesbarkeit */}
+      {/* Leichter, neutral-warmer Schleier — Bild bleibt farbig, Mitte nur
+          so weit abgesenkt, dass Headline + Suche sicher lesen. */}
       <div
         aria-hidden
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 46%, rgba(9,26,18,0.60) 0%, rgba(9,26,18,0.74) 55%, rgba(9,26,18,0.88) 100%)",
+            "radial-gradient(130% 115% at 50% 46%, rgba(20,24,18,0.14) 0%, rgba(16,20,15,0.30) 60%, rgba(12,16,12,0.52) 100%)",
         }}
       />
 
       {/* Schaltpult, mittelachsig */}
       <div className="relative z-10 w-full max-w-2xl px-6 text-center">
-        <h1 className="mx-auto font-sans font-bold text-[clamp(32px,5vw,58px)] leading-[1.05] tracking-[-0.03em] text-white text-balance">
+        <h1
+          className="mx-auto font-sans font-bold text-[clamp(32px,5vw,58px)] leading-[1.05] tracking-[-0.03em] text-white text-balance"
+          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.45)" }}
+        >
           Welche Software passt zu Ihrer Verwaltung?
         </h1>
 
