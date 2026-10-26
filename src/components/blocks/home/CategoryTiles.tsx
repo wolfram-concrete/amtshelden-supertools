@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { CATEGORY_COLOR, CATEGORY_COLOR_FALLBACK } from "@/lib/category-colors";
 import type { CategoryDefinition } from "@/types/content";
 
 interface CategoryTilesProps {
@@ -22,14 +23,9 @@ const TILE_IMAGE: Record<string, string> = {
   "personal-organisation": "/brand/generated/bereich-personal.jpg",
   "kommunikation-zusammenarbeit": "/brand/generated/bereich-kommunikation.jpg",
 };
-const TILE_COLOR: Record<string, string> = {
-  "e-akte-dokumentenmanagement": "#215E8C",
-  "buergerservice-fachverfahren": "#5A4A88",
-  "personal-organisation": "#B0530F",
-  "kommunikation-zusammenarbeit": "#006b45",
-};
+const TILE_COLOR = CATEGORY_COLOR;
 const FALLBACK_IMAGE = "/brand/generated/hero-verwaltung.jpg";
-const FALLBACK_COLOR = "#006b45";
+const FALLBACK_COLOR = CATEGORY_COLOR_FALLBACK;
 
 export function CategoryTiles({
   title,

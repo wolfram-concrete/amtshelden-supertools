@@ -127,11 +127,14 @@ export function HeroSearch() {
       )}
 
       {/* Schaltpult, mittelachsig */}
-      <div className="relative z-10 w-full max-w-2xl px-6 text-center">
+      <div className="relative z-10 w-full max-w-3xl px-6 text-center">
         {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
             Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
-        <h1 className="flex flex-col items-center gap-2.5 font-sans font-bold text-[clamp(26px,4.6vw,54px)] leading-[1.2] tracking-[-0.02em]">
+        <h1
+          style={{ fontFamily: "var(--font-archivo)", fontStretch: "110%" }}
+          className="flex flex-col items-center gap-2.5 font-extrabold text-[clamp(27px,4.5vw,53px)] leading-[1.06] tracking-[-0.03em]"
+        >
           <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
             Welche Software passt
           </span>

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
+import { categoryColor } from "@/lib/category-colors";
 import { cn } from "@/lib/utils";
 import { directoryCategoriesByThemenfeld } from "@/data/directory";
 import { themenfelder } from "@/mocks/themenfelder";
@@ -109,6 +110,9 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
               <div className="grid sm:grid-cols-2 gap-3">
                 {themenfelder.map((tf) => {
                   const cats = directoryCategoriesByThemenfeld[tf.slug] || [];
+                  // Leitfarbe des Themenfelds = Farbe seiner ersten Kategorie
+                  // (holistische Farblogik aus den Home-Bereichskacheln).
+                  const lead = categoryColor(cats[0]?.slug);
                   return (
                     <div
                       key={tf.slug}
@@ -117,13 +121,14 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                       <div className="flex items-start justify-between">
                         <span
                           aria-hidden
-                          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-brand/10 text-brand-dark"
+                          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl"
+                          style={{ backgroundColor: `${lead}1A`, color: lead }}
                         >
                           {tf.icon && <BrandIcon name={tf.icon} size={20} />}
                         </span>
                         <ArrowUpRight
                           size={16}
-                          className="text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-dark"
+                          className="text-soft transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-dark"
                           aria-hidden
                         />
                       </div>
@@ -141,23 +146,28 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
                       </Link>
                       {cats.length > 0 ? (
                         <div className="mt-3 pt-3 border-t border-border flex flex-wrap gap-1.5">
-                          {cats.map((c) => (
-                            <Link
-                              key={c.slug}
-                              href={`/kategorien/${c.slug}`}
-                              onClick={() => setOpen(false)}
-                              className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 font-ui text-[11px] font-medium text-mid transition-colors hover:bg-brand/10 hover:text-brand-dark"
-                            >
-                              {c.icon && (
-                                <BrandIcon
-                                  name={c.icon}
-                                  size={12}
-                                  className="text-brand"
-                                />
-                              )}
-                              {c.name}
-                            </Link>
-                          ))}
+                          {cats.map((c) => {
+                            const color = categoryColor(c.slug);
+                            return (
+                              <Link
+                                key={c.slug}
+                                href={`/kategorien/${c.slug}`}
+                                onClick={() => setOpen(false)}
+                                className="inline-flex items-center gap-1.5 rounded-full bg-white py-1 pl-1 pr-2.5 font-ui text-[11px] font-medium text-dark transition-colors hover:bg-cream"
+                              >
+                                <span
+                                  aria-hidden
+                                  className="flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded-md text-white"
+                                  style={{ backgroundColor: color }}
+                                >
+                                  {c.icon && (
+                                    <BrandIcon name={c.icon} size={11} />
+                                  )}
+                                </span>
+                                {c.name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       ) : (
                         <div className="mt-3 pt-3 border-t border-border font-ui text-[11px] italic text-soft">

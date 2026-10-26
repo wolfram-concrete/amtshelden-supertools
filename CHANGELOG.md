@@ -2,6 +2,22 @@
 
 ---
 
+## [0.29.1] — 2026-10-26
+
+### These A: holistische Farblogik im Mega-Menü + Hero-Typo
+
+- **Mega-Menü (Themenfelder) auf die Farblogik der Home-Bereichskacheln gezogen:**
+  Kategorie-Farben (eine je Bereich) zentral in `src/lib/category-colors.ts`,
+  von Home-Kacheln und Mega-Menü gemeinsam genutzt. Kategorie-Chips tragen jetzt
+  ihr farbiges Icon-Quadrat (wie die Home-Kacheln), die Themenfeld-Karten färben
+  das Icon in der Leitfarbe ihrer ersten Kategorie. Palette um zwei Töne ergänzt:
+  Finanzen & Haushalt (Teal), Geo, Bauen & Umwelt (Olive).
+- **Hero-Headline** auf die Typo-Haltung aus Designthese B umgestellt (Archivo,
+  schwer, eng laufend), bewusst **gemischtschriftlich** (nicht versal); grüne
+  Trägerbalken bleiben.
+
+---
+
 ## [0.29.0] — 2026-10-26
 
 ### Zweite visuelle These: D3-Designsprache (`/d3`)

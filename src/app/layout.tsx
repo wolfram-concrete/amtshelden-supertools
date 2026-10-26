@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import {
+  Archivo,
   IBM_Plex_Mono,
   IBM_Plex_Sans,
   IBM_Plex_Serif,
 } from "next/font/google";
 import "./globals.css";
+
+// Hero-Display — schwere, eng laufende Grotesk (Haltung aus Designthese B/D3),
+// gemischtschriftlich eingesetzt. Nur für die Hero-Headline.
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-archivo",
+  display: "swap",
+});
 
 // Headlines — Baseframe-System: Editorial Serif, Regular-Schnitt (kein Bold)
 const ibmSerif = IBM_Plex_Serif({
@@ -50,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${ibmSerif.variable} ${ibmPlex.variable} ${ibmMono.variable}`}
+      className={`${ibmSerif.variable} ${ibmPlex.variable} ${ibmMono.variable} ${archivo.variable}`}
     >
       <body>{children}</body>
     </html>
