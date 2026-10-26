@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** September 2026 · **Version:** 0.27 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** Oktober 2026 · **Version:** 0.28 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -22,13 +22,18 @@
   Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
 - **Kein Eyebrow/Kicker über Überschriften** (De-Slop v0.27): die Serif-Headlines
   tragen sich selbst — keine Mono-Uppercase-Käppchen als Section-Marker.
-- **Bento-Sprache (seit v0.18, Referenz [byq.supply](https://byq.supply)):**
-  Off-White-Fläche (cream) trägt **randlose weiße Karten** — Trennung über
-  **Fill-Kontrast** statt feiner Konturlinien. Weiche, dezente Schatten statt
-  harter Schlagschatten; großzügige Radien (`rounded-2xl/3xl`); plakativer
-  Typo-Sprung (großes Serif-Display ↔ kleine UI-Labels).
-- **Navigation:** eine **grüne Floating-Pill (Insel)** mit allen Items inkl.
-  Actions (Anbieter/Newsletter als weiße CTA) — keine durchgezogene Trennlinie.
+- **Visuelle Linie (seit v0.28, CONCRETE-Design-DNA):** eigenständig und bildstark
+  statt austauschbarem Weiß-SaaS. CONCRETE-Farbformel: **warmes Neutral (cream) als
+  Grund, dunkler Tannengrün-Gegenpol für Bild-Bühnen, ein Grün-Akzent.** Durchgehend
+  cream, kein Weiß gegen Off-White. Weiße Karten auf Cream (Fill-Kontrast), großzügige
+  Radien (`rounded-2xl/3xl`).
+- **Startseite = Schaltpult:** Hero full-bleed bis hinter die Navigation (echtes
+  Verwaltungsmotiv), Suche mittelachsig als zentrales Instrument; darunter die
+  Bereiche als vier Bild-Kacheln. Referenz: Airbnb/Fiverr/onefinestay.
+- **Bildwelt:** eigene, **dokumentarische** Motive (Freepik, nach CONCRETE-Bildregeln,
+  entsättigt/echt, keine KI-Slop-Hochglanz) — Hero + ein Motiv je Bereich.
+- **Navigation:** zurückgenommen, **ohne Trägerelement** — verteilte Schrift, weiß
+  auf der Home (über Bild), dunkel auf Innenseiten. Logo invers auf der Home.
 
 **Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor,
 ohne Ranking, ohne gekaufte Empfehlungen.
@@ -168,7 +173,7 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 
 | Route | Status | Was es ist |
 |---|---|---|
-| `/` | ✓ | **Suche-first-Frontpage (v0.27):** Hero mit Suchpanel → `/suche`; konkrete **Kategorien** direkt darunter, Anwendungsbeispiele (HomeCases), Tool im Fokus, Tool-Teaser, Themenfeld-Grid (demotet „Struktur dahinter"), Magazin, About (grün), Newsletter |
+| `/` | ✓ | **Schaltpult-Frontpage (v0.28):** Hero full-bleed mit Verwaltungsmotiv bis hinter die Nav, Suche mittelachsig als zentrales Instrument; darunter die Bereiche als vier Bild-Kacheln. Bewusst reduziert — kein Magazin/Feed. |
 | `/suche` | ✓ | Verzeichnis-Suche über alle Tools (Query aus `?q=`), Filter (Betrieb/Profil-Stufe/Anbieterangaben) + Sortierung, Produkt-Kachel-Grid |
 | `/themenfelder` + `/[slug]` | ✓ | Index + 4 Themenfeld-Detailseiten (SSG) |
 | `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 13 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 13 noch offen |

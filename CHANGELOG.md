@@ -2,6 +2,43 @@
 
 ---
 
+## [0.28.0] — 2026-10-26
+
+### Visuelle Neuausrichtung: Schaltpult-Startseite + eigene Bildwelt (CONCRETE-DNA)
+
+Nach dem Call vom 30.09. (radikale Reduktion) folgte die gestalterische Reife:
+weg von austauschbarem Weiß-SaaS, hin zu einer eigenständigen, bildstarken
+Markensprache nach CONCRETE-Design-DNA. Richtung von Wolfram am 26.10. geschärft
+(dreht bewusst „keine Fotos" und „reines Weiß" wieder um — Airbnb/Fiverr/
+onefinestay als Referenz, Refero für moderne Plattform-Muster geprüft).
+
+#### 🎛️ Startseite als Schaltpult
+- Hero full-bleed bis hinter die Navigation: echtes Verwaltungsmotiv als Bühne,
+  die Suche mittelachsig als das eine zentrale Instrument, Text komprimiert.
+- Bereiche als vier Bild-Kacheln (ein Motiv je Bereich) statt flacher Farbflächen.
+
+#### 🎨 Warmer Grund + aufgeräumte Flächen
+- Cream als durchgehender Grund statt Weiß gegen Off-White (CONCRETE-Farbformel:
+  warmes Neutral, dunkler Gegenpol, ein Grün-Akzent). Suche + Kategorie mitgezogen.
+
+#### 🧭 Navigation zurückgenommen
+- Nav aus dem grünen Trägerelement gelöst: verteilte Schrift, weiß auf der Home
+  (über Bild), dunkel auf Innenseiten; Scroll-Frost dunkel. Fokus liegt auf der
+  Suche. Logo invers auf der Home (Transparenz-Problem auf dem Bild behoben).
+
+#### 📷 Eigene dokumentarische Bildwelt (Freepik)
+- Serie nach CONCRETE-Bildregeln generiert (dokumentarisch, entsättigt, echte
+  deutsche Verwaltung, Reibung statt Hochglanz, Slop-Checkliste bestanden):
+  Hero (Blick durch Glastrennwand), E-Akte (Akten/Posteingang), Bürgerservice
+  (Bürgeramt mit Bundesadler), Personal (Personalakte/Schichtplan), Kommunikation
+  (Besprechung mit Fachverfahren-Screen). Ersetzt die glatten KI-Platzhalter.
+- Hero-Motiv heller und wärmer abgestimmt (kein düsterer Ton).
+
+#### Typografie
+- Headlines fett IBM Plex Sans (bewusste, nicht-generische Wahl; kein AI-Slop).
+
+---
+
 ## [0.27.0] — 2026-09-13
 
 ### Christian-Briefing (MVP): Suche-first · Produkt-first · De-Slop
