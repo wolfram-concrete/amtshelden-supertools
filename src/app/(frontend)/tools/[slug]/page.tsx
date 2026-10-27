@@ -9,6 +9,7 @@ import { ImplementierungBlock } from "@/components/blocks/profile/Implementierun
 import { KontaktBlock } from "@/components/blocks/profile/KontaktBlock";
 import { PassDasBlock } from "@/components/blocks/profile/PassDasBlock";
 import { ProfilCta } from "@/components/blocks/profile/ProfilCta";
+import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 import { ProfilHero } from "@/components/blocks/profile/ProfilHero";
 import { RelatedToolsGallery } from "@/components/blocks/profile/RelatedToolsGallery";
 import { ProfilSidebar } from "@/components/blocks/profile/ProfilSidebar";
@@ -96,6 +97,15 @@ export default async function ToolProfilePage({ params }: PageProps) {
             <ProfilHero
               {...tool.hero}
               lastCheckedAt={tool.lastCheckedAt}
+            />
+
+            <FavoriteButton
+              variant="solid"
+              tool={{
+                slug: tool.slug,
+                name: tool.name,
+                categoryLabel: tool.hero.categoryLabel,
+              }}
             />
 
             <PassDasBlock {...tool.passDas} />

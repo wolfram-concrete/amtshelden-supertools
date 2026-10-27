@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** 27. Oktober 2026 · **Version:** 0.30 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** 27. Oktober 2026 · **Version:** 0.31 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -51,6 +51,9 @@
   Zwischenüberschriften, kleine UI-Headings und Kennzahlen bleiben IBM Plex.
 - **Holistische Farblogik:** eine Farbe je Bereich, zentral in `src/lib/category-colors.ts`;
   gemeinsam genutzt von Home-Bereichskacheln und Themenfelder-Mega-Menü.
+- **Merkliste (ohne Account):** Merken-Button (Lesezeichen) auf Tool-Karten + Profil,
+  Zähler-Badge oben rechts, Slide-in-Panel. Rein browser-lokal über `localStorage`
+  (`src/components/favorites/`), SSR-sicher, geräte-/browsergebunden.
 
 **Vorbild:** OMR Reviews, Capterra — aber fokussiert auf den öffentlichen Sektor,
 ohne Ranking, ohne gekaufte Empfehlungen.

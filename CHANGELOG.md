@@ -2,6 +2,26 @@
 
 ---
 
+## [0.31.0] — 2026-10-27
+
+### Merkliste: Tools ohne Account markieren
+
+- **Merkliste statt Login:** Jeder kann Tools markieren, ganz ohne Konto. Rein
+  browser-lokal über `localStorage` (`supertools:merkliste:v1`) — SSR-sicher
+  hydriert, synchron über Tabs, nichts verlässt den Browser (DSGVO-unkritisch).
+  Ehrliche Grenze: an Gerät/Browser gebunden, nicht geräteübergreifend.
+- **Merken-Button** (Lesezeichen) auf allen Tool-Karten (Zeile/Kachel/Feature)
+  und als „Merken"-Button im Tool-Profil (Voll- und Crawler-Fallback-Profil).
+- **Trigger oben rechts im Header** (Desktop + mobil) mit Zähler-Badge, öffnet
+  ein **Slide-in-Panel „Merkliste"**: gemerkte Tools mit Logo + Kategorie,
+  Profil öffnen, einzeln entfernen, Liste leeren. Bewusst schlicht, kein Kauf.
+- Neu in `src/components/favorites/`: `FavoritesProvider` (Context/Hook),
+  `FavoriteButton`, `MerklisteTrigger`, `MerklistePanel`. Gespeichert wird pro
+  Tool nur `{slug, name, categoryLabel}`; das Logo rendert `ToolLogo` aus dem
+  Slug.
+
+---
+
 ## [0.30.0] — 2026-10-27
 
 ### „Echte Anwendung": Praxis-Cases, Bild-Heroes, Nav-Schärfung

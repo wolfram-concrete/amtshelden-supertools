@@ -35,6 +35,7 @@ import {
   directoryToolSignals,
 } from "@/data/directory";
 import { kategorieEntscheidung } from "@/data/kategorie-entscheidung";
+import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { ProductShots } from "@/components/blocks/crawler/ProductShots";
 import { InfoPopover } from "@/components/ui/InfoPopover";
@@ -180,6 +181,17 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               {pitch}
             </p>
           )}
+
+          <div className="mt-6">
+            <FavoriteButton
+              variant="solid"
+              tool={{
+                slug: tool.slug,
+                name: tool.name,
+                categoryLabel: tool.categoryLabel,
+              }}
+            />
+          </div>
 
           {summary && (
             <div

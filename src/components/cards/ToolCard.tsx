@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
+import { FavoriteButton } from "@/components/favorites/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { cn } from "@/lib/utils";
 import type { ToolCardSummary } from "@/types/content";
+
+/** Minimal-Datensatz für die Merkliste aus einer Tool-Karte. */
+function favoriteOf(tool: ToolCardSummary) {
+  return { slug: tool.slug, name: tool.name, categoryLabel: tool.categoryLabel };
+}
 
 interface ToolCardProps {
   tool: ToolCardSummary;
@@ -123,6 +129,7 @@ function RowItem({
 
       {/* Facts + CTA */}
       <div className="flex flex-shrink-0 items-end justify-between gap-4 border-t border-border pt-4 sm:w-[220px] sm:flex-col sm:items-end sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
+        <FavoriteButton tool={favoriteOf(tool)} className="order-first" />
         <div className="sm:text-right">
           <div className="font-sans text-[20px] font-normal leading-none text-dark">
             {tool.facts.price || "auf Anfrage"}
@@ -173,12 +180,16 @@ function TileCard({
     <Link
       href={`/tools/${tool.slug}`}
       className={cn(
-        "group flex h-full flex-col rounded-xl border border-border bg-white p-5 transition-colors hover:border-brand/60",
+        "group relative flex h-full flex-col rounded-xl border border-border bg-white p-5 transition-colors hover:border-brand/60",
         className,
       )}
     >
+      <FavoriteButton
+        tool={favoriteOf(tool)}
+        className="absolute right-3 top-3 z-20 h-8 w-8"
+      />
       {/* Header: Mark + Kategorie-Eyebrow + Produktname + Anbieter */}
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-3 pr-9">
         <ToolMark tool={tool} size="sm" />
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
@@ -285,13 +296,17 @@ function ExtendedCard({
   return (
     <article
       className={cn(
-        "group rounded-2xl border border-border bg-white transition-colors hover:border-brand/60",
+        "group relative rounded-2xl border border-border bg-white transition-colors hover:border-brand/60",
         isFeature ? "p-6 lg:p-8" : "p-5 lg:p-6",
         className,
       )}
     >
+      <FavoriteButton
+        tool={favoriteOf(tool)}
+        className="absolute right-4 top-4 z-20"
+      />
       <Link href={`/tools/${tool.slug}`} className="block">
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-4 pr-10">
           <ToolMark tool={tool} size={isFeature ? "lg" : "md"} />
 
           <div className="flex-1 min-w-0 space-y-1">

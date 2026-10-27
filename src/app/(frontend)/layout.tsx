@@ -1,3 +1,5 @@
+import { FavoritesProvider } from "@/components/favorites/FavoritesProvider";
+import { MerklistePanel } from "@/components/favorites/MerklistePanel";
 import { ChatWidget } from "@/components/site/ChatWidget";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
@@ -13,12 +15,15 @@ export default function FrontendLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-cream">
-      <ScrollReveal />
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-      <ChatWidget />
-    </div>
+    <FavoritesProvider>
+      <div className="flex min-h-screen flex-col bg-cream">
+        <ScrollReveal />
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ChatWidget />
+      </div>
+      <MerklistePanel />
+    </FavoritesProvider>
   );
 }

@@ -16,6 +16,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { MerklisteTrigger } from "@/components/favorites/MerklisteTrigger";
 import { Logo } from "@/components/site/Logo";
 import { MegaMenu } from "@/components/site/MegaMenu";
 import { MobileNavDrawer } from "@/components/site/MobileNavDrawer";
@@ -127,11 +128,15 @@ export function Header({ className }: HeaderProps) {
           >
             Anbieter werden
           </Link>
+          <MerklisteTrigger onDark={isHero} />
           <NewsletterPopover onDark={isHero} />
         </nav>
 
         {/* Mobile-Trigger */}
-        <MobileNavDrawer />
+        <div className="flex items-center gap-1 md:hidden">
+          <MerklisteTrigger onDark={isHero} />
+          <MobileNavDrawer />
+        </div>
       </div>
     </header>
   );
