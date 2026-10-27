@@ -55,12 +55,13 @@ const HAEUFIGE_SUCHEN = [
   "Bürgerdialog",
 ];
 
-// Quadratischer Master trägt alle Breiten: Desktop zeigt das horizontale Band
-// (Menschen links + rechts, ruhige freie Bildmitte für Headline + Suche), Mobil
-// den vertikalen Anschnitt mit Menschen statt nur Hintergrund (Wolfram 26.10.,
-// Seedream 5 Pro, 2K). Eine breite 16:9-Fassung liegt als hero-verwaltung.jpg
-// als Reserve bereit.
-const HERO_IMAGE = "/brand/generated/hero-verwaltung-quadrat.jpg";
+// Realfoto-Motiv (Wolfram 27.10., Magnific, 2048×1536): echtes Großraumbüro
+// einer Verwaltung, stehendes Paar mit Tablet links, Dreiergruppe am Laptop
+// rechts, ruhige freie Bildmitte für Headline + Suche. Desktop zeigt das volle
+// Band; mobil fokussiert object-position die arbeitende Dreiergruppe rechts
+// statt leerer Wand. Die früheren KI-Fassungen (hero-verwaltung-quadrat.jpg /
+// hero-verwaltung.jpg) liegen als Reserve bereit.
+const HERO_IMAGE = "/brand/generated/hero-verwaltung-foto.jpg";
 
 // Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
 // Textur über einem leichten Grün-Verlauf (soft-light), für etwas Leben.
@@ -96,8 +97,15 @@ export function HeroSearch() {
         alt="Blick in eine moderne Verwaltung bei der Arbeit"
         fill
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-[76%_center] md:object-center"
         priority
+      />
+
+      {/* Weicher Verlauf nur am oberen Rand — hält die weiße Navi + das Logo
+          über dem hellen Fensterlicht lesbar, ohne das Realfoto zu verfilmen. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-36 bg-gradient-to-b from-black/35 to-transparent"
       />
 
       {SHOW_BUBBLES && (

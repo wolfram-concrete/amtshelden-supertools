@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 
+import { PageHero } from "@/components/blocks/PageHero";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { RevealHeading } from "@/components/motion/RevealHeading";
 import { themenfelder } from "@/mocks/themenfelder";
@@ -57,43 +58,26 @@ export default function AnbieterPage() {
   return (
     <>
 
-      {/* ── 1 · HERO (immersiv, radiale Kanten — analog Startseite) ── */}
-      <section className="bg-white">
-        <div className="container mx-auto px-6 lg:px-10 pt-16 pb-10 lg:pt-24 lg:pb-14">
-          <div className="max-w-3xl">
-            <h1
-              data-reveal
-              className="font-display text-[clamp(36px,5.5vw,68px)] leading-[1.02] text-dark"
-            >
-              Erreichen Sie genau die Behörden, für die Ihr Produkt{" "}
-              <span className="text-brand">relevant ist</span>.
-            </h1>
-            <p
-              data-reveal
-              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-              className="mt-5 max-w-2xl font-sans text-[18px] lg:text-[20px] leading-[1.55] text-mid"
-            >
-              Supertools ist das kuratierte Software-Verzeichnis für die
-              öffentliche Verwaltung. Während klassische B2B-Werbung breit streut,
-              erreichen Sie hier Behörden mit konkreter Suchabsicht.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/kontakt?topic=anbieter"
-                className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-sans text-[14px] font-bold text-white transition-colors hover:bg-brand-dark"
-              >
-                Unternehmen eintragen
-              </Link>
-              <Link
-                href="#profilarten"
-                className="inline-flex items-center rounded-xl border border-border px-6 py-3 font-sans text-[14px] font-semibold text-dark transition-colors hover:border-brand hover:text-brand-dark"
-              >
-                Wie funktioniert das?
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── 1 · HERO (vollflächiges Bild-Motiv, analog Startseite) ── */}
+      <PageHero
+        image="/brand/generated/hero-anbieter.jpg"
+        imageAlt="Anbieter und Verwaltung im Gespräch am Arbeitsplatz"
+        lines={["Die richtigen Behörden.", "Ohne Streuverlust."]}
+        copy="Supertools ist das kuratierte Software-Verzeichnis für die öffentliche Verwaltung. Sie erscheinen dort, wo Behörden mit konkreter Suchabsicht suchen."
+      >
+        <Link
+          href="/kontakt?topic=anbieter"
+          className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-sans text-[14px] font-bold text-brand-dark transition-colors hover:bg-cream"
+        >
+          Unternehmen eintragen
+        </Link>
+        <Link
+          href="#profilarten"
+          className="inline-flex items-center rounded-xl border border-white/50 px-6 py-3 font-sans text-[14px] font-semibold text-white transition-colors hover:bg-white/10"
+        >
+          Wie funktioniert das?
+        </Link>
+      </PageHero>
 
       {/* ── 2 · VORTEILE ── */}
       <section className="bg-cream/40 border-b border-border">

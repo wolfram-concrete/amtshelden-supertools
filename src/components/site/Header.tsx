@@ -15,7 +15,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
 
 import { Logo } from "@/components/site/Logo";
 import { MegaMenu } from "@/components/site/MegaMenu";
@@ -24,7 +23,7 @@ import { NewsletterPopover } from "@/components/site/NewsletterPopover";
 import { cn } from "@/lib/utils";
 
 const secondaryNav = [
-  { label: "Tool-Wissen", href: "/wissen" },
+  { label: "Echte Anwendung", href: "/anwendung" },
   { label: "Über", href: "/ueber" },
 ];
 
@@ -34,7 +33,10 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  // Seiten mit vollflächigem Bild-Hero: Header läuft transparent darüber
+  // (weiße Navi, inverses Logo), Frost-Ebene beim Scrollen. Nur die
+  // Index-Seiten, nicht ihre Detailseiten (/anwendung/[slug]).
+  const isHero = ["/", "/anwendung", "/ueber", "/anbieter"].includes(pathname);
   const [scrolled, setScrolled] = useState(false);
 
   // Aktive Seite markieren — Hover-Style bleibt auf dem Punkt bestehen
@@ -47,10 +49,10 @@ export function Header({ className }: HeaderProps) {
   // Bild), dunkle Schrift auf Innenseiten (Cream).
   const navBase =
     "inline-flex items-center gap-1.5 font-ui text-[14px] font-medium transition-colors";
-  const navColor = isHome
+  const navColor = isHero
     ? "text-white/80 hover:text-white"
     : "text-dark/70 hover:text-dark";
-  const navActive = isHome ? "text-white" : "text-dark";
+  const navActive = isHero ? "text-white" : "text-dark";
 
   // Beim Scrollen eine leichte Frost-Ebene einblenden, damit Logo + Navi
   // über dem durchscrollenden Content lesbar bleiben.
@@ -66,7 +68,7 @@ export function Header({ className }: HeaderProps) {
       className={cn(
         "sticky top-0 z-40 w-full",
         // Verankert auf Innenseiten (Cream-Fläche), keine graue Trennlinie
-        isHome ? "" : "bg-cream",
+        isHero ? "" : "bg-cream",
         className,
       )}
     >
@@ -76,7 +78,7 @@ export function Header({ className }: HeaderProps) {
         aria-hidden
         className={cn(
           "pointer-events-none absolute inset-x-0 top-0 -z-10 h-[160%] backdrop-blur-md bg-gradient-to-b from-[rgba(9,26,18,0.92)] to-transparent transition-opacity duration-300 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]",
-          scrolled && isHome ? "opacity-100" : "opacity-0",
+          scrolled && isHero ? "opacity-100" : "opacity-0",
         )}
       />
       <div className="container mx-auto flex h-20 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10">
@@ -84,12 +86,12 @@ export function Header({ className }: HeaderProps) {
           <Logo
             height={43}
             priority
-            variant={isHome ? "inverse" : "default"}
+            variant={isHero ? "inverse" : "default"}
           />
           <span
             className={cn(
               "inline-flex items-center rounded-xl px-2 py-0.5 font-sans text-[11px] font-semibold",
-              isHome
+              isHero
                 ? "border border-white/45 text-white"
                 : "bg-accent/25 text-accent-ink",
             )}
@@ -100,15 +102,7 @@ export function Header({ className }: HeaderProps) {
 
         {/* Desktop-Nav — ohne Trägerelement, Schrift verteilt */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-7">
-          <Link
-            href="/suche"
-            aria-current={isActive("/suche") ? "page" : undefined}
-            className={cn(navBase, isActive("/suche") ? navActive : navColor)}
-          >
-            <Search size={15} aria-hidden />
-            Suche
-          </Link>
-          <MegaMenu onDark={isHome} active={themenActive} />
+          <MegaMenu onDark={isHero} active={themenActive} />
           {secondaryNav.map((item) => (
             <Link
               key={item.href}
@@ -133,7 +127,7 @@ export function Header({ className }: HeaderProps) {
           >
             Anbieter werden
           </Link>
-          <NewsletterPopover onDark={isHome} />
+          <NewsletterPopover onDark={isHero} />
         </nav>
 
         {/* Mobile-Trigger */}

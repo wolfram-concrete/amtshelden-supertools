@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** Oktober 2026 · **Version:** 0.28 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** 27. Oktober 2026 · **Version:** 0.30 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -30,16 +30,21 @@
 - **Startseite = Schaltpult:** Hero als **Vollbild** (`min-h-[100svh]`) bis hinter die
   Navigation (echtes Open-Space-Verwaltungsmotiv), Suche mittelachsig als zentrales
   Instrument; darunter die Bereiche als vier Bild-Kacheln. Referenz: Airbnb/Fiverr/onefinestay.
-- **Hero-Motiv = quadratischer Master:** ein 1:1-Bild trägt alle Breiten — Desktop zeigt
-  das horizontale Band, Mobil den vertikalen Anschnitt, sodass auch im Hochformat Menschen
-  im Bild bleiben statt nur Hintergrund. 16:9-Fassung derselben Szene als Reserve.
+- **Hero-Motiv = Realfoto:** echtes Open-Space-Verwaltungsmotiv (`hero-verwaltung-foto.jpg`),
+  object-position mobil auf die arbeitende Gruppe statt leerer Wand. Die Suche ist aus der
+  Navigation genommen — der Hero trägt sie. Frühere KI-Fassungen liegen als Reserve.
+- **Bild-Heroes auf Innenseiten:** `/anwendung`, `/ueber` und `/anbieter` nutzen denselben
+  vollflächigen Hero (`PageHero`) wie die Home — Header läuft transparent darüber (`isHero`),
+  Abdunklung bewusst leicht (Verlauf oben + Textschatten).
 - **Bildwelt:** eigene Motive (Freepik, nach CONCRETE-Bildregeln, echt/entsättigt, keine
   KI-Slop-Hochglanz) — Hero + ein Motiv je Bereich. Corporate-Grün als echtes Requisit
   im Raum, nicht als Hintergrundfläche.
 - **Sprechblasen im Hero:** grüne Glas-Bubbles im Logo-Balken-Stil (mit Zacken) über den
   Personen, die ihr aktuelles SuperTools-Thema zeigen (Desktop).
-- **Navigation:** zurückgenommen, **ohne Trägerelement** — verteilte Schrift, weiß
-  auf der Home (über Bild), dunkel auf Innenseiten. Logo invers auf der Home.
+- **Navigation:** zurückgenommen, **ohne Trägerelement** — verteilte Schrift, weiß über
+  Bild-Heroes (Home + `/anwendung`/`/ueber`/`/anbieter`), dunkel auf sonstigen Innenseiten.
+  Nav-Punkt **„Bereiche"** (vormals „Themenfelder") und **„Echte Anwendung"** (vormals
+  „Tool-Wissen").
 - **Display-Headlines:** Seitentitel (h1) und Section-h2 **site-weit** in **Archivo**
   (schwer, leicht geöffnete Laufweite), gemischtschriftlich — zentrale Utility
   `.font-display` (globals.css), Haltung aus Designthese B/D3. Fließtext, In-Artikel-
@@ -191,8 +196,9 @@ Oberste Navigationsebene — Kategorien sind diesen zugeordnet (`themenfeldSlug`
 | `/kategorien` + `/[slug]` | ✓ | Index + 6 Kategorie-Detailseiten — **eine gemeinsame Tool-Liste** (59 bestehende Preview-Tools + 13 neue Master-/Watchlist-Tools, echte Logos), Filter/Suche/Sortierung + Related; gemeinsames Review-Gate für die neuen 13 noch offen |
 | `/tools/[slug]` | ✓ | Vollständiges Profil (VivioAkte: 8 Zonen) **oder Basis-Profil-Fallback** für Verzeichnis-Tools (Logo, Pitch, Compliance, Shortlinks, „wird redaktionell ausgebaut") |
 | `/crawler-preview` | ✓ | **Interne** Verzeichnis-Vorschau (noindex, nicht verlinkt) — Review-Tool fürs Team |
-| `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) |
-| `/anbieter` | ✓ | B2B-Landingpage (6 Sektionen) |
+| `/anwendung` + `/[slug]` | ✓ | **Echte Anwendung** (Nav-Punkt, ersetzt „Tool-Wissen"): Bild-Hero + 3 Praxis-Cases (Münster/Konstanz/Freiburg) — reale Beispielstädte mit Stadtfoto + Wappen + Software-Logo. **Beispiel-Cases:** Abläufe/Personen/Zitate exemplarisch, nicht von den Städten freigegeben |
+| `/wissen` + `/[slug]` | ✓ | Magazin-Index + 8 Artikel (Long-Form, 8 Block-Kinds) — aus der Hauptnav genommen, direkt weiter erreichbar |
+| `/anbieter` | ✓ | B2B-Landingpage (6 Sektionen), vollflächiger Bild-Hero |
 | `/vorschlagen` | ✓ | Tool vorschlagen / Unternehmen eintragen (Behörde/Anbieter-Umschalter) |
 | `/ueber` | ✓ | Editorial-Seite (7 Sektionen, Amtshelden-Brücke) |
 | `/kontakt`, `/impressum`, `/datenschutz` | ✓ | Service-Stubs |

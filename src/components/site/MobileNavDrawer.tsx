@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Mail, Menu, X } from "lucide-react";
 
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { Logo } from "@/components/site/Logo";
@@ -145,16 +145,6 @@ export function MobileNavDrawer() {
 
           {/* Primary Nav */}
           <nav className="px-3 py-4" aria-label="Hauptmenü">
-            {/* Suche — search-first Einstieg */}
-            <Link
-              href="/suche"
-              onClick={() => setOpen(false)}
-              className="mb-1 flex items-center gap-3 rounded-lg bg-brand-light/60 px-3 py-3.5 font-ui text-[15px] font-semibold text-brand-dark transition-colors hover:bg-brand-light"
-            >
-              <Search size={17} aria-hidden />
-              Software suchen
-            </Link>
-
             {/* Kategorien-Akkordeon */}
             <div>
               <button
@@ -210,8 +200,8 @@ export function MobileNavDrawer() {
               )}
             </div>
 
-            <DrawerLink href="/wissen" onClick={() => setOpen(false)}>
-              Tool-Wissen
+            <DrawerLink href="/anwendung" onClick={() => setOpen(false)}>
+              Echte Anwendung
             </DrawerLink>
             <DrawerLink href="/ueber" onClick={() => setOpen(false)}>
               Über uns

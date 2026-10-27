@@ -82,7 +82,7 @@ export function MegaMenu({ onDark = false, active = false }: MegaMenuProps) {
               : "text-mid hover:bg-cream hover:text-dark",
         )}
       >
-        Themenfelder
+        Bereiche
         <ChevronDown
           size={14}
           className={cn(

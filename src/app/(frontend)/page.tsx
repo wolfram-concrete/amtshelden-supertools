@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { CategoryTiles } from "@/components/blocks/home/CategoryTiles";
 import { HeroSearch } from "@/components/blocks/home/HeroSearch";
+import { NewsletterBand } from "@/components/blocks/home/NewsletterBand";
 import { directoryCategories } from "@/data/directory";
 
 export const metadata: Metadata = {
@@ -31,6 +32,8 @@ export default function HomePage() {
         description="Konkrete Software-Bereiche für die Verwaltung — ein Klick zu den passenden Tools."
         categories={populatedCategories}
       />
+
+      <NewsletterBand />
     </>
   );
 }

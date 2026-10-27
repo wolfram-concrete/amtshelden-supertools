@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PageHero } from "@/components/blocks/PageHero";
 import { RevealHeading } from "@/components/motion/RevealHeading";
 import { Logo } from "@/components/site/Logo";
 
@@ -14,31 +15,14 @@ export default function UeberPage() {
   return (
     <>
       {/* ============================================================
-          1 — HERO (immersiv, analog zur Startseite — Gründer:innen-Motiv)
+          1 — HERO (vollflächiges Bild-Motiv, analog zur Startseite)
           ============================================================ */}
-      <section className="bg-white">
-        <div className="container mx-auto px-6 lg:px-10 pt-16 pb-10 lg:pt-24 lg:pb-14">
-          <div className="max-w-3xl">
-            <h1
-              data-reveal
-              className="font-display text-[clamp(36px,5.5vw,68px)] leading-[1.03] text-dark"
-            >
-              Vertrauen entsteht dort, wo Software{" "}
-              <span className="text-brand">ein Gesicht bekommt</span>.
-            </h1>
-            <p
-              data-reveal
-              style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
-              className="mt-5 max-w-2xl font-sans text-[18px] lg:text-[20px] leading-[1.55] text-mid"
-            >
-              Supertools ist das Software-Schwesterprojekt von Amtshelden — der
-              Plattform für digitalen Wandel in deutschen Behörden. Wir kuratieren
-              die Werkzeuge, mit denen Verwaltungen diesen Wandel tatsächlich
-              gestalten.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        image="/brand/generated/hero-ueber.jpg"
+        imageAlt="Team einer Verwaltung im Gespräch am Arbeitsplatz"
+        lines={["Vertrauen braucht", "ein Gesicht."]}
+        copy="Supertools ist das Software-Schwesterprojekt von Amtshelden. Wir kuratieren die Werkzeuge für den digitalen Wandel in deutschen Behörden."
+      />
 
       {/* ============================================================
           2 — EDITORIAL: Warum wir das tun (mit Drop-Cap)

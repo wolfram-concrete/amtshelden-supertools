@@ -2,6 +2,35 @@
 
 ---
 
+## [0.30.0] — 2026-10-27
+
+### „Echte Anwendung": Praxis-Cases, Bild-Heroes, Nav-Schärfung
+
+- **Neuer Bereich „Echte Anwendung"** (`/anwendung`, Liste + Detail) ersetzt den
+  Nav-Punkt „Tool-Wissen" (Header, Mobile-Drawer, Footer). Drei Beispiel-Cases
+  zeigen den Weg einer Verwaltung von der Prüfung über die Einführung bis zur
+  laufenden Betreuung: **Münster** (E-Akte / VivioAkte), **Konstanz**
+  (Bürgerservice / OZG-Portal), **Freiburg** (KI-Dialog-Assistent).
+  - Reale Beispielstädte mit Stadtfoto + Wappen, Software-Logo in der Teaser-Box
+    (echtes Verzeichnis-Logo, sonst Letter-Mark — es wird keins erfunden).
+  - Neue Typen `CaseStudy`/`CaseSummary` (`src/types/content.ts`), Daten in
+    `src/mocks/cases.ts`, Komponenten `CaseCard`, `CaseHeader`, `ToolLogo`.
+  - **Ehrlichkeits-Rahmen (AGENTS.md):** Städte/Motive real, Abläufe/Personen/
+    Zitate exemplarisch und nicht von den Städten freigegeben — sichtbar auf
+    Liste und Detail. Wappen-/Bild-Attribution vor Produktion offen.
+- **Vollflächige Bild-Heroes** auf `/anwendung`, `/ueber` und `/anbieter`
+  (neue `PageHero`-Komponente, analog zur Startseite): Realfoto randabfallend,
+  mittelachsige Headline auf grünen Logo-Balken, knappe Copy. Header läuft auf
+  diesen Routen transparent (`isHero`), beim Scrollen greift die Frost-Ebene.
+  Abdunklung bewusst leicht (weicher Verlauf oben + feiner Textschatten).
+- **Startseite:** neues Realfoto-Hero-Motiv (`hero-verwaltung-foto.jpg`,
+  object-position mobil auf die arbeitende Gruppe), Suche aus der Navigation
+  entfernt (Hero trägt die Suche), Newsletter-Hinweis-Band über dem Footer.
+- **Navigation:** „Themenfelder" → **„Bereiche"** (Mega-Menü-Trigger + Footer),
+  passend zur Home-Logik „Wählen Sie Ihren Bereich".
+
+---
+
 ## [0.29.3] — 2026-10-26
 
 ### Display-Typo site-weit: Archivo auf alle Section-Headlines
