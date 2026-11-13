@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 /**
- * Bild-Header für Innenseiten (Variante 1, Wolfram 12.11.): Foto als Band oben,
- * die grüne Headline überlappt die Bildkante, Copy und Aktionen stehen darunter
- * auf der Cream-Hintergrundfarbe. Text liegt nicht mehr auf dem Foto — das Motiv
- * braucht keine freie Mitte mehr. Der Header läuft transparent über das Band.
+ * Bild-Header für Innenseiten (Variante 2, Wolfram 13.11.): Foto full-size im
+ * Above-Scroll. Die grüne Headline sitzt oben links auf dem Bild, Copy und
+ * Aktionen liegen gegenüber in einer cremefarbenen Karte rechts auf dem Bild.
+ * Über dem Scroll nur Headline, Intro-Copy und CTA; alles Weitere folgt darunter.
  */
 
 // Grüner Headline-Balken im Logo-Trägerstil mit feiner Grain-Textur — identisch
@@ -26,7 +26,7 @@ interface PageHeroProps {
   /** Headline-Zeilen, je Zeile ein grüner Balken */
   lines: string[];
   copy: string;
-  /** Optionale Aktionen (Buttons) unter der Copy */
+  /** Optionale Aktionen (Buttons) in der Cream-Karte unter der Copy */
   children?: React.ReactNode;
 }
 
@@ -39,49 +39,62 @@ export function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <section className="bg-cream">
-      {/* Bild-Band — läuft unter die transparente Navi (-mt-20), bewusst hoch
-          für wenig Weißraum darunter */}
-      <div className="-mt-20 w-full overflow-hidden rounded-b-[2.5rem]">
-        <div className="relative h-[62vh] min-h-[480px] w-full lg:h-[72vh] lg:min-h-[560px]">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition }}
-            priority
-          />
-          {/* Weicher Verlauf oben für die weiße Navi */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-36 bg-gradient-to-b from-black/35 to-transparent"
-          />
-        </div>
-      </div>
+    <section className="relative -mt-20 bg-cream">
+      {/* Vollbild-Band im Above-Scroll */}
+      <div className="relative h-[100svh] min-h-[600px] w-full overflow-hidden rounded-b-[2.5rem]">
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition }}
+          priority
+        />
+        {/* Verlauf oben für die transparente weiße Navi */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-44 bg-gradient-to-b from-black/40 to-transparent"
+        />
 
-      {/* Headline überlappt die Bildkante unten links; Copy + Aktionen rechts,
-          auf Höhe der zweiten grünen Zeile aufgelegt (Desktop). */}
-      <div className="container mx-auto px-6 lg:px-10">
-        <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <h1
-            style={{ fontStretch: "110%" }}
-            className="relative z-10 -mt-14 flex flex-col items-start gap-2.5 font-display text-[clamp(30px,4.6vw,56px)] leading-[1.04] lg:-mt-24"
-          >
-            {lines.map((line) => (
-              <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
-                {line}
-              </span>
-            ))}
-          </h1>
-          <div className="pb-12 lg:pb-16">
-            <p className="max-w-xl font-sans text-[16px] leading-[1.6] text-mid lg:text-[18px]">
-              {copy}
-            </p>
-            {children && (
-              <div className="mt-7 flex flex-wrap gap-3">{children}</div>
-            )}
+        {/* Inhalt über dem Bild: Headline oben links. Die Cream-Karte dockt in
+            den Winkel zwischen erster und zweiter Headline-Zeile — ihre Oberkante
+            liegt bündig auf der Oberlänge des zweiten grünen Balkens, weil sie
+            mit der letzten Zeile in einer Flex-Reihe steht (kein Magic-Offset). */}
+        <div className="absolute inset-0 z-10">
+          <div className="container mx-auto px-6 pt-28 lg:px-10 lg:pt-32">
+            {/* Semantische Überschrift für Screenreader; die Balken sind dekorativ */}
+            <h1 className="sr-only">{lines.join(" ")}</h1>
+            <div
+              aria-hidden
+              style={{ fontStretch: "110%" }}
+              className="flex flex-col items-start gap-2.5 font-display text-[clamp(30px,4.6vw,56px)] leading-[1.04]"
+            >
+              {lines.slice(0, -1).map((line) => (
+                <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+                  {line}
+                </span>
+              ))}
+
+              <div className="flex w-full flex-col items-start gap-4 lg:flex-row lg:items-start lg:gap-5">
+                <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+                  {lines[lines.length - 1]}
+                </span>
+
+                <div
+                  aria-hidden={false}
+                  className="w-full max-w-lg flex-shrink-0 rounded-2xl bg-cream p-6 font-sans shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] lg:max-w-[28rem] lg:p-7"
+                  style={{ fontStretch: "normal" }}
+                >
+                  <p className="font-sans text-[16px] font-normal leading-[1.6] tracking-normal text-mid lg:text-[17px]">
+                    {copy}
+                  </p>
+                  {children && (
+                    <div className="mt-6 flex flex-wrap gap-3">{children}</div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

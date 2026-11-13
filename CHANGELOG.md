@@ -2,6 +2,22 @@
 
 ---
 
+## [0.34.0] — 2026-11-13
+
+### Hero-Komposition: Innenseiten full-bleed, Home höher
+
+- **PageHero (anwendung/ueber/anbieter) neu komponiert:** Foto full-bleed im
+  Above-Scroll, Headline oben links auf dem Bild. Die Intro-Copy liegt in einer
+  cremefarbenen Karte, die in den Winkel zwischen den beiden Headline-Zeilen
+  dockt — Oberkante bündig mit der Oberlänge der zweiten grünen Zeile (gelöst
+  über eine gemeinsame Flex-Reihe, kein Magic-Offset; `sr-only`-H1 für Semantik).
+- **CTAs in der Hero-Karte nebeneinander**, damit die Karte flach bleibt.
+- **Home-Hero (`HeroSearch`):** Headline, Suchbox und Quicklinks sitzen in der
+  oberen Zone statt exakt mittig (`items-start`, `pt-[22vh]`), der obere Freiraum
+  ist aufgebraucht.
+
+---
+
 ## [0.33.0] — 2026-11-13
 
 ### Hero-Innenseiten, Newsletter-Klarheit, Referenzkarten

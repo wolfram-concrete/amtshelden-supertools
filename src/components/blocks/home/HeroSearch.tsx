@@ -88,7 +88,7 @@ export function HeroSearch() {
   }
 
   return (
-    <section className="relative -mt-20 flex min-h-[100svh] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20">
+    <section className="relative -mt-20 flex min-h-[100svh] w-full items-start justify-center overflow-hidden rounded-b-[2.5rem] pt-[22vh] lg:pt-[20vh]">
       {/* Bild-Bühne voll aufgezogen — quadratischer Master trägt beide
           Richtungen: Desktop zeigt das horizontale Band (Menschen links + rechts,
           ruhige Wandmitte), Mobil den vertikalen Anschnitt mit Menschen. */}
