@@ -16,12 +16,6 @@ export default function CategoriesIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
-          <div
-            data-reveal
-            className="font-sans font-semibold text-brand"
-          >
-            Verzeichnis
-          </div>
           <RevealHeading
             as="h1"
             text="Alle Kategorien im Überblick"

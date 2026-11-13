@@ -67,7 +67,7 @@ export function ProfilSidebar({
 
       {/* ── Auf einen Blick ── */}
       {quickFacts?.length > 0 && (
-        <div className="rounded-lg border border-border bg-white p-4 space-y-2.5">
+        <div className="rounded-lg card-soft p-4 space-y-2.5">
           <SidebarLabel className="mb-1">Auf einen Blick</SidebarLabel>
           {quickFacts.map((f, idx) => (
             <div
@@ -96,7 +96,7 @@ export function ProfilSidebar({
       {whyEntries?.length > 0 && (
         <div className="pt-2">
           <SidebarLabel>Warum dieses Tool?</SidebarLabel>
-          <div className="mt-2 rounded-lg border border-border bg-white overflow-hidden">
+          <div className="mt-2 rounded-lg card-soft overflow-hidden">
             {whyEntries.map((entry, idx) => (
               <div
                 key={`${entry.title}-${idx}`}

@@ -127,13 +127,7 @@ export function RelatedToolsGallery({
     <section className="bg-cream pb-6 pt-8 lg:pb-2 lg:pt-12">
       <div className="container mx-auto px-6 lg:px-10">
         <header className="border-t border-border pt-8">
-          <div
-            data-reveal
-            className="font-sans text-[14px] font-semibold text-brand"
-          >
-            Weitere Tools
-          </div>
-          <div className="mt-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <RevealHeading
                 as="h2"

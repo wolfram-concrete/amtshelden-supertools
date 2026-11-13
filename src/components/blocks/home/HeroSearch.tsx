@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { ArrowRight, FileText, MessageSquare, Search, Users } from "lucide-react";
+import { ArrowRight, FileText, Search, Users } from "lucide-react";
 
 /** Glas-Sprechblase im Logo-Balken-Stil (grün, Zacken nach unten), über Köpfen.
  *  Zacken-Seite (`tail`) zeigt zur jeweiligen Person. */
@@ -61,7 +61,7 @@ const HAEUFIGE_SUCHEN = [
 // Band; mobil fokussiert object-position die arbeitende Dreiergruppe rechts
 // statt leerer Wand. Die früheren KI-Fassungen (hero-verwaltung-quadrat.jpg /
 // hero-verwaltung.jpg) liegen als Reserve bereit.
-const HERO_IMAGE = "/brand/generated/hero-verwaltung-foto.jpg";
+const HERO_IMAGE = "/brand/generated/hero-titel.jpg";
 
 // Grüner Headline-Balken im Logo-Trägerstil, mit feiner entsättigter Grain-
 // Textur über einem leichten Grün-Verlauf (soft-light), für etwas Leben.
@@ -114,21 +114,14 @@ export function HeroSearch() {
           <Bubble
             icon={Users}
             label="Fachverfahren vergleichen"
-            className="left-[11%] top-[14%]"
+            className="left-[14%] top-[16%]"
             tail="left"
           />
-          {/* Frau vorne am Monitor (links unten) */}
+          {/* Dreiergruppe am Monitor (rechts) */}
           <Bubble
             icon={FileText}
             label="E-Akte vergleichen"
-            className="left-[2%] top-[47%]"
-            tail="left"
-          />
-          {/* Dreiergruppe am Laptop (rechts) */}
-          <Bubble
-            icon={MessageSquare}
-            label="Chatbot für Bürgerdialog"
-            className="right-[6%] top-[20%]"
+            className="right-[9%] top-[20%]"
             tail="right"
           />
         </>

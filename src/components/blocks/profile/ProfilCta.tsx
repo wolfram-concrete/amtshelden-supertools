@@ -32,9 +32,6 @@ export function ProfilCta({
       </div>
 
       <div className="max-w-xl space-y-5 relative">
-        <div className="font-sans font-semibold text-white/80">
-          {eyebrow}
-        </div>
         <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] whitespace-pre-line">
           {title}
         </h2>

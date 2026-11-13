@@ -28,16 +28,10 @@ export const vivioakte: ToolProfile = {
     byline: {
       editor: "Amtshelden Redaktion",
       updatedAt: "März 2026",
-      avatar: {
-        url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=68&h=68&fit=crop&q=80",
-        alt: "Amtshelden Redaktion",
-        width: 68,
-        height: 68,
-      },
     },
     verified: true,
     heroImage: {
-      url: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/bereich-e-akte.jpg",
       alt: "Verwaltungsmitarbeiterinnen bei der Einführung neuer Software",
       width: 1600,
       height: 900,

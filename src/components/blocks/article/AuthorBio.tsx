@@ -8,7 +8,7 @@ interface AuthorBioProps {
 
 export function AuthorBio({ author }: AuthorBioProps) {
   return (
-    <div className="mt-10 flex gap-5 rounded-2xl border border-border bg-cream/40 p-6 lg:p-7">
+    <div className="mt-10 flex gap-5 rounded-2xl card-soft p-6 lg:p-7">
       {author.avatar?.url && (
         <Image
           src={author.avatar.url}
@@ -21,9 +21,6 @@ export function AuthorBio({ author }: AuthorBioProps) {
       )}
 
       <div className="space-y-1.5">
-        <div className="font-sans font-semibold text-brand">
-          Über die Autor:in
-        </div>
         <h3 className="font-sans text-[20px] font-normal leading-tight text-dark">
           {author.name}
         </h3>

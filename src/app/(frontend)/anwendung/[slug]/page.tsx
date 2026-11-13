@@ -60,7 +60,7 @@ export default async function CasePage({ params }: PageProps) {
               className="inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
             >
               <ArrowLeft size={15} aria-hidden />
-              Alle Cases
+              Alle Referenzen
             </Link>
           </div>
         </div>
@@ -69,12 +69,9 @@ export default async function CasePage({ params }: PageProps) {
       {relatedCases.length > 0 && (
         <section className="bg-cream/50">
           <div className="container mx-auto px-6 py-16 lg:px-10 lg:py-24">
-            <header className="mb-12 max-w-2xl space-y-3 border-t border-border pt-8">
-              <div className="font-sans font-semibold text-brand">
-                Weitere Anwendung
-              </div>
+            <header className="mb-12 max-w-2xl border-t border-border pt-8">
               <h2 className="font-display text-[clamp(24px,3vw,36px)] leading-[1.1] text-dark">
-                Andere Verwaltungen, andere Wege
+                Weitere Lösungen im Verzeichnis
               </h2>
             </header>
 

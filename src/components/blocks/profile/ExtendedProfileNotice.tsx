@@ -33,7 +33,7 @@ export function ExtendedProfileNotice({
   return (
     <div
       className={cn(
-        "rounded-xl border border-border bg-cream/60 px-4 py-3",
+        "rounded-xl card-soft px-4 py-3",
         className,
       )}
     >

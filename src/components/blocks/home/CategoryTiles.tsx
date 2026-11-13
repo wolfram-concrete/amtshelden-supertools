@@ -62,7 +62,7 @@ export function CategoryTiles({
                     alt=""
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover brightness-[1.1] saturate-[1.12] transition-transform duration-500 group-hover:scale-[1.05]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                   />
                   <span
                     aria-hidden

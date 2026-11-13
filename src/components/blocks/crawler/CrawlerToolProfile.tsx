@@ -226,7 +226,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
               >
                 <MainSectionTitle>Einordnung — wann diese Software hilft</MainSectionTitle>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-xl border border-border bg-white p-4">
+                  <div className="rounded-xl card-soft p-4">
                     <div className="mb-1.5 font-sans text-[11.5px] font-semibold text-brand">
                       Wann sie hilft
                     </div>
@@ -276,7 +276,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
                   {kat.fragenAnAnbieter.map((q, i) => (
                     <li
                       key={q}
-                      className="flex gap-3 rounded-xl border border-border bg-white px-4 py-2.5"
+                      className="flex gap-3 rounded-xl bg-white px-4 py-2.5"
                     >
                       <span className="font-sans text-[12px] font-bold text-brand">
                         {String(i + 1).padStart(2, "0")}
@@ -352,7 +352,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           {/* Verfügbarkeit — hohes Behörden-Signal (Bundesland/regional/…) */}
           {availability && (
-            <div className="rounded-2xl border border-border bg-white p-5">
+            <div className="rounded-2xl card-soft p-5">
               <div className="mb-2 flex items-center gap-1.5 font-sans text-[12px] font-semibold text-soft">
                 <MapPin size={12} aria-hidden />
                 Verfügbarkeit
@@ -376,7 +376,7 @@ export function CrawlerToolProfile({ tool }: CrawlerToolProfileProps) {
           )}
 
           {/* Facts + Compliance */}
-          <div className="rounded-2xl border border-border bg-white p-5">
+          <div className="rounded-2xl card-soft p-5">
             <div className="flex flex-wrap items-baseline justify-between gap-3">
               <div className="font-sans text-[22px] font-normal leading-none text-dark">
                 {tool.facts.price || "auf Anfrage"}

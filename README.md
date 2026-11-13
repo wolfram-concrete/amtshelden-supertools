@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** 27. Oktober 2026 · **Version:** 0.31 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** 12. November 2026 · **Version:** 0.32 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -20,8 +20,14 @@
   Struktur-Labels**) · IBM Plex Mono **nur noch für echte Daten, Zahlen und URLs**
   (seit De-Slop v0.27 — Mono nicht mehr als „technisch"-Kostüm für Käppchen/Labels).
   Gotham-woff2 (Logo-Schrift) liegt in `/legacy/fonts/` für künftigen UI-Einsatz.
-- **Kein Eyebrow/Kicker über Überschriften** (De-Slop v0.27): die Serif-Headlines
-  tragen sich selbst — keine Mono-Uppercase-Käppchen als Section-Marker.
+- **Kein Eyebrow/Kicker über Überschriften** (De-Slop v0.27, site-weit durchgezogen
+  v0.32): die Headlines tragen sich selbst — weder Mono-Uppercase- noch grüne
+  `text-brand`-Käppchen als Section-Marker. Funktionale Labels (Zähler, Preis,
+  Chips, Karten-Inhaltslabels) bleiben.
+- **Fill-Kontrast statt Kontur** (De-Slop v0.32): Inhaltskarten nutzen die Utility
+  `.card-soft` (globals.css) — randlos weiß mit weichem Ruhe-Schatten, keine
+  `border border-border`-Boxen. Borders nur noch an Chips, Logo-Ringen, Formfeldern,
+  Listentrennern, gestrichelten Platzhaltern und getönten semantischen Callouts.
 - **Visuelle Linie (seit v0.28, CONCRETE-Design-DNA):** eigenständig und bildstark
   statt austauschbarem Weiß-SaaS. CONCRETE-Farbformel: **warmes Neutral (cream) als
   Grund, dunkler Tannengrün-Gegenpol für Bild-Bühnen, ein Grün-Akzent.** Durchgehend

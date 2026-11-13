@@ -40,7 +40,7 @@ export function TransparencyBlock({
           {missingInfo.map((item, idx) => (
             <li
               key={idx}
-              className="flex gap-3 rounded-lg border border-border bg-cream/40 px-4 py-3"
+              className="flex gap-3 rounded-lg bg-white px-4 py-3"
             >
               <span
                 aria-hidden

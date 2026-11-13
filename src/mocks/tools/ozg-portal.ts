@@ -22,12 +22,6 @@ export const ozgPortal: ToolProfile = {
     byline: {
       editor: "Amtshelden Redaktion",
       updatedAt: "Juni 2026",
-      avatar: {
-        url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=68&h=68&fit=crop&q=80",
-        alt: "Amtshelden Redaktion",
-        width: 68,
-        height: 68,
-      },
     },
     verified: true,
     heroImage: {

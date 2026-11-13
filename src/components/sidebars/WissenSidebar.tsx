@@ -63,7 +63,7 @@ export function WissenSidebar({ articles }: WissenSidebarProps) {
                 <Link
                   key={a.slug}
                   href={`/wissen/${a.slug}`}
-                  className="group block rounded-lg border border-border bg-white px-3 py-2.5 transition-colors hover:border-brand hover:bg-cream/40"
+                  className="group block rounded-lg bg-white px-3 py-2.5 transition-colors hover:bg-cream/40"
                 >
                   <span
                     style={{ lineHeight: 1.2 }}

@@ -19,6 +19,7 @@ export default function UeberPage() {
           ============================================================ */}
       <PageHero
         image="/brand/generated/hero-ueber.jpg"
+        objectPosition="50% 62%"
         imageAlt="Team einer Verwaltung im Gespräch am Arbeitsplatz"
         lines={["Vertrauen braucht", "ein Gesicht."]}
         copy="Supertools ist das Software-Schwesterprojekt von Amtshelden. Wir kuratieren die Werkzeuge für den digitalen Wandel in deutschen Behörden."
@@ -27,16 +28,10 @@ export default function UeberPage() {
       {/* ============================================================
           2 — EDITORIAL: Warum wir das tun (mit Drop-Cap)
           ============================================================ */}
-      <section className="bg-cream/40 border-b border-border">
+      <section className="bg-cream/40">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-            <header className="lg:col-span-5 space-y-5 lg:sticky lg:top-24 lg:self-start">
-              <div
-                data-reveal
-                className="font-sans font-semibold text-brand"
-              >
-                Warum es Supertools gibt
-              </div>
+            <header className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
               <h2
                 data-reveal
                 className="font-display text-[clamp(28px,3.2vw,40px)] leading-[1.05] text-dark"
@@ -49,7 +44,7 @@ export default function UeberPage() {
             </header>
 
             <div className="lg:col-span-7 space-y-5 font-sans text-[17px] leading-[1.75] text-mid">
-              <p className="first-letter:font-sans first-letter:italic first-letter:font-normal first-letter:text-[64px] first-letter:leading-[0.85] first-letter:mr-2 first-letter:float-left first-letter:pt-1 first-letter:text-brand-dark">
+              <p>
                 Die deutsche Verwaltung digitalisiert sich. Nicht so schnell, wie
                 Strategien es versprechen — aber spürbar, in vielen kleinen
                 Bewegungen, oft trotz statt wegen der Rahmenbedingungen. In
@@ -86,13 +81,7 @@ export default function UeberPage() {
           3 — DREI PRINZIPIEN (Source-Serif italic Akzente)
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-        <header className="border-t border-border pt-8 mb-12 lg:mb-16 max-w-2xl space-y-2">
-          <div
-            data-reveal
-            className="font-sans font-semibold text-brand"
-          >
-            Drei Grundsätze
-          </div>
+        <header className="mb-12 lg:mb-16 max-w-2xl">
           <RevealHeading
             as="h2"
             text="Was uns von einem Verzeichnis unterscheidet."
@@ -101,7 +90,7 @@ export default function UeberPage() {
           />
         </header>
 
-        <div className="grid gap-x-10 gap-y-12 md:grid-cols-3 relative">
+        <div className="grid gap-x-10 gap-y-12 md:grid-cols-3">
           {[
             {
               number: "01",
@@ -118,20 +107,10 @@ export default function UeberPage() {
               title: "Wir machen Software sichtbar, die taugt.",
               body: "Lieber 300 ernst gemeinte Profile als 3.000 oberflächliche. Wir verzichten auf Vollständigkeit zugunsten von Tiefe — denn wer eine Software einführt, trägt Verantwortung. Wir liefern die Substanz, die diese Verantwortung handhabbar macht.",
             },
-          ].map((p, idx, arr) => (
-            <article
-              key={p.number}
-              className={`space-y-3 md:relative ${
-                idx > 0
-                  ? "md:before:absolute md:before:top-0 md:before:bottom-0 md:before:-left-5 md:before:w-px md:before:bg-border"
-                  : ""
-              }`}
-              data-count={arr.length}
-            >
-              <div className="font-sans italic text-[20px] text-soft">
-                {p.number}.
-              </div>
-              <h3 className="font-sans text-[24px] font-normal leading-[1.1] text-dark">
+          ].map((p) => (
+            <article key={p.number} className="space-y-3">
+              <div className="font-sans text-[20px] text-soft">{p.number}.</div>
+              <h3 className="font-sans text-[24px] font-normal leading-[1.15] text-dark md:min-h-[3.3rem]">
                 {p.title}
               </h3>
               <p className="font-sans text-[15px] leading-[1.7] text-mid">
@@ -155,12 +134,6 @@ export default function UeberPage() {
                 link={false}
                 className="mb-2"
               />
-              <div
-                data-reveal
-                className="font-sans font-semibold text-white/80"
-              >
-                Schwesterprojekt von Amtshelden
-              </div>
               <RevealHeading
                 as="h2"
                 text="Eine Plattform. Zwei Perspektiven auf denselben Wandel."
@@ -288,12 +261,6 @@ export default function UeberPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <header className="lg:col-span-5 space-y-3 lg:sticky lg:top-24 lg:self-start">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Wie wir arbeiten
-            </div>
             <h2
               data-reveal
               className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
@@ -355,16 +322,10 @@ export default function UeberPage() {
       {/* ============================================================
           6 — TEAM / SITZ
           ============================================================ */}
-      <section className="bg-cream/40 border-y border-border">
+      <section className="bg-cream/40">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="space-y-3">
-              <div
-                data-reveal
-                className="font-sans font-semibold text-brand"
-              >
-                Wer wir sind
-              </div>
               <RevealHeading
                 as="h2"
                 text="Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background."
@@ -404,12 +365,6 @@ export default function UeberPage() {
           ============================================================ */}
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <div
-            data-reveal
-            className="font-sans font-semibold text-brand"
-          >
-            Mitmachen
-          </div>
           <RevealHeading
             as="h2"
             text="Wenn du Verantwortung trägst, wollen wir dich nicht alleine lassen."

@@ -132,41 +132,27 @@ export interface CaseFact {
 
 export interface CaseSummary {
   slug: string;
-  /** Kategorie-Label (eyebrow) */
+  /** Kategorie-Label */
   eyebrow: string;
   title: string;
-  /** Lead-Absatz (1-2 Sätze) */
+  /** Lead-Absatz (1-2 Sätze): was die Software leistet, für wen */
   lead: string;
-  /** Name der (exemplarischen) Kommune, z.B. "Stadt Auwald" */
-  kommune: string;
-  /** Kommunentyp + Größe, z.B. "Kreisangehörige Stadt, NRW · 38.000 Einwohner" */
-  kommuneTyp: string;
-  /** Die schildernde Person */
-  person: { name: string; role: string };
-  /** Das geprüfte Tool; slug nur, wenn ein Profil im Verzeichnis existiert */
+  /** Die Software; slug nur, wenn ein Profil im Verzeichnis existiert */
   tool: { name: string; categoryLabel: string; slug?: string };
-  /** Stadtfoto (Beispielmotiv) */
+  /** Kurze Nutzen-Punkte für die Karte */
+  nutzen?: string[];
+  /** Motiv (Dokumentarbild) */
   cover?: PayloadImage;
-  /** Stadtwappen (echtes Hoheitszeichen, als Beispiel-Platzhalter) */
-  wappen?: string;
   readingTime: number;
   publishedAt: string; // ISO Date
-  /**
-   * Immer true: Diese Cases sind exemplarisch/fiktiv und bewusst als solche
-   * gekennzeichnet, bis echte, freigegebene Referenzen vorliegen (AGENTS.md:
-   * Quellenbindung, Trennung von Signal und redaktioneller Aussage).
-   */
-  exemplary: true;
 }
 
 export interface CaseStudy extends CaseSummary {
-  /** Kennwerte im Kopf */
+  /** Kennwerte im Kopf (Betrieb, Einführung, Schnittstellen, Eignung …) */
   facts: CaseFact[];
-  /** Leitzitat der Person (Kopf) */
-  quote: { text: string; source: string };
-  /** Narrativ: Ausgangslage, Prüfung, Passung, Einführung, Betreuung */
+  /** Narrativ: was sie leistet, welches Problem, für wen, Voraussetzungen, Grenzen */
   body: ArticleBlock[];
-  related?: string[]; // slugs anderer Cases
+  related?: string[]; // slugs anderer Software-Referenzen
 }
 
 // ============================================================

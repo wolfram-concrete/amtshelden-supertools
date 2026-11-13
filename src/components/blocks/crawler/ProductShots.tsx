@@ -39,7 +39,7 @@ export function ProductShots({
             key={i}
             data-reveal="float"
             style={{ "--reveal-delay": `${i * 110}ms` } as React.CSSProperties}
-            className="group w-[92%] flex-shrink-0 snap-start self-start overflow-hidden rounded-2xl border border-border bg-white shadow-[0_26px_60px_-34px_rgba(17,17,17,0.3)] sm:w-[600px]"
+            className="group w-[92%] flex-shrink-0 snap-start self-start overflow-hidden rounded-2xl bg-white shadow-[0_26px_60px_-34px_rgba(17,17,17,0.3)] sm:w-[600px]"
           >
             {item.url ? (
               <>

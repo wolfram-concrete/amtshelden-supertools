@@ -18,10 +18,7 @@ export default function ImpressumPage() {
   return (
     <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="max-w-3xl">
-        <div className="font-sans font-semibold text-brand">
-          Rechtliches
-        </div>
-        <h1 className="mt-3 font-display text-[clamp(34px,4.4vw,56px)] leading-[1.05] text-dark">
+        <h1 className="font-display text-[clamp(34px,4.4vw,56px)] leading-[1.05] text-dark">
           Impressum
         </h1>
         <p className="mt-3 font-sans font-semibold text-soft">

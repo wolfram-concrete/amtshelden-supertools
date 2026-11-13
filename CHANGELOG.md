@@ -2,6 +2,42 @@
 
 ---
 
+## [0.32.0] — 2026-11-12
+
+### De-Slop-Sweep site-weit + Aufräumen
+
+- **Eyebrows/Kicker entfernt:** die grünen „Käppchen" (`font-semibold text-brand`)
+  über Section- und Seiten-Headlines site-weit raus — Startseite, `/anbieter`,
+  `/kategorien`, `/themenfelder`, `/vorschlagen`, `/kontakt`, `/anfrage`,
+  `/impressum`, `/datenschutz`, `/ueber`, `/wissen`, Tool-Profile. Die Headlines
+  tragen sich selbst. Funktionale Labels (Zähler „6 Tools", Preis, Chips,
+  Karten-Inhaltslabels) bleiben.
+- **Kontur-Karten → Fill-Kontrast:** neue Utility `.card-soft` (globals.css) —
+  randlose weiße Karte mit weichem Ruhe-Schatten statt `border border-border`.
+  Durchgezogen auf `/anbieter` (Profilarten, Themenfelder), Tool-Profilen
+  (Highlight-Leiste, „Auf einen Blick", „Warum dieses Tool"), Artikel-Sidebar,
+  AuthorBio, Tool-/Kategorie-Karten. Pills, Logo-Ringe, Formfelder, Listentrenner,
+  gestrichelte Platzhalter-/Hinweisboxen und getönte semantische Callouts bleiben.
+- **PageHero-Eyebrow entfernt** (toter Prop), Zahl-Reihen nicht mehr kursiv,
+  dekorative Section-Trennlinien (`border-y/border-b border-border`) raus, wo der
+  Hintergrund schon trennt.
+- **Totes Holz gelöscht:** 21 ungenutzte Komponenten (u.a. `StimmenSlider`,
+  `EditorialFeatureStory` samt Drop-Cap-„D", `HeroImmersive`, `EditorialHero`,
+  `CategoryMagazine`, `AboutBlock`, `PulseGrid`, `HomeCases`, `ToolTeaser`,
+  `FokusTool`, `FaqBlock`, `TrustStrip`, `NewsletterCta`, `ToolFinderWizard`,
+  `HomeSidebar`, `PlaceholderPage`, `Parallax`, `Breadcrumb`, `SearchPanel`) und
+  6 ungenutzte Mock-Dateien (`stimmen.ts` mit den erfundenen Städte-Zitaten,
+  `usecases.ts`, `social.ts`, `social-import.generated.ts`, `faq.ts`, `stats.ts`).
+  Damit ist auch die Integritätsfrage „fiktive Städte-Stimmen" erledigt.
+- **Bildwelt aufgeräumt:** `-2`-Cache-Bust-Namen auf saubere Dateinamen gezogen,
+  verwaiste Alt-Varianten + lose `magnific__*`-Dateien aus dem Repo-Root entfernt.
+  In `public/brand/generated/` liegen nur noch referenzierte Motive.
+- **Wissen & Profile ohne Unsplash:** alle externen Unsplash-Hotlinks (8 Artikel-
+  Cover, 1 Tool-Hero, Autoren- und Byline-Avatare) durch eigene Dokumentarmotive
+  ersetzt bzw. entfernt. Keine fremden Gesichter als „unsere" Autor:innen mehr.
+
+---
+
 ## [0.31.0] — 2026-10-27
 
 ### Merkliste: Tools ohne Account markieren

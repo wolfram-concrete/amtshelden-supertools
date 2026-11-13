@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
 import { ToolLogo } from "@/components/ui/ToolLogo";
 import { cn } from "@/lib/utils";
@@ -14,9 +14,9 @@ interface CaseCardProps {
 }
 
 /**
- * Case-Karte für „Echte Anwendung". Zeigt Kommune, Rolle der schildernden
- * Person und das geprüfte Tool. Bewusst sachlich, mit sichtbarem
- * Exemplarisch-Hinweis (Ehrlichkeits-Konvention, AGENTS.md).
+ * Referenz-Karte für „Echte Anwendung". Zeigt eine Software, was sie konkret
+ * leistet und zu welcher Kategorie sie gehört — aus Software-Sicht, nicht aus
+ * Sicht einer einzelnen Kommune.
  */
 export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
   const isLead = variant === "lead";
@@ -48,36 +48,29 @@ export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           )}
-          {/* Kommune-Label mit Wappen auf dem Bild */}
-          <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-lg bg-brand-dark/85 py-1 pl-1.5 pr-2.5 font-ui text-[11px] font-semibold text-white backdrop-blur-sm">
-            {item.wappen && (
-              <Image
-                src={item.wappen}
-                alt=""
-                width={16}
-                height={16}
-                className="h-4 w-4 object-contain"
-                aria-hidden
-              />
-            )}
-            {item.kommune}
-          </div>
-          {/* Exemplarisch-Kennzeichnung */}
-          <div className="absolute right-3 top-3 inline-flex items-center rounded-lg bg-accent/90 px-2 py-0.5 font-ui text-[10px] font-semibold uppercase tracking-wide text-accent-ink">
-            Beispiel
-          </div>
         </div>
       </Link>
 
       <div className={cn("min-w-0", isLead ? "lg:order-1" : "mt-5")}>
-        <div className="font-sans font-semibold text-brand">{item.eyebrow}</div>
+        {/* Software + Logo */}
+        <div className="flex items-center gap-2.5">
+          <ToolLogo name={item.tool.name} slug={item.tool.slug} size={30} />
+          <div className="min-w-0">
+            <div className="font-ui text-[13.5px] font-semibold text-dark">
+              {item.tool.name}
+            </div>
+            <div className="font-ui text-[12px] text-soft">
+              {item.tool.categoryLabel}
+            </div>
+          </div>
+        </div>
 
         <h3
           className={cn(
-            "mt-2 font-display text-dark",
+            "mt-4 font-display text-dark",
             isLead
-              ? "text-[clamp(25px,3vw,37px)] leading-[1.02]"
-              : "text-[clamp(20px,2.2vw,25px)] leading-[1.05]",
+              ? "text-[clamp(25px,3vw,37px)] leading-[1.04]"
+              : "text-[clamp(20px,2.2vw,25px)] leading-[1.08]",
           )}
         >
           <Link
@@ -97,28 +90,29 @@ export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
           {item.lead}
         </p>
 
-        {/* Meta: Person + geprüftes Tool (mit Logo) */}
-        <div className="mt-5 border-t border-border pt-4">
-          <div className="font-ui text-[12.5px] text-dark">
-            {item.person.name}
-            <span className="text-soft">, {item.person.role}</span>
-          </div>
-          <div className="mt-3 inline-flex items-center gap-2.5">
-            <ToolLogo name={item.tool.name} slug={item.tool.slug} size={30} />
-            <span className="font-ui text-[12.5px] text-soft">
-              Geprüft:{" "}
-              <span className="font-semibold text-brand-dark">
-                {item.tool.name}
-              </span>
-            </span>
-          </div>
-        </div>
+        {item.nutzen && item.nutzen.length > 0 && (
+          <ul className="mt-4 space-y-1.5">
+            {item.nutzen.map((n) => (
+              <li
+                key={n}
+                className="flex items-start gap-2 font-ui text-[13.5px] leading-[1.5] text-dark"
+              >
+                <Check
+                  size={15}
+                  className="mt-0.5 flex-shrink-0 text-brand"
+                  aria-hidden
+                />
+                {n}
+              </li>
+            ))}
+          </ul>
+        )}
 
         <Link
           href={`/anwendung/${item.slug}`}
-          className="mt-4 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
+          className="mt-5 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
         >
-          Case lesen
+          Was sie leistet
           <ArrowUpRight
             size={15}
             className="transition-transform group-hover:translate-x-0.5"

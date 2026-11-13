@@ -16,12 +16,6 @@ export default function VorschlagenPage() {
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-20 items-start">
           {/* Linke Spalte: Editorial */}
           <div className="lg:sticky lg:top-24 space-y-6">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Mitmachen
-            </div>
             <h1
               data-reveal
               className="font-display text-[clamp(36px,5vw,64px)] leading-[1.0] text-dark"

@@ -15,7 +15,7 @@ export function CategoryCard({ category, className }: CategoryCardProps) {
     <Link
       href={`/kategorien/${category.slug}`}
       className={cn(
-        "group flex h-full flex-col rounded-2xl border border-border bg-white p-6 lg:p-7 transition-colors hover:border-brand/70",
+        "group flex h-full flex-col rounded-2xl card-soft p-6 lg:p-7 transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)]",
         className,
       )}
     >

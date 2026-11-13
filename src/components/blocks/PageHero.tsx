@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 /**
- * Vollflächiger Bild-Hero für Innenseiten (Echte Anwendung, Über …), analog
- * zur Startseite: großformatiges Realfoto, mittelachsige Headline auf grünen
- * Logo-Balken, knappe Copy. Der Header läuft transparent darüber (siehe
- * Header: isHero-Routen).
+ * Bild-Header für Innenseiten (Variante 1, Wolfram 12.11.): Foto als Band oben,
+ * die grüne Headline überlappt die Bildkante, Copy und Aktionen stehen darunter
+ * auf der Cream-Hintergrundfarbe. Text liegt nicht mehr auf dem Foto — das Motiv
+ * braucht keine freie Mitte mehr. Der Header läuft transparent über das Band.
  */
 
 // Grüner Headline-Balken im Logo-Trägerstil mit feiner Grain-Textur — identisch
@@ -21,9 +21,8 @@ const GREEN_BAR_STYLE: React.CSSProperties = {
 interface PageHeroProps {
   image: string;
   imageAlt: string;
-  /** CSS object-position, z.B. "50% 40%" */
+  /** CSS object-position, z.B. "50% 60%" */
   objectPosition?: string;
-  eyebrow?: string;
   /** Headline-Zeilen, je Zeile ein grüner Balken */
   lines: string[];
   copy: string;
@@ -35,61 +34,52 @@ export function PageHero({
   image,
   imageAlt,
   objectPosition = "50% center",
-  eyebrow,
   lines,
   copy,
   children,
 }: PageHeroProps) {
   return (
-    <section className="relative -mt-20 flex min-h-[64vh] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20 lg:min-h-[72vh]">
-      <Image
-        src={image}
-        alt={imageAlt}
-        fill
-        sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition }}
-        priority
-      />
-
-      {/* Nur ein weicher Verlauf am oberen Rand für die weiße Navi — das Foto
-          bleibt sonst unverfälscht hell. Die grünen Balken tragen die Headline,
-          die Copy bekommt einen feinen Textschatten für Lesbarkeit. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-36 bg-gradient-to-b from-black/35 to-transparent"
-      />
-
-      <div className="relative z-10 w-full max-w-3xl px-6 text-center">
-        {eyebrow && (
+    <section className="bg-cream">
+      {/* Bild-Band — läuft unter die transparente Navi (-mt-20) */}
+      <div className="-mt-20 w-full overflow-hidden rounded-b-[2.5rem]">
+        <div className="relative h-[46vh] min-h-[340px] w-full lg:h-[54vh]">
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition }}
+            priority
+          />
+          {/* Weicher Verlauf oben für die weiße Navi */}
           <div
-            className="mb-4 font-sans font-semibold text-white"
-            style={{ textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-36 bg-gradient-to-b from-black/35 to-transparent"
+          />
+        </div>
+      </div>
+
+      {/* Textblock auf Cream — Headline überlappt die Bildkante */}
+      <div className="container mx-auto px-6 lg:px-10">
+        <div className="relative z-10 -mt-11 max-w-3xl pb-12 lg:-mt-16 lg:pb-16">
+          <h1
+            style={{ fontStretch: "110%" }}
+            className="font-display flex flex-col items-start gap-2.5 text-[clamp(30px,4.6vw,56px)] leading-[1.04]"
           >
-            {eyebrow}
-          </div>
-        )}
-        <h1
-          style={{ fontStretch: "110%" }}
-          className="font-display flex flex-col items-center gap-2.5 text-[clamp(28px,4.6vw,54px)] leading-[1.06]"
-        >
-          {lines.map((line) => (
-            <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
-              {line}
-            </span>
-          ))}
-        </h1>
-        <p
-          className="mx-auto mt-6 max-w-xl font-sans text-[16px] leading-[1.6] text-white lg:text-[18px]"
-          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}
-        >
-          {copy}
-        </p>
-        {children && (
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {children}
-          </div>
-        )}
+            {lines.map((line) => (
+              <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+                {line}
+              </span>
+            ))}
+          </h1>
+          <p className="mt-5 max-w-2xl font-sans text-[16px] leading-[1.6] text-mid lg:text-[18px]">
+            {copy}
+          </p>
+          {children && (
+            <div className="mt-7 flex flex-wrap gap-3">{children}</div>
+          )}
+        </div>
       </div>
     </section>
   );

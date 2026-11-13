@@ -9,34 +9,16 @@ const authors: Record<string, Author> = {
   redaktion: {
     name: "Amtshelden Redaktion",
     role: "Redaktionsteam",
-    avatar: {
-      url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&q=80",
-      alt: "Amtshelden Redaktion",
-      width: 120,
-      height: 120,
-    },
     bio: "Wir prüfen Software aus Behördenperspektive — handverlesen, transparent, ehrlich.",
   },
   schmid: {
     name: "Dr. Anna Schmid",
     role: "Senior Editor · OZG/Vergaberecht",
-    avatar: {
-      url: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&q=80",
-      alt: "Dr. Anna Schmid",
-      width: 120,
-      height: 120,
-    },
     bio: "Volljuristin, früher Stadt Frankfurt, schreibt über OZG, Vergaberecht und DSGVO in der Verwaltung.",
   },
   beck: {
     name: "Markus Beck",
     role: "Editor · IT-Architektur",
-    avatar: {
-      url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&q=80",
-      alt: "Markus Beck",
-      width: 120,
-      height: 120,
-    },
     bio: "Ehemaliger CIO einer Mittelstadt. Schreibt über kommunale IT-Architektur und Cloud-Strategien.",
   },
 };
@@ -53,7 +35,7 @@ export const articles: Article[] = [
     readingTime: 9,
     publishedAt: "2026-04-22",
     cover: {
-      url: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/bereich-e-akte.jpg",
       alt: "Aktenordner in einer Verwaltungsumgebung",
       width: 1600,
       height: 900,
@@ -154,7 +136,7 @@ export const articles: Article[] = [
     readingTime: 6,
     publishedAt: "2026-03-15",
     cover: {
-      url: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/bereich-buergerservice.jpg",
       alt: "Justizgebäude Detail",
       width: 1600,
       height: 900,
@@ -207,7 +189,7 @@ export const articles: Article[] = [
     readingTime: 7,
     publishedAt: "2026-02-08",
     cover: {
-      url: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/hero-anbieter.jpg",
       alt: "Aktenstapel mit Vergabe-Dokumenten",
       width: 1600,
       height: 900,
@@ -251,7 +233,7 @@ export const articles: Article[] = [
     readingTime: 8,
     publishedAt: "2026-01-30",
     cover: {
-      url: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/hero-verwaltung.jpg",
       alt: "Zahlenkolonnen auf einem Bildschirm",
       width: 1600,
       height: 900,
@@ -285,7 +267,7 @@ export const articles: Article[] = [
     readingTime: 8,
     publishedAt: "2026-04-30",
     cover: {
-      url: "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=1200&h=1500&fit=crop&q=85",
+      url: "/brand/generated/hero-titel.jpg",
       alt: "Brandenburger Tor in Berlin",
       width: 1200,
       height: 1500,
@@ -333,7 +315,7 @@ export const articles: Article[] = [
     readingTime: 7,
     publishedAt: "2026-04-12",
     cover: {
-      url: "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/hero-anwendung.jpg",
       alt: "Kommunalverwaltung in einer mittelhessischen Stadt",
       width: 1600,
       height: 900,
@@ -384,7 +366,7 @@ export const articles: Article[] = [
     readingTime: 4,
     publishedAt: "2026-05-02",
     cover: {
-      url: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/hero-ueber.jpg",
       alt: "Person am Schreibtisch denkt nach",
       width: 1600,
       height: 900,
@@ -428,7 +410,7 @@ export const articles: Article[] = [
     readingTime: 7,
     publishedAt: "2026-05-08",
     cover: {
-      url: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&h=900&fit=crop&q=85",
+      url: "/brand/generated/bereich-personal.jpg",
       alt: "Team in einem Verwaltungsbüro im Gespräch",
       width: 1600,
       height: 900,

@@ -29,7 +29,7 @@ export function ImplementierungBlock({
           {tiles.map((tile, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-border bg-white p-5 space-y-1.5"
+              className="rounded-xl card-soft p-5 space-y-1.5"
             >
               <div className="text-2xl">{tile.icon}</div>
               <div className="font-sans font-semibold text-brand">
@@ -57,7 +57,7 @@ export function ImplementierungBlock({
           {solutions.map((sol, idx) => (
             <div
               key={idx}
-              className="relative flex gap-0 rounded-xl border border-border bg-white overflow-hidden"
+              className="relative flex gap-0 rounded-xl card-soft overflow-hidden"
             >
               {/* Grün-Streifen links */}
               <div className="w-1 flex-shrink-0 bg-brand" aria-hidden />

@@ -66,10 +66,7 @@ export default async function WissenArtikelPage({ params }: PageProps) {
       {relatedArticles.length > 0 && (
         <section className="bg-cream/50">
           <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-            <header className="border-t border-border pt-8 max-w-2xl space-y-3 mb-12">
-              <div className="font-sans font-semibold text-brand">
-                Weiterlesen
-              </div>
+            <header className="border-t border-border pt-8 max-w-2xl mb-12">
               <h2 className="font-display text-[clamp(24px,3vw,36px)] leading-[1.1] text-dark">
                 Verwandte Beiträge
               </h2>

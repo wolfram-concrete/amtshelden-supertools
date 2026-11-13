@@ -19,12 +19,6 @@ export default function ThemenfelderIndexPage() {
 
       <div className="container mx-auto px-6 lg:px-10 py-12 lg:py-20">
         <header className="max-w-3xl space-y-5 mb-14 lg:mb-20">
-          <div
-            data-reveal
-            className="font-sans font-semibold text-brand"
-          >
-            Struktur
-          </div>
           <RevealHeading
             as="h1"
             text="Vier Themenfelder."
@@ -50,7 +44,7 @@ export default function ThemenfelderIndexPage() {
                 key={tf.slug}
                 data-reveal="float"
                 style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
-                className="group grid lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-12 rounded-2xl border border-border bg-white p-6 lg:p-8 transition-colors hover:border-brand/60"
+                className="lift group grid lg:grid-cols-[1fr_1.4fr] gap-6 lg:gap-12 rounded-2xl card-soft p-6 lg:p-8"
               >
                 <div>
                   <Link

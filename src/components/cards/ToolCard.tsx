@@ -180,7 +180,7 @@ function TileCard({
     <Link
       href={`/tools/${tool.slug}`}
       className={cn(
-        "group relative flex h-full flex-col rounded-xl border border-border bg-white p-5 transition-colors hover:border-brand/60",
+        "group relative flex h-full flex-col rounded-xl card-soft p-5 transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)]",
         className,
       )}
     >
@@ -296,7 +296,7 @@ function ExtendedCard({
   return (
     <article
       className={cn(
-        "group relative rounded-2xl border border-border bg-white transition-colors hover:border-brand/60",
+        "group relative rounded-2xl card-soft transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)]",
         isFeature ? "p-6 lg:p-8" : "p-5 lg:p-6",
         className,
       )}

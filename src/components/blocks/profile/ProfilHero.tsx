@@ -59,14 +59,6 @@ export function ProfilHero({
 }: ProfilHeroProps) {
   return (
     <article className={cn("space-y-6", className)}>
-      {/* Kategorie-Eyebrow */}
-      <div
-        data-reveal
-        className="font-sans text-[12px] font-semibold text-brand"
-      >
-        {categoryLabel}
-      </div>
-
       {/* Headline */}
       <RevealHeading
         as="h1"

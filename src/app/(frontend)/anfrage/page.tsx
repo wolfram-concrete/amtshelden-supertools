@@ -20,12 +20,6 @@ export default async function AnfragePage({
     <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-          <div
-            data-reveal
-            className="font-sans font-semibold text-brand"
-          >
-            Unverbindlich anfragen
-          </div>
           <RevealHeading
             as="h1"
             text="Wir melden uns persönlich."

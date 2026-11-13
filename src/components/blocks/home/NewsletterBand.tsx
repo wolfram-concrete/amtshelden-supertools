@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Mail } from "lucide-react";
 
 /**
  * Newsletter-Hinweis über dem Footer (Wolfram 27.10.). Ruhiger, plakativer
@@ -22,17 +21,11 @@ export function NewsletterBand() {
 
   return (
     <section className="container mx-auto px-4 pt-6 sm:px-6 lg:px-10">
-      <div className="overflow-hidden rounded-[2rem] border border-brand/15 bg-brand-light/50 px-6 py-12 sm:px-10 lg:px-14 lg:py-14">
+      <div className="overflow-hidden rounded-[2rem] bg-brand-light/60 px-6 py-12 sm:px-10 lg:px-14 lg:py-14">
         <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
           {/* Text */}
           <div>
-            <div className="flex items-center gap-2">
-              <Mail size={15} className="text-brand" aria-hidden />
-              <span className="font-sans font-semibold text-brand">
-                Newsletter
-              </span>
-            </div>
-            <h2 className="mt-3 font-display text-[clamp(26px,3.2vw,40px)] leading-[1.08] text-dark">
+            <h2 className="font-display text-[clamp(26px,3.2vw,40px)] leading-[1.08] text-dark">
               Einmal pro Woche das Wichtigste für die Verwaltung.
             </h2>
             <p className="mt-4 max-w-xl font-sans text-[16px] leading-[1.6] text-mid">

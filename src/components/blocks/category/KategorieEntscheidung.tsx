@@ -131,7 +131,7 @@ export function KategorieEntscheidungBlock({
               {data.fragenAnAnbieter.map((q, i) => (
                 <li
                   key={q}
-                  className="flex gap-3 rounded-xl border border-border bg-white px-4 py-2.5"
+                  className="flex gap-3 rounded-xl bg-white px-4 py-2.5"
                 >
                   <span className="font-sans text-[12px] font-bold text-brand">
                     {String(i + 1).padStart(2, "0")}

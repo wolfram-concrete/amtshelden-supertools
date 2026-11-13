@@ -27,7 +27,7 @@ export function ArticleSidebar({
 
   return (
     <aside className="mt-12 lg:mt-2 lg:sticky lg:top-24 lg:self-start">
-      <div className="rounded-2xl border border-border bg-cream/40 p-6">
+      <div className="rounded-2xl card-soft p-6">
         <div className="mb-4 font-sans font-semibold text-brand">
           Weitere Artikel
         </div>
@@ -36,9 +36,6 @@ export function ArticleSidebar({
           {others.map((a, i) => (
             <li key={a.slug} className={i ? "pt-4" : "pb-0"}>
               <Link href={`/wissen/${a.slug}`} className="group block pb-4">
-                <div className="mb-1 line-clamp-1 font-sans font-semibold text-soft">
-                  {a.eyebrow}
-                </div>
                 <div className="font-sans text-[15px] leading-[1.25] text-dark transition-colors group-hover:text-brand-dark">
                   {a.title}
                 </div>

@@ -61,6 +61,7 @@ export default function AnbieterPage() {
       {/* ── 1 · HERO (vollflächiges Bild-Motiv, analog Startseite) ── */}
       <PageHero
         image="/brand/generated/hero-anbieter.jpg"
+        objectPosition="50% 62%"
         imageAlt="Anbieter und Verwaltung im Gespräch am Arbeitsplatz"
         lines={["Die richtigen Behörden.", "Ohne Streuverlust."]}
         copy="Supertools ist das kuratierte Software-Verzeichnis für die öffentliche Verwaltung. Sie erscheinen dort, wo Behörden mit konkreter Suchabsicht suchen."
@@ -80,15 +81,9 @@ export default function AnbieterPage() {
       </PageHero>
 
       {/* ── 2 · VORTEILE ── */}
-      <section className="bg-cream/40 border-b border-border">
+      <section className="bg-cream/40">
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-          <header className="max-w-2xl space-y-3 mb-12 lg:mb-16">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Ihr Nutzen
-            </div>
+          <header className="max-w-2xl mb-12 lg:mb-16">
             <RevealHeading
               as="h2"
               text="Sichtbarkeit, die zur Verwaltung passt."
@@ -122,12 +117,6 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
           <header className="lg:sticky lg:top-24 space-y-3">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Themenfelder
-            </div>
             <RevealHeading
               as="h2"
               text="Vier Felder, in denen Behörden Sie suchen."
@@ -149,7 +138,7 @@ export default function AnbieterPage() {
             {themenfelder.map((tf) => (
               <div
                 key={tf.slug}
-                className="rounded-xl border border-border bg-white p-5"
+                className="rounded-xl card-soft p-5"
               >
                 <span
                   aria-hidden
@@ -172,16 +161,10 @@ export default function AnbieterPage() {
       {/* ── 4 · PROFILARTEN ── */}
       <section
         id="profilarten"
-        className="bg-cream/40 border-y border-border scroll-mt-24"
+        className="bg-cream/40 scroll-mt-24"
       >
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
-          <header className="max-w-2xl space-y-3 mb-12">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Profilarten
-            </div>
+          <header className="max-w-2xl mb-12">
             <RevealHeading
               as="h2"
               text="Basis-Profil und erweitertes Profil."
@@ -192,7 +175,7 @@ export default function AnbieterPage() {
 
           <div className="grid lg:grid-cols-2 gap-6">
             {/* Basis */}
-            <div className="rounded-2xl border border-border bg-white p-7 lg:p-8">
+            <div className="rounded-2xl card-soft p-7 lg:p-8">
               <div className="font-sans font-semibold text-soft">
                 Basis-Profil
               </div>
@@ -225,7 +208,7 @@ export default function AnbieterPage() {
             </div>
 
             {/* Erweitert */}
-            <div className="rounded-2xl border-2 border-brand bg-white p-7 lg:p-8">
+            <div className="rounded-2xl card-soft ring-1 ring-brand/30 p-7 lg:p-8">
               <div className="font-sans font-semibold text-brand-dark">
                 Erweitertes Profil
               </div>
@@ -260,7 +243,7 @@ export default function AnbieterPage() {
           </div>
 
           {/* Transparenz-Hinweis */}
-          <div className="mt-8 max-w-3xl rounded-xl border border-dashed border-border bg-white px-5 py-4">
+          <div className="mt-8 max-w-3xl rounded-xl bg-brand-light/40 px-5 py-4">
             <p className="font-sans text-[14px] leading-[1.65] text-mid">
               <strong className="text-dark font-semibold">Wichtig:</strong>{" "}
               Ein erweitertes Profil ist keine bessere Bewertung und keine
@@ -280,12 +263,6 @@ export default function AnbieterPage() {
       <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
-            <div
-              data-reveal
-              className="font-sans font-semibold text-brand"
-            >
-              Was wir übernehmen
-            </div>
             <RevealHeading
               as="h2"
               text="Wir recherchieren, strukturieren und prüfen."
@@ -303,7 +280,7 @@ export default function AnbieterPage() {
             </p>
           </header>
 
-          <ul className="lg:col-span-7 divide-y divide-border border-y border-border">
+          <ul className="lg:col-span-7 divide-y divide-border">
             {[
               {
                 t: "Öffentlich verfügbare Informationen sammeln",
@@ -327,7 +304,7 @@ export default function AnbieterPage() {
               },
             ].map((step, idx) => (
               <li key={idx} className="py-5 flex gap-5">
-                <span className="font-sans italic text-soft text-[18px] flex-shrink-0 min-w-[40px]">
+                <span className="font-sans text-soft text-[18px] flex-shrink-0 min-w-[40px]">
                   {String(idx + 1).padStart(2, "0")}.
                 </span>
                 <div>
@@ -349,12 +326,6 @@ export default function AnbieterPage() {
         <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
           <div className="max-w-2xl">
             <div className="max-w-2xl space-y-6">
-              <div
-                data-reveal
-                className="font-sans font-semibold text-white/80"
-              >
-                Nächster Schritt
-              </div>
               <RevealHeading
                 as="h2"
                 text="Bringen Sie Ihr Tool ins Verzeichnis."
