@@ -2,6 +2,30 @@
 
 ---
 
+## [0.33.0] — 2026-11-13
+
+### Hero-Innenseiten, Newsletter-Klarheit, Referenzkarten
+
+- **PageHero (anwendung/ueber/anbieter) überarbeitet:** Bildband deutlich höher
+  (weniger Weißraum darunter), Headline überlappt weiter die Bildkante, Copy und
+  CTAs liegen rechts auf Höhe der zweiten grünen Zeile statt darunter.
+- **Hero-Buttons mit klarem Kontrast:** keine weißen / weiß-konturierten Buttons
+  mehr auf Off-White. Primär `bg-brand`, sekundär grün umrandet. (Weiße Buttons
+  bleiben nur auf dunkelgrünen Flächen.)
+- **Headlines häufiger grün:** Section-Headlines auf den drei Seiten in
+  `text-brand-dark` statt durchgehend Schwarz; mehr Spacing zwischen den Sektionen
+  (`py-20 lg:py-32`).
+- **Abschluss-CTA auf /anbieter im Grid eingefasst** (vorher full-bleed über den
+  ganzen Monitor); die gleiche grüne Highlight-Sektion auf /ueber ebenso.
+- **Newsletter-Modul klargestellt:** gefülltes „Supertools Newsletter"-Label plus
+  ein Mockup einer Beispielausgabe (als Markup, kein KI-Bild) — der Zweck und das
+  Aussehen sind jetzt sofort erkennbar.
+- **„Echte Anwendung" als Produkt-Modulkarten:** Logo und Produktname tragen den
+  Kopf, das Motiv ist ein kompaktes Band, drei gleichwertige Karten im Grid.
+  Doppeltes Kategorie-Label aufgelöst (Dialog-Assistent → „Kommunikation & KI").
+
+---
+
 ## [0.32.0] — 2026-11-12
 
 ### De-Slop-Sweep site-weit + Aufräumen

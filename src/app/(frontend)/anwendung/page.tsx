@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function AnwendungIndexPage() {
-  const [lead, ...rest] = caseSummaries;
-
   return (
     <>
       <PageHero
@@ -23,18 +21,12 @@ export default function AnwendungIndexPage() {
         copy="Wir zeigen pro Lösung, was sie konkret kann, für welche Behörde sie passt und wo ihre Grenzen liegen."
       />
 
-      <div className="container mx-auto px-6 pb-16 pt-12 lg:px-10 lg:pb-24 lg:pt-16">
-        {/* Lead-Referenz */}
-        {lead && <CaseCard item={lead} variant="lead" />}
-
-        {/* Grid */}
-        {rest.length > 0 && (
-          <div className="mt-14 grid gap-10 border-t border-border pt-12 sm:grid-cols-2 lg:gap-12">
-            {rest.map((item) => (
-              <CaseCard key={item.slug} item={item} variant="list" />
-            ))}
-          </div>
-        )}
+      <div className="container mx-auto px-6 pb-20 pt-14 lg:px-10 lg:pb-28 lg:pt-20">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          {caseSummaries.map((item) => (
+            <CaseCard key={item.slug} item={item} />
+          ))}
+        </div>
       </div>
     </>
   );

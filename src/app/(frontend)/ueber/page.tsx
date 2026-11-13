@@ -29,7 +29,7 @@ export default function UeberPage() {
           2 — EDITORIAL: Warum wir das tun (mit Drop-Cap)
           ============================================================ */}
       <section className="bg-cream/40">
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
             <header className="lg:col-span-5 lg:sticky lg:top-24 lg:self-start">
               <h2
@@ -80,7 +80,7 @@ export default function UeberPage() {
       {/* ============================================================
           3 — DREI PRINZIPIEN (Source-Serif italic Akzente)
           ============================================================ */}
-      <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <header className="mb-12 lg:mb-16 max-w-2xl">
           <RevealHeading
             as="h2"
@@ -124,8 +124,8 @@ export default function UeberPage() {
       {/* ============================================================
           4 — DIE VERBINDUNG ZU AMTSHELDEN (grüne Highlight-Sektion)
           ============================================================ */}
-      <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-10 my-12 lg:my-20">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white px-6 py-16 sm:px-10 lg:px-14 lg:py-24">
           <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
             <div className="space-y-6 lg:sticky lg:top-24 lg:self-start">
               <Logo
@@ -258,7 +258,7 @@ export default function UeberPage() {
       {/* ============================================================
           5 — REDAKTIONELLE METHODIK / WIE WIR ARBEITEN
           ============================================================ */}
-      <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <header className="lg:col-span-5 space-y-3 lg:sticky lg:top-24 lg:self-start">
             <h2
@@ -282,7 +282,7 @@ export default function UeberPage() {
             </p>
           </header>
 
-          <ul className="lg:col-span-7 divide-y divide-border border-y border-border">
+          <ul className="lg:col-span-7 divide-y divide-border">
             {[
               {
                 title: "Basis-Profil",
@@ -302,7 +302,7 @@ export default function UeberPage() {
               },
             ].map((step, idx) => (
               <li key={idx} className="py-6 flex gap-5">
-                <div className="font-sans italic text-soft text-[20px] flex-shrink-0 min-w-[44px]">
+                <div className="font-sans text-soft text-[20px] flex-shrink-0 min-w-[44px]">
                   {String(idx + 1).padStart(2, "0")}.
                 </div>
                 <div className="flex-1">
@@ -323,14 +323,14 @@ export default function UeberPage() {
           6 — TEAM / SITZ
           ============================================================ */}
       <section className="bg-cream/40">
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div className="space-y-3">
               <RevealHeading
                 as="h2"
                 text="Frankfurt am Main. Eine Redaktion mit Verwaltungs-Background."
                 baseDelay={120}
-                className="font-display text-[clamp(28px,3.2vw,40px)] leading-[1.02] text-dark"
+                className="font-display text-[clamp(28px,3.2vw,40px)] leading-[1.02] text-brand-dark"
               />
             </div>
             <div className="space-y-5 font-sans text-[16px] leading-[1.7] text-mid">
@@ -363,13 +363,13 @@ export default function UeberPage() {
       {/* ============================================================
           7 — CTA
           ============================================================ */}
-      <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <RevealHeading
             as="h2"
             text="Wenn du Verantwortung trägst, wollen wir dich nicht alleine lassen."
             baseDelay={120}
-            className="font-display text-[clamp(28px,3.5vw,44px)] leading-[1.02] text-dark"
+            className="font-display text-[clamp(28px,3.5vw,44px)] leading-[1.02] text-brand-dark"
           />
           <p
             data-reveal

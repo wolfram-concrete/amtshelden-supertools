@@ -9,84 +9,62 @@ import type { CaseSummary } from "@/types/content";
 interface CaseCardProps {
   item: CaseSummary;
   className?: string;
-  /** "lead" = große Auftakt-Karte, "list" = Grid-Karte */
+  /** Beibehalten für API-Kompatibilität; alle Karten rendern als Modulkarte. */
   variant?: "lead" | "list";
 }
 
 /**
- * Referenz-Karte für „Echte Anwendung". Zeigt eine Software, was sie konkret
- * leistet und zu welcher Kategorie sie gehört — aus Software-Sicht, nicht aus
- * Sicht einer einzelnen Kommune.
+ * Referenz-Modulkarte für „Echte Anwendung". Produkt zuerst: Logo und Name
+ * tragen den Kopf, darunter der Nutzen (was die Software löst). Das Motiv ist
+ * bewusst ein kompaktes Band, damit es das Produkt nicht überlagert.
  */
-export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
-  const isLead = variant === "lead";
+export function CaseCard({ item, className }: CaseCardProps) {
+  const href = `/anwendung/${item.slug}`;
 
   return (
     <article
       className={cn(
-        "group",
-        isLead && "grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12",
+        "lift group flex h-full flex-col overflow-hidden rounded-2xl card-soft",
         className,
       )}
     >
-      <Link
-        href={`/anwendung/${item.slug}`}
-        className={cn("block", isLead && "lg:order-2")}
-      >
-        <div
-          className={cn(
-            "relative overflow-hidden rounded-2xl bg-cream",
-            isLead ? "aspect-[16/10]" : "aspect-[3/2]",
-          )}
-        >
-          {item.cover?.url && (
+      {/* kompaktes Motiv-Band */}
+      {item.cover?.url && (
+        <Link href={href} className="block">
+          <div className="relative aspect-[16/7] overflow-hidden bg-cream">
             <Image
               src={item.cover.url}
               alt={item.cover.alt}
               fill
-              sizes={isLead ? "(min-width: 1024px) 560px, 100vw" : "(min-width: 640px) 50vw, 100vw"}
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
-          )}
-        </div>
-      </Link>
+          </div>
+        </Link>
+      )}
 
-      <div className={cn("min-w-0", isLead ? "lg:order-1" : "mt-5")}>
-        {/* Software + Logo */}
-        <div className="flex items-center gap-2.5">
-          <ToolLogo name={item.tool.name} slug={item.tool.slug} size={30} />
+      <div className="flex flex-1 flex-col p-6">
+        {/* Produkt zuerst: Logo + Name */}
+        <div className="flex items-center gap-3">
+          <ToolLogo name={item.tool.name} slug={item.tool.slug} size={46} />
           <div className="min-w-0">
-            <div className="font-ui text-[13.5px] font-semibold text-dark">
+            <div className="font-ui text-[16px] font-bold leading-tight text-dark">
               {item.tool.name}
             </div>
-            <div className="font-ui text-[12px] text-soft">
+            <div className="font-ui text-[12.5px] text-soft">
               {item.tool.categoryLabel}
             </div>
           </div>
         </div>
 
-        <h3
-          className={cn(
-            "mt-4 font-display text-dark",
-            isLead
-              ? "text-[clamp(25px,3vw,37px)] leading-[1.04]"
-              : "text-[clamp(20px,2.2vw,25px)] leading-[1.08]",
-          )}
-        >
-          <Link
-            href={`/anwendung/${item.slug}`}
-            className="transition-colors hover:text-brand-dark"
-          >
+        {/* Was die Software löst */}
+        <h3 className="mt-4 font-display text-[clamp(19px,1.5vw,23px)] leading-[1.12] text-dark">
+          <Link href={href} className="transition-colors hover:text-brand-dark">
             {item.title}
           </Link>
         </h3>
 
-        <p
-          className={cn(
-            "mt-3 font-sans leading-[1.65] text-mid",
-            isLead ? "text-[17px]" : "text-[15px]",
-          )}
-        >
+        <p className="mt-2.5 font-sans text-[14.5px] leading-[1.6] text-mid line-clamp-3">
           {item.lead}
         </p>
 
@@ -95,7 +73,7 @@ export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
             {item.nutzen.map((n) => (
               <li
                 key={n}
-                className="flex items-start gap-2 font-ui text-[13.5px] leading-[1.5] text-dark"
+                className="flex items-start gap-2 font-ui text-[13.5px] leading-[1.45] text-dark"
               >
                 <Check
                   size={15}
@@ -109,8 +87,8 @@ export function CaseCard({ item, className, variant = "list" }: CaseCardProps) {
         )}
 
         <Link
-          href={`/anwendung/${item.slug}`}
-          className="mt-5 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
+          href={href}
+          className="mt-5 inline-flex items-center gap-1.5 self-start font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
         >
           Was sie leistet
           <ArrowUpRight

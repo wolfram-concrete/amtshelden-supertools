@@ -165,12 +165,12 @@ export const cases: CaseStudy[] = [
   // ============================================================
   {
     slug: "dialog-assistent-ki",
-    eyebrow: "Bürgerservice & Fachverfahren",
+    eyebrow: "Kommunikation & KI",
     title: "Dialog-Assistent: KI für den Bürgerdialog, die ihre Grenzen kennt.",
     lead: "Antworten strikt an geprüfte städtische Inhalte gebunden, keine freie Texterzeugung. Jederzeit Übergabe an Mitarbeitende, Betrieb in Deutschland, keine Nutzung der Anfragen für Modelltraining.",
     tool: {
       name: "Dialog-Assistent",
-      categoryLabel: "Bürgerservice & Fachverfahren",
+      categoryLabel: "Kommunikation & KI",
     },
     nutzen: [
       "Antworten nur aus geprüften Inhalten",

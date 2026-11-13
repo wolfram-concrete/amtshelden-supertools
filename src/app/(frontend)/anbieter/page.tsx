@@ -68,13 +68,13 @@ export default function AnbieterPage() {
       >
         <Link
           href="/kontakt?topic=anbieter"
-          className="inline-flex items-center rounded-xl bg-white px-6 py-3 font-sans text-[14px] font-bold text-brand-dark transition-colors hover:bg-cream"
+          className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-sans text-[14px] font-bold text-white transition-colors hover:bg-brand-dark"
         >
           Unternehmen eintragen
         </Link>
         <Link
           href="#profilarten"
-          className="inline-flex items-center rounded-xl border border-white/50 px-6 py-3 font-sans text-[14px] font-semibold text-white transition-colors hover:bg-white/10"
+          className="inline-flex items-center rounded-xl border border-brand/40 px-6 py-3 font-sans text-[14px] font-semibold text-brand-dark transition-colors hover:bg-brand/5"
         >
           Wie funktioniert das?
         </Link>
@@ -82,13 +82,13 @@ export default function AnbieterPage() {
 
       {/* ── 2 · VORTEILE ── */}
       <section className="bg-cream/40">
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <header className="max-w-2xl mb-12 lg:mb-16">
             <RevealHeading
               as="h2"
               text="Sichtbarkeit, die zur Verwaltung passt."
               baseDelay={120}
-              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
+              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-brand-dark"
             />
           </header>
 
@@ -114,14 +114,14 @@ export default function AnbieterPage() {
       </section>
 
       {/* ── 3 · THEMENFELDER ── */}
-      <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
           <header className="lg:sticky lg:top-24 space-y-3">
             <RevealHeading
               as="h2"
               text="Vier Felder, in denen Behörden Sie suchen."
               baseDelay={120}
-              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
+              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-brand-dark"
             />
             <p
               data-reveal
@@ -163,13 +163,13 @@ export default function AnbieterPage() {
         id="profilarten"
         className="bg-cream/40 scroll-mt-24"
       >
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <header className="max-w-2xl mb-12">
             <RevealHeading
               as="h2"
               text="Basis-Profil und erweitertes Profil."
               baseDelay={120}
-              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-dark"
+              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-brand-dark"
             />
           </header>
 
@@ -260,14 +260,14 @@ export default function AnbieterPage() {
       </section>
 
       {/* ── 5 · WAS AMTSHELDEN ÜBERNIMMT ── */}
-      <section className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
             <RevealHeading
               as="h2"
               text="Wir recherchieren, strukturieren und prüfen."
               baseDelay={120}
-              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-dark"
+              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-brand-dark"
             />
             <p
               data-reveal
@@ -321,9 +321,9 @@ export default function AnbieterPage() {
         </div>
       </section>
 
-      {/* ── 6 · CTA (grün, radiale Kanten) ── */}
-      <section className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white my-6 lg:my-10">
-        <div className="container mx-auto px-6 lg:px-10 py-16 lg:py-24">
+      {/* ── 6 · CTA (grün, im Grid eingefasst) ── */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-10 my-12 lg:my-20">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-dark text-white px-6 py-16 sm:px-10 lg:px-14 lg:py-24">
           <div className="max-w-2xl">
             <div className="max-w-2xl space-y-6">
               <RevealHeading

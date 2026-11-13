@@ -40,9 +40,10 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section className="bg-cream">
-      {/* Bild-Band — läuft unter die transparente Navi (-mt-20) */}
+      {/* Bild-Band — läuft unter die transparente Navi (-mt-20), bewusst hoch
+          für wenig Weißraum darunter */}
       <div className="-mt-20 w-full overflow-hidden rounded-b-[2.5rem]">
-        <div className="relative h-[46vh] min-h-[340px] w-full lg:h-[54vh]">
+        <div className="relative h-[62vh] min-h-[480px] w-full lg:h-[72vh] lg:min-h-[560px]">
           <Image
             src={image}
             alt={imageAlt}
@@ -60,12 +61,13 @@ export function PageHero({
         </div>
       </div>
 
-      {/* Textblock auf Cream — Headline überlappt die Bildkante */}
+      {/* Headline überlappt die Bildkante unten links; Copy + Aktionen rechts,
+          auf Höhe der zweiten grünen Zeile aufgelegt (Desktop). */}
       <div className="container mx-auto px-6 lg:px-10">
-        <div className="relative z-10 -mt-11 max-w-3xl pb-12 lg:-mt-16 lg:pb-16">
+        <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
           <h1
             style={{ fontStretch: "110%" }}
-            className="font-display flex flex-col items-start gap-2.5 text-[clamp(30px,4.6vw,56px)] leading-[1.04]"
+            className="relative z-10 -mt-14 flex flex-col items-start gap-2.5 font-display text-[clamp(30px,4.6vw,56px)] leading-[1.04] lg:-mt-24"
           >
             {lines.map((line) => (
               <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
@@ -73,12 +75,14 @@ export function PageHero({
               </span>
             ))}
           </h1>
-          <p className="mt-5 max-w-2xl font-sans text-[16px] leading-[1.6] text-mid lg:text-[18px]">
-            {copy}
-          </p>
-          {children && (
-            <div className="mt-7 flex flex-wrap gap-3">{children}</div>
-          )}
+          <div className="pb-12 lg:pb-16">
+            <p className="max-w-xl font-sans text-[16px] leading-[1.6] text-mid lg:text-[18px]">
+              {copy}
+            </p>
+            {children && (
+              <div className="mt-7 flex flex-wrap gap-3">{children}</div>
+            )}
+          </div>
         </div>
       </div>
     </section>
