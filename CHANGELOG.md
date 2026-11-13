@@ -2,6 +2,24 @@
 
 ---
 
+## [0.35.0] — 2026-11-13
+
+### Motion-Design: Seiten-Aufbau, Hero-Parallax, Magnet-Hover
+
+- **Hero-Aufbau beim Laden:** Motiv settlet sanft ein (`hero-media`), die grünen
+  Balken steigen gestaffelt hoch, Copy-Karte bzw. Suchfeld und Quicklinks folgen
+  weich (`.hero-anim` mit `--hero-delay`-Stagger). Läuft bei jeder Navigation neu.
+- **Hero-Parallax:** die Textelemente laufen beim Scrollen langsamer als das
+  Hintergrundmotiv (`HeroParallax`, Foreground-Lag, `transform`-only, geclamped).
+- **Magnet-Hover** auf dem Home-„Suchen"-Button (`Magnetic`, folgt dem Cursor
+  minimal via `--mx/--my`).
+- **Section-Reveals** einen Tick entspannter (`--ease-soft`, 0,72 s).
+- Alles `transform`/`opacity`, kein Scroll-Hijack (App-Router unangetastet), aus
+  bei `prefers-reduced-motion` und auf Touch/Mobile. Keine neue Dependency — das
+  vorhandene Reveal-System wurde erweitert.
+
+---
+
 ## [0.34.0] — 2026-11-13
 
 ### Hero-Komposition: Innenseiten full-bleed, Home höher

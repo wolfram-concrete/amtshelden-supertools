@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { HeroParallax } from "@/components/motion/HeroParallax";
+
 /**
  * Bild-Header für Innenseiten (Variante 2, Wolfram 13.11.): Foto full-size im
  * Above-Scroll. Die grüne Headline sitzt oben links auf dem Bild, Copy und
@@ -47,7 +49,7 @@ export function PageHero({
           alt={imageAlt}
           fill
           sizes="100vw"
-          className="object-cover"
+          className="hero-media object-cover"
           style={{ objectPosition }}
           priority
         />
@@ -62,7 +64,7 @@ export function PageHero({
             liegt bündig auf der Oberlänge des zweiten grünen Balkens, weil sie
             mit der letzten Zeile in einer Flex-Reihe steht (kein Magic-Offset). */}
         <div className="absolute inset-0 z-10">
-          <div className="container mx-auto px-6 pt-28 lg:px-10 lg:pt-32">
+          <HeroParallax className="container mx-auto px-6 pt-28 lg:px-10 lg:pt-32">
             {/* Semantische Überschrift für Screenreader; die Balken sind dekorativ */}
             <h1 className="sr-only">{lines.join(" ")}</h1>
             <div
@@ -70,21 +72,43 @@ export function PageHero({
               style={{ fontStretch: "110%" }}
               className="flex flex-col items-start gap-2.5 font-display text-[clamp(30px,4.6vw,56px)] leading-[1.04]"
             >
-              {lines.slice(0, -1).map((line) => (
-                <span key={line} className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+              {lines.slice(0, -1).map((line, i) => (
+                <span
+                  key={line}
+                  className={`${GREEN_BAR} hero-anim`}
+                  style={
+                    {
+                      ...GREEN_BAR_STYLE,
+                      "--hero-delay": `${i * 90}ms`,
+                    } as React.CSSProperties
+                  }
+                >
                   {line}
                 </span>
               ))}
 
               <div className="flex w-full flex-col items-start gap-4 lg:flex-row lg:items-start lg:gap-5">
-                <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+                <span
+                  className={`${GREEN_BAR} hero-anim`}
+                  style={
+                    {
+                      ...GREEN_BAR_STYLE,
+                      "--hero-delay": `${(lines.length - 1) * 90}ms`,
+                    } as React.CSSProperties
+                  }
+                >
                   {lines[lines.length - 1]}
                 </span>
 
                 <div
                   aria-hidden={false}
-                  className="w-full max-w-lg flex-shrink-0 rounded-2xl bg-cream p-6 font-sans shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] lg:max-w-[28rem] lg:p-7"
-                  style={{ fontStretch: "normal" }}
+                  className="hero-anim w-full max-w-lg flex-shrink-0 rounded-2xl bg-cream p-6 font-sans shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] lg:max-w-[28rem] lg:p-7"
+                  style={
+                    {
+                      fontStretch: "normal",
+                      "--hero-delay": `${lines.length * 90 + 140}ms`,
+                    } as React.CSSProperties
+                  }
                 >
                   <p className="font-sans text-[16px] font-normal leading-[1.6] tracking-normal text-mid lg:text-[17px]">
                     {copy}
@@ -95,7 +119,7 @@ export function PageHero({
                 </div>
               </div>
             </div>
-          </div>
+          </HeroParallax>
         </div>
       </div>
     </section>

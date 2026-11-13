@@ -157,10 +157,10 @@ h2 {
      identische Fade-up auf jeder Section. */
   .reveal-ready [data-reveal] {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
     transition:
-      opacity 0.55s var(--ease-editorial),
-      transform 0.55s var(--ease-editorial);
+      opacity 0.72s var(--ease-soft),
+      transform 0.72s var(--ease-soft);
     transition-delay: var(--reveal-delay, 0ms);
   }
   .reveal-ready [data-reveal="fade"] { transform: none; }
@@ -199,11 +199,35 @@ h2 {
 /* Hero-Motiv „atmet" beim Laden sanft ein (Scale-Settle, LCP-schonend: kein Fade) */
 @media (prefers-reduced-motion: no-preference) {
   .hero-media {
-    animation: hero-settle 1.6s var(--ease-soft) both;
+    animation: hero-settle 1.8s var(--ease-soft) both;
   }
   @keyframes hero-settle {
-    from { transform: scale(1.055); }
+    from { transform: scale(1.06); }
     to { transform: scale(1); }
+  }
+
+  /* Hero-Aufbau beim Laden: Balken / Karte / Suchfeld steigen gestaffelt und
+     entspannt hoch (Signature-Moment je Seite). Stagger über --hero-delay. */
+  .hero-anim {
+    opacity: 0;
+    animation: hero-rise 0.95s var(--ease-soft) both;
+    animation-delay: var(--hero-delay, 0ms);
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* leichter Magnet-Hover: folgt dem Cursor minimal (JS setzt --mx/--my) */
+  .magnetic {
+    transition: transform 0.45s var(--ease-soft);
+    transform: translate3d(var(--mx, 0), var(--my, 0), 0);
   }
 }
 

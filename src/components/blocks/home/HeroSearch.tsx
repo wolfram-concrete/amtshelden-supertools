@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ArrowRight, FileText, Search, Users } from "lucide-react";
 
+import { HeroParallax } from "@/components/motion/HeroParallax";
+import { Magnetic } from "@/components/motion/Magnetic";
+
 /** Glas-Sprechblase im Logo-Balken-Stil (grün, Zacken nach unten), über Köpfen.
  *  Zacken-Seite (`tail`) zeigt zur jeweiligen Person. */
 function Bubble({
@@ -88,7 +91,7 @@ export function HeroSearch() {
   }
 
   return (
-    <section className="relative -mt-20 flex min-h-[100svh] w-full items-start justify-center overflow-hidden rounded-b-[2.5rem] pt-[22vh] lg:pt-[20vh]">
+    <section className="relative -mt-20 flex min-h-[100svh] w-full items-center justify-center overflow-hidden rounded-b-[2.5rem] pt-20">
       {/* Bild-Bühne voll aufgezogen — quadratischer Master trägt beide
           Richtungen: Desktop zeigt das horizontale Band (Menschen links + rechts,
           ruhige Wandmitte), Mobil den vertikalen Anschnitt mit Menschen. */}
@@ -97,7 +100,7 @@ export function HeroSearch() {
         alt="Blick in eine moderne Verwaltung bei der Arbeit"
         fill
         sizes="100vw"
-        className="object-cover object-[76%_center] md:object-center"
+        className="hero-media object-cover object-[76%_center] md:object-center"
         priority
       />
 
@@ -128,7 +131,7 @@ export function HeroSearch() {
       )}
 
       {/* Schaltpult, mittelachsig */}
-      <div className="relative z-10 w-full max-w-3xl px-6 text-center">
+      <HeroParallax className="relative z-10 w-full max-w-3xl px-6 text-center">
         {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
             Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
@@ -136,17 +139,24 @@ export function HeroSearch() {
           style={{ fontStretch: "110%" }}
           className="font-display flex flex-col items-center gap-2.5 text-[clamp(27px,4.5vw,53px)] leading-[1.06]"
         >
-          <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+          <span
+            className={`${GREEN_BAR} hero-anim`}
+            style={{ ...GREEN_BAR_STYLE, "--hero-delay": "0ms" } as React.CSSProperties}
+          >
             Welche Software passt
           </span>
-          <span className={GREEN_BAR} style={GREEN_BAR_STYLE}>
+          <span
+            className={`${GREEN_BAR} hero-anim`}
+            style={{ ...GREEN_BAR_STYLE, "--hero-delay": "90ms" } as React.CSSProperties}
+          >
             zu Ihrer Verwaltung?
           </span>
         </h1>
 
         <form
           onSubmit={submit}
-          className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-xl bg-white p-2 shadow-[0_30px_70px_-26px_rgba(0,0,0,0.7)] transition focus-within:ring-4 focus-within:ring-white/30"
+          style={{ "--hero-delay": "230ms" } as React.CSSProperties}
+          className="hero-anim mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-xl bg-white p-2 shadow-[0_30px_70px_-26px_rgba(0,0,0,0.7)] transition focus-within:ring-4 focus-within:ring-white/30"
         >
           <Search size={22} className="ml-4 flex-shrink-0 text-soft" aria-hidden />
           <input
@@ -157,27 +167,40 @@ export function HeroSearch() {
             aria-label="Software suchen"
             className="min-w-0 flex-1 bg-transparent py-3 font-sans text-[16px] text-dark placeholder:text-soft outline-none"
           />
-          <button
-            type="submit"
-            className="inline-flex flex-shrink-0 items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white transition-colors hover:bg-brand-dark"
-          >
-            Suchen
-            <ArrowRight size={17} aria-hidden />
-          </button>
+          <Magnetic className="flex-shrink-0">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white transition-colors hover:bg-brand-dark"
+            >
+              Suchen
+              <ArrowRight size={17} aria-hidden />
+            </button>
+          </Magnetic>
         </form>
 
-        <div className="mx-auto mt-4 flex flex-wrap items-center justify-center gap-2">
-          {HAEUFIGE_SUCHEN.map((term) => (
-            <Link
-              key={term}
-              href={`/suche?q=${encodeURIComponent(term)}`}
-              className="inline-flex items-center rounded-xl border border-white/25 bg-white/10 px-3.5 py-1.5 font-sans text-[13px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-            >
-              {term}
-            </Link>
-          ))}
+        {/* Zwei ausgeglichene Reihen (3/3) statt 5+1; graue Glas-Pills, damit sie
+            auf dem hellen Motiv sicher lesbar sind. */}
+        <div
+          style={{ "--hero-delay": "330ms" } as React.CSSProperties}
+          className="hero-anim mx-auto mt-4 flex flex-col items-center gap-2"
+        >
+          {[HAEUFIGE_SUCHEN.slice(0, 3), HAEUFIGE_SUCHEN.slice(3)].map(
+            (row, i) => (
+              <div key={i} className="flex flex-wrap justify-center gap-2">
+                {row.map((term) => (
+                  <Link
+                    key={term}
+                    href={`/suche?q=${encodeURIComponent(term)}`}
+                    className="inline-flex items-center rounded-xl bg-[rgba(45,45,45,0.55)] px-3.5 py-1.5 font-sans text-[13px] font-semibold text-white ring-1 ring-white/15 backdrop-blur-md transition-colors hover:bg-[rgba(45,45,45,0.72)]"
+                  >
+                    {term}
+                  </Link>
+                ))}
+              </div>
+            ),
+          )}
         </div>
-      </div>
+      </HeroParallax>
     </section>
   );
 }
