@@ -131,13 +131,13 @@ export function HeroSearch() {
       )}
 
       {/* Schaltpult, mittelachsig */}
-      <HeroParallax className="relative z-10 w-full max-w-3xl px-6 text-center">
+      <HeroParallax className="relative z-10 w-full max-w-4xl px-6 text-center">
         {/* Headline auf grünen Balken, Zeile für Zeile — angelehnt an das
             Logo-Trägerelement (abgerundet, kleine Lücke), ohne Sprechblasenzacken.
             Feine Grain-/Verlaufs-Textur im Grün für etwas Leben. */}
         <h1
           style={{ fontStretch: "110%" }}
-          className="font-display flex flex-col items-center gap-2.5 text-[clamp(27px,4.5vw,53px)] leading-[1.06]"
+          className="font-display flex flex-col items-center gap-2.5 text-[clamp(32px,5.4vw,64px)] leading-[1.06]"
         >
           <span
             className={`${GREEN_BAR} hero-anim`}

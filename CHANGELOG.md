@@ -2,6 +2,21 @@
 
 ---
 
+## [0.36.0] — 2026-11-14
+
+### Hero-Feinschliff: größere Headline, breitere Copy-Karte
+
+- **Hero-Headline ~20% größer** auf allen Hero-Seiten (Home + PageHero), klarerer
+  Fokuspunkt: PageHero `clamp(36px,5.5vw,67px)`, HeroSearch `clamp(32px,5.4vw,64px)`.
+- **Copy-Karte breiter** (Desktop bis `34rem`), damit kein einzelnes Wort auf einer
+  dritten Zeile steht.
+- **Umbruch-Fix:** die letzte Balkenzeile bleibt am Desktop einzeilig
+  (`lg:whitespace-nowrap`, `shrink-0`), die Karte füllt den Rest (`flex-1`,
+  `min-w-0`) — große Headline und breite Karte gleichzeitig ohne hässlichen
+  Zeilenumbruch. Home-Hero-Container auf `max-w-4xl` verbreitert.
+
+---
+
 ## [0.35.0] — 2026-11-13
 
 ### Motion-Design: Seiten-Aufbau, Hero-Parallax, Magnet-Hover

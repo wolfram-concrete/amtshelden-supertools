@@ -70,7 +70,7 @@ export function PageHero({
             <div
               aria-hidden
               style={{ fontStretch: "110%" }}
-              className="flex flex-col items-start gap-2.5 font-display text-[clamp(30px,4.6vw,56px)] leading-[1.04]"
+              className="flex flex-col items-start gap-2.5 font-display text-[clamp(36px,5.5vw,67px)] leading-[1.04]"
             >
               {lines.slice(0, -1).map((line, i) => (
                 <span
@@ -87,9 +87,9 @@ export function PageHero({
                 </span>
               ))}
 
-              <div className="flex w-full flex-col items-start gap-4 lg:flex-row lg:items-start lg:gap-5">
+              <div className="flex w-full flex-col items-start gap-4 lg:flex-row lg:items-start lg:gap-6">
                 <span
-                  className={`${GREEN_BAR} hero-anim`}
+                  className={`${GREEN_BAR} hero-anim lg:shrink-0 lg:whitespace-nowrap`}
                   style={
                     {
                       ...GREEN_BAR_STYLE,
@@ -102,7 +102,7 @@ export function PageHero({
 
                 <div
                   aria-hidden={false}
-                  className="hero-anim w-full max-w-lg flex-shrink-0 rounded-2xl bg-cream p-6 font-sans shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] lg:max-w-[28rem] lg:p-7"
+                  className="hero-anim w-full rounded-2xl bg-cream p-6 font-sans shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)] lg:w-auto lg:min-w-0 lg:flex-1 lg:max-w-[34rem] lg:p-7"
                   style={
                     {
                       fontStretch: "normal",
