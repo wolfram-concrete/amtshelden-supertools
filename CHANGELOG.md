@@ -10,9 +10,10 @@
   denselben mittelachsigen Aufbau gebracht — Headline im grünen `BarHeading`-
   Balken zentriert, Tagline zentriert plain darunter, zugehörige Themenfelder als
   zentrierte, griffige Tags. Die „N Tools"-Meta-Zeile (Icon + Count) entfernt.
-- **Fix:** `BarHeading`-Zeilenhöhe auf `1.6` erhöht und zu enge Overrides
-  entfernt, damit sich die grünen Balken mehrzeiliger Headlines nicht
-  überschneiden (klarer Abstand wie im Hero).
+- **Fix:** `BarHeading`-Zeilenabstand der mehrzeiligen grünen Balken auf den
+  Hero-Gap (~10px am Desktop) normiert. Die line-height wird jetzt per
+  Inline-Style gesetzt — `tailwind-merge` hatte ein `leading-[…]` neben dem
+  `text-[clamp(…)]` entfernt, sodass immer der Body-Default `1.75` (zu weit) griff.
 
 ---
 

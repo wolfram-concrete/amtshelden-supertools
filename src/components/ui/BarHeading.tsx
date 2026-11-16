@@ -38,12 +38,13 @@ export function BarHeading({
     <Tag
       {...(reveal ? { "data-reveal": "" } : {})}
       className={cn(
-        // leading bewusst großzügig: die box-decoration-clone-Balken dürfen sich
-        // zwischen den Zeilen nicht überschneiden (klarer Abstand wie im Hero).
-        "font-display text-[clamp(26px,3.3vw,40px)] leading-[1.6] tracking-[-0.01em]",
+        "font-display text-[clamp(26px,3.3vw,40px)] tracking-[-0.01em]",
         className,
       )}
-      style={{ fontStretch: "110%" }}
+      // line-height bewusst als Inline-Style: tailwind-merge würde ein
+      // `leading-[…]` neben `text-[clamp(…)]` wegräumen. 1.6 bringt den Abstand
+      // der box-decoration-clone-Balken am Desktop auf den Hero-Gap (~10px).
+      style={{ fontStretch: "110%", lineHeight: 1.6 }}
     >
       <span
         className="box-decoration-clone rounded-xl px-3.5 py-1.5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.26),0_12px_26px_-16px_rgba(0,0,0,0.45)]"
