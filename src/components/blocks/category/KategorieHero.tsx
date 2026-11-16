@@ -16,7 +16,7 @@ export function KategorieHero({ category }: KategorieHeroProps) {
       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
         <BarHeading
           as="h1"
-          className="text-center text-[clamp(34px,5vw,62px)] leading-[1.38]"
+          className="text-center text-[clamp(34px,5vw,62px)]"
         >
           {category.name}
         </BarHeading>

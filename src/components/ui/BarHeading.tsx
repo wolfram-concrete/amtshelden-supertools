@@ -38,7 +38,9 @@ export function BarHeading({
     <Tag
       {...(reveal ? { "data-reveal": "" } : {})}
       className={cn(
-        "font-display text-[clamp(26px,3.3vw,40px)] leading-[1.5] tracking-[-0.01em]",
+        // leading bewusst großzügig: die box-decoration-clone-Balken dürfen sich
+        // zwischen den Zeilen nicht überschneiden (klarer Abstand wie im Hero).
+        "font-display text-[clamp(26px,3.3vw,40px)] leading-[1.6] tracking-[-0.01em]",
         className,
       )}
       style={{ fontStretch: "110%" }}

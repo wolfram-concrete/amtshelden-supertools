@@ -10,6 +10,9 @@
   denselben mittelachsigen Aufbau gebracht — Headline im grünen `BarHeading`-
   Balken zentriert, Tagline zentriert plain darunter, zugehörige Themenfelder als
   zentrierte, griffige Tags. Die „N Tools"-Meta-Zeile (Icon + Count) entfernt.
+- **Fix:** `BarHeading`-Zeilenhöhe auf `1.6` erhöht und zu enge Overrides
+  entfernt, damit sich die grünen Balken mehrzeiliger Headlines nicht
+  überschneiden (klarer Abstand wie im Hero).
 
 ---
 
