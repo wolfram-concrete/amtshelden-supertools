@@ -2,6 +2,18 @@
 
 ---
 
+## [0.38.0] — 2026-11-16
+
+### Haptik auf die Tool-Liste ausgerollt
+
+- **`ToolCard` (tile/row/list/feature):** Compliance-Signale (DSGVO, Server DE,
+  BSI, Vergabe) als griffige `.tag`-Chips statt flacher Border-Pills; Kennwerte
+  (Preis/Einführung/Betrieb) als `.panel`-Fakten-Kacheln; „Profil"-Affordance als
+  Tag. Row-Karte nutzt jetzt `.card-soft` (Ruhe-Schatten wie die übrigen Karten).
+- Greift auf Verzeichnis-Flächen `/suche`, `/kategorien/[slug]`, Themenfeld-Tabs.
+
+---
+
 ## [0.37.0] — 2026-11-16
 
 ### Haptik-Pass: griffige Tags, Fakten-Panels, physische Buttons

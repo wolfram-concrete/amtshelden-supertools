@@ -87,7 +87,7 @@ function RowItem({
     <Link
       href={`/tools/${tool.slug}`}
       className={cn(
-        "group flex flex-col gap-5 rounded-2xl bg-white p-5 transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)] sm:flex-row sm:items-center sm:gap-6 lg:p-6",
+        "group flex flex-col gap-5 rounded-2xl card-soft p-5 transition-shadow hover:shadow-[0_22px_55px_-30px_rgba(17,17,17,0.28)] sm:flex-row sm:items-center sm:gap-6 lg:p-6",
         className,
       )}
     >
@@ -145,7 +145,7 @@ function RowItem({
             </div>
           )}
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-xl bg-cream px-4 py-2.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors group-hover:bg-brand-light">
+        <span className="tag px-4 py-2.5 font-ui text-[13px] font-semibold text-brand-dark transition-colors group-hover:bg-brand-light">
           Profil
           <ChevronRight
             size={15}
@@ -160,7 +160,7 @@ function RowItem({
 
 function RowPill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-cream px-2 py-0.5 font-ui text-[11.5px] font-medium text-mid">
+    <span className="tag px-2.5 py-1 font-ui text-[11.5px] font-medium text-mid">
       {children}
     </span>
   );
@@ -262,7 +262,7 @@ function TileCard({
 
 function TilePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-cream px-1.5 py-0.5 font-ui text-[11px] font-medium text-mid">
+    <span className="tag px-2 py-0.5 font-ui text-[11px] font-medium text-mid">
       {children}
     </span>
   );
@@ -338,7 +338,7 @@ function ExtendedCard({
           {tool.pitch}
         </p>
 
-        <dl className="mt-5 grid grid-cols-3 gap-4 pt-4 border-t border-border">
+        <dl className="mt-5 grid grid-cols-3 gap-2.5">
           {tool.facts.price && <Fact label="Preis" value={tool.facts.price} />}
           {tool.facts.setup && (
             <Fact label="Einführung" value={tool.facts.setup} />
@@ -371,11 +371,9 @@ function ExtendedCard({
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="min-w-0">
-      <dt className="font-sans font-semibold text-soft">
-        {label}
-      </dt>
-      <dd className="font-ui text-[12px] font-semibold text-dark mt-1 truncate">
+    <div className="panel min-w-0 rounded-lg px-3 py-2">
+      <dt className="font-sans text-[11px] font-medium text-soft">{label}</dt>
+      <dd className="font-ui text-[12px] font-semibold text-dark mt-0.5 truncate">
         {value}
       </dd>
     </div>
@@ -384,7 +382,7 @@ function Fact({ label, value }: { label: string; value: string }) {
 
 function CompliancePill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-cream px-2 py-0.5 font-ui text-[11px] font-medium text-mid">
+    <span className="tag px-2.5 py-1 font-ui text-[11px] font-medium text-mid">
       {children}
     </span>
   );
