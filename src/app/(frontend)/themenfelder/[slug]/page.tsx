@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ThemenfeldTabs } from "@/components/blocks/category/ThemenfeldTabs";
-import { BrandIcon } from "@/components/icons/BrandIcon";
+import { BarHeading } from "@/components/ui/BarHeading";
 import {
   directoryCategoriesByThemenfeld,
   directoryToolCardsByCategory,
@@ -42,28 +42,19 @@ export default async function ThemenfeldDetailPage({ params }: PageProps) {
   return (
     <>
 
-      {/* Hero */}
-      <header className="container mx-auto px-6 lg:px-10 pt-12 lg:pt-20 pb-10 lg:pb-14">
-        <div className="max-w-3xl space-y-6">
-          <div className="flex items-center gap-3">
-            <span
-              aria-hidden
-              className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-light text-brand-dark"
-            >
-              {tf.icon && <BrandIcon name={tf.icon} size={22} />}
-            </span>
-            <div className="font-sans font-semibold text-brand">
-              Themenfeld · {cats.length}{" "}
-              {cats.length === 1 ? "Kategorie" : "Kategorien"}
-            </div>
-          </div>
-
-          <h1 className="font-display text-[clamp(40px,5.5vw,72px)] leading-[1.0] text-dark">
+      {/* Hero — mittelachsig wie der Home-Hero: zentrierte Meta, Headline im
+          grünen Balken, Intro in einem Textcontainer (weiße Karte auf Cream). */}
+      <header className="container mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-10 lg:pb-16">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <BarHeading
+            as="h1"
+            className="text-center text-[clamp(34px,5vw,62px)] leading-[1.38]"
+          >
             {tf.name}
-          </h1>
+          </BarHeading>
 
           {tf.intro && (
-            <p className="font-sans text-[18px] leading-[1.7] text-mid">
+            <p className="mt-7 max-w-2xl font-sans text-[16px] leading-[1.7] text-mid lg:text-[17px]">
               {tf.intro}
             </p>
           )}

@@ -43,7 +43,7 @@ export function ThemenfeldTabs({
       <div
         role="tablist"
         aria-label="Bereich wählen"
-        className="flex flex-wrap items-center gap-2 border-b border-border pb-5"
+        className="flex flex-wrap items-center justify-center gap-2 border-b border-border pb-5"
       >
         {tabs.map((t) => {
           const isActive = active === t.slug;

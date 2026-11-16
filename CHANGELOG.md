@@ -2,6 +2,18 @@
 
 ---
 
+## [0.40.0] — 2026-11-16
+
+### Themenfeld-Header mittelachsig
+
+- **Themenfeld-Detailseiten (`/themenfelder/[slug]`):** Header mittelachsig wie der
+  Home-Hero — Headline im grünen `BarHeading`-Balken zentriert, Intro-Copy
+  zentriert darunter, Tabs (`ThemenfeldTabs`) mittig (`justify-center`).
+- Die Meta-Zeile „Themenfeld · N Kategorien" (Icon + Label) entfernt; die
+  Intro-Copy steht plain auf dem Grund, nicht auf einem Trägerelement.
+
+---
+
 ## [0.39.0] — 2026-11-16
 
 ### Haptische Section-Headline (BarHeading)
