@@ -170,7 +170,7 @@ export function HeroSearch() {
           <Magnetic className="flex-shrink-0">
             <button
               type="submit"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white transition-colors hover:bg-brand-dark"
+              className="btn-key inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-sans text-[15px] font-bold text-white hover:bg-brand-dark"
             >
               Suchen
               <ArrowRight size={17} aria-hidden />

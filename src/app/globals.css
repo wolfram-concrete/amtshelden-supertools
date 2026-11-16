@@ -235,8 +235,62 @@ h2 {
 .card-soft {
   background-color: #fff;
   box-shadow:
-    0 1px 2px rgba(17, 17, 17, 0.04),
-    0 18px 40px -30px rgba(17, 17, 17, 0.26);
+    0 0 0 1px rgba(17, 17, 17, 0.04),
+    0 1px 1px rgba(17, 17, 17, 0.05),
+    0 8px 18px -10px rgba(17, 17, 17, 0.14),
+    0 30px 54px -34px rgba(17, 17, 17, 0.28);
+}
+
+/* Haptischer Info-Tag: physisch gelupftes Pill mit Lichtkante oben, Haarlinie
+   und weichem Kontaktschatten — macht Nutzen-/Fakten-Punkte griffig statt
+   flacher Checkliste. Grund bewusst cream für warme Schichtung auf Weiß. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.65rem;
+  background-color: var(--color-cream, #f6f3f0);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 0 0 1px rgba(17, 17, 17, 0.05),
+    0 1px 1px rgba(17, 17, 17, 0.05),
+    0 5px 12px -7px rgba(17, 17, 17, 0.16);
+}
+
+/* Griffiges Cream-Panel (Block) in gleicher Materialsprache wie .tag — für
+   Fakten-Kacheln, kleine Info-Felder, gruppierte Daten auf hellem Grund. */
+.panel {
+  background-color: var(--color-cream, #f6f3f0);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    0 0 0 1px rgba(17, 17, 17, 0.045),
+    0 1px 1px rgba(17, 17, 17, 0.04),
+    0 6px 14px -8px rgba(17, 17, 17, 0.14);
+}
+
+/* Primär-Button als physische Taste: Lichtkante oben + geerdeter Schatten,
+   senkt sich beim Drücken (echoes den Hero-Balken, kein Glow/Glas). */
+.btn-key {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.16),
+    0 10px 20px -10px rgba(0, 0, 0, 0.38);
+  transition:
+    transform 0.14s var(--ease-soft),
+    box-shadow 0.3s var(--ease-soft),
+    background-color 0.2s;
+}
+.btn-key:active {
+  transform: translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 1px 2px rgba(0, 0, 0, 0.18),
+    0 4px 10px -6px rgba(0, 0, 0, 0.38);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-key:active {
+    transform: none;
+  }
 }
 
 /* sanftes Anheben von Karten/Kacheln bei Hover */
@@ -246,8 +300,12 @@ h2 {
     box-shadow 0.4s var(--ease-editorial);
 }
 .lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 26px 50px -32px rgba(17, 17, 17, 0.32);
+  transform: translateY(-5px);
+  box-shadow:
+    0 0 0 1px rgba(17, 17, 17, 0.05),
+    0 2px 3px rgba(17, 17, 17, 0.06),
+    0 18px 34px -14px rgba(17, 17, 17, 0.24),
+    0 44px 72px -34px rgba(17, 17, 17, 0.34);
 }
 @media (prefers-reduced-motion: reduce) {
   .lift:hover {

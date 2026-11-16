@@ -59,13 +59,13 @@ export function CaseHeader({ item }: CaseHeaderProps) {
         </p>
 
         {item.nutzen && item.nutzen.length > 0 && (
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2.5">
+          <ul className="mt-6 flex flex-wrap gap-2.5">
             {item.nutzen.map((n) => (
               <li
                 key={n}
-                className="flex items-center gap-2 font-ui text-[14px] text-dark"
+                className="tag px-3 py-1.5 font-ui text-[13.5px] font-medium text-dark"
               >
-                <Check size={16} className="flex-shrink-0 text-brand" aria-hidden />
+                <Check size={15} className="flex-shrink-0 text-brand" aria-hidden />
                 {n}
               </li>
             ))}
@@ -89,12 +89,12 @@ export function CaseHeader({ item }: CaseHeaderProps) {
         </figure>
       )}
 
-      {/* Kennwerte */}
+      {/* Kennwerte — griffige Fakten-Panels */}
       <div className="mt-8 max-w-5xl">
-        <dl className="grid grid-cols-2 gap-x-10 gap-y-6 sm:grid-cols-3 lg:grid-cols-5">
+        <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {item.facts.map((fact) => (
-            <div key={fact.label}>
-              <dt className="font-ui text-[11px] uppercase tracking-wide text-soft">
+            <div key={fact.label} className="panel rounded-xl px-4 py-3">
+              <dt className="font-ui text-[11.5px] font-medium text-soft">
                 {fact.label}
               </dt>
               <dd className="mt-1 font-sans text-[15px] font-semibold leading-[1.3] text-dark">

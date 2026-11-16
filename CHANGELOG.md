@@ -2,6 +2,23 @@
 
 ---
 
+## [0.37.0] — 2026-11-16
+
+### Haptik-Pass: griffige Tags, Fakten-Panels, physische Buttons
+
+- **Material-Utilities** (globals.css, aus der Hero-Materialsprache abgeleitet):
+  `.tag` (gelupftes Cream-Pill mit Lichtkante, Haarlinie, Kontaktschatten),
+  `.panel` (Block-Variante für Fakten/Info-Felder), `.btn-key` (Primärbutton als
+  physische Taste mit Press), dazu griffigeres `.card-soft`/`.lift` (gerichteter,
+  geschichteter Schatten statt flachem Soft-Glow).
+- **Referenzkarten (`CaseCard`) + Detailseite (`CaseHeader`):** Nutzen-Bullets als
+  griffige Tag-Chips statt Checkliste; Kennwerte als gelupfte Cream-Fakten-Panels.
+- **Primärbuttons** (Home-Suchen, Anbieter-CTA, Newsletter) als physische Tasten.
+- Bewusst in der warmen Cream/Grün-Sprache, kein Glow/Glas/Lila; Orientierung an
+  der klaren Verzeichnis-Haptik von OMR Reviews.
+
+---
+
 ## [0.36.0] — 2026-11-14
 
 ### Hero-Feinschliff: größere Headline, breitere Copy-Karte

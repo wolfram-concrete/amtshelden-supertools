@@ -68,7 +68,7 @@ export default function AnbieterPage() {
       >
         <Link
           href="/kontakt?topic=anbieter"
-          className="inline-flex items-center rounded-xl bg-brand px-6 py-3 font-sans text-[14px] font-bold text-white transition-colors hover:bg-brand-dark"
+          className="btn-key inline-flex items-center rounded-xl bg-brand px-6 py-3 font-sans text-[14px] font-bold text-white hover:bg-brand-dark"
         >
           Unternehmen eintragen
         </Link>

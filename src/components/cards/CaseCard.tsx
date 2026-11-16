@@ -69,15 +69,15 @@ export function CaseCard({ item, className }: CaseCardProps) {
         </p>
 
         {item.nutzen && item.nutzen.length > 0 && (
-          <ul className="mt-4 space-y-1.5">
+          <ul className="mt-4 flex flex-wrap gap-2">
             {item.nutzen.map((n) => (
               <li
                 key={n}
-                className="flex items-start gap-2 font-ui text-[13.5px] leading-[1.45] text-dark"
+                className="tag px-2.5 py-1.5 font-ui text-[12.5px] font-medium leading-tight text-dark"
               >
                 <Check
-                  size={15}
-                  className="mt-0.5 flex-shrink-0 text-brand"
+                  size={13}
+                  className="flex-shrink-0 text-brand"
                   aria-hidden
                 />
                 {n}
