@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { BarHeading } from "@/components/ui/BarHeading";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { CATEGORY_COLOR, CATEGORY_COLOR_FALLBACK } from "@/lib/category-colors";
 import type { CategoryDefinition } from "@/types/content";
@@ -36,11 +37,9 @@ export function CategoryTiles({
     <section className="bg-cream">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
         <header className="mb-8 max-w-2xl lg:mb-10">
-          <h2 className="font-display text-[clamp(26px,3.4vw,42px)] leading-[1.05] text-dark">
-            {title}
-          </h2>
+          <BarHeading>{title}</BarHeading>
           {description && (
-            <p className="mt-3 font-sans text-[16px] lg:text-[17px] leading-[1.5] text-mid">
+            <p className="mt-5 font-sans text-[16px] lg:text-[17px] leading-[1.5] text-mid">
               {description}
             </p>
           )}

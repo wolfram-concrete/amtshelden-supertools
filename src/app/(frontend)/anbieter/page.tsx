@@ -13,6 +13,7 @@ import {
 import { PageHero } from "@/components/blocks/PageHero";
 import { BrandIcon } from "@/components/icons/BrandIcon";
 import { RevealHeading } from "@/components/motion/RevealHeading";
+import { BarHeading } from "@/components/ui/BarHeading";
 import { themenfelder } from "@/mocks/themenfelder";
 
 export const metadata: Metadata = {
@@ -84,12 +85,7 @@ export default function AnbieterPage() {
       <section className="bg-cream/40">
         <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <header className="max-w-2xl mb-12 lg:mb-16">
-            <RevealHeading
-              as="h2"
-              text="Sichtbarkeit, die zur Verwaltung passt."
-              baseDelay={120}
-              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-brand-dark"
-            />
+            <BarHeading>Sichtbarkeit, die zur Verwaltung passt.</BarHeading>
           </header>
 
           <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -116,13 +112,8 @@ export default function AnbieterPage() {
       {/* ── 3 · THEMENFELDER ── */}
       <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
-          <header className="lg:sticky lg:top-24 space-y-3">
-            <RevealHeading
-              as="h2"
-              text="Vier Felder, in denen Behörden Sie suchen."
-              baseDelay={120}
-              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-brand-dark"
-            />
+          <header className="lg:sticky lg:top-24 space-y-4">
+            <BarHeading>Vier Felder, in denen Behörden Sie suchen.</BarHeading>
             <p
               data-reveal
               style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
@@ -165,12 +156,7 @@ export default function AnbieterPage() {
       >
         <div className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
           <header className="max-w-2xl mb-12">
-            <RevealHeading
-              as="h2"
-              text="Basis-Profil und erweitertes Profil."
-              baseDelay={120}
-              className="font-display text-[clamp(32px,3.8vw,48px)] leading-[1.0] text-brand-dark"
-            />
+            <BarHeading>Basis-Profil und erweitertes Profil.</BarHeading>
           </header>
 
           <div className="grid lg:grid-cols-2 gap-6">
@@ -262,13 +248,8 @@ export default function AnbieterPage() {
       {/* ── 5 · WAS AMTSHELDEN ÜBERNIMMT ── */}
       <section className="container mx-auto px-6 lg:px-10 py-20 lg:py-32">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
-            <RevealHeading
-              as="h2"
-              text="Wir recherchieren, strukturieren und prüfen."
-              baseDelay={120}
-              className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.02] text-brand-dark"
-            />
+          <header className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+            <BarHeading>Wir recherchieren, strukturieren und prüfen.</BarHeading>
             <p
               data-reveal
               style={{ "--reveal-delay": "240ms" } as React.CSSProperties}

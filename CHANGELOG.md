@@ -2,6 +2,20 @@
 
 ---
 
+## [0.39.0] — 2026-11-16
+
+### Haptische Section-Headline (BarHeading)
+
+- **`BarHeading`** (`src/components/ui/BarHeading.tsx`): tragende Section-Headlines
+  im grünen Balken, dieselbe Materialsprache wie der Hero (Lichtkante, feines
+  Korn, gerichteter Schatten), nur etwas ruhiger. `box-decoration-clone` bricht
+  mehrzeilig als verbundene Balken um; `as`/`reveal`-Props.
+- Selektiv angewendet (je eine tragende Headline pro Section, nicht jede Zwischen-
+  oder Kartenüberschrift): Home-Bereichsheadline (`CategoryTiles`) und die vier
+  Anbieter-Sections. Dunkelgrüne Sektionen behalten weiße Headlines (Kontrast).
+
+---
+
 ## [0.38.0] — 2026-11-16
 
 ### Haptik auf die Tool-Liste ausgerollt
