@@ -44,7 +44,7 @@ export default async function KategorieDetailPage({ params }: PageProps) {
 
   return (
     <section className="bg-cream">
-      <KategorieHero category={category} toolCount={tools.length} />
+      <KategorieHero category={category} />
 
       {/* Tools zuerst — plakativ, ohne Umweg (Christian-Call 30.09.) */}
       <div className="container mx-auto px-6 lg:px-10 pb-12 lg:pb-16">

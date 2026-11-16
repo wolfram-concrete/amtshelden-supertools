@@ -2,6 +2,17 @@
 
 ---
 
+## [0.41.0] — 2026-11-16
+
+### Kategorie-Header mittelachsig (wie Themenfeld)
+
+- **Kategorie-Detailseiten (`/kategorien/[slug]`, `KategorieHero`):** Header auf
+  denselben mittelachsigen Aufbau gebracht — Headline im grünen `BarHeading`-
+  Balken zentriert, Tagline zentriert plain darunter, zugehörige Themenfelder als
+  zentrierte, griffige Tags. Die „N Tools"-Meta-Zeile (Icon + Count) entfernt.
+
+---
+
 ## [0.40.0] — 2026-11-16
 
 ### Themenfeld-Header mittelachsig
