@@ -148,6 +148,10 @@ export interface ReferenceCard {
   header: PayloadImage;
   /** Kleines Dokumentarmotiv unten in der Karte (optionale Ergänzung) */
   motif?: PayloadImage;
+  /** Kurze, belegbare Fakten als Tags (z.B. Profilstufe, „Open Source") */
+  shortFacts?: string[];
+  /** Prüfdatum (ISO) für die Geprüft-Badge */
+  lastCheckedAt?: string;
 }
 
 // ============================================================

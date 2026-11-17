@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+import { GeprueftBadge } from "@/components/ui/GeprueftBadge";
 import { cn } from "@/lib/utils";
 import type { ReferenceCard } from "@/types/content";
 
@@ -73,6 +74,21 @@ export function CaseCard({ item, className }: CaseCardProps) {
           {item.pitch}
         </p>
         <div className="mt-1.5 font-ui text-[11px] text-soft">lt. Anbieter</div>
+
+        {/* Short Facts: belegbare Signale als Tags + Prüfdatum */}
+        {(item.shortFacts?.length || item.lastCheckedAt) && (
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            {item.shortFacts?.map((f) => (
+              <span
+                key={f}
+                className="tag px-2.5 py-1 font-ui text-[11.5px] font-medium text-mid"
+              >
+                {f}
+              </span>
+            ))}
+            {item.lastCheckedAt && <GeprueftBadge date={item.lastCheckedAt} />}
+          </div>
+        )}
 
         <Link
           href={href}

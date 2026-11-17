@@ -33,6 +33,8 @@ export const referenzen: ReferenceCard[] = [
       width: 1600,
       height: 900,
     },
+    shortFacts: ["Basis-Profil"],
+    lastCheckedAt: "2026-08-14",
   },
   {
     slug: "nolis",
@@ -55,6 +57,8 @@ export const referenzen: ReferenceCard[] = [
       width: 1600,
       height: 900,
     },
+    shortFacts: ["Basis-Profil"],
+    lastCheckedAt: "2026-08-14",
   },
   {
     slug: "opendesk",
@@ -78,5 +82,7 @@ export const referenzen: ReferenceCard[] = [
       width: 1600,
       height: 900,
     },
+    shortFacts: ["Open Source", "Basis-Profil"],
+    lastCheckedAt: "2026-08-14",
   },
 ];

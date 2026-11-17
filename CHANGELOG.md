@@ -20,6 +20,9 @@
   vorschlagen".
 - Alte Detailroute `/anwendung/[slug]` + `CaseHeader` + `cases.ts` entfernt
   (Karten verlinken aufs echte Tool-Profil).
+- **Short Facts in den Karten:** belegbare Signale als Tags (Profilstufe
+  „Basis-Profil", bei openDesk „Open Source") plus grüne „Geprüft"-Badge mit
+  Prüfdatum — datengetrieben, keine unbestätigten Compliance-Zusagen.
 
 ---
 
