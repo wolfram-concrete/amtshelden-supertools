@@ -124,35 +124,30 @@ export interface Article extends ArticleSummary {
 // CASE / ECHTE ANWENDUNG
 // ============================================================
 
-/** Ein Kennwert im Case-Kopf (Einführungsdauer, beteiligte Ämter, Betrieb …) */
-export interface CaseFact {
-  label: string;
-  value: string;
-}
-
-export interface CaseSummary {
+/**
+ * Referenzkarte für „Echte Anwendung": ein reales Tool aus dem Verzeichnis,
+ * gezeigt wie ein LinkedIn-/Facebook-Thumbnail (Software-Screenshot als Header,
+ * Logo überlappt die Kante). Inhalte stammen aus der redaktionell freigegebenen
+ * Datenbasis — nur der echte, gescrapte Pitch (lt. Anbieter), keine erfundenen
+ * Compliance-Zusagen.
+ */
+export interface ReferenceCard {
+  /** Tool-Slug — verlinkt auf das Profil `/tools/[slug]` */
   slug: string;
-  /** Kategorie-Label */
-  eyebrow: string;
-  title: string;
-  /** Lead-Absatz (1-2 Sätze): was die Software leistet, für wen */
-  lead: string;
-  /** Die Software; slug nur, wenn ein Profil im Verzeichnis existiert */
-  tool: { name: string; categoryLabel: string; slug?: string };
-  /** Kurze Nutzen-Punkte für die Karte */
-  nutzen?: string[];
-  /** Motiv (Dokumentarbild) */
-  cover?: PayloadImage;
-  readingTime: number;
-  publishedAt: string; // ISO Date
-}
-
-export interface CaseStudy extends CaseSummary {
-  /** Kennwerte im Kopf (Betrieb, Einführung, Schnittstellen, Eignung …) */
-  facts: CaseFact[];
-  /** Narrativ: was sie leistet, welches Problem, für wen, Voraussetzungen, Grenzen */
-  body: ArticleBlock[];
-  related?: string[]; // slugs anderer Software-Referenzen
+  name: string;
+  provider: string;
+  categoryLabel: string;
+  /** Echter, gescrapter Pitch (lt. Anbieter) */
+  pitch: string;
+  /** Buchstaben-Mark als Logo-Fallback */
+  mark: string;
+  markBg?: string;
+  /** Favicon/Logo-URL (optional, niedrig aufgelöst) */
+  logoUrl?: string;
+  /** Software-Screenshot als Header-Band */
+  header: PayloadImage;
+  /** Kleines Dokumentarmotiv unten in der Karte (optionale Ergänzung) */
+  motif?: PayloadImage;
 }
 
 // ============================================================

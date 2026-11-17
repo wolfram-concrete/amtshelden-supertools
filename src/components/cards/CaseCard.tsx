@@ -1,25 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
-import { ToolLogo } from "@/components/ui/ToolLogo";
 import { cn } from "@/lib/utils";
-import type { CaseSummary } from "@/types/content";
+import type { ReferenceCard } from "@/types/content";
 
 interface CaseCardProps {
-  item: CaseSummary;
+  item: ReferenceCard;
   className?: string;
-  /** Beibehalten für API-Kompatibilität; alle Karten rendern als Modulkarte. */
-  variant?: "lead" | "list";
 }
 
 /**
- * Referenz-Modulkarte für „Echte Anwendung". Produkt zuerst: Logo und Name
- * tragen den Kopf, darunter der Nutzen (was die Software löst). Das Motiv ist
- * bewusst ein kompaktes Band, damit es das Produkt nicht überlagert.
+ * Referenzkarte „Echte Anwendung" im LinkedIn-/Facebook-Thumbnail-Stil: oben der
+ * Software-Screenshot als Header, das Logo rund und groß über die Header-Kante
+ * ragend, darunter Name, Bereich und der echte Pitch, dann „Was sie leistet"
+ * auf das Profil. Ganz unten ein kleines, eingefasstes Dokumentarmotiv.
  */
 export function CaseCard({ item, className }: CaseCardProps) {
-  const href = `/anwendung/${item.slug}`;
+  const href = `/tools/${item.slug}`;
 
   return (
     <article
@@ -28,67 +26,57 @@ export function CaseCard({ item, className }: CaseCardProps) {
         className,
       )}
     >
-      {/* kompaktes Motiv-Band */}
-      {item.cover?.url && (
-        <Link href={href} className="block">
-          <div className="relative aspect-[16/7] overflow-hidden bg-cream">
-            <Image
-              src={item.cover.url}
-              alt={item.cover.alt}
-              fill
-              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-            />
-          </div>
-        </Link>
-      )}
+      {/* Header: Software-Screenshot */}
+      <Link href={href} className="block">
+        <div className="relative aspect-[16/8] w-full overflow-hidden bg-cream">
+          <Image
+            src={item.header.url}
+            alt={item.header.alt}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      </Link>
 
-      <div className="flex flex-1 flex-col p-6">
-        {/* Produkt zuerst: Logo + Name */}
-        <div className="flex items-center gap-3">
-          <ToolLogo name={item.tool.name} slug={item.tool.slug} size={46} />
-          <div className="min-w-0">
-            <div className="font-ui text-[16px] font-bold leading-tight text-dark">
-              {item.tool.name}
-            </div>
-            <div className="font-ui text-[12.5px] text-soft">
-              {item.tool.categoryLabel}
-            </div>
-          </div>
+      <div className="flex flex-1 flex-col px-5 pb-5">
+        {/* Logo überlappt die Header-Kante (LinkedIn-Stil), ~doppelt so groß */}
+        <Link
+          href={href}
+          aria-label={item.name}
+          className="relative z-10 -mt-11 mb-3 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-[0_10px_24px_-12px_rgba(17,17,17,0.4)] ring-4 ring-white"
+          style={{ backgroundColor: item.logoUrl ? "#fff" : item.markBg }}
+        >
+          {item.logoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={item.logoUrl}
+              alt=""
+              className="h-11 w-11 object-contain"
+              loading="lazy"
+            />
+          ) : (
+            <span className="font-ui text-[22px] font-extrabold text-white">
+              {item.mark}
+            </span>
+          )}
+        </Link>
+
+        <div className="font-ui text-[18px] font-bold leading-tight text-dark">
+          {item.name}
+        </div>
+        <div className="mt-0.5 font-ui text-[12.5px] text-soft">
+          {item.categoryLabel}
         </div>
 
-        {/* Was die Software löst */}
-        <h3 className="mt-4 font-display text-[clamp(19px,1.5vw,23px)] leading-[1.12] text-dark">
-          <Link href={href} className="transition-colors hover:text-brand-dark">
-            {item.title}
-          </Link>
-        </h3>
-
-        <p className="mt-2.5 font-sans text-[14.5px] leading-[1.6] text-mid line-clamp-3">
-          {item.lead}
+        <p className="mt-3 font-sans text-[14.5px] leading-[1.6] text-mid">
+          {item.pitch}
         </p>
-
-        {item.nutzen && item.nutzen.length > 0 && (
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {item.nutzen.map((n) => (
-              <li
-                key={n}
-                className="tag px-2.5 py-1.5 font-ui text-[12.5px] font-medium leading-tight text-dark"
-              >
-                <Check
-                  size={13}
-                  className="flex-shrink-0 text-brand"
-                  aria-hidden
-                />
-                {n}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="mt-1.5 font-ui text-[11px] text-soft">lt. Anbieter</div>
 
         <Link
           href={href}
-          className="mt-5 inline-flex items-center gap-1.5 self-start font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
+          className="mt-4 inline-flex items-center gap-1.5 self-start font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
         >
           Was sie leistet
           <ArrowUpRight
@@ -97,6 +85,21 @@ export function CaseCard({ item, className }: CaseCardProps) {
             aria-hidden
           />
         </Link>
+
+        {/* Kleines, eingefasstes Dokumentarmotiv als Ergänzung */}
+        {item.motif && (
+          <div className="panel mt-5 overflow-hidden rounded-xl p-1">
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-lg bg-cream">
+              <Image
+                src={item.motif.url}
+                alt={item.motif.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </article>
   );

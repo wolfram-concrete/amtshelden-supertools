@@ -2,6 +2,27 @@
 
 ---
 
+## [0.42.0] — 2026-11-17
+
+### Echte Anwendung: reale Tools, LinkedIn-Thumbnail-Karten
+
+- **Fake-Referenzen raus, echte Tools rein:** Ceyoniq (E-Akte & DMS), Nolis
+  (Bürgerservice & Fachverfahren), openDesk (Kommunikation & Zusammenarbeit) aus
+  dem freigegebenen Bestand. Neue Daten `src/mocks/referenzen.ts` (Typ
+  `ReferenceCard`). Keine Compliance-Tags — DSGVO/Server/BSI sind für diese drei
+  nicht bestätigt, also keine erfundenen Zusagen; nur der echte, gescrapte Pitch.
+- **Karten im LinkedIn-/Facebook-Thumbnail-Stil (`CaseCard`):** Software-Screenshot
+  als Header, Favicon-Logo rund und ~doppelt so groß über die Header-Kante ragend,
+  Name + Bereich + Pitch, „Was sie leistet" → `/tools/[slug]`, kleines eingefasstes
+  Dokumentarmotiv unten.
+- **Seite ergänzt** (war zu dünn): anbieterunabhängiger Praxisblock „Worauf es bei
+  der Einführung ankommt" (4 Panels) + grüne Brücke ins Verzeichnis / „Lösung
+  vorschlagen".
+- Alte Detailroute `/anwendung/[slug]` + `CaseHeader` + `cases.ts` entfernt
+  (Karten verlinken aufs echte Tool-Profil).
+
+---
+
 ## [0.41.0] — 2026-11-16
 
 ### Kategorie-Header mittelachsig (wie Themenfeld)
