@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
-import { Archivo, Fragment_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import "./d3-thesis.css";
 
+// Selbst gehostete Fonts (woff2 in ../fonts) — kein Google-Fonts-CDN zur Buildzeit.
+
 // Display + Text: Archivo (heavy, leicht breitlaufend, Versal) — D3-Haltung.
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+const archivo = localFont({
+  src: [
+    { path: "../fonts/archivo-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/archivo-500.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/archivo-600.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/archivo-700.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/archivo-800.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--d3t-display",
   display: "swap",
 });
 
 // Labels / Meta: Fragment Mono (uppercase, getrackt) — D3-System-Schrift.
-const fragment = Fragment_Mono({
-  subsets: ["latin"],
-  weight: "400",
+const fragment = localFont({
+  src: [{ path: "../fonts/fragment-mono-400.woff2", weight: "400", style: "normal" }],
   variable: "--d3t-mono",
   display: "swap",
 });

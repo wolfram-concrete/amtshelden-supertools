@@ -1,7 +1,7 @@
 # SUPERTOOLS — Master README
 ## Kuratiertes Software-Verzeichnis für Behörden & Kommunen
 
-**Stand:** 17. November 2026 · **Version:** 0.42 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
+**Stand:** 17. November 2026 · **Version:** 0.43 · **Vorschau (intern, noch nicht öffentlich live):** [amtshelden-supertools.vercel.app](https://amtshelden-supertools.vercel.app/)
 **Repo:** `github.com/wolfram-concrete/amtshelden-supertools` · **Betrieben von:** Amtshelden.de
 
 > **Dies ist die einzige README.** Eine ältere Word-Export-Kopie (`README.md (1).docx`,
@@ -301,7 +301,8 @@ PDF-Export: im Browser `Cmd+P` → „Als PDF speichern".
 
 ### Design-System (verbindlich)
 
-- **Fonts via `next/font/google`:** **IBM Plex Serif** (Headlines, 400),
+- **Fonts self-hosted via `next/font/local`** (woff2 in `src/app/fonts/`, kein
+  Google-Fonts-CDN — seit v0.43): **IBM Plex Serif** (Headlines, 400),
   IBM Plex Sans (Body und UI), IBM Plex Mono nur für kleine Tags/Metadaten.
   Headlines bleiben vollständig gerade; Differenzierung erfolgt über Farbe.
 - **Headline-Leading (IBM Plex Serif):**

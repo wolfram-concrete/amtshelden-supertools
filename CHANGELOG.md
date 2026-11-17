@@ -2,6 +2,27 @@
 
 ---
 
+## [0.43.0] — 2026-11-17
+
+### Selbst gehostete Fonts + Referenzkarten geschärft
+
+- **Fonts self-hosted (`next/font/local`):** Archivo, IBM Plex Serif/Sans/Mono und
+  Fragment Mono liegen jetzt als woff2 unter `src/app/fonts/` und werden lokal
+  eingebunden (`src/app/layout.tsx`, `src/app/d3/layout.tsx`) statt über
+  `next/font/google`. Behebt den sporadischen Vercel-Build-Fehler am
+  Turbopack-Google-Fonts-Loader und erfüllt die Brand-Regel „kein Google-Fonts-CDN
+  in Produktion" (README Kap. 23). CSS-Variablen unverändert, kein Layout-Shift.
+- **Referenzkarten (`CaseCard`) überarbeitet:**
+  - Ganze Karte klickbar — ein einziger `<Link>` statt mehrerer verschachtelter
+    Anchors.
+  - Favicon-Logo füllt das Thumbnail-Feld vollständig (statt klein mit Rand).
+  - Name vom Logo abgesetzt (mehr Luft zwischen Thumbnail-Icon und Brandname).
+  - Graue Kontur um das untere Dokumentarmotiv entfernt (randloses, gerundetes Bild).
+  - Untere Fotos über `mt-auto` auf die Kartenunterkante gezogen — alle Karten
+    einer Reihe mit gleichem Abstand nach unten, bündige Fotohöhe.
+
+---
+
 ## [0.42.0] — 2026-11-17
 
 ### Echte Anwendung: reale Tools, LinkedIn-Thumbnail-Karten

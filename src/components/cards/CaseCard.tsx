@@ -14,38 +14,37 @@ interface CaseCardProps {
 /**
  * Referenzkarte „Echte Anwendung" im LinkedIn-/Facebook-Thumbnail-Stil: oben der
  * Software-Screenshot als Header, das Logo rund und groß über die Header-Kante
- * ragend, darunter Name, Bereich und der echte Pitch, dann „Was sie leistet"
- * auf das Profil. Ganz unten ein kleines, eingefasstes Dokumentarmotiv.
+ * ragend, darunter Name, Bereich und der echte Pitch, dann „Was sie leistet".
+ * Ganz unten ein Dokumentarmotiv, über `mt-auto` auf die Kartenunterkante
+ * gezogen (gleicher Abstand bei allen Karten). Die gesamte Karte ist ein
+ * einziger Link auf das Profil — darum keine verschachtelten Anchors.
  */
 export function CaseCard({ item, className }: CaseCardProps) {
   const href = `/tools/${item.slug}`;
 
   return (
-    <article
+    <Link
+      href={href}
       className={cn(
         "lift group flex h-full flex-col overflow-hidden rounded-2xl card-soft",
         className,
       )}
     >
       {/* Header: Software-Screenshot */}
-      <Link href={href} className="block">
-        <div className="relative aspect-[16/8] w-full overflow-hidden bg-cream">
-          <Image
-            src={item.header.url}
-            alt={item.header.alt}
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        </div>
-      </Link>
+      <div className="relative aspect-[16/8] w-full overflow-hidden bg-cream">
+        <Image
+          src={item.header.url}
+          alt={item.header.alt}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
 
       <div className="flex flex-1 flex-col px-5 pb-5">
-        {/* Logo überlappt die Header-Kante (LinkedIn-Stil), ~doppelt so groß */}
-        <Link
-          href={href}
-          aria-label={item.name}
-          className="relative z-10 -mt-11 mb-3 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-[0_10px_24px_-12px_rgba(17,17,17,0.4)] ring-4 ring-white"
+        {/* Logo überlappt die Header-Kante (LinkedIn-Stil); Favicon füllt das Feld */}
+        <span
+          className="relative z-10 -mt-11 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl shadow-[0_10px_24px_-12px_rgba(17,17,17,0.4)] ring-4 ring-white"
           style={{ backgroundColor: item.logoUrl ? "#fff" : item.markBg }}
         >
           {item.logoUrl ? (
@@ -53,7 +52,7 @@ export function CaseCard({ item, className }: CaseCardProps) {
             <img
               src={item.logoUrl}
               alt=""
-              className="h-11 w-11 object-contain"
+              className="h-full w-full object-cover"
               loading="lazy"
             />
           ) : (
@@ -61,9 +60,9 @@ export function CaseCard({ item, className }: CaseCardProps) {
               {item.mark}
             </span>
           )}
-        </Link>
+        </span>
 
-        <div className="font-ui text-[18px] font-bold leading-tight text-dark">
+        <div className="mt-5 font-ui text-[18px] font-bold leading-tight text-dark">
           {item.name}
         </div>
         <div className="mt-0.5 font-ui text-[12.5px] text-soft">
@@ -90,22 +89,19 @@ export function CaseCard({ item, className }: CaseCardProps) {
           </div>
         )}
 
-        <Link
-          href={href}
-          className="mt-4 inline-flex items-center gap-1.5 self-start font-ui text-[13px] font-semibold text-brand transition-colors hover:text-brand-dark"
-        >
+        <span className="mt-4 inline-flex items-center gap-1.5 self-start font-ui text-[13px] font-semibold text-brand transition-colors group-hover:text-brand-dark">
           Was sie leistet
           <ArrowUpRight
             size={15}
             className="transition-transform group-hover:translate-x-0.5"
             aria-hidden
           />
-        </Link>
+        </span>
 
-        {/* Kleines, eingefasstes Dokumentarmotiv als Ergänzung */}
+        {/* Dokumentarmotiv, unten bündig (gleicher Abstand bei allen Karten) */}
         {item.motif && (
-          <div className="panel mt-5 overflow-hidden rounded-xl p-1">
-            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-lg bg-cream">
+          <div className="mt-auto pt-5">
+            <div className="relative aspect-[16/7] w-full overflow-hidden rounded-xl bg-cream">
               <Image
                 src={item.motif.url}
                 alt={item.motif.alt}
@@ -117,6 +113,6 @@ export function CaseCard({ item, className }: CaseCardProps) {
           </div>
         )}
       </div>
-    </article>
+    </Link>
   );
 }
